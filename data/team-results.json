@@ -1,0 +1,138 @@
+{
+  "senegal": [
+    {
+      "label": "France 3–1 Sénégal",
+      "note": "Défaite inaugurale",
+      "result": "D"
+    },
+    {
+      "label": "Norvège 3–2 Sénégal",
+      "note": "Les Lions proches du retour",
+      "result": "D"
+    },
+    {
+      "label": "Sénégal 5–0 Iraq",
+      "note": "Réveil des Gaïndés",
+      "result": "V"
+    }
+  ],
+  "belgium": [
+    {
+      "label": "Belgique 1–1 Égypte",
+      "note": "Entrée prudente",
+      "result": "N"
+    },
+    {
+      "label": "Belgique 0–0 Iran",
+      "note": "Match fermé",
+      "result": "N"
+    },
+    {
+      "label": "Nouvelle-Zélande 1–5 Belgique",
+      "note": "Réveil offensif des Diables",
+      "result": "V"
+    }
+  ],
+  "algeria": [
+    {
+      "label": "Argentine 3–0 Algérie",
+      "note": "Début difficile face à un géant",
+      "result": "D"
+    },
+    {
+      "label": "Jordanie 1–2 Algérie",
+      "note": "Réaction des Fennecs",
+      "result": "V"
+    },
+    {
+      "label": "Algérie 2–2 Autriche",
+      "note": "Qualification arrachée avec caractère",
+      "result": "N"
+    }
+  ],
+  "brazil": [
+    {
+      "label": "Brésil 1–1 Maroc",
+      "note": "Choc maîtrisé mais accroché",
+      "result": "N"
+    },
+    {
+      "label": "Brésil 3–0 Haïti",
+      "note": "La Seleção déroule",
+      "result": "V"
+    },
+    {
+      "label": "Écosse 0–3 Brésil",
+      "note": "Puissance et contrôle",
+      "result": "V"
+    }
+  ],
+  "france": [
+    {
+      "label": "France 3–1 Sénégal",
+      "note": "Entrée réussie",
+      "result": "V"
+    },
+    {
+      "label": "France 3–0 Iraq",
+      "note": "Victoire nette",
+      "result": "V"
+    },
+    {
+      "label": "Norvège 1–4 France",
+      "note": "Les Bleus assument leur rang",
+      "result": "V"
+    }
+  ],
+  "ivory_coast": [
+    {
+      "label": "Côte d’Ivoire 1–0 Équateur",
+      "note": "Entrée solide",
+      "result": "V"
+    },
+    {
+      "label": "Allemagne 2–1 Côte d’Ivoire",
+      "note": "Défaite serrée",
+      "result": "D"
+    },
+    {
+      "label": "Curaçao 0–2 Côte d’Ivoire",
+      "note": "Qualification avec autorité",
+      "result": "V"
+    }
+  ],
+  "dr_congo": [
+    {
+      "label": "Portugal 1–1 RD Congo",
+      "note": "Point fondateur",
+      "result": "N"
+    },
+    {
+      "label": "Colombie 1–0 RD Congo",
+      "note": "Frustration mais espoir maintenu",
+      "result": "D"
+    },
+    {
+      "label": "RD Congo 3–1 Ouzbékistan",
+      "note": "Victoire historique des Léopards",
+      "result": "V"
+    }
+  ],
+  "morocco": [
+    {
+      "label": "Brésil 1–1 Maroc",
+      "note": "Un point de prestige",
+      "result": "N"
+    },
+    {
+      "label": "Écosse 0–1 Maroc",
+      "note": "Victoire de caractère",
+      "result": "V"
+    },
+    {
+      "label": "Maroc 4–2 Haïti",
+      "note": "Les Lions de l’Atlas accélèrent",
+      "result": "V"
+    }
+  ]
+}
