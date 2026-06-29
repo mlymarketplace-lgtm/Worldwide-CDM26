@@ -16,6 +16,8 @@
   let state = { teams:{}, matches:{}, results:{}, opponentResults:{}, opponents:{}, previews:{}, stories:{}, activeTeamId:null, activeLang:'fr', i18n:{} };
   let v10CountdownTimer = null;
   let v10CountdownTextObserver = null;
+  let v10CountdownScoreTimer = null;
+  let v10CountdownScoreInFlight = false;
 
   const $ = (sel, root=document) => root.querySelector(sel);
   const $$ = (sel, root=document) => Array.from(root.querySelectorAll(sel));
@@ -49,6 +51,79 @@
     return lang === 'en' ? txt : txt.replace(':','h');
   }
   function matchLabel(match){ return match ? (match['label_' + (state.activeLang || 'fr')] || match.label || '') : ''; }
+  function isLiveLikeStatus(status){ return status === 'live' || status === 'in_progress'; }
+  function isFinalStatus(status){ return status === 'final'; }
+  function getScoreEntry(matchId){ return (state.liveScores && state.liveScores[matchId]) || null; }
+  function scoreLabelFor(entry){
+    const lang = state.activeLang || 'fr';
+    if(!entry) return '';
+    if(isLiveLikeStatus(entry.status)){
+      const minute = entry.minute ? ` · ${entry.minute}e` : '';
+      if(lang === 'ar') return `مباشر${minute}`;
+      if(lang === 'pt') return `Ao vivo${minute}`;
+      if(lang === 'es') return `En directo${minute}`;
+      if(lang === 'en') return `Live${minute}`;
+      return `Match en direct${minute}`;
+    }
+    if(isFinalStatus(entry.status)){
+      if(lang === 'ar') return 'انتهت المباراة';
+      if(lang === 'pt') return 'Terminado';
+      if(lang === 'es') return 'Terminado';
+      if(lang === 'en') return 'Full time';
+      return 'Match terminé';
+    }
+    return '';
+  }
+  function updateCountdownScorePanel(matchId){
+    const match = state.matches[matchId];
+    const center = $('.countdown-center');
+    if(!match || !center) return;
+    let panel = $('#v10-countdown-score');
+    if(!panel){
+      panel = document.createElement('div');
+      panel.id = 'v10-countdown-score';
+      panel.className = 'v10-countdown-score';
+      const meta = $('.countdown-meta', center);
+      if(meta && meta.parentNode) meta.insertAdjacentElement('afterend', panel);
+      else center.prepend(panel);
+    }
+    const entry = getScoreEntry(matchId);
+    const hasScore = entry && entry.home !== null && entry.home !== undefined && entry.away !== null && entry.away !== undefined;
+    const relevant = hasScore && (isLiveLikeStatus(entry.status) || isFinalStatus(entry.status));
+    panel.classList.toggle('is-visible', !!relevant);
+    panel.classList.toggle('is-live', !!(entry && isLiveLikeStatus(entry.status)));
+    panel.classList.toggle('is-final', !!(entry && isFinalStatus(entry.status)));
+    if(!relevant){ panel.innerHTML = ''; return; }
+    const home = teamLabel(match.home), away = teamLabel(match.away);
+    panel.innerHTML = `<div class="v10-score-status">${safeHtml(scoreLabelFor(entry))}</div>
+      <div class="v10-score-line"><span>${safeHtml(home.flag || '')} ${safeHtml(home.teamName || match.home)}</span><strong>${entry.home}–${entry.away}</strong><span>${safeHtml(away.teamName || match.away)} ${safeHtml(away.flag || '')}</span></div>`;
+  }
+  async function refreshCountdownScore(){
+    if(v10CountdownScoreInFlight || !state.activeTeamId) return;
+    const team = state.teams[state.activeTeamId];
+    const matchId = team && team.nextMatchId;
+    if(!matchId) return;
+    v10CountdownScoreInFlight = true;
+    try{
+      const res = await fetch('/.netlify/functions/scores?t=' + Date.now(), { cache:'no-store' });
+      if(res.ok){
+        const data = await res.json();
+        if(data && data.matches){
+          state.liveScores = data.matches;
+          updateCountdownScorePanel(matchId);
+        }
+      }
+    }catch(e){
+      // Silencieux : la carte compte à rebours reste affichée si l'API tarde.
+    }finally{
+      v10CountdownScoreInFlight = false;
+    }
+  }
+  function ensureCountdownScorePolling(){
+    if(v10CountdownScoreTimer) clearInterval(v10CountdownScoreTimer);
+    refreshCountdownScore();
+    v10CountdownScoreTimer = setInterval(refreshCountdownScore, 60000);
+  }
   function headerSuffix(lang){ return lang === 'ar' ? 'كأس العالم 2026' : lang === 'es' ? 'Mundial 2026' : lang === 'pt' ? 'Copa 2026' : lang === 'en' ? 'WC 2026' : 'CM 2026'; }
   function heroTitleFor(team){
     if(team.heroTitle) return team.heroTitle;
@@ -203,6 +278,7 @@
     if(music){
       music.textContent = lang === 'ar' ? `أجواء ${team.supporterName || team.teamName}` : lang === 'pt' ? 'Ambiente de estádio' : lang === 'es' ? `Ambiente ${team.supporterName || team.teamName}` : `Ambiance ${team.supporterName || team.teamName}`;
     }
+    if(typeof window.setQualifGaindeAmbienceTeam === 'function') window.setQualifGaindeAmbienceTeam(state.activeTeamId);
   }
 
   function renderHeaderScores(teamId){
@@ -289,6 +365,8 @@
     renderSide($('.player-side.bel'), match.home);
     renderSide($('.player-side.sen'), match.away);
     startV10Countdown(match.dateParis, team);
+    updateCountdownScorePanel(team.nextMatchId);
+    ensureCountdownScorePolling();
   }
 
   function countdownFixedMessage(team, isMatchDay){

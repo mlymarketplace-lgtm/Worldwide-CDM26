@@ -1047,7 +1047,7 @@ header{display:flex;align-items:center;justify-content:space-between;padding:12p
  <div class="hright">
    <div class="supporters">
      <span class="sup-dot"></span>
-     <span class="sup-num" id="sup-num">9 700</span>
+     <span class="sup-num" id="sup-num">11 120</span>
      <span class="sup-lbl">supporters ont vu</span>
    </div>
    <button class="btn-music" id="btn-music" onclick="toggleMusic()">Ambiance Gaïndé</button>
@@ -2342,11 +2342,13 @@ function setKOScore(round, matchId, side, value) {
   clearFutureFrom(round);
   renderKnockoutTree();
 }
-function r32Team(label, matchId, side, extraCls) {
+function r32Team(label, matchId, side, extraCls, scoreValue) {
   const cls = extraCls ? ` ${extraCls}` : '';
   const picked = r32Picks[matchId] === side ? ' picked' : '';
+  const hasScore = scoreValue !== null && scoreValue !== undefined && scoreValue !== '';
+  const scoreHtml = `<span class="r32-inline-score${hasScore ? '' : ' r32-score-empty'}">${hasScore ? scoreValue : '–'}</span>`;
   return `<div class="r32-team${cls}${picked}" role="button" tabindex="0" title="Choisir ${escapeAttr(label)}" onclick="pickR32('${matchId}',${side})">
-    <span>${label}</span><span class="r32-pick">${picked ? t('victory') : t('choose')}</span>
+    <span class="r32-team-left"><span class="r32-team-name">${label}</span>${scoreHtml}</span><span class="r32-pick">${picked ? t('victory') : t('choose')}</span>
   </div>`;
 }
 function renderRound32Grid() {
@@ -2363,8 +2365,8 @@ function renderRound32Grid() {
     return `<div class="r32-card${senCls}${pickedCls}${officialLock ? ' api-scored' : ''}" data-match="${c.id}">
      <div class="r32-head"><span>${c.id}</span><span class="r32-date">${c.date}</span></div>
      <div class="r32-teams">
-        ${r32Team(c.a || 'À définir', c.id, 0, String(c.a||'').includes('Sénégal') ? 'sen' : '')}
-        ${r32Team(c.b || 'À définir', c.id, 1, String(c.b||'').includes('Sénégal') ? 'sen' : '')}
+        ${r32Team(c.a || 'À définir', c.id, 0, String(c.a||'').includes('Sénégal') ? 'sen' : '', score[0])}
+        ${r32Team(c.b || 'À définir', c.id, 1, String(c.b||'').includes('Sénégal') ? 'sen' : '', score[1])}
      </div>
      <div class="r32-scoreline">
        <input type="number" min="0" placeholder="-" value="${score[0] ?? ''}" aria-label="Score ${escapeAttr(c.a)}" onclick="event.stopPropagation()" onchange="setR32Score('${c.id}',0,this.value)"${officialHint}>
@@ -3167,7 +3169,7 @@ function animNum(el,from,to){
     el.textContent=Math.round(from+(to-from)*p).toLocaleString('fr-FR');if(p<1)requestAnimationFrame(s);};
   requestAnimationFrame(s);
 }
-const SUPPORTER_BASE = 9700;
+const SUPPORTER_BASE = 11120;
 const SUPPORTER_VARIATION = 90;
 let supporterCurrent = SUPPORTER_BASE + Math.floor((Math.random() * SUPPORTER_VARIATION * 2) - SUPPORTER_VARIATION);
 function clampSupporters(n){
@@ -3259,22 +3261,66 @@ function buildTicker(){
 }
 
 // ════════════════════════════════════════════════
-// MUSIQUE YOUTUBE
+// MUSIQUE YOUTUBE — V10.3.3 ambiances par pays
 // ════════════════════════════════════════════════
-let ytPlayer=null, musicOn=false;
+const AMBIENCE_VIDEOS = {
+  senegal: { id:'MnnJcDa3q8c', label:'Sénégal' },
+  france: { id:'E0Lbxc3aFbE', label:'France' },
+  algeria: { id:'CTAH-AqYm48', label:'Algérie' },
+  morocco: { id:'fEI2rtuM730', label:'Maroc' },
+  belgium: { id:'AnYw3LFSOoY', label:'Belgique' },
+  brazil: { id:'t_qB3-89XQI', label:'Brésil' },
+  ivory_coast: { id:'ewmhCmSMYrE', label:"Côte d'Ivoire" },
+  egypt: { id:'1LsxjXLbX_E', label:'Égypte' },
+  dr_congo: { id:'V0mUJL2C0iw', label:'RD Congo' }
+};
+let ytPlayer=null, musicOn=false, currentAmbienceTeam=(new URLSearchParams(location.search).get('team') || 'senegal'), loadedAmbienceVideoId=null;
+function activeAmbience(){ return AMBIENCE_VIDEOS[currentAmbienceTeam] || AMBIENCE_VIDEOS.senegal; }
+function setAmbienceButtonState(loading=false){
+  const btn=document.getElementById('btn-music');
+  if(!btn) return;
+  const cfg=activeAmbience();
+  if(loading){ btn.textContent='⏳ Ambiance…'; return; }
+  btn.textContent = musicOn ? `Ambiance ON · ${cfg.label}` : `Ambiance ${cfg.label}`;
+  btn.classList.toggle('on', musicOn);
+}
+window.setQualifGaindeAmbienceTeam=function(teamId){
+  if(teamId && AMBIENCE_VIDEOS[teamId]) currentAmbienceTeam=teamId;
+  else currentAmbienceTeam=teamId || currentAmbienceTeam || 'senegal';
+  const cfg=activeAmbience();
+  if(ytPlayer && musicOn && loadedAmbienceVideoId !== cfg.id){
+    ytPlayer.loadVideoById({videoId:cfg.id, startSeconds:0});
+    loadedAmbienceVideoId=cfg.id;
+    ytPlayer.setVolume(35);
+  }
+  setAmbienceButtonState(false);
+};
 window.onYouTubeIframeAPIReady=function(){
+  const cfg=activeAmbience();
+  loadedAmbienceVideoId=cfg.id;
   ytPlayer=new YT.Player('yt-player',{
-    videoId:'MnnJcDa3q8c',
-    playerVars:{autoplay:0,controls:0,loop:1,playlist:'MnnJcDa3q8c'},
-    events:{onReady:()=>{ytPlayer.setVolume(35);}}
+    videoId:cfg.id,
+    playerVars:{autoplay:0,controls:0,loop:1,playlist:cfg.id},
+    events:{onReady:()=>{ytPlayer.setVolume(35); setAmbienceButtonState(false);}}
   });
 };
 (function(){const s=document.createElement('script');s.src='https://www.youtube.com/iframe_api';document.head.appendChild(s);})();
 function toggleMusic(){
   const btn=document.getElementById('btn-music');
-  if(!ytPlayer){btn.textContent=currentLang==='fr'?'⏳ Chargement…':currentLang==='en'?'⏳ Loading…':currentLang==='pt'?'⏳ Carregando…':'⏳ Cargando…';return;}
-  if(!musicOn){ytPlayer.playVideo();musicOn=true;btn.textContent=t('musicOn');btn.classList.add('on');}
-  else{ytPlayer.pauseVideo();musicOn=false;btn.textContent=t('music');btn.classList.remove('on');}
+  const cfg=activeAmbience();
+  if(!ytPlayer){setAmbienceButtonState(true);return;}
+  if(!musicOn){
+    if(loadedAmbienceVideoId !== cfg.id){
+      ytPlayer.loadVideoById({videoId:cfg.id, startSeconds:0});
+      loadedAmbienceVideoId=cfg.id;
+    } else {
+      ytPlayer.playVideo();
+    }
+    ytPlayer.setVolume(35);
+    musicOn=true;
+    setAmbienceButtonState(false);
+  }
+  else{ytPlayer.pauseVideo();musicOn=false;setAmbienceButtonState(false);}
 }
 
 // ════════════════════════════════════════════════
