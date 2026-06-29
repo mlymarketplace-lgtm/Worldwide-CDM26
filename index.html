@@ -4,6 +4,19 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>QualifGaïndé Worldwide · V10 multi-équipes</title>
+<script>
+(function(){
+  var p = new URLSearchParams(window.location.search);
+  var v10Active = p.has('team') || p.get('mode') !== 'global';
+  window.QUALIFGAINDE_V10_ACTIVE = v10Active;
+  if(v10Active) document.documentElement.classList.add('v10-booting');
+})();
+</script>
+<style id="v10-boot-style">
+html.v10-booting body{background:#050505;}
+html.v10-booting body > :not(#v10-team-selector):not(.v10-selector):not(script){visibility:hidden !important;}
+html.v10-booting #v10-team-selector, html.v10-booting .v10-selector{visibility:visible !important;}
+</style>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap');
 :root{--vert:#00853F;--rouge:#E31B23;--or:#FDEF42;--noir:#0A0A0A;--g2:#1C1C1C;--g3:#2A2A2A;--mu:#777;}
@@ -2352,6 +2365,7 @@ const COUNTDOWN_TARGET_TS = new Date('2026-07-01T22:00:00+02:00').getTime();
 let countdownIntervalId = null;
 
 function updateCountdown() {
+  if (window.QUALIFGAINDE_V10_ACTIVE && window.QUALIFGAINDE_V10_COUNTDOWN_LOCKED) return;
   const now = Date.now();
   let diff = Math.max(0, COUNTDOWN_TARGET_TS - now);
   const days = Math.floor(diff / 86400000); diff -= days * 86400000;
@@ -2377,6 +2391,7 @@ function updateCountdown() {
 }
 
 function startCountdownTicker() {
+  if (window.QUALIFGAINDE_V10_ACTIVE && window.QUALIFGAINDE_V10_COUNTDOWN_LOCKED) return;
   updateCountdown();
   if (countdownIntervalId) clearInterval(countdownIntervalId);
   countdownIntervalId = setInterval(updateCountdown, 1000);

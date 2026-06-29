@@ -130,5 +130,43 @@
       "2022 · demi-finale historique",
       "2026 · confirmer le rang"
     ]
+  },
+  "spain": {
+    "title": "Espagne, l’empire du jeu et le retour de la maîtrise",
+    "subtitle": "De la Roja du tiki-taka à l’Espagne de Rodri, une nation qui ne se contente pas de gagner : elle veut contrôler le temps, le rythme et la peur.",
+    "paragraphs": [
+      "L’Espagne n’est pas une sélection ordinaire. C’est une idée de football. Une manière de prendre le ballon, de le cacher, de l’user, de l’imposer comme une forme d’autorité. Quand la Roja entre dans une Coupe du monde, elle ne vient pas seulement chercher un résultat : elle vient rappeler qu’elle peut dicter le rythme d’un tournoi.",
+      "Pendant longtemps, l’Espagne a vécu avec une contradiction : des clubs immenses, des joueurs de génie, mais une sélection souvent freinée par le poids de l’attente. Puis est venue la grande bascule. Entre 2008 et 2012, l’Espagne devient la référence absolue : championne d’Europe, championne du monde, puis encore championne d’Europe. Xavi, Iniesta, Busquets, Casillas, Ramos, Villa, Torres : une génération qui transforme la possession en domination mentale.",
+      "Le sommet reste 2010. En Afrique du Sud, l’Espagne perd son premier match, puis serre le jeu, avance, étouffe, gagne. Le but d’Iniesta en finale contre les Pays-Bas devient une image éternelle. La Roja n’a pas seulement remporté une Coupe du monde : elle a imposé une époque.",
+      "Depuis, l’Espagne a changé. Le tiki-taka pur a laissé place à une équipe plus verticale, plus jeune, plus tranchante, mais toujours obsédée par le contrôle. La nouvelle Espagne sait accélérer, presser, frapper plus vite. Elle ne veut plus seulement garder le ballon : elle veut faire mal avec lui.",
+      "En 2026, l’Espagne arrive première de son groupe, invaincue, avec sept points et Rodri comme symbole. Rodri, Ballon d’Or 2024, capitaine, cerveau, stabilisateur. Il incarne cette Espagne nouvelle : moins romantique peut-être, mais plus froide, plus adulte, plus dangereuse.",
+      "Face à l’Autriche, l’Espagne ne joue pas seulement un 16e de finale. Elle joue son rang. Elle sait que les matchs à élimination directe ne récompensent pas toujours la beauté du jeu. Il faudra de la patience, de l’autorité et cette capacité espagnole à faire courir l’adversaire jusqu’à ce qu’il doute."
+    ],
+    "timeline": [
+      "2008 · L’Espagne devient championne d’Europe et ouvre son âge d’or",
+      "2010 · Iniesta offre à la Roja sa première Coupe du monde",
+      "2012 · Troisième titre majeur consécutif, domination historique",
+      "2024 · Rodri devient le symbole mondial de la maîtrise espagnole",
+      "2026 · Première du groupe H, invaincue, prête pour le piège autrichien"
+    ]
+  },
+  "egypt": {
+    "title": "Égypte, la mémoire des Pharaons et le rêve de Salah",
+    "subtitle": "Première grande nation africaine du Mondial, l’Égypte revient au moment où son peuple attend plus qu’une qualification : une page d’histoire.",
+    "paragraphs": [
+      "L’Égypte porte une histoire immense. Pas seulement une histoire de football, mais une histoire de place, de mémoire et de prestige. Dans le monde arabe, en Afrique, autour de la Méditerranée, les Pharaons ne sont jamais une équipe neutre. Ils représentent un pays qui connaît le poids des grandes scènes, le bruit des stades, la pression des peuples qui regardent.",
+      "L’Égypte est une nation fondatrice du football africain. Elle a construit son prestige dans la Coupe d’Afrique des Nations, avec des générations de joueurs techniques, d’équipes dures à battre, de gardiens, de meneurs, de finisseurs. Sur le continent, l’Égypte sait gagner. Elle sait souffrir. Elle sait survivre à des matchs fermés, aux prolongations, aux ambiances hostiles.",
+      "Mais la Coupe du monde a longtemps été une histoire plus douloureuse. L’Égypte découvre le Mondial dès 1934, devenant l’une des premières voix africaines et arabes sur la scène mondiale. Puis il faut attendre 1990, 2018, et enfin 2026 pour revoir les Pharaons dans le grand théâtre.",
+      "En 2026, quelque chose change. L’Égypte ne vient plus seulement participer. Elle sort du groupe G, derrière la Belgique, avec une équipe plus mûre, plus compacte, plus consciente de son moment. Belgique 1–1 Égypte, Égypte 3–1 Nouvelle-Zélande, Égypte 1–1 Iran : trois matchs qui racontent une équipe capable de tenir face aux grands, de gagner quand il le faut, et de ne pas rompre sous la tension.",
+      "Au centre de tout : Mohamed Salah. Le joueur vedette, l’icône, le visage mondial du football égyptien. Salah n’est pas seulement un attaquant. Il est une promesse collective. À chaque ballon, il porte une partie de l’espoir d’un pays qui rêve de voir enfin l’Égypte transformer sa grandeur continentale en parcours mondial.",
+      "Mais avant l’Australie, une incertitude plane : Salah est sorti contre l’Iran, avec une alerte physique. Ce détail change tout. Parce qu’un match à élimination directe ne se joue pas seulement avec les jambes. Il se joue avec les nerfs, la profondeur du banc, la capacité d’un groupe à ne pas s’effondrer si son symbole vacille.",
+      "Australie–Égypte devient alors un vrai test d’histoire. L’Australie arrive avec son intensité, son impact, son football direct. L’Égypte arrive avec son expérience africaine, sa science des matchs tendus, et Salah comme étoile, même diminuée. Pour les Pharaons, ce n’est pas un simple 16e de finale : c’est peut-être l’occasion de faire entrer 2026 dans la mémoire nationale."
+    ],
+    "timeline": [
+      "1934 · Première apparition mondiale, symbole africain et arabe",
+      "1990 · Retour au Mondial après une très longue attente",
+      "2018 · Salah porte l’Égypte dans une génération très attendue",
+      "2026 · Qualification en 16e, l’Égypte veut écrire enfin une vraie page mondiale"
+    ]
   }
 }

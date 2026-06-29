@@ -46,5 +46,21 @@
     "supporterName": "Blågult",
     "heroPlayer": "Viktor Gyökeres",
     "playerImg": "assets/opponents/sweden/player.png"
+  },
+  "austria": {
+    "teamName": "Autriche",
+    "flag": "🇦🇹",
+    "nickname": "Das Team",
+    "supporterName": "Das Team",
+    "heroPlayer": "Marko Arnautović",
+    "playerImg": "assets/opponents/austria/player.png"
+  },
+  "australia": {
+    "teamName": "Australie",
+    "flag": "🇦🇺",
+    "nickname": "Socceroos",
+    "supporterName": "Socceroos",
+    "heroPlayer": "Nestory Irankunda",
+    "playerImg": "assets/opponents/australia/player.png"
   }
 }

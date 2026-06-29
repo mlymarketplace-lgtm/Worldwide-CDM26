@@ -1,15 +1,16 @@
 // QualifGaïndé V10 — couche multi-équipes isolée
 // Ne modifie pas scores.js, live.json, stats.json, ni le moteur bracket V9.8.
 (function(){
+  window.QUALIFGAINDE_V10_ACTIVE = true;
   const DATA_BASE = 'data/';
-  const TEAM_ORDER = ['senegal','algeria','belgium','brazil','france','ivory_coast','dr_congo','morocco'];
+  const TEAM_ORDER = ['senegal','algeria','egypt','ivory_coast','dr_congo','morocco','belgium','brazil','france','spain'];
   const FALLBACK_TEAMS = {
     switzerland:{teamName:'Suisse',flag:'🇨🇭',supporterName:'Nati'}, japan:{teamName:'Japon',flag:'🇯🇵',supporterName:'Samouraïs Bleus'},
     sweden:{teamName:'Suède',flag:'🇸🇪',supporterName:'Blågult'}, norway:{teamName:'Norvège',flag:'🇳🇴',supporterName:'Norvège'},
     england:{teamName:'Angleterre',flag:'🏴',supporterName:'Three Lions'}, netherlands:{teamName:'Pays-Bas',flag:'🇳🇱',supporterName:'Oranje'},
     iraq:{teamName:'Iraq',flag:'🇮🇶'}, egypt:{teamName:'Égypte',flag:'🇪🇬'}, iran:{teamName:'Iran',flag:'🇮🇷'},
     'new_zealand':{teamName:'Nouvelle-Zélande',flag:'🇳🇿'}, haiti:{teamName:'Haïti',flag:'🇭🇹'}, scotland:{teamName:'Écosse',flag:'🏴󠁧󠁢󠁳󠁣󠁴󠁿'},
-    germany:{teamName:'Allemagne',flag:'🇩🇪'}, ecuador:{teamName:'Équateur',flag:'🇪🇨'}, curacao:{teamName:'Curaçao',flag:'🇨🇼'}, portugal:{teamName:'Portugal',flag:'🇵🇹'}, colombia:{teamName:'Colombie',flag:'🇨🇴'}, uzbekistan:{teamName:'Ouzbékistan',flag:'🇺🇿'}, argentina:{teamName:'Argentine',flag:'🇦🇷'}, jordan:{teamName:'Jordanie',flag:'🇯🇴'}, austria:{teamName:'Autriche',flag:'🇦🇹'}, france:{teamName:'France',flag:'🇫🇷'}
+    germany:{teamName:'Allemagne',flag:'🇩🇪'}, ecuador:{teamName:'Équateur',flag:'🇪🇨'}, curacao:{teamName:'Curaçao',flag:'🇨🇼'}, portugal:{teamName:'Portugal',flag:'🇵🇹'}, colombia:{teamName:'Colombie',flag:'🇨🇴'}, uzbekistan:{teamName:'Ouzbékistan',flag:'🇺🇿'}, argentina:{teamName:'Argentine',flag:'🇦🇷'}, jordan:{teamName:'Jordanie',flag:'🇯🇴'}, austria:{teamName:'Autriche',flag:'🇦🇹'}, australia:{teamName:'Australie',flag:'🇦🇺'}, spain:{teamName:'Espagne',flag:'🇪🇸'}, france:{teamName:'France',flag:'🇫🇷'}
   };
   let state = { teams:{}, matches:{}, results:{}, opponentResults:{}, opponents:{}, previews:{}, stories:{}, activeTeamId:null, i18n:{} };
   let v10CountdownTimer = null;
@@ -272,10 +273,21 @@
     document.body.appendChild(a);
   }
 
+  function releaseV10Boot(){
+    document.documentElement.classList.remove('v10-booting');
+    document.body.classList.add('v10-ready');
+  }
+
+  function lockLegacyCountdown(){
+    window.QUALIFGAINDE_V10_COUNTDOWN_LOCKED = true;
+  }
+
   function applyTeam(teamId){
     const team = getActiveTeam(); if(!team) return;
     localStorage.setItem('qualifgainde.favoriteTeam', teamId);
+    lockLegacyCountdown();
     setCssVars(team); renderHeader(team); renderHeaderScores(teamId); renderHero(team); renderOpponent(teamId, team); renderCountdown(teamId, team); renderPreview(team); renderStory(teamId, team); addChangeTeamLink(team);
+    releaseV10Boot();
   }
 
   function patchLanguageSwitcher(){
@@ -293,7 +305,7 @@
     try { await loadData(); } catch(err) { console.error('[V10] Chargement data impossible', err); return; }
     const params = new URLSearchParams(window.location.search);
     const teamId = params.get('team');
-    if(!teamId && params.get('mode') !== 'global') { installSelector(); return; }
+    if(!teamId && params.get('mode') !== 'global') { installSelector(); releaseV10Boot(); return; }
     if(teamId && state.teams[teamId]){
       state.activeTeamId = teamId;
       const baseTeam = state.teams[teamId];

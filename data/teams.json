@@ -134,5 +134,39 @@
     "supporterName": "Lions de l’Atlas",
     "selectorLine": "Du miracle au rang mondial",
     "mascotImg": null
+  },
+  "spain": {
+    "teamName": "Espagne",
+    "flag": "🇪🇸",
+    "primary": "#AA151B",
+    "secondary": "#F1BF00",
+    "accent": "#0039A6",
+    "heroImg": "assets/teams/spain/player.png",
+    "bannerImg": "assets/teams/spain/banner.png",
+    "heroPlayer": "Rodri",
+    "nextMatchId": "esp-aut",
+    "defaultLang": "fr",
+    "tagline": "La Roja, l’empire du contrôle",
+    "statusLabel": "1re du groupe H · Invaincue · 7 pts",
+    "supporterName": "La Roja",
+    "selectorLine": "Maîtrise, patience et ambition mondiale",
+    "mascotImg": null
+  },
+  "egypt": {
+    "teamName": "Égypte",
+    "flag": "🇪🇬",
+    "primary": "#CE1126",
+    "secondary": "#FFFFFF",
+    "accent": "#000000",
+    "heroImg": "assets/teams/egypt/player.png",
+    "bannerImg": "assets/teams/egypt/banner.png",
+    "heroPlayer": "Mohamed Salah",
+    "nextMatchId": "aus-egy",
+    "defaultLang": "fr",
+    "tagline": "Les Pharaons et le rêve de Salah",
+    "statusLabel": "2e du groupe G · 4 pts · Expérience africaine",
+    "supporterName": "Pharaons",
+    "selectorLine": "Salah, mémoire africaine et rêve mondial",
+    "mascotImg": null
   }
 }

@@ -69,5 +69,27 @@
     "dateUTC": "2026-06-29T01:00:00Z",
     "stadium": "Monterrey · Estadio BBVA",
     "channel_fr": "beIN Sports 1"
+  },
+  "esp-aut": {
+    "home": "spain",
+    "away": "austria",
+    "label": "Espagne–Autriche",
+    "round": "R32",
+    "dateParis": "2026-07-02T21:00:00+02:00",
+    "dateUTC": "2026-07-02T19:00:00Z",
+    "stadium": "Los Angeles · SoFi Stadium",
+    "channel_fr": "beIN Sports 1",
+    "note": "La maîtrise de la Roja face au piège autrichien."
+  },
+  "aus-egy": {
+    "home": "australia",
+    "away": "egypt",
+    "label": "Australie–Égypte",
+    "round": "R32",
+    "dateParis": "2026-07-03T20:00:00+02:00",
+    "dateUTC": "2026-07-03T18:00:00Z",
+    "stadium": "Dallas · AT&T Stadium",
+    "channel_fr": "beIN Sports 1",
+    "note": "Impact australien contre expérience africaine des Pharaons."
   }
 }

@@ -134,5 +134,39 @@
       "note": "Les Lions de l’Atlas accélèrent",
       "result": "V"
     }
+  ],
+  "spain": [
+    {
+      "label": "Espagne 0–0 Cap-Vert",
+      "note": "Contrôle sans trouver la faille",
+      "result": "N"
+    },
+    {
+      "label": "Espagne 4–0 Arabie Saoudite",
+      "note": "La Roja déroule",
+      "result": "V"
+    },
+    {
+      "label": "Espagne 1–0 Uruguay",
+      "note": "Victoire froide et rang assumé",
+      "result": "V"
+    }
+  ],
+  "egypt": [
+    {
+      "label": "Belgique 1–1 Égypte",
+      "note": "Point de prestige face aux Diables",
+      "result": "N"
+    },
+    {
+      "label": "Égypte 3–1 Nouvelle-Zélande",
+      "note": "Les Pharaons accélèrent",
+      "result": "V"
+    },
+    {
+      "label": "Égypte 1–1 Iran",
+      "note": "Qualification, mais alerte Salah",
+      "result": "N"
+    }
   ]
 }

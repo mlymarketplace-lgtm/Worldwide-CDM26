@@ -1,32 +1,138 @@
 {
   "switzerland": [
-    { "label": "Qatar 1–1 Suisse", "note": "Entrée maîtrisée", "result": "N" },
-    { "label": "Suisse 4–1 Bosnie-Herzégovine", "note": "La Nati accélère", "result": "V" },
-    { "label": "Suisse 2–1 Canada", "note": "Première place assurée", "result": "V" }
+    {
+      "label": "Qatar 1–1 Suisse",
+      "note": "Entrée maîtrisée",
+      "result": "N"
+    },
+    {
+      "label": "Suisse 4–1 Bosnie-Herzégovine",
+      "note": "La Nati accélère",
+      "result": "V"
+    },
+    {
+      "label": "Suisse 2–1 Canada",
+      "note": "Première place assurée",
+      "result": "V"
+    }
   ],
   "norway": [
-    { "label": "Iraq 1–4 Norvège", "note": "Puissance offensive", "result": "V" },
-    { "label": "Norvège 3–2 Sénégal", "note": "Match renversant", "result": "V" },
-    { "label": "Norvège 1–4 France", "note": "Défaite lourde face aux Bleus", "result": "D" }
+    {
+      "label": "Iraq 1–4 Norvège",
+      "note": "Puissance offensive",
+      "result": "V"
+    },
+    {
+      "label": "Norvège 3–2 Sénégal",
+      "note": "Match renversant",
+      "result": "V"
+    },
+    {
+      "label": "Norvège 1–4 France",
+      "note": "Défaite lourde face aux Bleus",
+      "result": "D"
+    }
   ],
   "japan": [
-    { "label": "Pays-Bas 2–2 Japon", "note": "Point solide face aux Oranje", "result": "N" },
-    { "label": "Japon 5–1 Tunisie", "note": "Les Samouraïs déroulent", "result": "V" },
-    { "label": "Japon 1–1 Suède", "note": "Qualification validée", "result": "N" }
+    {
+      "label": "Pays-Bas 2–2 Japon",
+      "note": "Point solide face aux Oranje",
+      "result": "N"
+    },
+    {
+      "label": "Japon 5–1 Tunisie",
+      "note": "Les Samouraïs déroulent",
+      "result": "V"
+    },
+    {
+      "label": "Japon 1–1 Suède",
+      "note": "Qualification validée",
+      "result": "N"
+    }
   ],
   "england": [
-    { "label": "Angleterre 4–2 Croatie", "note": "Entrée spectaculaire", "result": "V" },
-    { "label": "Angleterre 0–0 Ghana", "note": "Match fermé", "result": "N" },
-    { "label": "Panama 0–2 Angleterre", "note": "Bellingham et Kane décisifs", "result": "V" }
+    {
+      "label": "Angleterre 4–2 Croatie",
+      "note": "Entrée spectaculaire",
+      "result": "V"
+    },
+    {
+      "label": "Angleterre 0–0 Ghana",
+      "note": "Match fermé",
+      "result": "N"
+    },
+    {
+      "label": "Panama 0–2 Angleterre",
+      "note": "Bellingham et Kane décisifs",
+      "result": "V"
+    }
   ],
   "netherlands": [
-    { "label": "Pays-Bas 2–2 Japon", "note": "Début accroché", "result": "N" },
-    { "label": "Pays-Bas 5–1 Suède", "note": "Démonstration des Oranje", "result": "V" },
-    { "label": "Pays-Bas 3–1 Tunisie", "note": "Première place confirmée", "result": "V" }
+    {
+      "label": "Pays-Bas 2–2 Japon",
+      "note": "Début accroché",
+      "result": "N"
+    },
+    {
+      "label": "Pays-Bas 5–1 Suède",
+      "note": "Démonstration des Oranje",
+      "result": "V"
+    },
+    {
+      "label": "Pays-Bas 3–1 Tunisie",
+      "note": "Première place confirmée",
+      "result": "V"
+    }
   ],
   "sweden": [
-    { "label": "Suède 5–1 Tunisie", "note": "Départ offensif", "result": "V" },
-    { "label": "Pays-Bas 5–1 Suède", "note": "Lourde défaite face aux Oranje", "result": "D" },
-    { "label": "Japon 1–1 Suède", "note": "Elanga répond à Maeda", "result": "N" }
+    {
+      "label": "Suède 5–1 Tunisie",
+      "note": "Départ offensif",
+      "result": "V"
+    },
+    {
+      "label": "Pays-Bas 5–1 Suède",
+      "note": "Lourde défaite face aux Oranje",
+      "result": "D"
+    },
+    {
+      "label": "Japon 1–1 Suède",
+      "note": "Elanga répond à Maeda",
+      "result": "N"
+    }
+  ],
+  "austria": [
+    {
+      "label": "Autriche 3–1 Jordanie",
+      "note": "Entrée de caractère",
+      "result": "V"
+    },
+    {
+      "label": "Autriche 0–2 Argentine",
+      "note": "Leçon face à un géant",
+      "result": "D"
+    },
+    {
+      "label": "Autriche 3–3 Algérie",
+      "note": "Match fou, qualification préservée",
+      "result": "N"
+    }
+  ],
+  "australia": [
+    {
+      "label": "Australie 2–0 Turquie",
+      "note": "Impact et réalisme",
+      "result": "V"
+    },
+    {
+      "label": "Australie 0–1 États-Unis",
+      "note": "Défaite courte face au pays hôte",
+      "result": "D"
+    },
+    {
+      "label": "Australie 0–0 Paraguay",
+      "note": "Solidité et qualification",
+      "result": "N"
+    }
   ]
 }

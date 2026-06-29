@@ -46,5 +46,27 @@
     "banner": "assets/teams/morocco/banner.png",
     "mascot": null,
     "status": "complete"
+  },
+  "spain": {
+    "player": "assets/teams/spain/player.png",
+    "banner": "assets/teams/spain/banner.png",
+    "mascot": null,
+    "status": "complete"
+  },
+  "egypt": {
+    "player": "assets/teams/egypt/player.png",
+    "banner": "assets/teams/egypt/banner.png",
+    "mascot": null,
+    "status": "complete"
+  },
+  "opponents": {
+    "austria": {
+      "player": "assets/opponents/austria/player.png",
+      "status": "complete"
+    },
+    "australia": {
+      "player": "assets/opponents/australia/player.png",
+      "status": "complete"
+    }
   }
 }

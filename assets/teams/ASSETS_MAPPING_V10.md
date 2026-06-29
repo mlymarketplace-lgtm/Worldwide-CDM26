@@ -14,6 +14,8 @@ Les images fournies ont été rangées dans `assets/teams/{teamId}/` sous des no
 | `ivory_coast` | oui | oui | complete |
 | `dr_congo` | oui | oui | complete |
 | `morocco` | oui | oui | complete |
+| `spain` | oui | oui | complete |
+| `egypt` | oui | oui | complete |
 
 ## Choix récents validés
 
@@ -30,3 +32,12 @@ Le front doit tester l'existence logique des assets via `data/assets-manifest.js
 ## Note production
 
 Les visuels sont utilisables pour la préparation et l'intégration technique. Avant mise en ligne publique définitive, vérifier les droits d'utilisation ou remplacer par des visuels libres/validés.
+
+
+## V10.1
+
+- `spain/player.png` : Rodri.
+- `spain/banner.png` : équipe d’Espagne.
+- `egypt/player.png` : Mohamed Salah.
+- `egypt/banner.png` : équipe d’Égypte.
+- Adversaires enrichis : `austria/player.png` et `australia/player.png`.
