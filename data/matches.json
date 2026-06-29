@@ -1,84 +1,109 @@
 {
   "bel-sen": {
-    "home": "belgium", "away": "senegal",
+    "home": "belgium",
+    "away": "senegal",
     "label": "Belgique–Sénégal",
-    "labelAway": "Senegal–Belgium",
     "round": "R32",
     "dateParis": "2026-07-01T22:00:00+02:00",
     "dateUTC": "2026-07-01T20:00:00Z",
     "stadium": "Seattle · Lumen Field",
-    "channel": "beIN Sports 1"
+    "channel_fr": "beIN Sports 1",
+    "note": "Affiche centrale du site actuel.",
+    "label_es": "Bélgica–Senegal",
+    "label_pt": "Bélgica–Senegal",
+    "label_en": "Belgium–Senegal",
+    "label_ar": "بلجيكا–السنغال"
   },
   "sui-alg": {
-    "home": "switzerland", "away": "algeria",
+    "home": "switzerland",
+    "away": "algeria",
     "label": "Suisse–Algérie",
     "round": "R32",
     "dateParis": "2026-07-03T05:00:00+02:00",
     "dateUTC": "2026-07-03T03:00:00Z",
     "stadium": "Vancouver · BC Place",
-    "channel": "beIN Sports 1"
+    "channel_fr": "beIN Sports 1"
   },
   "bra-jpn": {
-    "home": "brazil", "away": "japan",
+    "home": "brazil",
+    "away": "japan",
     "label": "Brésil–Japon",
     "round": "R32",
     "dateParis": "2026-06-29T19:00:00+02:00",
     "dateUTC": "2026-06-29T17:00:00Z",
     "stadium": "Houston · NRG Stadium",
-    "channel": "beIN Sports 1"
+    "channel_fr": "beIN Sports 1",
+    "label_es": "Brasil–Japón",
+    "label_pt": "Brasil–Japão",
+    "label_en": "Brazil–Japan"
   },
   "fra-swe": {
-    "home": "france", "away": "sweden",
+    "home": "france",
+    "away": "sweden",
     "label": "France–Suède",
     "round": "R32",
     "dateParis": "2026-06-30T23:00:00+02:00",
     "dateUTC": "2026-06-30T21:00:00Z",
     "stadium": "New York · MetLife Stadium",
-    "channel": "beIN Sports 1 / M6"
+    "channel_fr": "beIN Sports 1 / M6"
   },
   "civ-nor": {
-    "home": "ivory_coast", "away": "norway",
-    "label": "Côte d'Ivoire–Norvège",
+    "home": "ivory_coast",
+    "away": "norway",
+    "label": "Côte d’Ivoire–Norvège",
     "round": "R32",
     "dateParis": "2026-06-30T19:00:00+02:00",
     "dateUTC": "2026-06-30T17:00:00Z",
     "stadium": "Dallas · AT&T Stadium",
-    "channel": "beIN Sports 1"
+    "channel_fr": "beIN Sports 1"
   },
   "eng-cod": {
-    "home": "england", "away": "dr_congo",
+    "home": "england",
+    "away": "dr_congo",
     "label": "Angleterre–RD Congo",
     "round": "R32",
     "dateParis": "2026-07-01T18:00:00+02:00",
     "dateUTC": "2026-07-01T16:00:00Z",
     "stadium": "Atlanta · Mercedes-Benz Stadium",
-    "channel": "beIN Sports 1 / M6"
+    "channel_fr": "beIN Sports 1 / M6"
   },
   "ned-mar": {
-    "home": "netherlands", "away": "morocco",
+    "home": "netherlands",
+    "away": "morocco",
     "label": "Pays-Bas–Maroc",
     "round": "R32",
     "dateParis": "2026-06-30T03:00:00+02:00",
     "dateUTC": "2026-06-30T01:00:00Z",
-    "stadium": "Monterrey · Estadio BBVA",
-    "channel": "beIN Sports 1"
+    "stadium": "Philadelphia · Lincoln Financial Field",
+    "channel_fr": "beIN Sports 1"
   },
   "esp-aut": {
-    "home": "spain", "away": "austria",
+    "home": "spain",
+    "away": "austria",
     "label": "Espagne–Autriche",
     "round": "R32",
     "dateParis": "2026-07-02T21:00:00+02:00",
     "dateUTC": "2026-07-02T19:00:00Z",
     "stadium": "Los Angeles · SoFi Stadium",
-    "channel": "beIN Sports 1 / M6"
+    "channel_fr": "beIN Sports 1",
+    "note": "La maîtrise de la Roja face au piège autrichien.",
+    "label_es": "España–Austria",
+    "label_pt": "Espanha–Áustria",
+    "label_en": "Spain–Austria",
+    "label_ar": "إسبانيا–النمسا"
   },
   "aus-egy": {
-    "home": "australia", "away": "egypt",
+    "home": "australia",
+    "away": "egypt",
     "label": "Australie–Égypte",
     "round": "R32",
-    "dateParis": "2026-07-03T05:00:00+02:00",
-    "dateUTC": "2026-07-03T03:00:00Z",
+    "dateParis": "2026-07-03T20:00:00+02:00",
+    "dateUTC": "2026-07-03T18:00:00Z",
     "stadium": "Dallas · AT&T Stadium",
-    "channel": "beIN Sports 1"
+    "channel_fr": "beIN Sports 1",
+    "note": "Impact australien contre expérience africaine des Pharaons.",
+    "label_es": "Australia–Egipto",
+    "label_en": "Australia–Egypt",
+    "label_ar": "أستراليا–مصر"
   }
 }

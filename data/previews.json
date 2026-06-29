@@ -82,5 +82,32 @@
       "Il y a enfin l'histoire récente : le Maroc demi-finaliste mondial, devenu une équipe que personne ne peut prendre de haut. Les Néerlandais arrivent avec leur tradition de jeu, leur talent, leur assurance. Le Maroc arrive avec sa discipline, son bloc, sa foi.",
       "Ce n'est pas seulement un match de football. C'est une rencontre entre deux histoires liées, deux publics passionnés, et deux équipes qui savent que le vainqueur enverra un message très fort au tournoi."
     ]
+  },
+  "esp-aut": {
+    "homeTeam": "spain",
+    "awayTeam": "austria",
+    "matchId": "esp-aut",
+    "title": "Espagne–Autriche : le piège rouge",
+    "angle": "L’Espagne a le ballon, l’Autriche a la mémoire. Et dans un match sec, la maîtrise ne suffit jamais.",
+    "body": [
+      "Espagne–Autriche a tout du match piège. Sur le papier, la Roja arrive avec le statut, la maîtrise, l’invincibilité dans son groupe et Rodri comme chef d’orchestre. L’Espagne sait contrôler un match comme peu d’équipes au monde.",
+      "Mais l’Autriche n’est pas une victime idéale. C’est une sélection de caractère, dure, intense, capable de rendre un match inconfortable. Son parcours le montre : victoire contre la Jordanie, défaite face à l’Argentine, puis nul spectaculaire contre l’Algérie. L’Autriche a souffert, mais elle est encore là.",
+      "Historiquement, le duel a une petite épine. En Coupe du monde 1978, l’Autriche avait battu l’Espagne 2–1. Ce n’est pas une énorme rivalité moderne, mais c’est exactement le genre de souvenir qui donne du goût à un match à élimination directe. L’Espagne a tout à perdre ; l’Autriche a tout à provoquer.",
+      "Et puis il y a Marko Arnautović. Capitaine, attaquant, caractère fort. Face à une Espagne souvent sûre de sa technique, l’Autriche peut répondre par l’impact, la provocation, les duels et les transitions. Pour la Roja, le danger est clair : croire que le contrôle du ballon suffit. Pour l’Autriche, le rêve est simple : transformer le match en combat."
+    ]
+  },
+  "aus-egy": {
+    "homeTeam": "australia",
+    "awayTeam": "egypt",
+    "matchId": "aus-egy",
+    "title": "Australie–Égypte : les Pharaons face au mur physique",
+    "angle": "L’Australie veut imposer l’impact. L’Égypte veut imposer l’expérience. Et tout le monde regarde la cuisse de Salah.",
+    "body": [
+      "Australie–Égypte oppose deux cultures de match très différentes. L’Australie arrive avec sa puissance, son intensité, son organisation et cette capacité à rendre chaque duel pénible. Les Socceroos ne cherchent pas forcément à séduire : ils veulent avancer, presser, bloquer, user.",
+      "L’Égypte arrive avec autre chose : l’expérience africaine des matchs tendus, des compétitions à haute pression, des scénarios fermés où chaque détail compte. Les Pharaons savent vivre dans la tension. Ils savent défendre un résultat, casser un rythme, attendre le moment juste.",
+      "Le centre de gravité reste Mohamed Salah. Même quand il ne marque pas, il attire, il fixe, il ouvre des espaces. Son influence dépasse la statistique. Mais son état physique devient l’un des grands sujets du match. Après sa sortie face à l’Iran, l’Égypte doit préparer deux scénarios : un Salah capable de débuter et d’être décisif, ou un Salah diminué qu’il faudra protéger.",
+      "En face, l’Australie a ses propres armes, avec Nestory Irankunda comme visage d’une génération plus explosive. Jeune, rapide, direct, il peut attaquer les espaces et forcer l’Égypte à défendre en reculant.",
+      "Ce match peut être rugueux. Peut-être moins spectaculaire que Brésil–Japon ou Belgique–Sénégal, mais il a tout d’un vrai match couperet : expérience contre énergie, Afrique contre Océanie, Salah contre le doute, et une place historique à prendre."
+    ]
   }
 }

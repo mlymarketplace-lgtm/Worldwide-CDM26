@@ -1,52 +1,172 @@
 {
   "senegal": [
-    { "label": "France 3–1 Sénégal", "type": "D", "desc": "Défaite inaugurale" },
-    { "label": "Norvège 3–2 Sénégal", "type": "D", "desc": "Les Lions proches du retour" },
-    { "label": "Sénégal 5–0 Irak", "type": "W", "desc": "Réveil des Gaïndés" }
-  ],
-  "algeria": [
-    { "label": "Algérie 0–2 Argentine", "type": "D", "desc": "Entrée difficile" },
-    { "label": "Algérie 3–1 Jordanie", "type": "W", "desc": "Réaction des Fennecs" },
-    { "label": "Algérie 3–3 Autriche", "type": "N", "desc": "Match de haute intensité" }
+    {
+      "label": "France 3–1 Sénégal",
+      "note": "Défaite inaugurale",
+      "result": "D"
+    },
+    {
+      "label": "Norvège 3–2 Sénégal",
+      "note": "Les Lions proches du retour",
+      "result": "D"
+    },
+    {
+      "label": "Sénégal 5–0 Iraq",
+      "note": "Réveil des Gaïndés",
+      "result": "V"
+    }
   ],
   "belgium": [
-    { "label": "Belgique 1–1 Égypte", "type": "N", "desc": "Match nul décevant" },
-    { "label": "Belgique 0–0 Iran", "type": "N", "desc": "Blocage offensif" },
-    { "label": "Nouvelle-Zélande 1–5 Belgique", "type": "W", "desc": "Réveil des Diables" }
+    {
+      "label": "Belgique 1–1 Égypte",
+      "note": "Entrée prudente",
+      "result": "N"
+    },
+    {
+      "label": "Belgique 0–0 Iran",
+      "note": "Match fermé",
+      "result": "N"
+    },
+    {
+      "label": "Nouvelle-Zélande 1–5 Belgique",
+      "note": "Réveil offensif des Diables",
+      "result": "V"
+    }
+  ],
+  "algeria": [
+    {
+      "label": "Argentine 3–0 Algérie",
+      "note": "Début difficile face à un géant",
+      "result": "D"
+    },
+    {
+      "label": "Jordanie 1–2 Algérie",
+      "note": "Réaction des Fennecs",
+      "result": "V"
+    },
+    {
+      "label": "Algérie 3–3 Autriche",
+      "note": "Qualification arrachée avec caractère",
+      "result": "N"
+    }
   ],
   "brazil": [
-    { "label": "Pays-Bas 2–2 Brésil", "type": "N", "desc": "Match nul spectaculaire" },
-    { "label": "Brésil 5–1 Suède", "type": "W", "desc": "Seleção en feu" },
-    { "label": "Brésil 3–1 Tunisie", "type": "W", "desc": "Qualification confirmée" }
+    {
+      "label": "Brésil 1–1 Maroc",
+      "note": "Choc maîtrisé mais accroché",
+      "result": "N"
+    },
+    {
+      "label": "Brésil 3–0 Haïti",
+      "note": "La Seleção déroule",
+      "result": "V"
+    },
+    {
+      "label": "Écosse 0–3 Brésil",
+      "note": "Puissance et contrôle",
+      "result": "V"
+    }
   ],
   "france": [
-    { "label": "France 3–1 Sénégal", "type": "W", "desc": "Victoire inaugurale" },
-    { "label": "France 3–0 Irak", "type": "W", "desc": "Maîtrise totale" },
-    { "label": "France 4–1 Norvège", "type": "W", "desc": "9/9 en phase de groupes" }
+    {
+      "label": "France 3–1 Sénégal",
+      "note": "Entrée réussie",
+      "result": "V"
+    },
+    {
+      "label": "France 3–0 Iraq",
+      "note": "Victoire nette",
+      "result": "V"
+    },
+    {
+      "label": "Norvège 1–4 France",
+      "note": "Les Bleus assument leur rang",
+      "result": "V"
+    }
   ],
   "ivory_coast": [
-    { "label": "Allemagne 7–1 Côte d'Ivoire", "type": "D", "desc": "Départ catastrophique" },
-    { "label": "Côte d'Ivoire 2–1 Équateur", "type": "W", "desc": "Réaction africaine" },
-    { "label": "Côte d'Ivoire 3–2 États-Unis", "type": "W", "desc": "Qualification arrachée" }
+    {
+      "label": "Côte d’Ivoire 1–0 Équateur",
+      "note": "Entrée solide",
+      "result": "V"
+    },
+    {
+      "label": "Allemagne 2–1 Côte d’Ivoire",
+      "note": "Défaite serrée",
+      "result": "D"
+    },
+    {
+      "label": "Curaçao 0–2 Côte d’Ivoire",
+      "note": "Qualification avec autorité",
+      "result": "V"
+    }
   ],
   "dr_congo": [
-    { "label": "Mexique 1–1 RD Congo", "type": "N", "desc": "Bon début des Léopards" },
-    { "label": "RD Congo 5–0 Ouzbékistan", "type": "W", "desc": "Festival offensif" },
-    { "label": "Colombie 0–0 RD Congo", "type": "N", "desc": "Qualification confirmée" }
+    {
+      "label": "Portugal 1–1 RD Congo",
+      "note": "Point fondateur",
+      "result": "N"
+    },
+    {
+      "label": "Colombie 1–0 RD Congo",
+      "note": "Frustration mais espoir maintenu",
+      "result": "D"
+    },
+    {
+      "label": "RD Congo 3–1 Ouzbékistan",
+      "note": "Victoire historique des Léopards",
+      "result": "V"
+    }
   ],
   "morocco": [
-    { "label": "Maroc 2–2 Japon", "type": "N", "desc": "Bon début des Lions" },
-    { "label": "Pays-Bas 5–1 Maroc", "type": "D", "desc": "Journée difficile" },
-    { "label": "Maroc 3–1 Tunisie", "type": "W", "desc": "Qualification confirmée" }
+    {
+      "label": "Brésil 1–1 Maroc",
+      "note": "Un point de prestige",
+      "result": "N"
+    },
+    {
+      "label": "Écosse 0–1 Maroc",
+      "note": "Victoire de caractère",
+      "result": "V"
+    },
+    {
+      "label": "Maroc 4–2 Haïti",
+      "note": "Les Lions de l’Atlas accélèrent",
+      "result": "V"
+    }
   ],
   "spain": [
-    { "label": "Espagne 0–0 Cap-Vert", "type": "N", "desc": "Entrée décevante" },
-    { "label": "Espagne 4–0 Arabie Saoudite", "type": "W", "desc": "La Roja se réveille" },
-    { "label": "Espagne 1–0 Uruguay", "type": "W", "desc": "Qualification en tête du groupe" }
+    {
+      "label": "Espagne 0–0 Cap-Vert",
+      "note": "Contrôle sans trouver la faille",
+      "result": "N"
+    },
+    {
+      "label": "Espagne 4–0 Arabie Saoudite",
+      "note": "La Roja déroule",
+      "result": "V"
+    },
+    {
+      "label": "Espagne 1–0 Uruguay",
+      "note": "Victoire froide et rang assumé",
+      "result": "V"
+    }
   ],
   "egypt": [
-    { "label": "Belgique 1–1 Égypte", "type": "N", "desc": "Bon point contre la Belgique" },
-    { "label": "Égypte 3–1 Nouvelle-Zélande", "type": "W", "desc": "Première victoire historique" },
-    { "label": "Égypte 1–1 Iran", "type": "N", "desc": "Qualification en 16es" }
+    {
+      "label": "Belgique 1–1 Égypte",
+      "note": "Point de prestige face aux Diables",
+      "result": "N"
+    },
+    {
+      "label": "Égypte 3–1 Nouvelle-Zélande",
+      "note": "Les Pharaons accélèrent",
+      "result": "V"
+    },
+    {
+      "label": "Égypte 1–1 Iran",
+      "note": "Qualification, mais alerte Salah",
+      "result": "N"
+    }
   ]
 }

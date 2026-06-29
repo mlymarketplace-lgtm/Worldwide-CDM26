@@ -1,16 +1,72 @@
 {
-  "version": "V10.3-claude",
-  "note": "Images WebP servies si disponibles, fallback PNG pour les assets de base",
-  "teams": {
-    "senegal":     { "player": "assets/sadio-mane.png", "banner": "assets/senegal-team.png" },
-    "belgium":     { "player": "assets/kevin-de-bruyne.png" },
-    "algeria":     { "player": "assets/teams/algeria/player.webp" },
-    "brazil":      { "player": "assets/teams/brazil/player.webp" },
-    "france":      { "player": "assets/teams/france/player.webp" },
-    "ivory_coast": { "player": "assets/teams/ivory_coast/player.webp" },
-    "dr_congo":    { "player": "assets/teams/dr_congo/player.webp" },
-    "morocco":     { "player": "assets/teams/morocco/player.webp" },
-    "spain":       { "player": "assets/teams/spain/player.webp" },
-    "egypt":       { "player": "assets/teams/egypt/player.webp" }
+  "senegal": {
+    "player": "assets/teams/senegal/player.webp",
+    "banner": "assets/teams/senegal/banner.webp",
+    "mascot": "assets/teams/senegal/mascot.png",
+    "status": "complete"
+  },
+  "algeria": {
+    "player": "assets/teams/algeria/player.webp",
+    "banner": "assets/teams/algeria/banner.webp",
+    "mascot": null,
+    "status": "complete"
+  },
+  "belgium": {
+    "player": "assets/teams/belgium/player.webp",
+    "banner": "assets/teams/belgium/banner.webp",
+    "mascot": null,
+    "status": "complete"
+  },
+  "brazil": {
+    "player": "assets/teams/brazil/player.webp",
+    "banner": "assets/teams/brazil/banner.webp",
+    "mascot": null,
+    "status": "complete"
+  },
+  "france": {
+    "player": "assets/teams/france/player.webp",
+    "banner": "assets/teams/france/banner.webp",
+    "mascot": null,
+    "status": "complete"
+  },
+  "ivory_coast": {
+    "player": "assets/teams/ivory_coast/player.webp",
+    "banner": "assets/teams/ivory_coast/banner.webp",
+    "mascot": null,
+    "status": "complete"
+  },
+  "dr_congo": {
+    "player": "assets/teams/dr_congo/player.webp",
+    "banner": "assets/teams/dr_congo/banner.webp",
+    "mascot": null,
+    "status": "complete"
+  },
+  "morocco": {
+    "player": "assets/teams/morocco/player.webp",
+    "banner": "assets/teams/morocco/banner.webp",
+    "mascot": null,
+    "status": "complete"
+  },
+  "spain": {
+    "player": "assets/teams/spain/player.webp",
+    "banner": "assets/teams/spain/banner.webp",
+    "mascot": null,
+    "status": "complete"
+  },
+  "egypt": {
+    "player": "assets/teams/egypt/player.webp",
+    "banner": "assets/teams/egypt/banner.webp",
+    "mascot": null,
+    "status": "complete"
+  },
+  "opponents": {
+    "austria": {
+      "player": "assets/opponents/austria/player.webp",
+      "status": "complete"
+    },
+    "australia": {
+      "player": "assets/opponents/australia/player.webp",
+      "status": "complete"
+    }
   }
 }

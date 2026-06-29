@@ -1,73 +1,172 @@
 {
   "senegal": {
-    "title": "Une histoire de Gaïndés",
+    "title": "Mémoire des Gaïndés au Mondial",
+    "subtitle": "De 2002 à 2026, une histoire de courage, de fierté et de rang à faire respecter.",
     "paragraphs": [
-      "Le Sénégal n'entre jamais dans une Coupe du monde comme une équipe ordinaire. Depuis 2002, les Lions de la Téranga portent une mémoire qui dépasse le football : celle d'un pays capable de faire trembler les puissants.",
-      "Tout commence en Corée-Japon, avec l'épopée de Pape Bouba Diop, El Hadji Diouf, Henri Camara, Khalilou Fadiga, Aliou Cissé et Bruno Metsu. Le 31 mai 2002, le Sénégal bat la France championne du monde en titre. Le monde découvre les Gaïndés. Puis viennent le nul contre le Danemark, le match fou contre l'Uruguay, le but en or d'Henri Camara face à la Suède, et ce quart de finale historique.",
-      "En 2018, les Lions reviennent avec Aliou Cissé sur le banc. Ils battent la Pologne, accrochent le Japon, puis sortent cruellement au fair-play. En 2022, champions d'Afrique, ils passent encore le premier tour avant de tomber contre l'Angleterre.",
-      "En 2026, le Sénégal revient avec une mission : faire respecter son rang, porter la Téranga, et rappeler que les Lions ne sont jamais aussi dangereux que lorsqu'on les croit blessés."
+      "Le Sénégal n’entre jamais dans une Coupe du monde comme une équipe ordinaire. Depuis 2002, les Lions de la Téranga portent une mémoire qui dépasse le football : celle d’un pays capable de faire trembler les puissants.",
+      "Tout commence en Corée-Japon, avec Pape Bouba Diop, El Hadji Diouf, Henri Camara, Khalilou Fadiga, Aliou Cissé et Bruno Metsu. Le 31 mai 2002, le Sénégal bat la France championne du monde en titre. Le monde découvre les Gaïndés.",
+      "La suite confirme l’exploit : nul contre le Danemark, match fou contre l’Uruguay, but en or d’Henri Camara contre la Suède, puis quart de finale historique. En 2018, retour cruel au fair-play. En 2022, huitième de finale au Qatar avec le statut de champion d’Afrique.",
+      "En 2026, le Sénégal revient avec une mission : faire respecter son rang, porter la Téranga, et rappeler que les Lions ne sont jamais aussi dangereux que lorsqu’on les croit blessés."
+    ],
+    "timeline": [
+      "2002 · France battue et quart historique",
+      "2018 · retour mondial, élimination au fair-play",
+      "2022 · champion d’Afrique et huitième au Qatar",
+      "2026 · réveil contre l’Iraq et choc contre la Belgique"
     ]
   },
   "belgium": {
-    "title": "Les Diables Rouges et la promesse immense",
+    "title": "La promesse des Diables Rouges",
+    "subtitle": "Technique, expérience, transition : la Belgique veut prouver qu’elle reste une grande nation.",
     "paragraphs": [
-      "La Belgique est l'une de ces nations qui ont longtemps porté une promesse immense : celle d'un football technique, élégant, offensif, parfois magnifique, parfois frustrant. Les Diables Rouges ont connu plusieurs vies en Coupe du monde.",
-      "Il y eut la Belgique dure à jouer, disciplinée, capable d'aller loin dans les années 1980. Puis il y eut la génération dorée : Courtois, Kompany, Hazard, De Bruyne, Lukaku, Witsel, Vertonghen, Alderweireld. En 2018, cette Belgique atteint son sommet moderne : victoire contre le Brésil, demi-finale contre la France, troisième place mondiale.",
-      "Mais une grande génération laisse toujours une question derrière elle : que reste-t-il lorsque les années passent ? En 2026, la Belgique arrive avec un mélange d'expérience et de transition. Kevin De Bruyne incarne encore cette classe rare, cette capacité à voir avant les autres, à frapper au moment juste.",
-      "Les Diables Rouges ne veulent pas seulement survivre dans ce Mondial. Ils veulent prouver qu'ils sont encore une grande nation européenne."
+      "La Belgique a longtemps porté une promesse immense : celle d’un football technique, élégant, offensif, parfois magnifique, parfois frustrant.",
+      "La génération Courtois, Hazard, De Bruyne, Lukaku, Kompany, Witsel, Vertonghen et Alderweireld a atteint son sommet en 2018 avec une victoire contre le Brésil, une demi-finale contre la France et une troisième place mondiale.",
+      "En 2026, les Diables Rouges arrivent entre expérience et transition. Kevin De Bruyne incarne encore cette capacité rare à voir avant les autres et à frapper au moment juste.",
+      "La Belgique ne veut pas simplement survivre dans ce Mondial. Elle veut rappeler qu’elle sait encore gagner les grands matchs."
+    ],
+    "timeline": [
+      "1986 · demi-finale historique",
+      "2014 · retour parmi les grandes nations",
+      "2018 · troisième place mondiale",
+      "2026 · transition et test de rang"
     ]
   },
   "algeria": {
-    "title": "La mémoire des Fennecs",
+    "title": "Les Fennecs, la mémoire et le retour",
+    "subtitle": "De Gijón à 2026, une histoire de blessure, de fierté et de revanche sportive.",
     "paragraphs": [
-      "L'Algérie a une histoire particulière avec la Coupe du monde : une histoire de fierté, de blessure et de retour.",
-      "En 1982, les Fennecs arrivent en Espagne pour leur première participation. Personne ne les attend, et pourtant ils battent l'Allemagne de l'Ouest, puissance mondiale. Puis ils battent le Chili. Deux victoires en trois matchs. Mais l'Algérie est éliminée après le tristement célèbre Allemagne–Autriche de Gijón, ce match où un résultat arrangeait les deux équipes européennes. Depuis, cet épisode reste une cicatrice du football mondial.",
-      "En 1986, l'Algérie revient. En 2010, elle retrouve la scène mondiale et tient tête à l'Angleterre. En 2014, au Brésil, elle écrit une nouvelle page : qualification en huitièmes de finale, puis match héroïque contre l'Allemagne, perdu après prolongation.",
-      "En 2026, les Fennecs reviennent avec cette mémoire : l'injustice de 1982, l'orgueil de 2014, et l'envie de faire honneur à tout un peuple."
+      "L’Algérie a une histoire particulière avec la Coupe du monde : une histoire de fierté, de blessure et de retour.",
+      "En 1982, les Fennecs battent l’Allemagne de l’Ouest puis le Chili, mais sortent après le fameux Allemagne–Autriche de Gijón, épisode resté comme une cicatrice du football mondial.",
+      "En 2014, au Brésil, l’Algérie atteint les huitièmes et livre un match héroïque contre l’Allemagne, perdu après prolongation.",
+      "En 2026, les Fennecs reviennent avec cette mémoire : l’injustice de 1982, l’orgueil de 2014, et l’envie de faire honneur à tout un peuple."
+    ],
+    "timeline": [
+      "1982 · victoires et injustice de Gijón",
+      "1986 · retour mondial",
+      "2010 · résistance face à l’Angleterre",
+      "2014 · huitième héroïque contre l’Allemagne",
+      "2026 · nouvelle page à écrire"
     ]
   },
   "brazil": {
-    "title": "O país do futebol",
+    "title": "Le pays du football",
+    "subtitle": "Cinq étoiles, une exigence éternelle : gagner et faire rêver.",
     "paragraphs": [
-      "Le Brésil n'a pas seulement une histoire en Coupe du monde. Le Brésil est une partie de l'histoire de la Coupe du monde.",
-      "Pelé, Garrincha, Jairzinho, Zico, Romário, Ronaldo, Ronaldinho, Rivaldo, Kaká, Neymar, Vinícius : chaque époque a eu son visage, son rythme, son dribble, son rêve. Cinq étoiles sur le maillot. Une exigence impossible : gagner, mais gagner avec style.",
-      "La Seleção a connu les triomphes, les larmes, les finales, les traumatismes. Elle a offert au monde des équipes qui semblaient danser avec le ballon. Mais elle a aussi appris que la beauté ne protège pas toujours de la douleur.",
-      "En 2026, le Brésil revient avec son poids immense : celui d'un pays qui ne se contente jamais de participer. Chaque match est une scène. Chaque génération doit répondre à la précédente. Le Brésil joue pour avancer, mais aussi pour rappeler au monde que le football a longtemps parlé portugais avec un accent de samba."
+      "Le Brésil n’a pas seulement une histoire en Coupe du monde. Le Brésil est une partie de l’histoire de la Coupe du monde.",
+      "Pelé, Garrincha, Jairzinho, Zico, Romário, Ronaldo, Ronaldinho, Rivaldo, Kaká, Neymar, Vinícius : chaque époque a eu son visage, son rythme, son dribble, son rêve.",
+      "La Seleção a connu les triomphes, les finales, les traumatismes et les renaissances. Mais chaque génération hérite de la même exigence impossible : gagner, et gagner avec style.",
+      "En 2026, le Brésil revient avec son poids immense : celui d’un pays qui ne se contente jamais de participer."
+    ],
+    "timeline": [
+      "1958 · Pelé et première étoile",
+      "1970 · équipe mythique",
+      "1994 · retour au sommet",
+      "2002 · cinquième étoile",
+      "2026 · nouvelle génération"
     ]
   },
   "france": {
-    "title": "Les Bleus et le poids du titre",
+    "title": "Les Bleus, le rang d’un favori",
+    "subtitle": "Une nation installée au sommet mondial, attendue à chaque tournoi.",
     "paragraphs": [
-      "La France est devenue une nation majeure de la Coupe du monde. Longtemps intermittente, parfois brillante, parfois déchirée, elle a fini par s'installer au sommet du football mondial.",
-      "Il y eut 1958 et Just Fontaine, ses treize buts et une troisième place mythique. Il y eut 1982 et 1986, Platini, Giresse, Tigana, la beauté et les cicatrices. Puis 1998 : Zidane, Deschamps, Thuram, Blanc, Barthez, une France championne du monde chez elle. En 2006, encore une finale. En 2018, une deuxième étoile avec Mbappé, Griezmann, Pogba, Kanté, Varane, Lloris. En 2022, une nouvelle finale, perdue au bout d'un scénario fou contre l'Argentine.",
-      "En 2026, les Bleus arrivent avec le poids de leur statut : une équipe que personne ne veut croiser trop tôt. La France ne vient pas chercher une belle aventure. Elle vient chercher le titre."
+      "La France est devenue une nation majeure de la Coupe du monde. Longtemps intermittente, parfois brillante, parfois déchirée, elle s’est installée au sommet du football mondial.",
+      "Il y eut 1958 et Just Fontaine, puis les années Platini, les cicatrices de 1982 et 1986. En 1998, Zidane, Deschamps, Thuram, Blanc et Barthez offrent la première étoile.",
+      "En 2018, Mbappé, Griezmann, Pogba, Kanté, Varane et Lloris décrochent la deuxième. En 2022, une finale folle confirme le rang mondial des Bleus.",
+      "En 2026, la France ne cherche pas une belle aventure : elle vient chercher le titre."
+    ],
+    "timeline": [
+      "1958 · Just Fontaine",
+      "1998 · première étoile",
+      "2006 · finale",
+      "2018 · deuxième étoile",
+      "2022 · finale légendaire",
+      "2026 · candidat au titre"
     ]
   },
   "ivory_coast": {
     "title": "Les Éléphants veulent franchir le seuil",
+    "subtitle": "Une puissance africaine entre génération dorée et maturité nouvelle.",
     "paragraphs": [
-      "La Côte d'Ivoire a longtemps été l'un des grands symboles du football africain moderne : une génération dorée, des joueurs immenses, une puissance collective qui a marqué les années 2000.",
-      "Didier Drogba, Yaya Touré, Kolo Touré, Gervinho, Zokora, Kalou : les Éléphants ont porté l'espoir d'un pays et d'un continent. Leurs Coupes du monde ont parfois eu le goût de la frustration, avec des groupes difficiles et des occasions manquées. Mais leur présence a toujours imposé le respect.",
-      "Aujourd'hui, la Côte d'Ivoire ne vit plus seulement dans le souvenir de sa génération dorée. Elle avance avec une nouvelle identité : plus dense, plus mature, plus consciente de son potentiel.",
-      "En 2026, la Côte d'Ivoire veut franchir un seuil. Elle ne veut plus seulement être dangereuse. Elle veut être décisive."
+      "La Côte d’Ivoire a longtemps été l’un des grands symboles du football africain moderne : une génération dorée, des joueurs immenses, une puissance collective qui a marqué les années 2000.",
+      "Didier Drogba, Yaya Touré, Kolo Touré, Gervinho, Zokora, Kalou : les Éléphants ont porté l’espoir d’un pays et d’un continent.",
+      "Leurs Coupes du monde ont parfois eu le goût de la frustration, avec des groupes difficiles et des occasions manquées. Mais leur présence a toujours imposé le respect.",
+      "En 2026, la Côte d’Ivoire veut franchir un seuil : ne plus seulement être dangereuse, mais être décisive."
+    ],
+    "timeline": [
+      "2006 · première génération dorée",
+      "2010 · groupe relevé",
+      "2014 · frustration finale",
+      "2026 · ambition de cap historique"
     ]
   },
   "dr_congo": {
-    "title": "Les Léopards écrivent leur histoire",
+    "title": "Les Léopards, le retour et la réparation",
+    "subtitle": "Après 52 ans d’attente, la RD Congo écrit une page neuve.",
     "paragraphs": [
       "La RD Congo porte une histoire rare en Coupe du monde : une histoire de retour, de réparation et de renaissance.",
-      "En 1974, sous le nom de Zaïre, le pays découvre le Mondial dans des conditions difficiles. L'expérience est douloureuse, marquée par des défaites lourdes et une image longtemps restée comme une blessure. Pendant plus d'un demi-siècle, le pays attend de revenir sur la plus grande scène.",
-      "Puis vient 2026. Les Léopards reviennent. Et cette fois, ils n'arrivent pas pour subir l'histoire. Ils viennent l'écrire. Face à l'Ouzbékistan, la RD Congo renverse le match, gagne 3–1, décroche sa première victoire en Coupe du monde et atteint la phase à élimination directe.",
-      "C'est plus qu'un résultat. C'est une réparation symbolique. Un peuple retrouve son rugissement. Les Léopards ne portent plus le poids du passé : ils portent désormais la promesse d'un futur."
+      "En 1974, sous le nom de Zaïre, le pays découvre le Mondial dans des conditions difficiles. L’expérience est douloureuse et laisse une image longtemps restée comme une blessure.",
+      "Puis vient 2026. Les Léopards reviennent, gagnent face à l’Ouzbékistan et décrochent une qualification historique pour la phase à élimination directe.",
+      "Ce n’est pas seulement un résultat. C’est une réparation symbolique. Un peuple retrouve son rugissement."
+    ],
+    "timeline": [
+      "1974 · première apparition sous le nom Zaïre",
+      "2026 · retour mondial",
+      "2026 · première victoire et phase KO",
+      "2026 · les Léopards veulent plus"
     ]
   },
   "morocco": {
-    "title": "Les Lions de l'Atlas, un rang à confirmer",
+    "title": "Les Lions de l’Atlas, du miracle au rang",
+    "subtitle": "Après 2022, le Maroc n’est plus un outsider : il est attendu.",
     "paragraphs": [
-      "Le Maroc est entré dans l'histoire moderne de la Coupe du monde en 2022. Avant cela, les Lions de l'Atlas avaient déjà connu des moments forts : première participation en 1970, huitième de finale en 1986, retours en 1994, 1998 et 2018. Mais 2022 a tout changé.",
-      "Au Qatar, le Maroc renverse les pronostics. Il sort d'un groupe difficile, élimine l'Espagne, bat le Portugal, atteint les demi-finales et devient la première nation africaine et arabe à atteindre ce niveau en Coupe du monde. Ce n'est plus seulement une belle performance : c'est un événement historique.",
-      "Depuis, le Maroc n'est plus regardé comme un outsider exotique. Il est regardé comme une nation qui sait souffrir, défendre, attaquer, croire, et faire basculer les plus grands.",
-      "En 2026, les Lions de l'Atlas reviennent avec une responsabilité nouvelle : confirmer que 2022 n'était pas un miracle, mais le début d'un rang."
+      "Le Maroc est entré dans l’histoire moderne de la Coupe du monde en 2022. Avant cela, les Lions de l’Atlas avaient déjà connu des moments forts : 1970, 1986, puis plusieurs retours sur la scène mondiale.",
+      "Au Qatar, le Maroc renverse les pronostics : il sort d’un groupe difficile, élimine l’Espagne, bat le Portugal et devient la première nation africaine et arabe à atteindre les demi-finales.",
+      "Depuis, le Maroc n’est plus regardé comme un outsider exotique. Il est regardé comme une nation capable de souffrir, défendre, attaquer et faire basculer les plus grands.",
+      "En 2026, les Lions de l’Atlas reviennent avec une responsabilité nouvelle : confirmer que 2022 n’était pas un miracle, mais le début d’un rang."
+    ],
+    "timeline": [
+      "1986 · huitième historique",
+      "2018 · retour compétitif",
+      "2022 · demi-finale historique",
+      "2026 · confirmer le rang"
+    ]
+  },
+  "spain": {
+    "title": "Espagne, l’empire du jeu et le retour de la maîtrise",
+    "subtitle": "De la Roja du tiki-taka à l’Espagne de Rodri, une nation qui ne se contente pas de gagner : elle veut contrôler le temps, le rythme et la peur.",
+    "paragraphs": [
+      "L’Espagne n’est pas une sélection ordinaire. C’est une idée de football. Une manière de prendre le ballon, de le cacher, de l’user, de l’imposer comme une forme d’autorité. Quand la Roja entre dans une Coupe du monde, elle ne vient pas seulement chercher un résultat : elle vient rappeler qu’elle peut dicter le rythme d’un tournoi.",
+      "Pendant longtemps, l’Espagne a vécu avec une contradiction : des clubs immenses, des joueurs de génie, mais une sélection souvent freinée par le poids de l’attente. Puis est venue la grande bascule. Entre 2008 et 2012, l’Espagne devient la référence absolue : championne d’Europe, championne du monde, puis encore championne d’Europe. Xavi, Iniesta, Busquets, Casillas, Ramos, Villa, Torres : une génération qui transforme la possession en domination mentale.",
+      "Le sommet reste 2010. En Afrique du Sud, l’Espagne perd son premier match, puis serre le jeu, avance, étouffe, gagne. Le but d’Iniesta en finale contre les Pays-Bas devient une image éternelle. La Roja n’a pas seulement remporté une Coupe du monde : elle a imposé une époque.",
+      "Depuis, l’Espagne a changé. Le tiki-taka pur a laissé place à une équipe plus verticale, plus jeune, plus tranchante, mais toujours obsédée par le contrôle. La nouvelle Espagne sait accélérer, presser, frapper plus vite. Elle ne veut plus seulement garder le ballon : elle veut faire mal avec lui.",
+      "En 2026, l’Espagne arrive première de son groupe, invaincue, avec sept points et Rodri comme symbole. Rodri, Ballon d’Or 2024, capitaine, cerveau, stabilisateur. Il incarne cette Espagne nouvelle : moins romantique peut-être, mais plus froide, plus adulte, plus dangereuse.",
+      "Face à l’Autriche, l’Espagne ne joue pas seulement un 16e de finale. Elle joue son rang. Elle sait que les matchs à élimination directe ne récompensent pas toujours la beauté du jeu. Il faudra de la patience, de l’autorité et cette capacité espagnole à faire courir l’adversaire jusqu’à ce qu’il doute."
+    ],
+    "timeline": [
+      "2008 · L’Espagne devient championne d’Europe et ouvre son âge d’or",
+      "2010 · Iniesta offre à la Roja sa première Coupe du monde",
+      "2012 · Troisième titre majeur consécutif, domination historique",
+      "2024 · Rodri devient le symbole mondial de la maîtrise espagnole",
+      "2026 · Première du groupe H, invaincue, prête pour le piège autrichien"
+    ]
+  },
+  "egypt": {
+    "title": "Égypte, la mémoire des Pharaons et le rêve de Salah",
+    "subtitle": "Première grande nation africaine du Mondial, l’Égypte revient au moment où son peuple attend plus qu’une qualification : une page d’histoire.",
+    "paragraphs": [
+      "L’Égypte porte une histoire immense. Pas seulement une histoire de football, mais une histoire de place, de mémoire et de prestige. Dans le monde arabe, en Afrique, autour de la Méditerranée, les Pharaons ne sont jamais une équipe neutre. Ils représentent un pays qui connaît le poids des grandes scènes, le bruit des stades, la pression des peuples qui regardent.",
+      "L’Égypte est une nation fondatrice du football africain. Elle a construit son prestige dans la Coupe d’Afrique des Nations, avec des générations de joueurs techniques, d’équipes dures à battre, de gardiens, de meneurs, de finisseurs. Sur le continent, l’Égypte sait gagner. Elle sait souffrir. Elle sait survivre à des matchs fermés, aux prolongations, aux ambiances hostiles.",
+      "Mais la Coupe du monde a longtemps été une histoire plus douloureuse. L’Égypte découvre le Mondial dès 1934, devenant l’une des premières voix africaines et arabes sur la scène mondiale. Puis il faut attendre 1990, 2018, et enfin 2026 pour revoir les Pharaons dans le grand théâtre.",
+      "En 2026, quelque chose change. L’Égypte ne vient plus seulement participer. Elle sort du groupe G, derrière la Belgique, avec une équipe plus mûre, plus compacte, plus consciente de son moment. Belgique 1–1 Égypte, Égypte 3–1 Nouvelle-Zélande, Égypte 1–1 Iran : trois matchs qui racontent une équipe capable de tenir face aux grands, de gagner quand il le faut, et de ne pas rompre sous la tension.",
+      "Au centre de tout : Mohamed Salah. Le joueur vedette, l’icône, le visage mondial du football égyptien. Salah n’est pas seulement un attaquant. Il est une promesse collective. À chaque ballon, il porte une partie de l’espoir d’un pays qui rêve de voir enfin l’Égypte transformer sa grandeur continentale en parcours mondial.",
+      "Mais avant l’Australie, une incertitude plane : Salah est sorti contre l’Iran, avec une alerte physique. Ce détail change tout. Parce qu’un match à élimination directe ne se joue pas seulement avec les jambes. Il se joue avec les nerfs, la profondeur du banc, la capacité d’un groupe à ne pas s’effondrer si son symbole vacille.",
+      "Australie–Égypte devient alors un vrai test d’histoire. L’Australie arrive avec son intensité, son impact, son football direct. L’Égypte arrive avec son expérience africaine, sa science des matchs tendus, et Salah comme étoile, même diminuée. Pour les Pharaons, ce n’est pas un simple 16e de finale : c’est peut-être l’occasion de faire entrer 2026 dans la mémoire nationale."
+    ],
+    "timeline": [
+      "1934 · Première apparition mondiale, symbole africain et arabe",
+      "1990 · Retour au Mondial après une très longue attente",
+      "2018 · Salah porte l’Égypte dans une génération très attendue",
+      "2026 · Qualification en 16e, l’Égypte veut écrire enfin une vraie page mondiale"
     ]
   }
 }

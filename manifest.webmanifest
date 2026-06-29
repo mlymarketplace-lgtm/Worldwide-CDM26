@@ -1,13 +1,13 @@
 {
   "name": "Suivez la CDM 2026",
   "short_name": "CDM 2026",
-  "description": "Suivez la Coupe du monde 2026 : équipes, scores live, tableaux, récits et mode supporter.",
-  "start_url": "/?source=pwa",
+  "description": "Suivez la Coupe du monde 2026 : équipes, scores live, tableaux et récits supporters.",
+  "start_url": "/?source=pwa&v=1032",
   "scope": "/",
   "display": "standalone",
   "orientation": "portrait",
   "background_color": "#0A0A0A",
-  "theme_color": "#00853F",
+  "theme_color": "#0A0A0A",
   "lang": "fr",
   "icons": [
     {
@@ -63,5 +63,6 @@
         }
       ]
     }
-  ]
+  ],
+  "id": "/qualifgainde-cdm-2026"
 }

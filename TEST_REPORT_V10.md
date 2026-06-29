@@ -42,7 +42,11 @@
 - `/.netlify/functions/scores` : source API-Sports toujours OK.
 
 
-## V10.3.1
-- Home sans arabe automatique : OK attendu.
-- Égypte arabe conservée : OK attendu.
-- PWA renommée et icône remplacée : OK attendu.
+## V10.3.2 final light
+
+- JS syntax OK (`src/v10/v10-team-app.js`).
+- Manifest JSON OK.
+- Service Worker versionné en `qg-v10-3-2-*`.
+- Home : arabe non forcé par détection navigateur.
+- Égypte : arabe conservé via team defaultLang / URL.
+- Icônes PWA remplacées.
