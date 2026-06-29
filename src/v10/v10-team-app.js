@@ -74,7 +74,9 @@
     const urlLang = params.get('lang');
     if(supportedLangs().includes(urlLang)) return urlLang;
     const saved = localStorage.getItem('siteLang');
-    if(supportedLangs().includes(saved)) return saved;
+    const source = localStorage.getItem('siteLangSource');
+    // V10.3 : la home détecte le navigateur par défaut. Le choix manuel reste prioritaire uniquement s'il vient du sélecteur langue.
+    if(source === 'manual' && supportedLangs().includes(saved)) return saved;
     return detectBrowserLang();
   }
   function isRtlLang(lang){ return AR_ENABLED && lang === 'ar'; }
@@ -387,7 +389,7 @@
     if(typeof originalSet === 'function' && !originalSet.__v10Patched){
       window.setLanguage = function(lang){
         state.activeLang = supportedLangs().includes(lang) ? lang : (state.activeLang || 'fr');
-        try { localStorage.setItem('siteLang', state.activeLang); } catch(e) {}
+        try { localStorage.setItem('siteLang', state.activeLang); localStorage.setItem('siteLangSource','manual'); } catch(e) {}
         let res;
         if(state.activeLang === 'ar'){
           // Le legacy I18N ne connaît pas encore AR : on évite son fallback FR et on garde l'arabe isolé en V10.
@@ -423,7 +425,7 @@
       const baseTeam = state.teams[teamId];
       const urlLang = params.get('lang');
       state.activeLang = supportedLangs().includes(urlLang) ? urlLang : (baseTeam.defaultLang || 'fr');
-      try { localStorage.setItem('siteLang', state.activeLang); } catch(e) {}
+      try { localStorage.setItem('siteLang', state.activeLang); localStorage.setItem('siteLangSource', supportedLangs().includes(urlLang) ? 'url' : 'team-default'); } catch(e) {}
       patchLanguageSwitcher();
       if(state.activeLang && typeof window.setLanguage === 'function'){
         try { window.setLanguage(state.activeLang); } catch(e) { console.warn('[V10] setLanguage ignoré', e); }

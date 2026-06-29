@@ -1,275 +1,74 @@
 {
-  "build": "QualifGaind_Worldwide_Build_V10_2",
-  "version": "V10.2",
-  "generatedAt": "2026-06-29T12:14:11.022893+00:00",
-  "files": {
-    "BUILD_HASHES.json": {
-      "sha256": "f73bd495d9e3ab54bee52377d7f6f9e88760f16f7709672340f5f711594af077",
-      "bytes": 10040
-    },
-    "PATCH_NOTES_V10_0_1.md": {
-      "sha256": "a027607c2695b6d7033f01cd7a00db21fcb3119fcd2919d0311f8496befae55e",
-      "bytes": 1538
-    },
-    "PATCH_NOTES_V10_0_2.md": {
-      "sha256": "7c0278a212bb1a0292cf79fafba0154613d866722b5dd69725c86a3540fcba2f",
-      "bytes": 828
-    },
-    "PATCH_NOTES_V10_1.md": {
-      "sha256": "ed342e7d968c4a45253546ad32c7e24c9aa2d42522e5cb5d0bb734807a8a2c28",
-      "bytes": 1209
-    },
-    "PATCH_NOTES_V10_1_1.md": {
-      "sha256": "92dae7517f9c3c93c21f7bde4bfd517194bc2cd2b3d0fbf475bc71c8f47bbace",
-      "bytes": 689
-    },
-    "PATCH_NOTES_V10_2.md": {
-      "sha256": "736373428386b42c8ae5efe9c5540a6f76ab53ab1216127d1a020493060f9427",
-      "bytes": 1230
-    },
-    "README_V10_DEV.md": {
-      "sha256": "a7a35c2e356415c6e90ff074d71c2caafc5f03dff5e9f9693bef54557777b6ac",
-      "bytes": 827
-    },
-    "TEST_REPORT_V10.md": {
-      "sha256": "247e00ade6a46a3f34ac8c72cd9dd5ea0a24c36dc97e2545de11411c7cdc6a11",
-      "bytes": 1796
-    },
-    "assets/kevin-de-bruyne.webp": {
-      "sha256": "96ee7e340bef2789e4a9f08e9f28ea6f45f6461e97759146049342ffbacdfa00",
-      "bytes": 7898
-    },
-    "assets/lion-mascotte.png": {
-      "sha256": "9e131df785860bfae8a728324d494694e8d12b96cbfbd25409d84c6d61a6eec5",
-      "bytes": 25688
-    },
-    "assets/opponents/australia/player.webp": {
-      "sha256": "cd0bda4a62ee6d40fb3db2713d3b8d6bb390d36e85b22be84fbe232e0f98980c",
-      "bytes": 11456
-    },
-    "assets/opponents/austria/player.webp": {
-      "sha256": "247170bd6ef641bba4408883f1a37bca8588f37bf747f5585f238bdc23630606",
-      "bytes": 12736
-    },
-    "assets/opponents/england/player.webp": {
-      "sha256": "a2bcc0263b4a406324c254f91dba23d393ecd9083197bacae472251c7c01e78f",
-      "bytes": 7978
-    },
-    "assets/opponents/japan/player.webp": {
-      "sha256": "ce86ef746e857e6bb7675460c342d914899d719de8d7f2daed5789739b8f59a0",
-      "bytes": 8170
-    },
-    "assets/opponents/netherlands/player.webp": {
-      "sha256": "537af24237e5f1097d3cfc6cb82da4999dadcd6b83ec39e179c9003415b63d78",
-      "bytes": 7282
-    },
-    "assets/opponents/norway/player.webp": {
-      "sha256": "e77a57bd376c8e9f4b151c9bbb2e2d9624ed95ec9dc320c4206762629ea3812d",
-      "bytes": 9566
-    },
-    "assets/opponents/sweden/player.webp": {
-      "sha256": "c8b8ec0ee8899819aa668bfba370307c06df0e15a55e14704a6258b56b949a03",
-      "bytes": 8730
-    },
-    "assets/opponents/switzerland/player.webp": {
-      "sha256": "a8e9659fcd21a720b423f327da8e287c706a9fb28536140ab841db719c5d07f4",
-      "bytes": 6334
-    },
-    "assets/sadio-mane.webp": {
-      "sha256": "02345926154d1d99192ecdd4669647fa4cd8b41945e43cdfbda112d1c61bc56d",
-      "bytes": 8608
-    },
-    "assets/senegal-team.webp": {
-      "sha256": "077c16a8696832892c00f2336c420f655a41f3963c298e4d303fa5dbdd22516f",
-      "bytes": 34662
-    },
-    "assets/teams/ASSETS_MAPPING_V10.md": {
-      "sha256": "f94779758d73178ba1eec3d26919fc33f9002c9771932121318b1ad231fb745c",
-      "bytes": 1538
-    },
-    "assets/teams/algeria/banner.webp": {
-      "sha256": "2abf7369bfea31fbe84d3a5b70fdb3f1e397e21472f9da17e715150ccd00da02",
-      "bytes": 30028
-    },
-    "assets/teams/algeria/player.webp": {
-      "sha256": "f26329434bd5e4ccfefe386403c8a4887dd2578569a198610444d89dd82e3e97",
-      "bytes": 9812
-    },
-    "assets/teams/belgium/banner.webp": {
-      "sha256": "2c4d244dc60d5943cae84f0eb87142a6ec70bb1ec8f9481a47a45c8990190639",
-      "bytes": 12866
-    },
-    "assets/teams/belgium/player.webp": {
-      "sha256": "96ee7e340bef2789e4a9f08e9f28ea6f45f6461e97759146049342ffbacdfa00",
-      "bytes": 7898
-    },
-    "assets/teams/brazil/banner.webp": {
-      "sha256": "cc3e9d482c24887dbe1e69d43af1eed6a25f3f86a3754212ce296b43a041b4a5",
-      "bytes": 14934
-    },
-    "assets/teams/brazil/player.webp": {
-      "sha256": "e3e9fa4cb2b6ea7229032fc3a8871f5a0cfd84700aa85922702fc70074570eb4",
-      "bytes": 7972
-    },
-    "assets/teams/dr_congo/banner.webp": {
-      "sha256": "c4beb1a3de10c9e5cead5eb0731fafc06297b00a30723dc053eb5744a75ccf4b",
-      "bytes": 17028
-    },
-    "assets/teams/dr_congo/player.webp": {
-      "sha256": "04a3ad88d373a3a98f537ac50c2393c6d54c251f13d71d050503e2f0c2bd523f",
-      "bytes": 9744
-    },
-    "assets/teams/egypt/banner.webp": {
-      "sha256": "54f4f8187640b0742d4aaf4c2027358a96af2d2a67738c8ba7e80b5036836606",
-      "bytes": 22134
-    },
-    "assets/teams/egypt/player.webp": {
-      "sha256": "07666a1868536de5f5f48c938777b5ebcc222f9be34fd6203e2492dc91937d4c",
-      "bytes": 11910
-    },
-    "assets/teams/france/banner.webp": {
-      "sha256": "6ec1db1d79d77a0507c626176ee4818068fa588b3a89124b60b9aee21cf802c0",
-      "bytes": 21352
-    },
-    "assets/teams/france/player.webp": {
-      "sha256": "a0f074ab391cae19c22c39bce0a2456f2c9c1c844f747bd1a105b02e5a39742f",
-      "bytes": 23526
-    },
-    "assets/teams/ivory_coast/banner.webp": {
-      "sha256": "cec0a06adcc7996a0adc120c6985e07f714f4f283ab0c5b5812df27623e3a119",
-      "bytes": 32816
-    },
-    "assets/teams/ivory_coast/player.webp": {
-      "sha256": "6c03642c1918b1ef9666d752a287fcd1f749b687f50179ec0286487b98001267",
-      "bytes": 6178
-    },
-    "assets/teams/morocco/banner.webp": {
-      "sha256": "7b76cc7aa7b2f51a8a20db48b8d9a767eb728f20f89885308cb4ca50b44114ac",
-      "bytes": 18508
-    },
-    "assets/teams/morocco/player.webp": {
-      "sha256": "77939e1ac0892204f146ae5eaa2d1b567127614bd89e0bf718456f62c42e963f",
-      "bytes": 5766
-    },
-    "assets/teams/senegal/banner.webp": {
-      "sha256": "077c16a8696832892c00f2336c420f655a41f3963c298e4d303fa5dbdd22516f",
-      "bytes": 34662
-    },
-    "assets/teams/senegal/mascot.png": {
-      "sha256": "9e131df785860bfae8a728324d494694e8d12b96cbfbd25409d84c6d61a6eec5",
-      "bytes": 25688
-    },
-    "assets/teams/senegal/player.webp": {
-      "sha256": "02345926154d1d99192ecdd4669647fa4cd8b41945e43cdfbda112d1c61bc56d",
-      "bytes": 8608
-    },
-    "assets/teams/spain/banner.webp": {
-      "sha256": "817dae55b5f2bae2fc642b623341c223b22c8519df7212874e39845bb27ed7ee",
-      "bytes": 26406
-    },
-    "assets/teams/spain/player.webp": {
-      "sha256": "c792afb2cde3eab104b4164c4b55de1e9c93dbdafed7f517e6983ad6abe6c0db",
-      "bytes": 19816
-    },
-    "assets/world-cup-hero.webp": {
-      "sha256": "556f8f1f66ba3a2976afa501bceefd4b38b8f8f01ee7f604850d662dbe4455c8",
-      "bytes": 21418
-    },
-    "data/assets-manifest.json": {
-      "sha256": "f28cba629622e0d3fec94e57f54a879e4468e108630200d1fcc74ba2c7641c7c",
-      "bytes": 1918
-    },
-    "data/i18n/ar/previews.json": {
-      "sha256": "4b716e6e00e05a79cb7bc9c73bd3f521cfb9738868d2805a2e40bf355174a72f",
-      "bytes": 1569
-    },
-    "data/i18n/ar/stories.json": {
-      "sha256": "3e07d7b882aeca436e3417ebef02f30026eba1cc1978396ee8adcd71d2fd8b3e",
-      "bytes": 2541
-    },
-    "data/i18n/ar/teams.json": {
-      "sha256": "0ad0719e3c100189a8fc4a030b709fccde3eabf148107368d4c6cf1d4041fc64",
-      "bytes": 1449
-    },
-    "data/i18n/es/previews.json": {
-      "sha256": "1728f984271d7b4b4a8b4fefd3227883bc28796b05ea6c490bc0553c05a24701",
-      "bytes": 1034
-    },
-    "data/i18n/es/stories.json": {
-      "sha256": "68b6f2afb37cd79c71fd0e1d5cc604cb3396769cb1203d493680620bffee8cf8",
-      "bytes": 2350
-    },
-    "data/i18n/es/teams.json": {
-      "sha256": "92d32ce8dc2d5ea53b84ee305e4f3c85404f577c257db142fc81b9dae973c84a",
-      "bytes": 840
-    },
-    "data/i18n/pt/previews.json": {
-      "sha256": "62161dc1209df21e4142b3328d01b1e08ff9ec77ace2ea1d93e093a569c3f40c",
-      "bytes": 902
-    },
-    "data/i18n/pt/stories.json": {
-      "sha256": "b4895464c6f286b7930ebfeeb4e49c9c797cf9f196b60a4f44f04d331271bfdc",
-      "bytes": 932
-    },
-    "data/i18n/pt/teams.json": {
-      "sha256": "8a28001626376eb2868a22d096e060787be990cf6b6d5a1144be536f39b6b568",
-      "bytes": 185
-    },
-    "data/matches.json": {
-      "sha256": "75f7c1380f234d982e3aa7b3196817d297d125a8a58184bf45370bef698eb602",
-      "bytes": 3309
-    },
-    "data/opponent-results.json": {
-      "sha256": "175cb5fad5b8b45fb5947dfbb45db9ecb4b38366b4b32eb75bdb4f9614d0b39d",
-      "bytes": 2925
-    },
-    "data/opponents.json": {
-      "sha256": "967a5c6390415f48df89cf807f1cdcde65d3b886ea35bc3c65d3885e422fddbb",
-      "bytes": 1845
-    },
-    "data/previews.json": {
-      "sha256": "f500adef1064ec23624a50a4da1cf6a834ab2ab82788c8b0572a336226a572d7",
-      "bytes": 10592
-    },
-    "data/stories.json": {
-      "sha256": "e13657c944da91130e69a0a29ec0e94d83cd5184c888fb3abb7b519f4060f84e",
-      "bytes": 14867
-    },
-    "data/team-results.json": {
-      "sha256": "17982a536602722f9b63e8e1dcf1df05351339fdfec35d0fb31b61a189b0102a",
-      "bytes": 3721
-    },
-    "data/teams.json": {
-      "sha256": "4888595d576c9dc55029072b5069723c6e8faecc668acfa31ba9d8b646576f3d",
-      "bytes": 5770
-    },
-    "index.html": {
-      "sha256": "f30b498d359c6d2fde226424e5f311af813151124b2d26bc35e85fca67789da5",
-      "bytes": 213884
-    },
-    "live.json": {
-      "sha256": "e6f554a2ca434c3e286347154c6192e26ab5cddf6c12d6783cf15037b4b4a59e",
-      "bytes": 885
-    },
-    "netlify/functions/scores.js": {
-      "sha256": "d79cf91b9b6aaa1f8fa87bd5fdd87e919a99217c35b9d3b62a8fcec80790079a",
-      "bytes": 9702
-    },
-    "netlify.toml": {
-      "sha256": "41a71fc369ef0b25be66043e44fbcb06db79b84e940436656a12d247a8317f26",
-      "bytes": 620
-    },
-    "src/v10/v10-team-app.css": {
-      "sha256": "f6f4a315fe1eb6986018f30f06d8c68f9b113f6c4b3c743f5f54951a6a6e260e",
-      "bytes": 10302
-    },
-    "src/v10/v10-team-app.js": {
-      "sha256": "38ad81c5b880b289332cd3f2a0c14242552d46a260ac269bace565b47985c9df",
-      "bytes": 26557
-    },
-    "stats.json": {
-      "sha256": "0a1874d52048077a401e43975445335e0fffd6f7180241d072e1654c5e601317",
-      "bytes": 1617
-    }
-  }
+  "index.html": "89ee7e6d37286f7c",
+  "live.json": "e6f554a2ca434c3e",
+  "stats.json": "0a1874d52048077a",
+  "netlify.toml": "90f38a9dd37bd0ee",
+  "README_V10_DEV.md": "a7a35c2e356415c6",
+  "TEST_REPORT_V10.md": "247e00ade6a46a3f",
+  "PATCH_NOTES_V10_0_1.md": "a027607c2695b6d7",
+  "PATCH_NOTES_V10_0_2.md": "7c0278a212bb1a02",
+  "PATCH_NOTES_V10_1.md": "ed342e7d968c4a45",
+  "PATCH_NOTES_V10_1_1.md": "92dae7517f9c3c93",
+  "PATCH_NOTES_V10_2.md": "736373428386b42c",
+  "manifest.webmanifest": "926e52f9896c43b4",
+  "service-worker.js": "2290608984738ff1",
+  "PATCH_NOTES_V10_3.md": "33a7c39f5904cbe2",
+  "data/assets-manifest.json": "f28cba629622e0d3",
+  "data/matches.json": "b79d4eeeae123d20",
+  "data/previews.json": "f500adef1064ec23",
+  "data/stories.json": "e13657c944da9113",
+  "data/team-results.json": "17982a536602722f",
+  "data/teams.json": "4888595d576c9dc5",
+  "data/opponents.json": "967a5c6390415f48",
+  "data/opponent-results.json": "175cb5fad5b8b45f",
+  "assets/lion-mascotte.png": "9e131df785860bfa",
+  "assets/senegal-team.webp": "077c16a869683289",
+  "assets/sadio-mane.webp": "02345926154d1d99",
+  "assets/kevin-de-bruyne.webp": "96ee7e340bef2789",
+  "assets/world-cup-hero.webp": "556f8f1f66ba3a29",
+  "src/v10/v10-team-app.css": "f6f4a315fe1eb698",
+  "src/v10/v10-team-app.js": "120eb0f4cd520e13",
+  "assets/teams/ASSETS_MAPPING_V10.md": "f94779758d73178b",
+  "assets/icons/icon-192.png": "7b3959c1b862ab01",
+  "assets/icons/icon-512.png": "92611808ffbcb28b",
+  "assets/icons/maskable-512.png": "92611808ffbcb28b",
+  "assets/opponents/england/player.webp": "a2bcc0263b4a4063",
+  "assets/opponents/sweden/player.webp": "c8b8ec0ee8899819",
+  "assets/opponents/japan/player.webp": "ce86ef746e857e6b",
+  "assets/opponents/netherlands/player.webp": "537af24237e5f109",
+  "assets/opponents/switzerland/player.webp": "a8e9659fcd21a720",
+  "assets/opponents/norway/player.webp": "e77a57bd376c8e9f",
+  "assets/opponents/austria/player.webp": "247170bd6ef641bb",
+  "assets/opponents/australia/player.webp": "cd0bda4a62ee6d40",
+  "assets/teams/algeria/banner.webp": "2abf7369bfea31fb",
+  "assets/teams/algeria/player.webp": "f26329434bd5e4cc",
+  "assets/teams/belgium/banner.webp": "2c4d244dc60d5943",
+  "assets/teams/belgium/player.webp": "96ee7e340bef2789",
+  "assets/teams/brazil/banner.webp": "cc3e9d482c24887d",
+  "assets/teams/brazil/player.webp": "e3e9fa4cb2b6ea72",
+  "assets/teams/dr_congo/banner.webp": "c4beb1a3de10c9e5",
+  "assets/teams/dr_congo/player.webp": "04a3ad88d373a3a9",
+  "assets/teams/france/banner.webp": "6ec1db1d79d77a05",
+  "assets/teams/france/player.webp": "a0f074ab391cae19",
+  "assets/teams/ivory_coast/banner.webp": "cec0a06adcc7996a",
+  "assets/teams/ivory_coast/player.webp": "6c03642c1918b1ef",
+  "assets/teams/morocco/banner.webp": "7b76cc7aa7b2f51a",
+  "assets/teams/morocco/player.webp": "77939e1ac0892204",
+  "assets/teams/senegal/mascot.png": "9e131df785860bfa",
+  "assets/teams/senegal/banner.webp": "077c16a869683289",
+  "assets/teams/senegal/player.webp": "02345926154d1d99",
+  "assets/teams/spain/banner.webp": "817dae55b5f2bae2",
+  "assets/teams/spain/player.webp": "c792afb2cde3eab1",
+  "assets/teams/egypt/banner.webp": "54f4f8187640b074",
+  "assets/teams/egypt/player.webp": "07666a1868536de5",
+  "data/i18n/pt/previews.json": "62161dc1209df21e",
+  "data/i18n/pt/stories.json": "b4895464c6f286b7",
+  "data/i18n/pt/teams.json": "8a28001626376eb2",
+  "data/i18n/es/teams.json": "92d32ce8dc2d5ea5",
+  "data/i18n/es/previews.json": "1728f984271d7b4b",
+  "data/i18n/es/stories.json": "68b6f2afb37cd79c",
+  "data/i18n/ar/teams.json": "0ad0719e3c100189",
+  "data/i18n/ar/stories.json": "3e07d7b882aeca43",
+  "data/i18n/ar/previews.json": "4b716e6e00e05a79",
+  "netlify/functions/scores.js": "d79cf91b9b6aaa1f"
 }
