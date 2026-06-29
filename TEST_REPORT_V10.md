@@ -60,3 +60,8 @@ Tests fonctionnels à faire après upload :
 - `/?team=dr_congo` : card Angleterre remplie.
 - `/?team=morocco` : card Pays-Bas remplie.
 - Vérifier que les tableaux globaux restent visibles en bas de page.
+
+
+## V10.0.2
+
+Build complet intégrant API-Sports côté front, header agrandi, compteur supporters 9 700, et libellés API clarifiés.

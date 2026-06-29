@@ -1,0 +1,86 @@
+{
+  "bel-sen": {
+    "homeTeam": "belgium",
+    "awayTeam": "senegal",
+    "matchId": "bel-sen",
+    "title": "Belgique–Sénégal : le choc de rang",
+    "angle": "Un test de rang. Pas un match anodin.",
+    "body": [
+      "Belgique–Sénégal, c'est plus qu'un 16e de finale : c'est un test de rang. Les Diables Rouges arrivent avec leur expérience européenne, leur maîtrise et leurs joueurs capables de décider un match sur une action. Les Lions, eux, viennent avec leur orgueil, leur puissance et une histoire qui rappelle que le Sénégal sait faire tomber les grands.",
+      "Il n'y a pas de grande confrontation directe entre les deux nations en Coupe du monde. Tout est donc à écrire. La Belgique veut imposer son statut ; le Sénégal veut faire respecter le sien.",
+      "Le vainqueur pourrait ouvrir la porte vers un duel contre les États-Unis ou la Bosnie-Herzégovine. Les Gaïndés ne viennent pas subir. Ils viennent avancer."
+    ]
+  },
+  "sui-alg": {
+    "homeTeam": "switzerland",
+    "awayTeam": "algeria",
+    "matchId": "sui-alg",
+    "title": "Suisse–Algérie : la précision contre le feu",
+    "angle": "Une page neuve. Pour l'Algérie, elle peut devenir une page de fierté.",
+    "body": [
+      "Suisse–Algérie, c'est le choc entre la précision et le feu. La Suisse est une équipe de tournoi : organisée, disciplinée, difficile à déséquilibrer, rarement naïve. Elle sait attendre, fermer les espaces, survivre aux temps faibles et frapper quand l'adversaire s'impatiente.",
+      "L'Algérie, elle, porte autre chose : une mémoire, une ferveur, une énergie qui peut renverser un match. Les Fennecs savent que dans une phase à élimination directe, le cœur ne suffit pas, mais il peut faire basculer les moments clés.",
+      "Il n'y a pas de grande histoire directe entre Suisse et Algérie en Coupe du monde. Ce match est une page neuve. Pour l'Algérie, elle peut devenir une page de fierté."
+    ]
+  },
+  "bra-jpn": {
+    "homeTeam": "brazil",
+    "awayTeam": "japan",
+    "matchId": "bra-jpn",
+    "title": "Brésil–Japon : l'élève défie le maître",
+    "angle": "Le Japon n'est plus une équipe sympathique. C'est un piège noble.",
+    "body": [
+      "Brésil–Japon, c'est un match de filiation footballistique. Le Japon a beaucoup appris du Brésil. Des techniciens brésiliens ont marqué son développement, son championnat, son imaginaire. Mais l'élève a grandi.",
+      "Le Japon n'est plus une équipe sympathique qui découvre le haut niveau : c'est une nation structurée, disciplinée, capable de battre des grands. En Coupe du monde, le précédent est clair : en 2006, le Brésil avait battu le Japon 4–1. Mais 2026 n'est pas 2006.",
+      "Pour le Brésil, c'est un piège noble : respecter l'adversaire sans oublier son identité. Pour le Japon, c'est l'occasion rêvée de défier son ancien maître sur la plus grande scène."
+    ]
+  },
+  "fra-swe": {
+    "homeTeam": "france",
+    "awayTeam": "sweden",
+    "matchId": "fra-swe",
+    "title": "France–Suède : hiérarchie et piège",
+    "angle": "Pour la France, le danger est simple : croire que ce sera facile.",
+    "body": [
+      "France–Suède, c'est un match de hiérarchie et de piège. La France arrive avec la puissance d'un favori : vitesse, profondeur, banc immense, joueurs décisifs dans toutes les lignes. Les Bleus savent qu'en phase à élimination directe, il ne suffit pas d'être supérieur sur le papier.",
+      "La Suède, elle, arrive avec le costume parfait de l'outsider dangereux. Une équipe sans complexe, capable de défendre dur, de jouer les coups, de transformer une soirée en piège.",
+      "Il n'y a pas de grande confrontation directe récente en phase finale de Coupe du monde entre les deux nations. Mais il y a une histoire européenne, des duels physiques, des matchs tendus. Pour la France, le danger est simple : croire que ce sera facile."
+    ]
+  },
+  "civ-nor": {
+    "homeTeam": "ivory_coast",
+    "awayTeam": "norway",
+    "matchId": "civ-nor",
+    "title": "Côte d'Ivoire–Norvège : la force contre la force",
+    "angle": "Le soir où la Côte d'Ivoire peut cesser d'être un outsider.",
+    "body": [
+      "Côte d'Ivoire–Norvège, c'est la force contre la force. La Norvège arrive avec des noms lourds, une puissance offensive évidente, et des joueurs capables de décider un match sur un appel, une frappe, une transition.",
+      "Les Éléphants, eux, ont l'impact, la densité, la discipline et cette capacité africaine à transformer un match physique en combat mental. Il n'y a pas de grand précédent en Coupe du monde entre la Côte d'Ivoire et la Norvège.",
+      "Tout se jouera donc sur les ingrédients du moment : la gestion des duels, la première erreur, la solidité défensive, l'efficacité dans les surfaces. Ce match peut devenir un marqueur pour les Éléphants : le soir où la Côte d'Ivoire a cessé d'être un outsider dangereux pour devenir une équipe qui avance."
+    ]
+  },
+  "eng-cod": {
+    "homeTeam": "england",
+    "awayTeam": "dr_congo",
+    "matchId": "eng-cod",
+    "title": "Angleterre–RD Congo : le prestige face à l'histoire qui s'éveille",
+    "angle": "Pour les Léopards, l'occasion de faire trembler un géant.",
+    "body": [
+      "Angleterre–RD Congo, c'est le choc entre le prestige et l'histoire qui s'éveille. L'Angleterre arrive avec son statut, ses stars, son championnat, son poids médiatique. Une équipe habituée à être attendue, critiquée, observée.",
+      "Face à elle, la RD Congo arrive avec autre chose : une émotion brute, une victoire historique, et la sensation que tout ce qui vient maintenant est une chance à saisir. Il n'y a pas de vieille rivalité en Coupe du monde entre l'Angleterre et la RD Congo.",
+      "Mais il y a un contraste énorme : une puissance mondiale face à une équipe qui vient de briser 52 ans d'attente. Pour les Anglais, c'est un match à maîtriser. Pour les Léopards, c'est une occasion de faire trembler un géant."
+    ]
+  },
+  "ned-mar": {
+    "homeTeam": "netherlands",
+    "awayTeam": "morocco",
+    "matchId": "ned-mar",
+    "title": "Pays-Bas–Maroc : deux histoires liées",
+    "angle": "Ce n'est pas seulement un match de football. C'est une rencontre entre deux histoires liées.",
+    "body": [
+      "Pays-Bas–Maroc, c'est l'un des matchs les plus chargés émotionnellement du tour. Il y a l'histoire sportive : en 1994, les Pays-Bas avaient battu le Maroc 2–1 en Coupe du monde. Il y a l'histoire humaine : des générations marocaines vivent aux Pays-Bas, et plusieurs joueurs ont grandi dans cette double culture.",
+      "Il y a enfin l'histoire récente : le Maroc demi-finaliste mondial, devenu une équipe que personne ne peut prendre de haut. Les Néerlandais arrivent avec leur tradition de jeu, leur talent, leur assurance. Le Maroc arrive avec sa discipline, son bloc, sa foi.",
+      "Ce n'est pas seulement un match de football. C'est une rencontre entre deux histoires liées, deux publics passionnés, et deux équipes qui savent que le vainqueur enverra un message très fort au tournoi."
+    ]
+  }
+}

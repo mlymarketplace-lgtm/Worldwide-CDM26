@@ -1,0 +1,73 @@
+{
+  "bel-sen": {
+    "home": "belgium",
+    "away": "senegal",
+    "label": "Belgique–Sénégal",
+    "round": "R32",
+    "dateParis": "2026-07-01T22:00:00+02:00",
+    "dateUTC": "2026-07-01T20:00:00Z",
+    "stadium": "Seattle · Lumen Field",
+    "channel_fr": "beIN Sports 1",
+    "note": "Affiche centrale du site actuel."
+  },
+  "sui-alg": {
+    "home": "switzerland",
+    "away": "algeria",
+    "label": "Suisse–Algérie",
+    "round": "R32",
+    "dateParis": "2026-07-03T05:00:00+02:00",
+    "dateUTC": "2026-07-03T03:00:00Z",
+    "stadium": "Vancouver · BC Place",
+    "channel_fr": "beIN Sports 1"
+  },
+  "bra-jpn": {
+    "home": "brazil",
+    "away": "japan",
+    "label": "Brésil–Japon",
+    "round": "R32",
+    "dateParis": "2026-06-29T19:00:00+02:00",
+    "dateUTC": "2026-06-29T17:00:00Z",
+    "stadium": "Houston · NRG Stadium",
+    "channel_fr": "beIN Sports 1"
+  },
+  "fra-swe": {
+    "home": "france",
+    "away": "sweden",
+    "label": "France–Suède",
+    "round": "R32",
+    "dateParis": "2026-06-30T23:00:00+02:00",
+    "dateUTC": "2026-06-30T21:00:00Z",
+    "stadium": "New York · MetLife Stadium",
+    "channel_fr": "beIN Sports 1 / M6"
+  },
+  "civ-nor": {
+    "home": "ivory_coast",
+    "away": "norway",
+    "label": "Côte d’Ivoire–Norvège",
+    "round": "R32",
+    "dateParis": "2026-06-30T19:00:00+02:00",
+    "dateUTC": "2026-06-30T17:00:00Z",
+    "stadium": "Dallas · AT&T Stadium",
+    "channel_fr": "beIN Sports 1"
+  },
+  "eng-cod": {
+    "home": "england",
+    "away": "dr_congo",
+    "label": "Angleterre–RD Congo",
+    "round": "R32",
+    "dateParis": "2026-07-01T18:00:00+02:00",
+    "dateUTC": "2026-07-01T16:00:00Z",
+    "stadium": "Atlanta · Mercedes-Benz Stadium",
+    "channel_fr": "beIN Sports 1 / M6"
+  },
+  "ned-mar": {
+    "home": "netherlands",
+    "away": "morocco",
+    "label": "Pays-Bas–Maroc",
+    "round": "R32",
+    "dateParis": "2026-06-29T03:00:00+02:00",
+    "dateUTC": "2026-06-29T01:00:00Z",
+    "stadium": "Monterrey · Estadio BBVA",
+    "channel_fr": "beIN Sports 1"
+  }
+}

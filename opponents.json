@@ -1,0 +1,50 @@
+{
+  "switzerland": {
+    "teamName": "Suisse",
+    "flag": "🇨🇭",
+    "nickname": "La Nati",
+    "supporterName": "La Nati",
+    "heroPlayer": "Granit Xhaka",
+    "playerImg": "assets/opponents/switzerland/player.png"
+  },
+  "norway": {
+    "teamName": "Norvège",
+    "flag": "🇳🇴",
+    "nickname": "Lions norvégiens",
+    "supporterName": "Lions norvégiens",
+    "heroPlayer": "Erling Haaland",
+    "playerImg": "assets/opponents/norway/player.png"
+  },
+  "japan": {
+    "teamName": "Japon",
+    "flag": "🇯🇵",
+    "nickname": "Samouraïs Bleus",
+    "supporterName": "Samouraïs Bleus",
+    "heroPlayer": "Takefusa Kubo",
+    "playerImg": "assets/opponents/japan/player.png"
+  },
+  "england": {
+    "teamName": "Angleterre",
+    "flag": "🏴",
+    "nickname": "Three Lions",
+    "supporterName": "Three Lions",
+    "heroPlayer": "Jude Bellingham",
+    "playerImg": "assets/opponents/england/player.png"
+  },
+  "netherlands": {
+    "teamName": "Pays-Bas",
+    "flag": "🇳🇱",
+    "nickname": "Oranje",
+    "supporterName": "Oranje",
+    "heroPlayer": "Cody Gakpo",
+    "playerImg": "assets/opponents/netherlands/player.png"
+  },
+  "sweden": {
+    "teamName": "Suède",
+    "flag": "🇸🇪",
+    "nickname": "Blågult",
+    "supporterName": "Blågult",
+    "heroPlayer": "Viktor Gyökeres",
+    "playerImg": "assets/opponents/sweden/player.png"
+  }
+}

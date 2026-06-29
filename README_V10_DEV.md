@@ -33,3 +33,8 @@ Cette V10 ajoute une couche multi-équipes sans toucher au moteur sportif exista
 3. `/?team=brazil` bascule l’identité en Brésil et charge les textes portugais disponibles.
 4. Les tableaux globaux restent visibles : 16es, simulation, meilleurs troisièmes, groupes, leaders.
 5. Le live garde le fallback `live.json` et la fonction Netlify `scores.js`.
+
+
+## V10.0.2
+
+Build complet intégrant API-Sports côté front, header agrandi, compteur supporters 9 700, et libellés API clarifiés.
