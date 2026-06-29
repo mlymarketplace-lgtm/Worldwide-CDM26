@@ -11,8 +11,9 @@
     'new_zealand':{teamName:'Nouvelle-Zélande',flag:'🇳🇿'}, haiti:{teamName:'Haïti',flag:'🇭🇹'}, scotland:{teamName:'Écosse',flag:'🏴󠁧󠁢󠁳󠁣󠁴󠁿'},
     germany:{teamName:'Allemagne',flag:'🇩🇪'}, ecuador:{teamName:'Équateur',flag:'🇪🇨'}, curacao:{teamName:'Curaçao',flag:'🇨🇼'}, portugal:{teamName:'Portugal',flag:'🇵🇹'}, colombia:{teamName:'Colombie',flag:'🇨🇴'}, uzbekistan:{teamName:'Ouzbékistan',flag:'🇺🇿'}, argentina:{teamName:'Argentine',flag:'🇦🇷'}, jordan:{teamName:'Jordanie',flag:'🇯🇴'}, austria:{teamName:'Autriche',flag:'🇦🇹'}, france:{teamName:'France',flag:'🇫🇷'}
   };
-  let state = { teams:{}, matches:{}, results:{}, previews:{}, stories:{}, activeTeamId:null, i18n:{} };
+  let state = { teams:{}, matches:{}, results:{}, opponentResults:{}, opponents:{}, previews:{}, stories:{}, activeTeamId:null, i18n:{} };
   let v10CountdownTimer = null;
+  let v10CountdownTextObserver = null;
 
   const $ = (sel, root=document) => root.querySelector(sel);
   const $$ = (sel, root=document) => Array.from(root.querySelectorAll(sel));
@@ -25,7 +26,7 @@
   async function readOptionalJson(path){
     try { return await readJson(path); } catch(e) { return {}; }
   }
-  function teamLabel(id){ return state.teams[id] || FALLBACK_TEAMS[id] || {teamName:id, flag:'🏳️', supporterName:''}; }
+  function teamLabel(id){ return state.teams[id] || state.opponents[id] || FALLBACK_TEAMS[id] || {teamName:id, flag:'🏳️', supporterName:''}; }
   function mergeTeamI18n(team, lang){ return Object.assign({}, team, (state.i18n?.[lang]?.teams || {})[state.activeTeamId] || {}); }
   function getActiveTeam(){
     const base = state.teams[state.activeTeamId];
@@ -47,6 +48,8 @@
       readJson(DATA_BASE+'teams.json'), readJson(DATA_BASE+'matches.json'), readJson(DATA_BASE+'team-results.json'), readJson(DATA_BASE+'previews.json'), readJson(DATA_BASE+'stories.json')
     ]);
     state.teams = teams; state.matches = matches; state.results = results; state.previews = previews; state.stories = stories;
+    state.opponents = await readOptionalJson(DATA_BASE+'opponents.json');
+    state.opponentResults = await readOptionalJson(DATA_BASE+'opponent-results.json');
     state.i18n.pt = {
       teams: await readOptionalJson(DATA_BASE+'i18n/pt/teams.json'),
       previews: await readOptionalJson(DATA_BASE+'i18n/pt/previews.json'),
@@ -148,31 +151,72 @@
   function renderSide(side, teamId){
     if(!side) return;
     const t = teamLabel(teamId);
-    const known = state.teams[teamId];
-    side.classList.toggle('v10-placeholder', !known);
+    const profile = state.teams[teamId] || state.opponents[teamId] || null;
+    const isOpponent = !state.teams[teamId] && !!state.opponents[teamId];
+    side.classList.toggle('v10-placeholder', !profile);
+    side.classList.toggle('v10-opponent-card', isOpponent);
     side.setAttribute('aria-label', `Forme récente de ${t.teamName}`);
+
     const img = $('.player-photo', side);
-    if(img && known){ img.src = known.heroImg; img.alt = `${known.heroPlayer || known.teamName} · ${known.teamName}`; }
+    const imgSrc = profile?.heroImg || profile?.playerImg || '';
+    if(img){
+      if(imgSrc){
+        img.style.display = '';
+        img.src = imgSrc;
+        img.alt = `${profile.heroPlayer || profile.teamName || t.teamName} · ${t.teamName}`;
+      } else {
+        img.style.display = 'none';
+      }
+    }
+
     const title = $('.side-title', side);
-    if(title) title.innerHTML = `<span>${t.flag || ''} ${safeHtml(t.teamName)}</span><span>${safeHtml(t.supporterName || known?.statusLabel || '')}</span>`;
-    const sub = $('.side-sub', side); if(sub) sub.textContent = known ? 'Trois derniers résultats' : 'Prochain adversaire';
-    const results = state.results[teamId] || [];
+    if(title) title.innerHTML = `<span>${t.flag || ''} ${safeHtml(t.teamName)}</span><span>${safeHtml(t.supporterName || profile?.statusLabel || profile?.nickname || '')}</span>`;
+
+    const sub = $('.side-sub', side);
+    if(sub){
+      const player = profile?.heroPlayer ? ` · ${profile.heroPlayer}` : '';
+      sub.textContent = `${isOpponent ? 'Adversaire à surveiller' : 'Trois derniers résultats'}${player}`;
+    }
+
+    const results = state.results[teamId] || state.opponentResults[teamId] || [];
     const list = $('.form-list', side);
-    if(list && known){
-      list.innerHTML = results.map(r => `<div class="form-row"><span>${safeHtml(r.label)}</span><strong>${safeHtml(r.result)}</strong></div>`).join('');
+    if(list){
+      list.style.display = results.length ? '' : 'none';
+      list.innerHTML = results.map(r => `<div class="form-row ${resultClass(r.result)}"><span>${safeHtml(r.label)}</span><strong>${safeHtml(r.result)}</strong></div>`).join('');
     }
   }
 
   function renderCountdown(teamId, team){
     const match = state.matches[team.nextMatchId]; if(!match) return;
-    const secBefore = Array.from(document.querySelectorAll('.sec')).find(el => /Prochaine rencontre|Próximo encontro|Next/.test(el.textContent));
-    if(secBefore) secBefore.innerHTML = `<img class="section-mascot" src="assets/lion-mascotte.png" alt="Mascotte">Prochaine rencontre de ${safeHtml(team.teamName)}`;
+    const secBefore = Array.from(document.querySelectorAll('.sec')).find(el => /Prochaine|Próximo|Proximo|Next/i.test(el.textContent));
+    if(secBefore){
+      const sectionText = team.defaultLang === 'pt' ? `Próximo jogo do ${safeHtml(team.teamName)}` : `Prochaine rencontre de ${safeHtml(team.teamName)}`;
+      secBefore.innerHTML = `<img class="section-mascot" src="assets/lion-mascotte.png" alt="Mascotte">${sectionText}`;
+    }
     const home = teamLabel(match.home), away = teamLabel(match.away);
     const cmatch = $('.countdown-match'); if(cmatch) cmatch.textContent = `${home.flag || ''} ${home.teamName} vs ${away.teamName} ${away.flag || ''}`;
     const meta = $('.countdown-meta'); if(meta) meta.textContent = `${formatDateParis(match.dateParis)} · ${match.stadium || ''}${match.channel_fr ? ' · ' + match.channel_fr : ''}`;
     renderSide($('.player-side.bel'), match.home);
     renderSide($('.player-side.sen'), match.away);
     startV10Countdown(match.dateParis, team);
+  }
+
+  function countdownFixedMessage(team, isMatchDay){
+    if(isMatchDay) return team.defaultLang === 'pt' ? `Dia de jogo: ${team.teamName} entra em campo.` : `Jour de match : ${team.teamName} entre dans l’arène.`;
+    return team.defaultLang === 'pt' ? 'Próximo compromisso mundial.' : 'Prochain rendez-vous mondial.';
+  }
+
+  function lockCountdownMessage(team, isMatchDay){
+    const msg = $('#countdown-end-msg');
+    if(!msg) return;
+    const fixed = countdownFixedMessage(team, isMatchDay);
+    msg.textContent = fixed;
+    msg.dataset.v10FixedText = fixed;
+    if(v10CountdownTextObserver) v10CountdownTextObserver.disconnect();
+    v10CountdownTextObserver = new MutationObserver(() => {
+      if(msg.textContent !== msg.dataset.v10FixedText) msg.textContent = msg.dataset.v10FixedText;
+    });
+    v10CountdownTextObserver.observe(msg, { childList:true, characterData:true, subtree:true });
   }
 
   function startV10Countdown(iso, team){
@@ -188,8 +232,7 @@
       const mins = Math.floor(diff/60000); diff -= mins*60000;
       const secs = Math.floor(diff/1000);
       set('cd-days', days); set('cd-hours', hours); set('cd-min', mins); set('cd-sec', secs);
-      const msg = $('#countdown-end-msg');
-      if(msg) msg.textContent = target <= now ? `Jour de match : ${team.teamName} entre dans l’arène.` : `Les secondes défilent : ${team.supporterName || team.teamName} arrivent.`;
+      lockCountdownMessage(team, target <= now);
     }
     tick(); v10CountdownTimer = setInterval(tick, 900);
   }

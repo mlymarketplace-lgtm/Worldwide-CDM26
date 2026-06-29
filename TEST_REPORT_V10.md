@@ -39,3 +39,24 @@
 ## Limite assumée
 
 Cette V10 ne transforme pas encore le moteur sportif interne. Elle ajoute une couche UX/data-driven autour de la V9.8 stable, conformément à la stratégie prudente.
+
+## Addendum V10.0.1
+
+Contrôles réalisés :
+
+- JSON valides : `opponents.json`, `opponent-results.json`, `teams.json`, `matches.json`, `team-results.json`.
+- Syntaxe JS valide : `src/v10/v10-team-app.js`.
+- Assets adversaires présents pour Japon, Suisse, Suède, Norvège, Angleterre, Pays-Bas.
+- Le patch reste isolé dans la couche V10.
+- Aucun changement sur `scores.js`, `live.json`, `stats.json`.
+
+Tests fonctionnels à faire après upload :
+
+- `/` : la page de choix des 8 équipes reste affichée.
+- `/?team=brazil` : card Japon remplie + message countdown fixe.
+- `/?team=algeria` : card Suisse remplie.
+- `/?team=france` : card Suède remplie.
+- `/?team=ivory_coast` : card Norvège remplie.
+- `/?team=dr_congo` : card Angleterre remplie.
+- `/?team=morocco` : card Pays-Bas remplie.
+- Vérifier que les tableaux globaux restent visibles en bas de page.
