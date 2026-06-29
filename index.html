@@ -24,6 +24,15 @@ html.v10-booting #v10-team-selector, html.v10-booting .v10-selector{visibility:v
 .r32-card.api-scored .r32-scoreline span{color:#86efac;font-weight:900;}
 @media(display-mode:standalone){.v10-change-team{bottom:18px}.ticker-wrap{position:sticky;top:0;z-index:20;}}
 
+/* V10.3.4 — R32 anti-duplicate score: inline team scores only */
+.r32-grid .r32-scoreline{display:none !important;}
+.r32-card.api-scored .r32-note{color:#86efac;}
+.r32-team-left{display:flex;align-items:center;gap:8px;min-width:0;}
+.r32-team-name{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.r32-inline-score{display:inline-flex;align-items:center;justify-content:center;min-width:24px;height:24px;border-radius:8px;border:1px solid #4ade8050;background:#062612;color:#bbf7d0;font-family:Oswald,sans-serif;font-weight:900;font-size:.9rem;line-height:1;}
+.r32-inline-score.r32-score-empty{border-color:#ffffff14;background:#ffffff08;color:#6b7280;}
+
+
 </style>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap');
@@ -2367,11 +2376,6 @@ function renderRound32Grid() {
      <div class="r32-teams">
         ${r32Team(c.a || 'À définir', c.id, 0, String(c.a||'').includes('Sénégal') ? 'sen' : '', score[0])}
         ${r32Team(c.b || 'À définir', c.id, 1, String(c.b||'').includes('Sénégal') ? 'sen' : '', score[1])}
-     </div>
-     <div class="r32-scoreline">
-       <input type="number" min="0" placeholder="-" value="${score[0] ?? ''}" aria-label="Score ${escapeAttr(c.a)}" onclick="event.stopPropagation()" onchange="setR32Score('${c.id}',0,this.value)"${officialHint}>
-       <span>${status || t('score')}</span>
-       <input type="number" min="0" placeholder="-" value="${score[1] ?? ''}" aria-label="Score ${escapeAttr(c.b)}" onclick="event.stopPropagation()" onchange="setR32Score('${c.id}',1,this.value)"${officialHint}>
      </div>
      <div class="r32-note"><strong>${c.venue || ''}</strong>${status ? ' · ' + status : ''}${c.note ? ' · ' + c.note : ''}</div>
    </div>`;
