@@ -6,15 +6,13 @@
     "secondary": "#FDEF42",
     "accent": "#E31B23",
     "heroImg": "assets/teams/senegal/player.webp",
+    "heroPng": "assets/sadio-mane.png",
     "bannerImg": "assets/teams/senegal/banner.webp",
-    "mascotImg": "assets/teams/senegal/mascot.png",
     "heroPlayer": "Sadio Mané",
     "nextMatchId": "bel-sen",
     "defaultLang": "fr",
     "tagline": "Une histoire de Gaïndés",
-    "statusLabel": "Champion d’Afrique · En mission",
-    "supporterName": "Gaïndés",
-    "selectorLine": "Une histoire de courage et de Téranga"
+    "statusLabel": "Champion d'Afrique · En mission"
   },
   "algeria": {
     "teamName": "Algérie",
@@ -23,15 +21,11 @@
     "secondary": "#FFFFFF",
     "accent": "#D21034",
     "heroImg": "assets/teams/algeria/player.webp",
-    "bannerImg": "assets/teams/algeria/banner.webp",
-    "mascotImg": null,
     "heroPlayer": "Riyad Mahrez",
     "nextMatchId": "sui-alg",
     "defaultLang": "fr",
     "tagline": "La fierté des Fennecs",
-    "statusLabel": "Fennecs · Mémoire de Gijón",
-    "supporterName": "Fennecs",
-    "selectorLine": "La mémoire, le feu et la fierté"
+    "statusLabel": "Fennecs · Mémoire de Gijón"
   },
   "belgium": {
     "teamName": "Belgique",
@@ -40,15 +34,12 @@
     "secondary": "#FFD90C",
     "accent": "#000000",
     "heroImg": "assets/teams/belgium/player.webp",
-    "bannerImg": "assets/teams/belgium/banner.webp",
+    "heroPng": "assets/kevin-de-bruyne.png",
     "heroPlayer": "Kevin De Bruyne",
     "nextMatchId": "bel-sen",
     "defaultLang": "fr",
     "tagline": "Les Diables Rouges face au test africain",
-    "statusLabel": "Grande nation européenne · Expérience et maîtrise",
-    "supporterName": "Diables Rouges",
-    "selectorLine": "Expérience européenne et maîtrise",
-    "mascotImg": null
+    "statusLabel": "Grande nation européenne · Expérience et maîtrise"
   },
   "brazil": {
     "teamName": "Brésil",
@@ -57,15 +48,11 @@
     "secondary": "#FFDF00",
     "accent": "#002776",
     "heroImg": "assets/teams/brazil/player.webp",
-    "bannerImg": "assets/teams/brazil/banner.webp",
     "heroPlayer": "Vinícius Júnior",
     "nextMatchId": "bra-jpn",
     "defaultLang": "pt",
     "tagline": "O país do futebol",
-    "statusLabel": "Puissance mondiale · Culture de la victoire",
-    "supporterName": "Seleção",
-    "selectorLine": "O país do futebol",
-    "mascotImg": null
+    "statusLabel": "Puissance mondiale · Culture de la victoire"
   },
   "france": {
     "teamName": "France",
@@ -74,32 +61,24 @@
     "secondary": "#EF4135",
     "accent": "#FFFFFF",
     "heroImg": "assets/teams/france/player.webp",
-    "bannerImg": "assets/teams/france/banner.webp",
     "heroPlayer": "Kylian Mbappé",
     "nextMatchId": "fra-swe",
     "defaultLang": "fr",
     "tagline": "Les Bleus, candidats au titre",
-    "statusLabel": "Favori mondial · Statut à assumer",
-    "supporterName": "Bleus",
-    "selectorLine": "Favori mondial, vitesse et rang",
-    "mascotImg": null
+    "statusLabel": "Favori mondial · Ancien n°1 FIFA récent"
   },
   "ivory_coast": {
-    "teamName": "Côte d’Ivoire",
+    "teamName": "Côte d'Ivoire",
     "flag": "🇨🇮",
     "primary": "#F77F00",
     "secondary": "#FFFFFF",
     "accent": "#009E60",
     "heroImg": "assets/teams/ivory_coast/player.webp",
-    "bannerImg": "assets/teams/ivory_coast/banner.webp",
     "heroPlayer": "Franck Kessié",
     "nextMatchId": "civ-nor",
     "defaultLang": "fr",
     "tagline": "Les Éléphants veulent faire trembler le monde",
-    "statusLabel": "Puissance africaine · Impact et caractère",
-    "supporterName": "Éléphants",
-    "selectorLine": "Impact, caractère et puissance",
-    "mascotImg": null
+    "statusLabel": "Puissance africaine · Impact et caractère"
   },
   "dr_congo": {
     "teamName": "RD Congo",
@@ -108,15 +87,11 @@
     "secondary": "#F7D618",
     "accent": "#CE1021",
     "heroImg": "assets/teams/dr_congo/player.webp",
-    "bannerImg": "assets/teams/dr_congo/banner.webp",
     "heroPlayer": "Chancel Mbemba",
     "nextMatchId": "eng-cod",
     "defaultLang": "fr",
     "tagline": "Les Léopards écrivent leur histoire",
-    "statusLabel": "Léopards · Fierté retrouvée",
-    "supporterName": "Léopards",
-    "selectorLine": "Le retour, la réparation, le rugissement",
-    "mascotImg": null
+    "statusLabel": "Léopards · Fierté retrouvée"
   },
   "morocco": {
     "teamName": "Maroc",
@@ -125,48 +100,36 @@
     "secondary": "#006233",
     "accent": "#FFFFFF",
     "heroImg": "assets/teams/morocco/player.webp",
-    "bannerImg": "assets/teams/morocco/banner.webp",
     "heroPlayer": "Achraf Hakimi",
     "nextMatchId": "ned-mar",
     "defaultLang": "fr",
-    "tagline": "Les Lions de l’Atlas, une ambition continentale",
-    "statusLabel": "Demi-finaliste historique · Respect mondial",
-    "supporterName": "Lions de l’Atlas",
-    "selectorLine": "Du miracle au rang mondial",
-    "mascotImg": null
+    "tagline": "Les Lions de l'Atlas, une ambition continentale",
+    "statusLabel": "Demi-finaliste historique · Respect mondial"
   },
   "spain": {
     "teamName": "Espagne",
     "flag": "🇪🇸",
     "primary": "#AA151B",
     "secondary": "#F1BF00",
-    "accent": "#0039A6",
+    "accent": "#FFFFFF",
     "heroImg": "assets/teams/spain/player.webp",
-    "bannerImg": "assets/teams/spain/banner.webp",
     "heroPlayer": "Rodri",
     "nextMatchId": "esp-aut",
     "defaultLang": "es",
-    "tagline": "La Roja, l’empire du contrôle",
-    "statusLabel": "1re du groupe H · Invaincue · 7 pts",
-    "supporterName": "La Roja",
-    "selectorLine": "Maîtrise, patience et ambition mondiale",
-    "mascotImg": null
+    "tagline": "La Roja, candidata al título",
+    "statusLabel": "Campeona de Europa · Favorita mundial"
   },
   "egypt": {
     "teamName": "Égypte",
     "flag": "🇪🇬",
-    "primary": "#CE1126",
+    "primary": "#C8102E",
     "secondary": "#FFFFFF",
     "accent": "#000000",
     "heroImg": "assets/teams/egypt/player.webp",
-    "bannerImg": "assets/teams/egypt/banner.webp",
     "heroPlayer": "Mohamed Salah",
     "nextMatchId": "aus-egy",
     "defaultLang": "ar",
-    "tagline": "Les Pharaons et le rêve de Salah",
-    "statusLabel": "2e du groupe G · 4 pts · Expérience africaine",
-    "supporterName": "Pharaons",
-    "selectorLine": "Salah, mémoire africaine et rêve mondial",
-    "mascotImg": null
+    "tagline": "الفراعنة في قلب المونديال",
+    "statusLabel": "Pharaons · Première qualification en phase finale"
   }
 }

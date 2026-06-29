@@ -1,66 +1,64 @@
 {
-  "switzerland": {
-    "teamName": "Suisse",
-    "flag": "🇨🇭",
-    "nickname": "La Nati",
-    "supporterName": "La Nati",
-    "heroPlayer": "Granit Xhaka",
-    "playerImg": "assets/opponents/switzerland/player.webp"
-  },
-  "norway": {
-    "teamName": "Norvège",
-    "flag": "🇳🇴",
-    "nickname": "Lions norvégiens",
-    "supporterName": "Lions norvégiens",
-    "heroPlayer": "Erling Haaland",
-    "playerImg": "assets/opponents/norway/player.webp"
-  },
-  "japan": {
-    "teamName": "Japon",
-    "flag": "🇯🇵",
-    "nickname": "Samouraïs Bleus",
-    "supporterName": "Samouraïs Bleus",
-    "heroPlayer": "Takefusa Kubo",
-    "playerImg": "assets/opponents/japan/player.webp"
-  },
-  "england": {
-    "teamName": "Angleterre",
-    "flag": "🏴",
-    "nickname": "Three Lions",
-    "supporterName": "Three Lions",
-    "heroPlayer": "Jude Bellingham",
-    "playerImg": "assets/opponents/england/player.webp"
-  },
-  "netherlands": {
-    "teamName": "Pays-Bas",
-    "flag": "🇳🇱",
-    "nickname": "Oranje",
-    "supporterName": "Oranje",
-    "heroPlayer": "Cody Gakpo",
-    "playerImg": "assets/opponents/netherlands/player.webp"
-  },
-  "sweden": {
-    "teamName": "Suède",
-    "flag": "🇸🇪",
-    "nickname": "Blågult",
-    "supporterName": "Blågult",
-    "heroPlayer": "Viktor Gyökeres",
-    "playerImg": "assets/opponents/sweden/player.webp"
-  },
-  "austria": {
-    "teamName": "Autriche",
-    "flag": "🇦🇹",
-    "nickname": "Das Team",
-    "supporterName": "Das Team",
-    "heroPlayer": "Marko Arnautović",
-    "playerImg": "assets/opponents/austria/player.webp"
+  "belgium": {
+    "teamName": "Belgique", "flag": "🇧🇪",
+    "heroPlayer": "Kevin De Bruyne",
+    "heroImg": "assets/teams/belgium/player.webp",
+    "heroPng": "assets/kevin-de-bruyne.png",
+    "nickname": "Diables Rouges"
   },
   "australia": {
-    "teamName": "Australie",
-    "flag": "🇦🇺",
-    "nickname": "Socceroos",
-    "supporterName": "Socceroos",
+    "teamName": "Australie", "flag": "🇦🇺",
     "heroPlayer": "Nestory Irankunda",
-    "playerImg": "assets/opponents/australia/player.webp"
+    "heroImg": "assets/opponents/australia/player.webp",
+    "nickname": "Socceroos"
+  },
+  "japan": {
+    "teamName": "Japon", "flag": "🇯🇵",
+    "heroPlayer": "Takefusa Kubo",
+    "heroImg": "assets/opponents/japan/player.webp",
+    "nickname": "Samouraïs Bleus"
+  },
+  "switzerland": {
+    "teamName": "Suisse", "flag": "🇨🇭",
+    "heroPlayer": "Granit Xhaka",
+    "heroImg": "assets/opponents/switzerland/player.webp",
+    "nickname": "Nati"
+  },
+  "sweden": {
+    "teamName": "Suède", "flag": "🇸🇪",
+    "heroPlayer": "Viktor Gyökeres",
+    "heroImg": "assets/opponents/sweden/player.webp",
+    "nickname": "Blågult"
+  },
+  "norway": {
+    "teamName": "Norvège", "flag": "🇳🇴",
+    "heroPlayer": "Erling Haaland",
+    "heroImg": "assets/opponents/norway/player.webp",
+    "nickname": "Vikings"
+  },
+  "england": {
+    "teamName": "Angleterre", "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+    "heroPlayer": "Jude Bellingham",
+    "heroImg": "assets/opponents/england/player.webp",
+    "nickname": "Three Lions"
+  },
+  "netherlands": {
+    "teamName": "Pays-Bas", "flag": "🇳🇱",
+    "heroPlayer": "Cody Gakpo",
+    "heroImg": "assets/opponents/netherlands/player.webp",
+    "nickname": "Oranje"
+  },
+  "austria": {
+    "teamName": "Autriche", "flag": "🇦🇹",
+    "heroPlayer": "Marko Arnautović",
+    "heroImg": "assets/opponents/austria/player.webp",
+    "nickname": "Équipe nationale"
+  },
+  "senegal": {
+    "teamName": "Sénégal", "flag": "🇸🇳",
+    "heroPlayer": "Sadio Mané",
+    "heroImg": "assets/teams/senegal/player.webp",
+    "heroPng": "assets/sadio-mane.png",
+    "nickname": "Lions de la Téranga"
   }
 }
