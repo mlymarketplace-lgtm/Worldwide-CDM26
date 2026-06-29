@@ -1,0 +1,33 @@
+{
+  "spain": {
+    "teamName": "España",
+    "tagline": "La Roja, el imperio del control",
+    "statusLabel": "1.ª del grupo H · Invicta · 7 pts",
+    "supporterName": "La Roja",
+    "selectorLine": "Dominio, paciencia y ambición mundial",
+    "heroTitle": "🇪🇸 España en la Copa Mundial 2026",
+    "heroSubtitle": "Una historia de control, carácter y grandeza",
+    "heroPlayer": "Rodri"
+  },
+  "austria": {
+    "teamName": "Austria",
+    "nickname": "Das Team",
+    "supporterName": "Das Team",
+    "heroPlayer": "Marko Arnautović"
+  },
+  "brazil": {
+    "teamName": "Brasil"
+  },
+  "japan": {
+    "teamName": "Japón",
+    "supporterName": "Samuráis Azules"
+  },
+  "egypt": {
+    "teamName": "Egipto",
+    "supporterName": "Faraones"
+  },
+  "australia": {
+    "teamName": "Australia",
+    "supporterName": "Socceroos"
+  }
+}

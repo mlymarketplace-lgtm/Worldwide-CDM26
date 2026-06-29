@@ -8,7 +8,10 @@
     "dateUTC": "2026-07-01T20:00:00Z",
     "stadium": "Seattle · Lumen Field",
     "channel_fr": "beIN Sports 1",
-    "note": "Affiche centrale du site actuel."
+    "note": "Affiche centrale du site actuel.",
+    "label_es": "Bélgica–Senegal",
+    "label_pt": "Bélgica–Senegal",
+    "label_en": "Belgium–Senegal"
   },
   "sui-alg": {
     "home": "switzerland",
@@ -28,7 +31,10 @@
     "dateParis": "2026-06-29T19:00:00+02:00",
     "dateUTC": "2026-06-29T17:00:00Z",
     "stadium": "Houston · NRG Stadium",
-    "channel_fr": "beIN Sports 1"
+    "channel_fr": "beIN Sports 1",
+    "label_es": "Brasil–Japón",
+    "label_pt": "Brasil–Japão",
+    "label_en": "Brazil–Japan"
   },
   "fra-swe": {
     "home": "france",
@@ -79,7 +85,10 @@
     "dateUTC": "2026-07-02T19:00:00Z",
     "stadium": "Los Angeles · SoFi Stadium",
     "channel_fr": "beIN Sports 1",
-    "note": "La maîtrise de la Roja face au piège autrichien."
+    "note": "La maîtrise de la Roja face au piège autrichien.",
+    "label_es": "España–Austria",
+    "label_pt": "Espanha–Áustria",
+    "label_en": "Spain–Austria"
   },
   "aus-egy": {
     "home": "australia",
@@ -90,6 +99,8 @@
     "dateUTC": "2026-07-03T18:00:00Z",
     "stadium": "Dallas · AT&T Stadium",
     "channel_fr": "beIN Sports 1",
-    "note": "Impact australien contre expérience africaine des Pharaons."
+    "note": "Impact australien contre expérience africaine des Pharaons.",
+    "label_es": "Australia–Egipto",
+    "label_en": "Australia–Egypt"
   }
 }

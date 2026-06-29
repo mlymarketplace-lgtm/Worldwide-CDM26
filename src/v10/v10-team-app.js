@@ -12,7 +12,7 @@
     'new_zealand':{teamName:'Nouvelle-Zélande',flag:'🇳🇿'}, haiti:{teamName:'Haïti',flag:'🇭🇹'}, scotland:{teamName:'Écosse',flag:'🏴󠁧󠁢󠁳󠁣󠁴󠁿'},
     germany:{teamName:'Allemagne',flag:'🇩🇪'}, ecuador:{teamName:'Équateur',flag:'🇪🇨'}, curacao:{teamName:'Curaçao',flag:'🇨🇼'}, portugal:{teamName:'Portugal',flag:'🇵🇹'}, colombia:{teamName:'Colombie',flag:'🇨🇴'}, uzbekistan:{teamName:'Ouzbékistan',flag:'🇺🇿'}, argentina:{teamName:'Argentine',flag:'🇦🇷'}, jordan:{teamName:'Jordanie',flag:'🇯🇴'}, austria:{teamName:'Autriche',flag:'🇦🇹'}, australia:{teamName:'Australie',flag:'🇦🇺'}, spain:{teamName:'Espagne',flag:'🇪🇸'}, france:{teamName:'France',flag:'🇫🇷'}
   };
-  let state = { teams:{}, matches:{}, results:{}, opponentResults:{}, opponents:{}, previews:{}, stories:{}, activeTeamId:null, i18n:{} };
+  let state = { teams:{}, matches:{}, results:{}, opponentResults:{}, opponents:{}, previews:{}, stories:{}, activeTeamId:null, activeLang:'fr', i18n:{} };
   let v10CountdownTimer = null;
   let v10CountdownTextObserver = null;
 
@@ -27,19 +27,34 @@
   async function readOptionalJson(path){
     try { return await readJson(path); } catch(e) { return {}; }
   }
-  function teamLabel(id){ return state.teams[id] || state.opponents[id] || FALLBACK_TEAMS[id] || {teamName:id, flag:'🏳️', supporterName:''}; }
+  function teamLabel(id){
+    const base = state.teams[id] || state.opponents[id] || FALLBACK_TEAMS[id] || {teamName:id, flag:'🏳️', supporterName:''};
+    const tr = (state.i18n?.[state.activeLang]?.teams || {})[id] || {};
+    return Object.assign({}, base, tr);
+  }
   function mergeTeamI18n(team, lang){ return Object.assign({}, team, (state.i18n?.[lang]?.teams || {})[state.activeTeamId] || {}); }
   function getActiveTeam(){
     const base = state.teams[state.activeTeamId];
     if(!base) return null;
-    return mergeTeamI18n(base, base.defaultLang);
+    return mergeTeamI18n(base, state.activeLang || base.defaultLang || 'fr');
   }
-  function getPreview(matchId, lang){ return ((state.i18n?.[lang]?.previews || {})[matchId]) || state.previews[matchId]; }
-  function getStory(teamId, lang){ return ((state.i18n?.[lang]?.stories || {})[teamId]) || state.stories[teamId]; }
-  function formatDateParis(iso){
+  function getPreview(matchId, lang){ return ((state.i18n?.[lang || state.activeLang]?.previews || {})[matchId]) || state.previews[matchId]; }
+  function getStory(teamId, lang){ return ((state.i18n?.[lang || state.activeLang]?.stories || {})[teamId]) || state.stories[teamId]; }
+  function formatDateParis(iso, lang){
     const d = new Date(iso);
     if(Number.isNaN(d.getTime())) return '';
-    return new Intl.DateTimeFormat('fr-FR',{weekday:'long',day:'numeric',month:'long',year:'numeric',hour:'2-digit',minute:'2-digit',timeZone:'Europe/Paris'}).format(d).replace(':','h');
+    const locale = lang === 'es' ? 'es-ES' : lang === 'pt' ? 'pt-PT' : lang === 'en' ? 'en-GB' : 'fr-FR';
+    const txt = new Intl.DateTimeFormat(locale,{weekday:'long',day:'numeric',month:'long',year:'numeric',hour:'2-digit',minute:'2-digit',timeZone:'Europe/Paris'}).format(d);
+    return lang === 'en' ? txt : txt.replace(':','h');
+  }
+  function matchLabel(match){ return match ? (match['label_' + (state.activeLang || 'fr')] || match.label || '') : ''; }
+  function headerSuffix(lang){ return lang === 'es' ? 'Mundial 2026' : lang === 'pt' ? 'Copa 2026' : lang === 'en' ? 'WC 2026' : 'CM 2026'; }
+  function heroTitleFor(team){
+    if(team.heroTitle) return team.heroTitle;
+    if(state.activeLang === 'es') return `${team.flag} ${team.teamName} en la Copa Mundial 2026`;
+    if(state.activeLang === 'pt') return `${team.flag} ${team.teamName} na Copa do Mundo 2026`;
+    if(state.activeLang === 'en') return `${team.flag} ${team.teamName} at the 2026 World Cup`;
+    return `${team.flag} ${team.teamName} à la Coupe du monde 2026`;
   }
   function resultClass(code){ return code === 'V' ? 'win' : code === 'D' ? 'loss' : 'draw'; }
   function safeHtml(str){ const div = document.createElement('div'); div.textContent = str || ''; return div.innerHTML; }
@@ -55,6 +70,11 @@
       teams: await readOptionalJson(DATA_BASE+'i18n/pt/teams.json'),
       previews: await readOptionalJson(DATA_BASE+'i18n/pt/previews.json'),
       stories: await readOptionalJson(DATA_BASE+'i18n/pt/stories.json')
+    };
+    state.i18n.es = {
+      teams: await readOptionalJson(DATA_BASE+'i18n/es/teams.json'),
+      previews: await readOptionalJson(DATA_BASE+'i18n/es/previews.json'),
+      stories: await readOptionalJson(DATA_BASE+'i18n/es/stories.json')
     };
   }
 
@@ -109,15 +129,20 @@
   }
 
   function renderHeader(team){
+    const lang = state.activeLang || team.defaultLang || 'fr';
     document.title = `${team.teamName} · QualifGaïndé Worldwide`;
-    document.documentElement.lang = team.defaultLang || 'fr';
-    const titleSpan = $('.htitle span'); if(titleSpan) titleSpan.textContent = team.teamName;
+    document.documentElement.lang = lang;
     const htitle = $('.htitle');
-    if(htitle && !$('.v10-active-team-pill', htitle)) htitle.insertAdjacentHTML('beforeend', `<span class="v10-active-team-pill">${team.flag} ${team.supporterName || ''}</span>`);
+    if(htitle){
+      htitle.innerHTML = `<span>${safeHtml(team.teamName)}</span> — ${headerSuffix(lang)}<span class="v10-active-team-pill">${team.flag} ${safeHtml(team.supporterName || '')}</span>`;
+    }
     const kicker = $('.site-kicker'); if(kicker) kicker.textContent = team.tagline || team.statusLabel || 'QualifGaïndé Worldwide';
     const logo = $('.mascot-logo');
     if(logo){ logo.src = team.mascotImg || team.heroImg || logo.src; logo.alt = team.heroPlayer || team.teamName; }
-    const music = $('#btn-music'); if(music) music.textContent = team.defaultLang === 'pt' ? 'Ambiente de estádio' : `Ambiance ${team.supporterName || team.teamName}`;
+    const music = $('#btn-music');
+    if(music){
+      music.textContent = lang === 'pt' ? 'Ambiente de estádio' : lang === 'es' ? `Ambiente ${team.supporterName || team.teamName}` : `Ambiance ${team.supporterName || team.teamName}`;
+    }
   }
 
   function renderHeaderScores(teamId){
@@ -136,17 +161,21 @@
   function renderHero(team){
     const img = $('#hero-banner img');
     if(img){ img.src = team.bannerImg || img.src; img.alt = `${team.teamName} · QualifGaïndé Worldwide`; }
-    const title = $('#hero-title'); if(title) title.textContent = `${team.flag} ${team.teamName} à la Coupe du monde 2026`;
-    const sub = $('#hero-subtitle'); if(sub) sub.textContent = team.tagline || team.statusLabel || '';
+    const title = $('#hero-title'); if(title) title.textContent = heroTitleFor(team);
+    const sub = $('#hero-subtitle'); if(sub) sub.textContent = team.heroSubtitle || team.tagline || team.statusLabel || '';
   }
 
   function renderOpponent(teamId, team){
     const match = state.matches[team.nextMatchId]; if(!match) return;
     const oppId = match.home === teamId ? match.away : match.home;
     const opp = teamLabel(oppId);
-    const card = $('#probable-opponent'); if(card) card.title = `Prochain match : ${match.label}`;
+    const card = $('#probable-opponent'); if(card) card.title = `Prochain match : ${matchLabel(match)}`;
+    const label = $('.opp-label'); if(label){
+      const txt = state.activeLang === 'es' ? 'Próximo partido R32' : state.activeLang === 'pt' ? 'Próximo jogo R32' : 'Prochain match R32';
+      label.innerHTML = `<img class="section-mascot" src="assets/lion-mascotte.png" alt="Mascotte">${txt}`;
+    }
     const name = $('#opp-main-name'); if(name) name.textContent = `${opp.flag || ''} ${opp.teamName || oppId}`;
-    const sub = $('#opp-main-sub'); if(sub) sub.textContent = `${match.label} · ${formatDateParis(match.dateParis)} · ${match.stadium || ''}`;
+    const sub = $('#opp-main-sub'); if(sub) sub.textContent = `${matchLabel(match)} · ${formatDateParis(match.dateParis, state.activeLang)} · ${match.stadium || ''}`;
   }
 
   function renderSide(side, teamId){
@@ -191,20 +220,29 @@
     const match = state.matches[team.nextMatchId]; if(!match) return;
     const secBefore = Array.from(document.querySelectorAll('.sec')).find(el => /Prochaine|Próximo|Proximo|Next/i.test(el.textContent));
     if(secBefore){
-      const sectionText = team.defaultLang === 'pt' ? `Próximo jogo do ${safeHtml(team.teamName)}` : `Prochaine rencontre de ${safeHtml(team.teamName)}`;
+      const sectionText = state.activeLang === 'pt' ? `Próximo jogo do ${safeHtml(team.teamName)}` : state.activeLang === 'es' ? `Próximo partido de ${safeHtml(team.teamName)}` : state.activeLang === 'en' ? `Next match for ${safeHtml(team.teamName)}` : `Prochaine rencontre de ${safeHtml(team.teamName)}`;
       secBefore.innerHTML = `<img class="section-mascot" src="assets/lion-mascotte.png" alt="Mascotte">${sectionText}`;
     }
     const home = teamLabel(match.home), away = teamLabel(match.away);
     const cmatch = $('.countdown-match'); if(cmatch) cmatch.textContent = `${home.flag || ''} ${home.teamName} vs ${away.teamName} ${away.flag || ''}`;
-    const meta = $('.countdown-meta'); if(meta) meta.textContent = `${formatDateParis(match.dateParis)} · ${match.stadium || ''}${match.channel_fr ? ' · ' + match.channel_fr : ''}`;
+    const meta = $('.countdown-meta'); if(meta) meta.textContent = `${formatDateParis(match.dateParis, state.activeLang)} · ${match.stadium || ''}${match.channel_fr ? ' · ' + match.channel_fr : ''}`;
     renderSide($('.player-side.bel'), match.home);
     renderSide($('.player-side.sen'), match.away);
     startV10Countdown(match.dateParis, team);
   }
 
   function countdownFixedMessage(team, isMatchDay){
-    if(isMatchDay) return team.defaultLang === 'pt' ? `Dia de jogo: ${team.teamName} entra em campo.` : `Jour de match : ${team.teamName} entre dans l’arène.`;
-    return team.defaultLang === 'pt' ? 'Próximo compromisso mundial.' : 'Prochain rendez-vous mondial.';
+    const lang = state.activeLang || team.defaultLang || 'fr';
+    if(isMatchDay){
+      if(lang === 'pt') return `Dia de jogo: ${team.teamName} entra em campo.`;
+      if(lang === 'es') return `Día de partido: ${team.teamName} entra en escena.`;
+      if(lang === 'en') return `Match day: ${team.teamName} steps onto the stage.`;
+      return `Jour de match : ${team.teamName} entre dans l’arène.`;
+    }
+    if(lang === 'pt') return 'Próximo compromisso mundial.';
+    if(lang === 'es') return 'Próxima cita mundial.';
+    if(lang === 'en') return 'Next World Cup appointment.';
+    return 'Prochain rendez-vous mondial.';
   }
 
   function lockCountdownMessage(team, isMatchDay){
@@ -240,7 +278,7 @@
 
   function renderPreview(team){
     const matchId = team.nextMatchId;
-    const preview = getPreview(matchId, team.defaultLang);
+    const preview = getPreview(matchId, state.activeLang || team.defaultLang);
     if(!preview) return;
     const title = $('#belgique-senegal .teaser-title');
     if(title) title.innerHTML = `<img class="section-mascot" src="assets/lion-mascotte.png" alt="Mascotte">${safeHtml(preview.title)}`;
@@ -253,7 +291,7 @@
   }
 
   function renderStory(teamId, team){
-    const story = getStory(teamId, team.defaultLang); if(!story) return;
+    const story = getStory(teamId, state.activeLang || team.defaultLang); if(!story) return;
     const title = $('#histoire-gaindes .story-title');
     if(title) title.innerHTML = `<img class="section-mascot" src="assets/lion-mascotte.png" alt="Mascotte">${safeHtml(story.title)}`;
     const kicker = $('#histoire-gaindes .story-kicker'); if(kicker) kicker.textContent = story.subtitle || team.tagline || '';
@@ -291,14 +329,27 @@
   }
 
   function patchLanguageSwitcher(){
-    const original = window.setLanguage;
-    if(typeof original !== 'function' || original.__v10Patched) return;
-    window.setLanguage = function(lang){
-      const res = original.apply(this, arguments);
-      setTimeout(() => { if(state.activeTeamId) applyTeam(state.activeTeamId); }, 60);
-      return res;
-    };
-    window.setLanguage.__v10Patched = true;
+    const originalSet = window.setLanguage;
+    if(typeof originalSet === 'function' && !originalSet.__v10Patched){
+      window.setLanguage = function(lang){
+        state.activeLang = lang || state.activeLang || 'fr';
+        try { localStorage.setItem('siteLang', state.activeLang); } catch(e) {}
+        const res = originalSet.apply(this, arguments);
+        setTimeout(() => { if(state.activeTeamId) applyTeam(state.activeTeamId); }, 20);
+        setTimeout(() => { if(state.activeTeamId) applyTeam(state.activeTeamId); }, 180);
+        return res;
+      };
+      window.setLanguage.__v10Patched = true;
+    }
+    const originalApply = window.applyLanguage;
+    if(typeof originalApply === 'function' && !originalApply.__v10Patched){
+      window.applyLanguage = function(){
+        const res = originalApply.apply(this, arguments);
+        setTimeout(() => { if(state.activeTeamId) applyTeam(state.activeTeamId); }, 30);
+        return res;
+      };
+      window.applyLanguage.__v10Patched = true;
+    }
   }
 
   async function init(){
@@ -309,12 +360,19 @@
     if(teamId && state.teams[teamId]){
       state.activeTeamId = teamId;
       const baseTeam = state.teams[teamId];
+      const urlLang = params.get('lang');
+      const supportedLangs = ['fr','en','pt','es','ar'];
+      state.activeLang = supportedLangs.includes(urlLang) ? urlLang : (baseTeam.defaultLang || 'fr');
+      try { localStorage.setItem('siteLang', state.activeLang); } catch(e) {}
       patchLanguageSwitcher();
-      if(baseTeam.defaultLang && typeof window.setLanguage === 'function'){
-        try { window.setLanguage(baseTeam.defaultLang); } catch(e) { console.warn('[V10] setLanguage ignoré', e); }
+      if(state.activeLang && typeof window.setLanguage === 'function'){
+        try { window.setLanguage(state.activeLang); } catch(e) { console.warn('[V10] setLanguage ignoré', e); }
       }
       applyTeam(teamId);
       setTimeout(() => applyTeam(teamId), 120);
+      setTimeout(() => applyTeam(teamId), 520);
+      setTimeout(() => applyTeam(teamId), 980);
+      setTimeout(() => applyTeam(teamId), 1400);
     }
   }
 
