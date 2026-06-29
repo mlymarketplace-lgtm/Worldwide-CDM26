@@ -70,14 +70,17 @@
     if(low.startsWith('en')) return 'en';
     return 'fr';
   }
-  function chooseSelectorLang(params){
+  function chooseSelectorLang(params, options){
+    const allowArabicOnHome = !!(options && options.allowArabicOnHome);
+    const allowed = allowArabicOnHome ? supportedLangs() : supportedLangs().filter(l => l !== 'ar');
     const urlLang = params.get('lang');
-    if(supportedLangs().includes(urlLang)) return urlLang;
+    if(allowed.includes(urlLang)) return urlLang;
     const saved = localStorage.getItem('siteLang');
     const source = localStorage.getItem('siteLangSource');
-    // V10.3 : la home détecte le navigateur par défaut. Le choix manuel reste prioritaire uniquement s'il vient du sélecteur langue.
-    if(source === 'manual' && supportedLangs().includes(saved)) return saved;
-    return detectBrowserLang();
+    // V10.3.1 : la home reste lisible en alphabet latin. L’arabe reste actif pour Égypte, ?team=egypt et ?lang=ar sur une page équipe.
+    if(source === 'manual' && allowed.includes(saved)) return saved;
+    const detected = detectBrowserLang();
+    return allowed.includes(detected) ? detected : 'fr';
   }
   function isRtlLang(lang){ return AR_ENABLED && lang === 'ar'; }
   function syncLangButtons(lang){
@@ -418,8 +421,8 @@
     try { await loadData(); } catch(err) { console.error('[V10] Chargement data impossible', err); return; }
     const params = new URLSearchParams(window.location.search);
     const teamId = params.get('team');
-    if(!teamId && params.get('mode') !== 'global') { state.activeLang = chooseSelectorLang(params); applyLangShell(state.activeLang); installSelector(); releaseV10Boot(); return; }
-    if(!teamId && params.get('mode') === 'global') { state.activeLang = chooseSelectorLang(params); applyLangShell(state.activeLang); releaseV10Boot(); return; }
+    if(!teamId && params.get('mode') !== 'global') { state.activeLang = chooseSelectorLang(params, {allowArabicOnHome:false}); applyLangShell(state.activeLang); installSelector(); releaseV10Boot(); return; }
+    if(!teamId && params.get('mode') === 'global') { state.activeLang = chooseSelectorLang(params, {allowArabicOnHome:false}); applyLangShell(state.activeLang); releaseV10Boot(); return; }
     if(teamId && state.teams[teamId]){
       state.activeTeamId = teamId;
       const baseTeam = state.teams[teamId];

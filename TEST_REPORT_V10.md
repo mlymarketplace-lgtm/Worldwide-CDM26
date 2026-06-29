@@ -40,3 +40,9 @@
 - `/?team=spain` : ouverture ES non régressée.
 - `/?team=brazil` : ouverture PT non régressée.
 - `/.netlify/functions/scores` : source API-Sports toujours OK.
+
+
+## V10.3.1
+- Home sans arabe automatique : OK attendu.
+- Égypte arabe conservée : OK attendu.
+- PWA renommée et icône remplacée : OK attendu.

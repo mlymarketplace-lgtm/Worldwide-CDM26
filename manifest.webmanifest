@@ -1,7 +1,7 @@
 {
-  "name": "QualifGaïndé Worldwide",
-  "short_name": "Gaïndé",
-  "description": "Coupe du monde 2026 personnalisée par équipe : live, scores, tableaux et récits supporters.",
+  "name": "Suivez la CDM 2026",
+  "short_name": "CDM 2026",
+  "description": "Suivez la Coupe du monde 2026 : équipes, scores live, tableaux, récits et mode supporter.",
   "start_url": "/?source=pwa",
   "scope": "/",
   "display": "standalone",
