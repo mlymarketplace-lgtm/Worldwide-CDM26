@@ -21,3 +21,22 @@
 - `/?team=senegal` : non-régression.
 - `/?team=brazil` : non-régression.
 - `/.netlify/functions/scores` : source `api-football`.
+
+
+## V10.2 — contrôles ajoutés
+
+- `stats.json` mis à jour et validé JSON.
+- `data/i18n/ar/teams.json`, `stories.json`, `previews.json` créés et validés JSON.
+- `egypt.defaultLang = ar` contrôlé.
+- Images lourdes converties en WebP et références mises à jour.
+- `node --check src/v10/v10-team-app.js` OK.
+- `node --check netlify/functions/scores.js` OK.
+
+## Tests navigateur à faire
+
+- `/` : langue détectée selon navigateur ; 10 cartes visibles.
+- `/?team=egypt` : ouverture en arabe, bloc Égypte RTL, tableaux globaux non cassés plus bas.
+- `/?team=egypt&lang=fr` : rollback visuel immédiat en français.
+- `/?team=spain` : ouverture ES non régressée.
+- `/?team=brazil` : ouverture PT non régressée.
+- `/.netlify/functions/scores` : source API-Sports toujours OK.

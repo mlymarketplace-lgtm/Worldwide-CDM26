@@ -11,7 +11,8 @@
     "note": "Affiche centrale du site actuel.",
     "label_es": "Bélgica–Senegal",
     "label_pt": "Bélgica–Senegal",
-    "label_en": "Belgium–Senegal"
+    "label_en": "Belgium–Senegal",
+    "label_ar": "بلجيكا–السنغال"
   },
   "sui-alg": {
     "home": "switzerland",
@@ -88,7 +89,8 @@
     "note": "La maîtrise de la Roja face au piège autrichien.",
     "label_es": "España–Austria",
     "label_pt": "Espanha–Áustria",
-    "label_en": "Spain–Austria"
+    "label_en": "Spain–Austria",
+    "label_ar": "إسبانيا–النمسا"
   },
   "aus-egy": {
     "home": "australia",
@@ -101,6 +103,7 @@
     "channel_fr": "beIN Sports 1",
     "note": "Impact australien contre expérience africaine des Pharaons.",
     "label_es": "Australia–Egipto",
-    "label_en": "Australia–Egypt"
+    "label_en": "Australia–Egypt",
+    "label_ar": "أستراليا–مصر"
   }
 }

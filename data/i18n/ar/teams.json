@@ -1,0 +1,55 @@
+{
+  "egypt": {
+    "teamName": "مصر",
+    "tagline": "الفراعنة وحلم صلاح",
+    "statusLabel": "ثانية المجموعة G · 4 نقاط · خبرة إفريقية",
+    "supporterName": "الفراعنة",
+    "selectorLine": "صلاح، ذاكرة إفريقيا وحلم عالمي",
+    "heroTitle": "🇪🇬 مصر في كأس العالم 2026",
+    "heroSubtitle": "تاريخ الفراعنة، خبرة إفريقيا، وحلم محمد صلاح",
+    "heroPlayer": "محمد صلاح"
+  },
+  "australia": {
+    "teamName": "أستراليا",
+    "nickname": "السوكروز",
+    "supporterName": "السوكروز",
+    "heroPlayer": "نيستوري إيرانكوندا"
+  },
+  "belgium": {
+    "teamName": "بلجيكا",
+    "supporterName": "الشياطين الحمر"
+  },
+  "iran": {
+    "teamName": "إيران"
+  },
+  "new_zealand": {
+    "teamName": "نيوزيلندا"
+  },
+  "spain": {
+    "teamName": "إسبانيا",
+    "supporterName": "لا روخا"
+  },
+  "austria": {
+    "teamName": "النمسا",
+    "supporterName": "داس تيم"
+  },
+  "senegal": {
+    "teamName": "السنغال",
+    "supporterName": "الأسود"
+  },
+  "brazil": {
+    "teamName": "البرازيل"
+  },
+  "japan": {
+    "teamName": "اليابان"
+  },
+  "france": {
+    "teamName": "فرنسا"
+  },
+  "morocco": {
+    "teamName": "المغرب"
+  },
+  "algeria": {
+    "teamName": "الجزائر"
+  }
+}

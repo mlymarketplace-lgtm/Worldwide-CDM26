@@ -1,18 +1,82 @@
 {
-  "updatedAt": "2026-06-28T18:00:00+02:00",
+  "updatedAt": "2026-06-29T12:30:00+02:00",
+  "sourceNote": "Mise à jour manuelle V10.2 — données publiques recoupées au 29 juin 2026 avant les 16es/pendant début KO.",
   "topScorers": [
-    { "rank": 1, "name": "Lionel Messi", "team": "🇦🇷 Argentine", "goals": 6 },
-    { "rank": 2, "name": "Ousmane Dembélé", "team": "🇫🇷 France", "goals": 4 },
-    { "rank": 3, "name": "Kylian Mbappé", "team": "🇫🇷 France", "goals": 4 },
-    { "rank": 4, "name": "Vinícius Júnior", "team": "🇧🇷 Brésil", "goals": 4 },
-    { "rank": 5, "name": "Erling Haaland", "team": "🇳🇴 Norvège", "goals": 4 }
+    {
+      "rank": 1,
+      "name": "Lionel Messi",
+      "team": "🇦🇷 Argentine",
+      "goals": 6
+    },
+    {
+      "rank": 2,
+      "name": "Kylian Mbappé",
+      "team": "🇫🇷 France",
+      "goals": 4
+    },
+    {
+      "rank": 3,
+      "name": "Ousmane Dembélé",
+      "team": "🇫🇷 France",
+      "goals": 4
+    },
+    {
+      "rank": 4,
+      "name": "Vinícius Júnior",
+      "team": "🇧🇷 Brésil",
+      "goals": 4
+    },
+    {
+      "rank": 5,
+      "name": "Erling Haaland",
+      "team": "🇳🇴 Norvège",
+      "goals": 4
+    },
+    {
+      "rank": 6,
+      "name": "Deniz Undav",
+      "team": "🇩🇪 Allemagne",
+      "goals": 3
+    },
+    {
+      "rank": 7,
+      "name": "Johan Manzambi",
+      "team": "🇨🇭 Suisse",
+      "goals": 3
+    },
+    {
+      "rank": 8,
+      "name": "Ismaïla Sarr",
+      "team": "🇸🇳 Sénégal",
+      "goals": 3
+    },
+    {
+      "rank": 9,
+      "name": "Brian Brobbey",
+      "team": "🇳🇱 Pays-Bas",
+      "goals": 3
+    },
+    {
+      "rank": 10,
+      "name": "Matheus Cunha",
+      "team": "🇧🇷 Brésil",
+      "goals": 3
+    }
   ],
   "bestAttack": {
     "goals": 10,
-    "teams": ["🇩🇪 Allemagne", "🇳🇱 Pays-Bas", "🇫🇷 France"]
+    "teams": [
+      "🇫🇷 France",
+      "🇩🇪 Allemagne",
+      "🇳🇱 Pays-Bas"
+    ]
   },
   "bestDefense": {
     "goalsAgainst": 0,
-    "teams": ["🇲🇽 Mexique", "🇪🇸 Espagne"]
+    "teams": [
+      "🇲🇽 Mexique",
+      "🇫🇷 France",
+      "🇪🇸 Espagne"
+    ]
   }
 }

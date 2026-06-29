@@ -5,7 +5,7 @@
     "nickname": "La Nati",
     "supporterName": "La Nati",
     "heroPlayer": "Granit Xhaka",
-    "playerImg": "assets/opponents/switzerland/player.png"
+    "playerImg": "assets/opponents/switzerland/player.webp"
   },
   "norway": {
     "teamName": "Norvège",
@@ -13,7 +13,7 @@
     "nickname": "Lions norvégiens",
     "supporterName": "Lions norvégiens",
     "heroPlayer": "Erling Haaland",
-    "playerImg": "assets/opponents/norway/player.png"
+    "playerImg": "assets/opponents/norway/player.webp"
   },
   "japan": {
     "teamName": "Japon",
@@ -21,7 +21,7 @@
     "nickname": "Samouraïs Bleus",
     "supporterName": "Samouraïs Bleus",
     "heroPlayer": "Takefusa Kubo",
-    "playerImg": "assets/opponents/japan/player.png"
+    "playerImg": "assets/opponents/japan/player.webp"
   },
   "england": {
     "teamName": "Angleterre",
@@ -29,7 +29,7 @@
     "nickname": "Three Lions",
     "supporterName": "Three Lions",
     "heroPlayer": "Jude Bellingham",
-    "playerImg": "assets/opponents/england/player.png"
+    "playerImg": "assets/opponents/england/player.webp"
   },
   "netherlands": {
     "teamName": "Pays-Bas",
@@ -37,7 +37,7 @@
     "nickname": "Oranje",
     "supporterName": "Oranje",
     "heroPlayer": "Cody Gakpo",
-    "playerImg": "assets/opponents/netherlands/player.png"
+    "playerImg": "assets/opponents/netherlands/player.webp"
   },
   "sweden": {
     "teamName": "Suède",
@@ -45,7 +45,7 @@
     "nickname": "Blågult",
     "supporterName": "Blågult",
     "heroPlayer": "Viktor Gyökeres",
-    "playerImg": "assets/opponents/sweden/player.png"
+    "playerImg": "assets/opponents/sweden/player.webp"
   },
   "austria": {
     "teamName": "Autriche",
@@ -53,7 +53,7 @@
     "nickname": "Das Team",
     "supporterName": "Das Team",
     "heroPlayer": "Marko Arnautović",
-    "playerImg": "assets/opponents/austria/player.png"
+    "playerImg": "assets/opponents/austria/player.webp"
   },
   "australia": {
     "teamName": "Australie",
@@ -61,6 +61,6 @@
     "nickname": "Socceroos",
     "supporterName": "Socceroos",
     "heroPlayer": "Nestory Irankunda",
-    "playerImg": "assets/opponents/australia/player.png"
+    "playerImg": "assets/opponents/australia/player.webp"
   }
 }

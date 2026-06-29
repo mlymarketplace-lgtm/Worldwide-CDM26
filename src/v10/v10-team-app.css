@@ -12,7 +12,7 @@ html.v10-booting .v10-selector{visibility:visible !important;}
 }
 body.v10-selector-open{overflow:hidden;}
 .v10-selector{position:fixed;inset:0;z-index:10050;overflow:auto;background:#050505;color:#fff;font-family:'Inter',sans-serif;}
-.v10-selector::before{content:"";position:fixed;inset:0;background:linear-gradient(180deg,#00000055,#050505 72%),radial-gradient(circle at 50% 10%,#FDEF4221,transparent 42%),url('../../assets/world-cup-hero.png') center/cover no-repeat;opacity:.96;pointer-events:none;}
+.v10-selector::before{content:"";position:fixed;inset:0;background:linear-gradient(180deg,#00000055,#050505 72%),radial-gradient(circle at 50% 10%,#FDEF4221,transparent 42%),url('../../assets/world-cup-hero.webp') center/cover no-repeat;opacity:.96;pointer-events:none;}
 .v10-selector-inner{position:relative;z-index:1;width:min(1180px,92vw);margin:0 auto;padding:34px 0 42px;}
 .v10-selector-top{min-height:34vh;display:flex;align-items:flex-end;justify-content:center;text-align:center;padding:36px 0 28px;}
 .v10-world-badge{display:inline-flex;align-items:center;gap:9px;background:#00000075;border:1px solid #ffffff2a;border-radius:999px;padding:8px 14px;color:#FDEF42;font-family:'Oswald',sans-serif;letter-spacing:.16em;text-transform:uppercase;font-size:.74rem;box-shadow:0 14px 45px #0008;}
@@ -130,4 +130,39 @@ body.v10-team-applied .lang-btn.active{background:linear-gradient(135deg,var(--t
   .supporters{padding:7px 11px !important;}
   .sup-num{font-size:1.08rem !important;}
   .sup-lbl{font-size:.68rem !important;}
+}
+
+
+/* V10.2 — optimisation mobile, images et arabe contrôlé */
+.v10-team-card img,
+#hero-banner img,
+.player-photo{content-visibility:auto;}
+body.v10-rtl .v10-selector,
+body.v10-rtl header,
+body.v10-rtl #hero-banner,
+body.v10-rtl #probable-opponent,
+body.v10-rtl #countdown-card,
+body.v10-rtl #belgique-senegal,
+body.v10-rtl #histoire-gaindes{direction:rtl;unicode-bidi:plaintext;}
+body.v10-rtl .v10-active-team-pill{margin-left:0;margin-right:8px;}
+body.v10-rtl .v10-change-team{right:auto;left:14px;}
+body.v10-rtl .countdown-match,
+body.v10-rtl .countdown-meta,
+body.v10-rtl .countdown-end{text-align:center;}
+body.v10-rtl .story-body,
+body.v10-rtl .teaser-body{text-align:right;line-height:1.9;}
+body.v10-rtl .form-row{direction:rtl;}
+@media(max-width:768px){
+  #hero-banner{height:190px !important;}
+  .match-countdown-grid{gap:10px !important;}
+  .player-side.v10-opponent-card .player-photo{height:118px;}
+  .countdown-boxes{gap:7px !important;}
+  .cd-box{min-width:64px !important;}
+}
+@media(max-width:520px){
+  #hero-banner{height:175px !important;}
+  .hright{gap:8px;}
+  .lang-switch{order:5;}
+  .v10-team-card img{opacity:.66;}
+  .v10-selector-lead{line-height:1.55;}
 }

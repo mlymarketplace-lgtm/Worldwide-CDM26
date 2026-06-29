@@ -3,6 +3,7 @@
 (function(){
   window.QUALIFGAINDE_V10_ACTIVE = true;
   const DATA_BASE = 'data/';
+  const AR_ENABLED = true; // V10.2 — retirer/mettre false pour désactiver l’arabe sans casser le reste.
   const TEAM_ORDER = ['senegal','algeria','egypt','ivory_coast','dr_congo','morocco','belgium','brazil','france','spain'];
   const FALLBACK_TEAMS = {
     switzerland:{teamName:'Suisse',flag:'🇨🇭',supporterName:'Nati'}, japan:{teamName:'Japon',flag:'🇯🇵',supporterName:'Samouraïs Bleus'},
@@ -43,14 +44,15 @@
   function formatDateParis(iso, lang){
     const d = new Date(iso);
     if(Number.isNaN(d.getTime())) return '';
-    const locale = lang === 'es' ? 'es-ES' : lang === 'pt' ? 'pt-PT' : lang === 'en' ? 'en-GB' : 'fr-FR';
+    const locale = lang === 'ar' ? 'ar-EG' : lang === 'es' ? 'es-ES' : lang === 'pt' ? 'pt-PT' : lang === 'en' ? 'en-GB' : 'fr-FR';
     const txt = new Intl.DateTimeFormat(locale,{weekday:'long',day:'numeric',month:'long',year:'numeric',hour:'2-digit',minute:'2-digit',timeZone:'Europe/Paris'}).format(d);
     return lang === 'en' ? txt : txt.replace(':','h');
   }
   function matchLabel(match){ return match ? (match['label_' + (state.activeLang || 'fr')] || match.label || '') : ''; }
-  function headerSuffix(lang){ return lang === 'es' ? 'Mundial 2026' : lang === 'pt' ? 'Copa 2026' : lang === 'en' ? 'WC 2026' : 'CM 2026'; }
+  function headerSuffix(lang){ return lang === 'ar' ? 'كأس العالم 2026' : lang === 'es' ? 'Mundial 2026' : lang === 'pt' ? 'Copa 2026' : lang === 'en' ? 'WC 2026' : 'CM 2026'; }
   function heroTitleFor(team){
     if(team.heroTitle) return team.heroTitle;
+    if(state.activeLang === 'ar') return `${team.flag} ${team.teamName} في كأس العالم 2026`;
     if(state.activeLang === 'es') return `${team.flag} ${team.teamName} en la Copa Mundial 2026`;
     if(state.activeLang === 'pt') return `${team.flag} ${team.teamName} na Copa do Mundo 2026`;
     if(state.activeLang === 'en') return `${team.flag} ${team.teamName} at the 2026 World Cup`;
@@ -58,6 +60,48 @@
   }
   function resultClass(code){ return code === 'V' ? 'win' : code === 'D' ? 'loss' : 'draw'; }
   function safeHtml(str){ const div = document.createElement('div'); div.textContent = str || ''; return div.innerHTML; }
+  function supportedLangs(){ return AR_ENABLED ? ['fr','en','pt','es','ar'] : ['fr','en','pt','es']; }
+  function detectBrowserLang(){
+    const nav = (navigator.languages && navigator.languages[0]) || navigator.language || 'fr';
+    const low = String(nav).toLowerCase();
+    if(AR_ENABLED && low.startsWith('ar')) return 'ar';
+    if(low.startsWith('pt')) return 'pt';
+    if(low.startsWith('es')) return 'es';
+    if(low.startsWith('en')) return 'en';
+    return 'fr';
+  }
+  function chooseSelectorLang(params){
+    const urlLang = params.get('lang');
+    if(supportedLangs().includes(urlLang)) return urlLang;
+    const saved = localStorage.getItem('siteLang');
+    if(supportedLangs().includes(saved)) return saved;
+    return detectBrowserLang();
+  }
+  function isRtlLang(lang){ return AR_ENABLED && lang === 'ar'; }
+  function syncLangButtons(lang){
+    $$('.lang-btn').forEach(btn => btn.classList.toggle('active', btn.dataset.langBtn === lang));
+  }
+  function applyLangShell(lang){
+    document.documentElement.lang = lang || 'fr';
+    // RTL contrôlé : on évite de passer tout le document en dir=rtl pour ne pas casser les tableaux globaux.
+    document.documentElement.dir = 'ltr';
+    document.body.classList.toggle('v10-lang-ar', isRtlLang(lang));
+    document.body.classList.toggle('v10-rtl', isRtlLang(lang));
+    document.body.dataset.v10Lang = lang || 'fr';
+    syncLangButtons(lang || 'fr');
+  }
+  function uiText(key){
+    const lang = state.activeLang || 'fr';
+    const d = {
+      enter:{fr:'Entrer avec cette équipe →', en:'Enter with this team →', pt:'Entrar com esta seleção →', es:'Entrar con este equipo →', ar:'ادخل مع هذا المنتخب ←'},
+      next:{fr:'Prochain', en:'Next', pt:'Próximo', es:'Próximo', ar:'التالي'},
+      choose:{fr:'Je suis supporter de…', en:'I support…', pt:'Sou torcedor de…', es:'Soy hincha de…', ar:'أنا أشجع…'},
+      lead:{fr:'Couleurs, calendrier, prochain match, compte à rebours, histoire : choisis ton camp et vis la Coupe du monde depuis ta tribune.',en:'Colours, schedule, next match, countdown, story: choose your side and live the World Cup from your stand.',pt:'Cores, calendário, próximo jogo, contagem regressiva e história: escolha seu lado e viva a Copa do Mundo.',es:'Colores, calendario, próximo partido, cuenta atrás e historia: elige tu equipo y vive el Mundial.',ar:'الألوان، الرزنامة، المباراة القادمة، العد التنازلي والحكاية: اختر منتخبك وعش كأس العالم من مدرجك.'},
+      global:{fr:'Voir le tournoi complet sans choisir d’équipe', en:'See the full tournament without choosing a team', pt:'Ver o torneio completo sem escolher seleção', es:'Ver el torneo completo sin elegir equipo', ar:'عرض البطولة كاملة دون اختيار منتخب'},
+      resume:{fr:'Reprendre avec', en:'Resume with', pt:'Continuar com', es:'Continuar con', ar:'المتابعة مع'}
+    };
+    return (d[key] && (d[key][lang] || d[key].fr)) || key;
+  }
 
   async function loadData(){
     const [teams, matches, results, previews, stories] = await Promise.all([
@@ -76,24 +120,32 @@
       previews: await readOptionalJson(DATA_BASE+'i18n/es/previews.json'),
       stories: await readOptionalJson(DATA_BASE+'i18n/es/stories.json')
     };
+    if(AR_ENABLED){
+      state.i18n.ar = {
+        teams: await readOptionalJson(DATA_BASE+'i18n/ar/teams.json'),
+        previews: await readOptionalJson(DATA_BASE+'i18n/ar/previews.json'),
+        stories: await readOptionalJson(DATA_BASE+'i18n/ar/stories.json')
+      };
+    }
   }
 
   function installSelector(){
     document.body.classList.add('v10-selector-open');
     const saved = localStorage.getItem('qualifgainde.favoriteTeam');
     const cards = TEAM_ORDER.filter(id => state.teams[id]).map(id => {
-      const t = state.teams[id];
-      const match = state.matches[t.nextMatchId] || {};
+      const raw = state.teams[id];
+      const t = teamLabel(id);
+      const match = state.matches[raw.nextMatchId] || {};
       const opponentId = match.home === id ? match.away : match.home;
       const opp = teamLabel(opponentId);
-      return `<a class="v10-team-card" href="?team=${encodeURIComponent(id)}" style="--card-primary:${t.primary};--card-secondary:${t.secondary};--card-accent:${t.accent}" data-team-card="${id}">
-        <img src="${safeHtml(t.bannerImg)}" alt="${safeHtml(t.teamName)}">
+      return `<a class="v10-team-card" href="?team=${encodeURIComponent(id)}" style="--card-primary:${raw.primary};--card-secondary:${raw.secondary};--card-accent:${raw.accent}" data-team-card="${id}">
+        <img src="${safeHtml(raw.bannerImg)}" alt="${safeHtml(t.teamName)}" loading="lazy" decoding="async">
         <div class="v10-team-card-body">
-          <div class="v10-team-flag">${t.flag}</div>
+          <div class="v10-team-flag">${raw.flag}</div>
           <div class="v10-team-name">${safeHtml(t.teamName)}</div>
           <div class="v10-team-supporter">${safeHtml(t.supporterName || t.statusLabel || '')}</div>
-          <div class="v10-team-line">${safeHtml(t.selectorLine || t.tagline || '')}<br>Prochain : ${safeHtml(match.label || opp.teamName || '')}</div>
-          <span class="v10-team-enter">Entrer avec cette équipe →</span>
+          <div class="v10-team-line">${safeHtml(t.selectorLine || t.tagline || '')}<br>${uiText('next')} : ${safeHtml(matchLabel(match) || opp.teamName || '')}</div>
+          <span class="v10-team-enter">${uiText('enter')}</span>
         </div>
       </a>`;
     }).join('');
@@ -105,13 +157,13 @@
       <div class="v10-selector-top"><div>
         <div class="v10-world-badge">🏆 QualifGaïndé Worldwide</div>
         <h1>Entre dans <span>le Mondial</span></h1>
-        <p class="v10-selector-lead">Couleurs, calendrier, prochain match, compte à rebours, histoire : choisis ton camp et vis la Coupe du monde depuis ta tribune.</p>
+        <p class="v10-selector-lead">${uiText('lead')}</p>
       </div></div>
-      <div class="v10-choice-title">Je suis supporter de…</div>
+      <div class="v10-choice-title">${uiText('choose')}</div>
       <div class="v10-team-grid">${cards}</div>
       <div class="v10-selector-actions">
-        ${savedTeam ? `<a class="v10-action" href="?team=${encodeURIComponent(saved)}">Reprendre avec ${savedTeam.flag} ${safeHtml(savedTeam.teamName)}</a>` : ''}
-        <a class="v10-action" href="?mode=global">Voir le tournoi complet sans choisir d’équipe</a>
+        ${savedTeam ? `<a class="v10-action" href="?team=${encodeURIComponent(saved)}">${uiText('resume')} ${savedTeam.flag} ${safeHtml(savedTeam.teamName)}</a>` : ''}
+        <a class="v10-action" href="?mode=global">${uiText('global')}</a>
       </div>
     </div>`;
     document.body.prepend(overlay);
@@ -131,7 +183,7 @@
   function renderHeader(team){
     const lang = state.activeLang || team.defaultLang || 'fr';
     document.title = `${team.teamName} · QualifGaïndé Worldwide`;
-    document.documentElement.lang = lang;
+    applyLangShell(lang);
     const htitle = $('.htitle');
     if(htitle){
       htitle.innerHTML = `<span>${safeHtml(team.teamName)}</span> — ${headerSuffix(lang)}<span class="v10-active-team-pill">${team.flag} ${safeHtml(team.supporterName || '')}</span>`;
@@ -141,7 +193,7 @@
     if(logo){ logo.src = team.mascotImg || team.heroImg || logo.src; logo.alt = team.heroPlayer || team.teamName; }
     const music = $('#btn-music');
     if(music){
-      music.textContent = lang === 'pt' ? 'Ambiente de estádio' : lang === 'es' ? `Ambiente ${team.supporterName || team.teamName}` : `Ambiance ${team.supporterName || team.teamName}`;
+      music.textContent = lang === 'ar' ? `أجواء ${team.supporterName || team.teamName}` : lang === 'pt' ? 'Ambiente de estádio' : lang === 'es' ? `Ambiente ${team.supporterName || team.teamName}` : `Ambiance ${team.supporterName || team.teamName}`;
     }
   }
 
@@ -151,7 +203,7 @@
     $$('.hscore', wrap).forEach((row, idx) => {
       const r = list[idx]; if(!r) return;
       row.classList.remove('win','loss','draw'); row.classList.add(resultClass(r.result));
-      const label = $('.hs-label', row); if(label) label.textContent = `Match ${idx+1}`;
+      const label = $('.hs-label', row); if(label) label.textContent = state.activeLang === 'ar' ? `المباراة ${idx+1}` : `Match ${idx+1}`;
       const score = $('.hs-score', row); if(score) score.textContent = r.label;
       const note = $('.hs-note', row); if(note) note.textContent = r.note || '';
     });
@@ -160,7 +212,7 @@
 
   function renderHero(team){
     const img = $('#hero-banner img');
-    if(img){ img.src = team.bannerImg || img.src; img.alt = `${team.teamName} · QualifGaïndé Worldwide`; }
+    if(img){ img.src = team.bannerImg || img.src; img.alt = `${team.teamName} · QualifGaïndé Worldwide`; img.loading='eager'; img.decoding='async'; img.fetchPriority='high'; }
     const title = $('#hero-title'); if(title) title.textContent = heroTitleFor(team);
     const sub = $('#hero-subtitle'); if(sub) sub.textContent = team.heroSubtitle || team.tagline || team.statusLabel || '';
   }
@@ -171,7 +223,7 @@
     const opp = teamLabel(oppId);
     const card = $('#probable-opponent'); if(card) card.title = `Prochain match : ${matchLabel(match)}`;
     const label = $('.opp-label'); if(label){
-      const txt = state.activeLang === 'es' ? 'Próximo partido R32' : state.activeLang === 'pt' ? 'Próximo jogo R32' : 'Prochain match R32';
+      const txt = state.activeLang === 'ar' ? 'المباراة القادمة R32' : state.activeLang === 'es' ? 'Próximo partido R32' : state.activeLang === 'pt' ? 'Próximo jogo R32' : state.activeLang === 'en' ? 'Next R32 match' : 'Prochain match R32';
       label.innerHTML = `<img class="section-mascot" src="assets/lion-mascotte.png" alt="Mascotte">${txt}`;
     }
     const name = $('#opp-main-name'); if(name) name.textContent = `${opp.flag || ''} ${opp.teamName || oppId}`;
@@ -193,7 +245,7 @@
       if(imgSrc){
         img.style.display = '';
         img.src = imgSrc;
-        img.alt = `${profile.heroPlayer || profile.teamName || t.teamName} · ${t.teamName}`;
+        img.alt = `${profile.heroPlayer || profile.teamName || t.teamName} · ${t.teamName}`; img.loading='lazy'; img.decoding='async';
       } else {
         img.style.display = 'none';
       }
@@ -205,7 +257,7 @@
     const sub = $('.side-sub', side);
     if(sub){
       const player = profile?.heroPlayer ? ` · ${profile.heroPlayer}` : '';
-      sub.textContent = `${isOpponent ? 'Adversaire à surveiller' : 'Trois derniers résultats'}${player}`;
+      sub.textContent = `${state.activeLang === 'ar' ? (isOpponent ? 'خصم تحت المراقبة' : 'آخر ثلاث نتائج') : isOpponent ? 'Adversaire à surveiller' : 'Trois derniers résultats'}${player}`;
     }
 
     const results = state.results[teamId] || state.opponentResults[teamId] || [];
@@ -220,11 +272,11 @@
     const match = state.matches[team.nextMatchId]; if(!match) return;
     const secBefore = Array.from(document.querySelectorAll('.sec')).find(el => /Prochaine|Próximo|Proximo|Next/i.test(el.textContent));
     if(secBefore){
-      const sectionText = state.activeLang === 'pt' ? `Próximo jogo do ${safeHtml(team.teamName)}` : state.activeLang === 'es' ? `Próximo partido de ${safeHtml(team.teamName)}` : state.activeLang === 'en' ? `Next match for ${safeHtml(team.teamName)}` : `Prochaine rencontre de ${safeHtml(team.teamName)}`;
+      const sectionText = state.activeLang === 'ar' ? `المباراة القادمة لـ ${safeHtml(team.teamName)}` : state.activeLang === 'pt' ? `Próximo jogo do ${safeHtml(team.teamName)}` : state.activeLang === 'es' ? `Próximo partido de ${safeHtml(team.teamName)}` : state.activeLang === 'en' ? `Next match for ${safeHtml(team.teamName)}` : `Prochaine rencontre de ${safeHtml(team.teamName)}`;
       secBefore.innerHTML = `<img class="section-mascot" src="assets/lion-mascotte.png" alt="Mascotte">${sectionText}`;
     }
     const home = teamLabel(match.home), away = teamLabel(match.away);
-    const cmatch = $('.countdown-match'); if(cmatch) cmatch.textContent = `${home.flag || ''} ${home.teamName} vs ${away.teamName} ${away.flag || ''}`;
+    const cmatch = $('.countdown-match'); if(cmatch) cmatch.textContent = state.activeLang === 'ar' ? `${home.flag || ''} ${home.teamName} ضد ${away.teamName} ${away.flag || ''}` : `${home.flag || ''} ${home.teamName} vs ${away.teamName} ${away.flag || ''}`;
     const meta = $('.countdown-meta'); if(meta) meta.textContent = `${formatDateParis(match.dateParis, state.activeLang)} · ${match.stadium || ''}${match.channel_fr ? ' · ' + match.channel_fr : ''}`;
     renderSide($('.player-side.bel'), match.home);
     renderSide($('.player-side.sen'), match.away);
@@ -234,11 +286,13 @@
   function countdownFixedMessage(team, isMatchDay){
     const lang = state.activeLang || team.defaultLang || 'fr';
     if(isMatchDay){
+      if(lang === 'ar') return `يوم المباراة: ${team.teamName} يدخل المشهد.`;
       if(lang === 'pt') return `Dia de jogo: ${team.teamName} entra em campo.`;
       if(lang === 'es') return `Día de partido: ${team.teamName} entra en escena.`;
       if(lang === 'en') return `Match day: ${team.teamName} steps onto the stage.`;
       return `Jour de match : ${team.teamName} entre dans l’arène.`;
     }
+    if(lang === 'ar') return 'الموعد العالمي القادم.';
     if(lang === 'pt') return 'Próximo compromisso mundial.';
     if(lang === 'es') return 'Próxima cita mundial.';
     if(lang === 'en') return 'Next World Cup appointment.';
@@ -307,7 +361,7 @@
     if($('#v10-change-team')) return;
     const a = document.createElement('a');
     a.href = './'; a.id = 'v10-change-team'; a.className = 'v10-change-team';
-    a.textContent = `Changer d’équipe · ${team.flag} ${team.teamName}`;
+    a.textContent = state.activeLang === 'ar' ? `تغيير المنتخب · ${team.flag} ${team.teamName}` : `Changer d’équipe · ${team.flag} ${team.teamName}`;
     document.body.appendChild(a);
   }
 
@@ -332,11 +386,17 @@
     const originalSet = window.setLanguage;
     if(typeof originalSet === 'function' && !originalSet.__v10Patched){
       window.setLanguage = function(lang){
-        state.activeLang = lang || state.activeLang || 'fr';
+        state.activeLang = supportedLangs().includes(lang) ? lang : (state.activeLang || 'fr');
         try { localStorage.setItem('siteLang', state.activeLang); } catch(e) {}
-        const res = originalSet.apply(this, arguments);
-        setTimeout(() => { if(state.activeTeamId) applyTeam(state.activeTeamId); }, 20);
-        setTimeout(() => { if(state.activeTeamId) applyTeam(state.activeTeamId); }, 180);
+        let res;
+        if(state.activeLang === 'ar'){
+          // Le legacy I18N ne connaît pas encore AR : on évite son fallback FR et on garde l'arabe isolé en V10.
+          applyLangShell('ar');
+        } else {
+          res = originalSet.apply(this, [state.activeLang]);
+        }
+        setTimeout(() => { if(state.activeTeamId) applyTeam(state.activeTeamId); else syncLangButtons(state.activeLang); }, 20);
+        setTimeout(() => { if(state.activeTeamId) applyTeam(state.activeTeamId); else syncLangButtons(state.activeLang); }, 180);
         return res;
       };
       window.setLanguage.__v10Patched = true;
@@ -356,13 +416,13 @@
     try { await loadData(); } catch(err) { console.error('[V10] Chargement data impossible', err); return; }
     const params = new URLSearchParams(window.location.search);
     const teamId = params.get('team');
-    if(!teamId && params.get('mode') !== 'global') { installSelector(); releaseV10Boot(); return; }
+    if(!teamId && params.get('mode') !== 'global') { state.activeLang = chooseSelectorLang(params); applyLangShell(state.activeLang); installSelector(); releaseV10Boot(); return; }
+    if(!teamId && params.get('mode') === 'global') { state.activeLang = chooseSelectorLang(params); applyLangShell(state.activeLang); releaseV10Boot(); return; }
     if(teamId && state.teams[teamId]){
       state.activeTeamId = teamId;
       const baseTeam = state.teams[teamId];
       const urlLang = params.get('lang');
-      const supportedLangs = ['fr','en','pt','es','ar'];
-      state.activeLang = supportedLangs.includes(urlLang) ? urlLang : (baseTeam.defaultLang || 'fr');
+      state.activeLang = supportedLangs().includes(urlLang) ? urlLang : (baseTeam.defaultLang || 'fr');
       try { localStorage.setItem('siteLang', state.activeLang); } catch(e) {}
       patchLanguageSwitcher();
       if(state.activeLang && typeof window.setLanguage === 'function'){
