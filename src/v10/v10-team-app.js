@@ -18,6 +18,11 @@
   let v10CountdownTextObserver = null;
   let v10CountdownScoreTimer = null;
   let v10CountdownScoreInFlight = false;
+  let v10CountdownScoreTimeout = null;
+  let v10CountdownScoreLastFinalAt = null;
+  const V10_SCORE_LIVE_POLL_MS = 60000;
+  const V10_SCORE_IDLE_POLL_MS = 15 * 60 * 1000;
+  const V10_SCORE_POST_FINAL_MS = 15 * 60 * 1000;
 
   const $ = (sel, root=document) => root.querySelector(sel);
   const $$ = (sel, root=document) => Array.from(root.querySelectorAll(sel));
@@ -117,6 +122,8 @@
         const data = await res.json();
         if(data && data.matches){
           state.liveScores = data.matches;
+          const entry = getScoreEntry(matchId);
+          if(entry && isLiveLikeStatus(entry.status)) v10CountdownScoreLastFinalAt = null;
           updateCountdownScorePanel(matchId);
         }
       }
@@ -126,10 +133,42 @@
       v10CountdownScoreInFlight = false;
     }
   }
+  function countdownScoreShouldPoll(matchId){
+    const match = state.matches[matchId];
+    if(!match) return false;
+    const entry = getScoreEntry(matchId);
+    const now = Date.now();
+    const kickoff = new Date(match.dateParis).getTime();
+    if(entry && isLiveLikeStatus(entry.status)) return true;
+    if(entry && isFinalStatus(entry.status)){
+      if(!v10CountdownScoreLastFinalAt) v10CountdownScoreLastFinalAt = now;
+      return (now - v10CountdownScoreLastFinalAt) < V10_SCORE_POST_FINAL_MS;
+    }
+    return !Number.isNaN(kickoff) && now >= kickoff - V10_SCORE_IDLE_POLL_MS && now <= kickoff + (4 * 60 * 60 * 1000);
+  }
+  function countdownScoreNextDelay(matchId){
+    const match = state.matches[matchId];
+    if(countdownScoreShouldPoll(matchId)) return V10_SCORE_LIVE_POLL_MS;
+    if(match){
+      const kickoff = new Date(match.dateParis).getTime();
+      if(!Number.isNaN(kickoff)) return Math.max(60000, (kickoff - V10_SCORE_IDLE_POLL_MS) - Date.now());
+    }
+    return V10_SCORE_IDLE_POLL_MS;
+  }
+  function scheduleCountdownScorePoll(matchId){
+    if(v10CountdownScoreTimeout) clearTimeout(v10CountdownScoreTimeout);
+    const delay = countdownScoreNextDelay(matchId);
+    v10CountdownScoreTimeout = setTimeout(() => {
+      refreshCountdownScore().finally(() => scheduleCountdownScorePoll(matchId));
+    }, delay);
+  }
   function ensureCountdownScorePolling(){
     if(v10CountdownScoreTimer) clearInterval(v10CountdownScoreTimer);
-    refreshCountdownScore();
-    v10CountdownScoreTimer = setInterval(refreshCountdownScore, 60000);
+    if(v10CountdownScoreTimeout) clearTimeout(v10CountdownScoreTimeout);
+    const team = state.teams[state.activeTeamId];
+    const matchId = team && team.nextMatchId;
+    if(!matchId) return;
+    refreshCountdownScore().finally(() => scheduleCountdownScorePoll(matchId));
   }
   function headerSuffix(lang){ return lang === 'ar' ? 'كأس العالم 2026' : lang === 'es' ? 'Mundial 2026' : lang === 'pt' ? 'Copa 2026' : lang === 'en' ? 'WC 2026' : 'CM 2026'; }
   function heroTitleFor(team){
@@ -193,6 +232,26 @@
     return (d[key] && (d[key][lang] || d[key].fr)) || key;
   }
 
+  async function loadI18nLang(lang){
+    if(!lang || lang === 'fr' || lang === 'en' || state.i18n[lang]) return state.i18n[lang] || {};
+    if(lang === 'ar' && !AR_ENABLED) return {};
+    state.i18n[lang] = {
+      teams: await readOptionalJson(DATA_BASE+'i18n/'+lang+'/teams.json'),
+      previews: await readOptionalJson(DATA_BASE+'i18n/'+lang+'/previews.json'),
+      stories: await readOptionalJson(DATA_BASE+'i18n/'+lang+'/stories.json')
+    };
+    return state.i18n[lang];
+  }
+
+  function initialLangFromUrlAndTeams(){
+    const params = new URLSearchParams(window.location.search);
+    const teamId = params.get('team');
+    const urlLang = params.get('lang');
+    if(supportedLangs().includes(urlLang)) return urlLang;
+    if(teamId && state.teams[teamId]) return state.teams[teamId].defaultLang || 'fr';
+    return chooseSelectorLang(params);
+  }
+
   async function loadData(){
     const [teams, matches, results, previews, stories] = await Promise.all([
       readJson(DATA_BASE+'teams.json'), readJson(DATA_BASE+'matches.json'), readJson(DATA_BASE+'team-results.json'), readJson(DATA_BASE+'previews.json'), readJson(DATA_BASE+'stories.json')
@@ -200,23 +259,9 @@
     state.teams = teams; state.matches = matches; state.results = results; state.previews = previews; state.stories = stories;
     state.opponents = await readOptionalJson(DATA_BASE+'opponents.json');
     state.opponentResults = await readOptionalJson(DATA_BASE+'opponent-results.json');
-    state.i18n.pt = {
-      teams: await readOptionalJson(DATA_BASE+'i18n/pt/teams.json'),
-      previews: await readOptionalJson(DATA_BASE+'i18n/pt/previews.json'),
-      stories: await readOptionalJson(DATA_BASE+'i18n/pt/stories.json')
-    };
-    state.i18n.es = {
-      teams: await readOptionalJson(DATA_BASE+'i18n/es/teams.json'),
-      previews: await readOptionalJson(DATA_BASE+'i18n/es/previews.json'),
-      stories: await readOptionalJson(DATA_BASE+'i18n/es/stories.json')
-    };
-    if(AR_ENABLED){
-      state.i18n.ar = {
-        teams: await readOptionalJson(DATA_BASE+'i18n/ar/teams.json'),
-        previews: await readOptionalJson(DATA_BASE+'i18n/ar/previews.json'),
-        stories: await readOptionalJson(DATA_BASE+'i18n/ar/stories.json')
-      };
-    }
+    // V10.3.8 : charger uniquement la langue active au démarrage.
+    // Les autres langues sont chargées à la demande au clic sur le sélecteur.
+    await loadI18nLang(initialLangFromUrlAndTeams());
   }
 
   function installSelector(){
@@ -488,8 +533,10 @@
         } else {
           res = originalSet.apply(this, [state.activeLang]);
         }
-        setTimeout(() => { if(state.activeTeamId) applyTeam(state.activeTeamId); else syncLangButtons(state.activeLang); }, 20);
-        setTimeout(() => { if(state.activeTeamId) applyTeam(state.activeTeamId); else syncLangButtons(state.activeLang); }, 180);
+        loadI18nLang(state.activeLang).then(() => {
+          setTimeout(() => { if(state.activeTeamId) applyTeam(state.activeTeamId); else syncLangButtons(state.activeLang); }, 20);
+          setTimeout(() => { if(state.activeTeamId) applyTeam(state.activeTeamId); else syncLangButtons(state.activeLang); }, 180);
+        });
         return res;
       };
       window.setLanguage.__v10Patched = true;

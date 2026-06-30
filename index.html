@@ -3204,8 +3204,8 @@ function animNum(el,from,to){
     el.textContent=Math.round(from+(to-from)*p).toLocaleString('fr-FR');if(p<1)requestAnimationFrame(s);};
   requestAnimationFrame(s);
 }
-const SUPPORTER_BASE = 11120;
-const SUPPORTER_VARIATION = 90;
+const SUPPORTER_BASE = 15560;
+const SUPPORTER_VARIATION = 120;
 let supporterCurrent = SUPPORTER_BASE + Math.floor((Math.random() * SUPPORTER_VARIATION * 2) - SUPPORTER_VARIATION);
 function clampSupporters(n){
   return Math.max(SUPPORTER_BASE - SUPPORTER_VARIATION, Math.min(SUPPORTER_BASE + SUPPORTER_VARIATION, n));
@@ -3534,6 +3534,12 @@ let fallbackLoaded = false;
 let lastApiSuccessAt = null;
 let lastApiAttemptAt = null;
 let apiHadLiveRecently = false;
+let scorePollTimer = null;
+const SCORE_POLL_LIVE_MS = 60000;
+const SCORE_POLL_IDLE_MS = 15 * 60 * 1000;
+const SCORE_POST_MATCH_GRACE_MS = 15 * 60 * 1000;
+let liveMatchKeys = new Set();
+let lastLiveEndedAt = null;
 
 function isApiWindowOpen(now = new Date()) {
   const t = now.getTime();
@@ -3545,11 +3551,33 @@ function hasLiveMatchInCurrentState() {
     .some(r => r && (r.status === 'live' || r.status === 'in_progress'));
 }
 
-function shouldCallScoresApi() {
-  // V10.0.2 : l'endpoint Netlify est maintenant la source live principale.
-  // On l'appelle à chaque cycle ; la fonction conserve son propre cache anti-quota
-  // via FOOTBALL_CACHE_SECONDS. live.json reste seulement le filet de sécurité.
-  return true;
+function getNextApiWindowStartMs(now = new Date()) {
+  const t = now.getTime();
+  let next = null;
+  API_ACTIVE_WINDOWS.forEach(([start]) => {
+    const st = new Date(start).getTime();
+    if (st > t && (next === null || st < next)) next = st;
+  });
+  return next;
+}
+
+function recentlyHadLive(now = new Date()) {
+  return !!(lastLiveEndedAt && (now.getTime() - lastLiveEndedAt.getTime()) < SCORE_POST_MATCH_GRACE_MS);
+}
+
+function shouldCallScoresApi(now = new Date()) {
+  // V10.3.8 : on économise les appels API.
+  // API active uniquement pendant les fenêtres de match, pendant un live détecté,
+  // puis 15 minutes après la fin d'un live. Hors match, live.json et le dernier état restent affichés.
+  return isApiWindowOpen(now) || hasLiveMatchInCurrentState() || recentlyHadLive(now);
+}
+
+function nextScorePollDelayMs() {
+  const now = new Date();
+  if (shouldCallScoresApi(now)) return SCORE_POLL_LIVE_MS;
+  const nextWindow = getNextApiWindowStartMs(now);
+  if (nextWindow) return Math.max(60000, nextWindow - now.getTime());
+  return SCORE_POLL_IDLE_MS;
 }
 
 function applyScoresData(data, source = 'api') {
@@ -3557,6 +3585,8 @@ function applyScoresData(data, source = 'api') {
   let changed = false;
   const apiPriority = source === 'api' || data.source === 'api-football';
   let liveCount = 0;
+  const previousLiveKeys = new Set(liveMatchKeys || []);
+  const currentLiveKeys = new Set();
 
   Object.entries(data.matches).forEach(([key, match]) => {
     const newStatus = match.status || 'scheduled';
@@ -3571,7 +3601,13 @@ function applyScoresData(data, source = 'api') {
     const newWinnerSide = (match.winnerSide === 0 || match.winnerSide === 1) ? match.winnerSide : null;
     const newLocked = !!match.locked;
 
-    if (newStatus === 'live' || newStatus === 'in_progress') liveCount++;
+    if (newStatus === 'live' || newStatus === 'in_progress') {
+      liveCount++;
+      currentLiveKeys.add(key);
+    }
+    if (apiPriority && previousLiveKeys.has(key) && newStatus === 'final') {
+      lastLiveEndedAt = new Date();
+    }
 
     const r = RESULTS[key];
     if (!r) {
@@ -3663,6 +3699,8 @@ function applyScoresData(data, source = 'api') {
 
   if (apiPriority) {
     apiHadLiveRecently = liveCount > 0;
+    if (!liveCount && previousLiveKeys.size && !lastLiveEndedAt) lastLiveEndedAt = new Date();
+    liveMatchKeys = currentLiveKeys;
   }
 
   const tsEl = document.getElementById('live-updated-at');
@@ -3742,9 +3780,16 @@ function pollLiveJson() {
   return loadFallbackScoresOnce().then(fetchApiScoresIfUseful);
 }
 
-// Premier chargement immédiat, puis polling raisonnable.
-pollLiveJson();
-setInterval(pollLiveJson, 60000);
+function scheduleNextScorePoll() {
+  if (scorePollTimer) clearTimeout(scorePollTimer);
+  const delay = nextScorePollDelayMs();
+  scorePollTimer = setTimeout(() => {
+    pollLiveJson().finally(scheduleNextScorePoll);
+  }, delay);
+}
+
+// Premier chargement immédiat, puis polling intelligent selon les fenêtres live.
+pollLiveJson().finally(scheduleNextScorePoll);
 
 // ════════════════════════════════════════════════
 // COMPATIBILITÉ API / ADMIN
