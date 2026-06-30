@@ -30,13 +30,13 @@
     "farewellHeadline": "AU REVOIR “LES ÉLÉPHANTS”"
   },
   "france": {
-    "status": "pending",
-    "round": "R32",
-    "nextMatchId": "fra-swe",
-    "pendingNext": [
-      "par-fra"
-    ],
-    "selectorLine": "16e à jouer · Paraguay attend le vainqueur"
+    "status": "qualified",
+    "round": "R16",
+    "nextMatchId": "par-fra",
+    "nextOpponent": "paraguay",
+    "selectorLine": "Qualifiée en 8e · prochain défi : Paraguay",
+    "statusLabel": "Qualifiée en huitième de finale · Prochain défi : Paraguay",
+    "roundLabel": "huitième de finale"
   },
   "senegal": {
     "status": "pending",

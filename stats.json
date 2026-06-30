@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-06-30T21:05:00+02:00",
-  "sourceNote": "V11.0 — Haaland passe à 5 buts après Côte d’Ivoire–Norvège. Stats cumulées depuis le début de la Coupe du monde.",
+  "updatedAt": "2026-06-30T23:05:00+02:00",
+  "sourceNote": "V11.2 — France 3–0 Suède : Mbappé passe à 6 buts et rejoint Messi. France meilleure attaque avec 13 buts. Stats cumulées depuis le début de la Coupe du monde.",
   "topScorers": [
     {
       "rank": 1,
@@ -9,16 +9,16 @@
       "goals": 6
     },
     {
-      "rank": 2,
-      "name": "Erling Haaland",
-      "team": "🇳🇴 Norvège",
-      "goals": 5
+      "rank": 1,
+      "name": "Kylian Mbappé",
+      "team": "🇫🇷 France",
+      "goals": 6
     },
     {
       "rank": 3,
-      "name": "Kylian Mbappé",
-      "team": "🇫🇷 France",
-      "goals": 4
+      "name": "Erling Haaland",
+      "team": "🇳🇴 Norvège",
+      "goals": 5
     },
     {
       "rank": 4,
@@ -64,10 +64,9 @@
     }
   ],
   "bestAttack": {
-    "goals": 11,
+    "goals": 13,
     "teams": [
-      "🇩🇪 Allemagne",
-      "🇳🇱 Pays-Bas"
+      "🇫🇷 France"
     ]
   },
   "bestDefense": {

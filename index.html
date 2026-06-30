@@ -24,7 +24,7 @@ html.v10-booting #v10-team-selector, html.v10-booting .v10-selector{visibility:v
 .r32-card.api-scored .r32-scoreline span{color:#86efac;font-weight:900;}
 @media(display-mode:standalone){.v10-change-team{bottom:18px}.ticker-wrap{position:sticky;top:0;z-index:20;}}
 
-/* V11.0 — tournoi vivant : R16 éditorial, résultats figés, adieux équipes éliminées */
+/* V11.2 — France qualifiée : Paraguay–France activé, stats Mbappé mises à jour */
 .r32-grid .r32-scoreline{display:none !important;}
 .r32-card.api-scored .r32-note{color:#86efac;}
 .r32-team-left{display:flex;align-items:center;gap:8px;min-width:0;}
@@ -1218,8 +1218,8 @@ header{display:flex;align-items:center;justify-content:space-between;padding:12p
       <div class="scorer-list" id="top-scorers-list">
         <!-- Fallback statique : visible même si le JS est bloqué. renderTournamentLeaders() remettra à jour au chargement. -->
         <div class="scorer-row"><div class="scorer-rank">#1</div><div><div class="scorer-name">Lionel Messi</div><div class="scorer-team">🇦🇷 Argentine</div></div><div class="scorer-goals">6</div></div>
-        <div class="scorer-row"><div class="scorer-rank">#2</div><div><div class="scorer-name">Erling Haaland</div><div class="scorer-team">🇳🇴 Norvège</div></div><div class="scorer-goals">5</div></div>
-        <div class="scorer-row"><div class="scorer-rank">#3</div><div><div class="scorer-name">Kylian Mbappé</div><div class="scorer-team">🇫🇷 France</div></div><div class="scorer-goals">4</div></div>
+        <div class="scorer-row"><div class="scorer-rank">#1</div><div><div class="scorer-name">Kylian Mbappé</div><div class="scorer-team">🇫🇷 France</div></div><div class="scorer-goals">6</div></div>
+        <div class="scorer-row"><div class="scorer-rank">#3</div><div><div class="scorer-name">Erling Haaland</div><div class="scorer-team">🇳🇴 Norvège</div></div><div class="scorer-goals">5</div></div>
         <div class="scorer-row"><div class="scorer-rank">#4</div><div><div class="scorer-name">Ousmane Dembélé</div><div class="scorer-team">🇫🇷 France</div></div><div class="scorer-goals">4</div></div>
         <div class="scorer-row"><div class="scorer-rank">#5</div><div><div class="scorer-name">Vinícius Júnior</div><div class="scorer-team">🇧🇷 Brésil</div></div><div class="scorer-goals">4</div></div>
       </div>
@@ -1227,8 +1227,8 @@ header{display:flex;align-items:center;justify-content:space-between;padding:12p
     </div>
     <div class="leader-card attack">
       <div class="leader-title"><img src="assets/lion-mascotte.png" alt="Mascotte">Meilleure attaque</div>
-      <div class="leader-big" id="best-attack-goals">11</div>
-      <div class="leader-teams" id="best-attack-teams">🇩🇪 Allemagne · 🇳🇱 Pays-Bas</div>
+      <div class="leader-big" id="best-attack-goals">13</div>
+      <div class="leader-teams" id="best-attack-teams">🇫🇷 France</div>
       <div class="leader-note">Équipes avec le plus grand nombre de buts marqués. Modifiable dans stats.json.</div>
     </div>
     <div class="leader-card defense">
@@ -2154,17 +2154,17 @@ function liveImpactText(key) {
 
 
 const DEFAULT_TOURNAMENT_STATS = {
-  updatedAt: '2026-06-30T21:05:00+02:00',
+  updatedAt: '2026-06-30T23:05:00+02:00',
   topScorers: [
     { rank: 1, name: 'Lionel Messi', team: '🇦🇷 Argentine', goals: 6 },
-    { rank: 2, name: 'Erling Haaland', team: '🇳🇴 Norvège', goals: 5 },
-    { rank: 3, name: 'Kylian Mbappé', team: '🇫🇷 France', goals: 4 },
+    { rank: 1, name: 'Kylian Mbappé', team: '🇫🇷 France', goals: 6 },
+    { rank: 3, name: 'Erling Haaland', team: '🇳🇴 Norvège', goals: 5 },
     { rank: 4, name: 'Ousmane Dembélé', team: '🇫🇷 France', goals: 4 },
     { rank: 5, name: 'Vinícius Júnior', team: '🇧🇷 Brésil', goals: 4 }
   ],
   bestAttack: {
-    goals: 11,
-    teams: ['🇩🇪 Allemagne', '🇳🇱 Pays-Bas']
+    goals: 13,
+    teams: ['🇫🇷 France']
   },
   bestDefense: {
     goalsAgainst: 0,
@@ -2276,9 +2276,9 @@ const KO_ROUNDS = [
   ]}
 ];
 
-const r32Scores = { N73:[0,1], N78:[2,1], N74:[1,1], N75:[1,1], N76:[1,2] }; // V11 fallback officiel local
-const r32Picks = { N73:1, N78:0, N74:1, N75:1, N76:1 };
-const r32Locked = { N73:true, N78:true, N74:true, N75:true, N76:true }; // V10.3.5 : matchs finalisés API figés dans la simulation
+const r32Scores = { N73:[0,1], N78:[2,1], N74:[1,1], N75:[1,1], N76:[1,2], N77:[3,0] }; // V11 fallback officiel local
+const r32Picks = { N73:1, N78:0, N74:1, N75:1, N76:1, N77:0 };
+const r32Locked = { N73:true, N78:true, N74:true, N75:true, N76:true, N77:true }; // V10.3.5 : matchs finalisés API figés dans la simulation
 const koPicks = { r16:{}, qf:{}, sf:{}, final:{} };
 const koScores = { r16:{}, qf:{}, sf:{}, final:{} };
 const ROUND_ORDER = ['r16','qf','sf','final'];

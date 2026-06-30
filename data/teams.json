@@ -83,15 +83,15 @@
     "heroImg": "assets/teams/france/player.webp",
     "bannerImg": "assets/teams/france/banner.webp",
     "heroPlayer": "Kylian Mbappé",
-    "nextMatchId": "fra-swe",
+    "nextMatchId": "par-fra",
     "defaultLang": "fr",
     "tagline": "Les Bleus, candidats au titre",
-    "statusLabel": "Favori mondial · Statut à assumer",
+    "statusLabel": "Qualifiée en huitième de finale · Prochain défi : Paraguay",
     "supporterName": "Bleus",
-    "selectorLine": "16e à jouer · Paraguay attend le vainqueur",
+    "selectorLine": "Qualifiée en 8e · prochain défi : Paraguay",
     "mascotImg": null,
-    "tournamentStatus": "pending",
-    "currentRound": "R32"
+    "tournamentStatus": "qualified",
+    "currentRound": "R16"
   },
   "ivory_coast": {
     "teamName": "Côte d’Ivoire",

@@ -71,5 +71,18 @@
     "winner": "away",
     "winnerSide": 1,
     "locked": true
+  },
+  "fra-swe": {
+    "koId": "N77",
+    "h": "FRA",
+    "a": "SWE",
+    "home": 3,
+    "away": 0,
+    "status": "final",
+    "apiStatus": "FT",
+    "apiStatusLong": "Match Finished",
+    "winner": "home",
+    "winnerSide": 0,
+    "locked": true
   }
 }

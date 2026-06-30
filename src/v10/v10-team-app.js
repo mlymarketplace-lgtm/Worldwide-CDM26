@@ -1,4 +1,4 @@
-// QualifGaïndé V11.1 — statut équipes + cards au revoir + previews multilingues
+// QualifGaïndé V11.2 — France qualifiée + Paraguay–France + stats Mbappé
 // Conserve le socle V10.4.4 : routing, PWA, API, bracket et affichage local timezone.
 (function(){
   window.QUALIFGAINDE_V10_ACTIVE = true;

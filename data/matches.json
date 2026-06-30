@@ -45,7 +45,8 @@
     "dateParis": "2026-06-30T23:00:00+02:00",
     "dateUTC": "2026-06-30T21:00:00Z",
     "stadium": "New York · MetLife Stadium",
-    "channel_fr": "beIN Sports 1 / M6"
+    "channel_fr": "beIN Sports 1 / M6",
+    "note": "France qualifiée après une victoire 3–0 contre la Suède."
   },
   "civ-nor": {
     "home": "ivory_coast",
@@ -145,8 +146,8 @@
     "dateUTC": "2026-07-04T21:00:00Z",
     "stadium": "Stade à confirmer",
     "channel_fr": "beIN Sports 1",
-    "note": "Préparé pour V11 : activable si la France valide son 16e contre la Suède.",
-    "conditional": true,
+    "note": "Huitième confirmé après France 3–0 Suède.",
+    "conditional": false,
     "label_en": "Paraguay–France",
     "label_es": "Paraguay–Francia",
     "label_pt": "Paraguai–França",
