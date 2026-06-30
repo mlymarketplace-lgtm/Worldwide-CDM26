@@ -66,12 +66,13 @@
     "nextMatchId": "bra-nor",
     "defaultLang": "pt",
     "tagline": "O país do futebol",
-    "statusLabel": "Qualifié pour les huitièmes · Prochain défi : Norvège",
+    "statusLabel": "Qualifié en huitième de finale · Prochain défi : Norvège",
     "supporterName": "Seleção",
-    "selectorLine": "Qualifié · prochain défi : Norvège",
+    "selectorLine": "Qualifié en 8e · prochain défi : Norvège",
     "mascotImg": null,
     "tournamentStatus": "qualified",
-    "currentRound": "R16"
+    "currentRound": "R16",
+    "roundLabel": "huitième de finale"
   },
   "france": {
     "teamName": "France",
@@ -104,12 +105,16 @@
     "nextMatchId": "civ-nor",
     "defaultLang": "fr",
     "tagline": "Les Éléphants veulent faire trembler le monde",
-    "statusLabel": "Parcours terminé · Fierté africaine intacte",
+    "statusLabel": "Éliminée en seizième de finale",
     "supporterName": "Éléphants",
-    "selectorLine": "Parcours terminé · respect aux Éléphants",
+    "selectorLine": "Éliminée en 16e · respect aux Éléphants",
     "mascotImg": null,
     "tournamentStatus": "eliminated",
-    "currentRound": "R32"
+    "currentRound": "R32",
+    "roundLabel": "seizième de finale",
+    "heroSubtitle": "Respect total, rendez-vous dans quatre ans — les Éléphants reviendront plus forts.",
+    "exitScoreLine": "🇨🇮 Côte d’Ivoire 1–2 Norvège 🇳🇴",
+    "farewellHeadline": "AU REVOIR “LES ÉLÉPHANTS”"
   },
   "dr_congo": {
     "teamName": "RD Congo",
@@ -140,12 +145,13 @@
     "nextMatchId": "can-mar",
     "defaultLang": "fr",
     "tagline": "Les Lions de l’Atlas, une ambition continentale",
-    "statusLabel": "Qualifié pour les huitièmes · Prochain défi : Canada",
+    "statusLabel": "Qualifié en huitième de finale · Prochain défi : Canada",
     "supporterName": "Lions de l’Atlas",
-    "selectorLine": "Qualifié · prochain défi : Canada",
+    "selectorLine": "Qualifié en 8e · prochain défi : Canada",
     "mascotImg": null,
     "tournamentStatus": "qualified",
-    "currentRound": "R16"
+    "currentRound": "R16",
+    "roundLabel": "huitième de finale"
   },
   "spain": {
     "teamName": "Espagne",

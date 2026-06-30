@@ -1,4 +1,4 @@
-// QualifGaïndé V11 — couche multi-équipes + tournoi vivant
+// QualifGaïndé V11.1 — statut équipes + cards au revoir + previews multilingues
 // Conserve le socle V10.4.4 : routing, PWA, API, bracket et affichage local timezone.
 (function(){
   window.QUALIFGAINDE_V10_ACTIVE = true;
@@ -169,6 +169,53 @@
     if(state.activeLang === 'en') return `${team.flag} ${team.teamName} at the 2026 World Cup`;
     return `${team.flag} ${team.teamName} à la Coupe du monde 2026`;
   }
+  function roundLabelFor(team){
+    const lang = state.activeLang || team.defaultLang || 'fr';
+    if(team.roundLabel) return team.roundLabel;
+    const map = {
+      R32:{fr:'seizième de finale',en:'Round of 32',pt:'16 avos',es:'dieciseisavos',ar:'دور الـ32'},
+      R16:{fr:'huitième de finale',en:'Round of 16',pt:'oitavos de final',es:'octavos de final',ar:'دور الـ16'},
+      QF:{fr:'quart de finale',en:'quarter-final',pt:'quartos de final',es:'cuartos de final',ar:'ربع النهائي'},
+      SF:{fr:'demi-finale',en:'semi-final',pt:'semifinal',es:'semifinal',ar:'نصف النهائي'},
+      F:{fr:'finale',en:'final',pt:'final',es:'final',ar:'النهائي'}
+    };
+    const round = team.currentRound || team.round || 'R32';
+    return (map[round] && (map[round][lang] || map[round].fr)) || round;
+  }
+  function statusDisplayFor(team){
+    const lang = state.activeLang || team.defaultLang || 'fr';
+    const round = roundLabelFor(team);
+    if(team.tournamentStatus === 'eliminated'){
+      if(lang === 'ar') return `أُقصي في ${round}`;
+      if(lang === 'en') return `Eliminated in the ${round}`;
+      if(lang === 'pt') return `Eliminado nos ${round}`;
+      if(lang === 'es') return `Eliminado en ${round}`;
+      return `Éliminée en ${round}`;
+    }
+    if(team.tournamentStatus === 'qualified'){
+      if(lang === 'ar') return `تأهل إلى ${round}`;
+      if(lang === 'en') return `Qualified for the ${round}`;
+      if(lang === 'pt') return `Classificado para os ${round}`;
+      if(lang === 'es') return `Clasificado para ${round}`;
+      return `Qualifié en ${round}`;
+    }
+    return team.statusLabel || team.tagline || '';
+  }
+  function eliminatedHeroSubtitle(team){
+    const lang = state.activeLang || team.defaultLang || 'fr';
+    if(team.heroSubtitle) return team.heroSubtitle;
+    if(lang === 'ar') return 'احترام كامل، الموعد بعد أربع سنوات.';
+    if(lang === 'en') return 'Total respect — see you in four years.';
+    if(lang === 'pt') return 'Respeito total — encontro marcado daqui a quatro anos.';
+    if(lang === 'es') return 'Respeto total: cita dentro de cuatro años.';
+    return 'Respect total, rendez-vous dans quatre ans.';
+  }
+  function eliminatedScoreLine(team, match){
+    if(team.exitScoreLine) return team.exitScoreLine;
+    if(!match) return statusDisplayFor(team);
+    const home = teamLabel(match.home), away = teamLabel(match.away);
+    return `${home.flag || ''} ${home.teamName || match.home} – ${away.teamName || match.away} ${away.flag || ''}`;
+  }
   function resultClass(code){ return code === 'V' ? 'win' : code === 'D' ? 'loss' : 'draw'; }
   function safeHtml(str){ const div = document.createElement('div'); div.textContent = str || ''; return div.innerHTML; }
   function supportedLangs(){ return AR_ENABLED ? ['fr','en','pt','es','ar'] : ['fr','en','pt','es']; }
@@ -240,6 +287,9 @@
       if(cfg.round) state.teams[id].currentRound = cfg.round;
       if(cfg.statusLabel) state.teams[id].statusLabel = cfg.statusLabel;
       if(cfg.selectorLine) state.teams[id].selectorLine = cfg.selectorLine;
+      ['roundLabel','heroSubtitle','exitScoreLine','farewellHeadline','eliminatedBy','pendingNext'].forEach(key => {
+        if(cfg[key] !== undefined) state.teams[id][key] = cfg[key];
+      });
     });
     state.i18n.pt = {
       teams: await readOptionalJson(DATA_BASE+'i18n/pt/teams.json'),
@@ -319,7 +369,7 @@
     if(htitle){
       htitle.innerHTML = `<span>${safeHtml(team.teamName)}</span> — ${headerSuffix(lang)}<span class="v10-active-team-pill">${team.flag} ${safeHtml(team.supporterName || '')}</span>`;
     }
-    const kicker = $('.site-kicker'); if(kicker) kicker.textContent = team.tagline || team.statusLabel || 'QualifGaïndé Worldwide';
+    const kicker = $('.site-kicker'); if(kicker) kicker.textContent = statusDisplayFor(team) || team.tagline || 'QualifGaïndé Worldwide';
     const logo = $('.mascot-logo');
     if(logo){ logo.src = team.mascotImg || team.heroImg || logo.src; logo.alt = team.heroPlayer || team.teamName; }
     const music = $('#btn-music');
@@ -332,12 +382,15 @@
   function renderHeaderScores(teamId){
     const list = state.results[teamId] || [];
     const wrap = $('#live-center'); if(!wrap || !list.length) return;
-    $$('.hscore', wrap).forEach((row, idx) => {
-      const r = list[idx]; if(!r) return;
-      row.classList.remove('win','loss','draw'); row.classList.add(resultClass(r.result));
-      const label = $('.hs-label', row); if(label) label.textContent = state.activeLang === 'ar' ? `المباراة ${idx+1}` : `Match ${idx+1}`;
-      const score = $('.hs-score', row); if(score) score.textContent = r.label;
-      const note = $('.hs-note', row); if(note) note.textContent = r.note || '';
+    $$('.hscore', wrap).forEach(row => row.remove());
+    const anchor = $('#hdr-score', wrap) || wrap.firstChild;
+    const visible = list.slice(-4);
+    visible.forEach((r, idx) => {
+      const row = document.createElement('div');
+      row.className = `hscore ${resultClass(r.result)}`;
+      const resultLabel = state.activeLang === 'ar' ? `المباراة ${idx+1}` : `Match ${idx+1}`;
+      row.innerHTML = `<div class="hs-label">${safeHtml(resultLabel)}</div><div class="hs-score">${safeHtml(r.label)}</div><div class="hs-note">${safeHtml(r.note || '')}</div>`;
+      wrap.insertBefore(row, anchor || null);
     });
     wrap.setAttribute('aria-label', `Résultats récents · ${teamLabel(teamId).teamName}`);
   }
@@ -346,7 +399,7 @@
     const img = $('#hero-banner img');
     if(img){ img.src = team.bannerImg || img.src; img.alt = `${team.teamName} · QualifGaïndé Worldwide`; img.loading='eager'; img.decoding='async'; img.fetchPriority='high'; }
     const title = $('#hero-title'); if(title) title.textContent = heroTitleFor(team);
-    const sub = $('#hero-subtitle'); if(sub) sub.textContent = team.heroSubtitle || team.tagline || team.statusLabel || '';
+    const sub = $('#hero-subtitle'); if(sub) sub.textContent = team.tournamentStatus === 'eliminated' ? eliminatedHeroSubtitle(team) : (team.heroSubtitle || team.tagline || team.statusLabel || '');
   }
 
   function renderOpponent(teamId, team){
@@ -354,10 +407,9 @@
     if(team.tournamentStatus === 'eliminated'){
       const card = $('#probable-opponent'); if(card) card.title = `Parcours terminé : ${matchLabel(match)}`;
       const label = $('.opp-label'); if(label){
-        const txt = state.activeLang === 'ar' ? 'نهاية المشوار' : state.activeLang === 'en' ? 'Journey ended' : state.activeLang === 'es' ? 'Fin del recorrido' : state.activeLang === 'pt' ? 'Fim do percurso' : 'Parcours terminé';
-        label.innerHTML = `<img class="section-mascot" src="assets/lion-mascotte.png" alt="Mascotte">${txt}`;
+        label.innerHTML = `<img class="section-mascot" src="assets/lion-mascotte.png" alt="Mascotte">${safeHtml(statusDisplayFor(team))}`;
       }
-      const name = $('#opp-main-name'); if(name) name.textContent = `${team.flag || ''} ${team.teamName} 1–2 ${teamLabel(match.away).teamName || 'Norvège'} 🇳🇴`;
+      const name = $('#opp-main-name'); if(name) name.textContent = eliminatedScoreLine(team, match);
       const sub = $('#opp-main-sub'); if(sub) sub.textContent = `${matchLabel(match)} · Match terminé · ${match.stadium || ''}`;
       return;
     }
@@ -419,14 +471,12 @@
     if(team.tournamentStatus === 'eliminated'){
       const secBefore = Array.from(document.querySelectorAll('.sec')).find(el => /Prochaine|Próximo|Proximo|Next|Parcours|Journey|Fin/i.test(el.textContent));
       if(secBefore){
-        const sectionText = state.activeLang === 'ar' ? `نهاية مشوار ${safeHtml(team.teamName)}` : state.activeLang === 'en' ? `${safeHtml(team.teamName)} journey ended` : state.activeLang === 'es' ? `Fin del recorrido de ${safeHtml(team.teamName)}` : state.activeLang === 'pt' ? `Fim do percurso de ${safeHtml(team.teamName)}` : `Parcours terminé pour ${safeHtml(team.teamName)}`;
-        secBefore.innerHTML = `<img class="section-mascot" src="assets/lion-mascotte.png" alt="Mascotte">${sectionText}`;
+        secBefore.innerHTML = `<img class="section-mascot" src="assets/lion-mascotte.png" alt="Mascotte">${safeHtml(statusDisplayFor(team))}`;
       }
-      const home = teamLabel(match.home), away = teamLabel(match.away);
-      const cmatch = $('.countdown-match'); if(cmatch) cmatch.textContent = `${home.flag || ''} ${home.teamName} 1–2 ${away.teamName} ${away.flag || ''}`;
+      const cmatch = $('.countdown-match'); if(cmatch) cmatch.textContent = eliminatedScoreLine(team, match);
       const meta = $('.countdown-meta'); if(meta) meta.textContent = `${matchLabel(match)} · Match terminé · ${match.stadium || ''}`;
       ['cd-days','cd-hours','cd-min','cd-sec'].forEach(id => { const el=document.getElementById(id); if(el) el.textContent='00'; });
-      const msg = $('#countdown-end-msg'); if(msg) msg.textContent = state.activeLang === 'ar' ? 'احترام كامل، الموعد بعد أربع سنوات.' : 'Respect total, rendez-vous dans quatre ans.';
+      const msg = $('#countdown-end-msg'); if(msg) msg.textContent = eliminatedHeroSubtitle(team);
       renderSide($('.player-side.bel'), match.home);
       renderSide($('.player-side.sen'), match.away);
       updateCountdownScorePanel(team.nextMatchId);
@@ -498,9 +548,17 @@
     const farewell = team.tournamentStatus === 'eliminated' ? (state.farewells[state.activeTeamId] || state.farewells.generic_africa || state.farewells.generic_world) : null;
     const matchId = team.nextMatchId;
     const preview = farewell || getPreview(matchId, state.activeLang || team.defaultLang);
+    const card = $('#belgique-senegal');
+    if(card){
+      card.classList.toggle('v11-farewell-card', !!farewell);
+      card.classList.toggle('v11-preview-card', !farewell);
+    }
     if(!preview) return;
     const title = $('#belgique-senegal .teaser-title');
-    if(title) title.innerHTML = `<img class="section-mascot" src="assets/lion-mascotte.png" alt="Mascotte">${safeHtml(preview.title)}`;
+    if(title){
+      const displayTitle = farewell ? (team.farewellHeadline || preview.title || 'AU REVOIR') : preview.title;
+      title.innerHTML = `<img class="section-mascot" src="assets/lion-mascotte.png" alt="Mascotte">${safeHtml(displayTitle)}`;
+    }
     const body = $('#belgique-senegal .teaser-body');
     if(body){
       const paragraphs = Array.isArray(preview.body) ? preview.body : [preview.body || ''];

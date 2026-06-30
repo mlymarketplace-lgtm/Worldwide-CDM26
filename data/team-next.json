@@ -4,24 +4,30 @@
     "round": "R16",
     "nextMatchId": "can-mar",
     "nextOpponent": "canada",
-    "selectorLine": "Qualifié · prochain défi : Canada",
-    "statusLabel": "Qualifié pour les huitièmes · Prochain défi : Canada"
+    "selectorLine": "Qualifié en 8e · prochain défi : Canada",
+    "statusLabel": "Qualifié en huitième de finale · Prochain défi : Canada",
+    "roundLabel": "huitième de finale"
   },
   "brazil": {
     "status": "qualified",
     "round": "R16",
     "nextMatchId": "bra-nor",
     "nextOpponent": "norway",
-    "selectorLine": "Qualifié · prochain défi : Norvège",
-    "statusLabel": "Qualifié pour les huitièmes · Prochain défi : Norvège"
+    "selectorLine": "Qualifié en 8e · prochain défi : Norvège",
+    "statusLabel": "Qualifié en huitième de finale · Prochain défi : Norvège",
+    "roundLabel": "huitième de finale"
   },
   "ivory_coast": {
     "status": "eliminated",
     "round": "R32",
     "nextMatchId": "civ-nor",
     "eliminatedBy": "norway",
-    "selectorLine": "Parcours terminé · respect aux Éléphants",
-    "statusLabel": "Parcours terminé · Fierté africaine intacte"
+    "selectorLine": "Éliminée en 16e · respect aux Éléphants",
+    "statusLabel": "Éliminée en seizième de finale",
+    "roundLabel": "seizième de finale",
+    "heroSubtitle": "Respect total, rendez-vous dans quatre ans — les Éléphants reviendront plus forts.",
+    "exitScoreLine": "🇨🇮 Côte d’Ivoire 1–2 Norvège 🇳🇴",
+    "farewellHeadline": "AU REVOIR “LES ÉLÉPHANTS”"
   },
   "france": {
     "status": "pending",

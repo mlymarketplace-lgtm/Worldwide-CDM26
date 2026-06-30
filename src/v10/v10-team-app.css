@@ -200,3 +200,34 @@ body.v10-rtl .form-row{direction:rtl;}
   .story-body{font-size:.92rem !important;line-height:1.82 !important;}
   .teaser-body{font-size:.9rem !important;line-height:1.78 !important;}
 }
+
+/* V11.1 — statuts de parcours + card d'au revoir */
+#belgique-senegal.v11-farewell-card{
+  border-color:color-mix(in srgb,var(--team-secondary) 52%,#ffffff24) !important;
+  background:
+    radial-gradient(circle at 16% 18%,color-mix(in srgb,var(--team-secondary) 20%,transparent),transparent 38%),
+    linear-gradient(135deg,color-mix(in srgb,var(--team-primary) 26%,#050505),#090909 62%,color-mix(in srgb,var(--team-accent) 18%,#050505)) !important;
+  box-shadow:0 24px 70px #0009, inset 0 0 0 1px #ffffff0d !important;
+}
+#belgique-senegal.v11-farewell-card .teaser-title{
+  color:#fff !important;
+  letter-spacing:.13em;
+  text-shadow:0 0 22px color-mix(in srgb,var(--team-secondary) 35%,transparent);
+}
+#belgique-senegal.v11-farewell-card .teaser-body{
+  color:#f4f4f4 !important;
+}
+#belgique-senegal.v11-farewell-card .teaser-body strong{
+  display:inline-block;
+  color:var(--team-secondary) !important;
+  font-family:'Oswald',sans-serif;
+  font-size:clamp(1.02rem,1.8vw,1.22rem);
+  text-transform:uppercase;
+  letter-spacing:.08em;
+}
+.site-kicker{font-weight:900 !important;letter-spacing:.06em;}
+#hero-subtitle{font-weight:850 !important;}
+@media(max-width:760px){
+  #belgique-senegal.v11-farewell-card .teaser-title{font-size:.96rem !important;}
+  #belgique-senegal.v11-farewell-card .teaser-body strong{font-size:1rem;}
+}

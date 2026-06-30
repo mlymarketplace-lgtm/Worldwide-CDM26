@@ -2,7 +2,7 @@
   "name": "Suivez la CDM 2026",
   "short_name": "CDM 2026",
   "description": "Suivez la Coupe du monde 2026 : équipes, scores live, tableaux et récits supporters.",
-  "start_url": "/?source=pwa&v=1033",
+  "start_url": "/?source=pwa&v=1110",
   "scope": "/",
   "display": "standalone",
   "orientation": "portrait",
