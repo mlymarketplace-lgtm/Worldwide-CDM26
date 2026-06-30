@@ -43,13 +43,22 @@
   }
   function getPreview(matchId, lang){ return ((state.i18n?.[lang || state.activeLang]?.previews || {})[matchId]) || state.previews[matchId]; }
   function getStory(teamId, lang){ return ((state.i18n?.[lang || state.activeLang]?.stories || {})[teamId]) || state.stories[teamId]; }
-  function formatDateParis(iso, lang){
-    const d = new Date(iso);
+  function formatMatchTimeForDevice(matchDate, lang = state.activeLang || 'fr'){
+    if (typeof window.QUALIFGAINDE_FORMAT_MATCH_TIME_FOR_DEVICE === 'function') {
+      return window.QUALIFGAINDE_FORMAT_MATCH_TIME_FOR_DEVICE(matchDate, lang);
+    }
+    const d = new Date(matchDate);
     if(Number.isNaN(d.getTime())) return '';
     const locale = lang === 'ar' ? 'ar-EG' : lang === 'es' ? 'es-ES' : lang === 'pt' ? 'pt-PT' : lang === 'en' ? 'en-GB' : 'fr-FR';
-    const txt = new Intl.DateTimeFormat(locale,{weekday:'long',day:'numeric',month:'long',year:'numeric',hour:'2-digit',minute:'2-digit',timeZone:'Europe/Paris'}).format(d);
-    return lang === 'en' ? txt : txt.replace(':','h');
+    const label = lang === 'en' ? 'local time' : lang === 'pt' ? 'hora local' : lang === 'es' ? 'hora local' : lang === 'ar' ? 'التوقيت المحلي' : 'heure locale';
+    const parts = new Intl.DateTimeFormat(locale,{weekday:'short',day:'numeric',month:'short',hour:'2-digit',minute:'2-digit',hourCycle:'h23'}).formatToParts(d).reduce((acc, part) => { acc[part.type] = part.value; return acc; }, {});
+    const hour = String(parts.hour || '00').padStart(2,'0');
+    const minute = String(parts.minute || '00').padStart(2,'0');
+    const time = lang === 'en' ? `${hour}:${minute}` : `${hour}h${minute}`;
+    const day = [parts.weekday, parts.day, parts.month].filter(Boolean).join(' ');
+    return `${day} · ${time} · ${label}`;
   }
+  function formatDateParis(iso, lang){ return formatMatchTimeForDevice(iso, lang); }
   function matchLabel(match){ return match ? (match['label_' + (state.activeLang || 'fr')] || match.label || '') : ''; }
   function isLiveLikeStatus(status){ return status === 'live' || status === 'in_progress'; }
   function isFinalStatus(status){ return status === 'final'; }
