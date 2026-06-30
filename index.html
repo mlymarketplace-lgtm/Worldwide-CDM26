@@ -24,13 +24,19 @@ html.v10-booting #v10-team-selector, html.v10-booting .v10-selector{visibility:v
 .r32-card.api-scored .r32-scoreline span{color:#86efac;font-weight:900;}
 @media(display-mode:standalone){.v10-change-team{bottom:18px}.ticker-wrap{position:sticky;top:0;z-index:20;}}
 
-/* V10.3.4 — R32 anti-duplicate score: inline team scores only */
+/* V10.3.5 — R32 winner lock: scores inline, TAB support, finalized matches frozen */
 .r32-grid .r32-scoreline{display:none !important;}
 .r32-card.api-scored .r32-note{color:#86efac;}
 .r32-team-left{display:flex;align-items:center;gap:8px;min-width:0;}
 .r32-team-name{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
 .r32-inline-score{display:inline-flex;align-items:center;justify-content:center;min-width:24px;height:24px;border-radius:8px;border:1px solid #4ade8050;background:#062612;color:#bbf7d0;font-family:Oswald,sans-serif;font-weight:900;font-size:.9rem;line-height:1;}
 .r32-inline-score.r32-score-empty{border-color:#ffffff14;background:#ffffff08;color:#6b7280;}
+
+.r32-card.locked{border-color:#4ade8070;box-shadow:0 0 0 1px #4ade8028,0 10px 28px #0005;}
+.r32-card.locked .r32-team{cursor:default;}
+.r32-card.locked .r32-team:not(.picked){opacity:.68;}
+.r32-card.locked .r32-pick{color:#86efac;font-weight:900;}
+.r32-penalty{display:inline-flex;align-items:center;gap:4px;margin-left:6px;color:#facc15;font-weight:900;font-size:.58rem;letter-spacing:.04em;}
 
 
 </style>
@@ -2233,6 +2239,7 @@ const KO_ROUNDS = [
 
 const r32Scores = { N73:[0,1] }; // V10.3 fallback officiel : Afrique du Sud 0–1 Canada
 const r32Picks = { N73:1 };
+const r32Locked = { N73:true }; // V10.3.5 : matchs finalisés API figés dans la simulation
 const koPicks = { r16:{}, qf:{}, sf:{}, final:{} };
 const koScores = { r16:{}, qf:{}, sf:{}, final:{} };
 const ROUND_ORDER = ['r16','qf','sf','final'];
@@ -2289,38 +2296,59 @@ function matchHasSenegal(round, match) {
 function r32ApiEntryById(id) {
   return Object.values(KNOCKOUT_LIVE_RESULTS).find(x => x && x.koId === id) || null;
 }
+function penaltyTuple(entry) {
+  const ph = entry?.penalty?.home ?? entry?.penaltyHome;
+  const pa = entry?.penalty?.away ?? entry?.penaltyAway;
+  return (ph !== null && ph !== undefined && pa !== null && pa !== undefined) ? [ph, pa] : null;
+}
+function winnerSideFromApi(entry, homeGoals, awayGoals, status) {
+  if (!entry || status !== 'final') return null;
+  if (entry.winnerSide === 0 || entry.winnerSide === 1) return entry.winnerSide;
+  if (entry.winner === 'home') return 0;
+  if (entry.winner === 'away') return 1;
+  const pen = penaltyTuple(entry);
+  if (pen && pen[0] !== pen[1]) return pen[0] > pen[1] ? 0 : 1;
+  if (homeGoals !== null && awayGoals !== null && homeGoals !== awayGoals) return homeGoals > awayGoals ? 0 : 1;
+  return null;
+}
 function r32StatusText(entry) {
   if (!entry) return '';
   const minute = entry.minute ? ` · ${entry.minute}e` : '';
-  if (entry.status === 'final') return `Terminé${entry.apiStatus ? ' · ' + entry.apiStatus : ''}`;
-  if (entry.status === 'live' || entry.status === 'in_progress') return `Live${minute}`;
+  const pen = penaltyTuple(entry);
+  const penTxt = pen ? ` · TAB ${pen[0]}–${pen[1]}` : '';
+  if (entry.status === 'final') return `Terminé${penTxt}${entry.apiStatus ? ' · ' + entry.apiStatus : ''}`;
+  if (entry.status === 'live' || entry.status === 'in_progress') return `Live${minute}${penTxt}`;
   if (entry.status === 'postponed') return 'Reporté';
   if (entry.status === 'cancelled') return 'Annulé';
   return 'À venir';
 }
-function syncR32FromApi(koId, homeGoals, awayGoals, status) {
+function syncR32FromApi(koId, homeGoals, awayGoals, status, entry = {}) {
   if (!koId) return false;
   const hasScore = homeGoals !== null && homeGoals !== undefined && awayGoals !== null && awayGoals !== undefined;
-  const before = JSON.stringify({score:r32Scores[koId] || null, pick:r32Picks[koId]});
+  const before = JSON.stringify({score:r32Scores[koId] || null, pick:r32Picks[koId], locked:r32Locked[koId] || false});
   if (hasScore) {
     r32Scores[koId] = [homeGoals, awayGoals];
-    if (status === 'final' && homeGoals !== awayGoals) {
-      r32Picks[koId] = homeGoals > awayGoals ? 0 : 1;
+    const officialWinner = winnerSideFromApi(entry, homeGoals, awayGoals, status);
+    if (status === 'final' && officialWinner !== null) {
+      r32Picks[koId] = officialWinner;
+      r32Locked[koId] = true;
     }
   } else if (!r32Scores[koId]) {
     r32Scores[koId] = [null, null];
   }
-  const after = JSON.stringify({score:r32Scores[koId] || null, pick:r32Picks[koId]});
+  const after = JSON.stringify({score:r32Scores[koId] || null, pick:r32Picks[koId], locked:r32Locked[koId] || false});
   return before !== after;
 }
 
 function pickR32(matchId, side) {
+  if (r32Locked[matchId]) return;
   r32Picks[matchId] = side;
   clearAllKo();
   renderRound32Grid();
   renderKnockoutTree();
 }
 function setR32Score(matchId, side, value) {
+  if (r32Locked[matchId]) return;
   if (!r32Scores[matchId]) r32Scores[matchId] = [null, null];
   const raw = String(value || '').trim();
   const n = raw === '' ? null : Math.max(0, parseInt(raw, 10));
@@ -2354,10 +2382,13 @@ function setKOScore(round, matchId, side, value) {
 function r32Team(label, matchId, side, extraCls, scoreValue) {
   const cls = extraCls ? ` ${extraCls}` : '';
   const picked = r32Picks[matchId] === side ? ' picked' : '';
+  const locked = !!r32Locked[matchId];
   const hasScore = scoreValue !== null && scoreValue !== undefined && scoreValue !== '';
   const scoreHtml = `<span class="r32-inline-score${hasScore ? '' : ' r32-score-empty'}">${hasScore ? scoreValue : '–'}</span>`;
-  return `<div class="r32-team${cls}${picked}" role="button" tabindex="0" title="Choisir ${escapeAttr(label)}" onclick="pickR32('${matchId}',${side})">
-    <span class="r32-team-left"><span class="r32-team-name">${label}</span>${scoreHtml}</span><span class="r32-pick">${picked ? t('victory') : t('choose')}</span>
+  const title = locked ? 'Résultat officiel figé' : `Choisir ${escapeAttr(label)}`;
+  const click = locked ? '' : `onclick="pickR32('${matchId}',${side})"`;
+  return `<div class="r32-team${cls}${picked}" role="button" tabindex="0" title="${title}" ${click}>
+    <span class="r32-team-left"><span class="r32-team-name">${label}</span>${scoreHtml}</span><span class="r32-pick">${picked ? t('victory') : (locked ? 'Figé' : t('choose'))}</span>
   </div>`;
 }
 function renderRound32Grid() {
@@ -2370,8 +2401,8 @@ function renderRound32Grid() {
     const score = r32Scores[c.id] || [null, null];
     const status = r32StatusText(liveEntry);
     const officialLock = liveEntry && (liveEntry.status === 'final' || liveEntry.status === 'live' || liveEntry.status === 'in_progress') && score[0] !== null && score[1] !== null;
-    const officialHint = officialLock ? ' title="Score API-Sports" readonly' : '';
-    return `<div class="r32-card${senCls}${pickedCls}${officialLock ? ' api-scored' : ''}" data-match="${c.id}">
+    const lockedCls = r32Locked[c.id] ? ' locked' : '';
+    return `<div class="r32-card${senCls}${pickedCls}${officialLock ? ' api-scored' : ''}${lockedCls}" data-match="${c.id}">
      <div class="r32-head"><span>${c.id}</span><span class="r32-date">${c.date}</span></div>
      <div class="r32-teams">
         ${r32Team(c.a || 'À définir', c.id, 0, String(c.a||'').includes('Sénégal') ? 'sen' : '', score[0])}
@@ -3269,10 +3300,11 @@ function buildTicker(){
 // ════════════════════════════════════════════════
 const AMBIENCE_VIDEOS = {
   senegal: { id:'MnnJcDa3q8c', label:'Sénégal' },
-  france: { id:'E0Lbxc3aFbE', label:'France' },
-  algeria: { id:'CTAH-AqYm48', label:'Algérie' },
-  morocco: { id:'fEI2rtuM730', label:'Maroc' },
-  belgium: { id:'AnYw3LFSOoY', label:'Belgique' },
+  france: { id:'gA0rnR4NOtQ', label:'I Will Survive — Hermes House Band' },
+  spain: { id:'igWX__Noxm8', label:'Campeones, campeones, oé oé oé', startSeconds:7 },
+  algeria: { id:'CTAH-AqYm48', label:'Liberté — Soolking feat. Ouled El Bahdja' },
+  morocco: { id:'fEI2rtuM730', label:'Dirou Niyya — RedOne' },
+  belgium: { id:'AnYw3LFSOoY', label:'Chants supporters Diables Rouges' },
   brazil: { id:'t_qB3-89XQI', label:'Brésil' },
   ivory_coast: { id:'ewmhCmSMYrE', label:"Côte d'Ivoire" },
   egypt: { id:'1LsxjXLbX_E', label:'Égypte' },
@@ -3293,7 +3325,7 @@ window.setQualifGaindeAmbienceTeam=function(teamId){
   else currentAmbienceTeam=teamId || currentAmbienceTeam || 'senegal';
   const cfg=activeAmbience();
   if(ytPlayer && musicOn && loadedAmbienceVideoId !== cfg.id){
-    ytPlayer.loadVideoById({videoId:cfg.id, startSeconds:0});
+    ytPlayer.loadVideoById({videoId:cfg.id, startSeconds:cfg.startSeconds || 0});
     loadedAmbienceVideoId=cfg.id;
     ytPlayer.setVolume(35);
   }
@@ -3304,7 +3336,7 @@ window.onYouTubeIframeAPIReady=function(){
   loadedAmbienceVideoId=cfg.id;
   ytPlayer=new YT.Player('yt-player',{
     videoId:cfg.id,
-    playerVars:{autoplay:0,controls:0,loop:1,playlist:cfg.id},
+    playerVars:{autoplay:0,controls:0,loop:1,playlist:cfg.id,start:cfg.startSeconds || 0},
     events:{onReady:()=>{ytPlayer.setVolume(35); setAmbienceButtonState(false);}}
   });
 };
@@ -3315,7 +3347,7 @@ function toggleMusic(){
   if(!ytPlayer){setAmbienceButtonState(true);return;}
   if(!musicOn){
     if(loadedAmbienceVideoId !== cfg.id){
-      ytPlayer.loadVideoById({videoId:cfg.id, startSeconds:0});
+      ytPlayer.loadVideoById({videoId:cfg.id, startSeconds:cfg.startSeconds || 0});
       loadedAmbienceVideoId=cfg.id;
     } else {
       ytPlayer.playVideo();
@@ -3533,6 +3565,11 @@ function applyScoresData(data, source = 'api') {
     const newMinute = (match.minute !== undefined && match.minute !== null) ? match.minute : null;
     const newApiStatus = match.apiStatus || null;
     const newApiStatusLong = match.apiStatusLong || null;
+    const newPenaltyHome = match.penaltyHome ?? match.penalty?.home ?? null;
+    const newPenaltyAway = match.penaltyAway ?? match.penalty?.away ?? null;
+    const newWinner = match.winner || null;
+    const newWinnerSide = (match.winnerSide === 0 || match.winnerSide === 1) ? match.winnerSide : null;
+    const newLocked = !!match.locked;
 
     if (newStatus === 'live' || newStatus === 'in_progress') liveCount++;
 
@@ -3547,7 +3584,12 @@ function applyScoresData(data, source = 'api') {
         prev.ag !== newA ||
         prev.minute !== newMinute ||
         prev.apiStatus !== newApiStatus ||
-        prev.apiStatusLong !== newApiStatusLong
+        prev.apiStatusLong !== newApiStatusLong ||
+        prev.penaltyHome !== newPenaltyHome ||
+        prev.penaltyAway !== newPenaltyAway ||
+        prev.winner !== newWinner ||
+        prev.winnerSide !== newWinnerSide ||
+        prev.locked !== newLocked
       ) {
         KNOCKOUT_LIVE_RESULTS[key] = {
           h: koMeta.h,
@@ -3558,13 +3600,19 @@ function applyScoresData(data, source = 'api') {
           minute: newMinute,
           apiStatus: newApiStatus,
           apiStatusLong: newApiStatusLong,
+          penalty: { home: newPenaltyHome, away: newPenaltyAway },
+          penaltyHome: newPenaltyHome,
+          penaltyAway: newPenaltyAway,
+          winner: newWinner,
+          winnerSide: newWinnerSide,
+          locked: newLocked,
           apiSynced: apiPriority,
           koId: koMeta.id
         };
-        if (syncR32FromApi(koMeta.id, newH, newA, newStatus)) clearAllKo();
+        if (syncR32FromApi(koMeta.id, newH, newA, newStatus, KNOCKOUT_LIVE_RESULTS[key])) clearAllKo();
         changed = true;
       }
-      if (koMeta) syncR32FromApi(koMeta.id, newH, newA, newStatus);
+      if (koMeta) syncR32FromApi(koMeta.id, newH, newA, newStatus, KNOCKOUT_LIVE_RESULTS[key] || match);
       return;
     }
 

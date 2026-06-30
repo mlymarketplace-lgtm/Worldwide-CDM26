@@ -151,19 +151,56 @@ function mapStatus(apiStatusShort) {
   return "scheduled";
 }
 
+function toNumberOrNull(value) {
+  return value === undefined || value === null ? null : Number(value);
+}
+
 function toMatchPayload(apiFixture, key, reversed = false) {
   const goals = apiFixture?.goals || {};
+  const score = apiFixture?.score || {};
+  const penalty = score?.penalty || {};
   const fixture = apiFixture?.fixture || {};
   const status = fixture?.status || {};
   const teams = apiFixture?.teams || {};
 
-  const homeScore = goals.home;
-  const awayScore = goals.away;
+  const rawHomeScore = toNumberOrNull(goals.home);
+  const rawAwayScore = toNumberOrNull(goals.away);
+  const rawPenaltyHome = toNumberOrNull(penalty.home);
+  const rawPenaltyAway = toNumberOrNull(penalty.away);
+
+  const homeScore = reversed ? rawAwayScore : rawHomeScore;
+  const awayScore = reversed ? rawHomeScore : rawAwayScore;
+  const penaltyHome = reversed ? rawPenaltyAway : rawPenaltyHome;
+  const penaltyAway = reversed ? rawPenaltyHome : rawPenaltyAway;
+  const mappedStatus = mapStatus(status.short);
+
+  let winner = null;
+  let resolvedBy = null;
+
+  // API-SPORTS renseigne souvent teams.home.winner / teams.away.winner après TAB.
+  if (teams.home?.winner === true) {
+    winner = reversed ? "away" : "home";
+    resolvedBy = "apiWinner";
+  } else if (teams.away?.winner === true) {
+    winner = reversed ? "home" : "away";
+    resolvedBy = "apiWinner";
+  }
+
+  // Fallback : tirs au but, puis score terrain.
+  if (!winner && mappedStatus === "final") {
+    if (penaltyHome !== null && penaltyAway !== null && penaltyHome !== penaltyAway) {
+      winner = penaltyHome > penaltyAway ? "home" : "away";
+      resolvedBy = "penalties";
+    } else if (homeScore !== null && awayScore !== null && homeScore !== awayScore) {
+      winner = homeScore > awayScore ? "home" : "away";
+      resolvedBy = "score";
+    }
+  }
 
   return {
-    home: reversed ? awayScore : homeScore,
-    away: reversed ? homeScore : awayScore,
-    status: mapStatus(status.short),
+    home: homeScore,
+    away: awayScore,
+    status: mappedStatus,
     minute: status.elapsed ?? null,
     apiStatus: status.short || null,
     apiStatusLong: status.long || null,
@@ -171,6 +208,13 @@ function toMatchPayload(apiFixture, key, reversed = false) {
     date: fixture.date || null,
     homeName: reversed ? teams.away?.name : teams.home?.name,
     awayName: reversed ? teams.home?.name : teams.away?.name,
+    penalty: { home: penaltyHome, away: penaltyAway },
+    penaltyHome,
+    penaltyAway,
+    winner,
+    winnerSide: winner === "home" ? 0 : winner === "away" ? 1 : null,
+    locked: mappedStatus === "final" && !!winner,
+    resolvedBy,
   };
 }
 

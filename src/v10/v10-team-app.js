@@ -53,24 +53,31 @@
   function matchLabel(match){ return match ? (match['label_' + (state.activeLang || 'fr')] || match.label || '') : ''; }
   function isLiveLikeStatus(status){ return status === 'live' || status === 'in_progress'; }
   function isFinalStatus(status){ return status === 'final'; }
+  function penaltyTuple(entry){
+    const ph = entry?.penalty?.home ?? entry?.penaltyHome;
+    const pa = entry?.penalty?.away ?? entry?.penaltyAway;
+    return (ph !== null && ph !== undefined && pa !== null && pa !== undefined) ? [ph, pa] : null;
+  }
   function getScoreEntry(matchId){ return (state.liveScores && state.liveScores[matchId]) || null; }
   function scoreLabelFor(entry){
     const lang = state.activeLang || 'fr';
     if(!entry) return '';
+    const pen = penaltyTuple(entry);
+    const penTxt = pen ? ` · TAB ${pen[0]}–${pen[1]}` : '';
     if(isLiveLikeStatus(entry.status)){
       const minute = entry.minute ? ` · ${entry.minute}e` : '';
-      if(lang === 'ar') return `مباشر${minute}`;
-      if(lang === 'pt') return `Ao vivo${minute}`;
-      if(lang === 'es') return `En directo${minute}`;
-      if(lang === 'en') return `Live${minute}`;
-      return `Match en direct${minute}`;
+      if(lang === 'ar') return `مباشر${minute}${penTxt}`;
+      if(lang === 'pt') return `Ao vivo${minute}${penTxt}`;
+      if(lang === 'es') return `En directo${minute}${penTxt}`;
+      if(lang === 'en') return `Live${minute}${penTxt}`;
+      return `Match en direct${minute}${penTxt}`;
     }
     if(isFinalStatus(entry.status)){
-      if(lang === 'ar') return 'انتهت المباراة';
-      if(lang === 'pt') return 'Terminado';
-      if(lang === 'es') return 'Terminado';
-      if(lang === 'en') return 'Full time';
-      return 'Match terminé';
+      if(lang === 'ar') return `انتهت المباراة${penTxt}`;
+      if(lang === 'pt') return `Terminado${penTxt}`;
+      if(lang === 'es') return `Terminado${penTxt}`;
+      if(lang === 'en') return `Full time${penTxt}`;
+      return `Match terminé${penTxt}`;
     }
     return '';
   }
