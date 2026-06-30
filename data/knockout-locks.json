@@ -31,7 +31,10 @@
     "a": "PAR",
     "home": 1,
     "away": 1,
-    "penalty": { "home": 3, "away": 4 },
+    "penalty": {
+      "home": 3,
+      "away": 4
+    },
     "status": "final",
     "apiStatus": "PEN",
     "apiStatusLong": "Match Finished Penalties",
@@ -45,7 +48,10 @@
     "a": "MAR",
     "home": 1,
     "away": 1,
-    "penalty": { "home": 2, "away": 3 },
+    "penalty": {
+      "home": 2,
+      "away": 3
+    },
     "status": "final",
     "apiStatus": "PEN",
     "apiStatusLong": "Match Finished Penalties",

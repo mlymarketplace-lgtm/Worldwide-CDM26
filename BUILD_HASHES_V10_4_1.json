@@ -1,0 +1,415 @@
+{
+  "version": "V10.4.1",
+  "files": [
+    {
+      "file": "BUILD_HASHES.json",
+      "sha256_16": "12c0c77068772fef",
+      "bytes": 4111
+    },
+    {
+      "file": "PATCH_NOTES_V10_0_1.md",
+      "sha256_16": "a027607c2695b6d7",
+      "bytes": 1538
+    },
+    {
+      "file": "PATCH_NOTES_V10_0_2.md",
+      "sha256_16": "7c0278a212bb1a02",
+      "bytes": 828
+    },
+    {
+      "file": "PATCH_NOTES_V10_1.md",
+      "sha256_16": "ed342e7d968c4a45",
+      "bytes": 1209
+    },
+    {
+      "file": "PATCH_NOTES_V10_1_1.md",
+      "sha256_16": "92dae7517f9c3c93",
+      "bytes": 689
+    },
+    {
+      "file": "PATCH_NOTES_V10_2.md",
+      "sha256_16": "736373428386b42c",
+      "bytes": 1230
+    },
+    {
+      "file": "PATCH_NOTES_V10_3.md",
+      "sha256_16": "33a7c39f5904cbe2",
+      "bytes": 1454
+    },
+    {
+      "file": "PATCH_NOTES_V10_3_2.md",
+      "sha256_16": "c8c8bcd6295d40a0",
+      "bytes": 892
+    },
+    {
+      "file": "README_V10_DEV.md",
+      "sha256_16": "a7a35c2e356415c6",
+      "bytes": 827
+    },
+    {
+      "file": "TEST_REPORT_V10.md",
+      "sha256_16": "ff90d4c6910429bc",
+      "bytes": 2493
+    },
+    {
+      "file": "live.json",
+      "sha256_16": "e6f554a2ca434c3e",
+      "bytes": 885
+    },
+    {
+      "file": "netlify.toml",
+      "sha256_16": "90f38a9dd37bd0ee",
+      "bytes": 997
+    },
+    {
+      "file": "stats.json",
+      "sha256_16": "8279b1cbb7039946",
+      "bytes": 1695
+    },
+    {
+      "file": "PATCH_NOTES_V10_3_3.md",
+      "sha256_16": "5db7653c17a0fbc8",
+      "bytes": 900
+    },
+    {
+      "file": "manifest.webmanifest",
+      "sha256_16": "f4d2480aa88aafe0",
+      "bytes": 1496
+    },
+    {
+      "file": "PATCH_NOTES_V10_3_5.md",
+      "sha256_16": "c63b241b0fad77d7",
+      "bytes": 1138
+    },
+    {
+      "file": "index.html",
+      "sha256_16": "6ecdc8442e36f9c9",
+      "bytes": 228737
+    },
+    {
+      "file": "service-worker.js",
+      "sha256_16": "35d7e5dc7c71f7d5",
+      "bytes": 2455
+    },
+    {
+      "file": "PATCH_NOTES_V10_3_7.md",
+      "sha256_16": "0163f8b2f1393cd0",
+      "bytes": 570
+    },
+    {
+      "file": "PATCH_NOTES_V10_4_0.md",
+      "sha256_16": "41cf48bd777468f3",
+      "bytes": 842
+    },
+    {
+      "file": "BUILD_HASHES_V10_4_0.json",
+      "sha256_16": "a730d23fa1dbe5e7",
+      "bytes": 4157
+    },
+    {
+      "file": "PATCH_NOTES_V10_4_1.md",
+      "sha256_16": "5cef9663a0d78a38",
+      "bytes": 1728
+    },
+    {
+      "file": "assets/kevin-de-bruyne.webp",
+      "sha256_16": "96ee7e340bef2789",
+      "bytes": 7898
+    },
+    {
+      "file": "assets/lion-mascotte.png",
+      "sha256_16": "9e131df785860bfa",
+      "bytes": 25688
+    },
+    {
+      "file": "assets/sadio-mane.webp",
+      "sha256_16": "02345926154d1d99",
+      "bytes": 8608
+    },
+    {
+      "file": "assets/senegal-team.webp",
+      "sha256_16": "077c16a869683289",
+      "bytes": 34662
+    },
+    {
+      "file": "assets/world-cup-hero.webp",
+      "sha256_16": "556f8f1f66ba3a29",
+      "bytes": 21418
+    },
+    {
+      "file": "data/assets-manifest.json",
+      "sha256_16": "f28cba629622e0d3",
+      "bytes": 1918
+    },
+    {
+      "file": "data/matches.json",
+      "sha256_16": "b79d4eeeae123d20",
+      "bytes": 3323
+    },
+    {
+      "file": "data/opponent-results.json",
+      "sha256_16": "175cb5fad5b8b45f",
+      "bytes": 2925
+    },
+    {
+      "file": "data/opponents.json",
+      "sha256_16": "967a5c6390415f48",
+      "bytes": 1845
+    },
+    {
+      "file": "data/previews.json",
+      "sha256_16": "f500adef1064ec23",
+      "bytes": 10592
+    },
+    {
+      "file": "data/stories.json",
+      "sha256_16": "e13657c944da9113",
+      "bytes": 14867
+    },
+    {
+      "file": "data/team-results.json",
+      "sha256_16": "17982a536602722f",
+      "bytes": 3721
+    },
+    {
+      "file": "data/teams.json",
+      "sha256_16": "4888595d576c9dc5",
+      "bytes": 5770
+    },
+    {
+      "file": "data/knockout-locks.json",
+      "sha256_16": "b141e5b88d2af394",
+      "bytes": 1130
+    },
+    {
+      "file": "src/v10/v10-team-app.js",
+      "sha256_16": "7e2848dbbff95d45",
+      "bytes": 32273
+    },
+    {
+      "file": "src/v10/v10-team-app.css",
+      "sha256_16": "56ed194dba87a7d2",
+      "bytes": 13435
+    },
+    {
+      "file": "netlify/functions/scores.js",
+      "sha256_16": "bc2f78fedbfbe820",
+      "bytes": 11332
+    },
+    {
+      "file": "data/i18n/ar/previews.json",
+      "sha256_16": "4b716e6e00e05a79",
+      "bytes": 1569
+    },
+    {
+      "file": "data/i18n/ar/stories.json",
+      "sha256_16": "3e07d7b882aeca43",
+      "bytes": 2541
+    },
+    {
+      "file": "data/i18n/ar/teams.json",
+      "sha256_16": "0ad0719e3c100189",
+      "bytes": 1449
+    },
+    {
+      "file": "data/i18n/es/previews.json",
+      "sha256_16": "1728f984271d7b4b",
+      "bytes": 1034
+    },
+    {
+      "file": "data/i18n/es/stories.json",
+      "sha256_16": "68b6f2afb37cd79c",
+      "bytes": 2350
+    },
+    {
+      "file": "data/i18n/es/teams.json",
+      "sha256_16": "92d32ce8dc2d5ea5",
+      "bytes": 840
+    },
+    {
+      "file": "data/i18n/pt/previews.json",
+      "sha256_16": "62161dc1209df21e",
+      "bytes": 902
+    },
+    {
+      "file": "data/i18n/pt/stories.json",
+      "sha256_16": "b4895464c6f286b7",
+      "bytes": 932
+    },
+    {
+      "file": "data/i18n/pt/teams.json",
+      "sha256_16": "8a28001626376eb2",
+      "bytes": 185
+    },
+    {
+      "file": "assets/icons/icon-192.png",
+      "sha256_16": "0fb712d99e3c7fae",
+      "bytes": 73088
+    },
+    {
+      "file": "assets/icons/icon-512.png",
+      "sha256_16": "c4ce196dc9a79523",
+      "bytes": 376278
+    },
+    {
+      "file": "assets/icons/maskable-512.png",
+      "sha256_16": "d7285a6aba9839ee",
+      "bytes": 278296
+    },
+    {
+      "file": "assets/icons/pwa-source-512.png",
+      "sha256_16": "c4ce196dc9a79523",
+      "bytes": 376278
+    },
+    {
+      "file": "assets/teams/ASSETS_MAPPING_V10.md",
+      "sha256_16": "f94779758d73178b",
+      "bytes": 1538
+    },
+    {
+      "file": "assets/teams/algeria/banner.webp",
+      "sha256_16": "2abf7369bfea31fb",
+      "bytes": 30028
+    },
+    {
+      "file": "assets/teams/algeria/player.webp",
+      "sha256_16": "f26329434bd5e4cc",
+      "bytes": 9812
+    },
+    {
+      "file": "assets/teams/belgium/banner.webp",
+      "sha256_16": "2c4d244dc60d5943",
+      "bytes": 12866
+    },
+    {
+      "file": "assets/teams/belgium/player.webp",
+      "sha256_16": "96ee7e340bef2789",
+      "bytes": 7898
+    },
+    {
+      "file": "assets/teams/brazil/banner.webp",
+      "sha256_16": "cc3e9d482c24887d",
+      "bytes": 14934
+    },
+    {
+      "file": "assets/teams/brazil/player.webp",
+      "sha256_16": "e3e9fa4cb2b6ea72",
+      "bytes": 7972
+    },
+    {
+      "file": "assets/teams/dr_congo/banner.webp",
+      "sha256_16": "c4beb1a3de10c9e5",
+      "bytes": 17028
+    },
+    {
+      "file": "assets/teams/dr_congo/player.webp",
+      "sha256_16": "04a3ad88d373a3a9",
+      "bytes": 9744
+    },
+    {
+      "file": "assets/teams/egypt/banner.webp",
+      "sha256_16": "54f4f8187640b074",
+      "bytes": 22134
+    },
+    {
+      "file": "assets/teams/egypt/player.webp",
+      "sha256_16": "07666a1868536de5",
+      "bytes": 11910
+    },
+    {
+      "file": "assets/teams/france/banner.webp",
+      "sha256_16": "6ec1db1d79d77a05",
+      "bytes": 21352
+    },
+    {
+      "file": "assets/teams/france/player.webp",
+      "sha256_16": "a0f074ab391cae19",
+      "bytes": 23526
+    },
+    {
+      "file": "assets/teams/ivory_coast/banner.webp",
+      "sha256_16": "cec0a06adcc7996a",
+      "bytes": 32816
+    },
+    {
+      "file": "assets/teams/ivory_coast/player.webp",
+      "sha256_16": "6c03642c1918b1ef",
+      "bytes": 6178
+    },
+    {
+      "file": "assets/teams/morocco/banner.webp",
+      "sha256_16": "7b76cc7aa7b2f51a",
+      "bytes": 18508
+    },
+    {
+      "file": "assets/teams/morocco/player.webp",
+      "sha256_16": "77939e1ac0892204",
+      "bytes": 5766
+    },
+    {
+      "file": "assets/teams/senegal/banner.webp",
+      "sha256_16": "077c16a869683289",
+      "bytes": 34662
+    },
+    {
+      "file": "assets/teams/senegal/mascot.png",
+      "sha256_16": "9e131df785860bfa",
+      "bytes": 25688
+    },
+    {
+      "file": "assets/teams/senegal/player.webp",
+      "sha256_16": "02345926154d1d99",
+      "bytes": 8608
+    },
+    {
+      "file": "assets/teams/spain/banner.webp",
+      "sha256_16": "817dae55b5f2bae2",
+      "bytes": 26406
+    },
+    {
+      "file": "assets/teams/spain/player.webp",
+      "sha256_16": "c792afb2cde3eab1",
+      "bytes": 19816
+    },
+    {
+      "file": "assets/opponents/australia/player.webp",
+      "sha256_16": "cd0bda4a62ee6d40",
+      "bytes": 11456
+    },
+    {
+      "file": "assets/opponents/austria/player.webp",
+      "sha256_16": "247170bd6ef641bb",
+      "bytes": 12736
+    },
+    {
+      "file": "assets/opponents/england/player.webp",
+      "sha256_16": "a2bcc0263b4a4063",
+      "bytes": 7978
+    },
+    {
+      "file": "assets/opponents/japan/player.webp",
+      "sha256_16": "ce86ef746e857e6b",
+      "bytes": 8170
+    },
+    {
+      "file": "assets/opponents/netherlands/player.webp",
+      "sha256_16": "537af24237e5f109",
+      "bytes": 7282
+    },
+    {
+      "file": "assets/opponents/norway/player.webp",
+      "sha256_16": "e77a57bd376c8e9f",
+      "bytes": 9566
+    },
+    {
+      "file": "assets/opponents/sweden/player.webp",
+      "sha256_16": "c8b8ec0ee8899819",
+      "bytes": 8730
+    },
+    {
+      "file": "assets/opponents/switzerland/player.webp",
+      "sha256_16": "a8e9659fcd21a720",
+      "bytes": 6334
+    }
+  ]
+}

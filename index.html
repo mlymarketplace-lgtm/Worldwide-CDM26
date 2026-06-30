@@ -2188,17 +2188,18 @@ const R32_API_KEY_META = {
   'col-gha': {h:'COL', a:'GHA', id:'N88'}
 };
 
-// V10.3.9 — résultats officiels déjà connus, figés localement.
+
+
+
+// V10.4.0 — résultats officiels déjà connus, figés localement.
 // But : le tableau et la simulation ne dépendent plus d'un appel API au démarrage.
-// L'API reste utilisée uniquement pour le live et pour confirmer les nouveaux matchs terminés.
+// L'API reste utilisée pour le live et pour confirmer les nouveaux matchs terminés.
 const STATIC_R32_LOCKS = {
   'rsa-can': { koId:'N73', h:'RSA', a:'CAN', home:0, away:1, status:'final', apiStatus:'FT', apiStatusLong:'Match Finished', winner:'away', winnerSide:1, locked:true },
   'bra-jpn': { koId:'N78', h:'BRA', a:'JPN', home:2, away:1, status:'final', apiStatus:'FT', apiStatusLong:'Match Finished', winner:'home', winnerSide:0, locked:true },
   'ger-par': { koId:'N74', h:'GER', a:'PAR', home:1, away:1, penalty:{home:3, away:4}, status:'final', apiStatus:'PEN', apiStatusLong:'Match Finished Penalties', winner:'away', winnerSide:1, locked:true },
   'ned-mar': { koId:'N75', h:'NED', a:'MAR', home:1, away:1, penalty:{home:2, away:3}, status:'final', apiStatus:'PEN', apiStatusLong:'Match Finished Penalties', winner:'away', winnerSide:1, locked:true }
 };
-
-
 
 const R32_CARDS = [
   {id:'N74', date:'Lun. 29 juin · 22h30 Paris', venue:'Boston · Gillette Stadium', a:NAMES.GER, b:NAMES.PAR, note:'Tableau A–D'},
@@ -2248,9 +2249,9 @@ const KO_ROUNDS = [
   ]}
 ];
 
-const r32Scores = { N73:[0,1] }; // fallback initial, complété par STATIC_R32_LOCKS au démarrage
+const r32Scores = { N73:[0,1] }; // V10.3 fallback officiel : Afrique du Sud 0–1 Canada
 const r32Picks = { N73:1 };
-const r32Locked = { N73:true }; // matchs finalisés figés dans la simulation
+const r32Locked = { N73:true }; // V10.3.5 : matchs finalisés API figés dans la simulation
 const koPicks = { r16:{}, qf:{}, sf:{}, final:{} };
 const koScores = { r16:{}, qf:{}, sf:{}, final:{} };
 const ROUND_ORDER = ['r16','qf','sf','final'];
@@ -3279,7 +3280,7 @@ function animNum(el,from,to){
   requestAnimationFrame(s);
 }
 const SUPPORTER_BASE = 15560;
-const SUPPORTER_VARIATION = 120;
+const SUPPORTER_VARIATION = 90;
 let supporterCurrent = SUPPORTER_BASE + Math.floor((Math.random() * SUPPORTER_VARIATION * 2) - SUPPORTER_VARIATION);
 function clampSupporters(n){
   return Math.max(SUPPORTER_BASE - SUPPORTER_VARIATION, Math.min(SUPPORTER_BASE + SUPPORTER_VARIATION, n));
@@ -3581,45 +3582,101 @@ if (document.readyState === 'loading') {
 // 4) ne jamais reprendre un faux score de simulation quand l'API dit scheduled/null.
 // ════════════════════════════════════════════════
 
-const API_ACTIVE_WINDOWS = [
-  // Anciennes fenêtres de fin de groupes, conservées pour fallback / vérification.
-  ['2026-06-27T01:30:00+02:00','2026-06-27T08:30:00+02:00'],
-  ['2026-06-27T22:30:00+02:00','2026-06-28T08:45:00+02:00'],
-
-  // 16es de finale — fenêtres larges autour de chaque coup d'envoi.
-  // Objectif : appeler l'API pendant les lives, puis revenir en pause hors match.
-  ['2026-06-28T20:30:00+02:00','2026-06-28T23:45:00+02:00'], // N73 RSA–CAN
-  ['2026-06-29T18:30:00+02:00','2026-06-29T21:45:00+02:00'], // N78 BRA–JPN
-  ['2026-06-29T22:00:00+02:00','2026-06-30T01:15:00+02:00'], // N74 GER–PAR
-  ['2026-06-30T02:30:00+02:00','2026-06-30T05:45:00+02:00'], // N75 NED–MAR
-  ['2026-06-30T18:30:00+02:00','2026-06-30T21:45:00+02:00'], // N76 CIV–NOR
-  ['2026-06-30T22:30:00+02:00','2026-07-01T01:45:00+02:00'], // N77 FRA–SWE
-  ['2026-07-01T02:30:00+02:00','2026-07-01T05:45:00+02:00'], // N79 MEX–ECU
-  ['2026-07-01T17:30:00+02:00','2026-07-01T20:45:00+02:00'], // N80 ENG–COD
-  ['2026-07-01T21:30:00+02:00','2026-07-02T00:45:00+02:00'], // N82 BEL–SEN
-  ['2026-07-02T01:30:00+02:00','2026-07-02T04:45:00+02:00'], // N81 USA–BIH
-  ['2026-07-02T20:30:00+02:00','2026-07-02T23:45:00+02:00'], // N84 ESP–AUT
-  ['2026-07-03T00:30:00+02:00','2026-07-03T03:45:00+02:00'], // N83 POR–CRO
-  ['2026-07-03T04:30:00+02:00','2026-07-03T07:45:00+02:00'], // N85 SUI–ALG
-  ['2026-07-03T19:30:00+02:00','2026-07-03T22:45:00+02:00'], // N86 AUS–EGY
-  ['2026-07-03T23:30:00+02:00','2026-07-04T02:45:00+02:00'], // N87 ARG–CPV
-  ['2026-07-04T03:00:00+02:00','2026-07-04T06:15:00+02:00'], // N88 COL–GHA
-];
+const API_SINGLE_MATCH_POLLING = {
+  // V10.4.2 — single-match polling.
+  // Hypothèse Coupe du monde KO : un seul match actif à la fois.
+  // On surveille seulement le prochain match global non verrouillé.
+  preKickoffMs: 30 * 60 * 1000,
+  maxWatchAfterKickoffMs: (4 * 60 + 30) * 60 * 1000,
+  holdAfterFinalMs: 15 * 60 * 1000,
+  catchupCooldownMs: 30 * 60 * 1000
+};
 
 let fallbackLoaded = false;
 let lastApiSuccessAt = null;
 let lastApiAttemptAt = null;
 let apiHadLiveRecently = false;
-let scorePollTimer = null;
-const SCORE_POLL_LIVE_MS = 60000;
-const SCORE_POLL_IDLE_MS = 15 * 60 * 1000;
-const SCORE_POST_MATCH_GRACE_MS = 15 * 60 * 1000;
-let liveMatchKeys = new Set();
-let lastLiveEndedAt = null;
+let apiPollingHoldUntil = 0;
+let apiPollingHoldKey = null;
+let activePollingKeysAtAttempt = [];
+let lastCatchupAttemptByKey = {};
+
+function isR32KeyLocked(key) {
+  const entry = KNOCKOUT_LIVE_RESULTS[key];
+  if (entry && entry.status === 'final' && entry.locked) return true;
+  const meta = R32_API_KEY_META[key];
+  if (meta && r32Locked[meta.id]) return true;
+  const staticLock = STATIC_R32_LOCKS && STATIC_R32_LOCKS[key];
+  if (staticLock && staticLock.locked !== false && staticLock.status === 'final') return true;
+  return false;
+}
+
+function apiKeyForKoId(koId) {
+  return Object.entries(R32_API_KEY_META || {}).find(([, meta]) => meta.id === koId)?.[0] || null;
+}
+
+function apiPollingSchedule() {
+  return (NEXT_KNOCKOUT_FIXTURES || [])
+    .map(f => {
+      const key = apiKeyForKoId(f.id);
+      if (!key) return null;
+      return {
+        key,
+        koId: f.id,
+        kickoffMs: new Date(f.ts).getTime(),
+        label: `${String(f.a || '').replace(/^\S+\s*/, '')}–${String(f.b || '').replace(/^\S+\s*/, '')}`,
+        date: f.ts
+      };
+    })
+    .filter(Boolean)
+    .sort((a,b) => a.kickoffMs - b.kickoffMs);
+}
+
+function firstUnresolvedScheduledMatch(nowMs = Date.now()) {
+  const schedule = apiPollingSchedule();
+  return schedule.find(m => !isR32KeyLocked(m.key)) || null;
+}
+
+function apiWindowForMatch(match, nowMs = Date.now()) {
+  if (!match) return null;
+  const cfg = API_SINGLE_MATCH_POLLING;
+  const startMs = match.kickoffMs - cfg.preKickoffMs;
+  const conservativeEndMs = match.kickoffMs + cfg.maxWatchAfterKickoffMs;
+  const finalHoldOpen = apiPollingHoldKey === match.key && nowMs < apiPollingHoldUntil;
+  const inScheduledWindow = nowMs >= startMs && nowMs <= conservativeEndMs;
+
+  if (finalHoldOpen || inScheduledWindow) {
+    return {
+      ...match,
+      startMs,
+      endMs: finalHoldOpen ? apiPollingHoldUntil : conservativeEndMs,
+      mode: finalHoldOpen ? 'post-final-hold' : (nowMs < match.kickoffMs ? 'pre-kickoff' : 'match-window')
+    };
+  }
+
+  // Filet de sécurité : si un match est passé mais pas encore figé localement
+  // (ex. aucun visiteur pendant le live ou API indisponible), on fait une tentative
+  // de rattrapage espacée. Cela évite de dépendre d'un futur déploiement pour voir
+  // le résultat dans l'app, sans revenir au polling permanent.
+  if (nowMs > conservativeEndMs) {
+    const last = lastCatchupAttemptByKey[match.key] || 0;
+    if (nowMs - last >= cfg.catchupCooldownMs) {
+      return { ...match, startMs, endMs: nowMs + 2 * 60 * 1000, mode:'catchup' };
+    }
+  }
+
+  return null;
+}
+
+function activeApiWindows(now = new Date()) {
+  const nowMs = now.getTime();
+  const next = firstUnresolvedScheduledMatch(nowMs);
+  const windowInfo = apiWindowForMatch(next, nowMs);
+  return windowInfo ? [windowInfo] : [];
+}
 
 function isApiWindowOpen(now = new Date()) {
-  const t = now.getTime();
-  return API_ACTIVE_WINDOWS.some(([start, end]) => t >= new Date(start).getTime() && t <= new Date(end).getTime());
+  return activeApiWindows(now).length > 0;
 }
 
 function hasLiveMatchInCurrentState() {
@@ -3627,42 +3684,48 @@ function hasLiveMatchInCurrentState() {
     .some(r => r && (r.status === 'live' || r.status === 'in_progress'));
 }
 
-function getNextApiWindowStartMs(now = new Date()) {
-  const t = now.getTime();
-  let next = null;
-  API_ACTIVE_WINDOWS.forEach(([start]) => {
-    const st = new Date(start).getTime();
-    if (st > t && (next === null || st < next)) next = st;
-  });
-  return next;
+function nextApiWindow(now = new Date()) {
+  const nowMs = now.getTime();
+  const next = firstUnresolvedScheduledMatch(nowMs);
+  if (!next) return null;
+  const startMs = next.kickoffMs - API_SINGLE_MATCH_POLLING.preKickoffMs;
+  return { ...next, start: new Date(startMs).toISOString(), kickoff: new Date(next.kickoffMs).toISOString() };
 }
 
-function recentlyHadLive(now = new Date()) {
-  return !!(lastLiveEndedAt && (now.getTime() - lastLiveEndedAt.getTime()) < SCORE_POST_MATCH_GRACE_MS);
+function shouldCallScoresApi() {
+  return activeApiWindows(new Date()).length > 0;
 }
 
-function shouldCallScoresApi(now = new Date()) {
-  // V10.3.8 : on économise les appels API.
-  // API active uniquement pendant les fenêtres de match, pendant un live détecté,
-  // puis 15 minutes après la fin d'un live. Hors match, live.json et le dernier état restent affichés.
-  return isApiWindowOpen(now) || hasLiveMatchInCurrentState() || recentlyHadLive(now);
+function updateApiPauseMeta() {
+  const meta = document.getElementById('top-live-updated');
+  if (!meta) return;
+  const next = nextApiWindow();
+  const nextTxt = next ? ' · reprise ' + new Date(next.start).toLocaleString('fr-FR',{day:'2-digit',month:'2-digit',hour:'2-digit',minute:'2-digit'}) : '';
+  if (lastApiSuccessAt) {
+    meta.textContent = 'API en pause · dernier passage ' + lastApiSuccessAt.toLocaleTimeString('fr-FR',{hour:'2-digit',minute:'2-digit'}) + nextTxt;
+  } else {
+    meta.textContent = t('apiPaused') + nextTxt;
+  }
 }
 
-function nextScorePollDelayMs() {
-  const now = new Date();
-  if (shouldCallScoresApi(now)) return SCORE_POLL_LIVE_MS;
-  const nextWindow = getNextApiWindowStartMs(now);
-  if (nextWindow) return Math.max(60000, nextWindow - now.getTime());
-  return SCORE_POLL_IDLE_MS;
-}
+window.QUALIFGAINDE_SCORE_POLLING = {
+  shouldCallScoresApi,
+  activeApiWindows,
+  nextApiWindow,
+  getLastApiSuccessAt: () => lastApiSuccessAt,
+  getHoldUntil: () => apiPollingHoldUntil
+};
 
 function applyScoresData(data, source = 'api') {
   if (!data || !data.matches) return false;
   let changed = false;
   const apiPriority = source === 'api' || data.source === 'api-football';
   let liveCount = 0;
-  const previousLiveKeys = new Set(liveMatchKeys || []);
-  const currentLiveKeys = new Set();
+  let activePolledFinishedOrLive = false;
+  if (apiPriority) {
+    window.QUALIFGAINDE_LAST_SCORES = data;
+    try { window.dispatchEvent(new CustomEvent('qualifgainde:scoresUpdated', { detail: data })); } catch(e) {}
+  }
 
   Object.entries(data.matches).forEach(([key, match]) => {
     const newStatus = match.status || 'scheduled';
@@ -3677,12 +3740,9 @@ function applyScoresData(data, source = 'api') {
     const newWinnerSide = (match.winnerSide === 0 || match.winnerSide === 1) ? match.winnerSide : null;
     const newLocked = !!match.locked;
 
-    if (newStatus === 'live' || newStatus === 'in_progress') {
-      liveCount++;
-      currentLiveKeys.add(key);
-    }
-    if (apiPriority && previousLiveKeys.has(key) && newStatus === 'final') {
-      lastLiveEndedAt = new Date();
+    if (newStatus === 'live' || newStatus === 'in_progress') liveCount++;
+    if (apiPriority && activePollingKeysAtAttempt.includes(key) && (newStatus === 'live' || newStatus === 'in_progress' || newStatus === 'final')) {
+      activePolledFinishedOrLive = true;
     }
 
     const r = RESULTS[key];
@@ -3690,8 +3750,6 @@ function applyScoresData(data, source = 'api') {
       const koMeta = R32_API_KEY_META[key];
       if (!koMeta) return;
       const prev = KNOCKOUT_LIVE_RESULTS[key] || {};
-      // Ne jamais écraser un résultat final verrouillé par un retour API incomplet/scheduled.
-      if (prev.locked && prev.status === 'final' && newStatus === 'scheduled' && newH === null && newA === null) return;
       if (
         prev.status !== newStatus ||
         prev.hg !== newH ||
@@ -3777,8 +3835,10 @@ function applyScoresData(data, source = 'api') {
 
   if (apiPriority) {
     apiHadLiveRecently = liveCount > 0;
-    if (!liveCount && previousLiveKeys.size && !lastLiveEndedAt) lastLiveEndedAt = new Date();
-    liveMatchKeys = currentLiveKeys;
+    if (liveCount > 0 || activePolledFinishedOrLive) {
+      apiPollingHoldUntil = Math.max(apiPollingHoldUntil, Date.now() + API_SINGLE_MATCH_POLLING.holdAfterFinalMs);
+      apiPollingHoldKey = activePollingKeysAtAttempt[0] || apiPollingHoldKey;
+    }
   }
 
   const tsEl = document.getElementById('live-updated-at');
@@ -3820,11 +3880,7 @@ function fetchApiScoresIfUseful() {
   const meta = document.getElementById('top-live-updated');
 
   if (!shouldCallScoresApi()) {
-    if (meta) {
-      meta.textContent = lastApiSuccessAt
-        ? 'API connectée · dernier passage ' + lastApiSuccessAt.toLocaleTimeString('fr-FR',{hour:'2-digit',minute:'2-digit'})
-        : t('apiPaused');
-    }
+    updateApiPauseMeta();
     updateMatchCards();
     filterImportantMatches();
     renderTopLiveMatches();
@@ -3833,7 +3889,12 @@ function fetchApiScoresIfUseful() {
   }
 
   lastApiAttemptAt = new Date();
-  if (meta) meta.textContent = currentLang==='fr' ? 'API en cours…' : currentLang==='en' ? 'API loading…' : currentLang==='pt' ? 'API carregando…' : 'API cargando…';
+  activePollingKeysAtAttempt = activeApiWindows(lastApiAttemptAt).map(w => w.key);
+  activeApiWindows(lastApiAttemptAt).forEach(w => { if (w.mode === 'catchup') lastCatchupAttemptByKey[w.key] = Date.now(); });
+  if (meta) {
+    const activeLabels = activeApiWindows(lastApiAttemptAt).map(w => w.label).join(' · ');
+    meta.textContent = activeLabels ? 'API live · ' + activeLabels : (currentLang==='fr' ? 'API en cours…' : currentLang==='en' ? 'API loading…' : currentLang==='pt' ? 'API carregando…' : 'API cargando…');
+  }
 
   return fetch('/.netlify/functions/scores?t=' + Date.now())
     .then(r => { if (!r.ok) throw new Error('scores.js HTTP ' + r.status); return r.json(); })
@@ -3858,16 +3919,10 @@ function pollLiveJson() {
   return loadFallbackScoresOnce().then(fetchApiScoresIfUseful);
 }
 
-function scheduleNextScorePoll() {
-  if (scorePollTimer) clearTimeout(scorePollTimer);
-  const delay = nextScorePollDelayMs();
-  scorePollTimer = setTimeout(() => {
-    pollLiveJson().finally(scheduleNextScorePoll);
-  }, delay);
-}
-
-// Premier chargement immédiat, puis polling intelligent selon les fenêtres live.
-pollLiveJson().finally(scheduleNextScorePoll);
+// Premier chargement immédiat : charge les résultats figés / fallback, puis API seulement si utile.
+pollLiveJson();
+// Tick léger : il ne déclenche un appel réseau /scores que dans la fenêtre du prochain match global.
+setInterval(pollLiveJson, 60000);
 
 // ════════════════════════════════════════════════
 // COMPATIBILITÉ API / ADMIN

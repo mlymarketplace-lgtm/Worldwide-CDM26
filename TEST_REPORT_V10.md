@@ -50,3 +50,12 @@
 - Home : arabe non forcé par détection navigateur.
 - Égypte : arabe conservé via team defaultLang / URL.
 - Icônes PWA remplacées.
+
+
+## V10.3.3 cadrée
+- [x] Score live/final ajouté dans la card compte à rebours via API-Sports.
+- [x] Scores inline ajoutés dans les cards de 16es, sans supprimer les champs score existants.
+- [x] Ambiances YouTube par équipe intégrées avec fallback Sénégal.
+- [x] Typographies des récits, teasers et statuts renforcées.
+- [x] Compteur supporters basé sur 11 120.
+- [x] Service worker versionné `qg-v10-3-3-*`.
