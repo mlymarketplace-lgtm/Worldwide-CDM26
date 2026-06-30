@@ -1,5 +1,5 @@
-// QualifGaïndé V10 — couche multi-équipes isolée
-// Ne modifie pas scores.js, live.json, stats.json, ni le moteur bracket V9.8.
+// QualifGaïndé V11 — couche multi-équipes + tournoi vivant
+// Conserve le socle V10.4.4 : routing, PWA, API, bracket et affichage local timezone.
 (function(){
   window.QUALIFGAINDE_V10_ACTIVE = true;
   const DATA_BASE = 'data/';
@@ -13,7 +13,7 @@
     'new_zealand':{teamName:'Nouvelle-Zélande',flag:'🇳🇿'}, haiti:{teamName:'Haïti',flag:'🇭🇹'}, scotland:{teamName:'Écosse',flag:'🏴󠁧󠁢󠁳󠁣󠁴󠁿'},
     germany:{teamName:'Allemagne',flag:'🇩🇪'}, ecuador:{teamName:'Équateur',flag:'🇪🇨'}, curacao:{teamName:'Curaçao',flag:'🇨🇼'}, portugal:{teamName:'Portugal',flag:'🇵🇹'}, colombia:{teamName:'Colombie',flag:'🇨🇴'}, uzbekistan:{teamName:'Ouzbékistan',flag:'🇺🇿'}, argentina:{teamName:'Argentine',flag:'🇦🇷'}, jordan:{teamName:'Jordanie',flag:'🇯🇴'}, austria:{teamName:'Autriche',flag:'🇦🇹'}, australia:{teamName:'Australie',flag:'🇦🇺'}, spain:{teamName:'Espagne',flag:'🇪🇸'}, france:{teamName:'France',flag:'🇫🇷'}
   };
-  let state = { teams:{}, matches:{}, results:{}, opponentResults:{}, opponents:{}, previews:{}, stories:{}, activeTeamId:null, activeLang:'fr', i18n:{} };
+  let state = { teams:{}, matches:{}, results:{}, opponentResults:{}, opponents:{}, previews:{}, stories:{}, teamNext:{}, farewells:{}, activeTeamId:null, activeLang:'fr', i18n:{} };
   let v10CountdownTimer = null;
   let v10CountdownTextObserver = null;
   let v10CountdownScoreTimer = null;
@@ -229,6 +229,18 @@
     state.teams = teams; state.matches = matches; state.results = results; state.previews = previews; state.stories = stories;
     state.opponents = await readOptionalJson(DATA_BASE+'opponents.json');
     state.opponentResults = await readOptionalJson(DATA_BASE+'opponent-results.json');
+    state.teamNext = await readOptionalJson(DATA_BASE+'team-next.json');
+    state.farewells = await readOptionalJson(DATA_BASE+'farewells.json');
+    // V11 — overrides éditoriaux de tournoi vivant : on garde les mêmes écrans,
+    // mais on met à jour les prochains matchs / statuts depuis un fichier dédié.
+    Object.entries(state.teamNext || {}).forEach(([id, cfg]) => {
+      if(!state.teams[id] || !cfg) return;
+      if(cfg.nextMatchId) state.teams[id].nextMatchId = cfg.nextMatchId;
+      if(cfg.status) state.teams[id].tournamentStatus = cfg.status;
+      if(cfg.round) state.teams[id].currentRound = cfg.round;
+      if(cfg.statusLabel) state.teams[id].statusLabel = cfg.statusLabel;
+      if(cfg.selectorLine) state.teams[id].selectorLine = cfg.selectorLine;
+    });
     state.i18n.pt = {
       teams: await readOptionalJson(DATA_BASE+'i18n/pt/teams.json'),
       previews: await readOptionalJson(DATA_BASE+'i18n/pt/previews.json'),
@@ -339,6 +351,16 @@
 
   function renderOpponent(teamId, team){
     const match = state.matches[team.nextMatchId]; if(!match) return;
+    if(team.tournamentStatus === 'eliminated'){
+      const card = $('#probable-opponent'); if(card) card.title = `Parcours terminé : ${matchLabel(match)}`;
+      const label = $('.opp-label'); if(label){
+        const txt = state.activeLang === 'ar' ? 'نهاية المشوار' : state.activeLang === 'en' ? 'Journey ended' : state.activeLang === 'es' ? 'Fin del recorrido' : state.activeLang === 'pt' ? 'Fim do percurso' : 'Parcours terminé';
+        label.innerHTML = `<img class="section-mascot" src="assets/lion-mascotte.png" alt="Mascotte">${txt}`;
+      }
+      const name = $('#opp-main-name'); if(name) name.textContent = `${team.flag || ''} ${team.teamName} 1–2 ${teamLabel(match.away).teamName || 'Norvège'} 🇳🇴`;
+      const sub = $('#opp-main-sub'); if(sub) sub.textContent = `${matchLabel(match)} · Match terminé · ${match.stadium || ''}`;
+      return;
+    }
     const oppId = match.home === teamId ? match.away : match.home;
     const opp = teamLabel(oppId);
     const card = $('#probable-opponent'); if(card) card.title = `Prochain match : ${matchLabel(match)}`;
@@ -377,7 +399,11 @@
     const sub = $('.side-sub', side);
     if(sub){
       const player = profile?.heroPlayer ? ` · ${profile.heroPlayer}` : '';
-      sub.textContent = `${state.activeLang === 'ar' ? (isOpponent ? 'خصم تحت المراقبة' : 'آخر ثلاث نتائج') : isOpponent ? 'Adversaire à surveiller' : 'Trois derniers résultats'}${player}`;
+      const resultCount = (state.results[teamId] || state.opponentResults[teamId] || []).length;
+      const recentLabel = resultCount >= 4
+        ? (state.activeLang === 'ar' ? 'آخر أربع نتائج' : state.activeLang === 'en' ? 'Last four results' : state.activeLang === 'es' ? 'Últimos cuatro resultados' : state.activeLang === 'pt' ? 'Últimos quatro resultados' : 'Quatre derniers résultats')
+        : (state.activeLang === 'ar' ? 'آخر ثلاث نتائج' : state.activeLang === 'en' ? 'Last three results' : state.activeLang === 'es' ? 'Últimos tres resultados' : state.activeLang === 'pt' ? 'Últimos três resultados' : 'Trois derniers résultats');
+      sub.textContent = `${isOpponent ? (state.activeLang === 'ar' ? 'خصم تحت المراقبة' : 'Adversaire à surveiller') : recentLabel}${player}`;
     }
 
     const results = state.results[teamId] || state.opponentResults[teamId] || [];
@@ -390,6 +416,22 @@
 
   function renderCountdown(teamId, team){
     const match = state.matches[team.nextMatchId]; if(!match) return;
+    if(team.tournamentStatus === 'eliminated'){
+      const secBefore = Array.from(document.querySelectorAll('.sec')).find(el => /Prochaine|Próximo|Proximo|Next|Parcours|Journey|Fin/i.test(el.textContent));
+      if(secBefore){
+        const sectionText = state.activeLang === 'ar' ? `نهاية مشوار ${safeHtml(team.teamName)}` : state.activeLang === 'en' ? `${safeHtml(team.teamName)} journey ended` : state.activeLang === 'es' ? `Fin del recorrido de ${safeHtml(team.teamName)}` : state.activeLang === 'pt' ? `Fim do percurso de ${safeHtml(team.teamName)}` : `Parcours terminé pour ${safeHtml(team.teamName)}`;
+        secBefore.innerHTML = `<img class="section-mascot" src="assets/lion-mascotte.png" alt="Mascotte">${sectionText}`;
+      }
+      const home = teamLabel(match.home), away = teamLabel(match.away);
+      const cmatch = $('.countdown-match'); if(cmatch) cmatch.textContent = `${home.flag || ''} ${home.teamName} 1–2 ${away.teamName} ${away.flag || ''}`;
+      const meta = $('.countdown-meta'); if(meta) meta.textContent = `${matchLabel(match)} · Match terminé · ${match.stadium || ''}`;
+      ['cd-days','cd-hours','cd-min','cd-sec'].forEach(id => { const el=document.getElementById(id); if(el) el.textContent='00'; });
+      const msg = $('#countdown-end-msg'); if(msg) msg.textContent = state.activeLang === 'ar' ? 'احترام كامل، الموعد بعد أربع سنوات.' : 'Respect total, rendez-vous dans quatre ans.';
+      renderSide($('.player-side.bel'), match.home);
+      renderSide($('.player-side.sen'), match.away);
+      updateCountdownScorePanel(team.nextMatchId);
+      return;
+    }
     const secBefore = Array.from(document.querySelectorAll('.sec')).find(el => /Prochaine|Próximo|Proximo|Next/i.test(el.textContent));
     if(secBefore){
       const sectionText = state.activeLang === 'ar' ? `المباراة القادمة لـ ${safeHtml(team.teamName)}` : state.activeLang === 'pt' ? `Próximo jogo do ${safeHtml(team.teamName)}` : state.activeLang === 'es' ? `Próximo partido de ${safeHtml(team.teamName)}` : state.activeLang === 'en' ? `Next match for ${safeHtml(team.teamName)}` : `Prochaine rencontre de ${safeHtml(team.teamName)}`;
@@ -453,15 +495,16 @@
   }
 
   function renderPreview(team){
+    const farewell = team.tournamentStatus === 'eliminated' ? (state.farewells[state.activeTeamId] || state.farewells.generic_africa || state.farewells.generic_world) : null;
     const matchId = team.nextMatchId;
-    const preview = getPreview(matchId, state.activeLang || team.defaultLang);
+    const preview = farewell || getPreview(matchId, state.activeLang || team.defaultLang);
     if(!preview) return;
     const title = $('#belgique-senegal .teaser-title');
     if(title) title.innerHTML = `<img class="section-mascot" src="assets/lion-mascotte.png" alt="Mascotte">${safeHtml(preview.title)}`;
     const body = $('#belgique-senegal .teaser-body');
     if(body){
       const paragraphs = Array.isArray(preview.body) ? preview.body : [preview.body || ''];
-      const angle = preview.angle ? `<strong>${safeHtml(preview.angle)}</strong><br><br>` : '';
+      const angle = (preview.angle || preview.kicker) ? `<strong>${safeHtml(preview.angle || preview.kicker)}</strong><br><br>` : '';
       body.innerHTML = angle + paragraphs.map(p => safeHtml(p)).join('<br><br>');
     }
   }

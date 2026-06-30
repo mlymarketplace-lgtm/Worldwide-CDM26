@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-06-30T16:45:00+02:00",
-  "sourceNote": "Mise à jour prudente V10.4.0 — stats cumulées depuis le début de la Coupe du monde. Meilleurs buteurs inchangés ; Allemagne et Pays-Bas passent à 11 buts. Défense : France retirée car elle a encaissé contre Sénégal et Norvège.",
+  "updatedAt": "2026-06-30T21:05:00+02:00",
+  "sourceNote": "V11.0 — Haaland passe à 5 buts après Côte d’Ivoire–Norvège. Stats cumulées depuis le début de la Coupe du monde.",
   "topScorers": [
     {
       "rank": 1,
@@ -10,26 +10,26 @@
     },
     {
       "rank": 2,
+      "name": "Erling Haaland",
+      "team": "🇳🇴 Norvège",
+      "goals": 5
+    },
+    {
+      "rank": 3,
       "name": "Kylian Mbappé",
       "team": "🇫🇷 France",
       "goals": 4
     },
     {
-      "rank": 3,
+      "rank": 4,
       "name": "Ousmane Dembélé",
       "team": "🇫🇷 France",
       "goals": 4
     },
     {
-      "rank": 4,
+      "rank": 5,
       "name": "Vinícius Júnior",
       "team": "🇧🇷 Brésil",
-      "goals": 4
-    },
-    {
-      "rank": 5,
-      "name": "Erling Haaland",
-      "team": "🇳🇴 Norvège",
       "goals": 4
     },
     {

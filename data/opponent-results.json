@@ -31,6 +31,11 @@
       "label": "Norvège 1–4 France",
       "note": "Défaite lourde face aux Bleus",
       "result": "D"
+    },
+    {
+      "label": "Côte d’Ivoire 1–2 Norvège",
+      "note": "Haaland marque, la Norvège avance",
+      "result": "V"
     }
   ],
   "japan": [
@@ -133,6 +138,118 @@
       "label": "Australie 0–0 Paraguay",
       "note": "Solidité et qualification",
       "result": "N"
+    }
+  ],
+  "canada": [
+    {
+      "label": "Canada 5–0 Qatar",
+      "note": "Large victoire fondatrice",
+      "result": "V"
+    },
+    {
+      "label": "Bosnie-Herzégovine 0–0 Canada",
+      "note": "Point solide dans le groupe",
+      "result": "N"
+    },
+    {
+      "label": "Suisse 2–1 Canada",
+      "note": "Défaite courte face au leader",
+      "result": "D"
+    },
+    {
+      "label": "Afrique du Sud 0–1 Canada",
+      "note": "Qualification au tour suivant",
+      "result": "V"
+    }
+  ],
+  "paraguay": [
+    {
+      "label": "États-Unis 3–0 Paraguay",
+      "note": "Entrée difficile face au pays hôte",
+      "result": "D"
+    },
+    {
+      "label": "Paraguay 2–0 Türkiye",
+      "note": "Réaction de l’Albirroja",
+      "result": "V"
+    },
+    {
+      "label": "Australie 0–0 Paraguay",
+      "note": "Solidité et qualification",
+      "result": "N"
+    },
+    {
+      "label": "Allemagne 1–1 Paraguay · TAB 3–4",
+      "note": "Exploit aux tirs au but",
+      "result": "V"
+    }
+  ],
+  "united_states": [
+    {
+      "label": "États-Unis 3–0 Paraguay",
+      "note": "Entrée forte",
+      "result": "V"
+    },
+    {
+      "label": "États-Unis 1–0 Australie",
+      "note": "Pays hôte solide",
+      "result": "V"
+    },
+    {
+      "label": "Türkiye 1–0 États-Unis",
+      "note": "Alerte avant les 16es",
+      "result": "D"
+    }
+  ],
+  "bosnia_herzegovina": [
+    {
+      "label": "Qatar 0–4 Bosnie-Herzégovine",
+      "note": "Large succès",
+      "result": "V"
+    },
+    {
+      "label": "Bosnie-Herzégovine 0–0 Canada",
+      "note": "Point important",
+      "result": "N"
+    },
+    {
+      "label": "Suisse 4–1 Bosnie-Herzégovine",
+      "note": "Défaite lourde",
+      "result": "D"
+    }
+  ],
+  "colombia": [
+    {
+      "label": "Colombie 0–0 Portugal",
+      "note": "Match de contrôle",
+      "result": "N"
+    },
+    {
+      "label": "Ouzbékistan 1–3 Colombie",
+      "note": "Réaction forte",
+      "result": "V"
+    },
+    {
+      "label": "Colombie 2–1 RD Congo",
+      "note": "Qualification arrachée",
+      "result": "V"
+    }
+  ],
+  "ghana": [
+    {
+      "label": "Angleterre 0–0 Ghana",
+      "note": "Match de prestige",
+      "result": "N"
+    },
+    {
+      "label": "Ghana 2–0 Panama",
+      "note": "Réponse des Black Stars",
+      "result": "V"
+    },
+    {
+      "label": "Croatie 2–1 Ghana",
+      "note": "Défaite courte",
+      "result": "D"
     }
   ]
 }

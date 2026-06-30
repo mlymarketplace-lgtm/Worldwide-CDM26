@@ -14,7 +14,9 @@
     "tagline": "Une histoire de Gaïndés",
     "statusLabel": "Champion d’Afrique · En mission",
     "supporterName": "Gaïndés",
-    "selectorLine": "Une histoire de courage et de Téranga"
+    "selectorLine": "16e à jouer · le rêve continue",
+    "tournamentStatus": "pending",
+    "currentRound": "R32"
   },
   "algeria": {
     "teamName": "Algérie",
@@ -31,7 +33,9 @@
     "tagline": "La fierté des Fennecs",
     "statusLabel": "Fennecs · Mémoire de Gijón",
     "supporterName": "Fennecs",
-    "selectorLine": "La mémoire, le feu et la fierté"
+    "selectorLine": "16e à jouer · Ghana ou Colombie ensuite",
+    "tournamentStatus": "pending",
+    "currentRound": "R32"
   },
   "belgium": {
     "teamName": "Belgique",
@@ -59,13 +63,15 @@
     "heroImg": "assets/teams/brazil/player.webp",
     "bannerImg": "assets/teams/brazil/banner.webp",
     "heroPlayer": "Vinícius Júnior",
-    "nextMatchId": "bra-jpn",
+    "nextMatchId": "bra-nor",
     "defaultLang": "pt",
     "tagline": "O país do futebol",
-    "statusLabel": "Puissance mondiale · Culture de la victoire",
+    "statusLabel": "Qualifié pour les huitièmes · Prochain défi : Norvège",
     "supporterName": "Seleção",
-    "selectorLine": "O país do futebol",
-    "mascotImg": null
+    "selectorLine": "Qualifié · prochain défi : Norvège",
+    "mascotImg": null,
+    "tournamentStatus": "qualified",
+    "currentRound": "R16"
   },
   "france": {
     "teamName": "France",
@@ -81,8 +87,10 @@
     "tagline": "Les Bleus, candidats au titre",
     "statusLabel": "Favori mondial · Statut à assumer",
     "supporterName": "Bleus",
-    "selectorLine": "Favori mondial, vitesse et rang",
-    "mascotImg": null
+    "selectorLine": "16e à jouer · Paraguay attend le vainqueur",
+    "mascotImg": null,
+    "tournamentStatus": "pending",
+    "currentRound": "R32"
   },
   "ivory_coast": {
     "teamName": "Côte d’Ivoire",
@@ -96,10 +104,12 @@
     "nextMatchId": "civ-nor",
     "defaultLang": "fr",
     "tagline": "Les Éléphants veulent faire trembler le monde",
-    "statusLabel": "Puissance africaine · Impact et caractère",
+    "statusLabel": "Parcours terminé · Fierté africaine intacte",
     "supporterName": "Éléphants",
-    "selectorLine": "Impact, caractère et puissance",
-    "mascotImg": null
+    "selectorLine": "Parcours terminé · respect aux Éléphants",
+    "mascotImg": null,
+    "tournamentStatus": "eliminated",
+    "currentRound": "R32"
   },
   "dr_congo": {
     "teamName": "RD Congo",
@@ -127,13 +137,15 @@
     "heroImg": "assets/teams/morocco/player.webp",
     "bannerImg": "assets/teams/morocco/banner.webp",
     "heroPlayer": "Achraf Hakimi",
-    "nextMatchId": "ned-mar",
+    "nextMatchId": "can-mar",
     "defaultLang": "fr",
     "tagline": "Les Lions de l’Atlas, une ambition continentale",
-    "statusLabel": "Demi-finaliste historique · Respect mondial",
+    "statusLabel": "Qualifié pour les huitièmes · Prochain défi : Canada",
     "supporterName": "Lions de l’Atlas",
-    "selectorLine": "Du miracle au rang mondial",
-    "mascotImg": null
+    "selectorLine": "Qualifié · prochain défi : Canada",
+    "mascotImg": null,
+    "tournamentStatus": "qualified",
+    "currentRound": "R16"
   },
   "spain": {
     "teamName": "Espagne",
@@ -149,8 +161,10 @@
     "tagline": "La Roja, l’empire du contrôle",
     "statusLabel": "1re du groupe H · Invaincue · 7 pts",
     "supporterName": "La Roja",
-    "selectorLine": "Maîtrise, patience et ambition mondiale",
-    "mascotImg": null
+    "selectorLine": "16e à jouer · Portugal ou Croatie ensuite",
+    "mascotImg": null,
+    "tournamentStatus": "pending",
+    "currentRound": "R32"
   },
   "egypt": {
     "teamName": "Égypte",

@@ -62,5 +62,53 @@
     "supporterName": "Socceroos",
     "heroPlayer": "Nestory Irankunda",
     "playerImg": "assets/opponents/australia/player.webp"
+  },
+  "canada": {
+    "teamName": "Canada",
+    "flag": "🇨🇦",
+    "nickname": "Les Rouges",
+    "supporterName": "Les Rouges",
+    "heroPlayer": "Alphonso Davies",
+    "playerImg": "assets/opponents/canada/player.webp"
+  },
+  "paraguay": {
+    "teamName": "Paraguay",
+    "flag": "🇵🇾",
+    "nickname": "Albirroja",
+    "supporterName": "Albirroja",
+    "heroPlayer": "Julio Enciso",
+    "playerImg": "assets/opponents/paraguay/player.webp"
+  },
+  "united_states": {
+    "teamName": "États-Unis",
+    "flag": "🇺🇸",
+    "nickname": "Team USA",
+    "supporterName": "Team USA",
+    "heroPlayer": "Christian Pulisic",
+    "playerImg": "assets/opponents/united_states/player.webp"
+  },
+  "ghana": {
+    "teamName": "Ghana",
+    "flag": "🇬🇭",
+    "nickname": "Black Stars",
+    "supporterName": "Black Stars",
+    "heroPlayer": "Mohammed Kudus",
+    "playerImg": "assets/opponents/ghana/player.webp"
+  },
+  "colombia": {
+    "teamName": "Colombie",
+    "flag": "🇨🇴",
+    "nickname": "Los Cafeteros",
+    "supporterName": "Cafeteros",
+    "heroPlayer": "Luis Díaz",
+    "playerImg": "assets/opponents/colombia/player.webp"
+  },
+  "bosnia_herzegovina": {
+    "teamName": "Bosnie-Herzégovine",
+    "flag": "🇧🇦",
+    "nickname": "Zmajevi",
+    "supporterName": "Zmajevi",
+    "heroPlayer": "Edin Džeko",
+    "playerImg": "assets/opponents/bosnia_herzegovina/player.webp"
   }
 }

@@ -109,5 +109,81 @@
       "En face, l’Australie a ses propres armes, avec Nestory Irankunda comme visage d’une génération plus explosive. Jeune, rapide, direct, il peut attaquer les espaces et forcer l’Égypte à défendre en reculant.",
       "Ce match peut être rugueux. Peut-être moins spectaculaire que Brésil–Japon ou Belgique–Sénégal, mais il a tout d’un vrai match couperet : expérience contre énergie, Afrique contre Océanie, Salah contre le doute, et une place historique à prendre."
     ]
+  },
+  "can-mar": {
+    "homeTeam": "canada",
+    "awayTeam": "morocco",
+    "matchId": "can-mar",
+    "title": "Canada–Maroc : le pays hôte face aux Lions qui n’ont plus peur de personne",
+    "angle": "Le Canada aura le stade. Le Maroc aura la mémoire, la rue, et cette certitude nouvelle : il sait gagner les matchs qui tremblent.",
+    "body": [
+      "Canada–Maroc, c’est une affiche plus dangereuse qu’elle n’en a l’air. Le Canada arrive avec l’énergie du pays hôte, Alphonso Davies comme symbole, et une équipe qui court, presse, accélère. Devant son public, il ne jouera pas petit.",
+      "Mais le Maroc n’est plus une belle histoire exotique. Les Lions de l’Atlas ont appris à regarder les grandes nations dans les yeux. Après avoir sorti les Pays-Bas aux tirs au but, ils arrivent avec quelque chose que les statistiques ne mesurent pas : la foi froide des équipes qui ont déjà traversé le feu.",
+      "Ce match peut être piquant : le Canada voudra imposer le rythme, le Maroc voudra imposer le moment. Et si ça se joue encore sur les nerfs, attention aux Lions."
+    ]
+  },
+  "bra-nor": {
+    "homeTeam": "brazil",
+    "awayTeam": "norway",
+    "matchId": "bra-nor",
+    "title": "Brésil–Norvège : samba contre tempête froide",
+    "angle": "Le Brésil aime avoir le ballon. La Norvège n’a besoin que d’une ouverture et d’un monstre dans la surface.",
+    "body": [
+      "Brésil–Norvège, c’est un vrai contraste de Coupe du monde. D’un côté, la Seleção, ses couleurs, sa technique, son obligation presque culturelle de faire le spectacle. De l’autre, une Norvège plus directe, plus verticale, capable de transformer une transition en coup de massue.",
+      "Haaland vient encore de marquer. Le message est simple : si le Brésil laisse une fenêtre, même minuscule, la Norvège peut l’ouvrir au pied-de-biche. Pour la défense brésilienne, ce ne sera pas seulement un match de concentration : ce sera un examen de brutalité froide.",
+      "Le Brésil reste favori par histoire, par talent, par poids symbolique. Mais la Norvège vient d’éliminer la Côte d’Ivoire et n’a aucune raison de baisser les yeux. C’est le genre de match où le grand favori doit prouver qu’il sait aussi souffrir."
+    ]
+  },
+  "par-fra": {
+    "homeTeam": "paraguay",
+    "awayTeam": "france",
+    "matchId": "par-fra",
+    "title": "Paraguay–France : le piège rouge et blanc qui attend les Bleus",
+    "angle": "Le Paraguay ne demande pas la permission. Il attend, il serre, il use, puis il frappe au moment où l’autre croit avoir tout contrôlé.",
+    "body": [
+      "Si la France valide son passage contre la Suède, elle trouvera un Paraguay déjà chauffé au feu des tirs au but. L’Albirroja a sorti l’Allemagne en survivant à la pression, puis en gagnant la séance qui ne pardonne pas.",
+      "Pour les Bleus, ce serait un match de patience et de nerfs. Sur le papier, la France a plus de vitesse, plus de profondeur, plus de stars. Mais le Paraguay n’est pas là pour gagner le concours de beauté : il est là pour salir le rythme, fermer les angles, et faire durer le doute.",
+      "C’est précisément le genre d’affiche où un favori doit rester adulte. Si la France joue à son niveau, elle avance. Si elle s’agace, le Paraguay saura lui rappeler que les huitièmes ne respectent personne."
+    ]
+  },
+  "sen-usa": {
+    "homeTeam": "senegal",
+    "awayTeam": "united_states",
+    "matchId": "sen-usa",
+    "title": "Sénégal–États-Unis : l’Afrique face au pays hôte",
+    "angle": "Le pays hôte aura le bruit. Les Lions devront apporter le silence.",
+    "body": [
+      "Si le Sénégal passe, l’hypothèse américaine ouvrirait un duel électrique : vitesse, stade hostile, pression populaire. Les Gaïndés devront être froids, matures, impitoyables dans les deux surfaces."
+    ]
+  },
+  "sen-bih": {
+    "homeTeam": "senegal",
+    "awayTeam": "bosnia_herzegovina",
+    "matchId": "sen-bih",
+    "title": "Sénégal–Bosnie-Herzégovine : le piège d’expérience",
+    "angle": "Moins de bruit que les États-Unis, mais beaucoup de métier.",
+    "body": [
+      "Si la Bosnie se dresse sur le chemin des Lions, le match sera différent : moins d’euphorie, plus de densité, plus de duels. Le Sénégal devra imposer son rythme sans se précipiter."
+    ]
+  },
+  "alg-col": {
+    "homeTeam": "algeria",
+    "awayTeam": "colombia",
+    "matchId": "alg-col",
+    "title": "Algérie–Colombie : le feu contre le venin",
+    "angle": "Deux publics chauds, deux équipes capables d’enflammer un match en dix minutes.",
+    "body": [
+      "Si l’Algérie avance et croise la Colombie, ce sera une affiche de nerfs et de vitesse. Les Fennecs devront contrôler l’émotion sans perdre le feu qui les rend dangereux."
+    ]
+  },
+  "alg-gha": {
+    "homeTeam": "algeria",
+    "awayTeam": "ghana",
+    "matchId": "alg-gha",
+    "title": "Algérie–Ghana : duel africain, pression maximale",
+    "angle": "Quand deux fiertés africaines se croisent, le match pèse plus lourd qu’un simple tour.",
+    "body": [
+      "Si l’Algérie retrouve le Ghana, ce sera un match de continent, de mémoire et d’orgueil. Un duel où chaque ballon peut devenir une déclaration."
+    ]
   }
 }

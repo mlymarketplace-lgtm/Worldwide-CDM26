@@ -67,6 +67,24 @@
     "australia": {
       "player": "assets/opponents/australia/player.webp",
       "status": "complete"
+    },
+    "paraguay": {
+      "player": "assets/opponents/paraguay/player.webp"
+    },
+    "canada": {
+      "player": "assets/opponents/canada/player.webp"
+    },
+    "united_states": {
+      "player": "assets/opponents/united_states/player.webp"
+    },
+    "ghana": {
+      "player": "assets/opponents/ghana/player.webp"
+    },
+    "colombia": {
+      "player": "assets/opponents/colombia/player.webp"
+    },
+    "bosnia_herzegovina": {
+      "player": "assets/opponents/bosnia_herzegovina/player.webp"
     }
   }
 }

@@ -1,0 +1,61 @@
+{
+  "morocco": {
+    "status": "qualified",
+    "round": "R16",
+    "nextMatchId": "can-mar",
+    "nextOpponent": "canada",
+    "selectorLine": "Qualifié · prochain défi : Canada",
+    "statusLabel": "Qualifié pour les huitièmes · Prochain défi : Canada"
+  },
+  "brazil": {
+    "status": "qualified",
+    "round": "R16",
+    "nextMatchId": "bra-nor",
+    "nextOpponent": "norway",
+    "selectorLine": "Qualifié · prochain défi : Norvège",
+    "statusLabel": "Qualifié pour les huitièmes · Prochain défi : Norvège"
+  },
+  "ivory_coast": {
+    "status": "eliminated",
+    "round": "R32",
+    "nextMatchId": "civ-nor",
+    "eliminatedBy": "norway",
+    "selectorLine": "Parcours terminé · respect aux Éléphants",
+    "statusLabel": "Parcours terminé · Fierté africaine intacte"
+  },
+  "france": {
+    "status": "pending",
+    "round": "R32",
+    "nextMatchId": "fra-swe",
+    "pendingNext": [
+      "par-fra"
+    ],
+    "selectorLine": "16e à jouer · Paraguay attend le vainqueur"
+  },
+  "senegal": {
+    "status": "pending",
+    "round": "R32",
+    "nextMatchId": "bel-sen",
+    "pendingNext": [
+      "sen-usa",
+      "sen-bih"
+    ],
+    "selectorLine": "16e à jouer · le rêve continue"
+  },
+  "algeria": {
+    "status": "pending",
+    "round": "R32",
+    "nextMatchId": "sui-alg",
+    "pendingNext": [
+      "alg-col",
+      "alg-gha"
+    ],
+    "selectorLine": "16e à jouer · Ghana ou Colombie ensuite"
+  },
+  "spain": {
+    "status": "pending",
+    "round": "R32",
+    "nextMatchId": "esp-aut",
+    "selectorLine": "16e à jouer · Portugal ou Croatie ensuite"
+  }
+}

@@ -65,6 +65,11 @@
       "label": "Écosse 0–3 Brésil",
       "note": "Puissance et contrôle",
       "result": "V"
+    },
+    {
+      "label": "Brésil 2–1 Japon",
+      "note": "Le Brésil passe sans trembler jusqu’au bout",
+      "result": "V"
     }
   ],
   "france": [
@@ -99,6 +104,11 @@
       "label": "Curaçao 0–2 Côte d’Ivoire",
       "note": "Qualification avec autorité",
       "result": "V"
+    },
+    {
+      "label": "Côte d’Ivoire 1–2 Norvège",
+      "note": "Fin d’aventure, immense respect",
+      "result": "D"
     }
   ],
   "dr_congo": [
@@ -132,6 +142,11 @@
     {
       "label": "Maroc 4–2 Haïti",
       "note": "Les Lions de l’Atlas accélèrent",
+      "result": "V"
+    },
+    {
+      "label": "Pays-Bas 1–1 Maroc · TAB 2–3",
+      "note": "Les Lions de l’Atlas passent au mental",
       "result": "V"
     }
   ],

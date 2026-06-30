@@ -58,5 +58,18 @@
     "winner": "away",
     "winnerSide": 1,
     "locked": true
+  },
+  "civ-nor": {
+    "koId": "N76",
+    "h": "CIV",
+    "a": "NOR",
+    "home": 1,
+    "away": 2,
+    "status": "final",
+    "apiStatus": "FT",
+    "apiStatusLong": "Match Finished",
+    "winner": "away",
+    "winnerSide": 1,
+    "locked": true
   }
 }
