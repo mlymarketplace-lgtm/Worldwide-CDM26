@@ -2188,6 +2188,17 @@ const R32_API_KEY_META = {
   'col-gha': {h:'COL', a:'GHA', id:'N88'}
 };
 
+// V10.3.9 — résultats officiels déjà connus, figés localement.
+// But : le tableau et la simulation ne dépendent plus d'un appel API au démarrage.
+// L'API reste utilisée uniquement pour le live et pour confirmer les nouveaux matchs terminés.
+const STATIC_R32_LOCKS = {
+  'rsa-can': { koId:'N73', h:'RSA', a:'CAN', home:0, away:1, status:'final', apiStatus:'FT', apiStatusLong:'Match Finished', winner:'away', winnerSide:1, locked:true },
+  'bra-jpn': { koId:'N78', h:'BRA', a:'JPN', home:2, away:1, status:'final', apiStatus:'FT', apiStatusLong:'Match Finished', winner:'home', winnerSide:0, locked:true },
+  'ger-par': { koId:'N74', h:'GER', a:'PAR', home:1, away:1, penalty:{home:3, away:4}, status:'final', apiStatus:'PEN', apiStatusLong:'Match Finished Penalties', winner:'away', winnerSide:1, locked:true },
+  'ned-mar': { koId:'N75', h:'NED', a:'MAR', home:1, away:1, penalty:{home:2, away:3}, status:'final', apiStatus:'PEN', apiStatusLong:'Match Finished Penalties', winner:'away', winnerSide:1, locked:true }
+};
+
+
 
 const R32_CARDS = [
   {id:'N74', date:'Lun. 29 juin · 22h30 Paris', venue:'Boston · Gillette Stadium', a:NAMES.GER, b:NAMES.PAR, note:'Tableau A–D'},
@@ -2237,9 +2248,9 @@ const KO_ROUNDS = [
   ]}
 ];
 
-const r32Scores = { N73:[0,1] }; // V10.3 fallback officiel : Afrique du Sud 0–1 Canada
+const r32Scores = { N73:[0,1] }; // fallback initial, complété par STATIC_R32_LOCKS au démarrage
 const r32Picks = { N73:1 };
-const r32Locked = { N73:true }; // V10.3.5 : matchs finalisés API figés dans la simulation
+const r32Locked = { N73:true }; // matchs finalisés figés dans la simulation
 const koPicks = { r16:{}, qf:{}, sf:{}, final:{} };
 const koScores = { r16:{}, qf:{}, sf:{}, final:{} };
 const ROUND_ORDER = ['r16','qf','sf','final'];
@@ -2296,6 +2307,69 @@ function matchHasSenegal(round, match) {
 function r32ApiEntryById(id) {
   return Object.values(KNOCKOUT_LIVE_RESULTS).find(x => x && x.koId === id) || null;
 }
+
+function normalizeLockEntry(key, lock) {
+  if (!lock) return null;
+  const meta = R32_API_KEY_META[key] || {h:lock.h, a:lock.a, id:lock.koId};
+  const ph = lock.penalty?.home ?? lock.penaltyHome ?? null;
+  const pa = lock.penalty?.away ?? lock.penaltyAway ?? null;
+  return {
+    h: lock.h || meta.h,
+    a: lock.a || meta.a,
+    hg: lock.home ?? lock.hg ?? null,
+    ag: lock.away ?? lock.ag ?? null,
+    home: lock.home ?? lock.hg ?? null,
+    away: lock.away ?? lock.ag ?? null,
+    status: lock.status || 'final',
+    minute: lock.minute ?? 90,
+    apiStatus: lock.apiStatus || 'FT',
+    apiStatusLong: lock.apiStatusLong || 'Match Finished',
+    penalty: { home: ph, away: pa },
+    penaltyHome: ph,
+    penaltyAway: pa,
+    winner: lock.winner || null,
+    winnerSide: (lock.winnerSide === 0 || lock.winnerSide === 1) ? lock.winnerSide : null,
+    locked: lock.locked !== false,
+    apiSynced: false,
+    staticLock: true,
+    koId: lock.koId || meta.id
+  };
+}
+
+function applyR32Locks(locks = STATIC_R32_LOCKS, source = 'static') {
+  if (!locks || typeof locks !== 'object') return false;
+  let changed = false;
+  Object.entries(locks).forEach(([key, lock]) => {
+    const entry = normalizeLockEntry(key, lock);
+    if (!entry || !entry.koId) return;
+    const prev = KNOCKOUT_LIVE_RESULTS[key] || {};
+    const prevStr = JSON.stringify({hg:prev.hg, ag:prev.ag, status:prev.status, ph:prev.penaltyHome, pa:prev.penaltyAway, winnerSide:prev.winnerSide, locked:prev.locked});
+    const nextStr = JSON.stringify({hg:entry.hg, ag:entry.ag, status:entry.status, ph:entry.penaltyHome, pa:entry.penaltyAway, winnerSide:entry.winnerSide, locked:entry.locked});
+    if (prevStr !== nextStr) {
+      KNOCKOUT_LIVE_RESULTS[key] = entry;
+      changed = true;
+    }
+    if (syncR32FromApi(entry.koId, entry.hg, entry.ag, entry.status, entry)) changed = true;
+  });
+  if (changed) {
+    renderRound32Grid();
+    renderKnockoutTree();
+    renderTopLiveMatches();
+  }
+  return changed;
+}
+
+async function loadR32LocksFileOnce() {
+  try {
+    const res = await fetch('/data/knockout-locks.json?v=' + Date.now(), { cache:'no-store' });
+    if (!res.ok) return false;
+    const locks = await res.json();
+    const changed = applyR32Locks(locks, 'file');
+    if (changed) recalculateAll();
+    return changed;
+  } catch(e) { return false; }
+}
+
 function penaltyTuple(entry) {
   const ph = entry?.penalty?.home ?? entry?.penaltyHome;
   const pa = entry?.penalty?.away ?? entry?.penaltyAway;
@@ -3363,6 +3437,8 @@ function toggleMusic(){
 // INIT
 // ════════════════════════════════════════════════
 function initAppDisplay(){
+  applyR32Locks(STATIC_R32_LOCKS, 'static');
+  loadR32LocksFileOnce();
   setAppMode('live');
   Object.keys(SIM).forEach(k => updateScoreDisplay(k));
   // recalculateAll calcule la vraie probabilité depuis RESULTS+SIM
@@ -3614,6 +3690,8 @@ function applyScoresData(data, source = 'api') {
       const koMeta = R32_API_KEY_META[key];
       if (!koMeta) return;
       const prev = KNOCKOUT_LIVE_RESULTS[key] || {};
+      // Ne jamais écraser un résultat final verrouillé par un retour API incomplet/scheduled.
+      if (prev.locked && prev.status === 'final' && newStatus === 'scheduled' && newH === null && newA === null) return;
       if (
         prev.status !== newStatus ||
         prev.hg !== newH ||

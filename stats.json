@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-06-29T12:30:00+02:00",
-  "sourceNote": "Mise à jour manuelle V10.2 — données publiques recoupées au 29 juin 2026 avant les 16es/pendant début KO.",
+  "updatedAt": "2026-06-30T16:30:00+02:00",
+  "sourceNote": "Mise à jour manuelle V10.3.9 — après les 16es Brésil-Japon, Allemagne-Paraguay et Pays-Bas-Maroc. Les meilleurs buteurs restent inchangés ; les meilleures attaques évoluent après les buts de l'Allemagne et des Pays-Bas.",
   "topScorers": [
     {
       "rank": 1,
@@ -64,9 +64,8 @@
     }
   ],
   "bestAttack": {
-    "goals": 10,
+    "goals": 11,
     "teams": [
-      "🇫🇷 France",
       "🇩🇪 Allemagne",
       "🇳🇱 Pays-Bas"
     ]
@@ -75,7 +74,6 @@
     "goalsAgainst": 0,
     "teams": [
       "🇲🇽 Mexique",
-      "🇫🇷 France",
       "🇪🇸 Espagne"
     ]
   }

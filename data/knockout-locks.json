@@ -1,0 +1,56 @@
+{
+  "rsa-can": {
+    "koId": "N73",
+    "h": "RSA",
+    "a": "CAN",
+    "home": 0,
+    "away": 1,
+    "status": "final",
+    "apiStatus": "FT",
+    "apiStatusLong": "Match Finished",
+    "winner": "away",
+    "winnerSide": 1,
+    "locked": true
+  },
+  "bra-jpn": {
+    "koId": "N78",
+    "h": "BRA",
+    "a": "JPN",
+    "home": 2,
+    "away": 1,
+    "status": "final",
+    "apiStatus": "FT",
+    "apiStatusLong": "Match Finished",
+    "winner": "home",
+    "winnerSide": 0,
+    "locked": true
+  },
+  "ger-par": {
+    "koId": "N74",
+    "h": "GER",
+    "a": "PAR",
+    "home": 1,
+    "away": 1,
+    "penalty": { "home": 3, "away": 4 },
+    "status": "final",
+    "apiStatus": "PEN",
+    "apiStatusLong": "Match Finished Penalties",
+    "winner": "away",
+    "winnerSide": 1,
+    "locked": true
+  },
+  "ned-mar": {
+    "koId": "N75",
+    "h": "NED",
+    "a": "MAR",
+    "home": 1,
+    "away": 1,
+    "penalty": { "home": 2, "away": 3 },
+    "status": "final",
+    "apiStatus": "PEN",
+    "apiStatusLong": "Match Finished Penalties",
+    "winner": "away",
+    "winnerSide": 1,
+    "locked": true
+  }
+}
