@@ -371,7 +371,7 @@
           <div class="v10-team-flag">${raw.flag}</div>
           <div class="v10-team-name">${safeHtml(t.teamName)}</div>
           <div class="v10-team-supporter">${safeHtml(t.supporterName || t.statusLabel || '')}</div>
-          <div class="v10-team-line">${safeHtml(t.selectorLine || t.tagline || '')}<br>${uiText('next')} : ${safeHtml(matchLabel(match) || opp.teamName || '')}</div>
+          <div class="v10-team-line">${safeHtml(t.selectorLine || t.tagline || '')}<br>${safeHtml(raw.tournamentStatus === 'eliminated' ? (state.activeLang === 'ar' ? 'انتهى المشوار' : state.activeLang === 'en' ? 'Journey ended' : state.activeLang === 'es' ? 'Recorrido terminado' : state.activeLang === 'pt' ? 'Percurso encerrado' : 'Parcours terminé') : uiText('next'))} : ${safeHtml(matchLabel(match) || opp.teamName || '')}</div>
           <span class="v10-team-enter">${uiText('enter')}</span>
         </div>
       </a>`;

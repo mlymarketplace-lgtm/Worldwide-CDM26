@@ -14,6 +14,11 @@
       "label": "Sénégal 5–0 Iraq",
       "note": "Réveil des Gaïndés",
       "result": "V"
+    },
+    {
+      "label": "Belgique 3–2 Sénégal",
+      "note": "Les Lions mènent 2–0, puis tombent après une remontée spectaculaire",
+      "result": "D"
     }
   ],
   "belgium": [
@@ -30,6 +35,11 @@
     {
       "label": "Nouvelle-Zélande 1–5 Belgique",
       "note": "Réveil offensif des Diables",
+      "result": "V"
+    },
+    {
+      "label": "Belgique 3–2 Sénégal",
+      "note": "Menée 0–2, la Belgique renverse tout et file en huitième",
       "result": "V"
     }
   ],

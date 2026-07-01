@@ -39,17 +39,17 @@
     "roundLabel": "huitième de finale"
   },
   "senegal": {
-    "status": "pending",
+    "status": "eliminated",
     "round": "R32",
     "nextMatchId": "bel-sen",
-    "pendingNext": [
-      "sen-usa",
-      "sen-bih"
-    ],
-    "selectorLine": "Jour J pour entrer en huitième",
-    "statusLabel": "Jour J pour entrer en huitième",
-    "heroSubtitle": "Jour J pour entrer en huitième",
-    "matchdayHero": true
+    "eliminatedBy": "belgium",
+    "selectorLine": "Éliminé en 16e · respect aux Lions",
+    "statusLabel": "Éliminé en seizième de finale",
+    "roundLabel": "seizième de finale",
+    "heroSubtitle": "Respect total aux Lions : l’Afrique est fière, rendez-vous dans quatre ans.",
+    "exitScoreLine": "🇧🇪 Belgique 3–2 Sénégal 🇸🇳",
+    "farewellHeadline": "AU REVOIR “LES LIONS”",
+    "matchdayHero": false
   },
   "algeria": {
     "status": "pending",
@@ -78,6 +78,21 @@
     "heroSubtitle": "Respect total aux Léopards : l’Afrique est fière, le Congo reviendra plus fort.",
     "exitScoreLine": "🏴 Angleterre 2–1 RD Congo 🇨🇩",
     "farewellHeadline": "AU REVOIR “LES LÉOPARDS”",
+    "matchdayHero": false
+  },
+  "belgium": {
+    "status": "qualified",
+    "round": "R16",
+    "nextMatchId": "bel-usa-bih",
+    "pendingNext": [
+      "bel-usa",
+      "bel-bih"
+    ],
+    "nextOpponent": "usa_bosnia",
+    "selectorLine": "Qualifiée en 8e · prochain défi : USA ou Bosnie",
+    "statusLabel": "Qualifiée en huitième de finale · Prochain défi : États-Unis ou Bosnie-Herzégovine",
+    "roundLabel": "huitième de finale",
+    "heroSubtitle": "Remontée spectaculaire : menée 0–2, la Belgique renverse le Sénégal 3–2 et poursuit sa route.",
     "matchdayHero": false
   }
 }

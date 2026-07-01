@@ -118,5 +118,13 @@
     "supporterName": "El Tri",
     "heroPlayer": "Guillermo « Memo » Ochoa",
     "playerImg": "assets/opponents/mexico/player.webp"
+  },
+  "usa_bosnia": {
+    "teamName": "États-Unis ou Bosnie-Herzégovine",
+    "flag": "🇺🇸/🇧🇦",
+    "nickname": "Adversaire à confirmer",
+    "supporterName": "USA ou Zmajevi",
+    "heroPlayer": "Christian Pulisic ou Edin Džeko",
+    "playerImg": null
   }
 }

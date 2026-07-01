@@ -9,7 +9,7 @@
 // BUILD_VERSION — version stable de build, à bumper à chaque déploiement.
 // Remplace les cache-busters dynamiques (Date.now()) sur les ressources stables
 // afin que le navigateur puisse effectivement les mettre en cache entre deux visites.
-const BUILD_VERSION = '11.3.4';
+const BUILD_VERSION = '11.4';
 (function(){
   var p = new URLSearchParams(window.location.search);
   var v10Active = p.has('team') || p.get('mode') !== 'global';
@@ -1020,7 +1020,7 @@ header{display:flex;align-items:center;justify-content:space-between;padding:12p
 <meta name="apple-mobile-web-app-title" content="Suivez la CDM 2026">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <link rel="apple-touch-icon" href="/assets/icons/icon-192.png">
-<link rel="stylesheet" href="src/v10/v10-team-app.css?v=11.3.4">
+<link rel="stylesheet" href="src/v10/v10-team-app.css?v=11.4">
 </head>
 <body>
 <div class="band"></div>
@@ -1225,6 +1225,7 @@ header{display:flex;align-items:center;justify-content:space-between;padding:12p
         <div class="scorer-row"><div class="scorer-rank">#1</div><div><div class="scorer-name">Lionel Messi</div><div class="scorer-team">🇦🇷 Argentine</div></div><div class="scorer-goals">6</div></div>
         <div class="scorer-row"><div class="scorer-rank">#1</div><div><div class="scorer-name">Kylian Mbappé</div><div class="scorer-team">🇫🇷 France</div></div><div class="scorer-goals">6</div></div>
         <div class="scorer-row"><div class="scorer-rank">#3</div><div><div class="scorer-name">Erling Haaland</div><div class="scorer-team">🇳🇴 Norvège</div></div><div class="scorer-goals">5</div></div>
+        <div class="scorer-row"><div class="scorer-rank">#4</div><div><div class="scorer-name">Harry Kane</div><div class="scorer-team">🏴 Angleterre</div></div><div class="scorer-goals">4</div></div>
         <div class="scorer-row"><div class="scorer-rank">#4</div><div><div class="scorer-name">Ousmane Dembélé</div><div class="scorer-team">🇫🇷 France</div></div><div class="scorer-goals">4</div></div>
         <div class="scorer-row"><div class="scorer-rank">#5</div><div><div class="scorer-name">Vinícius Júnior</div><div class="scorer-team">🇧🇷 Brésil</div></div><div class="scorer-goals">4</div></div>
       </div>
@@ -2165,7 +2166,7 @@ function liveImpactText(key) {
 
 
 const DEFAULT_TOURNAMENT_STATS = {
-  updatedAt: '2026-07-01T20:15:00+02:00',
+  updatedAt: '2026-07-01T22:35:00+02:00',
   topScorers: [
     { rank: 1, name: 'Lionel Messi', team: '🇦🇷 Argentine', goals: 6 },
     { rank: 1, name: 'Kylian Mbappé', team: '🇫🇷 France', goals: 6 },
@@ -2241,7 +2242,11 @@ const STATIC_R32_LOCKS = {
   'bra-jpn': { koId:'N78', h:'BRA', a:'JPN', home:2, away:1, status:'final', apiStatus:'FT', apiStatusLong:'Match Finished', winner:'home', winnerSide:0, locked:true },
   'ger-par': { koId:'N74', h:'GER', a:'PAR', home:1, away:1, penalty:{home:3, away:4}, status:'final', apiStatus:'PEN', apiStatusLong:'Match Finished Penalties', winner:'away', winnerSide:1, locked:true },
   'ned-mar': { koId:'N75', h:'NED', a:'MAR', home:1, away:1, penalty:{home:2, away:3}, status:'final', apiStatus:'PEN', apiStatusLong:'Match Finished Penalties', winner:'away', winnerSide:1, locked:true },
-  'civ-nor': { koId:'N76', h:'CIV', a:'NOR', home:1, away:2, status:'final', apiStatus:'FT', apiStatusLong:'Match Finished', winner:'away', winnerSide:1, locked:true }
+  'civ-nor': { koId:'N76', h:'CIV', a:'NOR', home:1, away:2, status:'final', apiStatus:'FT', apiStatusLong:'Match Finished', winner:'away', winnerSide:1, locked:true },
+  'fra-swe': { koId:'N77', h:'FRA', a:'SWE', home:3, away:0, status:'final', apiStatus:'FT', apiStatusLong:'Match Finished', winner:'home', winnerSide:0, locked:true },
+  'mex-ecu': { koId:'N79', h:'MEX', a:'ECU', home:2, away:0, status:'final', apiStatus:'FT', apiStatusLong:'Match Finished', winner:'home', winnerSide:0, locked:true },
+  'eng-cod': { koId:'N80', h:'ENG', a:'COD', home:2, away:1, status:'final', apiStatus:'FT', apiStatusLong:'Match Finished', winner:'home', winnerSide:0, locked:true },
+  'bel-sen': { koId:'N82', h:'BEL', a:'SEN', home:3, away:2, status:'final', apiStatus:'FT', apiStatusLong:'Match Finished', winner:'home', winnerSide:0, locked:true }
 };
 
 const R32_CARDS = [
@@ -4078,7 +4083,7 @@ setTimeout(()=>{
 }, 900);
 
 </script>
-<script src="src/v10/v10-team-app.js?v=11.3.4"></script>
+<script src="src/v10/v10-team-app.js?v=11.4"></script>
 
 <script>
 // V10.3 — PWA registration. Le service worker garde les scores/API en network-first.

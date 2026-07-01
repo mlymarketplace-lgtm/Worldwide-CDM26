@@ -34,5 +34,23 @@
       "L’Afrique est fière de vous. Le Congo peut être fier de ses joueurs. Et ce rendez-vous ne doit pas être vu comme une fin, mais comme un retour : un retour sur la carte, un retour dans l’imaginaire, un retour qui appelle une suite.",
       "Rendez-vous dans quatre ans, entre Maroc, Espagne et Portugal. La prochaine fois, les Léopards ne viendront pas seulement pour participer : ils viendront pour aller plus loin."
     ]
+  },
+  "senegal": {
+    "title": "AU REVOIR “LES LIONS”",
+    "kicker": "Merci les Lions : l’Afrique est fière, le Sénégal reviendra plus fort",
+    "body": [
+      "Le Sénégal quitte cette Coupe du monde, mais il la quitte avec dignité, avec courage, et avec l’estime de tout un continent.",
+      "Les Lions avaient pris le match par le bon bout, au point de mener 2–0 et de faire croire à une nouvelle grande soirée sénégalaise. Puis la Belgique est revenue, a égalisé dans une remontée spectaculaire, avant d’arracher ce 3–2 qui fait mal. Ce genre de scénario laisse des regrets, mais il ne retire rien à la valeur du parcours.",
+      "Autour de cadres comme Sadio Mané et Idrissa Gana Gueye, cette équipe a aussi montré le visage d’une relève vivante, ambitieuse et talentueuse. Mbaye, Iliman, Habib Diarra et les autres ont laissé voir qu’une suite existe, et que cette histoire n’est pas terminée.",
+      "Une élimination fait mal, bien sûr. Mais elle n’efface ni la fierté, ni l’élan, ni ce que le Sénégal représente désormais dans le football mondial : une nation qui vient pour compter, pour résister, pour faire vibrer son peuple.",
+      "Merci les Lions. L’Afrique est fière de vous. Rendez-vous dans quatre ans, entre Maroc, Espagne et Portugal, avec l’espoir d’aller encore plus haut."
+    ]
+  },
+  "belgium_senegal": {
+    "title": "Belgique 3–2 Sénégal : le scénario qui fait mal",
+    "kicker": "Les Lions ont cru tenir l’exploit, puis les Diables ont renversé la nuit.",
+    "body": [
+      "Le Sénégal a longtemps tenu une histoire magnifique entre les mains. Mais la Belgique, menée 0–2, a trouvé les ressources pour revenir à 2–2 puis arracher la qualification. Un match cruel pour les Lions, spectaculaire pour le tournoi, et déjà difficile à oublier."
+    ]
   }
 }

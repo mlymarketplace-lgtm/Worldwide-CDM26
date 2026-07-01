@@ -110,5 +110,18 @@
     "winner": "home",
     "winnerSide": 0,
     "locked": true
+  },
+  "bel-sen": {
+    "koId": "N82",
+    "h": "BEL",
+    "a": "SEN",
+    "home": 3,
+    "away": 2,
+    "status": "final",
+    "apiStatus": "FT",
+    "apiStatusLong": "Match Finished",
+    "winner": "home",
+    "winnerSide": 0,
+    "locked": true
   }
 }

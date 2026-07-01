@@ -201,5 +201,37 @@
       "Le Mexique aura l’expérience, le public, l’habitude des grands rendez-vous et cette énergie si particulière des pays hôtes. La RD Congo aura autre chose : la fraîcheur de l’exploit, la force d’un peuple derrière elle, et cette envie de prouver que son retour en Coupe du monde n’est pas une parenthèse, mais le début d’un nouveau chapitre.",
       "Sur le papier, le Mexique partira favori. Sur le terrain, les Léopards auront une occasion immense : transformer une belle surprise en véritable sensation mondiale. Battre l’Angleterre ouvrirait la porte. Défier le Mexique, chez lui, serait le genre de match qui peut faire basculer une génération dans la légende."
     ]
+  },
+  "bel-usa-bih": {
+    "homeTeam": "belgium",
+    "awayTeam": "usa_bosnia",
+    "matchId": "bel-usa-bih",
+    "title": "Belgique–États-Unis ou Bosnie : les Diables attendent la suite",
+    "angle": "La Belgique a survécu au feu sénégalais. Elle doit maintenant attendre le nom du prochain piège.",
+    "body": [
+      "Menée 0–2 par le Sénégal, la Belgique a signé une remontée spectaculaire pour s’imposer 3–2 et rejoindre les huitièmes de finale. Ce genre de victoire laisse des traces : de la confiance, de l’énergie, mais aussi l’obligation de ne pas croire que tout sera toujours rattrapable.",
+      "Le prochain adversaire sortira du duel États-Unis–Bosnie-Herzégovine. Les Américains offriraient un huitième très physique, porté par le pays hôte et par Christian Pulisic. La Bosnie, elle, proposerait un match plus rugueux, plus expérimenté, avec Edin Džeko comme symbole d’un football qui sait souffrir et punir.",
+      "Pour les Diables Rouges, le message est simple : la qualification contre le Sénégal ne doit pas être une fin émotionnelle, mais un point de départ. Après avoir renversé les Lions, il faudra prouver que cette Belgique sait aussi maîtriser un match avant d’être obligée de le sauver."
+    ]
+  },
+  "bel-usa": {
+    "homeTeam": "belgium",
+    "awayTeam": "united_states",
+    "matchId": "bel-usa",
+    "title": "Belgique–États-Unis : les Diables face au pays hôte",
+    "angle": "La Belgique aura l’expérience. Les États-Unis auront le bruit, le rythme et tout un stade derrière eux.",
+    "body": [
+      "Si les États-Unis se dressent devant la Belgique, ce sera un huitième de finale sous pression maximale : un pays hôte, une énergie populaire, Christian Pulisic comme étendard, et une équipe belge qui devra transformer sa remontée contre le Sénégal en vraie maîtrise."
+    ]
+  },
+  "bel-bih": {
+    "homeTeam": "belgium",
+    "awayTeam": "bosnia_herzegovina",
+    "matchId": "bel-bih",
+    "title": "Belgique–Bosnie-Herzégovine : expérience contre expérience",
+    "angle": "Moins de bruit qu’un duel contre le pays hôte, mais probablement plus de pièges dans les détails.",
+    "body": [
+      "Si la Bosnie-Herzégovine passe, la Belgique trouvera face à elle une équipe de métier, capable de ralentir le tempo, de casser les séquences et de transformer chaque ballon arrêté en danger. Après le chaos émotionnel contre le Sénégal, les Diables devront garder la tête froide."
+    ]
   }
 }
