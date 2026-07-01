@@ -201,6 +201,14 @@
     }
     return team.statusLabel || team.tagline || '';
   }
+  // V11.3.1 — libellé court dédié au badge de la vignette d'accueil (home selector).
+  // Distinct de statusDisplayFor() (plus long, "Éliminée en {tour}") qui reste
+  // inchangé et utilisé tel quel partout ailleurs (hero, opposant, countdown).
+  function cardEliminatedLabel(){
+    const lang = state.activeLang || 'fr';
+    const map = { fr:'Éliminée', en:'Eliminated', pt:'Eliminada', es:'Eliminada', ar:'مقصاة' };
+    return map[lang] || map.fr;
+  }
   function eliminatedHeroSubtitle(team){
     const lang = state.activeLang || team.defaultLang || 'fr';
     if(team.heroSubtitle) return team.heroSubtitle;
@@ -308,6 +316,14 @@
         if(cfg[key] !== undefined) state.teams[id][key] = cfg[key];
       });
     });
+    // V11.3.1 — filet de sécurité minimal, limité à la Côte d'Ivoire uniquement :
+    // si team-next.json ne renseigne aucun statut pour cette équipe (fichier absent,
+    // pas encore mis à jour...), on affiche quand même le badge "Éliminée" sur la
+    // vignette d'accueil plutôt que de laisser un statut incohérent avec la home V11.
+    // La donnée réelle de team-next.json garde toujours la priorité si présente.
+    if(state.teams.ivory_coast && !state.teams.ivory_coast.tournamentStatus){
+      state.teams.ivory_coast.tournamentStatus = 'eliminated';
+    }
     state.i18n.pt = {
       teams: await readOptionalJson(DATA_BASE+'i18n/pt/teams.json'),
       previews: await readOptionalJson(DATA_BASE+'i18n/pt/previews.json'),
@@ -336,7 +352,16 @@
       const match = state.matches[raw.nextMatchId] || {};
       const opponentId = match.home === id ? match.away : match.home;
       const opp = teamLabel(opponentId);
+      // V11.3.1 — badge "Éliminée" sur la vignette d'entrée, piloté par la donnée
+      // existante (team.tournamentStatus, alimenté par team-next.json).
+      // Texte volontairement COURT (et non statusDisplayFor(), plus long type
+      // "Éliminée en seizième de finale") : testé visuellement, la phrase longue
+      // déborde et chevauche le nom de l'équipe sur le format compact de la card.
+      const cardBadge = raw.tournamentStatus === 'eliminated'
+        ? `<div class="v10-card-badge-eliminated">${safeHtml(cardEliminatedLabel())}</div>`
+        : '';
       return `<a class="v10-team-card" href="?team=${encodeURIComponent(id)}" style="--card-primary:${raw.primary};--card-secondary:${raw.secondary};--card-accent:${raw.accent}" data-team-card="${id}">
+        ${cardBadge}
         <img src="${safeHtml(raw.bannerImg)}" alt="${safeHtml(t.teamName)}" loading="lazy" decoding="async">
         <div class="v10-team-card-body">
           <div class="v10-team-flag">${raw.flag}</div>

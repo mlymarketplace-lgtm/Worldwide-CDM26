@@ -29,6 +29,14 @@
   [headers.values]
     Cache-Control = "public, max-age=86400"
 
+# Bundle applicatif v10 : pas de cache long. Ces fichiers pilotent la home,
+# les badges et le routing, et changent souvent — on privilégie la fraîcheur
+# systématique (même régime que /data/*) plutôt qu'un gain de cache.
+[[headers]]
+  for = "/src/*"
+  [headers.values]
+    Cache-Control = "no-store, no-cache, must-revalidate, proxy-revalidate"
+
 [[headers]]
   for = "/service-worker.js"
   [headers.values]

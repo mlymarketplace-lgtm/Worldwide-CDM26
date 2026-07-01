@@ -33,6 +33,12 @@ body.v10-selector-open{overflow:hidden;}
 .v10-team-flag{font-size:2.15rem;filter:drop-shadow(0 3px 8px #000);}
 .v10-team-name{font-family:'Oswald',sans-serif;font-size:1.58rem;font-weight:900;letter-spacing:.055em;text-transform:uppercase;margin-top:6px;line-height:1.05;}
 .v10-team-supporter{color:var(--card-secondary,#FDEF42);font-weight:900;font-size:.77rem;text-transform:uppercase;letter-spacing:.09em;margin-top:4px;}
+/* V11.3.1 — badge "Éliminée" sur la vignette d'accueil. Même langage visuel
+   que le bandeau .v11-elim-stamp déjà utilisé sur la fiche équipe, adapté
+   au format compact de la card (position:relative + isolation:isolate déjà
+   présents sur .v10-team-card, donc z-index:4 s'affiche bien au-dessus de
+   l'image, du dégradé ::before et de .v10-team-card-body). */
+.v10-card-badge-eliminated{position:absolute;top:10px;left:10px;z-index:4;max-width:calc(100% - 20px);padding:5px 10px;border-radius:8px;border:1.5px solid color-mix(in srgb,var(--card-accent,#E31B23) 78%,#fff);background:linear-gradient(135deg,#170606,#3a0808 55%,#090909);color:#fff;font-family:'Oswald',sans-serif;font-size:clamp(.58rem,1.35vw,.72rem);font-weight:900;letter-spacing:.05em;text-transform:uppercase;line-height:1.25;box-shadow:0 8px 20px #0008;text-shadow:0 1px 6px #000;}
 .v10-team-line{font-size:.68rem;line-height:1.45;color:#e7e7e7;margin-top:8px;min-height:38px;}
 .v10-team-enter{display:inline-flex;align-items:center;gap:7px;margin-top:12px;border-radius:999px;padding:8px 11px;background:#ffffff16;border:1px solid #ffffff2b;color:#fff;font-family:'Oswald',sans-serif;font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;}
 .v10-selector-actions{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:22px;}
