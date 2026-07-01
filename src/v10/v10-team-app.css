@@ -390,3 +390,22 @@ body.v11-eliminated-team #probable-opponent .opp-sub{
 .v10-card-badge-eliminated{background:linear-gradient(135deg,#7f1d1d,#111827);border:1px solid #fecaca55;color:#fee2e2;}
 .v10-card-badge-qualified{background:linear-gradient(135deg,#064e3b,#0f172a);border:1px solid #86efac66;color:#bbf7d0;}
 @media(max-width:620px){.v10-card-badge{top:10px;left:10px;font-size:.66rem;padding:5px 9px;}}
+
+/* V11.4.1 — home organisée par statut tournoi */
+.v10-team-sections{display:flex;flex-direction:column;gap:22px;position:relative;}
+.v10-team-section{position:relative;padding:16px 16px 18px 22px;border:1px solid #ffffff14;border-radius:24px;background:linear-gradient(135deg,#00000055,#11182740);box-shadow:0 18px 54px #0007;overflow:hidden;}
+.v10-team-section::before{content:"";position:absolute;left:0;top:18px;bottom:18px;width:6px;border-radius:999px;background:linear-gradient(180deg,#FDEF42,transparent);box-shadow:0 0 22px #FDEF4250;}
+.v10-section-qualified::before{background:linear-gradient(180deg,#4ade80,#FDEF42);box-shadow:0 0 24px #4ade8060;}
+.v10-section-pending::before{background:linear-gradient(180deg,#FDEF42,#60a5fa);box-shadow:0 0 24px #FDEF4255;}
+.v10-section-eliminated::before{background:linear-gradient(180deg,#fb7185,#7f1d1d);box-shadow:0 0 24px #fb718555;}
+.v10-section-head{display:flex;align-items:baseline;gap:10px;margin:0 0 13px;font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.09em;}
+.v10-section-head span{display:inline-flex;align-items:center;border:1px solid #ffffff1f;border-radius:999px;padding:4px 9px;background:#00000080;color:#FDEF42;font-size:.67rem;font-weight:900;}
+.v10-section-head strong{font-size:1.08rem;color:#fff;}
+.v10-section-eliminated{background:linear-gradient(135deg,#14060680,#11182738);}
+.v10-section-eliminated .v10-team-card{opacity:.82;}
+.v10-section-eliminated .v10-team-card:hover{opacity:1;}
+.v10-team-sections .v10-team-grid{grid-template-columns:repeat(4,minmax(0,1fr));}
+.v10-section-pending .v10-team-grid{grid-template-columns:repeat(3,minmax(0,1fr));}
+@media(max-width:1180px){.v10-team-sections .v10-team-grid,.v10-section-pending .v10-team-grid{grid-template-columns:repeat(3,minmax(0,1fr));}}
+@media(max-width:900px){.v10-team-sections .v10-team-grid,.v10-section-pending .v10-team-grid{grid-template-columns:repeat(2,minmax(0,1fr));}.v10-team-section{padding:14px 14px 16px 18px;}}
+@media(max-width:620px){.v10-team-sections{gap:14px}.v10-team-section{padding:14px 12px 14px 16px;border-radius:20px}.v10-team-section::before{top:14px;bottom:14px;width:4px}.v10-section-head{flex-direction:column;align-items:flex-start;gap:6px;margin-bottom:10px}.v10-section-head strong{font-size:.95rem}.v10-team-sections .v10-team-grid,.v10-section-pending .v10-team-grid{grid-template-columns:1fr;}}

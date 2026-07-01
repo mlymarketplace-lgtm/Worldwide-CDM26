@@ -5,6 +5,9 @@
   const DATA_BASE = 'data/';
   const AR_ENABLED = true; // V10.2 — retirer/mettre false pour désactiver l’arabe sans casser le reste.
   const TEAM_ORDER = ['senegal','algeria','egypt','ivory_coast','dr_congo','morocco','belgium','brazil','france','spain'];
+  // V11.4.1 — ordre narratif de la home : qualifiés, encore en course, puis éliminés.
+  // Les statuts restent pilotés par data/team-next.json / data/teams.json.
+  const SELECTOR_BASE_ORDER = ['france','morocco','belgium','brazil','egypt','algeria','spain','senegal','ivory_coast','dr_congo'];
   const FALLBACK_TEAMS = {
     switzerland:{teamName:'Suisse',flag:'🇨🇭',supporterName:'Nati'}, japan:{teamName:'Japon',flag:'🇯🇵',supporterName:'Samouraïs Bleus'},
     sweden:{teamName:'Suède',flag:'🇸🇪',supporterName:'Blågult'}, norway:{teamName:'Norvège',flag:'🇳🇴',supporterName:'Norvège'},
@@ -301,6 +304,71 @@
     document.body.dataset.v10Lang = lang || 'fr';
     syncLangButtons(lang || 'fr');
   }
+
+  function selectorGroupFor(team){
+    if(!team) return 'pending';
+    if(team.tournamentStatus === 'qualified') return 'qualified';
+    if(team.tournamentStatus === 'eliminated') return 'eliminated';
+    return 'pending';
+  }
+  function selectorGroupRank(group){
+    return group === 'qualified' ? 0 : group === 'pending' ? 1 : 2;
+  }
+  function selectorOrderIndex(id){
+    const idx = SELECTOR_BASE_ORDER.indexOf(id);
+    return idx >= 0 ? idx : SELECTOR_BASE_ORDER.length + TEAM_ORDER.indexOf(id);
+  }
+  function selectorSectionTitle(group){
+    const lang = state.activeLang || 'fr';
+    const labels = {
+      qualified:{fr:'Ils continuent l’aventure',en:'Still in the tournament',pt:'Ainda na competição',es:'Siguen en carrera',ar:'ما زالوا في السباق'},
+      pending:{fr:'Encore en course',en:'Still to play',pt:'Ainda em jogo',es:'Aún por jugar',ar:'بانتظار الحسم'},
+      eliminated:{fr:'Respect aux éliminés',en:'Respect to the eliminated',pt:'Respeito aos eliminados',es:'Respeto a los eliminados',ar:'كل الاحترام للمودعين'}
+    };
+    return labels[group]?.[lang] || labels[group]?.fr || group;
+  }
+  function selectorSectionKicker(group){
+    const lang = state.activeLang || 'fr';
+    const labels = {
+      qualified:{fr:'Qualifiés',en:'Qualified',pt:'Classificados',es:'Clasificados',ar:'المتأهلون'},
+      pending:{fr:'À jouer',en:'To play',pt:'Por jogar',es:'Por jugar',ar:'قيد الانتظار'},
+      eliminated:{fr:'Éliminés',en:'Eliminated',pt:'Eliminados',es:'Eliminados',ar:'المودعون'}
+    };
+    return labels[group]?.[lang] || labels[group]?.fr || group;
+  }
+  function buildSelectorSections(){
+    const ids = Array.from(new Set([...SELECTOR_BASE_ORDER, ...TEAM_ORDER])).filter(id => state.teams[id]);
+    const grouped = {qualified:[], pending:[], eliminated:[]};
+    ids.sort((a,b) => {
+      const ga = selectorGroupFor(state.teams[a]);
+      const gb = selectorGroupFor(state.teams[b]);
+      return selectorGroupRank(ga) - selectorGroupRank(gb) || selectorOrderIndex(a) - selectorOrderIndex(b);
+    }).forEach(id => grouped[selectorGroupFor(state.teams[id])].push(id));
+    const renderCard = (id) => {
+      const raw = state.teams[id];
+      const t = teamLabel(id);
+      const match = state.matches[raw.nextMatchId] || {};
+      const opponentId = match.home === id ? match.away : match.home;
+      const opp = teamLabel(opponentId);
+      return `<a class="v10-team-card" href="?team=${encodeURIComponent(id)}" style="--card-primary:${raw.primary};--card-secondary:${raw.secondary};--card-accent:${raw.accent}" data-team-card="${id}">
+        <img src="${safeHtml(raw.bannerImg)}" alt="${safeHtml(t.teamName)}" loading="lazy" decoding="async">
+        ${selectorStatusBadge(raw)}
+        <div class="v10-team-card-body">
+          <div class="v10-team-flag">${raw.flag}</div>
+          <div class="v10-team-name">${safeHtml(t.teamName)}</div>
+          <div class="v10-team-supporter">${safeHtml(t.supporterName || t.statusLabel || '')}</div>
+          <div class="v10-team-line">${safeHtml(t.selectorLine || t.tagline || '')}<br>${safeHtml(raw.tournamentStatus === 'eliminated' ? (state.activeLang === 'ar' ? 'انتهى المشوار' : state.activeLang === 'en' ? 'Journey ended' : state.activeLang === 'es' ? 'Recorrido terminado' : state.activeLang === 'pt' ? 'Percurso encerrado' : 'Parcours terminé') : uiText('next'))} : ${safeHtml(matchLabel(match) || opp.teamName || '')}</div>
+          <span class="v10-team-enter">${uiText('enter')}</span>
+        </div>
+      </a>`;
+    };
+    return ['qualified','pending','eliminated'].filter(g => grouped[g].length).map(group => `
+      <section class="v10-team-section v10-section-${group}" data-selector-section="${group}">
+        <div class="v10-section-head"><span>${safeHtml(selectorSectionKicker(group))}</span><strong>${safeHtml(selectorSectionTitle(group))}</strong></div>
+        <div class="v10-team-grid">${grouped[group].map(renderCard).join('')}</div>
+      </section>`).join('');
+  }
+
   function uiText(key){
     const lang = state.activeLang || 'fr';
     const d = {
@@ -358,24 +426,7 @@
   function installSelector(){
     document.body.classList.add('v10-selector-open');
     const saved = localStorage.getItem('qualifgainde.favoriteTeam');
-    const cards = TEAM_ORDER.filter(id => state.teams[id]).map(id => {
-      const raw = state.teams[id];
-      const t = teamLabel(id);
-      const match = state.matches[raw.nextMatchId] || {};
-      const opponentId = match.home === id ? match.away : match.home;
-      const opp = teamLabel(opponentId);
-      return `<a class="v10-team-card" href="?team=${encodeURIComponent(id)}" style="--card-primary:${raw.primary};--card-secondary:${raw.secondary};--card-accent:${raw.accent}" data-team-card="${id}">
-        <img src="${safeHtml(raw.bannerImg)}" alt="${safeHtml(t.teamName)}" loading="lazy" decoding="async">
-        ${selectorStatusBadge(raw)}
-        <div class="v10-team-card-body">
-          <div class="v10-team-flag">${raw.flag}</div>
-          <div class="v10-team-name">${safeHtml(t.teamName)}</div>
-          <div class="v10-team-supporter">${safeHtml(t.supporterName || t.statusLabel || '')}</div>
-          <div class="v10-team-line">${safeHtml(t.selectorLine || t.tagline || '')}<br>${safeHtml(raw.tournamentStatus === 'eliminated' ? (state.activeLang === 'ar' ? 'انتهى المشوار' : state.activeLang === 'en' ? 'Journey ended' : state.activeLang === 'es' ? 'Recorrido terminado' : state.activeLang === 'pt' ? 'Percurso encerrado' : 'Parcours terminé') : uiText('next'))} : ${safeHtml(matchLabel(match) || opp.teamName || '')}</div>
-          <span class="v10-team-enter">${uiText('enter')}</span>
-        </div>
-      </a>`;
-    }).join('');
+    const sections = buildSelectorSections();
     const savedTeam = saved && state.teams[saved] ? state.teams[saved] : null;
     const overlay = document.createElement('div');
     overlay.className = 'v10-selector';
@@ -387,7 +438,7 @@
         <p class="v10-selector-lead">${uiText('lead')}</p>
       </div></div>
       <div class="v10-choice-title">${uiText('choose')}</div>
-      <div class="v10-team-grid">${cards}</div>
+      <div class="v10-team-sections">${sections}</div>
       <div class="v10-selector-actions">
         ${savedTeam ? `<a class="v10-action" href="?team=${encodeURIComponent(saved)}">${uiText('resume')} ${savedTeam.flag} ${safeHtml(savedTeam.teamName)}</a>` : ''}
         <a class="v10-action" href="?mode=global">${uiText('global')}</a>

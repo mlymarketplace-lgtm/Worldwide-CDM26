@@ -9,7 +9,7 @@
 // BUILD_VERSION — version stable de build, à bumper à chaque déploiement.
 // Remplace les cache-busters dynamiques (Date.now()) sur les ressources stables
 // afin que le navigateur puisse effectivement les mettre en cache entre deux visites.
-const BUILD_VERSION = '11.4';
+const BUILD_VERSION = '11.4.1';
 (function(){
   var p = new URLSearchParams(window.location.search);
   var v10Active = p.has('team') || p.get('mode') !== 'global';
@@ -1020,7 +1020,7 @@ header{display:flex;align-items:center;justify-content:space-between;padding:12p
 <meta name="apple-mobile-web-app-title" content="Suivez la CDM 2026">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <link rel="apple-touch-icon" href="/assets/icons/icon-192.png">
-<link rel="stylesheet" href="src/v10/v10-team-app.css?v=11.4">
+<link rel="stylesheet" href="src/v10/v10-team-app.css?v=11.4.1">
 </head>
 <body>
 <div class="band"></div>
@@ -2528,10 +2528,18 @@ function formatNextMatchLocalDate(match) {
   return formatMatchTimeForDevice(match?.ts || match?.dateParis, currentLang) || String(match?.date || '').replace(/\s*Paris/g, '');
 }
 
+function isMobileR32Chronology() {
+  return window.matchMedia && window.matchMedia('(max-width: 620px)').matches;
+}
+function r32ChronologicalCards() {
+  const tsFor = (card) => new Date((r32FixtureById(card.id) || {}).ts || card.ts || 0).getTime() || 0;
+  return [...R32_CARDS].sort((a, b) => tsFor(a) - tsFor(b));
+}
 function renderRound32Grid() {
   const grid = document.getElementById('r32-grid');
   if (!grid) return;
-  grid.innerHTML = R32_CARDS.map(c => {
+  const cardsToRender = isMobileR32Chronology() ? r32ChronologicalCards() : R32_CARDS;
+  grid.innerHTML = cardsToRender.map(c => {
     const senCls = c.sen ? ' senegal-slot' : '';
     const pickedCls = r32Picks[c.id] !== undefined ? ' picked' : '';
     const liveEntry = r32ApiEntryById(c.id);
@@ -2549,6 +2557,14 @@ function renderRound32Grid() {
    </div>`;
   }).join('');
 }
+
+const v1141R32ChronologyMedia = window.matchMedia ? window.matchMedia('(max-width: 620px)') : null;
+if (v1141R32ChronologyMedia) {
+  const rerenderR32OnModeChange = () => { try { renderRound32Grid(); } catch(e) {} };
+  if (v1141R32ChronologyMedia.addEventListener) v1141R32ChronologyMedia.addEventListener('change', rerenderR32OnModeChange);
+  else if (v1141R32ChronologyMedia.addListener) v1141R32ChronologyMedia.addListener(rerenderR32OnModeChange);
+}
+
 function koTeam(round, matchId, idx, label, resolved, picked) {
   const css = `ko-team${resolved ? '' : ' placeholder'}${picked ? ' picked' : ''}`;
   const pickText = picked ? t('victory') : (resolved ? t('choose') : t('waiting'));
@@ -4083,7 +4099,7 @@ setTimeout(()=>{
 }, 900);
 
 </script>
-<script src="src/v10/v10-team-app.js?v=11.4"></script>
+<script src="src/v10/v10-team-app.js?v=11.4.1"></script>
 
 <script>
 // V10.3 — PWA registration. Le service worker garde les scores/API en network-first.
