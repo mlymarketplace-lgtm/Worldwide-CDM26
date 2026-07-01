@@ -110,5 +110,13 @@
     "supporterName": "Zmajevi",
     "heroPlayer": "Edin Džeko",
     "playerImg": "assets/opponents/bosnia_herzegovina/player.webp"
+  },
+  "mexico": {
+    "teamName": "Mexique",
+    "flag": "🇲🇽",
+    "nickname": "El Tri",
+    "supporterName": "El Tri",
+    "heroPlayer": "Guillermo « Memo » Ochoa",
+    "playerImg": "assets/opponents/mexico/player.webp"
   }
 }

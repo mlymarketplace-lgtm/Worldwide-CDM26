@@ -39,6 +39,9 @@ body.v10-selector-open{overflow:hidden;}
    présents sur .v10-team-card, donc z-index:4 s'affiche bien au-dessus de
    l'image, du dégradé ::before et de .v10-team-card-body). */
 .v10-card-badge-eliminated{position:absolute;top:10px;left:10px;z-index:4;max-width:calc(100% - 20px);padding:5px 10px;border-radius:8px;border:1.5px solid color-mix(in srgb,var(--card-accent,#E31B23) 78%,#fff);background:linear-gradient(135deg,#170606,#3a0808 55%,#090909);color:#fff;font-family:'Oswald',sans-serif;font-size:clamp(.58rem,1.35vw,.72rem);font-weight:900;letter-spacing:.05em;text-transform:uppercase;line-height:1.25;box-shadow:0 8px 20px #0008;text-shadow:0 1px 6px #000;}
+/* V11.3.2 — badge "Qualifiée en {round}", même gabarit que le badge Éliminée
+   mais accent vert (positif) pour rester lisible d'un coup d'œil sur la home. */
+.v10-card-badge-qualified{position:absolute;top:10px;left:10px;z-index:4;max-width:calc(100% - 20px);padding:5px 10px;border-radius:8px;border:1.5px solid #4ade8082;background:linear-gradient(135deg,#062114,#0a3320 55%,#090909);color:#fff;font-family:'Oswald',sans-serif;font-size:clamp(.58rem,1.35vw,.72rem);font-weight:900;letter-spacing:.05em;text-transform:uppercase;line-height:1.25;box-shadow:0 8px 20px #0008;text-shadow:0 1px 6px #000;}
 .v10-team-line{font-size:.68rem;line-height:1.45;color:#e7e7e7;margin-top:8px;min-height:38px;}
 .v10-team-enter{display:inline-flex;align-items:center;gap:7px;margin-top:12px;border-radius:999px;padding:8px 11px;background:#ffffff16;border:1px solid #ffffff2b;color:#fff;font-family:'Oswald',sans-serif;font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;}
 .v10-selector-actions{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:22px;}

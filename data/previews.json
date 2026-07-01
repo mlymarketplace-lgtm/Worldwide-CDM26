@@ -141,10 +141,11 @@
     "title": "Paraguay–France : l’Albirroja face au feu bleu",
     "angle": "Le Paraguay a déjà sorti l’Allemagne aux nerfs. Maintenant, il tombe sur une attaque française qui arrive avec les crocs.",
     "body": [
-      "Paraguay–France, c’est le piège parfait pour mesurer la maturité des Bleus. L’Albirroja ne promet pas le spectacle : elle promet le combat, les duels, les secondes balles et ce genre de match qui peut devenir irrespirable si le favori perd patience.",
+      "Paraguay–France, c’est le piège parfait pour mesurer la maturité des Bleus. L’Albirroja ne promet pas forcément le spectacle : elle promet le combat, les duels, les secondes balles et ce genre de match qui peut devenir irrespirable si le favori perd patience.",
       "Mais en face, la France débarque avec une attaque impressionnante. Mbappé vient de frapper deux fois contre la Suède et rejoint Messi en tête du classement des buteurs avec 6 buts. Derrière lui, Michael Olise, meilleur passeur de la compétition, distribue les clés comme s’il jouait avec le temps dans la poche.",
+      "Et puis il y a l’ombre de 1998. France–Paraguay, huitième de finale à Lens, un match fermé, nerveux, presque étouffant, que les Bleus avaient fini par arracher sur un but en or de Laurent Blanc. Ce soir-là, Didier Deschamps était sur la pelouse, brassard au bras, au cœur d’une France qui apprenait à survivre avant de devenir championne du monde. Vingt-huit ans plus tard, le Paraguay retrouve les Bleus avec une vieille blessure à rouvrir et une revanche symbolique à prendre. Pour la France, c’est un souvenir fondateur. Pour l’Albirroja, c’est une dette d’histoire.",
       "Le Paraguay sait survivre : l’Allemagne l’a appris aux tirs au but. La France sait accélérer : la Suède vient de le subir. Ce huitième aura donc une question simple : le mur rouge et blanc peut-il tenir quand les Bleus lancent Mbappé dans la profondeur et Olise entre les lignes ?",
-      "Sur le papier, la France est favorite. Sur le terrain, le Paraguay fera tout pour salir le tempo, casser l’élan et emmener les Bleus dans un match de patience. C’est exactement le genre de soirée où une grande équipe doit gagner sans s’énerver."
+      "Sur le papier, la France est favorite. Sur le terrain, le Paraguay fera tout pour salir le tempo, casser l’élan et emmener les Bleus dans un match de patience. C’est exactement le genre de soirée où une grande équipe doit gagner sans s’énerver — et où une vieille histoire peut soudain revenir hanter le favori."
     ]
   },
   "sen-usa": {
@@ -185,6 +186,20 @@
     "angle": "Quand deux fiertés africaines se croisent, le match pèse plus lourd qu’un simple tour.",
     "body": [
       "Si l’Algérie retrouve le Ghana, ce sera un match de continent, de mémoire et d’orgueil. Un duel où chaque ballon peut devenir une déclaration."
+    ]
+  },
+  "cod-mex": {
+    "homeTeam": "mexico",
+    "awayTeam": "dr_congo",
+    "matchId": "cod-mex",
+    "title": "Mexique–RD Congo : les Léopards face au volcan mexicain",
+    "angle": "Si la RD Congo valide son exploit, ce ne sera pas seulement une qualification. Ce sera une secousse dans l’histoire du football africain.",
+    "body": [
+      "Les Léopards retrouveraient les huitièmes de finale de Coupe du monde pour la première fois de leur histoire moderne, cinquante-deux ans après la dernière apparition du pays dans le tournoi, en 1974, à l’époque du Zaïre. Une autre époque, un autre football, un autre monde. Aujourd’hui, c’est une génération congolaise plus mûre, plus ambitieuse, plus consciente de son poids symbolique qui se présenterait devant le Mexique.",
+      "Et quel décor : le Mexique, pays organisateur, soutenu par un peuple entier, dans une Coupe du monde où chaque match des siens devient une fête, une pression, presque une mission nationale. Face à eux, la RD Congo n’aura pas seulement un adversaire. Elle aura un stade, une ferveur, une histoire locale et tout un pays contre elle.",
+      "Mais c’est aussi ce qui rendrait ce match magnifique. Parce que les Léopards n’auraient rien à perdre. Ils auraient déjà renversé les attentes, déjà rappelé que l’Afrique centrale pouvait avoir sa voix dans le grand concert mondial. Arriver là, face au Mexique, ce serait entrer dans une zone rare : celle des équipes qui ne jouent plus seulement un match, mais un moment d’histoire.",
+      "Le Mexique aura l’expérience, le public, l’habitude des grands rendez-vous et cette énergie si particulière des pays hôtes. La RD Congo aura autre chose : la fraîcheur de l’exploit, la force d’un peuple derrière elle, et cette envie de prouver que son retour en Coupe du monde n’est pas une parenthèse, mais le début d’un nouveau chapitre.",
+      "Sur le papier, le Mexique partira favori. Sur le terrain, les Léopards auront une occasion immense : transformer une belle surprise en véritable sensation mondiale. Battre l’Angleterre ouvrirait la porte. Défier le Mexique, chez lui, serait le genre de match qui peut faire basculer une génération dans la légende."
     ]
   }
 }

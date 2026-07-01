@@ -209,6 +209,27 @@
     const map = { fr:'Éliminée', en:'Eliminated', pt:'Eliminada', es:'Eliminada', ar:'مقصاة' };
     return map[lang] || map.fr;
   }
+  // V11.3.2 — libellé court dédié au badge "Qualifiée" de la vignette d'accueil.
+  // Paramétrable par team.round (R32/R16/QF/SF/F, alimenté par team-next.json) :
+  // suit automatiquement l'avancement du tournoi (huitièmes -> quarts -> demies
+  // -> finale) sans modification de code à chaque tour.
+  // Format volontairement ABRÉGÉ (testé visuellement) : "Qualifiée en huitièmes"
+  // déborde et chevauche le nom de l'équipe sur le format compact de la card,
+  // même souci que pour le badge Éliminée. "Qualifiée · 8es" tient sur une ligne.
+  const QUALIFIED_ROUND_SHORT = {
+    fr: { R32:'16es', R16:'8es', QF:'1/4', SF:'1/2', F:'Finale' },
+    en: { R32:'R32', R16:'R16', QF:'QF', SF:'SF', F:'Final' },
+    pt: { R32:'16avos', R16:'8vos', QF:'1/4', SF:'1/2', F:'Final' },
+    es: { R32:'16avos', R16:'8vos', QF:'1/4', SF:'1/2', F:'Final' },
+    ar: { R32:'٣٢', R16:'١٦', QF:'ربع', SF:'نصف', F:'نهائي' }
+  };
+  function cardQualifiedLabel(team){
+    const lang = state.activeLang || 'fr';
+    const prefix = { fr:'Qualifiée', en:'Qualified', pt:'Classificada', es:'Clasificada', ar:'تأهلت' }[lang] || 'Qualifiée';
+    const roundMap = QUALIFIED_ROUND_SHORT[lang] || QUALIFIED_ROUND_SHORT.fr;
+    const roundText = roundMap[team.round] || QUALIFIED_ROUND_SHORT.fr[team.round] || '';
+    return roundText ? `${prefix} · ${roundText}` : prefix;
+  }
   function eliminatedHeroSubtitle(team){
     const lang = state.activeLang || team.defaultLang || 'fr';
     if(team.heroSubtitle) return team.heroSubtitle;
@@ -352,14 +373,14 @@
       const match = state.matches[raw.nextMatchId] || {};
       const opponentId = match.home === id ? match.away : match.home;
       const opp = teamLabel(opponentId);
-      // V11.3.1 — badge "Éliminée" sur la vignette d'entrée, piloté par la donnée
-      // existante (team.tournamentStatus, alimenté par team-next.json).
-      // Texte volontairement COURT (et non statusDisplayFor(), plus long type
-      // "Éliminée en seizième de finale") : testé visuellement, la phrase longue
-      // déborde et chevauche le nom de l'équipe sur le format compact de la card.
+      // V11.3.1/V11.3.2 — badge de statut sur la vignette d'entrée, piloté par
+      // la donnée existante (team.tournamentStatus, alimenté par team-next.json).
+      // "Éliminée" et "Qualifiée en {round}" sont mutuellement exclusifs.
       const cardBadge = raw.tournamentStatus === 'eliminated'
         ? `<div class="v10-card-badge-eliminated">${safeHtml(cardEliminatedLabel())}</div>`
-        : '';
+        : raw.tournamentStatus === 'qualified'
+          ? `<div class="v10-card-badge-qualified">${safeHtml(cardQualifiedLabel(raw))}</div>`
+          : '';
       return `<a class="v10-team-card" href="?team=${encodeURIComponent(id)}" style="--card-primary:${raw.primary};--card-secondary:${raw.secondary};--card-accent:${raw.accent}" data-team-card="${id}">
         ${cardBadge}
         <img src="${safeHtml(raw.bannerImg)}" alt="${safeHtml(t.teamName)}" loading="lazy" decoding="async">
