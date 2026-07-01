@@ -84,5 +84,31 @@
     "winner": "home",
     "winnerSide": 0,
     "locked": true
+  },
+  "eng-cod": {
+    "koId": "N80",
+    "h": "ENG",
+    "a": "COD",
+    "home": 2,
+    "away": 1,
+    "status": "final",
+    "apiStatus": "FT",
+    "apiStatusLong": "Match Finished",
+    "winner": "home",
+    "winnerSide": 0,
+    "locked": true
+  },
+  "mex-ecu": {
+    "koId": "N79",
+    "h": "MEX",
+    "a": "ECU",
+    "home": 2,
+    "away": 0,
+    "status": "final",
+    "apiStatus": "FT",
+    "apiStatusLong": "Match Finished",
+    "winner": "home",
+    "winnerSide": 0,
+    "locked": true
   }
 }

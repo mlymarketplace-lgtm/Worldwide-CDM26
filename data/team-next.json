@@ -68,16 +68,16 @@
     "selectorLine": "16e à jouer · Portugal ou Croatie ensuite"
   },
   "dr_congo": {
-    "status": "pending",
+    "status": "eliminated",
     "round": "R32",
     "nextMatchId": "eng-cod",
-    "pendingNext": [
-      "cod-mex",
-      "cod-ecu"
-    ],
-    "selectorLine": "Jour J pour entrer en huitième",
-    "statusLabel": "Jour J pour entrer en huitième",
-    "heroSubtitle": "Jour J pour entrer en huitième",
-    "matchdayHero": true
+    "eliminatedBy": "england",
+    "selectorLine": "Éliminée en 16e · respect aux Léopards",
+    "statusLabel": "Éliminée en seizième de finale",
+    "roundLabel": "seizième de finale",
+    "heroSubtitle": "Respect total aux Léopards : l’Afrique est fière, le Congo reviendra plus fort.",
+    "exitScoreLine": "🏴 Angleterre 2–1 RD Congo 🇨🇩",
+    "farewellHeadline": "AU REVOIR “LES LÉOPARDS”",
+    "matchdayHero": false
   }
 }

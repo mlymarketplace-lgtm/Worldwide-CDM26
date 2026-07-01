@@ -9,7 +9,7 @@
 // BUILD_VERSION — version stable de build, à bumper à chaque déploiement.
 // Remplace les cache-busters dynamiques (Date.now()) sur les ressources stables
 // afin que le navigateur puisse effectivement les mettre en cache entre deux visites.
-const BUILD_VERSION = '11.3.1';
+const BUILD_VERSION = '11.3.3';
 (function(){
   var p = new URLSearchParams(window.location.search);
   var v10Active = p.has('team') || p.get('mode') !== 'global';
@@ -1020,7 +1020,7 @@ header{display:flex;align-items:center;justify-content:space-between;padding:12p
 <meta name="apple-mobile-web-app-title" content="Suivez la CDM 2026">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <link rel="apple-touch-icon" href="/assets/icons/icon-192.png">
-<link rel="stylesheet" href="src/v10/v10-team-app.css?v=11.3.1">
+<link rel="stylesheet" href="src/v10/v10-team-app.css?v=11.3.3">
 </head>
 <body>
 <div class="band"></div>
@@ -2165,13 +2165,14 @@ function liveImpactText(key) {
 
 
 const DEFAULT_TOURNAMENT_STATS = {
-  updatedAt: '2026-06-30T23:05:00+02:00',
+  updatedAt: '2026-07-01T20:15:00+02:00',
   topScorers: [
     { rank: 1, name: 'Lionel Messi', team: '🇦🇷 Argentine', goals: 6 },
     { rank: 1, name: 'Kylian Mbappé', team: '🇫🇷 France', goals: 6 },
     { rank: 3, name: 'Erling Haaland', team: '🇳🇴 Norvège', goals: 5 },
+    { rank: 4, name: 'Harry Kane', team: '🏴 Angleterre', goals: 4 },
     { rank: 4, name: 'Ousmane Dembélé', team: '🇫🇷 France', goals: 4 },
-    { rank: 5, name: 'Vinícius Júnior', team: '🇧🇷 Brésil', goals: 4 }
+    { rank: 4, name: 'Vinícius Júnior', team: '🇧🇷 Brésil', goals: 4 }
   ],
   bestAttack: {
     goals: 13,
@@ -4074,7 +4075,7 @@ setTimeout(()=>{
 }, 900);
 
 </script>
-<script src="src/v10/v10-team-app.js?v=11.3.1"></script>
+<script src="src/v10/v10-team-app.js?v=11.3.3"></script>
 
 <script>
 // V10.3 — PWA registration. Le service worker garde les scores/API en network-first.

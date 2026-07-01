@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-28T03:55:00+02:00",
+  "updatedAt": "2026-07-01T20:15:00+02:00",
   "matches": {
     "uru-esp": {
       "home": 0,
@@ -49,6 +49,16 @@
     "alg-aut": {
       "home": 2,
       "away": 2,
+      "status": "final"
+    },
+    "eng-cod": {
+      "home": 2,
+      "away": 1,
+      "status": "final"
+    },
+    "mex-ecu": {
+      "home": 2,
+      "away": 0,
       "status": "final"
     }
   }

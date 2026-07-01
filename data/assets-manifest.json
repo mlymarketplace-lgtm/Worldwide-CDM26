@@ -85,10 +85,6 @@
     },
     "bosnia_herzegovina": {
       "player": "assets/opponents/bosnia_herzegovina/player.webp"
-    },
-    "mexico": {
-      "player": "assets/opponents/mexico/player.webp",
-      "status": "complete"
     }
   }
 }

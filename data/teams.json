@@ -130,12 +130,17 @@
     "nextMatchId": "eng-cod",
     "defaultLang": "fr",
     "tagline": "Les Léopards écrivent leur histoire",
-    "statusLabel": "Jour J pour entrer en huitième",
+    "statusLabel": "Éliminée en seizième de finale",
     "supporterName": "Léopards",
-    "selectorLine": "Jour J pour entrer en huitième",
+    "selectorLine": "Éliminée en 16e · respect aux Léopards",
     "mascotImg": null,
-    "heroSubtitle": "Jour J pour entrer en huitième",
-    "matchdayHero": true
+    "heroSubtitle": "Respect total aux Léopards : l’Afrique est fière, le Congo reviendra plus fort.",
+    "matchdayHero": false,
+    "tournamentStatus": "eliminated",
+    "currentRound": "R32",
+    "roundLabel": "seizième de finale",
+    "exitScoreLine": "🏴 Angleterre 2–1 RD Congo 🇨🇩",
+    "farewellHeadline": "AU REVOIR “LES LÉOPARDS”"
   },
   "morocco": {
     "teamName": "Maroc",

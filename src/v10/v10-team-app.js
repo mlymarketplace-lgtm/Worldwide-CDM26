@@ -201,34 +201,33 @@
     }
     return team.statusLabel || team.tagline || '';
   }
-  // V11.3.1 — libellé court dédié au badge de la vignette d'accueil (home selector).
-  // Distinct de statusDisplayFor() (plus long, "Éliminée en {tour}") qui reste
-  // inchangé et utilisé tel quel partout ailleurs (hero, opposant, countdown).
-  function cardEliminatedLabel(){
-    const lang = state.activeLang || 'fr';
-    const map = { fr:'Éliminée', en:'Eliminated', pt:'Eliminada', es:'Eliminada', ar:'مقصاة' };
-    return map[lang] || map.fr;
+  function shortRoundForCard(team){
+    const round = team.currentRound || team.round || 'R32';
+    const map = { R32:'16e', R16:'8es', QF:'1/4', SF:'1/2', F:'Finale' };
+    return map[round] || String(round).toUpperCase();
   }
-  // V11.3.2 — libellé court dédié au badge "Qualifiée" de la vignette d'accueil.
-  // Paramétrable par team.round (R32/R16/QF/SF/F, alimenté par team-next.json) :
-  // suit automatiquement l'avancement du tournoi (huitièmes -> quarts -> demies
-  // -> finale) sans modification de code à chaque tour.
-  // Format volontairement ABRÉGÉ (testé visuellement) : "Qualifiée en huitièmes"
-  // déborde et chevauche le nom de l'équipe sur le format compact de la card,
-  // même souci que pour le badge Éliminée. "Qualifiée · 8es" tient sur une ligne.
-  const QUALIFIED_ROUND_SHORT = {
-    fr: { R32:'16es', R16:'8es', QF:'1/4', SF:'1/2', F:'Finale' },
-    en: { R32:'R32', R16:'R16', QF:'QF', SF:'SF', F:'Final' },
-    pt: { R32:'16avos', R16:'8vos', QF:'1/4', SF:'1/2', F:'Final' },
-    es: { R32:'16avos', R16:'8vos', QF:'1/4', SF:'1/2', F:'Final' },
-    ar: { R32:'٣٢', R16:'١٦', QF:'ربع', SF:'نصف', F:'نهائي' }
-  };
+  function cardEliminatedLabel(team){
+    const lang = state.activeLang || team.defaultLang || 'fr';
+    if(lang === 'ar') return 'أُقصي';
+    if(lang === 'en') return 'Eliminated';
+    if(lang === 'pt') return 'Eliminada';
+    if(lang === 'es') return 'Eliminada';
+    return 'Éliminée';
+  }
   function cardQualifiedLabel(team){
-    const lang = state.activeLang || 'fr';
-    const prefix = { fr:'Qualifiée', en:'Qualified', pt:'Classificada', es:'Clasificada', ar:'تأهلت' }[lang] || 'Qualifiée';
-    const roundMap = QUALIFIED_ROUND_SHORT[lang] || QUALIFIED_ROUND_SHORT.fr;
-    const roundText = roundMap[team.round] || QUALIFIED_ROUND_SHORT.fr[team.round] || '';
-    return roundText ? `${prefix} · ${roundText}` : prefix;
+    const lang = state.activeLang || team.defaultLang || 'fr';
+    const round = shortRoundForCard(team);
+    if(lang === 'ar') return `تأهل · ${round}`;
+    if(lang === 'en') return `Qualified · ${round}`;
+    if(lang === 'pt') return `Classificada · ${round}`;
+    if(lang === 'es') return `Clasificada · ${round}`;
+    return `Qualifiée · ${round}`;
+  }
+  function selectorStatusBadge(team){
+    if(!team) return '';
+    if(team.tournamentStatus === 'eliminated') return `<div class="v10-card-badge v10-card-badge-eliminated">${safeHtml(cardEliminatedLabel(team))}</div>`;
+    if(team.tournamentStatus === 'qualified') return `<div class="v10-card-badge v10-card-badge-qualified">${safeHtml(cardQualifiedLabel(team))}</div>`;
+    return '';
   }
   function eliminatedHeroSubtitle(team){
     const lang = state.activeLang || team.defaultLang || 'fr';
@@ -337,14 +336,6 @@
         if(cfg[key] !== undefined) state.teams[id][key] = cfg[key];
       });
     });
-    // V11.3.1 — filet de sécurité minimal, limité à la Côte d'Ivoire uniquement :
-    // si team-next.json ne renseigne aucun statut pour cette équipe (fichier absent,
-    // pas encore mis à jour...), on affiche quand même le badge "Éliminée" sur la
-    // vignette d'accueil plutôt que de laisser un statut incohérent avec la home V11.
-    // La donnée réelle de team-next.json garde toujours la priorité si présente.
-    if(state.teams.ivory_coast && !state.teams.ivory_coast.tournamentStatus){
-      state.teams.ivory_coast.tournamentStatus = 'eliminated';
-    }
     state.i18n.pt = {
       teams: await readOptionalJson(DATA_BASE+'i18n/pt/teams.json'),
       previews: await readOptionalJson(DATA_BASE+'i18n/pt/previews.json'),
@@ -373,17 +364,9 @@
       const match = state.matches[raw.nextMatchId] || {};
       const opponentId = match.home === id ? match.away : match.home;
       const opp = teamLabel(opponentId);
-      // V11.3.1/V11.3.2 — badge de statut sur la vignette d'entrée, piloté par
-      // la donnée existante (team.tournamentStatus, alimenté par team-next.json).
-      // "Éliminée" et "Qualifiée en {round}" sont mutuellement exclusifs.
-      const cardBadge = raw.tournamentStatus === 'eliminated'
-        ? `<div class="v10-card-badge-eliminated">${safeHtml(cardEliminatedLabel())}</div>`
-        : raw.tournamentStatus === 'qualified'
-          ? `<div class="v10-card-badge-qualified">${safeHtml(cardQualifiedLabel(raw))}</div>`
-          : '';
       return `<a class="v10-team-card" href="?team=${encodeURIComponent(id)}" style="--card-primary:${raw.primary};--card-secondary:${raw.secondary};--card-accent:${raw.accent}" data-team-card="${id}">
-        ${cardBadge}
         <img src="${safeHtml(raw.bannerImg)}" alt="${safeHtml(t.teamName)}" loading="lazy" decoding="async">
+        ${selectorStatusBadge(raw)}
         <div class="v10-team-card-body">
           <div class="v10-team-flag">${raw.flag}</div>
           <div class="v10-team-name">${safeHtml(t.teamName)}</div>
