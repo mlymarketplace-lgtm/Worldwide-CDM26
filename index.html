@@ -9,7 +9,7 @@
 // BUILD_VERSION — version stable de build, à bumper à chaque déploiement.
 // Remplace les cache-busters dynamiques (Date.now()) sur les ressources stables
 // afin que le navigateur puisse effectivement les mettre en cache entre deux visites.
-const BUILD_VERSION = '11.3.3';
+const BUILD_VERSION = '11.3.4';
 (function(){
   var p = new URLSearchParams(window.location.search);
   var v10Active = p.has('team') || p.get('mode') !== 'global';
@@ -919,7 +919,7 @@ header{display:flex;align-items:center;justify-content:space-between;padding:12p
 .next-vs-time{font-size:.62rem;color:var(--or);text-align:center;line-height:1.45;}
 .next-venue{grid-column:1/-1;text-align:center;font-size:.68rem;color:#9ca3af;margin-top:2px;line-height:1.45;}
 .leaders-section{margin:16px 0 20px;}
-.leaders-grid{display:grid;grid-template-columns:1.1fr .8fr .8fr .8fr;gap:12px;align-items:stretch;}
+.leaders-grid{display:grid;grid-template-columns:minmax(390px,1.55fr) repeat(3,minmax(170px,.72fr));gap:12px;align-items:stretch;}
 .leader-card{background:linear-gradient(135deg,#111,#0b0b0b);border:1px solid #ffffff16;border-radius:16px;padding:14px 15px;box-shadow:0 12px 36px #0005;overflow:hidden;position:relative;}
 .leader-card::before{content:'';position:absolute;inset:0;pointer-events:none;background:radial-gradient(circle at 90% 0,#FDEF4215,transparent 38%);}
 .leader-card>*{position:relative;z-index:1;}
@@ -1020,7 +1020,7 @@ header{display:flex;align-items:center;justify-content:space-between;padding:12p
 <meta name="apple-mobile-web-app-title" content="Suivez la CDM 2026">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <link rel="apple-touch-icon" href="/assets/icons/icon-192.png">
-<link rel="stylesheet" href="src/v10/v10-team-app.css?v=11.3.3">
+<link rel="stylesheet" href="src/v10/v10-team-app.css?v=11.3.4">
 </head>
 <body>
 <div class="band"></div>
@@ -2758,9 +2758,12 @@ function renderTournamentLeaders(stats = DEFAULT_TOURNAMENT_STATS) {
   const assistName = document.getElementById('best-assist-name');
   const assistTeam = document.getElementById('best-assist-team');
 
-  const topScorers = Array.isArray(safeStats.topScorers) && safeStats.topScorers.length
+  const rawTopScorers = Array.isArray(safeStats.topScorers) && safeStats.topScorers.length
     ? safeStats.topScorers
     : DEFAULT_TOURNAMENT_STATS.topScorers;
+  const topScorers = rawTopScorers
+    .filter(p => Number(p && p.goals) >= 4)
+    .sort((a,b) => (Number(b.goals)||0) - (Number(a.goals)||0) || (Number(a.rank)||999) - (Number(b.rank)||999));
 
   if (scorers) {
     scorers.innerHTML = topScorers.map((p, idx) => `<div class="scorer-row">
@@ -4075,7 +4078,7 @@ setTimeout(()=>{
 }, 900);
 
 </script>
-<script src="src/v10/v10-team-app.js?v=11.3.3"></script>
+<script src="src/v10/v10-team-app.js?v=11.3.4"></script>
 
 <script>
 // V10.3 — PWA registration. Le service worker garde les scores/API en network-first.

@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-07-01T20:15:00+02:00",
-  "sourceNote": "V11.3.3 — Angleterre 2–1 RD Congo : Harry Kane inscrit un doublé et passe à 4 buts. RD Congo éliminée. Stats cumulées depuis le début de la Coupe du monde.",
+  "updatedAt": "2026-07-01T21:35:00+02:00",
+  "sourceNote": "V11.3.4 — affichage limité aux buteurs à 4 buts et plus. Harry Kane est conservé à 4 buts. Stats cumulées depuis le début de la Coupe du monde.",
   "topScorers": [
     {
       "rank": 1,
@@ -37,30 +37,6 @@
       "name": "Vinícius Júnior",
       "team": "🇧🇷 Brésil",
       "goals": 4
-    },
-    {
-      "rank": 7,
-      "name": "Deniz Undav",
-      "team": "🇩🇪 Allemagne",
-      "goals": 3
-    },
-    {
-      "rank": 8,
-      "name": "Johan Manzambi",
-      "team": "🇨🇭 Suisse",
-      "goals": 3
-    },
-    {
-      "rank": 9,
-      "name": "Ismaïla Sarr",
-      "team": "🇸🇳 Sénégal",
-      "goals": 3
-    },
-    {
-      "rank": 10,
-      "name": "Brian Brobbey",
-      "team": "🇳🇱 Pays-Bas",
-      "goals": 3
     }
   ],
   "bestAttack": {

@@ -314,8 +314,12 @@ body.v11-matchday #hero-subtitle{
   font-weight:950;
   letter-spacing:.14em;
   line-height:1.25;
-  transform:rotate(-1.2deg);
-  box-shadow:0 0 0 1px rgba(255,255,255,.12),0 12px 28px #000a,0 0 28px rgba(255,60,60,.22);
+  transform:none;
+  font-style:normal;
+  white-space:normal;
+  text-align:center;
+  max-width:min(92vw,780px);
+  box-shadow:0 0 0 1px rgba(255,255,255,.12),0 12px 28px #000a,0 0 22px rgba(255,60,60,.16);
   text-shadow:0 2px 10px #000;
 }
 .v11-hero-main-title{
@@ -344,7 +348,44 @@ body.v11-eliminated-team #hero-banner img{
 }
 
 
-/* V11.3.3 — badges de statut sur les vignettes d'entrée */
+
+/* V11.3.4 — correction affichage équipe éliminée dans la mini-card prochain match */
+body.v11-eliminated-team #probable-opponent.opponent-card{
+  flex-direction:column !important;
+  align-items:center !important;
+  justify-content:center !important;
+  gap:5px !important;
+  padding:10px 14px !important;
+  min-height:78px;
+}
+body.v11-eliminated-team #probable-opponent .opp-label{
+  white-space:normal !important;
+  text-align:center !important;
+  justify-content:center !important;
+  line-height:1.25 !important;
+  letter-spacing:.11em !important;
+}
+body.v11-eliminated-team #probable-opponent .opp-main{
+  white-space:normal !important;
+  text-align:center !important;
+  line-height:1.05 !important;
+  max-width:100% !important;
+  overflow-wrap:anywhere !important;
+  font-size:clamp(1.05rem,4.8vw,1.42rem) !important;
+}
+body.v11-eliminated-team #probable-opponent .opp-sub{
+  white-space:normal !important;
+  text-align:center !important;
+  line-height:1.25 !important;
+  max-width:100% !important;
+}
+@media(max-width:768px){
+  body.v11-eliminated-team #probable-opponent.opponent-card{width:100%;}
+  body.v11-eliminated-team #probable-opponent .opp-label{font-size:.56rem !important;}
+  body.v11-eliminated-team #probable-opponent .opp-sub{display:none;}
+}
+
+/* V11.3.4 — badges de statut sur les vignettes d'entrée */
 .v10-card-badge{position:absolute;z-index:4;top:12px;left:12px;display:inline-flex;align-items:center;gap:6px;max-width:calc(100% - 24px);padding:6px 10px;border-radius:999px;font-family:Oswald,sans-serif;font-size:.72rem;font-weight:900;line-height:1;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap;box-shadow:0 10px 28px #0008;backdrop-filter:blur(10px);}
 .v10-card-badge-eliminated{background:linear-gradient(135deg,#7f1d1d,#111827);border:1px solid #fecaca55;color:#fee2e2;}
 .v10-card-badge-qualified{background:linear-gradient(135deg,#064e3b,#0f172a);border:1px solid #86efac66;color:#bbf7d0;}

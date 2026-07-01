@@ -246,11 +246,11 @@
   function eliminatedStampText(team){
     const lang = state.activeLang || team.defaultLang || 'fr';
     const round = shortRoundForStamp(team);
-    if(lang === 'en') return `ELIMINATED IN THE ${round} OF THIS WORLD CUP`;
-    if(lang === 'pt') return `ELIMINADO NOS ${round} DESTA COPA DO MUNDO`;
-    if(lang === 'es') return `ELIMINADO EN ${round} DE ESTA COPA MUNDIAL`;
-    if(lang === 'ar') return `أُقصي في ${round} من كأس العالم`;
-    return `ÉQUIPE ÉLIMINÉE EN ${round} DE CETTE COUPE DU MONDE`;
+    if(lang === 'en') return `ELIMINATED · ${round}`;
+    if(lang === 'pt') return `ELIMINADO · ${round}`;
+    if(lang === 'es') return `ELIMINADO · ${round}`;
+    if(lang === 'ar') return `أُقصي · ${round}`;
+    return `ÉLIMINÉE EN ${round}`;
   }
   function isMatchdayHero(teamId, team){
     return !!(team && team.matchdayHero && team.tournamentStatus !== 'eliminated');
