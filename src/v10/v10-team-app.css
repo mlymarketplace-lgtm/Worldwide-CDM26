@@ -231,3 +231,114 @@ body.v10-rtl .form-row{direction:rtl;}
   #belgique-senegal.v11-farewell-card .teaser-title{font-size:.96rem !important;}
   #belgique-senegal.v11-farewell-card .teaser-body strong{font-size:1rem;}
 }
+
+
+/* V11.3 — matchday waouh + bandeau élimination + nettoyage UI */
+#leaders-section .leader-note{
+  display:none !important;
+}
+body.v11-matchday #hero-banner::before,
+body.v11-matchday #hero-banner::after{
+  content:"";
+  position:absolute;
+  inset:-18%;
+  pointer-events:none;
+  z-index:1;
+}
+body.v11-matchday #hero-banner::before{
+  background:
+    radial-gradient(circle at 18% 28%, color-mix(in srgb,var(--team-secondary) 82%,transparent) 0 7%, transparent 22%),
+    radial-gradient(circle at 82% 20%, color-mix(in srgb,var(--team-accent) 76%,transparent) 0 6%, transparent 24%),
+    radial-gradient(circle at 50% 82%, color-mix(in srgb,var(--team-primary) 82%,transparent) 0 8%, transparent 28%),
+    conic-gradient(from 210deg at 50% 50%, transparent 0deg, color-mix(in srgb,var(--team-secondary) 44%,transparent) 54deg, transparent 92deg, color-mix(in srgb,var(--team-accent) 40%,transparent) 155deg, transparent 210deg, color-mix(in srgb,var(--team-primary) 38%,transparent) 290deg, transparent 360deg);
+  opacity:.72;
+  filter:saturate(1.35) blur(.2px);
+  animation:v11ColorBurst 3.6s ease-in-out infinite alternate;
+}
+body.v11-matchday #hero-banner::after{
+  inset:0;
+  background:
+    linear-gradient(115deg, transparent 0 28%, rgba(255,255,255,.28) 31%, transparent 35% 100%),
+    radial-gradient(circle at 50% 50%, transparent 0 38%, rgba(255,255,255,.14) 39% 40%, transparent 43%);
+  mix-blend-mode:screen;
+  opacity:.42;
+  animation:v11LightSweep 2.8s ease-in-out infinite;
+}
+body.v11-matchday #hero-banner > div:last-child{z-index:2;}
+body.v11-matchday #hero-title{
+  text-shadow:0 3px 16px #000,0 0 24px color-mix(in srgb,var(--team-secondary) 48%,transparent) !important;
+}
+body.v11-matchday #hero-subtitle{
+  margin-top:10px !important;
+  color:#fff !important;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  gap:6px;
+}
+.v11-matchday-kicker{
+  display:inline-block;
+  font-family:'Oswald',sans-serif;
+  text-transform:uppercase;
+  letter-spacing:.13em;
+  font-size:clamp(1.05rem,3vw,1.8rem);
+  font-weight:950;
+  padding:8px 14px;
+  border-radius:999px;
+  color:#050505;
+  background:linear-gradient(90deg,var(--team-secondary),#fff,var(--team-accent));
+  box-shadow:0 0 0 2px rgba(255,255,255,.18),0 0 32px color-mix(in srgb,var(--team-secondary) 50%,transparent),0 0 46px color-mix(in srgb,var(--team-accent) 30%,transparent);
+  animation:v11PulseBadge 1.35s ease-in-out infinite alternate;
+}
+.v11-matchday-sub{
+  display:block;
+  color:#fff;
+  font-size:clamp(.76rem,1.6vw,.96rem);
+  font-weight:850;
+  letter-spacing:.03em;
+  text-shadow:0 2px 12px #000;
+}
+.v11-elim-stamp{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  margin:0 auto 10px;
+  padding:7px 13px;
+  border-radius:10px;
+  border:2px solid color-mix(in srgb,var(--team-accent) 78%,#fff);
+  background:linear-gradient(135deg,#170606,#3a0808 55%,#090909);
+  color:#fff;
+  font-family:'Oswald',sans-serif;
+  font-size:clamp(.76rem,1.7vw,1rem);
+  font-weight:950;
+  letter-spacing:.14em;
+  line-height:1.25;
+  transform:rotate(-1.2deg);
+  box-shadow:0 0 0 1px rgba(255,255,255,.12),0 12px 28px #000a,0 0 28px rgba(255,60,60,.22);
+  text-shadow:0 2px 10px #000;
+}
+.v11-hero-main-title{
+  display:block;
+}
+body.v11-eliminated-team #hero-banner img{
+  filter:saturate(.78) contrast(1.08) brightness(.82);
+}
+@keyframes v11ColorBurst{
+  from{transform:scale(1) rotate(-2deg);opacity:.58;}
+  to{transform:scale(1.08) rotate(2deg);opacity:.88;}
+}
+@keyframes v11LightSweep{
+  0%{transform:translateX(-16%) skewX(-8deg);opacity:.20;}
+  50%{opacity:.48;}
+  100%{transform:translateX(16%) skewX(-8deg);opacity:.28;}
+}
+@keyframes v11PulseBadge{
+  from{transform:translateY(0) scale(1);filter:saturate(1);}
+  to{transform:translateY(-1px) scale(1.035);filter:saturate(1.25);}
+}
+@media(max-width:720px){
+  .v11-matchday-kicker{font-size:1rem;letter-spacing:.08em;padding:7px 11px;}
+  .v11-matchday-sub{font-size:.72rem;max-width:88vw;}
+  .v11-elim-stamp{font-size:.68rem;letter-spacing:.09em;padding:6px 10px;}
+}

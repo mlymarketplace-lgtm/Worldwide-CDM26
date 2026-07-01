@@ -1223,19 +1223,19 @@ header{display:flex;align-items:center;justify-content:space-between;padding:12p
         <div class="scorer-row"><div class="scorer-rank">#4</div><div><div class="scorer-name">Ousmane Dembélé</div><div class="scorer-team">🇫🇷 France</div></div><div class="scorer-goals">4</div></div>
         <div class="scorer-row"><div class="scorer-rank">#5</div><div><div class="scorer-name">Vinícius Júnior</div><div class="scorer-team">🇧🇷 Brésil</div></div><div class="scorer-goals">4</div></div>
       </div>
-      <div class="leader-note">Données lues depuis stats.json, avec fallback HTML si le fichier manque.</div>
+      <div class="leader-note" aria-hidden="true"></div>
     </div>
     <div class="leader-card attack">
       <div class="leader-title"><img src="assets/lion-mascotte.png" alt="Mascotte">Meilleure attaque</div>
       <div class="leader-big" id="best-attack-goals">13</div>
       <div class="leader-teams" id="best-attack-teams">🇫🇷 France</div>
-      <div class="leader-note">Équipes avec le plus grand nombre de buts marqués. Modifiable dans stats.json.</div>
+      <div class="leader-note" aria-hidden="true"></div>
     </div>
     <div class="leader-card defense">
       <div class="leader-title"><img src="assets/lion-mascotte.png" alt="Mascotte">Meilleure défense</div>
       <div class="leader-big" id="best-defense-goals">0</div>
       <div class="leader-teams" id="best-defense-teams">🇲🇽 Mexique · 🇪🇸 Espagne</div>
-      <div class="leader-note">Équipes avec le moins de buts encaissés. Modifiable dans stats.json.</div>
+      <div class="leader-note" aria-hidden="true"></div>
     </div>
   </div>
 </section>
@@ -1574,7 +1574,7 @@ function applyLanguage(){
   const sideTitles=document.querySelectorAll('.player-side .side-title span:last-child'); if(sideTitles[0]) sideTitles[0].textContent=L.redDevils; if(sideTitles[1]) sideTitles[1].textContent=L.gaindes;
   setHtml('#leaders-section .sec', mascotImg()+L.leaders);
   const leaderTitles=document.querySelectorAll('.leader-title'); if(leaderTitles[0]) leaderTitles[0].innerHTML='<img src="assets/lion-mascotte.png" alt="Mascotte">'+L.topScorers; if(leaderTitles[1]) leaderTitles[1].innerHTML='<img src="assets/lion-mascotte.png" alt="Mascotte">'+L.bestAttack; if(leaderTitles[2]) leaderTitles[2].innerHTML='<img src="assets/lion-mascotte.png" alt="Mascotte">'+L.bestDefense;
-  const leaderNotes=document.querySelectorAll('#leaders-section .leader-note'); if(leaderNotes[0]) leaderNotes[0].textContent=L.topScorersNote; if(leaderNotes[1]) leaderNotes[1].textContent=L.bestAttackNote; if(leaderNotes[2]) leaderNotes[2].textContent=L.bestDefenseNote;
+  const leaderNotes=document.querySelectorAll('#leaders-section .leader-note'); leaderNotes.forEach(n=>{ n.textContent=''; n.setAttribute('aria-hidden','true'); });
   setHtml('.teaser-title', mascotImg()+L.teaserTitle); setHtml('.teaser-body', L.teaserBody);
   const thirdSec = Array.from(document.querySelectorAll('.main > div > .sec')).find(el => /Classement final des 8|Final ranking|Classificação final dos 8|Clasificación final/.test(el.textContent));
   if(thirdSec) thirdSec.innerHTML = mascotImg()+L.bestThirdTitle+'<span id="tp-live-lbl" style="color:var(--or);font-family:Oswald,sans-serif;letter-spacing:.05em;">'+L.bestThirdLbl+'</span>';
@@ -3415,7 +3415,7 @@ function buildTicker(){
 // MUSIQUE YOUTUBE — V10.3.3 ambiances par pays
 // ════════════════════════════════════════════════
 const AMBIENCE_VIDEOS = {
-  senegal: { id:'MnnJcDa3q8c', label:'Sénégal' },
+  senegal: { id:'ZzAsyZtYLic', label:'Sénégal', startSeconds:174 },
   france: { id:'-oZ2erxr4Ew', label:'I Will Survive — Hermes House Band (hymne 1998 & 2018)' },
   spain: { id:'igWX__Noxm8', label:'Campeones, campeones, oé oé oé', startSeconds:7 },
   algeria: { id:'CTAH-AqYm48', label:'Liberté — Soolking feat. Ouled El Bahdja' },

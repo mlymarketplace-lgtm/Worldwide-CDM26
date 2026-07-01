@@ -12,11 +12,13 @@
     "nextMatchId": "bel-sen",
     "defaultLang": "fr",
     "tagline": "Une histoire de Gaïndés",
-    "statusLabel": "Champion d’Afrique · En mission",
+    "statusLabel": "Jour J pour entrer en huitième",
     "supporterName": "Gaïndés",
-    "selectorLine": "16e à jouer · le rêve continue",
+    "selectorLine": "Jour J pour entrer en huitième",
     "tournamentStatus": "pending",
-    "currentRound": "R32"
+    "currentRound": "R32",
+    "heroSubtitle": "Jour J pour entrer en huitième",
+    "matchdayHero": true
   },
   "algeria": {
     "teamName": "Algérie",
@@ -128,10 +130,12 @@
     "nextMatchId": "eng-cod",
     "defaultLang": "fr",
     "tagline": "Les Léopards écrivent leur histoire",
-    "statusLabel": "Léopards · Fierté retrouvée",
+    "statusLabel": "Jour J pour entrer en huitième",
     "supporterName": "Léopards",
-    "selectorLine": "Le retour, la réparation, le rugissement",
-    "mascotImg": null
+    "selectorLine": "Jour J pour entrer en huitième",
+    "mascotImg": null,
+    "heroSubtitle": "Jour J pour entrer en huitième",
+    "matchdayHero": true
   },
   "morocco": {
     "teamName": "Maroc",

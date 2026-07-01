@@ -46,7 +46,10 @@
       "sen-usa",
       "sen-bih"
     ],
-    "selectorLine": "16e à jouer · le rêve continue"
+    "selectorLine": "Jour J pour entrer en huitième",
+    "statusLabel": "Jour J pour entrer en huitième",
+    "heroSubtitle": "Jour J pour entrer en huitième",
+    "matchdayHero": true
   },
   "algeria": {
     "status": "pending",
@@ -63,5 +66,18 @@
     "round": "R32",
     "nextMatchId": "esp-aut",
     "selectorLine": "16e à jouer · Portugal ou Croatie ensuite"
+  },
+  "dr_congo": {
+    "status": "pending",
+    "round": "R32",
+    "nextMatchId": "eng-cod",
+    "pendingNext": [
+      "cod-mex",
+      "cod-ecu"
+    ],
+    "selectorLine": "Jour J pour entrer en huitième",
+    "statusLabel": "Jour J pour entrer en huitième",
+    "heroSubtitle": "Jour J pour entrer en huitième",
+    "matchdayHero": true
   }
 }

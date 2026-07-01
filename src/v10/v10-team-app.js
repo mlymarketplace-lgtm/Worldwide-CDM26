@@ -210,6 +210,23 @@
     if(lang === 'es') return 'Respeto total: cita dentro de cuatro años.';
     return 'Respect total, rendez-vous dans quatre ans.';
   }
+  function shortRoundForStamp(team){
+    const round = team.currentRound || team.round || 'R32';
+    const map = { R32:'16E DE FINALE', R16:'8E DE FINALE', QF:'QUART DE FINALE', SF:'DEMI-FINALE', F:'FINALE' };
+    return map[round] || String(round).toUpperCase();
+  }
+  function eliminatedStampText(team){
+    const lang = state.activeLang || team.defaultLang || 'fr';
+    const round = shortRoundForStamp(team);
+    if(lang === 'en') return `ELIMINATED IN THE ${round} OF THIS WORLD CUP`;
+    if(lang === 'pt') return `ELIMINADO NOS ${round} DESTA COPA DO MUNDO`;
+    if(lang === 'es') return `ELIMINADO EN ${round} DE ESTA COPA MUNDIAL`;
+    if(lang === 'ar') return `أُقصي في ${round} من كأس العالم`;
+    return `ÉQUIPE ÉLIMINÉE EN ${round} DE CETTE COUPE DU MONDE`;
+  }
+  function isMatchdayHero(teamId, team){
+    return !!(team && team.matchdayHero && team.tournamentStatus !== 'eliminated');
+  }
   function eliminatedScoreLine(team, match){
     if(team.exitScoreLine) return team.exitScoreLine;
     if(!match) return statusDisplayFor(team);
@@ -287,7 +304,7 @@
       if(cfg.round) state.teams[id].currentRound = cfg.round;
       if(cfg.statusLabel) state.teams[id].statusLabel = cfg.statusLabel;
       if(cfg.selectorLine) state.teams[id].selectorLine = cfg.selectorLine;
-      ['roundLabel','heroSubtitle','exitScoreLine','farewellHeadline','eliminatedBy','pendingNext'].forEach(key => {
+      ['roundLabel','heroSubtitle','exitScoreLine','farewellHeadline','eliminatedBy','pendingNext','matchdayHero'].forEach(key => {
         if(cfg[key] !== undefined) state.teams[id][key] = cfg[key];
       });
     });
@@ -398,8 +415,22 @@
   function renderHero(team){
     const img = $('#hero-banner img');
     if(img){ img.src = team.bannerImg || img.src; img.alt = `${team.teamName} · QualifGaïndé Worldwide`; img.loading='eager'; img.decoding='async'; img.fetchPriority='high'; }
-    const title = $('#hero-title'); if(title) title.textContent = heroTitleFor(team);
-    const sub = $('#hero-subtitle'); if(sub) sub.textContent = team.tournamentStatus === 'eliminated' ? eliminatedHeroSubtitle(team) : (team.heroSubtitle || team.tagline || team.statusLabel || '');
+    const title = $('#hero-title');
+    if(title){
+      if(team.tournamentStatus === 'eliminated'){
+        title.innerHTML = `<span class="v11-elim-stamp">${safeHtml(eliminatedStampText(team))}</span><span class="v11-hero-main-title">${safeHtml(heroTitleFor(team))}</span>`;
+      } else {
+        title.textContent = heroTitleFor(team);
+      }
+    }
+    const sub = $('#hero-subtitle');
+    if(sub){
+      if(isMatchdayHero(state.activeTeamId, team)){
+        sub.innerHTML = `<span class="v11-matchday-kicker">${safeHtml(team.heroSubtitle || 'Jour J pour entrer en huitième')}</span><span class="v11-matchday-sub">Explosion de couleurs, cœur chaud, 90 minutes pour écrire la suite.</span>`;
+      } else {
+        sub.textContent = team.tournamentStatus === 'eliminated' ? eliminatedHeroSubtitle(team) : (team.heroSubtitle || team.tagline || team.statusLabel || '');
+      }
+    }
   }
 
   function renderOpponent(teamId, team){
@@ -600,6 +631,9 @@
   function applyTeam(teamId){
     const team = getActiveTeam(); if(!team) return;
     localStorage.setItem('qualifgainde.favoriteTeam', teamId);
+    document.body.dataset.v10Team = teamId;
+    document.body.classList.toggle('v11-matchday', isMatchdayHero(teamId, team));
+    document.body.classList.toggle('v11-eliminated-team', team.tournamentStatus === 'eliminated');
     lockLegacyCountdown();
     setCssVars(team); renderHeader(team); renderHeaderScores(teamId); renderHero(team); renderOpponent(teamId, team); renderCountdown(teamId, team); renderPreview(team); renderStory(teamId, team); addChangeTeamLink(team);
     releaseV10Boot();
