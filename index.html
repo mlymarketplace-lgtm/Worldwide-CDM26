@@ -9,7 +9,7 @@
 // BUILD_VERSION — version stable de build, à bumper à chaque déploiement.
 // Remplace les cache-busters dynamiques (Date.now()) sur les ressources stables
 // afin que le navigateur puisse effectivement les mettre en cache entre deux visites.
-const BUILD_VERSION = '11.5';
+const BUILD_VERSION = '11.5.1';
 (function(){
   var p = new URLSearchParams(window.location.search);
   var v10Active = p.has('team') || p.get('mode') !== 'global';
@@ -1020,7 +1020,7 @@ header{display:flex;align-items:center;justify-content:space-between;padding:12p
 <meta name="apple-mobile-web-app-title" content="Suivez la CDM 2026">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <link rel="apple-touch-icon" href="/assets/icons/icon-192.png">
-<link rel="stylesheet" href="src/v10/v10-team-app.css?v=11.5">
+<link rel="stylesheet" href="src/v10/v10-team-app.css?v=11.5.1">
 </head>
 <body>
 <div class="band"></div>
@@ -4102,7 +4102,7 @@ setTimeout(()=>{
 }, 900);
 
 </script>
-<script src="src/v10/v10-team-app.js?v=11.5"></script>
+<script src="src/v10/v10-team-app.js?v=11.5.1"></script>
 
 <script>
 // V10.3 — PWA registration. Le service worker garde les scores/API en network-first.

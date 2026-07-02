@@ -105,5 +105,11 @@
     "banner": "assets/teams/ghana/banner.webp",
     "mascot": null,
     "status": "complete"
+  },
+  "argentina": {
+    "player": "assets/opponents/argentina/player.webp",
+    "banner": null,
+    "mascot": null,
+    "status": "opponent-player"
   }
 }

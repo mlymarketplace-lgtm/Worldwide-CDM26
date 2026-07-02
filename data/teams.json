@@ -236,12 +236,13 @@
     "mascotImg": null,
     "heroPlayer": "Mohammed Kudus",
     "nextMatchId": "col-gha",
-    "defaultLang": "fr",
-    "tagline": "Les Black Stars, mémoire et ambition",
-    "statusLabel": "Black Stars · expérience mondiale et défi colombien",
+    "defaultLang": "en",
+    "tagline": "Black Stars, experience and ambition",
+    "statusLabel": "Black Stars · World Cup memory and Colombian challenge",
     "supporterName": "Black Stars",
-    "selectorLine": "Black Stars · défi Colombie",
+    "selectorLine": "Black Stars · Colombia challenge",
     "tournamentStatus": "pending",
-    "currentRound": "R32"
+    "currentRound": "R32",
+    "heroSubtitle": "World Cup memory, respect and African ambition"
   }
 }

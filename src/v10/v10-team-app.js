@@ -1,4 +1,4 @@
-// QualifGaïndé V11.2 — France qualifiée + Paraguay–France + stats Mbappé
+// QualifGaïndé V11.5.1 — Ghana EN + Argentina Messi asset + fixes home
 // Conserve le socle V10.4.4 : routing, PWA, API, bracket et affichage local timezone.
 (function(){
   window.QUALIFGAINDE_V10_ACTIVE = true;
@@ -408,6 +408,11 @@
       teams: await readOptionalJson(DATA_BASE+'i18n/fr/teams.json'),
       previews: await readOptionalJson(DATA_BASE+'i18n/fr/previews.json'),
       stories: await readOptionalJson(DATA_BASE+'i18n/fr/stories.json')
+    };
+    state.i18n.en = {
+      teams: await readOptionalJson(DATA_BASE+'i18n/en/teams.json'),
+      previews: await readOptionalJson(DATA_BASE+'i18n/en/previews.json'),
+      stories: await readOptionalJson(DATA_BASE+'i18n/en/stories.json')
     };
     state.i18n.pt = {
       teams: await readOptionalJson(DATA_BASE+'i18n/pt/teams.json'),
