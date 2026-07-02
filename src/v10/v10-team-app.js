@@ -1,4 +1,4 @@
-// QualifGaïndé V11.5.2 — fix i18n fallback/editorial lock Ghana FR
+// QualifGaïndé V11.5.3 — fix language switch legacy overwrite + parallel data loading
 // Conserve le socle V10.4.4 : routing, PWA, API, bracket et affichage local timezone.
 (function(){
   window.QUALIFGAINDE_V10_ACTIVE = true;
@@ -18,6 +18,9 @@
   };
   let state = { teams:{}, matches:{}, results:{}, opponentResults:{}, opponents:{}, previews:{}, stories:{}, teamNext:{}, farewells:{}, activeTeamId:null, activeLang:'fr', i18n:{} };
   let editorialLockObserver = null;
+  let teamShellLockObserver = null;
+  let teamShellLockGuard = false;
+  let langCaptureInstalled = false;
   let v10CountdownTimer = null;
   let v10CountdownTextObserver = null;
   let v10CountdownScoreTimer = null;
@@ -47,12 +50,12 @@
   }
   function getI18nBucket(lang, type){ return (state.i18n?.[lang || state.activeLang]?.[type]) || {}; }
   function getPreview(matchId, lang){
-    // V11.5.2 : fallback strict par clé. Si une traduction manque, on revient au fichier source data/previews.json, jamais à un contenu legacy Sénégal.
+    // V11.5.3 : fallback strict par clé. Si une traduction manque, on revient au fichier source data/previews.json, jamais à un contenu legacy Sénégal.
     const key = String(matchId || '');
     return getI18nBucket(lang, 'previews')[key] || state.previews[key] || null;
   }
   function getStory(teamId, lang){
-    // V11.5.2 : fallback strict par équipe. Si une traduction manque, on revient au fichier source data/stories.json, jamais à une autre équipe.
+    // V11.5.3 : fallback strict par équipe. Si une traduction manque, on revient au fichier source data/stories.json, jamais à une autre équipe.
     const key = String(teamId || '');
     return getI18nBucket(lang, 'stories')[key] || state.stories[key] || null;
   }
@@ -173,6 +176,28 @@
       if(matchId) updateCountdownScorePanel(matchId);
     }
   });
+  function labelFor(key, lang = state.activeLang || 'fr'){
+    const labels = {
+      supporters:{fr:'supporters ont vu',en:'supporters watched',pt:'torcedores viram',es:'seguidores lo vieron',ar:'مشجعاً شاهدوا'},
+      scores:{fr:'Scores',en:'Scores',pt:'Resultados',es:'Marcadores',ar:'النتائج'},
+      leaders:{fr:'Leaders du tournoi',en:'Tournament leaders',pt:'Líderes do torneio',es:'Líderes del torneo',ar:'قادة البطولة'},
+      topScorers:{fr:'Meilleurs buteurs · 4 buts et plus',en:'Top scorers · 4+ goals',pt:'Artilheiros · 4+ gols',es:'Máximos goleadores · 4+ goles',ar:'أفضل الهدافين · 4 أهداف فأكثر'},
+      bestAttack:{fr:'Meilleure attaque',en:'Best attack',pt:'Melhor ataque',es:'Mejor ataque',ar:'أفضل هجوم'},
+      bestDefense:{fr:'Meilleure défense',en:'Best defense',pt:'Melhor defesa',es:'Mejor defensa',ar:'أفضل دفاع'},
+      topAssist:{fr:'Meilleur passeur',en:'Best assist',pt:'Melhor assistente',es:'Mejor asistente',ar:'أفضل صانع أهداف'},
+      kickoffIn:{fr:'Coup d’envoi dans',en:'Kick-off in',pt:'Começa em',es:'Comienza en',ar:'ينطلق بعد'},
+      days:{fr:'jours',en:'days',pt:'dias',es:'días',ar:'أيام'},
+      hours:{fr:'heures',en:'hours',pt:'horas',es:'horas',ar:'ساعات'},
+      minutes:{fr:'min',en:'min',pt:'min',es:'min',ar:'دقائق'},
+      seconds:{fr:'sec',en:'sec',pt:'sec',es:'seg',ar:'ثواني'}
+    };
+    return labels[key]?.[lang] || labels[key]?.fr || key;
+  }
+  function setSectionLabel(selector, key){
+    const el = $(selector);
+    if(el) el.innerHTML = `<img class="section-mascot" src="assets/lion-mascotte.png" alt="Mascotte">${safeHtml(labelFor(key))}`;
+  }
+
   function headerSuffix(lang){ return lang === 'ar' ? 'كأس العالم 2026' : lang === 'es' ? 'Mundial 2026' : lang === 'pt' ? 'Copa 2026' : lang === 'en' ? 'WC 2026' : 'CM 2026'; }
   function heroTitleFor(team){
     if(team.heroTitle) return team.heroTitle;
@@ -393,14 +418,37 @@
   }
 
   async function loadData(){
-    const [teams, matches, results, previews, stories] = await Promise.all([
-      readJson(DATA_BASE+'teams.json'), readJson(DATA_BASE+'matches.json'), readJson(DATA_BASE+'team-results.json'), readJson(DATA_BASE+'previews.json'), readJson(DATA_BASE+'stories.json')
+    // V11.5.3 : chargement parallèle. Avant, les JSON optionnels et i18n étaient lus en série,
+    // ce qui ralentissait fortement l'ouverture d'une nouvelle page équipe.
+    const jobs = {
+      teams: readJson(DATA_BASE+'teams.json'),
+      matches: readJson(DATA_BASE+'matches.json'),
+      results: readJson(DATA_BASE+'team-results.json'),
+      previews: readJson(DATA_BASE+'previews.json'),
+      stories: readJson(DATA_BASE+'stories.json'),
+      opponents: readOptionalJson(DATA_BASE+'opponents.json'),
+      opponentResults: readOptionalJson(DATA_BASE+'opponent-results.json'),
+      teamNext: readOptionalJson(DATA_BASE+'team-next.json'),
+      farewells: readOptionalJson(DATA_BASE+'farewells.json')
+    };
+    const langs = AR_ENABLED ? ['fr','en','pt','es','ar'] : ['fr','en','pt','es'];
+    const i18nJobs = [];
+    langs.forEach(lang => {
+      ['teams','previews','stories'].forEach(type => {
+        i18nJobs.push(readOptionalJson(`${DATA_BASE}i18n/${lang}/${type}.json`).then(data => ({lang, type, data})));
+      });
+    });
+    const [base, i18nEntries] = await Promise.all([
+      Promise.all(Object.entries(jobs).map(([key, promise]) => promise.then(value => [key, value]))),
+      Promise.all(i18nJobs)
     ]);
-    state.teams = teams; state.matches = matches; state.results = results; state.previews = previews; state.stories = stories;
-    state.opponents = await readOptionalJson(DATA_BASE+'opponents.json');
-    state.opponentResults = await readOptionalJson(DATA_BASE+'opponent-results.json');
-    state.teamNext = await readOptionalJson(DATA_BASE+'team-next.json');
-    state.farewells = await readOptionalJson(DATA_BASE+'farewells.json');
+    const data = Object.fromEntries(base);
+    state.teams = data.teams; state.matches = data.matches; state.results = data.results; state.previews = data.previews; state.stories = data.stories;
+    state.opponents = data.opponents; state.opponentResults = data.opponentResults; state.teamNext = data.teamNext; state.farewells = data.farewells;
+    state.i18n = {};
+    langs.forEach(lang => { state.i18n[lang] = {teams:{}, previews:{}, stories:{}}; });
+    i18nEntries.forEach(entry => { state.i18n[entry.lang][entry.type] = entry.data || {}; });
+
     // V11 — overrides éditoriaux de tournoi vivant : on garde les mêmes écrans,
     // mais on met à jour les prochains matchs / statuts depuis un fichier dédié.
     Object.entries(state.teamNext || {}).forEach(([id, cfg]) => {
@@ -414,33 +462,6 @@
         if(cfg[key] !== undefined) state.teams[id][key] = cfg[key];
       });
     });
-    state.i18n.fr = {
-      teams: await readOptionalJson(DATA_BASE+'i18n/fr/teams.json'),
-      previews: await readOptionalJson(DATA_BASE+'i18n/fr/previews.json'),
-      stories: await readOptionalJson(DATA_BASE+'i18n/fr/stories.json')
-    };
-    state.i18n.en = {
-      teams: await readOptionalJson(DATA_BASE+'i18n/en/teams.json'),
-      previews: await readOptionalJson(DATA_BASE+'i18n/en/previews.json'),
-      stories: await readOptionalJson(DATA_BASE+'i18n/en/stories.json')
-    };
-    state.i18n.pt = {
-      teams: await readOptionalJson(DATA_BASE+'i18n/pt/teams.json'),
-      previews: await readOptionalJson(DATA_BASE+'i18n/pt/previews.json'),
-      stories: await readOptionalJson(DATA_BASE+'i18n/pt/stories.json')
-    };
-    state.i18n.es = {
-      teams: await readOptionalJson(DATA_BASE+'i18n/es/teams.json'),
-      previews: await readOptionalJson(DATA_BASE+'i18n/es/previews.json'),
-      stories: await readOptionalJson(DATA_BASE+'i18n/es/stories.json')
-    };
-    if(AR_ENABLED){
-      state.i18n.ar = {
-        teams: await readOptionalJson(DATA_BASE+'i18n/ar/teams.json'),
-        previews: await readOptionalJson(DATA_BASE+'i18n/ar/previews.json'),
-        stories: await readOptionalJson(DATA_BASE+'i18n/ar/stories.json')
-      };
-    }
   }
 
   function installSelector(){
@@ -489,10 +510,18 @@
     const kicker = $('.site-kicker'); if(kicker) kicker.textContent = statusDisplayFor(team) || team.tagline || 'QualifGaïndé Worldwide';
     const logo = $('.mascot-logo');
     if(logo){ logo.src = team.mascotImg || team.heroImg || logo.src; logo.alt = team.heroPlayer || team.teamName; }
+    const sup = $('.sup-lbl'); if(sup) sup.textContent = labelFor('supporters', lang);
     const music = $('#btn-music');
     if(music){
-      music.textContent = lang === 'ar' ? `أجواء ${team.supporterName || team.teamName}` : lang === 'pt' ? 'Ambiente de estádio' : lang === 'es' ? `Ambiente ${team.supporterName || team.teamName}` : `Ambiance ${team.supporterName || team.teamName}`;
+      music.textContent = lang === 'ar' ? `أجواء ${team.supporterName || team.teamName}` : lang === 'pt' ? `Ambiente ${team.supporterName || team.teamName}` : lang === 'es' ? `Ambiente ${team.supporterName || team.teamName}` : lang === 'en' ? `Vibe ${team.supporterName || team.teamName}` : `Ambiance ${team.supporterName || team.teamName}`;
     }
+    setSectionLabel('.ticker-lbl', 'scores');
+    setSectionLabel('#leaders-section .sec', 'leaders');
+    const leaderTitles = $$('.leader-title');
+    if(leaderTitles[0]) leaderTitles[0].innerHTML = `<img src="assets/lion-mascotte.png" alt="Mascotte">${safeHtml(labelFor('topScorers', lang))}`;
+    if(leaderTitles[1]) leaderTitles[1].innerHTML = `<img src="assets/lion-mascotte.png" alt="Mascotte">${safeHtml(labelFor('bestAttack', lang))}`;
+    if(leaderTitles[2]) leaderTitles[2].innerHTML = `<img src="assets/lion-mascotte.png" alt="Mascotte">${safeHtml(labelFor('bestDefense', lang))}`;
+    if(leaderTitles[3]) leaderTitles[3].innerHTML = `<img src="assets/lion-mascotte.png" alt="Mascotte">${safeHtml(labelFor('topAssist', lang))}`;
     if(typeof window.setQualifGaindeAmbienceTeam === 'function') window.setQualifGaindeAmbienceTeam(state.activeTeamId);
   }
 
@@ -619,6 +648,12 @@
       secBefore.innerHTML = `<img class="section-mascot" src="assets/lion-mascotte.png" alt="Mascotte">${sectionText}`;
     }
     const home = teamLabel(match.home), away = teamLabel(match.away);
+    const kicker = $('.countdown-kicker'); if(kicker) kicker.textContent = labelFor('kickoffIn');
+    const lbls = $$('.countdown-center .cd-lbl');
+    if(lbls[0]) lbls[0].textContent = labelFor('days');
+    if(lbls[1]) lbls[1].textContent = labelFor('hours');
+    if(lbls[2]) lbls[2].textContent = labelFor('minutes');
+    if(lbls[3]) lbls[3].textContent = labelFor('seconds');
     const cmatch = $('.countdown-match'); if(cmatch) cmatch.textContent = state.activeLang === 'ar' ? `${home.flag || ''} ${home.teamName} ضد ${away.teamName} ${away.flag || ''}` : `${home.flag || ''} ${home.teamName} vs ${away.teamName} ${away.flag || ''}`;
     const meta = $('.countdown-meta'); if(meta) meta.textContent = `${formatDateParis(match.dateParis, state.activeLang)} · ${match.stadium || ''}${match.channel_fr ? ' · ' + match.channel_fr : ''}`;
     renderSide($('.player-side.bel'), match.home);
@@ -712,7 +747,7 @@
   }
 
   function ensureTeamEditorialLock(teamId){
-    // V11.5.2 : le script legacy contient encore des textes statiques Sénégal et peut réécrire
+    // V11.5.3 : le script legacy contient encore des textes statiques Sénégal et peut réécrire
     // teaser/story lors d'un changement de langue. On reprend la main sur les blocs éditoriaux
     // de la team active, sans toucher au moteur, aux scores ni au polling.
     if(editorialLockObserver) editorialLockObserver.disconnect();
@@ -733,6 +768,77 @@
       }, 40);
     });
     targets.forEach(el => editorialLockObserver.observe(el, { childList:true, subtree:true, characterData:true }));
+  }
+
+  function rerenderActiveTeamSurface(){
+    const team = getActiveTeam();
+    if(!team || !state.activeTeamId) return;
+    teamShellLockGuard = true;
+    try {
+      syncLangButtons(state.activeLang || team.defaultLang || 'fr');
+      setCssVars(team);
+      renderHeader(team);
+      renderHeaderScores(state.activeTeamId);
+      renderHero(team);
+      renderOpponent(state.activeTeamId, team);
+      renderCountdown(state.activeTeamId, team);
+      renderPreview(team);
+      renderStory(state.activeTeamId, team);
+      addChangeTeamLink(team);
+    } finally {
+      teamShellLockGuard = false;
+    }
+  }
+
+  function observeTeamShell(teamId){
+    // V11.5.3 : verrou léger sur les zones que le vieux applyLanguage Sénégal peut encore écraser.
+    // On n'observe pas les chiffres du compte à rebours pour éviter une boucle chaque seconde.
+    if(teamShellLockObserver) teamShellLockObserver.disconnect();
+    if(!teamId) return;
+    const selectors = [
+      'header .hflag', '#probable-opponent', '#hero-banner',
+      '#countdown-card .countdown-kicker', '#countdown-card .countdown-match', '#countdown-card .countdown-meta', '#countdown-end-msg',
+      '#countdown-card .player-side.bel', '#countdown-card .player-side.sen'
+    ];
+    const targets = selectors.map(sel => $(sel)).filter(Boolean);
+    if(!targets.length) return;
+    let scheduled = false;
+    teamShellLockObserver = new MutationObserver(() => {
+      if(teamShellLockGuard || scheduled || !state.activeTeamId) return;
+      scheduled = true;
+      setTimeout(() => {
+        scheduled = false;
+        if(state.activeTeamId !== teamId) return;
+        if(teamShellLockObserver) teamShellLockObserver.disconnect();
+        rerenderActiveTeamSurface();
+        targets.forEach(el => teamShellLockObserver.observe(el, { childList:true, subtree:true, characterData:true }));
+      }, 25);
+    });
+    targets.forEach(el => teamShellLockObserver.observe(el, { childList:true, subtree:true, characterData:true }));
+  }
+
+  function setTeamLanguage(lang){
+    const next = supportedLangs().includes(lang) ? lang : (state.activeLang || 'fr');
+    state.activeLang = next;
+    try { localStorage.setItem('siteLang', next); localStorage.setItem('siteLangSource','manual'); } catch(e) {}
+    applyLangShell(next);
+    rerenderActiveTeamSurface();
+    observeTeamShell(state.activeTeamId);
+    setTimeout(rerenderActiveTeamSurface, 60);
+    setTimeout(rerenderActiveTeamSurface, 220);
+    setTimeout(rerenderActiveTeamSurface, 650);
+  }
+
+  function installLanguageCapture(){
+    if(langCaptureInstalled) return;
+    langCaptureInstalled = true;
+    document.addEventListener('click', function(evt){
+      const btn = evt.target && evt.target.closest ? evt.target.closest('.lang-btn[data-lang-btn]') : null;
+      if(!btn || !state.activeTeamId) return;
+      evt.preventDefault();
+      evt.stopImmediatePropagation();
+      setTeamLanguage(btn.dataset.langBtn);
+    }, true);
   }
 
   function addChangeTeamLink(team){
@@ -759,36 +865,40 @@
     document.body.classList.toggle('v11-matchday', isMatchdayHero(teamId, team));
     document.body.classList.toggle('v11-eliminated-team', team.tournamentStatus === 'eliminated');
     lockLegacyCountdown();
-    setCssVars(team); renderHeader(team); renderHeaderScores(teamId); renderHero(team); renderOpponent(teamId, team); renderCountdown(teamId, team); renderPreview(team); renderStory(teamId, team); ensureTeamEditorialLock(teamId); addChangeTeamLink(team);
+    rerenderActiveTeamSurface();
+    ensureTeamEditorialLock(teamId);
+    observeTeamShell(teamId);
     releaseV10Boot();
   }
 
   function patchLanguageSwitcher(){
+    installLanguageCapture();
     const originalSet = window.setLanguage;
     if(typeof originalSet === 'function' && !originalSet.__v10Patched){
       window.setLanguage = function(lang){
-        state.activeLang = supportedLangs().includes(lang) ? lang : (state.activeLang || 'fr');
-        try { localStorage.setItem('siteLang', state.activeLang); localStorage.setItem('siteLangSource','manual'); } catch(e) {}
-        let res;
-        if(state.activeLang === 'ar'){
-          // Le legacy I18N ne connaît pas encore AR : on évite son fallback FR et on garde l'arabe isolé en V10.
-          applyLangShell('ar');
-        } else {
-          res = originalSet.apply(this, [state.activeLang]);
+        if(state.activeTeamId){
+          // V11.5.3 : sur une page équipe, on ne laisse plus le legacy I18N Sénégal réécrire
+          // le header, le hero et le compte à rebours. La team active reste seule source d'affichage.
+          setTeamLanguage(lang);
+          return;
         }
-        setTimeout(() => { if(state.activeTeamId) applyTeam(state.activeTeamId); else syncLangButtons(state.activeLang); }, 20);
-        setTimeout(() => { if(state.activeTeamId) applyTeam(state.activeTeamId); else syncLangButtons(state.activeLang); }, 180);
-        setTimeout(() => { if(state.activeTeamId) applyTeam(state.activeTeamId); else syncLangButtons(state.activeLang); }, 520);
-        return res;
+        const next = supportedLangs().includes(lang) ? lang : (state.activeLang || 'fr');
+        state.activeLang = next;
+        try { localStorage.setItem('siteLang', next); localStorage.setItem('siteLangSource','manual'); } catch(e) {}
+        if(next === 'ar') { applyLangShell('ar'); return; }
+        return originalSet.apply(this, [next]);
       };
       window.setLanguage.__v10Patched = true;
     }
     const originalApply = window.applyLanguage;
     if(typeof originalApply === 'function' && !originalApply.__v10Patched){
       window.applyLanguage = function(){
-        const res = originalApply.apply(this, arguments);
-        setTimeout(() => { if(state.activeTeamId) applyTeam(state.activeTeamId); }, 30);
-        return res;
+        if(state.activeTeamId){
+          // Le vieux applyLanguage contient des textes Sénégal statiques : no-op sur les pages équipes.
+          applyLangShell(state.activeLang || 'fr');
+          return;
+        }
+        return originalApply.apply(this, arguments);
       };
       window.applyLanguage.__v10Patched = true;
     }
