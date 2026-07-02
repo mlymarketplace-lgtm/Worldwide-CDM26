@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-01T22:35:00+02:00",
+  "updatedAt": "2026-07-02T17:15:00+02:00",
   "matches": {
     "uru-esp": {
       "home": 0,
@@ -64,6 +64,11 @@
     "bel-sen": {
       "home": 3,
       "away": 2,
+      "status": "final"
+    },
+    "usa-bih": {
+      "home": 2,
+      "away": 0,
       "status": "final"
     }
   }

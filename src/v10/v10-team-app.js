@@ -4,17 +4,17 @@
   window.QUALIFGAINDE_V10_ACTIVE = true;
   const DATA_BASE = 'data/';
   const AR_ENABLED = true; // V10.2 — retirer/mettre false pour désactiver l’arabe sans casser le reste.
-  const TEAM_ORDER = ['senegal','algeria','egypt','ivory_coast','dr_congo','morocco','belgium','brazil','france','spain'];
+  const TEAM_ORDER = ['senegal','algeria','egypt','ivory_coast','dr_congo','morocco','belgium','brazil','france','spain','cape_verde','ghana'];
   // V11.4.1 — ordre narratif de la home : qualifiés, encore en course, puis éliminés.
   // Les statuts restent pilotés par data/team-next.json / data/teams.json.
-  const SELECTOR_BASE_ORDER = ['france','morocco','belgium','brazil','egypt','algeria','spain','senegal','ivory_coast','dr_congo'];
+  const SELECTOR_BASE_ORDER = ['france','morocco','belgium','brazil','egypt','algeria','spain','cape_verde','ghana','senegal','ivory_coast','dr_congo'];
   const FALLBACK_TEAMS = {
     switzerland:{teamName:'Suisse',flag:'🇨🇭',supporterName:'Nati'}, japan:{teamName:'Japon',flag:'🇯🇵',supporterName:'Samouraïs Bleus'},
     sweden:{teamName:'Suède',flag:'🇸🇪',supporterName:'Blågult'}, norway:{teamName:'Norvège',flag:'🇳🇴',supporterName:'Norvège'},
     england:{teamName:'Angleterre',flag:'🏴',supporterName:'Three Lions'}, netherlands:{teamName:'Pays-Bas',flag:'🇳🇱',supporterName:'Oranje'},
     iraq:{teamName:'Iraq',flag:'🇮🇶'}, egypt:{teamName:'Égypte',flag:'🇪🇬'}, iran:{teamName:'Iran',flag:'🇮🇷'},
     'new_zealand':{teamName:'Nouvelle-Zélande',flag:'🇳🇿'}, haiti:{teamName:'Haïti',flag:'🇭🇹'}, scotland:{teamName:'Écosse',flag:'🏴󠁧󠁢󠁳󠁣󠁴󠁿'},
-    germany:{teamName:'Allemagne',flag:'🇩🇪'}, ecuador:{teamName:'Équateur',flag:'🇪🇨'}, curacao:{teamName:'Curaçao',flag:'🇨🇼'}, portugal:{teamName:'Portugal',flag:'🇵🇹'}, colombia:{teamName:'Colombie',flag:'🇨🇴'}, uzbekistan:{teamName:'Ouzbékistan',flag:'🇺🇿'}, argentina:{teamName:'Argentine',flag:'🇦🇷'}, jordan:{teamName:'Jordanie',flag:'🇯🇴'}, austria:{teamName:'Autriche',flag:'🇦🇹'}, australia:{teamName:'Australie',flag:'🇦🇺'}, spain:{teamName:'Espagne',flag:'🇪🇸'}, france:{teamName:'France',flag:'🇫🇷'}
+    germany:{teamName:'Allemagne',flag:'🇩🇪'}, ecuador:{teamName:'Équateur',flag:'🇪🇨'}, curacao:{teamName:'Curaçao',flag:'🇨🇼'}, portugal:{teamName:'Portugal',flag:'🇵🇹'}, colombia:{teamName:'Colombie',flag:'🇨🇴'}, uzbekistan:{teamName:'Ouzbékistan',flag:'🇺🇿'}, argentina:{teamName:'Argentine',flag:'🇦🇷'}, cape_verde:{teamName:'Cap-Vert',flag:'🇨🇻'}, ghana:{teamName:'Ghana',flag:'🇬🇭'}, jordan:{teamName:'Jordanie',flag:'🇯🇴'}, austria:{teamName:'Autriche',flag:'🇦🇹'}, australia:{teamName:'Australie',flag:'🇦🇺'}, spain:{teamName:'Espagne',flag:'🇪🇸'}, france:{teamName:'France',flag:'🇫🇷'}
   };
   let state = { teams:{}, matches:{}, results:{}, opponentResults:{}, opponents:{}, previews:{}, stories:{}, teamNext:{}, farewells:{}, activeTeamId:null, activeLang:'fr', i18n:{} };
   let v10CountdownTimer = null;
@@ -404,6 +404,11 @@
         if(cfg[key] !== undefined) state.teams[id][key] = cfg[key];
       });
     });
+    state.i18n.fr = {
+      teams: await readOptionalJson(DATA_BASE+'i18n/fr/teams.json'),
+      previews: await readOptionalJson(DATA_BASE+'i18n/fr/previews.json'),
+      stories: await readOptionalJson(DATA_BASE+'i18n/fr/stories.json')
+    };
     state.i18n.pt = {
       teams: await readOptionalJson(DATA_BASE+'i18n/pt/teams.json'),
       previews: await readOptionalJson(DATA_BASE+'i18n/pt/previews.json'),

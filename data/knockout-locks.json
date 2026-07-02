@@ -123,5 +123,18 @@
     "winner": "home",
     "winnerSide": 0,
     "locked": true
+  },
+  "usa-bih": {
+    "koId": "N81",
+    "h": "USA",
+    "a": "BIH",
+    "home": 2,
+    "away": 0,
+    "status": "final",
+    "apiStatus": "FT",
+    "apiStatusLong": "Match Finished",
+    "winner": "home",
+    "winnerSide": 0,
+    "locked": true
   }
 }

@@ -4,5 +4,25 @@
     "tagline": "O país do futebol",
     "statusLabel": "Potência mundial · Cultura de vitória",
     "heroPlayer": "Vinícius Júnior"
+  },
+  "cape_verde": {
+    "teamName": "Cabo Verde",
+    "tagline": "Uma primeira histórica no Mundial",
+    "statusLabel": "Primeira participação · 16 avos históricos contra a Argentina",
+    "supporterName": "Tubarões Azuis",
+    "selectorLine": "Estreia histórica · Messi e Argentina pela frente",
+    "heroTitle": "🇨🇻 Cabo Verde na Copa do Mundo 2026",
+    "heroSubtitle": "A primeira grande página mundial dos Tubarões Azuis",
+    "heroPlayer": "Ryan Mendes"
+  },
+  "ghana": {
+    "teamName": "Gana",
+    "tagline": "Black Stars, memória e ambição",
+    "statusLabel": "Black Stars · experiência mundial e desafio colombiano",
+    "supporterName": "Black Stars",
+    "selectorLine": "Black Stars · desafio Colômbia",
+    "heroTitle": "🇬🇭 Gana na Copa do Mundo 2026",
+    "heroSubtitle": "Memória, respeito e ambição africana",
+    "heroPlayer": "Mohammed Kudus"
   }
 }

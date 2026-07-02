@@ -204,6 +204,11 @@
       "label": "Türkiye 1–0 États-Unis",
       "note": "Alerte avant les 16es",
       "result": "D"
+    },
+    {
+      "label": "États-Unis 2–0 Bosnie-Herzégovine",
+      "note": "Le pays hôte avance vers la Belgique",
+      "result": "V"
     }
   ],
   "bosnia_herzegovina": [
@@ -220,6 +225,11 @@
     {
       "label": "Suisse 4–1 Bosnie-Herzégovine",
       "note": "Défaite lourde",
+      "result": "D"
+    },
+    {
+      "label": "États-Unis 2–0 Bosnie-Herzégovine",
+      "note": "Fin de parcours face au pays hôte",
       "result": "D"
     }
   ],
@@ -243,18 +253,52 @@
   "ghana": [
     {
       "label": "Angleterre 0–0 Ghana",
-      "note": "Match de prestige",
+      "note": "Match de prestige, bloc solide",
       "result": "N"
     },
     {
       "label": "Ghana 2–0 Panama",
-      "note": "Réponse des Black Stars",
+      "note": "Les Black Stars répondent présent",
       "result": "V"
     },
     {
       "label": "Croatie 2–1 Ghana",
-      "note": "Défaite courte",
+      "note": "Défaite courte mais qualification préservée",
       "result": "D"
+    }
+  ],
+  "argentina": [
+    {
+      "label": "Argentine 3–0 Algérie",
+      "note": "Entrée de patron",
+      "result": "V"
+    },
+    {
+      "label": "Argentine 2–0 Autriche",
+      "note": "Contrôle et efficacité",
+      "result": "V"
+    },
+    {
+      "label": "Jordanie 1–3 Argentine",
+      "note": "Première place assumée",
+      "result": "V"
+    }
+  ],
+  "cape_verde": [
+    {
+      "label": "Espagne 0–0 Cap-Vert",
+      "note": "Premier point historique",
+      "result": "N"
+    },
+    {
+      "label": "Cap-Vert 0–0 Arabie Saoudite",
+      "note": "Solidité et patience",
+      "result": "N"
+    },
+    {
+      "label": "Uruguay 1–1 Cap-Vert",
+      "note": "Qualification arrachée avec courage",
+      "result": "N"
     }
   ]
 }

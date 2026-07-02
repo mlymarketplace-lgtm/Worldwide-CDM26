@@ -215,13 +215,16 @@
     ]
   },
   "bel-usa": {
-    "homeTeam": "belgium",
-    "awayTeam": "united_states",
+    "homeTeam": "united_states",
+    "awayTeam": "belgium",
     "matchId": "bel-usa",
-    "title": "Belgique–États-Unis : les Diables face au pays hôte",
-    "angle": "La Belgique aura l’expérience. Les États-Unis auront le bruit, le rythme et tout un stade derrière eux.",
+    "title": "États-Unis–Belgique : les Diables au cœur du volcan",
+    "angle": "Le pays hôte aura le bruit, l’énergie et Pulisic. La Belgique aura la mémoire d’une remontée folle et l’obligation de maîtriser enfin son match.",
     "body": [
-      "Si les États-Unis se dressent devant la Belgique, ce sera un huitième de finale sous pression maximale : un pays hôte, une énergie populaire, Christian Pulisic comme étendard, et une équipe belge qui devra transformer sa remontée contre le Sénégal en vraie maîtrise."
+      "États-Unis–Belgique, c’est le genre de huitième qui ne laisse personne respirer. Les Américains viennent de sortir la Bosnie-Herzégovine 2–0, portés par l’élan du pays hôte et par cette intensité qui transforme chaque duel en message.",
+      "La Belgique, elle, arrive avec une qualification renversante contre le Sénégal. Menés 0–2, les Diables Rouges ont trouvé les ressources pour revenir, égaliser, puis gagner 3–2. C’est magnifique pour la confiance, mais dangereux pour la lucidité : on ne peut pas toujours vivre au bord du précipice.",
+      "Face aux États-Unis, Christian Pulisic sera l’étendard d’un public qui veut croire que cette Coupe du monde peut devenir une histoire nationale. Pour De Bruyne et les siens, il faudra calmer le tempo, faire taire les vagues, et prouver que l’expérience belge sait encore commander les grands soirs.",
+      "Sur le papier, la Belgique a le vécu. Sur le terrain, les États-Unis auront le stade. Et dans un Mondial, un pays hôte qui commence à croire en son destin peut devenir beaucoup plus qu’un adversaire."
     ]
   },
   "bel-bih": {
@@ -232,6 +235,32 @@
     "angle": "Moins de bruit qu’un duel contre le pays hôte, mais probablement plus de pièges dans les détails.",
     "body": [
       "Si la Bosnie-Herzégovine passe, la Belgique trouvera face à elle une équipe de métier, capable de ralentir le tempo, de casser les séquences et de transformer chaque ballon arrêté en danger. Après le chaos émotionnel contre le Sénégal, les Diables devront garder la tête froide."
+    ]
+  },
+  "arg-cpv": {
+    "homeTeam": "argentina",
+    "awayTeam": "cape_verde",
+    "matchId": "arg-cpv",
+    "title": "Argentine–Cap-Vert : le rêve bleu face au monument Messi",
+    "angle": "Pour le Cap-Vert, c’est une première historique. Pour l’Argentine, c’est le genre de match où un champion du monde n’a pas le droit de trembler.",
+    "body": [
+      "Argentine–Cap-Vert, c’est l’affiche des contrastes absolus. D’un côté, les champions du monde, l’Albiceleste, Messi, la mémoire d’un pays qui vit chaque Coupe du monde comme une affaire de destin. De l’autre, le Cap-Vert, première participation, premier match à élimination directe, premier grand vertige mondial.",
+      "Les Tubarões Azuis ne viennent pas avec l’arrogance des favoris. Ils viennent avec l’énergie des équipes qui savent que chaque minute peut devenir une page d’histoire. Leur qualification en 16e raconte déjà une chose rare : un petit archipel peut entrer dans le grand théâtre et forcer le respect.",
+      "Face à Messi, le Cap-Vert jouera contre plus qu’un joueur. Il jouera contre un symbole, une aura, une équipe habituée à avaler la pression. Mais c’est aussi ce qui rend le match magnifique : personne n’attend le Cap-Vert, donc tout ce qu’il prendra aura le goût d’un exploit.",
+      "L’Argentine est favorite, évidemment. Mais le Cap-Vert a déjà gagné quelque chose : sa place dans l’histoire. Maintenant, il lui reste à voir jusqu’où le rêve peut aller."
+    ]
+  },
+  "col-gha": {
+    "homeTeam": "colombia",
+    "awayTeam": "ghana",
+    "matchId": "col-gha",
+    "title": "Colombie–Ghana : les Black Stars veulent rallumer la mémoire",
+    "angle": "La Colombie aime le ballon et la vitesse. Le Ghana porte une histoire mondiale plus lourde qu’un simple statut d’outsider.",
+    "body": [
+      "Colombie–Ghana, c’est un match de rythme, de talent et de mémoire. La Colombie arrive avec Luis Díaz, son intensité, sa percussion, cette capacité à faire basculer une action sur une accélération. Les Cafeteros ne sont jamais simples à lire.",
+      "Mais le Ghana n’est pas une équipe quelconque en Coupe du monde. Les Black Stars ont une histoire : 2006, 2010, 2014, des générations qui ont installé le maillot ghanéen dans l’imaginaire mondial. Il y a l’ombre d’Abedi Pelé, immense icône du football ghanéen, puis celle d’Asamoah Gyan, symbole d’une génération qui a frôlé une demi-finale historique en 2010.",
+      "Aujourd’hui, Mohammed Kudus incarne une autre énergie : plus moderne, plus explosive, capable de casser les lignes et de donner au Ghana cette dose d’imprévisible qui fait peur dans un match couperet.",
+      "La Colombie aura ses arguments. Le Ghana aura sa mémoire. Et parfois, dans un Mondial, la mémoire pèse autant qu’un plan de jeu."
     ]
   }
 }

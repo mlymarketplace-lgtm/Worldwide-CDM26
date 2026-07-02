@@ -83,16 +83,24 @@
   "belgium": {
     "status": "qualified",
     "round": "R16",
-    "nextMatchId": "bel-usa-bih",
-    "pendingNext": [
-      "bel-usa",
-      "bel-bih"
-    ],
-    "nextOpponent": "usa_bosnia",
-    "selectorLine": "Qualifiée en 8e · prochain défi : USA ou Bosnie",
-    "statusLabel": "Qualifiée en huitième de finale · Prochain défi : États-Unis ou Bosnie-Herzégovine",
+    "nextMatchId": "bel-usa",
+    "nextOpponent": "united_states",
+    "selectorLine": "Qualifiée en 8e · prochain défi : États-Unis",
+    "statusLabel": "Qualifiée en huitième de finale · Prochain défi : États-Unis",
     "roundLabel": "huitième de finale",
-    "heroSubtitle": "Remontée spectaculaire : menée 0–2, la Belgique renverse le Sénégal 3–2 et poursuit sa route.",
+    "heroSubtitle": "Menée 0–2 par le Sénégal, la Belgique a renversé le match 3–2. Prochain test : les États-Unis, pays hôte.",
     "matchdayHero": false
+  },
+  "cape_verde": {
+    "status": "pending",
+    "round": "R32",
+    "nextMatchId": "arg-cpv",
+    "selectorLine": "Première historique · Messi et l’Argentine en face"
+  },
+  "ghana": {
+    "status": "pending",
+    "round": "R32",
+    "nextMatchId": "col-gha",
+    "selectorLine": "Black Stars · défi Colombie"
   }
 }

@@ -22,5 +22,29 @@
       "Haaland acabou de marcar de novo. O recado é simples: se o Brasil deixar uma fresta, por menor que seja, a Noruega pode arrombá-la. Para a defesa brasileira, não será apenas um jogo de concentração; será um teste de frieza, força e brutalidade controlada.",
       "O Brasil continua favorito pela história, pelo talento e pelo peso simbólico da camisa. Mas a Noruega acaba de eliminar a Costa do Marfim e não tem motivo nenhum para baixar os olhos. É o tipo de jogo em que o grande favorito precisa provar que também sabe sofrer."
     ]
+  },
+  "arg-cpv": {
+    "homeTeam": "argentina",
+    "awayTeam": "cape_verde",
+    "matchId": "arg-cpv",
+    "title": "Argentina–Cabo Verde: o sonho azul diante do monumento Messi",
+    "angle": "Para Cabo Verde, é uma primeira histórica. Para a Argentina, é o tipo de jogo em que um campeão mundial não pode tremer.",
+    "body": [
+      "Argentina–Cabo Verde é um contraste absoluto. De um lado, a campeã mundial, Messi e uma seleção habituada ao peso do destino. Do outro, Cabo Verde, primeira participação, primeiro jogo a eliminar e primeiro grande vertigem mundial.",
+      "Os Tubarões Azuis chegam sem arrogância de favorito, mas com a energia de quem sabe que cada minuto pode virar história.",
+      "A Argentina é favorita, claro. Mas Cabo Verde já conquistou uma coisa: o direito de sonhar no maior palco do futebol."
+    ]
+  },
+  "col-gha": {
+    "homeTeam": "colombia",
+    "awayTeam": "ghana",
+    "matchId": "col-gha",
+    "title": "Colômbia–Gana: as Black Stars querem reacender a memória",
+    "angle": "A Colômbia tem velocidade. O Gana tem uma história mundial pesada demais para ser tratado como simples azarão.",
+    "body": [
+      "Colômbia–Gana é ritmo, talento e memória. A Colômbia chega com Luis Díaz e uma capacidade real de acelerar cada ação.",
+      "Mas o Gana conhece a Copa do Mundo: 2006, 2010, Asamoah Gyan, e uma história africana que ainda pesa nos grandes jogos.",
+      "Com Mohammed Kudus, as Black Stars querem transformar respeito em resultado."
+    ]
   }
 }

@@ -15,5 +15,36 @@
       "2002 · quinta estrela",
       "2026 · nova geração"
     ]
+  },
+  "cape_verde": {
+    "title": "Cabo Verde, a primeira onda no grande oceano",
+    "subtitle": "Primeira Copa do Mundo, primeiros 16 avos: os Tubarões Azuis já escrevem história.",
+    "paragraphs": [
+      "Cabo Verde não carrega uma longa tradição de Copa do Mundo. E é justamente isso que torna esta história tão forte. Para um arquipélago de paixão, diáspora, música e futebol, chegar aqui já é uma vitória contra distâncias, recursos e hábitos do futebol mundial.",
+      "Os Tubarões Azuis cresceram com paciência, entre a Copa Africana, jogadores espalhados pela Europa, orgulho insular e o sonho de existir no mais alto nível. Em 2026, esse sonho vira concreto: primeira participação no Mundial e presença nos 16 avos de final.",
+      "Não é apenas uma surpresa esportiva. É uma primeira página nacional: Cabo Verde num jogo a eliminar da Copa do Mundo, contra a Argentina, campeã mundial, com Messi pela frente.",
+      "A Argentina é favorita. Mas Cabo Verde já empurrou a sua fronteira. Agora resta descobrir até onde o sonho pode ir."
+    ],
+    "timeline": [
+      "2026 · primeira participação na Copa do Mundo",
+      "2026 · fase de grupos atravessada com coragem",
+      "2026 · primeiros 16 avos da história",
+      "2026 · encontro com Argentina e Messi"
+    ]
+  },
+  "ghana": {
+    "title": "Gana, as Black Stars e a memória dos grandes encontros",
+    "subtitle": "De Abedi Pelé a Asamoah Gyan, o Gana sabe o peso de uma Copa do Mundo.",
+    "paragraphs": [
+      "O Gana tem uma relação especial com o futebol mundial. Antes mesmo das grandes campanhas em Copas do Mundo, o país já tinha dado ao continente ícones como Abedi Pelé, símbolo de técnica, orgulho e respeito.",
+      "Em 2006, as Black Stars chegam ao Mundial para competir. Em 2010, o Gana faz a África sonhar: quartas de final, sonho de semifinal e uma geração marcada por Asamoah Gyan.",
+      "Em 2026, Mohammed Kudus representa uma nova energia. Contra a Colômbia, o Gana não joga apenas uma eliminatória: joga a chance de reacender uma memória mundial."
+    ],
+    "timeline": [
+      "2006 · estreia e oitavos",
+      "2010 · quartos históricos",
+      "2014 · experiência em grupo duro",
+      "2026 · Kudus quer escrever a continuação"
+    ]
   }
 }

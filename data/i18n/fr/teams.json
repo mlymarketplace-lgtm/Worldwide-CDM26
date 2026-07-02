@@ -1,0 +1,22 @@
+{
+  "spain": {
+    "teamName": "Espagne",
+    "tagline": "La Roja, l’empire du contrôle",
+    "statusLabel": "1re du groupe H · Invaincue · 7 pts",
+    "supporterName": "La Roja",
+    "selectorLine": "16e à jouer · Portugal ou Croatie ensuite",
+    "heroTitle": "🇪🇸 Espagne à la Coupe du monde 2026",
+    "heroSubtitle": "Une histoire de maîtrise, de patience et d’ambition mondiale",
+    "heroPlayer": "Rodri"
+  },
+  "morocco": {
+    "teamName": "Maroc",
+    "tagline": "Les Lions de l’Atlas, une ambition continentale",
+    "statusLabel": "Qualifié en huitième de finale · Prochain défi : Canada",
+    "supporterName": "Lions de l’Atlas",
+    "selectorLine": "Qualifié en 8e · prochain défi : Canada",
+    "heroTitle": "🇲🇦 Maroc à la Coupe du monde 2026",
+    "heroSubtitle": "Les Lions de l’Atlas veulent confirmer leur rang",
+    "heroPlayer": "Achraf Hakimi"
+  }
+}

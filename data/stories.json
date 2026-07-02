@@ -168,5 +168,37 @@
       "2018 · Salah porte l’Égypte dans une génération très attendue",
       "2026 · Qualification en 16e, l’Égypte veut écrire enfin une vraie page mondiale"
     ]
+  },
+  "cape_verde": {
+    "title": "Cap-Vert, la première vague dans le grand océan",
+    "subtitle": "Première Coupe du monde, premiers 16es : les Tubarões Azuis écrivent déjà l’histoire.",
+    "paragraphs": [
+      "Le Cap-Vert ne porte pas une longue tradition de Coupe du monde. Justement : c’est ce qui rend son histoire si forte. Pour un archipel de passion, de diaspora, de musique et de football, arriver ici est déjà une victoire contre les distances, les moyens et les habitudes du football mondial.",
+      "Les Tubarões Azuis ont grandi patiemment, entre Coupe d’Afrique, joueurs dispersés en Europe, fierté insulaire et rêve d’exister au plus haut niveau. En 2026, ce rêve devient concret : première participation au Mondial, puis qualification pour les 16es de finale.",
+      "Ce n’est pas seulement une surprise sportive. C’est une première nationale, une image qui restera : le Cap-Vert dans un match à élimination directe de Coupe du monde, face à l’Argentine, championne du monde, avec Messi en face.",
+      "Quoi qu’il arrive, le Cap-Vert a déjà déplacé sa frontière. Mais les grandes histoires commencent souvent par une phrase simple : personne ne nous attendait."
+    ],
+    "timeline": [
+      "2026 · première participation à la Coupe du monde",
+      "2026 · phase de groupes traversée avec courage",
+      "2026 · premier 16e de finale de l’histoire",
+      "2026 · rendez-vous avec l’Argentine et Messi"
+    ]
+  },
+  "ghana": {
+    "title": "Ghana, les Black Stars et la mémoire des grands rendez-vous",
+    "subtitle": "Des icônes d’Abedi Pelé à Asamoah Gyan, le Ghana sait ce que pèse une Coupe du monde.",
+    "paragraphs": [
+      "Le Ghana a une histoire particulière avec le football mondial. Avant même ses grandes campagnes en Coupe du monde, le pays avait déjà donné au continent des icônes, au premier rang desquelles Abedi Pelé, symbole d’un football ghanéen technique, fier et respecté.",
+      "Quand les Black Stars arrivent au Mondial en 2006, elles ne viennent pas apprendre timidement. Elles viennent exister. En 2010, le Ghana devient l’équipe africaine qui fait trembler le monde : quart de finale, rêve de demi-finale, et une génération portée par Asamoah Gyan qui reste dans toutes les mémoires.",
+      "Cette histoire a laissé une trace : le Ghana n’est jamais une simple présence africaine. C’est une équipe qui connaît les soirs de pression, les matchs fermés, les émotions lourdes et les rendez-vous où une action peut entrer dans la légende.",
+      "En 2026, les Black Stars reviennent avec Mohammed Kudus comme visage d’une ambition nouvelle. Face à la Colombie, le Ghana ne joue pas seulement un 16e de finale : il joue la possibilité de rallumer une mémoire mondiale."
+    ],
+    "timeline": [
+      "2006 · première apparition et passage en huitième",
+      "2010 · quart de finale historique, rêve africain immense",
+      "2014 · groupe relevé et mémoire de compétition",
+      "2026 · Kudus et les Black Stars veulent écrire la suite"
+    ]
   }
 }

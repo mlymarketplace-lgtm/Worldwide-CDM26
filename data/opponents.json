@@ -93,7 +93,7 @@
     "nickname": "Black Stars",
     "supporterName": "Black Stars",
     "heroPlayer": "Mohammed Kudus",
-    "playerImg": "assets/opponents/ghana/player.webp"
+    "playerImg": "assets/teams/ghana/player.webp"
   },
   "colombia": {
     "teamName": "Colombie",
@@ -126,5 +126,21 @@
     "supporterName": "USA ou Zmajevi",
     "heroPlayer": "Christian Pulisic ou Edin Džeko",
     "playerImg": null
+  },
+  "argentina": {
+    "teamName": "Argentine",
+    "flag": "🇦🇷",
+    "nickname": "Albiceleste",
+    "supporterName": "Albiceleste",
+    "heroPlayer": "Lionel Messi",
+    "playerImg": null
+  },
+  "cape_verde": {
+    "teamName": "Cap-Vert",
+    "flag": "🇨🇻",
+    "nickname": "Tubarões Azuis",
+    "supporterName": "Tubarões Azuis",
+    "heroPlayer": "Ryan Mendes",
+    "playerImg": "assets/teams/cape_verde/player.webp"
   }
 }

@@ -78,13 +78,32 @@
       "player": "assets/opponents/united_states/player.webp"
     },
     "ghana": {
-      "player": "assets/opponents/ghana/player.webp"
+      "player": "assets/teams/ghana/player.webp"
     },
     "colombia": {
       "player": "assets/opponents/colombia/player.webp"
     },
     "bosnia_herzegovina": {
       "player": "assets/opponents/bosnia_herzegovina/player.webp"
+    },
+    "argentina": {
+      "player": null,
+      "status": "no-image"
+    },
+    "cape_verde": {
+      "player": "assets/teams/cape_verde/player.webp"
     }
+  },
+  "cape_verde": {
+    "player": "assets/teams/cape_verde/player.webp",
+    "banner": "assets/teams/cape_verde/banner.webp",
+    "mascot": null,
+    "status": "complete"
+  },
+  "ghana": {
+    "player": "assets/teams/ghana/player.webp",
+    "banner": "assets/teams/ghana/banner.webp",
+    "mascot": null,
+    "status": "complete"
   }
 }

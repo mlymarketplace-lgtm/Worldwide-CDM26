@@ -203,5 +203,39 @@
       "note": "Qualification, mais alerte Salah",
       "result": "N"
     }
+  ],
+  "cape_verde": [
+    {
+      "label": "Espagne 0–0 Cap-Vert",
+      "note": "Premier point historique",
+      "result": "N"
+    },
+    {
+      "label": "Cap-Vert 0–0 Arabie Saoudite",
+      "note": "Solidité et patience",
+      "result": "N"
+    },
+    {
+      "label": "Uruguay 1–1 Cap-Vert",
+      "note": "Qualification arrachée avec courage",
+      "result": "N"
+    }
+  ],
+  "ghana": [
+    {
+      "label": "Angleterre 0–0 Ghana",
+      "note": "Match de prestige, bloc solide",
+      "result": "N"
+    },
+    {
+      "label": "Ghana 2–0 Panama",
+      "note": "Les Black Stars répondent présent",
+      "result": "V"
+    },
+    {
+      "label": "Croatie 2–1 Ghana",
+      "note": "Défaite courte mais qualification préservée",
+      "result": "D"
+    }
   ]
 }

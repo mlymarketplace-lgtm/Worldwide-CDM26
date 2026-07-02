@@ -9,7 +9,7 @@
 // BUILD_VERSION — version stable de build, à bumper à chaque déploiement.
 // Remplace les cache-busters dynamiques (Date.now()) sur les ressources stables
 // afin que le navigateur puisse effectivement les mettre en cache entre deux visites.
-const BUILD_VERSION = '11.4.1';
+const BUILD_VERSION = '11.5';
 (function(){
   var p = new URLSearchParams(window.location.search);
   var v10Active = p.has('team') || p.get('mode') !== 'global';
@@ -1020,7 +1020,7 @@ header{display:flex;align-items:center;justify-content:space-between;padding:12p
 <meta name="apple-mobile-web-app-title" content="Suivez la CDM 2026">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <link rel="apple-touch-icon" href="/assets/icons/icon-192.png">
-<link rel="stylesheet" href="src/v10/v10-team-app.css?v=11.4.1">
+<link rel="stylesheet" href="src/v10/v10-team-app.css?v=11.5">
 </head>
 <body>
 <div class="band"></div>
@@ -2246,7 +2246,8 @@ const STATIC_R32_LOCKS = {
   'fra-swe': { koId:'N77', h:'FRA', a:'SWE', home:3, away:0, status:'final', apiStatus:'FT', apiStatusLong:'Match Finished', winner:'home', winnerSide:0, locked:true },
   'mex-ecu': { koId:'N79', h:'MEX', a:'ECU', home:2, away:0, status:'final', apiStatus:'FT', apiStatusLong:'Match Finished', winner:'home', winnerSide:0, locked:true },
   'eng-cod': { koId:'N80', h:'ENG', a:'COD', home:2, away:1, status:'final', apiStatus:'FT', apiStatusLong:'Match Finished', winner:'home', winnerSide:0, locked:true },
-  'bel-sen': { koId:'N82', h:'BEL', a:'SEN', home:3, away:2, status:'final', apiStatus:'FT', apiStatusLong:'Match Finished', winner:'home', winnerSide:0, locked:true }
+  'bel-sen': { koId:'N82', h:'BEL', a:'SEN', home:3, away:2, status:'final', apiStatus:'FT', apiStatusLong:'Match Finished', winner:'home', winnerSide:0, locked:true },
+  'usa-bih': { koId:'N81', h:'USA', a:'BIH', home:2, away:0, status:'final', apiStatus:'FT', apiStatusLong:'Match Finished', winner:'home', winnerSide:0, locked:true }
 };
 
 const R32_CARDS = [
@@ -3470,7 +3471,9 @@ const AMBIENCE_VIDEOS = {
   brazil: { id:'t_qB3-89XQI', label:'Brésil' },
   ivory_coast: { id:'ewmhCmSMYrE', label:"Côte d'Ivoire" },
   egypt: { id:'1LsxjXLbX_E', label:'Égypte' },
-  dr_congo: { id:'V0mUJL2C0iw', label:'RD Congo' }
+  dr_congo: { id:'V0mUJL2C0iw', label:'RD Congo' },
+  ghana: { id:'kHndExKtaPs', label:'Ghana' },
+  cape_verde: { id:'8Ls4ONPPHZg', label:'Cabo Verde' }
 };
 let ytPlayer=null, musicOn=false, currentAmbienceTeam=(new URLSearchParams(location.search).get('team') || 'senegal'), loadedAmbienceVideoId=null;
 function activeAmbience(){ return AMBIENCE_VIDEOS[currentAmbienceTeam] || AMBIENCE_VIDEOS.senegal; }
@@ -4099,7 +4102,7 @@ setTimeout(()=>{
 }, 900);
 
 </script>
-<script src="src/v10/v10-team-app.js?v=11.4.1"></script>
+<script src="src/v10/v10-team-app.js?v=11.5"></script>
 
 <script>
 // V10.3 — PWA registration. Le service worker garde les scores/API en network-first.
