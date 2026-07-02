@@ -27,7 +27,13 @@
   },
   "spain": {
     "teamName": "إسبانيا",
-    "supporterName": "لا روخا"
+    "tagline": "لا روخا وإمبراطورية السيطرة",
+    "statusLabel": "تأهلت إلى ثمن النهائي · إسبانيا 3–0 النمسا",
+    "supporterName": "لا روخا",
+    "selectorLine": "تأهلت · البرتغال أو كرواتيا لاحقاً",
+    "heroTitle": "🇪🇸 إسبانيا في كأس العالم 2026",
+    "heroSubtitle": "إسبانيا سيطرت على النمسا وتواصل المشوار.",
+    "heroPlayer": "رودري"
   },
   "austria": {
     "teamName": "النمسا",
@@ -58,5 +64,10 @@
   },
   "algeria": {
     "teamName": "الجزائر"
+  },
+  "portugal_croatia": {
+    "teamName": "البرتغال أو كرواتيا",
+    "supporterName": "الفائز من البرتغال–كرواتيا",
+    "tagline": "الخصم لم يُحسم بعد"
   }
 }

@@ -8,5 +8,20 @@
     "heroTitle": "🇬🇭 Ghana at the 2026 World Cup",
     "heroSubtitle": "World Cup memory, respect and African ambition",
     "heroPlayer": "Mohammed Kudus"
+  },
+  "spain": {
+    "teamName": "Spain",
+    "tagline": "La Roja, the empire of control",
+    "statusLabel": "Qualified for the last 16 · Spain 3–0 Austria",
+    "supporterName": "La Roja",
+    "selectorLine": "Qualified · Portugal or Croatia next",
+    "heroTitle": "🇪🇸 Spain at the 2026 World Cup",
+    "heroSubtitle": "La Roja controlled Austria: the journey continues.",
+    "heroPlayer": "Rodri"
+  },
+  "portugal_croatia": {
+    "teamName": "Portugal or Croatia",
+    "supporterName": "Winner of Portugal–Croatia",
+    "tagline": "Opponent to be confirmed"
   }
 }

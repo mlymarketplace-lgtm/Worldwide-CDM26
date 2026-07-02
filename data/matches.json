@@ -87,11 +87,16 @@
     "dateUTC": "2026-07-02T19:00:00Z",
     "stadium": "Los Angeles · SoFi Stadium",
     "channel_fr": "beIN Sports 1",
-    "note": "La maîtrise de la Roja face au piège autrichien.",
+    "note": "La Roja file en huitième après un 3–0 net.",
     "label_es": "España–Austria",
     "label_pt": "Espanha–Áustria",
     "label_en": "Spain–Austria",
-    "label_ar": "إسبانيا–النمسا"
+    "label_ar": "إسبانيا–النمسا",
+    "homeScore": 3,
+    "awayScore": 0,
+    "status": "final",
+    "winner": "spain",
+    "locked": true
   },
   "aus-egy": {
     "home": "australia",
@@ -288,5 +293,21 @@
     "label_es": "Colombia–Ghana",
     "label_pt": "Colômbia–Ghana",
     "label_ar": "كولومبيا–غانا"
+  },
+  "porcro-spain": {
+    "home": "portugal_croatia",
+    "away": "spain",
+    "label": "Portugal/Croatie–Espagne",
+    "round": "R16",
+    "dateParis": "2026-07-06T21:00:00+02:00",
+    "dateUTC": "2026-07-06T19:00:00Z",
+    "stadium": "Toronto · BMO Field",
+    "channel_fr": "beIN Sports 1",
+    "note": "L’Espagne attend le vainqueur de Portugal–Croatie.",
+    "label_fr": "Portugal/Croatie–Espagne",
+    "label_en": "Portugal/Croatia–Spain",
+    "label_es": "Portugal/Croacia–España",
+    "label_pt": "Portugal/Croácia–Espanha",
+    "label_ar": "البرتغال/كرواتيا–إسبانيا"
   }
 }

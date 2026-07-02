@@ -62,10 +62,14 @@
     "selectorLine": "16e à jouer · Ghana ou Colombie ensuite"
   },
   "spain": {
-    "status": "pending",
-    "round": "R32",
-    "nextMatchId": "esp-aut",
-    "selectorLine": "16e à jouer · Portugal ou Croatie ensuite"
+    "status": "qualified",
+    "round": "R16",
+    "nextMatchId": "porcro-spain",
+    "statusLabel": "Qualifiée en huitième · Espagne 3–0 Autriche",
+    "selectorLine": "Qualifiée · Portugal ou Croatie ensuite",
+    "roundLabel": "Qualifiée en huitième de finale",
+    "heroSubtitle": "La Roja a maîtrisé l’Autriche : le tournoi continue.",
+    "pendingNext": "Portugal ou Croatie"
   },
   "dr_congo": {
     "status": "eliminated",

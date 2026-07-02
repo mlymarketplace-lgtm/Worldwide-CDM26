@@ -1,4 +1,4 @@
-// QualifGaïndé V11.5.3 — fix language switch legacy overwrite + parallel data loading
+// QualifGaïndé V11.5.5 — fix language switch legacy overwrite + parallel data loading
 // Conserve le socle V10.4.4 : routing, PWA, API, bracket et affichage local timezone.
 (function(){
   window.QUALIFGAINDE_V10_ACTIVE = true;
@@ -29,6 +29,21 @@
   const $ = (sel, root=document) => root.querySelector(sel);
   const $$ = (sel, root=document) => Array.from(root.querySelectorAll(sel));
 
+  function exposeTeamLangBridge(){
+    // V11.5.4 — pont robuste vers index.html : même si l'ancien onclick appelle
+    // setLanguage/applyLanguage directement, il est redirigé vers la team active.
+    window.__QG_TEAM_LANG_BRIDGE = {
+      active: () => !!state.activeTeamId,
+      set: (lang) => setTeamLanguage(lang),
+      rerender: () => {
+        if(!state.activeTeamId) return;
+        applyLangShell(state.activeLang || 'fr');
+        rerenderActiveTeamSurface();
+      }
+    };
+  }
+
+
   async function readJson(path){
     const res = await fetch(path + '?v=' + Date.now(), { cache:'no-store' });
     if(!res.ok) throw new Error(path + ' HTTP ' + res.status);
@@ -50,12 +65,12 @@
   }
   function getI18nBucket(lang, type){ return (state.i18n?.[lang || state.activeLang]?.[type]) || {}; }
   function getPreview(matchId, lang){
-    // V11.5.3 : fallback strict par clé. Si une traduction manque, on revient au fichier source data/previews.json, jamais à un contenu legacy Sénégal.
+    // V11.5.4 : fallback strict par clé. Si une traduction manque, on revient au fichier source data/previews.json, jamais à un contenu legacy Sénégal.
     const key = String(matchId || '');
     return getI18nBucket(lang, 'previews')[key] || state.previews[key] || null;
   }
   function getStory(teamId, lang){
-    // V11.5.3 : fallback strict par équipe. Si une traduction manque, on revient au fichier source data/stories.json, jamais à une autre équipe.
+    // V11.5.4 : fallback strict par équipe. Si une traduction manque, on revient au fichier source data/stories.json, jamais à une autre équipe.
     const key = String(teamId || '');
     return getI18nBucket(lang, 'stories')[key] || state.stories[key] || null;
   }
@@ -418,7 +433,7 @@
   }
 
   async function loadData(){
-    // V11.5.3 : chargement parallèle. Avant, les JSON optionnels et i18n étaient lus en série,
+    // V11.5.4 : chargement parallèle. Avant, les JSON optionnels et i18n étaient lus en série,
     // ce qui ralentissait fortement l'ouverture d'une nouvelle page équipe.
     const jobs = {
       teams: readJson(DATA_BASE+'teams.json'),
@@ -747,7 +762,7 @@
   }
 
   function ensureTeamEditorialLock(teamId){
-    // V11.5.3 : le script legacy contient encore des textes statiques Sénégal et peut réécrire
+    // V11.5.4 : le script legacy contient encore des textes statiques Sénégal et peut réécrire
     // teaser/story lors d'un changement de langue. On reprend la main sur les blocs éditoriaux
     // de la team active, sans toucher au moteur, aux scores ni au polling.
     if(editorialLockObserver) editorialLockObserver.disconnect();
@@ -791,7 +806,7 @@
   }
 
   function observeTeamShell(teamId){
-    // V11.5.3 : verrou léger sur les zones que le vieux applyLanguage Sénégal peut encore écraser.
+    // V11.5.4 : verrou léger sur les zones que le vieux applyLanguage Sénégal peut encore écraser.
     // On n'observe pas les chiffres du compte à rebours pour éviter une boucle chaque seconde.
     if(teamShellLockObserver) teamShellLockObserver.disconnect();
     if(!teamId) return;
@@ -820,18 +835,34 @@
   function setTeamLanguage(lang){
     const next = supportedLangs().includes(lang) ? lang : (state.activeLang || 'fr');
     state.activeLang = next;
+    exposeTeamLangBridge();
     try { localStorage.setItem('siteLang', next); localStorage.setItem('siteLangSource','manual'); } catch(e) {}
     applyLangShell(next);
     rerenderActiveTeamSurface();
     observeTeamShell(state.activeTeamId);
-    setTimeout(rerenderActiveTeamSurface, 60);
-    setTimeout(rerenderActiveTeamSurface, 220);
-    setTimeout(rerenderActiveTeamSurface, 650);
+    // V11.5.4 — deux reprises suffisent maintenant que le legacy est bloqué à la source.
+    setTimeout(rerenderActiveTeamSurface, 80);
+    setTimeout(rerenderActiveTeamSurface, 260);
   }
 
   function installLanguageCapture(){
     if(langCaptureInstalled) return;
     langCaptureInstalled = true;
+
+    // V11.5.4 — on retire les anciens onclick inline sur les pages équipe.
+    // C'est le verrou principal contre les retours Sénégal après un clic FR/EN/PT/ES/AR.
+    $$('.lang-btn[data-lang-btn]').forEach(btn => {
+      btn.removeAttribute('onclick');
+      if(btn.dataset.v10TeamLangBound === '1') return;
+      btn.dataset.v10TeamLangBound = '1';
+      btn.addEventListener('click', function(evt){
+        if(!state.activeTeamId) return;
+        evt.preventDefault();
+        evt.stopImmediatePropagation();
+        setTeamLanguage(btn.dataset.langBtn);
+      }, true);
+    });
+
     document.addEventListener('click', function(evt){
       const btn = evt.target && evt.target.closest ? evt.target.closest('.lang-btn[data-lang-btn]') : null;
       if(!btn || !state.activeTeamId) return;
@@ -860,6 +891,7 @@
 
   function applyTeam(teamId){
     const team = getActiveTeam(); if(!team) return;
+    exposeTeamLangBridge();
     localStorage.setItem('qualifgainde.favoriteTeam', teamId);
     document.body.dataset.v10Team = teamId;
     document.body.classList.toggle('v11-matchday', isMatchdayHero(teamId, team));
@@ -877,7 +909,7 @@
     if(typeof originalSet === 'function' && !originalSet.__v10Patched){
       window.setLanguage = function(lang){
         if(state.activeTeamId){
-          // V11.5.3 : sur une page équipe, on ne laisse plus le legacy I18N Sénégal réécrire
+          // V11.5.4 : sur une page équipe, on ne laisse plus le legacy I18N Sénégal réécrire
           // le header, le hero et le compte à rebours. La team active reste seule source d'affichage.
           setTeamLanguage(lang);
           return;
@@ -916,15 +948,15 @@
       const urlLang = params.get('lang');
       state.activeLang = supportedLangs().includes(urlLang) ? urlLang : (baseTeam.defaultLang || 'fr');
       try { localStorage.setItem('siteLang', state.activeLang); localStorage.setItem('siteLangSource', supportedLangs().includes(urlLang) ? 'url' : 'team-default'); } catch(e) {}
+      exposeTeamLangBridge();
       patchLanguageSwitcher();
       if(state.activeLang && typeof window.setLanguage === 'function'){
         try { window.setLanguage(state.activeLang); } catch(e) { console.warn('[V10] setLanguage ignoré', e); }
       }
       applyTeam(teamId);
+      // V11.5.4 — moins de rendus différés : chargement plus rapide d'une nouvelle page.
       setTimeout(() => applyTeam(teamId), 120);
-      setTimeout(() => applyTeam(teamId), 520);
-      setTimeout(() => applyTeam(teamId), 980);
-      setTimeout(() => applyTeam(teamId), 1400);
+      setTimeout(() => applyTeam(teamId), 360);
     }
   }
 

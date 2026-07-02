@@ -142,5 +142,13 @@
     "supporterName": "Tubarões Azuis",
     "heroPlayer": "Ryan Mendes",
     "playerImg": "assets/teams/cape_verde/player.webp"
+  },
+  "portugal_croatia": {
+    "teamName": "Portugal ou Croatie",
+    "flag": "🇵🇹/🇭🇷",
+    "nickname": "Adversaire à confirmer",
+    "supporterName": "Vainqueur Portugal–Croatie",
+    "heroPlayer": "Vainqueur du match Portugal–Croatie",
+    "playerImg": "assets/world-cup-hero.webp"
   }
 }

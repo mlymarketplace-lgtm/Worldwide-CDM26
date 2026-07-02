@@ -9,7 +9,7 @@
 // BUILD_VERSION — version stable de build, à bumper à chaque déploiement.
 // Remplace les cache-busters dynamiques (Date.now()) sur les ressources stables
 // afin que le navigateur puisse effectivement les mettre en cache entre deux visites.
-const BUILD_VERSION = '11.5.3';
+const BUILD_VERSION = '11.5.5';
 (function(){
   var p = new URLSearchParams(window.location.search);
   var v10Active = p.has('team') || p.get('mode') !== 'global';
@@ -1020,7 +1020,7 @@ header{display:flex;align-items:center;justify-content:space-between;padding:12p
 <meta name="apple-mobile-web-app-title" content="Suivez la CDM 2026">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <link rel="apple-touch-icon" href="/assets/icons/icon-192.png">
-<link rel="stylesheet" href="src/v10/v10-team-app.css?v=11.5.3">
+<link rel="stylesheet" href="src/v10/v10-team-app.css?v=11.5.5">
 </head>
 <body>
 <div class="band"></div>
@@ -1537,7 +1537,18 @@ function t(key){ return (I18N[currentLang] && I18N[currentLang][key]) || I18N.fr
 function setHtml(sel, value){ const el=document.querySelector(sel); if(el) el.innerHTML=value; }
 function setText(sel, value){ const el=document.querySelector(sel); if(el) el.textContent=value; }
 function mascotImg(){ return '<img class="section-mascot" src="assets/lion-mascotte.png" alt="Mascotte">'; }
-function setLanguage(lang){ currentLang = I18N[lang] ? lang : 'fr'; localStorage.setItem('siteLang', currentLang); localStorage.setItem('siteLangSource','manual'); applyLanguage(); }
+function setLanguage(lang){
+  // V11.5.4 — sur les pages équipe (?team=ghana, etc.), le legacy I18N Sénégal
+  // ne doit jamais reprendre la main. On délègue au contrôleur multi-équipes.
+  if (window.__QG_TEAM_LANG_BRIDGE && window.__QG_TEAM_LANG_BRIDGE.active && window.__QG_TEAM_LANG_BRIDGE.active()) {
+    window.__QG_TEAM_LANG_BRIDGE.set(lang);
+    return;
+  }
+  currentLang = I18N[lang] ? lang : 'fr';
+  localStorage.setItem('siteLang', currentLang);
+  localStorage.setItem('siteLangSource','manual');
+  applyLanguage();
+}
 
 // V10.4.4 — affichage des horaires selon le fuseau horaire du device.
 // Ne modifie jamais les dates sources ni le moteur : on convertit uniquement l'affichage.
@@ -1565,6 +1576,12 @@ window.QUALIFGAINDE_FORMAT_MATCH_TIME_FOR_DEVICE = formatMatchTimeForDevice;
 function formatSenegalOpponentSub(){ return `Belgique–Sénégal · ${formatMatchTimeForDevice('2026-07-01T22:00:00+02:00', currentLang)} · Seattle · Lumen Field`; }
 function formatSenegalCountdownMeta(){ return `${formatMatchTimeForDevice('2026-07-01T22:00:00+02:00', currentLang)} · Seattle · Lumen Field`; }
 function applyLanguage(){
+  // V11.5.4 — sécurité forte : si une page équipe est active, aucun libellé statique
+  // Sénégal du legacy ne doit réécrire header/hero/compte à rebours.
+  if (window.__QG_TEAM_LANG_BRIDGE && window.__QG_TEAM_LANG_BRIDGE.active && window.__QG_TEAM_LANG_BRIDGE.active()) {
+    if (window.__QG_TEAM_LANG_BRIDGE.rerender) window.__QG_TEAM_LANG_BRIDGE.rerender();
+    return;
+  }
   const L = I18N[currentLang] || I18N.fr;
   document.documentElement.lang = currentLang;
   document.title = L.title;
@@ -2247,7 +2264,8 @@ const STATIC_R32_LOCKS = {
   'mex-ecu': { koId:'N79', h:'MEX', a:'ECU', home:2, away:0, status:'final', apiStatus:'FT', apiStatusLong:'Match Finished', winner:'home', winnerSide:0, locked:true },
   'eng-cod': { koId:'N80', h:'ENG', a:'COD', home:2, away:1, status:'final', apiStatus:'FT', apiStatusLong:'Match Finished', winner:'home', winnerSide:0, locked:true },
   'bel-sen': { koId:'N82', h:'BEL', a:'SEN', home:3, away:2, status:'final', apiStatus:'FT', apiStatusLong:'Match Finished', winner:'home', winnerSide:0, locked:true },
-  'usa-bih': { koId:'N81', h:'USA', a:'BIH', home:2, away:0, status:'final', apiStatus:'FT', apiStatusLong:'Match Finished', winner:'home', winnerSide:0, locked:true }
+  'usa-bih': { koId:'N81', h:'USA', a:'BIH', home:2, away:0, status:'final', apiStatus:'FT', apiStatusLong:'Match Finished', winner:'home', winnerSide:0, locked:true },
+  'esp-aut': { koId:'N84', h:'ESP', a:'AUT', home:3, away:0, status:'final', apiStatus:'FT', apiStatusLong:'Match Finished', winner:'home', winnerSide:0, locked:true }
 };
 
 const R32_CARDS = [
@@ -2298,9 +2316,9 @@ const KO_ROUNDS = [
   ]}
 ];
 
-const r32Scores = { N73:[0,1], N78:[2,1], N74:[1,1], N75:[1,1], N76:[1,2], N77:[3,0] }; // V11 fallback officiel local
-const r32Picks = { N73:1, N78:0, N74:1, N75:1, N76:1, N77:0 };
-const r32Locked = { N73:true, N78:true, N74:true, N75:true, N76:true, N77:true }; // V10.3.5 : matchs finalisés API figés dans la simulation
+const r32Scores = { N73:[0,1], N78:[2,1], N74:[1,1], N75:[1,1], N76:[1,2], N77:[3,0], N79:[2,0], N80:[2,1], N82:[3,2], N81:[2,0], N84:[3,0] }; // V11.5.5 fallback officiel local
+const r32Picks = { N73:1, N78:0, N74:1, N75:1, N76:1, N77:0, N79:0, N80:0, N82:0, N81:0, N84:0 };
+const r32Locked = { N73:true, N78:true, N74:true, N75:true, N76:true, N77:true, N79:true, N80:true, N82:true, N81:true, N84:true }; // V11.5.5 : matchs finalisés API figés dans la simulation
 const koPicks = { r16:{}, qf:{}, sf:{}, final:{} };
 const koScores = { r16:{}, qf:{}, sf:{}, final:{} };
 const ROUND_ORDER = ['r16','qf','sf','final'];
@@ -4102,7 +4120,7 @@ setTimeout(()=>{
 }, 900);
 
 </script>
-<script src="src/v10/v10-team-app.js?v=11.5.3"></script>
+<script src="src/v10/v10-team-app.js?v=11.5.5"></script>
 
 <script>
 // V10.3 — PWA registration. Le service worker garde les scores/API en network-first.

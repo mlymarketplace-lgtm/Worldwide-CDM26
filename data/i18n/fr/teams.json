@@ -2,11 +2,11 @@
   "spain": {
     "teamName": "Espagne",
     "tagline": "La Roja, l’empire du contrôle",
-    "statusLabel": "1re du groupe H · Invaincue · 7 pts",
+    "statusLabel": "Qualifiée en huitième · Espagne 3–0 Autriche",
     "supporterName": "La Roja",
-    "selectorLine": "16e à jouer · Portugal ou Croatie ensuite",
+    "selectorLine": "Qualifiée · Portugal ou Croatie ensuite",
     "heroTitle": "🇪🇸 Espagne à la Coupe du monde 2026",
-    "heroSubtitle": "Une histoire de maîtrise, de patience et d’ambition mondiale",
+    "heroSubtitle": "La Roja a maîtrisé l’Autriche : le tournoi continue.",
     "heroPlayer": "Rodri"
   },
   "morocco": {
@@ -38,5 +38,10 @@
     "heroTitle": "🇨🇻 Cap-Vert à la Coupe du monde 2026",
     "heroSubtitle": "Première Coupe du monde, premier 16e, première grande légende à écrire",
     "heroPlayer": "Ryan Mendes"
+  },
+  "portugal_croatia": {
+    "teamName": "Portugal ou Croatie",
+    "supporterName": "Vainqueur Portugal–Croatie",
+    "tagline": "Adversaire à confirmer"
   }
 }

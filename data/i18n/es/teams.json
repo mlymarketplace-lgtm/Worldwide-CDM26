@@ -2,11 +2,11 @@
   "spain": {
     "teamName": "España",
     "tagline": "La Roja, el imperio del control",
-    "statusLabel": "1.ª del grupo H · Invicta · 7 pts",
+    "statusLabel": "Clasificada a octavos · España 3–0 Austria",
     "supporterName": "La Roja",
-    "selectorLine": "Dominio, paciencia y ambición mundial",
+    "selectorLine": "Clasificada · Portugal o Croacia después",
     "heroTitle": "🇪🇸 España en la Copa Mundial 2026",
-    "heroSubtitle": "Una historia de control, carácter y grandeza",
+    "heroSubtitle": "La Roja dominó a Austria: el torneo continúa.",
     "heroPlayer": "Rodri"
   },
   "austria": {
@@ -29,5 +29,10 @@
   "australia": {
     "teamName": "Australia",
     "supporterName": "Socceroos"
+  },
+  "portugal_croatia": {
+    "teamName": "Portugal o Croacia",
+    "supporterName": "Ganador de Portugal–Croacia",
+    "tagline": "Rival por confirmar"
   }
 }

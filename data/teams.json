@@ -179,15 +179,15 @@
     "heroImg": "assets/teams/spain/player.webp",
     "bannerImg": "assets/teams/spain/banner.webp",
     "heroPlayer": "Rodri",
-    "nextMatchId": "esp-aut",
+    "nextMatchId": "porcro-spain",
     "defaultLang": "es",
     "tagline": "La Roja, l’empire du contrôle",
-    "statusLabel": "1re du groupe H · Invaincue · 7 pts",
+    "statusLabel": "Qualifiée en huitième · Espagne 3–0 Autriche",
     "supporterName": "La Roja",
-    "selectorLine": "16e à jouer · Portugal ou Croatie ensuite",
+    "selectorLine": "Qualifiée · Portugal ou Croatie ensuite",
     "mascotImg": null,
-    "tournamentStatus": "pending",
-    "currentRound": "R32"
+    "tournamentStatus": "qualified",
+    "currentRound": "R16"
   },
   "egypt": {
     "teamName": "Égypte",

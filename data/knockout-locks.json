@@ -136,5 +136,18 @@
     "winner": "home",
     "winnerSide": 0,
     "locked": true
+  },
+  "esp-aut": {
+    "koId": "N84",
+    "h": "ESP",
+    "a": "AUT",
+    "home": 3,
+    "away": 0,
+    "status": "final",
+    "apiStatus": "FT",
+    "apiStatusLong": "Match Finished",
+    "winner": "home",
+    "winnerSide": 0,
+    "locked": true
   }
 }
