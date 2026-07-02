@@ -18,5 +18,25 @@
     "heroTitle": "🇲🇦 Maroc à la Coupe du monde 2026",
     "heroSubtitle": "Les Lions de l’Atlas veulent confirmer leur rang",
     "heroPlayer": "Achraf Hakimi"
+  },
+  "ghana": {
+    "teamName": "Ghana",
+    "tagline": "Les Black Stars, mémoire mondiale et ambition africaine",
+    "statusLabel": "Black Stars · Défi Colombie en 16e",
+    "supporterName": "Black Stars",
+    "selectorLine": "16e à jouer · défi Colombie",
+    "heroTitle": "🇬🇭 Ghana à la Coupe du monde 2026",
+    "heroSubtitle": "Mémoire, talent et ambition africaine autour de Kudus",
+    "heroPlayer": "Mohammed Kudus"
+  },
+  "cape_verde": {
+    "teamName": "Cap-Vert",
+    "tagline": "Une première historique au Mondial",
+    "statusLabel": "Première participation · 16e historique face à l’Argentine",
+    "supporterName": "Tubarões Azuis",
+    "selectorLine": "Première historique · Messi et l’Argentine en face",
+    "heroTitle": "🇨🇻 Cap-Vert à la Coupe du monde 2026",
+    "heroSubtitle": "Première Coupe du monde, premier 16e, première grande légende à écrire",
+    "heroPlayer": "Ryan Mendes"
   }
 }

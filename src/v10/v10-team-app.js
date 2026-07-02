@@ -1,4 +1,4 @@
-// QualifGaïndé V11.5.1 — Ghana EN + Argentina Messi asset + fixes home
+// QualifGaïndé V11.5.2 — fix i18n fallback/editorial lock Ghana FR
 // Conserve le socle V10.4.4 : routing, PWA, API, bracket et affichage local timezone.
 (function(){
   window.QUALIFGAINDE_V10_ACTIVE = true;
@@ -17,6 +17,7 @@
     germany:{teamName:'Allemagne',flag:'🇩🇪'}, ecuador:{teamName:'Équateur',flag:'🇪🇨'}, curacao:{teamName:'Curaçao',flag:'🇨🇼'}, portugal:{teamName:'Portugal',flag:'🇵🇹'}, colombia:{teamName:'Colombie',flag:'🇨🇴'}, uzbekistan:{teamName:'Ouzbékistan',flag:'🇺🇿'}, argentina:{teamName:'Argentine',flag:'🇦🇷'}, cape_verde:{teamName:'Cap-Vert',flag:'🇨🇻'}, ghana:{teamName:'Ghana',flag:'🇬🇭'}, jordan:{teamName:'Jordanie',flag:'🇯🇴'}, austria:{teamName:'Autriche',flag:'🇦🇹'}, australia:{teamName:'Australie',flag:'🇦🇺'}, spain:{teamName:'Espagne',flag:'🇪🇸'}, france:{teamName:'France',flag:'🇫🇷'}
   };
   let state = { teams:{}, matches:{}, results:{}, opponentResults:{}, opponents:{}, previews:{}, stories:{}, teamNext:{}, farewells:{}, activeTeamId:null, activeLang:'fr', i18n:{} };
+  let editorialLockObserver = null;
   let v10CountdownTimer = null;
   let v10CountdownTextObserver = null;
   let v10CountdownScoreTimer = null;
@@ -44,8 +45,17 @@
     if(!base) return null;
     return mergeTeamI18n(base, state.activeLang || base.defaultLang || 'fr');
   }
-  function getPreview(matchId, lang){ return ((state.i18n?.[lang || state.activeLang]?.previews || {})[matchId]) || state.previews[matchId]; }
-  function getStory(teamId, lang){ return ((state.i18n?.[lang || state.activeLang]?.stories || {})[teamId]) || state.stories[teamId]; }
+  function getI18nBucket(lang, type){ return (state.i18n?.[lang || state.activeLang]?.[type]) || {}; }
+  function getPreview(matchId, lang){
+    // V11.5.2 : fallback strict par clé. Si une traduction manque, on revient au fichier source data/previews.json, jamais à un contenu legacy Sénégal.
+    const key = String(matchId || '');
+    return getI18nBucket(lang, 'previews')[key] || state.previews[key] || null;
+  }
+  function getStory(teamId, lang){
+    // V11.5.2 : fallback strict par équipe. Si une traduction manque, on revient au fichier source data/stories.json, jamais à une autre équipe.
+    const key = String(teamId || '');
+    return getI18nBucket(lang, 'stories')[key] || state.stories[key] || null;
+  }
   function formatMatchTimeForDevice(matchDate, lang = state.activeLang || 'fr'){
     if (typeof window.QUALIFGAINDE_FORMAT_MATCH_TIME_FOR_DEVICE === 'function') {
       return window.QUALIFGAINDE_FORMAT_MATCH_TIME_FOR_DEVICE(matchDate, lang);
@@ -701,6 +711,30 @@
     }
   }
 
+  function ensureTeamEditorialLock(teamId){
+    // V11.5.2 : le script legacy contient encore des textes statiques Sénégal et peut réécrire
+    // teaser/story lors d'un changement de langue. On reprend la main sur les blocs éditoriaux
+    // de la team active, sans toucher au moteur, aux scores ni au polling.
+    if(editorialLockObserver) editorialLockObserver.disconnect();
+    const targets = ['#belgique-senegal', '#histoire-gaindes'].map(sel => $(sel)).filter(Boolean);
+    if(!targets.length || !teamId) return;
+    let scheduled = false;
+    editorialLockObserver = new MutationObserver(() => {
+      if(scheduled || !state.activeTeamId) return;
+      scheduled = true;
+      setTimeout(() => {
+        scheduled = false;
+        const current = getActiveTeam();
+        if(!current || state.activeTeamId !== teamId) return;
+        if(editorialLockObserver) editorialLockObserver.disconnect();
+        renderPreview(current);
+        renderStory(state.activeTeamId, current);
+        targets.forEach(el => editorialLockObserver.observe(el, { childList:true, subtree:true, characterData:true }));
+      }, 40);
+    });
+    targets.forEach(el => editorialLockObserver.observe(el, { childList:true, subtree:true, characterData:true }));
+  }
+
   function addChangeTeamLink(team){
     if($('#v10-change-team')) return;
     const a = document.createElement('a');
@@ -725,7 +759,7 @@
     document.body.classList.toggle('v11-matchday', isMatchdayHero(teamId, team));
     document.body.classList.toggle('v11-eliminated-team', team.tournamentStatus === 'eliminated');
     lockLegacyCountdown();
-    setCssVars(team); renderHeader(team); renderHeaderScores(teamId); renderHero(team); renderOpponent(teamId, team); renderCountdown(teamId, team); renderPreview(team); renderStory(teamId, team); addChangeTeamLink(team);
+    setCssVars(team); renderHeader(team); renderHeaderScores(teamId); renderHero(team); renderOpponent(teamId, team); renderCountdown(teamId, team); renderPreview(team); renderStory(teamId, team); ensureTeamEditorialLock(teamId); addChangeTeamLink(team);
     releaseV10Boot();
   }
 
@@ -744,6 +778,7 @@
         }
         setTimeout(() => { if(state.activeTeamId) applyTeam(state.activeTeamId); else syncLangButtons(state.activeLang); }, 20);
         setTimeout(() => { if(state.activeTeamId) applyTeam(state.activeTeamId); else syncLangButtons(state.activeLang); }, 180);
+        setTimeout(() => { if(state.activeTeamId) applyTeam(state.activeTeamId); else syncLangButtons(state.activeLang); }, 520);
         return res;
       };
       window.setLanguage.__v10Patched = true;

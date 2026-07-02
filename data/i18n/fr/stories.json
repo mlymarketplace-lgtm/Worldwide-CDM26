@@ -33,5 +33,39 @@
       "2022 · demi-finale historique",
       "2026 · confirmer le rang"
     ]
+  },
+  "ghana": {
+    "title": "Ghana, les Black Stars et la mémoire des grands rendez-vous",
+    "subtitle": "De la légende Abedi Pelé à Asamoah Gyan, de 2006 à Kudus, le Ghana sait ce que pèse une Coupe du monde.",
+    "paragraphs": [
+      "Le Ghana ne découvre pas les grandes scènes. Avant même ses campagnes en Coupe du monde, le pays avait déjà offert au football africain des icônes majeures, au premier rang desquelles Abedi Pelé, symbole de technique, de fierté et d’élégance. Les Black Stars portent donc plus qu’un maillot : elles portent une mémoire.",
+      "En 2006, le Ghana apparaît pour la première fois en Coupe du monde et frappe fort. Dans un groupe exigeant, les Black Stars se qualifient pour les huitièmes de finale et installent immédiatement leur nom dans le paysage mondial. Ce n’est pas une visite de courtoisie : c’est une entrée avec caractère.",
+      "En 2010, l’histoire devient presque continentale. Le Ghana atteint les quarts de finale, fait rêver toute l’Afrique et passe à quelques centimètres d’une demi-finale historique. Asamoah Gyan devient le visage d’un espoir immense, d’une douleur immense aussi, mais surtout d’une génération qui a montré que les Black Stars pouvaient regarder le monde dans les yeux.",
+      "En 2014, le Ghana tombe dans un groupe relevé et quitte la compétition avec la mémoire des grands combats. Cette campagne rappelle une vérité simple : les Black Stars savent exister dans les soirées lourdes, face à des adversaires puissants, quand chaque duel compte et que chaque détail peut basculer.",
+      "En 2026, une nouvelle page s’ouvre avec Mohammed Kudus comme visage d’une ambition plus moderne, plus explosive, plus directe. Face à la Colombie, le Ghana ne joue pas seulement un 16e de finale : il joue la possibilité de relancer une grande histoire mondiale.",
+      "Les Black Stars connaissent le poids des Coupes du monde. Elles savent ce que représente une élimination directe, ce que signifie porter l’attente d’un pays, et parfois d’un continent. C’est cette mémoire-là qui peut rendre le Ghana dangereux : une équipe qui a déjà rêvé très grand n’entre jamais sur le terrain comme une simple invitée."
+    ],
+    "timeline": [
+      "2006 · première apparition et passage en huitième",
+      "2010 · quart de finale historique, rêve africain immense",
+      "2014 · groupe relevé et mémoire de compétition",
+      "2026 · Kudus et les Black Stars veulent écrire la suite"
+    ]
+  },
+  "cape_verde": {
+    "title": "Cap-Vert, la première vague dans le grand océan",
+    "subtitle": "Première Coupe du monde, premiers 16es : les Tubarões Azuis écrivent déjà l’histoire.",
+    "paragraphs": [
+      "Le Cap-Vert ne porte pas une longue tradition de Coupe du monde. Justement : c’est ce qui rend son histoire si forte. Pour un archipel de passion, de diaspora, de musique et de football, arriver ici est déjà une victoire contre les distances, les moyens et les habitudes du football mondial.",
+      "Les Tubarões Azuis ont grandi patiemment, entre Coupe d’Afrique, joueurs dispersés en Europe, fierté insulaire et rêve d’exister au plus haut niveau. En 2026, ce rêve devient concret : première participation au Mondial, puis qualification pour les 16es de finale.",
+      "Ce n’est pas seulement une surprise sportive. C’est une première nationale, une image qui restera : le Cap-Vert dans un match à élimination directe de Coupe du monde, face à l’Argentine, championne du monde, avec Messi en face.",
+      "Quoi qu’il arrive, le Cap-Vert a déjà déplacé sa frontière. Mais les grandes histoires commencent souvent par une phrase simple : personne ne nous attendait."
+    ],
+    "timeline": [
+      "2026 · première participation à la Coupe du monde",
+      "2026 · phase de groupes traversée avec courage",
+      "2026 · premier 16e de finale de l’histoire",
+      "2026 · rendez-vous avec l’Argentine et Messi"
+    ]
   }
 }
