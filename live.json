@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-03T11:30:00+02:00",
+  "updatedAt": "2026-07-03T21:00:00+02:00",
   "matches": {
     "uru-esp": {
       "home": 0,
@@ -100,6 +100,24 @@
       "winner": "home",
       "winnerSide": 0,
       "locked": true
+    },
+    "aus-egy": {
+      "home": 1,
+      "away": 1,
+      "status": "final",
+      "minute": 120,
+      "apiStatus": "PEN",
+      "apiStatusLong": "Match Finished Penalties",
+      "penalty": {
+        "home": 2,
+        "away": 4
+      },
+      "penaltyHome": 2,
+      "penaltyAway": 4,
+      "winner": "away",
+      "winnerSide": 1,
+      "locked": true,
+      "koId": "N86"
     }
   }
 }

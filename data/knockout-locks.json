@@ -175,5 +175,22 @@
     "winner": "home",
     "winnerSide": 0,
     "locked": true
+  },
+  "aus-egy": {
+    "koId": "N86",
+    "h": "AUS",
+    "a": "EGY",
+    "home": 1,
+    "away": 1,
+    "penalty": {
+      "home": 2,
+      "away": 4
+    },
+    "status": "final",
+    "apiStatus": "PEN",
+    "apiStatusLong": "Match Finished Penalties",
+    "winner": "away",
+    "winnerSide": 1,
+    "locked": true
   }
 }

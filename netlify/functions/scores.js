@@ -163,8 +163,14 @@ function toMatchPayload(apiFixture, key, reversed = false) {
   const status = fixture?.status || {};
   const teams = apiFixture?.teams || {};
 
-  const rawHomeScore = toNumberOrNull(goals.home);
-  const rawAwayScore = toNumberOrNull(goals.away);
+  const fulltime = score?.fulltime || {};
+  const extratime = score?.extratime || {};
+
+  // V11.5.9 — sécurité TAB :
+  // certains retours API peuvent renseigner score.fulltime/extratime
+  // alors que goals.home/away est null après une séance de tirs au but.
+  const rawHomeScore = toNumberOrNull(goals.home ?? extratime.home ?? fulltime.home);
+  const rawAwayScore = toNumberOrNull(goals.away ?? extratime.away ?? fulltime.away);
   const rawPenaltyHome = toNumberOrNull(penalty.home);
   const rawPenaltyAway = toNumberOrNull(penalty.away);
 

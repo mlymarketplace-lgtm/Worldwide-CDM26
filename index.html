@@ -9,7 +9,7 @@
 // BUILD_VERSION — version stable de build, à bumper à chaque déploiement.
 // Remplace les cache-busters dynamiques (Date.now()) sur les ressources stables
 // afin que le navigateur puisse effectivement les mettre en cache entre deux visites.
-const BUILD_VERSION = '11.5.8';
+const BUILD_VERSION = '11.5.9';
 (function(){
   var p = new URLSearchParams(window.location.search);
   var v10Active = p.has('team') || p.get('mode') !== 'global';
@@ -44,7 +44,7 @@ html.v10-booting #v10-team-selector, html.v10-booting .v10-selector{visibility:v
 
 
 
-/* V11.5.8 — highlight horizontal uniquement sur le bandeau du niveau actif */
+/* V11.5.9 — highlight horizontal uniquement sur le bandeau du niveau actif */
 .bracket-col.current-stage{
   position:relative;
   border-color:inherit !important;
@@ -96,7 +96,7 @@ html.v10-booting #v10-team-selector, html.v10-booting .v10-selector{visibility:v
 }
 
 
-/* V11.5.8 — neutralisation visuelle de l'ancien chemin Sénégal dans les brackets */
+/* V11.5.9 — neutralisation visuelle de l'ancien chemin Sénégal dans les brackets */
 .knockout-sim .r16-card.senegal-path,
 .ko-card.senegal-path{
   border-color:#38bdf830 !important;
@@ -1082,7 +1082,7 @@ header{display:flex;align-items:center;justify-content:space-between;padding:12p
 }
 
 
-/* V11.5.8 — highlight horizontal uniquement sur le bandeau du niveau actif */
+/* V11.5.9 — highlight horizontal uniquement sur le bandeau du niveau actif */
 .bracket-col.current-stage{
   position:relative;
   border-color:inherit !important;
@@ -1142,7 +1142,7 @@ header{display:flex;align-items:center;justify-content:space-between;padding:12p
 <meta name="apple-mobile-web-app-title" content="Suivez la CDM 2026">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <link rel="apple-touch-icon" href="/assets/icons/icon-192.png">
-<link rel="stylesheet" href="src/v10/v10-team-app.css?v=11.5.8">
+<link rel="stylesheet" href="src/v10/v10-team-app.css?v=11.5.9">
 </head>
 <body>
 <div class="band"></div>
@@ -2389,6 +2389,9 @@ const STATIC_R32_LOCKS = {
   'usa-bih': { koId:'N81', h:'USA', a:'BIH', home:2, away:0, status:'final', apiStatus:'FT', apiStatusLong:'Match Finished', winner:'home', winnerSide:0, locked:true },
   'esp-aut': { koId:'N84', h:'ESP', a:'AUT', home:3, away:0, status:'final', apiStatus:'FT', apiStatusLong:'Match Finished', winner:'home', winnerSide:0, locked:true },
   'por-cro': { koId:'N83', h:'POR', a:'CRO', home:2, away:1, status:'final', apiStatus:'FT', apiStatusLong:'Match Finished', winner:'home', winnerSide:0, locked:true },
+  'sui-alg': { koId:'N85', h:'SUI', a:'ALG', home:2, away:0, status:'final', apiStatus:'FT', apiStatusLong:'Match Finished', winner:'home', winnerSide:0, locked:true },
+  'aus-egy': { koId:'N86', h:'AUS', a:'EGY', home:1, away:1, penalty:{home:2, away:4}, status:'final', apiStatus:'PEN', apiStatusLong:'Match Finished Penalties', winner:'away', winnerSide:1, locked:true },
+  'por-cro': { koId:'N83', h:'POR', a:'CRO', home:2, away:1, status:'final', apiStatus:'FT', apiStatusLong:'Match Finished', winner:'home', winnerSide:0, locked:true },
   'sui-alg': { koId:'N85', h:'SUI', a:'ALG', home:2, away:0, status:'final', apiStatus:'FT', apiStatusLong:'Match Finished', winner:'home', winnerSide:0, locked:true }
 };
 
@@ -2440,9 +2443,9 @@ const KO_ROUNDS = [
   ]}
 ];
 
-const r32Scores = { N73:[0,1], N78:[2,1], N74:[1,1], N75:[1,1], N76:[1,2], N77:[3,0], N79:[2,0], N80:[2,1], N82:[3,2], N81:[2,0], N84:[3,0] }; // V11.5.6 fallback officiel local
-const r32Picks = { N73:1, N78:0, N74:1, N75:1, N76:1, N77:0, N79:0, N80:0, N82:0, N81:0, N84:0, N83:0, N85:0 };
-const r32Locked = { N73:true, N78:true, N74:true, N75:true, N76:true, N77:true, N79:true, N80:true, N82:true, N81:true, N84:true }; // V11.5.6 : matchs finalisés API figés dans la simulation
+const r32Scores = { N73:[0,1], N78:[2,1], N74:[1,1], N75:[1,1], N76:[1,2], N77:[3,0], N79:[2,0], N80:[2,1], N82:[3,2], N81:[2,0], N84:[3,0], N83:[2,1], N85:[2,0], N86:[1,1] }; // V11.5.6 fallback officiel local
+const r32Picks = { N73:1, N78:0, N74:1, N75:1, N76:1, N77:0, N79:0, N80:0, N82:0, N81:0, N84:0, N83:0, N85:0, N86:1 };
+const r32Locked = { N73:true, N78:true, N74:true, N75:true, N76:true, N77:true, N79:true, N80:true, N82:true, N81:true, N84:true, N83:true, N85:true, N86:true }; // V11.5.6 : matchs finalisés API figés dans la simulation
 const koPicks = { r16:{}, qf:{}, sf:{}, final:{} };
 const koScores = { r16:{}, qf:{}, sf:{}, final:{} };
 const koLocked = { r16:{}, qf:{}, sf:{}, final:{} };
@@ -2452,7 +2455,7 @@ function allR32Resolved() {
   return R32_CARDS.every(c => !!r32Locked[c.id] || r32Picks[c.id] !== undefined);
 }
 function firstUnresolvedRoundKey() {
-  // V11.5.8 — la surbrillance doit porter sur le tableau de simulation,
+  // V11.5.9 — la surbrillance doit porter sur le tableau de simulation,
   // pas sur le bloc des 16es. Tant que les huitièmes sont le prochain
   // niveau visible dans le bracket, on garde la colonne Huitièmes active,
   // même s'il reste quelques 16es à finaliser en amont.
@@ -2786,7 +2789,7 @@ function renderKOCard(round, m) {
   const pick = koPicks[round]?.[m.id];
   const score = (koScores[round] && koScores[round][m.id]) || [null, null];
   const officialLocked = !!(koLocked[round] && koLocked[round][m.id]);
-  const senCls = ''; // V11.5.8 — ancien chemin Sénégal neutralisé dans le bracket
+  const senCls = ''; // V11.5.9 — ancien chemin Sénégal neutralisé dans le bracket
   const waitingCls = (!resolved[0] || !resolved[1]) ? ' waiting' : '';
   const scoreInputs = resolved[0] && resolved[1]
     ? `<div class="ko-scoreline">
@@ -4310,7 +4313,7 @@ setTimeout(()=>{
 }, 900);
 
 </script>
-<script src="src/v10/v10-team-app.js?v=11.5.8"></script>
+<script src="src/v10/v10-team-app.js?v=11.5.9"></script>
 
 <script>
 // V10.3 — PWA registration. Le service worker garde les scores/API en network-first.

@@ -1,6 +1,6 @@
-// QualifGaïndé Worldwide — Service Worker V11.5.8
-const CACHE_VERSION = 'qg-v11-5-8-static';
-const RUNTIME_CACHE = 'qg-v11-5-8-runtime';
+// QualifGaïndé Worldwide — Service Worker V11.5.9
+const CACHE_VERSION = 'qg-v11-5-9-static';
+const RUNTIME_CACHE = 'qg-v11-5-9-runtime';
 const CORE_ASSETS = [
   '/',
   '/index.html',

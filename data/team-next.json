@@ -106,5 +106,12 @@
     "round": "R32",
     "nextMatchId": "col-gha",
     "selectorLine": "Black Stars · défi Colombie"
+  },
+  "egypt": {
+    "status": "qualified",
+    "round": "R16",
+    "nextMatchId": "argcpv-egypt",
+    "statusLabel": "Qualifiée en huitième · Égypte aux TAB contre l’Australie",
+    "selectorLine": "Qualifiée · Argentine ou Cap-Vert ensuite"
   }
 }

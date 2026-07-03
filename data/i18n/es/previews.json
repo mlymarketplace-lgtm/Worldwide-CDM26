@@ -38,5 +38,18 @@
       "El historial añade picante: 11v11 registra 41 partidos, con 18 victorias españolas, 16 empates y 7 victorias portuguesas.",
       "Y 2030 aparece de fondo: España, Portugal y Marruecos organizarán juntos el próximo Mundial. Antes de compartir el escenario, los vecinos pelean por seguir vivos en este."
     ]
+  },
+  "argcpv-egypt": {
+    "homeTeam": "argentina_cape_verde",
+    "awayTeam": "egypt",
+    "matchId": "argcpv-egypt",
+    "title": "Argentina o Cabo Verde–Egipto: los Faraones esperan su destino",
+    "angle": "Egipto sobrevivió al pulso físico de Australia y avanzó por penales. Ahora espera Argentina–Cabo Verde con el billete a octavos en la mano.",
+    "body": [
+      "Hay clasificaciones que se ganan con fútbol. Otras, con nervios de acero. Ante Australia, Egipto resistió y golpeó en la tanda de penales.",
+      "Los Faraones avanzan con oficio de torneo: sufrir, no romperse y elegir el momento justo.",
+      "Si llega Argentina, será Messi y los campeones del mundo. Si llega Cabo Verde, será un duelo africano inesperado e histórico.",
+      "El mensaje de Egipto es claro: los Faraones siguen vivos."
+    ]
   }
 }

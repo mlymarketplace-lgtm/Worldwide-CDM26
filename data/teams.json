@@ -198,13 +198,15 @@
     "heroImg": "assets/teams/egypt/player.webp",
     "bannerImg": "assets/teams/egypt/banner.webp",
     "heroPlayer": "Mohamed Salah",
-    "nextMatchId": "aus-egy",
+    "nextMatchId": "argcpv-egypt",
     "defaultLang": "ar",
     "tagline": "Les Pharaons et le rêve de Salah",
-    "statusLabel": "2e du groupe G · 4 pts · Expérience africaine",
+    "statusLabel": "Qualifiée en huitième · victoire aux tirs au but contre l’Australie",
     "supporterName": "Pharaons",
-    "selectorLine": "Salah, mémoire africaine et rêve mondial",
-    "mascotImg": null
+    "selectorLine": "Qualifiée · Argentine ou Cap-Vert ensuite",
+    "mascotImg": null,
+    "tournamentStatus": "qualified",
+    "currentRound": "R16"
   },
   "cape_verde": {
     "teamName": "Cap-Vert",
