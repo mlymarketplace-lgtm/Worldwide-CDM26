@@ -264,16 +264,31 @@
     ]
   },
   "porcro-spain": {
-    "homeTeam": "portugal_croatia",
+    "homeTeam": "portugal",
     "awayTeam": "spain",
-    "matchId": "porcro-spain",
-    "title": "Portugal/Croatie–Espagne : la Roja attend son prochain test",
-    "angle": "L’Espagne a validé son rang face à l’Autriche. Elle attend maintenant le vainqueur d’un duel de caractère entre le Portugal et la Croatie.",
+    "matchId": "por-spain",
+    "title": "Portugal–Espagne : le derby ibérique pour une place plus haut",
+    "angle": "Deux voisins, deux géants, deux futurs co-organisateurs du Mondial 2030 avec le Maroc : ce huitième a le parfum d’un derby historique.",
     "body": [
-      "L’Espagne a fait le travail : 3–0 contre l’Autriche, une qualification nette, et cette impression que la Roja monte en température au bon moment.",
-      "La suite aura une autre saveur. Portugal ou Croatie, ce ne sera pas le même match, mais ce sera forcément un adversaire habitué aux grands rendez-vous, capable de transformer une soirée tranquille en épreuve de nerfs.",
-      "Pour l’Espagne, le défi sera simple : garder la maîtrise sans tomber dans le confort. Quand la Roja impose son rythme, elle peut étouffer n’importe qui. Mais à ce stade du tournoi, le ballon ne suffit plus : il faut aussi savoir fermer la porte, frapper au bon moment et survivre aux temps faibles.",
-      "La Roja est en huitième. Le contrôle est là. Maintenant, il faut prouver que cette maîtrise peut voyager jusqu’aux tours qui comptent vraiment."
+      "Portugal–Espagne, ce n’est jamais un match neutre. C’est une frontière, une mémoire, une rivalité de voisins qui se connaissent trop bien pour se regarder avec naïveté. Cette fois, l’enjeu est brutal : une place au tour suivant de Coupe du monde.",
+      "Le Portugal arrive lancé après son 2–1 contre la Croatie. Cristiano Ronaldo reste le symbole, le visage qui transforme chaque soirée portugaise en événement. Même quand le football change, même quand les générations passent, son ombre suffit à électriser une affiche.",
+      "L’Espagne, elle, vient de maîtriser l’Autriche 3–0. La Roja avance avec son idée fixe : contrôler le ballon, contrôler le rythme, contrôler les nerfs. Mais contre le Portugal, le contrôle ne suffit jamais longtemps. Il faut aussi gagner les duels invisibles, ceux de l’orgueil, du tempo et du mental.",
+      "L’historique ajoute du sel : selon 11v11, les deux pays se sont croisés 41 fois, avec 18 victoires espagnoles, 16 nuls et 7 victoires portugaises. L’Espagne a le poids du bilan, le Portugal a la faim de rééquilibrer la mémoire.",
+      "Et puis il y a 2030 en arrière-plan : Espagne, Portugal et Maroc organiseront ensemble la prochaine Coupe du monde. Avant de partager l’affiche mondiale, les deux voisins vont d’abord se disputer le droit de continuer dans celle-ci. Un vrai derby, avec du prestige, de la tension et une vieille histoire à rallumer."
+    ]
+  },
+  "por-spain": {
+    "homeTeam": "portugal",
+    "awayTeam": "spain",
+    "matchId": "por-spain",
+    "title": "Portugal–Espagne : le derby ibérique pour une place plus haut",
+    "angle": "Deux voisins, deux géants, deux futurs co-organisateurs du Mondial 2030 avec le Maroc : ce huitième a le parfum d’un derby historique.",
+    "body": [
+      "Portugal–Espagne, ce n’est jamais un match neutre. C’est une frontière, une mémoire, une rivalité de voisins qui se connaissent trop bien pour se regarder avec naïveté. Cette fois, l’enjeu est brutal : une place au tour suivant de Coupe du monde.",
+      "Le Portugal arrive lancé après son 2–1 contre la Croatie. Cristiano Ronaldo reste le symbole, le visage qui transforme chaque soirée portugaise en événement. Même quand le football change, même quand les générations passent, son ombre suffit à électriser une affiche.",
+      "L’Espagne, elle, vient de maîtriser l’Autriche 3–0. La Roja avance avec son idée fixe : contrôler le ballon, contrôler le rythme, contrôler les nerfs. Mais contre le Portugal, le contrôle ne suffit jamais longtemps. Il faut aussi gagner les duels invisibles, ceux de l’orgueil, du tempo et du mental.",
+      "L’historique ajoute du sel : selon 11v11, les deux pays se sont croisés 41 fois, avec 18 victoires espagnoles, 16 nuls et 7 victoires portugaises. L’Espagne a le poids du bilan, le Portugal a la faim de rééquilibrer la mémoire.",
+      "Et puis il y a 2030 en arrière-plan : Espagne, Portugal et Maroc organiseront ensemble la prochaine Coupe du monde. Avant de partager l’affiche mondiale, les deux voisins vont d’abord se disputer le droit de continuer dans celle-ci. Un vrai derby, avec du prestige, de la tension et une vieille histoire à rallumer."
     ]
   }
 }

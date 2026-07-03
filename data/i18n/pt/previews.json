@@ -48,16 +48,31 @@
     ]
   },
   "porcro-spain": {
-    "homeTeam": "portugal_croatia",
+    "homeTeam": "portugal",
     "awayTeam": "spain",
-    "matchId": "porcro-spain",
-    "title": "Portugal/Croácia–Espanha: La Roja espera o próximo teste",
-    "angle": "A Espanha confirmou o seu estatuto contra a Áustria. Agora espera o vencedor de um duelo de caráter entre Portugal e Croácia.",
+    "matchId": "por-spain",
+    "title": "Portugal–Espanha: dérbi ibérico com história acesa",
+    "angle": "Vizinhos, gigantes e futuros coorganizadores do Mundial 2030 com Marrocos: este oitavo tem cheiro de dérbi verdadeiro.",
     "body": [
-      "A Espanha fez o trabalho: 3–0 contra a Áustria, classificação limpa e a sensação de que La Roja cresce no momento certo.",
-      "A próxima etapa terá outro sabor. Portugal ou Croácia significam um adversário habituado aos grandes jogos, capaz de transformar uma noite controlada numa prova de nervos.",
-      "Para a Espanha, o desafio é simples: controlar sem relaxar. Quando La Roja impõe o ritmo, pode sufocar qualquer rival. Mas nesta fase a posse não chega: é preciso fechar a porta, atacar no momento certo e resistir aos momentos difíceis.",
-      "A Espanha está nas oitavas. O controle está lá. Agora é preciso provar que essa autoridade pode avançar até às rondas que realmente contam."
+      "Portugal–Espanha nunca é um jogo neutro. É fronteira, memória e rivalidade entre vizinhos que se conhecem demasiado bem.",
+      "Portugal chega depois do 2–1 contra a Croácia. Cristiano Ronaldo continua a ser o símbolo que transforma cada noite portuguesa num acontecimento.",
+      "A Espanha controlou a Áustria por 3–0. A Roja quer a bola, o ritmo e os nervos. Mas contra Portugal, o controlo nunca chega sozinho.",
+      "O histórico acrescenta pimenta: a 11v11 lista 41 encontros, com 18 vitórias espanholas, 16 empates e 7 vitórias portuguesas.",
+      "E 2030 está no fundo da imagem: Espanha, Portugal e Marrocos vão organizar juntos o próximo Mundial. Antes de partilhar o palco, os vizinhos lutam para continuar neste."
+    ]
+  },
+  "por-spain": {
+    "homeTeam": "portugal",
+    "awayTeam": "spain",
+    "matchId": "por-spain",
+    "title": "Portugal–Espanha: dérbi ibérico com história acesa",
+    "angle": "Vizinhos, gigantes e futuros coorganizadores do Mundial 2030 com Marrocos: este oitavo tem cheiro de dérbi verdadeiro.",
+    "body": [
+      "Portugal–Espanha nunca é um jogo neutro. É fronteira, memória e rivalidade entre vizinhos que se conhecem demasiado bem.",
+      "Portugal chega depois do 2–1 contra a Croácia. Cristiano Ronaldo continua a ser o símbolo que transforma cada noite portuguesa num acontecimento.",
+      "A Espanha controlou a Áustria por 3–0. A Roja quer a bola, o ritmo e os nervos. Mas contra Portugal, o controlo nunca chega sozinho.",
+      "O histórico acrescenta pimenta: a 11v11 lista 41 encontros, com 18 vitórias espanholas, 16 empates e 7 vitórias portuguesas.",
+      "E 2030 está no fundo da imagem: Espanha, Portugal e Marrocos vão organizar juntos o próximo Mundial. Antes de partilhar o palco, os vizinhos lutam para continuar neste."
     ]
   }
 }

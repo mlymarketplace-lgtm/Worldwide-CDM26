@@ -149,5 +149,31 @@
     "winner": "home",
     "winnerSide": 0,
     "locked": true
+  },
+  "por-cro": {
+    "koId": "N83",
+    "h": "POR",
+    "a": "CRO",
+    "home": 2,
+    "away": 1,
+    "status": "final",
+    "apiStatus": "FT",
+    "apiStatusLong": "Match Finished",
+    "winner": "home",
+    "winnerSide": 0,
+    "locked": true
+  },
+  "sui-alg": {
+    "koId": "N85",
+    "h": "SUI",
+    "a": "ALG",
+    "home": 2,
+    "away": 0,
+    "status": "final",
+    "apiStatus": "FT",
+    "apiStatusLong": "Match Finished",
+    "winner": "home",
+    "winnerSide": 0,
+    "locked": true
   }
 }

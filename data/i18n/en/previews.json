@@ -13,16 +13,31 @@
     ]
   },
   "porcro-spain": {
-    "homeTeam": "portugal_croatia",
+    "homeTeam": "portugal",
     "awayTeam": "spain",
-    "matchId": "porcro-spain",
-    "title": "Portugal/Croatia–Spain: La Roja await their next test",
-    "angle": "Spain confirmed their status against Austria. Now they wait for the winner of a hard-edged duel between Portugal and Croatia.",
+    "matchId": "por-spain",
+    "title": "Portugal–Spain: an Iberian derby with history on the line",
+    "angle": "Neighbours, giants and future 2030 World Cup co-hosts with Morocco: this Round of 16 has the scent of a true derby.",
     "body": [
-      "Spain did the job: a 3–0 win over Austria, a clean qualification, and the sense that La Roja are warming up at the right time.",
-      "What comes next will feel different. Portugal or Croatia would mean an opponent used to major nights, capable of turning a controlled evening into a battle of nerves.",
-      "For Spain, the challenge is simple: keep control without getting comfortable. When La Roja dictate the rhythm, they can suffocate anyone. But at this stage, possession is not enough: they must also close the door, strike at the right moment and survive difficult spells.",
-      "Spain are in the last 16. The control is there. Now they must prove it can carry them into the rounds that truly matter."
+      "Portugal–Spain is never neutral. It is a border, a memory, a rivalry between neighbours who know each other too well to be naive.",
+      "Portugal arrive after beating Croatia 2–1. Cristiano Ronaldo remains the symbol, the face that turns every Portuguese night into an event.",
+      "Spain have just controlled Austria 3–0. La Roja want the ball, the rhythm and the nerves. But against Portugal, control is never enough for long.",
+      "The history adds spice: 11v11 lists 41 meetings, with Spain on 18 wins, 16 draws and Portugal on 7 wins.",
+      "And 2030 sits in the background: Spain, Portugal and Morocco will host the next World Cup together. Before sharing the world stage, these neighbours fight to stay alive in this one."
+    ]
+  },
+  "por-spain": {
+    "homeTeam": "portugal",
+    "awayTeam": "spain",
+    "matchId": "por-spain",
+    "title": "Portugal–Spain: an Iberian derby with history on the line",
+    "angle": "Neighbours, giants and future 2030 World Cup co-hosts with Morocco: this Round of 16 has the scent of a true derby.",
+    "body": [
+      "Portugal–Spain is never neutral. It is a border, a memory, a rivalry between neighbours who know each other too well to be naive.",
+      "Portugal arrive after beating Croatia 2–1. Cristiano Ronaldo remains the symbol, the face that turns every Portuguese night into an event.",
+      "Spain have just controlled Austria 3–0. La Roja want the ball, the rhythm and the nerves. But against Portugal, control is never enough for long.",
+      "The history adds spice: 11v11 lists 41 meetings, with Spain on 18 wins, 16 draws and Portugal on 7 wins.",
+      "And 2030 sits in the background: Spain, Portugal and Morocco will host the next World Cup together. Before sharing the world stage, these neighbours fight to stay alive in this one."
     ]
   }
 }

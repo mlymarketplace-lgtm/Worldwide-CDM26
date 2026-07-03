@@ -52,24 +52,24 @@
     "matchdayHero": false
   },
   "algeria": {
-    "status": "pending",
+    "status": "eliminated",
     "round": "R32",
     "nextMatchId": "sui-alg",
-    "pendingNext": [
-      "alg-col",
-      "alg-gha"
-    ],
-    "selectorLine": "16e à jouer · Ghana ou Colombie ensuite"
+    "statusLabel": "Éliminée en seizième de finale",
+    "selectorLine": "Éliminée · respect aux Fennecs",
+    "roundLabel": "Éliminée en seizième de finale",
+    "heroSubtitle": "Respect aux Fennecs : l’Afrique salue le courage, l’Algérie reviendra.",
+    "farewellId": "algeria"
   },
   "spain": {
     "status": "qualified",
     "round": "R16",
-    "nextMatchId": "porcro-spain",
+    "nextMatchId": "por-spain",
     "statusLabel": "Qualifiée en huitième · Espagne 3–0 Autriche",
-    "selectorLine": "Qualifiée · Portugal ou Croatie ensuite",
+    "selectorLine": "Qualifiée · Portugal en huitième",
     "roundLabel": "Qualifiée en huitième de finale",
-    "heroSubtitle": "La Roja a maîtrisé l’Autriche : le tournoi continue.",
-    "pendingNext": "Portugal ou Croatie"
+    "heroSubtitle": "La Roja a maîtrisé l’Autriche : place au derby ibérique.",
+    "pendingNext": null
   },
   "dr_congo": {
     "status": "eliminated",

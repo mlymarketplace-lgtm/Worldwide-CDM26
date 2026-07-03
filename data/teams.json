@@ -36,10 +36,10 @@
     "nextMatchId": "sui-alg",
     "defaultLang": "fr",
     "tagline": "La fierté des Fennecs",
-    "statusLabel": "Fennecs · Mémoire de Gijón",
+    "statusLabel": "Éliminée en seizième de finale",
     "supporterName": "Fennecs",
-    "selectorLine": "16e à jouer · Ghana ou Colombie ensuite",
-    "tournamentStatus": "pending",
+    "selectorLine": "Éliminée · respect aux Fennecs",
+    "tournamentStatus": "eliminated",
     "currentRound": "R32"
   },
   "belgium": {
@@ -179,12 +179,12 @@
     "heroImg": "assets/teams/spain/player.webp",
     "bannerImg": "assets/teams/spain/banner.webp",
     "heroPlayer": "Rodri",
-    "nextMatchId": "porcro-spain",
+    "nextMatchId": "por-spain",
     "defaultLang": "es",
     "tagline": "La Roja, l’empire du contrôle",
     "statusLabel": "Qualifiée en huitième · Espagne 3–0 Autriche",
     "supporterName": "La Roja",
-    "selectorLine": "Qualifiée · Portugal ou Croatie ensuite",
+    "selectorLine": "Qualifiée · Portugal en huitième",
     "mascotImg": null,
     "tournamentStatus": "qualified",
     "currentRound": "R16"

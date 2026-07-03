@@ -295,19 +295,35 @@
     "label_ar": "كولومبيا–غانا"
   },
   "porcro-spain": {
-    "home": "portugal_croatia",
+    "home": "portugal",
     "away": "spain",
-    "label": "Portugal/Croatie–Espagne",
+    "label": "Portugal–Espagne",
     "round": "R16",
     "dateParis": "2026-07-06T21:00:00+02:00",
     "dateUTC": "2026-07-06T19:00:00Z",
-    "stadium": "Toronto · BMO Field",
+    "stadium": "Dallas · Arlington Stadium",
     "channel_fr": "beIN Sports 1",
-    "note": "L’Espagne attend le vainqueur de Portugal–Croatie.",
-    "label_fr": "Portugal/Croatie–Espagne",
-    "label_en": "Portugal/Croatia–Spain",
-    "label_es": "Portugal/Croacia–España",
-    "label_pt": "Portugal/Croácia–Espanha",
-    "label_ar": "البرتغال/كرواتيا–إسبانيا"
+    "note": "Derby ibérique, voisins et futurs co-organisateurs du Mondial 2030.",
+    "label_fr": "Portugal–Espagne",
+    "label_en": "Portugal–Spain",
+    "label_es": "Portugal–España",
+    "label_pt": "Portugal–Espanha",
+    "label_ar": "البرتغال–إسبانيا"
+  },
+  "por-spain": {
+    "home": "portugal",
+    "away": "spain",
+    "label": "Portugal–Espagne",
+    "round": "R16",
+    "dateParis": "2026-07-06T21:00:00+02:00",
+    "dateUTC": "2026-07-06T19:00:00Z",
+    "stadium": "Dallas · Arlington Stadium",
+    "channel_fr": "beIN Sports 1",
+    "note": "Derby ibérique, voisins et futurs co-organisateurs du Mondial 2030.",
+    "label_fr": "Portugal–Espagne",
+    "label_en": "Portugal–Spain",
+    "label_es": "Portugal–España",
+    "label_pt": "Portugal–Espanha",
+    "label_ar": "البرتغال–إسبانيا"
   }
 }

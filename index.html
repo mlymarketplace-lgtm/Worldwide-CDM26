@@ -9,7 +9,7 @@
 // BUILD_VERSION — version stable de build, à bumper à chaque déploiement.
 // Remplace les cache-busters dynamiques (Date.now()) sur les ressources stables
 // afin que le navigateur puisse effectivement les mettre en cache entre deux visites.
-const BUILD_VERSION = '11.5.5';
+const BUILD_VERSION = '11.5.6';
 (function(){
   var p = new URLSearchParams(window.location.search);
   var v10Active = p.has('team') || p.get('mode') !== 'global';
@@ -42,6 +42,49 @@ html.v10-booting #v10-team-selector, html.v10-booting .v10-selector{visibility:v
 .r32-card.locked .r32-pick{color:#86efac;font-weight:900;}
 .r32-penalty{display:inline-flex;align-items:center;gap:4px;margin-left:6px;color:#facc15;font-weight:900;font-size:.58rem;letter-spacing:.04em;}
 
+
+
+/* V11.5.6 — niveau de compétition en cours */
+.knockout-zone.current-stage,
+.bracket-col.current-stage{
+  position:relative;
+  border-color:#facc1570 !important;
+  box-shadow:0 0 0 1px #facc1540, 0 0 36px #facc1518;
+}
+.knockout-zone.current-stage::before,
+.bracket-col.current-stage::before{
+  content:"NIVEAU EN COURS";
+  position:absolute;
+  top:-10px;
+  left:18px;
+  z-index:3;
+  padding:4px 10px;
+  border-radius:999px;
+  border:1px solid #facc1570;
+  background:linear-gradient(90deg,#231a02,#06230f);
+  color:#fde047;
+  font-family:Oswald,sans-serif;
+  font-size:.62rem;
+  font-weight:900;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+}
+.r32-current-note{
+  margin:8px 0 0;
+  color:#fde047;
+  font-size:.72rem;
+  font-weight:800;
+}
+.ko-team.locked{cursor:default;}
+.ko-team.locked:not(.picked){opacity:.62;}
+.ko-card.official-locked{
+  border-color:#4ade8070;
+  box-shadow:0 0 0 1px #4ade8028,0 10px 28px #0005;
+}
+.ko-card.official-locked input{
+  opacity:.9;
+  cursor:default;
+}
 
 </style>
 <style>
@@ -1011,6 +1054,49 @@ header{display:flex;align-items:center;justify-content:space-between;padding:12p
   #hero-banner{height:190px!important;}
 }
 
+
+/* V11.5.6 — niveau de compétition en cours */
+.knockout-zone.current-stage,
+.bracket-col.current-stage{
+  position:relative;
+  border-color:#facc1570 !important;
+  box-shadow:0 0 0 1px #facc1540, 0 0 36px #facc1518;
+}
+.knockout-zone.current-stage::before,
+.bracket-col.current-stage::before{
+  content:"NIVEAU EN COURS";
+  position:absolute;
+  top:-10px;
+  left:18px;
+  z-index:3;
+  padding:4px 10px;
+  border-radius:999px;
+  border:1px solid #facc1570;
+  background:linear-gradient(90deg,#231a02,#06230f);
+  color:#fde047;
+  font-family:Oswald,sans-serif;
+  font-size:.62rem;
+  font-weight:900;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+}
+.r32-current-note{
+  margin:8px 0 0;
+  color:#fde047;
+  font-size:.72rem;
+  font-weight:800;
+}
+.ko-team.locked{cursor:default;}
+.ko-team.locked:not(.picked){opacity:.62;}
+.ko-card.official-locked{
+  border-color:#4ade8070;
+  box-shadow:0 0 0 1px #4ade8028,0 10px 28px #0005;
+}
+.ko-card.official-locked input{
+  opacity:.9;
+  cursor:default;
+}
+
 </style>
 <!-- Senegalen16CMDV8_2: leaders fallback static rows -->
 <link rel="manifest" href="/manifest.webmanifest">
@@ -1020,7 +1106,7 @@ header{display:flex;align-items:center;justify-content:space-between;padding:12p
 <meta name="apple-mobile-web-app-title" content="Suivez la CDM 2026">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <link rel="apple-touch-icon" href="/assets/icons/icon-192.png">
-<link rel="stylesheet" href="src/v10/v10-team-app.css?v=11.5.5">
+<link rel="stylesheet" href="src/v10/v10-team-app.css?v=11.5.6">
 </head>
 <body>
 <div class="band"></div>
@@ -2265,7 +2351,9 @@ const STATIC_R32_LOCKS = {
   'eng-cod': { koId:'N80', h:'ENG', a:'COD', home:2, away:1, status:'final', apiStatus:'FT', apiStatusLong:'Match Finished', winner:'home', winnerSide:0, locked:true },
   'bel-sen': { koId:'N82', h:'BEL', a:'SEN', home:3, away:2, status:'final', apiStatus:'FT', apiStatusLong:'Match Finished', winner:'home', winnerSide:0, locked:true },
   'usa-bih': { koId:'N81', h:'USA', a:'BIH', home:2, away:0, status:'final', apiStatus:'FT', apiStatusLong:'Match Finished', winner:'home', winnerSide:0, locked:true },
-  'esp-aut': { koId:'N84', h:'ESP', a:'AUT', home:3, away:0, status:'final', apiStatus:'FT', apiStatusLong:'Match Finished', winner:'home', winnerSide:0, locked:true }
+  'esp-aut': { koId:'N84', h:'ESP', a:'AUT', home:3, away:0, status:'final', apiStatus:'FT', apiStatusLong:'Match Finished', winner:'home', winnerSide:0, locked:true },
+  'por-cro': { koId:'N83', h:'POR', a:'CRO', home:2, away:1, status:'final', apiStatus:'FT', apiStatusLong:'Match Finished', winner:'home', winnerSide:0, locked:true },
+  'sui-alg': { koId:'N85', h:'SUI', a:'ALG', home:2, away:0, status:'final', apiStatus:'FT', apiStatusLong:'Match Finished', winner:'home', winnerSide:0, locked:true }
 };
 
 const R32_CARDS = [
@@ -2316,12 +2404,52 @@ const KO_ROUNDS = [
   ]}
 ];
 
-const r32Scores = { N73:[0,1], N78:[2,1], N74:[1,1], N75:[1,1], N76:[1,2], N77:[3,0], N79:[2,0], N80:[2,1], N82:[3,2], N81:[2,0], N84:[3,0] }; // V11.5.5 fallback officiel local
-const r32Picks = { N73:1, N78:0, N74:1, N75:1, N76:1, N77:0, N79:0, N80:0, N82:0, N81:0, N84:0 };
-const r32Locked = { N73:true, N78:true, N74:true, N75:true, N76:true, N77:true, N79:true, N80:true, N82:true, N81:true, N84:true }; // V11.5.5 : matchs finalisés API figés dans la simulation
+const r32Scores = { N73:[0,1], N78:[2,1], N74:[1,1], N75:[1,1], N76:[1,2], N77:[3,0], N79:[2,0], N80:[2,1], N82:[3,2], N81:[2,0], N84:[3,0] }; // V11.5.6 fallback officiel local
+const r32Picks = { N73:1, N78:0, N74:1, N75:1, N76:1, N77:0, N79:0, N80:0, N82:0, N81:0, N84:0, N83:0, N85:0 };
+const r32Locked = { N73:true, N78:true, N74:true, N75:true, N76:true, N77:true, N79:true, N80:true, N82:true, N81:true, N84:true }; // V11.5.6 : matchs finalisés API figés dans la simulation
 const koPicks = { r16:{}, qf:{}, sf:{}, final:{} };
 const koScores = { r16:{}, qf:{}, sf:{}, final:{} };
+const koLocked = { r16:{}, qf:{}, sf:{}, final:{} };
 const ROUND_ORDER = ['r16','qf','sf','final'];
+
+function allR32Resolved() {
+  return R32_CARDS.every(c => !!r32Locked[c.id] || r32Picks[c.id] !== undefined);
+}
+function firstUnresolvedRoundKey() {
+  if (!allR32Resolved()) return 'r32';
+  for (const round of ROUND_ORDER) {
+    const ro = koRoundByKey(round);
+    if (!ro) continue;
+    const hasOpen = ro.matches.some(m => {
+      const bothResolved = m.sources.every(src => sourceResolved(src));
+      return bothResolved && koPicks[round]?.[m.id] === undefined;
+    });
+    const hasWaiting = ro.matches.some(m => !m.sources.every(src => sourceResolved(src)));
+    if (hasOpen || hasWaiting) return round;
+  }
+  return 'final';
+}
+function updateCurrentStageHighlight() {
+  const active = firstUnresolvedRoundKey();
+  document.querySelectorAll('.knockout-zone.current-stage,.bracket-col.current-stage').forEach(el => el.classList.remove('current-stage'));
+  const r32Zone = document.querySelector('.knockout-r32');
+  if (r32Zone && active === 'r32') {
+    r32Zone.classList.add('current-stage');
+    let note = r32Zone.querySelector('.r32-current-note');
+    if (!note) {
+      note = document.createElement('div');
+      note.className = 'r32-current-note';
+      const help = r32Zone.querySelector('.r16-help');
+      if (help) help.insertAdjacentElement('afterend', note);
+    }
+    const remaining = R32_CARDS.filter(c => !r32Locked[c.id] && r32Picks[c.id] === undefined).length;
+    note.textContent = remaining > 0 ? `${remaining} match${remaining > 1 ? 's' : ''} de 16es encore à jouer : niveau de compétition en cours.` : '16es terminés : passage aux huitièmes.';
+  }
+  document.querySelectorAll('.bracket-col').forEach(el => {
+    if (el.classList.contains(`bracket-col-${active}`)) el.classList.add('current-stage');
+  });
+}
+
 
 function cleanLabel(label) {
   return String(label || '').replace(/<[^>]*>/g, '').trim();
@@ -2335,10 +2463,10 @@ function laterRounds(round) {
   return idx < 0 ? ROUND_ORDER : ROUND_ORDER.slice(idx + 1);
 }
 function clearFutureFrom(round) {
-  laterRounds(round).forEach(r => { koPicks[r] = {}; koScores[r] = {}; });
+  laterRounds(round).forEach(r => { koPicks[r] = {}; koScores[r] = {}; koLocked[r] = {}; });
 }
 function clearAllKo() {
-  ROUND_ORDER.forEach(r => { koPicks[r] = {}; koScores[r] = {}; });
+  ROUND_ORDER.forEach(r => { koPicks[r] = {}; koScores[r] = {}; koLocked[r] = {}; });
 }
 function containsSenegal(label) { return cleanLabel(label).includes('Sénégal'); }
 
@@ -2427,12 +2555,41 @@ function applyR32Locks(locks = STATIC_R32_LOCKS, source = 'static') {
   return changed;
 }
 
+function applyKOLocks(locks = {}) {
+  if (!locks || typeof locks !== 'object') return false;
+  let changed = false;
+  ROUND_ORDER.forEach(round => {
+    const roundLocks = locks[round];
+    if (!roundLocks || typeof roundLocks !== 'object') return;
+    Object.entries(roundLocks).forEach(([matchId, lock]) => {
+      const m = koMatchById(round, matchId);
+      if (!m || !lock) return;
+      const home = lock.home ?? lock.hg ?? null;
+      const away = lock.away ?? lock.ag ?? null;
+      const winnerSide = (lock.winnerSide === 0 || lock.winnerSide === 1)
+        ? lock.winnerSide
+        : (home !== null && away !== null && home !== away ? (home > away ? 0 : 1) : null);
+      const prev = JSON.stringify({score:koScores[round]?.[matchId] || null, pick:koPicks[round]?.[matchId], locked:koLocked[round]?.[matchId] || false});
+      if (home !== null && away !== null) koScores[round][matchId] = [home, away];
+      if ((lock.status === 'final' || lock.locked) && winnerSide !== null) {
+        koPicks[round][matchId] = winnerSide;
+        koLocked[round][matchId] = true;
+      }
+      const next = JSON.stringify({score:koScores[round]?.[matchId] || null, pick:koPicks[round]?.[matchId], locked:koLocked[round]?.[matchId] || false});
+      if (prev !== next) changed = true;
+    });
+  });
+  return changed;
+}
+
 async function loadR32LocksFileOnce() {
   try {
     const res = await fetch('/data/knockout-locks.json?v=' + BUILD_VERSION, { cache:'no-store' });
     if (!res.ok) return false;
     const locks = await res.json();
-    const changed = applyR32Locks(locks, 'file');
+    const changedR32 = applyR32Locks(locks.r32 || locks, 'file');
+    const changedKO = applyKOLocks(locks);
+    const changed = changedR32 || changedKO;
     if (changed) recalculateAll();
     return changed;
   } catch(e) { return false; }
@@ -2502,6 +2659,7 @@ function setR32Score(matchId, side, value) {
   renderKnockoutTree();
 }
 function pickKO(round, matchId, side) {
+  if (koLocked[round] && koLocked[round][matchId]) return;
   const m = koMatchById(round, matchId);
   if (!m || !sourceResolved(m.sources[side])) return;
   koPicks[round][matchId] = side;
@@ -2509,6 +2667,7 @@ function pickKO(round, matchId, side) {
   renderKnockoutTree();
 }
 function setKOScore(round, matchId, side, value) {
+  if (koLocked[round] && koLocked[round][matchId]) return;
   const m = koMatchById(round, matchId);
   if (!m) return;
   if (!sourceResolved(m.sources[0]) || !sourceResolved(m.sources[1])) return;
@@ -2575,6 +2734,7 @@ function renderRound32Grid() {
      <div class="r32-note"><strong>${c.venue || ''}</strong>${status ? ' · ' + status : ''}${c.note ? ' · ' + c.note : ''}</div>
    </div>`;
   }).join('');
+  updateCurrentStageHighlight();
 }
 
 const v1141R32ChronologyMedia = window.matchMedia ? window.matchMedia('(max-width: 620px)') : null;
@@ -2585,10 +2745,11 @@ if (v1141R32ChronologyMedia) {
 }
 
 function koTeam(round, matchId, idx, label, resolved, picked) {
-  const css = `ko-team${resolved ? '' : ' placeholder'}${picked ? ' picked' : ''}`;
-  const pickText = picked ? t('victory') : (resolved ? t('choose') : t('waiting'));
-  const click = resolved ? `onclick="pickKO('${round}','${matchId}',${idx})"` : '';
-  const title = resolved ? `title="${t('choose')} ${escapeAttr(label)}"` : `title="${t('choosePrev')}"`;
+  const locked = !!(koLocked[round] && koLocked[round][matchId]);
+  const css = `ko-team${resolved ? '' : ' placeholder'}${picked ? ' picked' : ''}${locked ? ' locked' : ''}`;
+  const pickText = picked ? t('victory') : (resolved ? (locked ? 'Figé' : t('choose')) : t('waiting'));
+  const click = (resolved && !locked) ? `onclick="pickKO('${round}','${matchId}',${idx})"` : '';
+  const title = resolved ? `title="${locked ? 'Résultat officiel figé' : t('choose') + ' ' + escapeAttr(label)}"` : `title="${t('choosePrev')}"`;
   return `<div class="${css}" ${click} ${title}><span>${label}</span><span class="ko-pick">${pickText}</span></div>`;
 }
 function renderKOCard(round, m) {
@@ -2597,16 +2758,17 @@ function renderKOCard(round, m) {
   const display = labels.map(label => label || t('waiting'));
   const pick = koPicks[round]?.[m.id];
   const score = (koScores[round] && koScores[round][m.id]) || [null, null];
+  const officialLocked = !!(koLocked[round] && koLocked[round][m.id]);
   const senCls = matchHasSenegal(round, m) ? ' senegal-path' : '';
   const waitingCls = (!resolved[0] || !resolved[1]) ? ' waiting' : '';
   const scoreInputs = resolved[0] && resolved[1]
     ? `<div class="ko-scoreline">
-      <input type="number" min="0" placeholder="-" value="${score[0] ?? ''}" onclick="event.stopPropagation()" onchange="setKOScore('${round}','${m.id}',0,this.value)">
-      <span>${t('score')}</span>
-      <input type="number" min="0" placeholder="-" value="${score[1] ?? ''}" onclick="event.stopPropagation()" onchange="setKOScore('${round}','${m.id}',1,this.value)">
+      <input type="number" min="0" placeholder="-" value="${score[0] ?? ''}" ${officialLocked ? 'disabled' : ''} onclick="event.stopPropagation()" onchange="setKOScore('${round}','${m.id}',0,this.value)">
+      <span>${officialLocked ? 'FT' : t('score')}</span>
+      <input type="number" min="0" placeholder="-" value="${score[1] ?? ''}" ${officialLocked ? 'disabled' : ''} onclick="event.stopPropagation()" onchange="setKOScore('${round}','${m.id}',1,this.value)">
     </div>`
     : `<div class="ko-scoreline" aria-hidden="true"></div>`;
-  return `<div class="ko-card${senCls}${waitingCls}" data-round="${round}" data-match="${m.id}">
+  return `<div class="ko-card${senCls}${waitingCls}${officialLocked ? ' official-locked' : ''}" data-round="${round}" data-match="${m.id}">
     <div class="ko-head"><span>${m.final ? t('finale') : (t('roundNames')[round] || koRoundByKey(round).title)}</span><span class="ko-date">${formatKoLocalDate(m)}</span></div>
     ${koTeam(round, m.id, 0, display[0], resolved[0], pick === 0)}
     ${koTeam(round, m.id, 1, display[1], resolved[1], pick === 1)}
@@ -2618,6 +2780,7 @@ function renderKnockoutTree() {
   const tree = document.getElementById('bracket-tree');
   if (tree) {
     tree.innerHTML = KO_ROUNDS.map(round => `<div class="bracket-col bracket-col-${round.key}"><div class="bracket-col-title">${round.title}</div><div class="bracket-stack">${round.matches.map(m => renderKOCard(round.key, m)).join('')}</div></div>`).join('');
+    updateCurrentStageHighlight();
   }
   const finalBox = document.getElementById('ko-final-winner');
   if (finalBox) {
@@ -4120,7 +4283,7 @@ setTimeout(()=>{
 }, 900);
 
 </script>
-<script src="src/v10/v10-team-app.js?v=11.5.5"></script>
+<script src="src/v10/v10-team-app.js?v=11.5.6"></script>
 
 <script>
 // V10.3 — PWA registration. Le service worker garde les scores/API en network-first.

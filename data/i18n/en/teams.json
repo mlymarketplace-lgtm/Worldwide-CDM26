@@ -12,9 +12,9 @@
   "spain": {
     "teamName": "Spain",
     "tagline": "La Roja, the empire of control",
-    "statusLabel": "Qualified for the last 16 · Spain 3–0 Austria",
+    "statusLabel": "Qualified for the Round of 16 · Spain 3–0 Austria",
     "supporterName": "La Roja",
-    "selectorLine": "Qualified · Portugal or Croatia next",
+    "selectorLine": "Qualified · Portugal next",
     "heroTitle": "🇪🇸 Spain at the 2026 World Cup",
     "heroSubtitle": "La Roja controlled Austria: the journey continues.",
     "heroPlayer": "Rodri"
@@ -23,5 +23,11 @@
     "teamName": "Portugal or Croatia",
     "supporterName": "Winner of Portugal–Croatia",
     "tagline": "Opponent to be confirmed"
+  },
+  "algeria": {
+    "teamName": "Algeria",
+    "tagline": "The pride of the Fennecs",
+    "statusLabel": "Eliminated in the Round of 32",
+    "selectorLine": "Eliminated · respect to the Fennecs"
   }
 }

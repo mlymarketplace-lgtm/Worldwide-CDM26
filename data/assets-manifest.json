@@ -92,6 +92,10 @@
     },
     "cape_verde": {
       "player": "assets/teams/cape_verde/player.webp"
+    },
+    "portugal": {
+      "player": "assets/opponents/portugal/player.webp",
+      "status": "complete"
     }
   },
   "cape_verde": {

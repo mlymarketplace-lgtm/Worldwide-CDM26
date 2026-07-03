@@ -150,5 +150,13 @@
     "supporterName": "Vainqueur Portugal–Croatie",
     "heroPlayer": "Vainqueur du match Portugal–Croatie",
     "playerImg": "assets/world-cup-hero.webp"
+  },
+  "portugal": {
+    "teamName": "Portugal",
+    "flag": "🇵🇹",
+    "nickname": "Seleção das Quinas",
+    "supporterName": "Seleção",
+    "heroPlayer": "Cristiano Ronaldo",
+    "playerImg": "assets/opponents/portugal/player.webp"
   }
 }

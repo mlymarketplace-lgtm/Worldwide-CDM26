@@ -12,16 +12,31 @@
     ]
   },
   "porcro-spain": {
-    "homeTeam": "portugal_croatia",
+    "homeTeam": "portugal",
     "awayTeam": "spain",
-    "matchId": "porcro-spain",
-    "title": "Portugal/Croacia–España: La Roja espera su próximo examen",
-    "angle": "España confirmó su rango ante Austria. Ahora espera al ganador de un duelo de carácter entre Portugal y Croacia.",
+    "matchId": "por-spain",
+    "title": "Portugal–España: derbi ibérico con historia encendida",
+    "angle": "Vecinos, gigantes y futuros coorganizadores del Mundial 2030 con Marruecos: este octavo huele a derbi auténtico.",
     "body": [
-      "España hizo el trabajo: 3–0 ante Austria, clasificación clara y la sensación de que La Roja sube de temperatura en el momento justo.",
-      "La siguiente prueba tendrá otro sabor. Portugal o Croacia no serán el mismo partido, pero sí un rival acostumbrado a las grandes noches y capaz de convertir una noche controlada en un pulso de nervios.",
-      "Para España, el reto es sencillo: mantener el control sin caer en la comodidad. Cuando La Roja impone su ritmo, puede ahogar a cualquiera. Pero en esta fase, la posesión no basta: también hay que cerrar la puerta, golpear en el momento justo y sobrevivir a los momentos de duda.",
-      "España está en octavos. El control está ahí. Ahora toca demostrar que esa autoridad puede viajar hasta las rondas que de verdad pesan."
+      "Portugal–España nunca es un partido neutro. Es frontera, memoria y rivalidad entre vecinos que se conocen demasiado bien.",
+      "Portugal llega tras ganar 2–1 a Croacia. Cristiano Ronaldo sigue siendo el símbolo que convierte cada noche portuguesa en un acontecimiento.",
+      "España acaba de dominar a Austria 3–0. La Roja quiere el balón, el ritmo y los nervios. Pero contra Portugal, el control nunca basta por sí solo.",
+      "El historial añade picante: 11v11 registra 41 partidos, con 18 victorias españolas, 16 empates y 7 victorias portuguesas.",
+      "Y 2030 aparece de fondo: España, Portugal y Marruecos organizarán juntos el próximo Mundial. Antes de compartir el escenario, los vecinos pelean por seguir vivos en este."
+    ]
+  },
+  "por-spain": {
+    "homeTeam": "portugal",
+    "awayTeam": "spain",
+    "matchId": "por-spain",
+    "title": "Portugal–España: derbi ibérico con historia encendida",
+    "angle": "Vecinos, gigantes y futuros coorganizadores del Mundial 2030 con Marruecos: este octavo huele a derbi auténtico.",
+    "body": [
+      "Portugal–España nunca es un partido neutro. Es frontera, memoria y rivalidad entre vecinos que se conocen demasiado bien.",
+      "Portugal llega tras ganar 2–1 a Croacia. Cristiano Ronaldo sigue siendo el símbolo que convierte cada noche portuguesa en un acontecimiento.",
+      "España acaba de dominar a Austria 3–0. La Roja quiere el balón, el ritmo y los nervios. Pero contra Portugal, el control nunca basta por sí solo.",
+      "El historial añade picante: 11v11 registra 41 partidos, con 18 victorias españolas, 16 empates y 7 victorias portuguesas.",
+      "Y 2030 aparece de fondo: España, Portugal y Marruecos organizarán juntos el próximo Mundial. Antes de compartir el escenario, los vecinos pelean por seguir vivos en este."
     ]
   }
 }

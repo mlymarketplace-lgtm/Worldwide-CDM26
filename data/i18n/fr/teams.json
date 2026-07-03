@@ -4,7 +4,7 @@
     "tagline": "La Roja, l’empire du contrôle",
     "statusLabel": "Qualifiée en huitième · Espagne 3–0 Autriche",
     "supporterName": "La Roja",
-    "selectorLine": "Qualifiée · Portugal ou Croatie ensuite",
+    "selectorLine": "Qualifiée · Portugal en huitième",
     "heroTitle": "🇪🇸 Espagne à la Coupe du monde 2026",
     "heroSubtitle": "La Roja a maîtrisé l’Autriche : le tournoi continue.",
     "heroPlayer": "Rodri"
@@ -43,5 +43,11 @@
     "teamName": "Portugal ou Croatie",
     "supporterName": "Vainqueur Portugal–Croatie",
     "tagline": "Adversaire à confirmer"
+  },
+  "algeria": {
+    "teamName": "Algérie",
+    "tagline": "La fierté des Fennecs",
+    "statusLabel": "Éliminée en seizième de finale",
+    "selectorLine": "Éliminée · respect aux Fennecs"
   }
 }
