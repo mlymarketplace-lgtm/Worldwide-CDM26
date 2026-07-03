@@ -1,4 +1,4 @@
-// QualifGaïndé V11.5.6 — fix language switch legacy overwrite + parallel data loading
+// QualifGaïndé V11.5.7 — fix language switch legacy overwrite + parallel data loading
 // Conserve le socle V10.4.4 : routing, PWA, API, bracket et affichage local timezone.
 (function(){
   window.QUALIFGAINDE_V10_ACTIVE = true;

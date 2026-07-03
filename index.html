@@ -9,7 +9,7 @@
 // BUILD_VERSION — version stable de build, à bumper à chaque déploiement.
 // Remplace les cache-busters dynamiques (Date.now()) sur les ressources stables
 // afin que le navigateur puisse effectivement les mettre en cache entre deux visites.
-const BUILD_VERSION = '11.5.6';
+const BUILD_VERSION = '11.5.7';
 (function(){
   var p = new URLSearchParams(window.location.search);
   var v10Active = p.has('team') || p.get('mode') !== 'global';
@@ -44,14 +44,12 @@ html.v10-booting #v10-team-selector, html.v10-booting .v10-selector{visibility:v
 
 
 
-/* V11.5.6 — niveau de compétition en cours */
-.knockout-zone.current-stage,
+/* V11.5.7 — surbrillance colonne du tableau de simulation */
 .bracket-col.current-stage{
   position:relative;
   border-color:#facc1570 !important;
   box-shadow:0 0 0 1px #facc1540, 0 0 36px #facc1518;
 }
-.knockout-zone.current-stage::before,
 .bracket-col.current-stage::before{
   content:"NIVEAU EN COURS";
   position:absolute;
@@ -1055,14 +1053,12 @@ header{display:flex;align-items:center;justify-content:space-between;padding:12p
 }
 
 
-/* V11.5.6 — niveau de compétition en cours */
-.knockout-zone.current-stage,
+/* V11.5.7 — surbrillance colonne du tableau de simulation */
 .bracket-col.current-stage{
   position:relative;
   border-color:#facc1570 !important;
   box-shadow:0 0 0 1px #facc1540, 0 0 36px #facc1518;
 }
-.knockout-zone.current-stage::before,
 .bracket-col.current-stage::before{
   content:"NIVEAU EN COURS";
   position:absolute;
@@ -1106,7 +1102,7 @@ header{display:flex;align-items:center;justify-content:space-between;padding:12p
 <meta name="apple-mobile-web-app-title" content="Suivez la CDM 2026">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <link rel="apple-touch-icon" href="/assets/icons/icon-192.png">
-<link rel="stylesheet" href="src/v10/v10-team-app.css?v=11.5.6">
+<link rel="stylesheet" href="src/v10/v10-team-app.css?v=11.5.7">
 </head>
 <body>
 <div class="band"></div>
@@ -2416,7 +2412,10 @@ function allR32Resolved() {
   return R32_CARDS.every(c => !!r32Locked[c.id] || r32Picks[c.id] !== undefined);
 }
 function firstUnresolvedRoundKey() {
-  if (!allR32Resolved()) return 'r32';
+  // V11.5.7 — la surbrillance doit porter sur le tableau de simulation,
+  // pas sur le bloc des 16es. Tant que les huitièmes sont le prochain
+  // niveau visible dans le bracket, on garde la colonne Huitièmes active,
+  // même s'il reste quelques 16es à finaliser en amont.
   for (const round of ROUND_ORDER) {
     const ro = koRoundByKey(round);
     if (!ro) continue;
@@ -2432,19 +2431,7 @@ function firstUnresolvedRoundKey() {
 function updateCurrentStageHighlight() {
   const active = firstUnresolvedRoundKey();
   document.querySelectorAll('.knockout-zone.current-stage,.bracket-col.current-stage').forEach(el => el.classList.remove('current-stage'));
-  const r32Zone = document.querySelector('.knockout-r32');
-  if (r32Zone && active === 'r32') {
-    r32Zone.classList.add('current-stage');
-    let note = r32Zone.querySelector('.r32-current-note');
-    if (!note) {
-      note = document.createElement('div');
-      note.className = 'r32-current-note';
-      const help = r32Zone.querySelector('.r16-help');
-      if (help) help.insertAdjacentElement('afterend', note);
-    }
-    const remaining = R32_CARDS.filter(c => !r32Locked[c.id] && r32Picks[c.id] === undefined).length;
-    note.textContent = remaining > 0 ? `${remaining} match${remaining > 1 ? 's' : ''} de 16es encore à jouer : niveau de compétition en cours.` : '16es terminés : passage aux huitièmes.';
-  }
+  document.querySelectorAll('.r32-current-note').forEach(el => el.remove());
   document.querySelectorAll('.bracket-col').forEach(el => {
     if (el.classList.contains(`bracket-col-${active}`)) el.classList.add('current-stage');
   });
@@ -4283,7 +4270,7 @@ setTimeout(()=>{
 }, 900);
 
 </script>
-<script src="src/v10/v10-team-app.js?v=11.5.6"></script>
+<script src="src/v10/v10-team-app.js?v=11.5.7"></script>
 
 <script>
 // V10.3 — PWA registration. Le service worker garde les scores/API en network-first.
