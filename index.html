@@ -9,7 +9,7 @@
 // BUILD_VERSION — version stable de build, à bumper à chaque déploiement.
 // Remplace les cache-busters dynamiques (Date.now()) sur les ressources stables
 // afin que le navigateur puisse effectivement les mettre en cache entre deux visites.
-const BUILD_VERSION = '11.5.7';
+const BUILD_VERSION = '11.5.8';
 (function(){
   var p = new URLSearchParams(window.location.search);
   var v10Active = p.has('team') || p.get('mode') !== 'global';
@@ -44,28 +44,39 @@ html.v10-booting #v10-team-selector, html.v10-booting .v10-selector{visibility:v
 
 
 
-/* V11.5.7 — surbrillance colonne du tableau de simulation */
+/* V11.5.8 — highlight horizontal uniquement sur le bandeau du niveau actif */
 .bracket-col.current-stage{
   position:relative;
-  border-color:#facc1570 !important;
-  box-shadow:0 0 0 1px #facc1540, 0 0 36px #facc1518;
+  border-color:inherit !important;
+  box-shadow:none !important;
 }
 .bracket-col.current-stage::before{
+  content:none !important;
+  display:none !important;
+}
+.bracket-col.current-stage .bracket-col-title{
+  position:relative;
+  color:#07111f;
+  background:linear-gradient(90deg,#fde047,#facc15 55%,#22c55e);
+  border:1px solid #facc1590;
+  border-radius:999px;
+  padding:7px 12px;
+  text-align:center;
+  box-shadow:0 0 0 1px #facc1540,0 0 24px #facc1522;
+}
+.bracket-col.current-stage .bracket-col-title::before{
   content:"NIVEAU EN COURS";
   position:absolute;
-  top:-10px;
-  left:18px;
-  z-index:3;
-  padding:4px 10px;
+  left:12px;
+  top:50%;
+  transform:translateY(-50%);
+  padding:2px 8px;
   border-radius:999px;
-  border:1px solid #facc1570;
-  background:linear-gradient(90deg,#231a02,#06230f);
+  background:#0b111a;
   color:#fde047;
-  font-family:Oswald,sans-serif;
-  font-size:.62rem;
+  font-size:.55rem;
   font-weight:900;
-  letter-spacing:.16em;
-  text-transform:uppercase;
+  letter-spacing:.08em;
 }
 .r32-current-note{
   margin:8px 0 0;
@@ -82,6 +93,24 @@ html.v10-booting #v10-team-selector, html.v10-booting .v10-selector{visibility:v
 .ko-card.official-locked input{
   opacity:.9;
   cursor:default;
+}
+
+
+/* V11.5.8 — neutralisation visuelle de l'ancien chemin Sénégal dans les brackets */
+.knockout-sim .r16-card.senegal-path,
+.ko-card.senegal-path{
+  border-color:#38bdf830 !important;
+  background:linear-gradient(180deg,#0a1830,#0b1020) !important;
+  box-shadow:inset 0 0 0 1px #7c3aed16 !important;
+}
+.knockout-sim .r16-card.senegal-path .r16-head,
+.ko-card.senegal-path .ko-head{
+  color:#67e8f9 !important;
+  background:linear-gradient(90deg,#061428,#10102a) !important;
+}
+.ko-card.senegal-path .ko-team.picked{
+  color:#4ade80 !important;
+  background:#4ade8012 !important;
 }
 
 </style>
@@ -1053,28 +1082,39 @@ header{display:flex;align-items:center;justify-content:space-between;padding:12p
 }
 
 
-/* V11.5.7 — surbrillance colonne du tableau de simulation */
+/* V11.5.8 — highlight horizontal uniquement sur le bandeau du niveau actif */
 .bracket-col.current-stage{
   position:relative;
-  border-color:#facc1570 !important;
-  box-shadow:0 0 0 1px #facc1540, 0 0 36px #facc1518;
+  border-color:inherit !important;
+  box-shadow:none !important;
 }
 .bracket-col.current-stage::before{
+  content:none !important;
+  display:none !important;
+}
+.bracket-col.current-stage .bracket-col-title{
+  position:relative;
+  color:#07111f;
+  background:linear-gradient(90deg,#fde047,#facc15 55%,#22c55e);
+  border:1px solid #facc1590;
+  border-radius:999px;
+  padding:7px 12px;
+  text-align:center;
+  box-shadow:0 0 0 1px #facc1540,0 0 24px #facc1522;
+}
+.bracket-col.current-stage .bracket-col-title::before{
   content:"NIVEAU EN COURS";
   position:absolute;
-  top:-10px;
-  left:18px;
-  z-index:3;
-  padding:4px 10px;
+  left:12px;
+  top:50%;
+  transform:translateY(-50%);
+  padding:2px 8px;
   border-radius:999px;
-  border:1px solid #facc1570;
-  background:linear-gradient(90deg,#231a02,#06230f);
+  background:#0b111a;
   color:#fde047;
-  font-family:Oswald,sans-serif;
-  font-size:.62rem;
+  font-size:.55rem;
   font-weight:900;
-  letter-spacing:.16em;
-  text-transform:uppercase;
+  letter-spacing:.08em;
 }
 .r32-current-note{
   margin:8px 0 0;
@@ -1102,7 +1142,7 @@ header{display:flex;align-items:center;justify-content:space-between;padding:12p
 <meta name="apple-mobile-web-app-title" content="Suivez la CDM 2026">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <link rel="apple-touch-icon" href="/assets/icons/icon-192.png">
-<link rel="stylesheet" href="src/v10/v10-team-app.css?v=11.5.7">
+<link rel="stylesheet" href="src/v10/v10-team-app.css?v=11.5.8">
 </head>
 <body>
 <div class="band"></div>
@@ -2412,7 +2452,7 @@ function allR32Resolved() {
   return R32_CARDS.every(c => !!r32Locked[c.id] || r32Picks[c.id] !== undefined);
 }
 function firstUnresolvedRoundKey() {
-  // V11.5.7 — la surbrillance doit porter sur le tableau de simulation,
+  // V11.5.8 — la surbrillance doit porter sur le tableau de simulation,
   // pas sur le bloc des 16es. Tant que les huitièmes sont le prochain
   // niveau visible dans le bracket, on garde la colonne Huitièmes active,
   // même s'il reste quelques 16es à finaliser en amont.
@@ -2746,7 +2786,7 @@ function renderKOCard(round, m) {
   const pick = koPicks[round]?.[m.id];
   const score = (koScores[round] && koScores[round][m.id]) || [null, null];
   const officialLocked = !!(koLocked[round] && koLocked[round][m.id]);
-  const senCls = matchHasSenegal(round, m) ? ' senegal-path' : '';
+  const senCls = ''; // V11.5.8 — ancien chemin Sénégal neutralisé dans le bracket
   const waitingCls = (!resolved[0] || !resolved[1]) ? ' waiting' : '';
   const scoreInputs = resolved[0] && resolved[1]
     ? `<div class="ko-scoreline">
@@ -4270,7 +4310,7 @@ setTimeout(()=>{
 }, 900);
 
 </script>
-<script src="src/v10/v10-team-app.js?v=11.5.7"></script>
+<script src="src/v10/v10-team-app.js?v=11.5.8"></script>
 
 <script>
 // V10.3 — PWA registration. Le service worker garde les scores/API en network-first.
