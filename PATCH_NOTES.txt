@@ -1,8 +1,7 @@
-V12 — Labels propres & ordre UX
+QualifGaïndé V12.0.1 — correctif labels WINNER_N89
 
-1. Passage de BUILD_VERSION à 12.0.0 : on arrête la série V11.
-2. Bloc « Simule le chemin jusqu’à la finale » placé avant « Tableau officiel des 16es de finale ».
-3. Suppression côté affichage des libellés techniques type WINNER_N89 : les sources non résolues affichent désormais « Vainqueur Paraguay–France » ou une formulation lisible.
-4. Ajout de libellés display propres dans data/matches.json pour les tours dynamiques.
-5. Ajout d’un adversaire placeholder winner_par_fra dans data/opponents.json pour éviter l’affichage brut d’un identifiant technique.
-6. Cache service worker bumpé en V12.
+1. Correction du bug visible sur la page Maroc : winner_n89 / WINNER_N89 ne doit plus apparaître côté utilisateur.
+2. qf-97 pointe maintenant vers l’adversaire placeholder propre winner_par_fra.
+3. Ajout d’alias dans data/opponents.json pour winner_n89 et les futurs placeholders winner_nXX, afin d’éviter tout affichage brut.
+4. Ajout d’un garde-fou DOM dans index.html : si un libellé technique remonte malgré tout via l’ancien moteur V10/cache, il est remplacé par un libellé propre.
+5. Version et cache passés en V12.0.1.

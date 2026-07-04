@@ -9,7 +9,7 @@
 // BUILD_VERSION — version stable de build, à bumper à chaque déploiement.
 // Remplace les cache-busters dynamiques (Date.now()) sur les ressources stables
 // afin que le navigateur puisse effectivement les mettre en cache entre deux visites.
-const BUILD_VERSION = '12.0.0';
+const BUILD_VERSION = '12.0.1';
 (function(){
   var p = new URLSearchParams(window.location.search);
   var v10Active = p.has('team') || p.get('mode') !== 'global';
@@ -1210,7 +1210,7 @@ header{display:flex;align-items:center;justify-content:space-between;padding:12p
 <meta name="apple-mobile-web-app-title" content="Suivez la CDM 2026">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <link rel="apple-touch-icon" href="/assets/icons/icon-192.png">
-<link rel="stylesheet" href="src/v10/v10-team-app.css?v=12.0.0">
+<link rel="stylesheet" href="src/v10/v10-team-app.css?v=12.0.1">
 </head>
 <body>
 <div class="band"></div>
@@ -4616,8 +4616,76 @@ setTimeout(()=>{
 }, 900);
 
 </script>
-<script src="src/v10/v10-team-app.js?v=12.0.0"></script>
-<script src="src/v10/auto-refresh-scores.js?v=12.0.0"></script>
+
+<script>
+// V12.0.1 — sécurité anti-libellés techniques dans l'interface.
+// Objectif : ne jamais laisser remonter WINNER_N89 / winner_n89 côté utilisateur.
+(function(){
+  const MAP = {
+    '89':'Vainqueur Paraguay–France',
+    '90':'Maroc',
+    '91':'Vainqueur Norvège–Brésil',
+    '92':'Vainqueur Mexique–Angleterre',
+    '93':'Vainqueur Portugal–Espagne',
+    '94':'Vainqueur États-Unis–Belgique',
+    '95':'Vainqueur Argentine–Égypte',
+    '96':'Vainqueur Suisse–Colombie',
+    '97':'Vainqueur Paraguay–France / Maroc',
+    '98':'Vainqueur Portugal–Espagne / États-Unis–Belgique',
+    '99':'Vainqueur Norvège–Brésil / Mexique–Angleterre',
+    '100':'Vainqueur Argentine–Égypte / Suisse–Colombie',
+    '101':'Vainqueur demi-finale 1',
+    '102':'Vainqueur demi-finale 2',
+    '103':'Match pour la 3e place',
+    '104':'Finale'
+  };
+  function cleanWinnerLabel(value){
+    return String(value || '').replace(/\bWINNER[_-]?N?(\d+)\b/gi, function(_, n){ return MAP[n] || ('Vainqueur match ' + n); });
+  }
+  function cleanTextNodes(root){
+    if (!root) return;
+    const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
+      acceptNode(node){
+        const p = node.parentElement;
+        if (!p || ['SCRIPT','STYLE','TEXTAREA','INPUT'].includes(p.tagName)) return NodeFilter.FILTER_REJECT;
+        return /winner[_-]?n?\d+/i.test(node.nodeValue || '') ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_SKIP;
+      }
+    });
+    const nodes = [];
+    while (walker.nextNode()) nodes.push(walker.currentNode);
+    nodes.forEach(node => { node.nodeValue = cleanWinnerLabel(node.nodeValue); });
+  }
+  function cleanAttrs(root){
+    if (!root || !root.querySelectorAll) return;
+    root.querySelectorAll('[title],[aria-label],[alt]').forEach(el => {
+      ['title','aria-label','alt'].forEach(attr => {
+        const v = el.getAttribute(attr);
+        if (v && /winner[_-]?n?\d+/i.test(v)) el.setAttribute(attr, cleanWinnerLabel(v));
+      });
+    });
+  }
+  function cleanAll(){ cleanTextNodes(document.body); cleanAttrs(document.body); }
+  window.QG_CLEAN_KO_LABEL = cleanWinnerLabel;
+  window.QG_SANITIZE_KO_LABELS = cleanAll;
+  document.addEventListener('DOMContentLoaded', function(){
+    cleanAll();
+    const obs = new MutationObserver(function(muts){
+      muts.forEach(m => {
+        m.addedNodes && m.addedNodes.forEach(node => {
+          if (node.nodeType === 3) node.nodeValue = cleanWinnerLabel(node.nodeValue);
+          else if (node.nodeType === 1) { cleanTextNodes(node); cleanAttrs(node); }
+        });
+      });
+      cleanAll();
+    });
+    if (document.body) obs.observe(document.body, { childList:true, subtree:true, characterData:true });
+    [100, 500, 1200, 2500, 5000].forEach(ms => setTimeout(cleanAll, ms));
+  });
+})();
+</script>
+
+<script src="src/v10/v10-team-app.js?v=12.0.1"></script>
+<script src="src/v10/auto-refresh-scores.js?v=12.0.1"></script>
 
 <script>
 // V10.3 — PWA registration. Le service worker garde les scores/API en network-first.

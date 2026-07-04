@@ -387,7 +387,7 @@
     "note": "La Suisse affronte la Colombie après la victoire colombienne contre le Ghana."
   },
   "qf-97": {
-    "home": "winner_n89",
+    "home": "winner_par_fra",
     "away": "morocco",
     "label": "Vainqueur Paraguay–France / Maroc",
     "round": "QF",
@@ -421,15 +421,15 @@
   "qf-99": {
     "home": "winner_n91",
     "away": "winner_n92",
-    "label": "Vainqueur Brésil–Norvège / Vainqueur Mexique–Angleterre",
+    "label": "Vainqueur Norvège–Brésil / Vainqueur Mexique–Angleterre",
     "round": "QF",
     "dateParis": "2026-07-11T23:00:00+02:00",
     "dateUTC": "2026-07-11T21:00:00Z",
     "stadium": "À confirmer",
     "channel_fr": "beIN Sports 1",
     "dynamic": true,
-    "homeLabel": "Vainqueur Brésil–Norvège",
-    "homeDisplay": "Vainqueur Brésil–Norvège",
+    "homeLabel": "Vainqueur Norvège–Brésil",
+    "homeDisplay": "Vainqueur Norvège–Brésil",
     "awayLabel": "Vainqueur Mexique–Angleterre",
     "awayDisplay": "Vainqueur Mexique–Angleterre"
   },
@@ -451,32 +451,32 @@
   "sf-101": {
     "home": "winner_n97",
     "away": "winner_n98",
-    "label": "Demi-finale 1",
+    "label": "Vainqueur quart 1 / Vainqueur quart 2",
     "round": "SF",
     "dateParis": "2026-07-14T21:00:00+02:00",
     "dateUTC": "2026-07-14T19:00:00Z",
     "stadium": "À confirmer",
     "channel_fr": "beIN Sports 1",
     "dynamic": true,
-    "homeLabel": "Vainqueur du quart 1",
-    "homeDisplay": "Vainqueur du quart 1",
-    "awayLabel": "Vainqueur du quart 2",
-    "awayDisplay": "Vainqueur du quart 2"
+    "homeLabel": "Vainqueur quart 1",
+    "homeDisplay": "Vainqueur quart 1",
+    "awayLabel": "Vainqueur quart 2",
+    "awayDisplay": "Vainqueur quart 2"
   },
   "sf-102": {
     "home": "winner_n99",
     "away": "winner_n100",
-    "label": "Demi-finale 2",
+    "label": "Vainqueur quart 3 / Vainqueur quart 4",
     "round": "SF",
     "dateParis": "2026-07-15T21:00:00+02:00",
     "dateUTC": "2026-07-15T19:00:00Z",
     "stadium": "À confirmer",
     "channel_fr": "beIN Sports 1",
     "dynamic": true,
-    "homeLabel": "Vainqueur du quart 3",
-    "homeDisplay": "Vainqueur du quart 3",
-    "awayLabel": "Vainqueur du quart 4",
-    "awayDisplay": "Vainqueur du quart 4"
+    "homeLabel": "Vainqueur quart 3",
+    "homeDisplay": "Vainqueur quart 3",
+    "awayLabel": "Vainqueur quart 4",
+    "awayDisplay": "Vainqueur quart 4"
   },
   "third-103": {
     "home": "loser_n101",

@@ -174,5 +174,117 @@
     "supporterName": "Vainqueur Paraguay–France",
     "heroPlayer": "À déterminer",
     "playerImg": null
+  },
+  "winner_n89": {
+    "teamName": "Vainqueur Paraguay–France",
+    "flag": "🏆",
+    "nickname": "Adversaire du Maroc",
+    "supporterName": "Vainqueur Paraguay–France",
+    "heroPlayer": "À déterminer",
+    "playerImg": null
+  },
+  "winner_n90": {
+    "teamName": "Maroc",
+    "flag": "🇲🇦",
+    "nickname": "Lions de l’Atlas",
+    "supporterName": "Maroc",
+    "heroPlayer": "À déterminer",
+    "playerImg": null
+  },
+  "winner_n91": {
+    "teamName": "Vainqueur Norvège–Brésil",
+    "flag": "🏆",
+    "nickname": "Quart de finale",
+    "supporterName": "Vainqueur Norvège–Brésil",
+    "heroPlayer": "À déterminer",
+    "playerImg": null
+  },
+  "winner_n92": {
+    "teamName": "Vainqueur Mexique–Angleterre",
+    "flag": "🏆",
+    "nickname": "Quart de finale",
+    "supporterName": "Vainqueur Mexique–Angleterre",
+    "heroPlayer": "À déterminer",
+    "playerImg": null
+  },
+  "winner_n93": {
+    "teamName": "Vainqueur Portugal–Espagne",
+    "flag": "🏆",
+    "nickname": "Quart de finale",
+    "supporterName": "Vainqueur Portugal–Espagne",
+    "heroPlayer": "À déterminer",
+    "playerImg": null
+  },
+  "winner_n94": {
+    "teamName": "Vainqueur États-Unis–Belgique",
+    "flag": "🏆",
+    "nickname": "Quart de finale",
+    "supporterName": "Vainqueur États-Unis–Belgique",
+    "heroPlayer": "À déterminer",
+    "playerImg": null
+  },
+  "winner_n95": {
+    "teamName": "Vainqueur Argentine–Égypte",
+    "flag": "🏆",
+    "nickname": "Quart de finale",
+    "supporterName": "Vainqueur Argentine–Égypte",
+    "heroPlayer": "À déterminer",
+    "playerImg": null
+  },
+  "winner_n96": {
+    "teamName": "Vainqueur Suisse–Colombie",
+    "flag": "🏆",
+    "nickname": "Quart de finale",
+    "supporterName": "Vainqueur Suisse–Colombie",
+    "heroPlayer": "À déterminer",
+    "playerImg": null
+  },
+  "winner_n97": {
+    "teamName": "Vainqueur du quart Maroc",
+    "flag": "🏆",
+    "nickname": "Demi-finale",
+    "supporterName": "Vainqueur du quart Maroc",
+    "heroPlayer": "À déterminer",
+    "playerImg": null
+  },
+  "winner_n98": {
+    "teamName": "Vainqueur quart 2",
+    "flag": "🏆",
+    "nickname": "Demi-finale",
+    "supporterName": "Vainqueur quart 2",
+    "heroPlayer": "À déterminer",
+    "playerImg": null
+  },
+  "winner_n99": {
+    "teamName": "Vainqueur quart 3",
+    "flag": "🏆",
+    "nickname": "Demi-finale",
+    "supporterName": "Vainqueur quart 3",
+    "heroPlayer": "À déterminer",
+    "playerImg": null
+  },
+  "winner_n100": {
+    "teamName": "Vainqueur quart 4",
+    "flag": "🏆",
+    "nickname": "Demi-finale",
+    "supporterName": "Vainqueur quart 4",
+    "heroPlayer": "À déterminer",
+    "playerImg": null
+  },
+  "winner_n101": {
+    "teamName": "Vainqueur demi-finale 1",
+    "flag": "🏆",
+    "nickname": "Finale",
+    "supporterName": "Vainqueur demi-finale 1",
+    "heroPlayer": "À déterminer",
+    "playerImg": null
+  },
+  "winner_n102": {
+    "teamName": "Vainqueur demi-finale 2",
+    "flag": "🏆",
+    "nickname": "Finale",
+    "supporterName": "Vainqueur demi-finale 2",
+    "heroPlayer": "À déterminer",
+    "playerImg": null
   }
 }
