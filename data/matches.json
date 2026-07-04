@@ -397,7 +397,11 @@
     "channel_fr": "beIN Sports 1",
     "dynamic": true,
     "note": "Le Maroc est qualifié après Canada 0–3 Maroc et attend le vainqueur de Paraguay–France.",
-    "conditional": false
+    "conditional": false,
+    "homeLabel": "Vainqueur Paraguay–France",
+    "homeDisplay": "Vainqueur Paraguay–France",
+    "awayLabel": "Maroc",
+    "awayDisplay": "Maroc"
   },
   "qf-98": {
     "home": "winner_n93",
@@ -408,7 +412,11 @@
     "dateUTC": "2026-07-10T19:00:00Z",
     "stadium": "À confirmer",
     "channel_fr": "beIN Sports 1",
-    "dynamic": true
+    "dynamic": true,
+    "homeLabel": "Vainqueur Portugal–Espagne",
+    "homeDisplay": "Vainqueur Portugal–Espagne",
+    "awayLabel": "Vainqueur États-Unis–Belgique",
+    "awayDisplay": "Vainqueur États-Unis–Belgique"
   },
   "qf-99": {
     "home": "winner_n91",
@@ -419,7 +427,11 @@
     "dateUTC": "2026-07-11T21:00:00Z",
     "stadium": "À confirmer",
     "channel_fr": "beIN Sports 1",
-    "dynamic": true
+    "dynamic": true,
+    "homeLabel": "Vainqueur Brésil–Norvège",
+    "homeDisplay": "Vainqueur Brésil–Norvège",
+    "awayLabel": "Vainqueur Mexique–Angleterre",
+    "awayDisplay": "Vainqueur Mexique–Angleterre"
   },
   "qf-100": {
     "home": "winner_n95",
@@ -430,7 +442,11 @@
     "dateUTC": "2026-07-12T01:00:00Z",
     "stadium": "À confirmer",
     "channel_fr": "beIN Sports 1",
-    "dynamic": true
+    "dynamic": true,
+    "homeLabel": "Vainqueur Argentine–Égypte",
+    "homeDisplay": "Vainqueur Argentine–Égypte",
+    "awayLabel": "Vainqueur Suisse–Colombie",
+    "awayDisplay": "Vainqueur Suisse–Colombie"
   },
   "sf-101": {
     "home": "winner_n97",
@@ -441,7 +457,11 @@
     "dateUTC": "2026-07-14T19:00:00Z",
     "stadium": "À confirmer",
     "channel_fr": "beIN Sports 1",
-    "dynamic": true
+    "dynamic": true,
+    "homeLabel": "Vainqueur du quart 1",
+    "homeDisplay": "Vainqueur du quart 1",
+    "awayLabel": "Vainqueur du quart 2",
+    "awayDisplay": "Vainqueur du quart 2"
   },
   "sf-102": {
     "home": "winner_n99",
@@ -452,7 +472,11 @@
     "dateUTC": "2026-07-15T19:00:00Z",
     "stadium": "À confirmer",
     "channel_fr": "beIN Sports 1",
-    "dynamic": true
+    "dynamic": true,
+    "homeLabel": "Vainqueur du quart 3",
+    "homeDisplay": "Vainqueur du quart 3",
+    "awayLabel": "Vainqueur du quart 4",
+    "awayDisplay": "Vainqueur du quart 4"
   },
   "third-103": {
     "home": "loser_n101",
@@ -474,6 +498,10 @@
     "dateUTC": "2026-07-19T19:00:00Z",
     "stadium": "New York · MetLife Stadium",
     "channel_fr": "beIN Sports 1",
-    "dynamic": true
+    "dynamic": true,
+    "homeLabel": "Vainqueur demi-finale 1",
+    "homeDisplay": "Vainqueur demi-finale 1",
+    "awayLabel": "Vainqueur demi-finale 2",
+    "awayDisplay": "Vainqueur demi-finale 2"
   }
 }

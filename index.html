@@ -9,7 +9,7 @@
 // BUILD_VERSION — version stable de build, à bumper à chaque déploiement.
 // Remplace les cache-busters dynamiques (Date.now()) sur les ressources stables
 // afin que le navigateur puisse effectivement les mettre en cache entre deux visites.
-const BUILD_VERSION = '11.5.20';
+const BUILD_VERSION = '12.0.0';
 (function(){
   var p = new URLSearchParams(window.location.search);
   var v10Active = p.has('team') || p.get('mode') !== 'global';
@@ -1210,7 +1210,7 @@ header{display:flex;align-items:center;justify-content:space-between;padding:12p
 <meta name="apple-mobile-web-app-title" content="Suivez la CDM 2026">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <link rel="apple-touch-icon" href="/assets/icons/icon-192.png">
-<link rel="stylesheet" href="src/v10/v10-team-app.css?v=11.5.20">
+<link rel="stylesheet" href="src/v10/v10-team-app.css?v=12.0.0">
 </head>
 <body>
 <div class="band"></div>
@@ -1511,13 +1511,6 @@ header{display:flex;align-items:center;justify-content:space-between;padding:12p
  </div>
 </section>
 
-<!-- ═══ TABLEAU DES 16ES ═══ -->
-<section class="knockout-zone knockout-r32">
-  <div class="sec knockout-title"><img class="section-mascot" src="assets/lion-mascotte.png" alt="Mascotte">Tableau officiel des 16es de finale — affiches confirmées</div>
-  <div class="r16-help knockout-copy">Affiches figées après la phase de groupes. Clique sur une équipe ou renseigne un score : le simulateur complet se met à jour automatiquement jusqu’à la finale.</div>
-  <div class="r32-grid" id="r32-grid"></div>
-</section>
-
 <section class="knockout-zone knockout-sim full-sim-zone">
   <div class="sec knockout-title"><img class="section-mascot" src="assets/lion-mascotte.png" alt="Mascotte">Simule le chemin jusqu’à la finale</div>
   <div class="r16-help knockout-copy">Choisis les vainqueurs tour après tour. Les cases restent vides tant que le tour précédent n’est pas décidé : le parcours se construit proprement jusqu’à la finale.</div>
@@ -1525,6 +1518,14 @@ header{display:flex;align-items:center;justify-content:space-between;padding:12p
     <div class="bracket-tree" id="bracket-tree"></div>
   </div>
   <div class="ko-final-winner" id="ko-final-winner">Le champion simulé apparaîtra ici après tes choix.</div>
+</section>
+
+
+<!-- ═══ TABLEAU DES 16ES ═══ -->
+<section class="knockout-zone knockout-r32">
+  <div class="sec knockout-title"><img class="section-mascot" src="assets/lion-mascotte.png" alt="Mascotte">Tableau officiel des 16es de finale — affiches confirmées</div>
+  <div class="r16-help knockout-copy">Affiches figées après la phase de groupes. Clique sur une équipe ou renseigne un score : le simulateur complet se met à jour automatiquement jusqu’à la finale.</div>
+  <div class="r32-grid" id="r32-grid"></div>
 </section>
 
 <!-- ═══ 12 GROUPES — ARCHIVE PHASE DE POULES ═══ -->
@@ -2621,9 +2622,34 @@ function sourceResolved(source) {
   if (source.type === 'r32') return r32Picks[source.id] !== undefined;
   return koPicks[source.round] && koPicks[source.round][source.id] !== undefined;
 }
+function compactMatchLabel(parts, separator = '–') {
+  return parts.map(cleanLabel).filter(Boolean).join(separator);
+}
+function plainFixtureLabelForSource(source, depth = 0) {
+  if (!source || depth > 5) return '';
+  if (source.type === 'r32') {
+    const card = r32CardById(source.id);
+    return card ? compactMatchLabel([card.a, card.b]) : '';
+  }
+  if (source.type === 'ko') {
+    const match = koMatchById(source.round, source.id);
+    if (!match) return '';
+    const labels = match.sources.map(src => {
+      const resolved = sourceLabel(src);
+      if (resolved) return resolved;
+      const inner = plainFixtureLabelForSource(src, depth + 1);
+      if (!inner) return '';
+      return inner;
+    }).filter(Boolean);
+    const separator = match.sources.some(src => src && src.type === 'ko') ? ' / ' : '–';
+    return compactMatchLabel(labels, separator);
+  }
+  return '';
+}
 function unresolvedLabelForSource(source) {
-  if (source?.result === 'loser') return 'Perdant à définir';
-  return t('waiting');
+  const fixtureLabel = plainFixtureLabelForSource(source);
+  if (source?.result === 'loser') return fixtureLabel ? `Perdant ${fixtureLabel}` : 'Perdant à définir';
+  return fixtureLabel ? `Vainqueur ${fixtureLabel}` : t('waiting');
 }
 function r32WinnerLabel(id) {
   const c = r32CardById(id);
@@ -4590,8 +4616,8 @@ setTimeout(()=>{
 }, 900);
 
 </script>
-<script src="src/v10/v10-team-app.js?v=11.5.20"></script>
-<script src="src/v10/auto-refresh-scores.js?v=11.5.20"></script>
+<script src="src/v10/v10-team-app.js?v=12.0.0"></script>
+<script src="src/v10/auto-refresh-scores.js?v=12.0.0"></script>
 
 <script>
 // V10.3 — PWA registration. Le service worker garde les scores/API en network-first.

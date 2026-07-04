@@ -166,5 +166,13 @@
     "supporterName": "Vainqueur Argentine–Cap-Vert",
     "heroPlayer": "Vainqueur du match Argentine–Cap-Vert",
     "playerImg": "assets/opponents/argentina/player.webp"
+  },
+  "winner_par_fra": {
+    "teamName": "Vainqueur Paraguay–France",
+    "flag": "🏆",
+    "nickname": "Adversaire du Maroc",
+    "supporterName": "Vainqueur Paraguay–France",
+    "heroPlayer": "À déterminer",
+    "playerImg": null
   }
 }
