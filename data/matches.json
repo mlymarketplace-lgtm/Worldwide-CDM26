@@ -327,19 +327,19 @@
     "label_ar": "البرتغال–إسبانيا"
   },
   "argcpv-egypt": {
-    "home": "argentina_cape_verde",
+    "home": "argentina",
     "away": "egypt",
-    "label": "Argentine/Cap-Vert–Égypte",
+    "label": "Argentine–Égypte",
     "round": "R16",
     "dateParis": "2026-07-07T18:00:00+02:00",
     "dateUTC": "2026-07-07T16:00:00Z",
     "stadium": "Kansas City · Arrowhead Stadium",
     "channel_fr": "beIN Sports 1",
-    "note": "L’Égypte attend le vainqueur d’Argentine–Cap-Vert.",
-    "label_fr": "Argentine/Cap-Vert–Égypte",
-    "label_en": "Argentina/Cape Verde–Egypt",
-    "label_pt": "Argentina/Cabo Verde–Egito",
-    "label_es": "Argentina/Cabo Verde–Egipto",
-    "label_ar": "الأرجنتين/الرأس الأخضر–مصر"
+    "note": "L’Argentine a survécu au piège cap-verdien et rejoint l’Égypte en huitième.",
+    "label_fr": "Argentine–Égypte",
+    "label_en": "Argentina–Egypt",
+    "label_pt": "Argentina–Egito",
+    "label_es": "Argentina–Egipto",
+    "label_ar": "الأرجنتين–مصر"
   }
 }

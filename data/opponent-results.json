@@ -299,6 +299,33 @@
       "label": "Uruguay 1–1 Cap-Vert",
       "note": "Qualification arrachée avec courage",
       "result": "N"
+    },
+    {
+      "label": "Argentine 3–2 Cap-Vert (a.p.)",
+      "note": "Les Tubarões Azuis reviennent deux fois, puis cèdent au bout du bout",
+      "result": "D"
+    }
+  ],
+  "portugal": [
+    {
+      "label": "Portugal 1–1 RD Congo",
+      "note": "Entrée solide mais accrochée",
+      "result": "N"
+    },
+    {
+      "label": "Colombie 0–0 Portugal",
+      "note": "Match fermé, Portugal garde le contrôle",
+      "result": "N"
+    },
+    {
+      "label": "Portugal 5–0 Ouzbékistan",
+      "note": "La Seleção déroule et valide son billet",
+      "result": "V"
+    },
+    {
+      "label": "Portugal 2–1 Croatie",
+      "note": "Qualification arrachée, Ronaldo et les siens avancent",
+      "result": "V"
     }
   ]
 }

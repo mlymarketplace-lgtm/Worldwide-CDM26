@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-04T02:30:00+02:00",
+  "updatedAt": "2026-07-04T03:10:00+02:00",
   "matches": {
     "uru-esp": {
       "home": 0,
@@ -224,13 +224,16 @@
       "koId": "N77"
     },
     "arg-cpv": {
-      "home": null,
-      "away": null,
-      "status": "scheduled",
-      "apiStatus": "NS",
-      "apiStatusLong": "Not Started",
-      "koId": "N87",
-      "_todo": "Résultat à figer : home=Argentine, away=Cap-Vert. Si TAB, ajouter penalty{home,away}. winnerSide 0=ARG 1=CPV."
+      "home": 3,
+      "away": 2,
+      "status": "final",
+      "minute": 120,
+      "apiStatus": "AET",
+      "apiStatusLong": "Match Finished After Extra Time",
+      "winner": "home",
+      "winnerSide": 0,
+      "locked": true,
+      "koId": "N87"
     },
     "col-gha": {
       "home": null,

@@ -192,5 +192,18 @@
     "winner": "away",
     "winnerSide": 1,
     "locked": true
+  },
+  "arg-cpv": {
+    "koId": "N87",
+    "h": "ARG",
+    "a": "CPV",
+    "home": 3,
+    "away": 2,
+    "status": "final",
+    "apiStatus": "AET",
+    "apiStatusLong": "Match Finished After Extra Time",
+    "winner": "home",
+    "winnerSide": 0,
+    "locked": true
   }
 }

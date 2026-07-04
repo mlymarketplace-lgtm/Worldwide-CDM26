@@ -96,10 +96,16 @@
     "matchdayHero": false
   },
   "cape_verde": {
-    "status": "pending",
+    "status": "eliminated",
     "round": "R32",
     "nextMatchId": "arg-cpv",
-    "selectorLine": "Première historique · Messi et l’Argentine en face"
+    "statusLabel": "Éliminé en 16e · Sortie héroïque face à l’Argentine",
+    "selectorLine": "Éliminé · immense respect aux Tubarões Azuis",
+    "roundLabel": "Éliminé en 16e de finale",
+    "heroSubtitle": "Braves jusqu’au bout, les Tubarões Azuis ont fait trembler les champions du monde.",
+    "exitScoreLine": "Argentine 3–2 Cap-Vert · après prolongation",
+    "farewellHeadline": "AU REVOIR “LES TUBARÕES AZUIS”",
+    "eliminatedBy": "Argentine"
   },
   "ghana": {
     "status": "pending",
