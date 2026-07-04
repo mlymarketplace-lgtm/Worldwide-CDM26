@@ -1,0 +1,142 @@
+{
+  "updatedAt": "2026-07-04T01:45:00+02:00",
+  "matches": {
+    "uru-esp": {
+      "home": 0,
+      "away": 1,
+      "status": "final"
+    },
+    "cpv-ksa": {
+      "home": 0,
+      "away": 0,
+      "status": "final"
+    },
+    "egy-irn": {
+      "home": 1,
+      "away": 1,
+      "status": "final"
+    },
+    "nzl-bel": {
+      "home": 1,
+      "away": 5,
+      "status": "final"
+    },
+    "cro-gha": {
+      "home": 2,
+      "away": 1,
+      "status": "final"
+    },
+    "pan-eng": {
+      "home": 0,
+      "away": 2,
+      "status": "final"
+    },
+    "col-por": {
+      "home": 0,
+      "away": 0,
+      "status": "final"
+    },
+    "cod-uzb": {
+      "home": 3,
+      "away": 1,
+      "status": "final"
+    },
+    "jor-arg": {
+      "home": 1,
+      "away": 3,
+      "status": "final"
+    },
+    "alg-aut": {
+      "home": 2,
+      "away": 2,
+      "status": "final"
+    },
+    "eng-cod": {
+      "home": 2,
+      "away": 1,
+      "status": "final"
+    },
+    "mex-ecu": {
+      "home": 2,
+      "away": 0,
+      "status": "final"
+    },
+    "bel-sen": {
+      "home": 3,
+      "away": 2,
+      "status": "final"
+    },
+    "usa-bih": {
+      "home": 2,
+      "away": 0,
+      "status": "final"
+    },
+    "esp-aut": {
+      "home": 3,
+      "away": 0,
+      "status": "final",
+      "apiStatus": "FT",
+      "apiStatusLong": "Match Finished",
+      "winner": "home",
+      "winnerSide": 0,
+      "locked": true
+    },
+    "por-cro": {
+      "home": 2,
+      "away": 1,
+      "status": "final",
+      "apiStatus": "FT",
+      "apiStatusLong": "Match Finished",
+      "winner": "home",
+      "winnerSide": 0,
+      "locked": true
+    },
+    "sui-alg": {
+      "home": 2,
+      "away": 0,
+      "status": "final",
+      "apiStatus": "FT",
+      "apiStatusLong": "Match Finished",
+      "winner": "home",
+      "winnerSide": 0,
+      "locked": true
+    },
+    "aus-egy": {
+      "home": 1,
+      "away": 1,
+      "status": "final",
+      "minute": 120,
+      "apiStatus": "PEN",
+      "apiStatusLong": "Match Finished Penalties",
+      "penalty": {
+        "home": 2,
+        "away": 4
+      },
+      "penaltyHome": 2,
+      "penaltyAway": 4,
+      "winner": "away",
+      "winnerSide": 1,
+      "locked": true,
+      "koId": "N86"
+    },
+    "arg-cpv": {
+      "home": 1,
+      "away": 1,
+      "status": "live",
+      "minute": 90,
+      "apiStatus": "LIVE",
+      "apiStatusLong": "Match in Progress",
+      "penalty": {
+        "home": null,
+        "away": null
+      },
+      "penaltyHome": null,
+      "penaltyAway": null,
+      "winner": null,
+      "winnerSide": null,
+      "locked": false,
+      "koId": "N87"
+    }
+  },
+  "source": "V11.5.13 data-only — arg-cpv live 1-1 non verrouillé, en attente résultat final/TAB"
+}
