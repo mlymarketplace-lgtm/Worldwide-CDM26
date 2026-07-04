@@ -168,20 +168,20 @@
     "playerImg": "assets/opponents/argentina/player.webp"
   },
   "winner_par_fra": {
-    "teamName": "Vainqueur Paraguay–France",
-    "flag": "🏆",
-    "nickname": "Adversaire du Maroc",
-    "supporterName": "Vainqueur Paraguay–France",
-    "heroPlayer": "À déterminer",
-    "playerImg": null
+    "teamName": "France",
+    "flag": "🇫🇷",
+    "nickname": "Les Bleus",
+    "supporterName": "Bleus",
+    "heroPlayer": "Kylian Mbappé",
+    "playerImg": "assets/teams/france/player.webp"
   },
   "winner_n89": {
-    "teamName": "Vainqueur Paraguay–France",
-    "flag": "🏆",
-    "nickname": "Adversaire du Maroc",
-    "supporterName": "Vainqueur Paraguay–France",
-    "heroPlayer": "À déterminer",
-    "playerImg": null
+    "teamName": "France",
+    "flag": "🇫🇷",
+    "nickname": "Les Bleus",
+    "supporterName": "Bleus",
+    "heroPlayer": "Kylian Mbappé",
+    "playerImg": "assets/teams/france/player.webp"
   },
   "winner_n90": {
     "teamName": "Maroc",

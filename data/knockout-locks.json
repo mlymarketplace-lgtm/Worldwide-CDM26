@@ -234,6 +234,20 @@
     "round": "r16"
   },
   "r16": {
+    "N89": {
+      "koId": "N89",
+      "h": "PAR",
+      "a": "FRA",
+      "home": 0,
+      "away": 1,
+      "status": "final",
+      "apiStatus": "FT",
+      "apiStatusLong": "Match Finished",
+      "winner": "away",
+      "winnerSide": 1,
+      "locked": true,
+      "round": "r16"
+    },
     "N90": {
       "koId": "N90",
       "h": "CAN",
@@ -248,5 +262,19 @@
       "locked": true,
       "round": "r16"
     }
+  },
+  "par-fra": {
+    "koId": "N89",
+    "h": "PAR",
+    "a": "FRA",
+    "home": 0,
+    "away": 1,
+    "status": "final",
+    "apiStatus": "FT",
+    "apiStatusLong": "Match Finished",
+    "winner": "away",
+    "winnerSide": 1,
+    "locked": true,
+    "round": "r16"
   }
 }

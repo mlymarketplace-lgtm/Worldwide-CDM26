@@ -138,14 +138,12 @@
     "homeTeam": "paraguay",
     "awayTeam": "france",
     "matchId": "par-fra",
-    "title": "Paraguay–France : l’Albirroja face au feu bleu",
-    "angle": "Le Paraguay a déjà sorti l’Allemagne aux nerfs. Maintenant, il tombe sur une attaque française qui arrive avec les crocs.",
+    "title": "Paraguay–France : les Bleus survivent au piège",
+    "angle": "Un 1–0 de tournoi : court, dur, suffisant.",
     "body": [
-      "Paraguay–France, c’est le piège parfait pour mesurer la maturité des Bleus. L’Albirroja ne promet pas forcément le spectacle : elle promet le combat, les duels, les secondes balles et ce genre de match qui peut devenir irrespirable si le favori perd patience.",
-      "Mais en face, la France débarque avec une attaque impressionnante. Mbappé vient de frapper deux fois contre la Suède et rejoint Messi en tête du classement des buteurs avec 6 buts. Derrière lui, Michael Olise, meilleur passeur de la compétition, distribue les clés comme s’il jouait avec le temps dans la poche.",
-      "Et puis il y a l’ombre de 1998. France–Paraguay, huitième de finale à Lens, un match fermé, nerveux, presque étouffant, que les Bleus avaient fini par arracher sur un but en or de Laurent Blanc. Ce soir-là, Didier Deschamps était sur la pelouse, brassard au bras, au cœur d’une France qui apprenait à survivre avant de devenir championne du monde. Vingt-huit ans plus tard, le Paraguay retrouve les Bleus avec une vieille blessure à rouvrir et une revanche symbolique à prendre. Pour la France, c’est un souvenir fondateur. Pour l’Albirroja, c’est une dette d’histoire.",
-      "Le Paraguay sait survivre : l’Allemagne l’a appris aux tirs au but. La France sait accélérer : la Suède vient de le subir. Ce huitième aura donc une question simple : le mur rouge et blanc peut-il tenir quand les Bleus lancent Mbappé dans la profondeur et Olise entre les lignes ?",
-      "Sur le papier, la France est favorite. Sur le terrain, le Paraguay fera tout pour salir le tempo, casser l’élan et emmener les Bleus dans un match de patience. C’est exactement le genre de soirée où une grande équipe doit gagner sans s’énerver — et où une vieille histoire peut soudain revenir hanter le favori."
+      "La France a battu le Paraguay 1–0 dans un match de patience et de nerfs. Pas une démonstration, mais une victoire de Coupe du monde : celles qui construisent les parcours profonds.",
+      "Mbappé a encore pesé sur l’histoire du match et rejoint les sommets du classement des buteurs. Les Bleus n’ont pas tout écrasé, mais ils ont fait ce que les grands doivent faire : trouver la faille et fermer la porte.",
+      "Le Paraguay sort avec respect. La France avance, et le rendez-vous devient immense : France–Maroc en quart de finale."
     ]
   },
   "sen-usa": {
@@ -304,15 +302,29 @@
     ]
   },
   "qf-97": {
-    "homeTeam": "winner_par_fra",
+    "homeTeam": "france",
     "awayTeam": "morocco",
     "matchId": "qf-97",
-    "title": "Quart de finale : Maroc contre vainqueur Paraguay–France",
-    "angle": "Les Lions de l’Atlas sont déjà au rendez-vous. Reste à savoir si l’obstacle sera paraguayen ou français.",
+    "title": "France–Maroc : un quart de finale chargé d’histoire",
+    "angle": "Deux mondes, deux mémoires, une même obsession : ouvrir la porte des demi-finales.",
     "body": [
-      "Le Maroc a validé son quart de finale avec autorité après sa victoire 3–0 contre le Canada. Les Lions de l’Atlas attendent maintenant le vainqueur de Paraguay–France.",
-      "Ce quart est déjà une affiche de rang : une équipe marocaine sûre de sa force, face à un adversaire qui sortira d’un huitième exigeant.",
-      "Après la demi-finale historique de 2022, le Maroc confirme qu’il ne vit plus seulement d’un souvenir : il construit une présence durable dans les grands rendez-vous."
+      "France–Maroc, c’est plus qu’un quart de finale : c’est une affiche de mémoire, de talent et de tension. Les Bleus arrivent avec leur statut, leur profondeur de banc et un Mbappé qui vient encore de marquer. Le Maroc arrive avec son orgueil, sa discipline, son public et cette certitude née en 2022 : les Lions de l’Atlas savent faire trembler les grandes nations.",
+      "La France a passé le piège paraguayen 1–0, dans un match où il fallait survivre avant de briller. Le Maroc, lui, a maîtrisé le Canada 3–0 avec une autorité froide. Deux chemins différents, mais une même impression : ces deux équipes savent gagner les matchs qui pèsent.",
+      "Il y aura aussi une charge symbolique immense. Des joueurs, des familles, des quartiers, des histoires croisées entre France et Maroc : ce quart aura une résonance particulière bien au-delà du terrain. Pour les Bleus, c’est une marche vers le dernier carré. Pour les Lions de l’Atlas, c’est l’occasion de confirmer qu’ils ne sont plus une surprise, mais une puissance de tournoi.",
+      "Le vainqueur ne gagnera pas seulement une place en demi-finale. Il prendra une dimension nouvelle dans ce Mondial."
+    ]
+  },
+  "fra-mar": {
+    "homeTeam": "france",
+    "awayTeam": "morocco",
+    "matchId": "fra-mar",
+    "title": "France–Maroc : un quart de finale chargé d’histoire",
+    "angle": "Deux mondes, deux mémoires, une même obsession : ouvrir la porte des demi-finales.",
+    "body": [
+      "France–Maroc, c’est plus qu’un quart de finale : c’est une affiche de mémoire, de talent et de tension. Les Bleus arrivent avec leur statut, leur profondeur de banc et un Mbappé qui vient encore de marquer. Le Maroc arrive avec son orgueil, sa discipline, son public et cette certitude née en 2022 : les Lions de l’Atlas savent faire trembler les grandes nations.",
+      "La France a passé le piège paraguayen 1–0, dans un match où il fallait survivre avant de briller. Le Maroc, lui, a maîtrisé le Canada 3–0 avec une autorité froide. Deux chemins différents, mais une même impression : ces deux équipes savent gagner les matchs qui pèsent.",
+      "Il y aura aussi une charge symbolique immense. Des joueurs, des familles, des quartiers, des histoires croisées entre France et Maroc : ce quart aura une résonance particulière bien au-delà du terrain. Pour les Bleus, c’est une marche vers le dernier carré. Pour les Lions de l’Atlas, c’est l’occasion de confirmer qu’ils ne sont plus une surprise, mais une puissance de tournoi.",
+      "Le vainqueur ne gagnera pas seulement une place en demi-finale. Il prendra une dimension nouvelle dans ce Mondial."
     ]
   }
 }

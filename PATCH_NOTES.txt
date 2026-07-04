@@ -1,7 +1,8 @@
-QualifGaïndé V12.0.1 — correctif labels WINNER_N89
+QualifGaïndé V12.0.2 — France–Maroc + dynamique adversaires
 
-1. Correction du bug visible sur la page Maroc : winner_n89 / WINNER_N89 ne doit plus apparaître côté utilisateur.
-2. qf-97 pointe maintenant vers l’adversaire placeholder propre winner_par_fra.
-3. Ajout d’alias dans data/opponents.json pour winner_n89 et les futurs placeholders winner_nXX, afin d’éviter tout affichage brut.
-4. Ajout d’un garde-fou DOM dans index.html : si un libellé technique remonte malgré tout via l’ancien moteur V10/cache, il est remplacé par un libellé propre.
-5. Version et cache passés en V12.0.1.
+1. Paraguay–France figé : Paraguay 0–1 France, vainqueur France, N89 verrouillé.
+2. Quart N97 mis à jour : France–Maroc.
+3. Fiches Maroc et France mises à jour en qualifiés en quart.
+4. Preview épique France–Maroc ajoutée.
+5. Stats : Mbappé 7 buts, affiché devant Messi.
+6. Sécurité dynamique ajoutée : les placeholders winner_nXX / Vainqueur X–Y se résolvent depuis live.json ou /scores sans redeploy applicatif si la source score est mise à jour.

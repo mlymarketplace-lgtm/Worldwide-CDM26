@@ -1,18 +1,18 @@
 {
-  "updatedAt": "2026-07-04T02:30:00+02:00",
-  "sourceNote": "V11.5.14 — Messi 7 buts (seul en tête du classement des buteurs).",
+  "updatedAt": "2026-07-05T00:20:00+02:00",
+  "sourceNote": "V12.0.2 — Mbappé 7 buts, devant Messi au classement affiché.",
   "topScorers": [
     {
       "rank": 1,
-      "name": "Lionel Messi",
-      "team": "🇦🇷 Argentine",
+      "name": "Kylian Mbappé",
+      "team": "🇫🇷 France",
       "goals": 7
     },
     {
       "rank": 2,
-      "name": "Kylian Mbappé",
-      "team": "🇫🇷 France",
-      "goals": 6
+      "name": "Lionel Messi",
+      "team": "🇦🇷 Argentine",
+      "goals": 7
     },
     {
       "rank": 3,
@@ -40,7 +40,7 @@
     }
   ],
   "bestAttack": {
-    "goals": 13,
+    "goals": 14,
     "teams": [
       "🇫🇷 France"
     ]

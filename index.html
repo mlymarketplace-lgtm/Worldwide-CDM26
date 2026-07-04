@@ -9,7 +9,7 @@
 // BUILD_VERSION — version stable de build, à bumper à chaque déploiement.
 // Remplace les cache-busters dynamiques (Date.now()) sur les ressources stables
 // afin que le navigateur puisse effectivement les mettre en cache entre deux visites.
-const BUILD_VERSION = '12.0.1';
+const BUILD_VERSION = '12.0.2';
 (function(){
   var p = new URLSearchParams(window.location.search);
   var v10Active = p.has('team') || p.get('mode') !== 'global';
@@ -1210,7 +1210,7 @@ header{display:flex;align-items:center;justify-content:space-between;padding:12p
 <meta name="apple-mobile-web-app-title" content="Suivez la CDM 2026">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <link rel="apple-touch-icon" href="/assets/icons/icon-192.png">
-<link rel="stylesheet" href="src/v10/v10-team-app.css?v=12.0.1">
+<link rel="stylesheet" href="src/v10/v10-team-app.css?v=12.0.2">
 </head>
 <body>
 <div class="band"></div>
@@ -1412,8 +1412,8 @@ header{display:flex;align-items:center;justify-content:space-between;padding:12p
       <div class="leader-title"><img src="assets/lion-mascotte.png" alt="Mascotte">Meilleurs buteurs · 4 buts et plus</div>
       <div class="scorer-list" id="top-scorers-list">
         <!-- Fallback statique : visible même si le JS est bloqué. renderTournamentLeaders() remettra à jour au chargement. -->
-        <div class="scorer-row"><div class="scorer-rank">#1</div><div><div class="scorer-name">Lionel Messi</div><div class="scorer-team">🇦🇷 Argentine</div></div><div class="scorer-goals">6</div></div>
-        <div class="scorer-row"><div class="scorer-rank">#1</div><div><div class="scorer-name">Kylian Mbappé</div><div class="scorer-team">🇫🇷 France</div></div><div class="scorer-goals">6</div></div>
+        <div class="scorer-row"><div class="scorer-rank">#1</div><div><div class="scorer-name">Kylian Mbappé</div><div class="scorer-team">🇫🇷 France</div></div><div class="scorer-goals">7</div></div>
+        <div class="scorer-row"><div class="scorer-rank">#2</div><div><div class="scorer-name">Lionel Messi</div><div class="scorer-team">🇦🇷 Argentine</div></div><div class="scorer-goals">7</div></div>
         <div class="scorer-row"><div class="scorer-rank">#3</div><div><div class="scorer-name">Erling Haaland</div><div class="scorer-team">🇳🇴 Norvège</div></div><div class="scorer-goals">5</div></div>
         <div class="scorer-row"><div class="scorer-rank">#4</div><div><div class="scorer-name">Harry Kane</div><div class="scorer-team">🏴 Angleterre</div></div><div class="scorer-goals">4</div></div>
         <div class="scorer-row"><div class="scorer-rank">#4</div><div><div class="scorer-name">Ousmane Dembélé</div><div class="scorer-team">🇫🇷 France</div></div><div class="scorer-goals">4</div></div>
@@ -2378,15 +2378,15 @@ function liveImpactText(key) {
 const DEFAULT_TOURNAMENT_STATS = {
   updatedAt: '2026-07-01T22:35:00+02:00',
   topScorers: [
-    { rank: 1, name: 'Lionel Messi', team: '🇦🇷 Argentine', goals: 6 },
-    { rank: 1, name: 'Kylian Mbappé', team: '🇫🇷 France', goals: 6 },
+    { rank: 1, name: 'Kylian Mbappé', team: '🇫🇷 France', goals: 7 },
+    { rank: 2, name: 'Lionel Messi', team: '🇦🇷 Argentine', goals: 7 },
     { rank: 3, name: 'Erling Haaland', team: '🇳🇴 Norvège', goals: 5 },
     { rank: 4, name: 'Harry Kane', team: '🏴 Angleterre', goals: 4 },
     { rank: 4, name: 'Ousmane Dembélé', team: '🇫🇷 France', goals: 4 },
     { rank: 4, name: 'Vinícius Júnior', team: '🇧🇷 Brésil', goals: 4 }
   ],
   bestAttack: {
-    goals: 13,
+    goals: 14,
     teams: ['🇫🇷 France']
   },
   bestDefense: {
@@ -4618,11 +4618,11 @@ setTimeout(()=>{
 </script>
 
 <script>
-// V12.0.1 — sécurité anti-libellés techniques dans l'interface.
+// V12.0.2 — sécurité anti-libellés techniques + résolution dynamique dans l'interface.
 // Objectif : ne jamais laisser remonter WINNER_N89 / winner_n89 côté utilisateur.
 (function(){
   const MAP = {
-    '89':'Vainqueur Paraguay–France',
+    '89':'France',
     '90':'Maroc',
     '91':'Vainqueur Norvège–Brésil',
     '92':'Vainqueur Mexique–Angleterre',
@@ -4630,7 +4630,7 @@ setTimeout(()=>{
     '94':'Vainqueur États-Unis–Belgique',
     '95':'Vainqueur Argentine–Égypte',
     '96':'Vainqueur Suisse–Colombie',
-    '97':'Vainqueur Paraguay–France / Maroc',
+    '97':'France / Maroc',
     '98':'Vainqueur Portugal–Espagne / États-Unis–Belgique',
     '99':'Vainqueur Norvège–Brésil / Mexique–Angleterre',
     '100':'Vainqueur Argentine–Égypte / Suisse–Colombie',
@@ -4684,8 +4684,113 @@ setTimeout(()=>{
 })();
 </script>
 
-<script src="src/v10/v10-team-app.js?v=12.0.1"></script>
-<script src="src/v10/auto-refresh-scores.js?v=12.0.1"></script>
+
+<script>
+// V12.0.2 — résolution dynamique des adversaires KO sans redéploiement.
+// Dès que live.json ou /.netlify/functions/scores confirme un résultat,
+// les libellés placeholder type winner_n89 / Vainqueur Paraguay–France sont remplacés côté UI.
+(function(){
+  const TEAM_NAMES = {
+    CAN:'Canada', MAR:'Maroc', PAR:'Paraguay', FRA:'France', NOR:'Norvège', BRA:'Brésil',
+    MEX:'Mexique', ENG:'Angleterre', POR:'Portugal', ESP:'Espagne', USA:'États-Unis', BEL:'Belgique',
+    ARG:'Argentine', EGY:'Égypte', SUI:'Suisse', COL:'Colombie'
+  };
+  const SOURCES = {
+    '89': { key:'par-fra', a:'Paraguay', b:'France', tokens:['winner_n89','WINNER_N89','winner_par_fra','Vainqueur Paraguay–France'] },
+    '90': { key:'can-mar', a:'Canada', b:'Maroc', tokens:['winner_n90','WINNER_N90','Vainqueur Canada–Maroc'] },
+    '91': { key:'bra-nor', a:'Norvège', b:'Brésil', tokens:['winner_n91','WINNER_N91','Vainqueur Norvège–Brésil'] },
+    '92': { key:'mex-eng', a:'Mexique', b:'Angleterre', tokens:['winner_n92','WINNER_N92','Vainqueur Mexique–Angleterre'] },
+    '93': { key:'por-esp', a:'Portugal', b:'Espagne', tokens:['winner_n93','WINNER_N93','Vainqueur Portugal–Espagne'] },
+    '94': { key:'usa-bel', a:'États-Unis', b:'Belgique', tokens:['winner_n94','WINNER_N94','Vainqueur États-Unis–Belgique'] },
+    '95': { key:'arg-egy', a:'Argentine', b:'Égypte', tokens:['winner_n95','WINNER_N95','Vainqueur Argentine–Égypte'] },
+    '96': { key:'sui-col', a:'Suisse', b:'Colombie', tokens:['winner_n96','WINNER_N96','Vainqueur Suisse–Colombie'] }
+  };
+  const FALLBACK = {
+    '89':'Vainqueur Paraguay–France','90':'Vainqueur Canada–Maroc','91':'Vainqueur Norvège–Brésil','92':'Vainqueur Mexique–Angleterre',
+    '93':'Vainqueur Portugal–Espagne','94':'Vainqueur États-Unis–Belgique','95':'Vainqueur Argentine–Égypte','96':'Vainqueur Suisse–Colombie'
+  };
+  const state = { winners:{} };
+  function escRx(s){ return String(s).replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
+  function winnerFromEntry(entry){
+    if (!entry || String(entry.status || '').toLowerCase() !== 'final') return null;
+    let side = (entry.winnerSide === 0 || entry.winnerSide === 1) ? entry.winnerSide : null;
+    if (side === null && entry.winner === 'home') side = 0;
+    if (side === null && entry.winner === 'away') side = 1;
+    if (side === null && typeof entry.home === 'number' && typeof entry.away === 'number' && entry.home !== entry.away) side = entry.home > entry.away ? 0 : 1;
+    if (side === null && typeof entry.hg === 'number' && typeof entry.ag === 'number' && entry.hg !== entry.ag) side = entry.hg > entry.ag ? 0 : 1;
+    const homeCode = entry.h || entry.homeCode;
+    const awayCode = entry.a || entry.awayCode;
+    const homeName = entry.homeLabel || entry.homeName || TEAM_NAMES[homeCode] || null;
+    const awayName = entry.awayLabel || entry.awayName || TEAM_NAMES[awayCode] || null;
+    return side === 0 ? homeName : side === 1 ? awayName : null;
+  }
+  function ingestScores(data){
+    const matches = data && data.matches ? data.matches : {};
+    Object.entries(SOURCES).forEach(([id, cfg]) => {
+      const winner = winnerFromEntry(matches[cfg.key]);
+      if (winner) state.winners[id] = winner;
+    });
+    sanitizeAll();
+  }
+  function clean(value){
+    let out = String(value || '');
+    Object.entries(SOURCES).forEach(([id, cfg]) => {
+      const resolved = state.winners[id];
+      const fallback = resolved || FALLBACK[id];
+      (cfg.tokens || []).forEach(tok => {
+        out = out.replace(new RegExp(escRx(tok), 'gi'), fallback);
+      });
+      out = out.replace(new RegExp('\\bWINNER[_-]?N?' + id + '\\b', 'gi'), fallback);
+    });
+    if (state.winners['89']) {
+      out = out.replace(/Vainqueur Paraguay–France\s*\/\s*Maroc/gi, state.winners['89'] + ' / Maroc');
+      out = out.replace(/Vainqueur Paraguay–France\s+vs\s+Maroc/gi, state.winners['89'] + ' vs Maroc');
+    }
+    return out;
+  }
+  function sanitizeTextNodes(root){
+    if (!root) return;
+    const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
+      acceptNode(node){
+        const p = node.parentElement;
+        if (!p || ['SCRIPT','STYLE','TEXTAREA','INPUT'].includes(p.tagName)) return NodeFilter.FILTER_REJECT;
+        return /(winner[_-]?n?\d+|Vainqueur Paraguay–France)/i.test(node.nodeValue || '') ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_SKIP;
+      }
+    });
+    const nodes=[]; while(walker.nextNode()) nodes.push(walker.currentNode);
+    nodes.forEach(n => { const c = clean(n.nodeValue); if (c !== n.nodeValue) n.nodeValue = c; });
+  }
+  function sanitizeAttrs(root){
+    if (!root || !root.querySelectorAll) return;
+    root.querySelectorAll('[title],[aria-label],[alt]').forEach(el => ['title','aria-label','alt'].forEach(attr => {
+      const v = el.getAttribute(attr); if (!v) return;
+      const c = clean(v); if (c !== v) el.setAttribute(attr, c);
+    }));
+  }
+  function sanitizeAll(){ sanitizeTextNodes(document.body); sanitizeAttrs(document.body); }
+  window.QG_DYNAMIC_KO_LABELS = { ingestScores, sanitizeAll, clean, winners: state.winners };
+  window.addEventListener('qualifgainde:scoresUpdated', e => ingestScores(e.detail));
+  async function refreshLiveJson(){
+    try { const r = await fetch('/live.json?v=' + (window.BUILD_VERSION || Date.now()), { cache:'no-store' }); if (r.ok) ingestScores(await r.json()); } catch(e) {}
+  }
+  document.addEventListener('DOMContentLoaded', function(){
+    refreshLiveJson();
+    const obs = new MutationObserver(function(muts){
+      muts.forEach(m => m.addedNodes && m.addedNodes.forEach(node => {
+        if (node.nodeType === 3) node.nodeValue = clean(node.nodeValue);
+        else if (node.nodeType === 1) { sanitizeTextNodes(node); sanitizeAttrs(node); }
+      }));
+      sanitizeAll();
+    });
+    if (document.body) obs.observe(document.body, { childList:true, subtree:true, characterData:true });
+    [150, 700, 1500, 3000, 6000].forEach(ms => setTimeout(refreshLiveJson, ms));
+    setInterval(refreshLiveJson, 60000);
+  });
+})();
+</script>
+
+<script src="src/v10/v10-team-app.js?v=12.0.2"></script>
+<script src="src/v10/auto-refresh-scores.js?v=12.0.2"></script>
 
 <script>
 // V10.3 — PWA registration. Le service worker garde les scores/API en network-first.
