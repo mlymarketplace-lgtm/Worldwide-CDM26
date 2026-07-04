@@ -1,6 +1,6 @@
-// QualifGaïndé Worldwide — Service Worker V11.5.14
-const CACHE_VERSION = 'qg-v11-5-14-static';
-const RUNTIME_CACHE = 'qg-v11-5-14-runtime';
+// QualifGaïndé Worldwide — Service Worker V11.5.13
+const CACHE_VERSION = 'qg-v11-5-15-static';
+const RUNTIME_CACHE = 'qg-v11-5-15-runtime';
 const CORE_ASSETS = [
   '/',
   '/index.html',
@@ -8,10 +8,7 @@ const CORE_ASSETS = [
   '/assets/icons/icon-192.png',
   '/assets/icons/icon-512.png',
   '/assets/icons/maskable-512.png',
-  '/assets/lion-mascotte.png',
-  '/src/v10/v10-team-app.css?v=11.5.14',
-  '/src/v10/v10-team-app.js?v=11.5.14',
-  '/src/v10/auto-refresh-scores.js?v=11.5.14'
+  '/assets/lion-mascotte.png'
 ];
 
 self.addEventListener('install', event => {
@@ -75,7 +72,12 @@ self.addEventListener('fetch', event => {
     return;
   }
 
-  if (url.pathname.startsWith('/assets/') || url.pathname.startsWith('/src/') || url.pathname === '/manifest.webmanifest') {
+  // /src/ en network-first : évite tout conflit de version de fichier JS/CSS
+  if (url.pathname.startsWith('/src/')) {
+    event.respondWith(networkFirst(request));
+    return;
+  }
+  if (url.pathname.startsWith('/assets/') || url.pathname === '/manifest.webmanifest') {
     event.respondWith(cacheFirst(request));
   }
 });
