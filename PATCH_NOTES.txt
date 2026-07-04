@@ -1,28 +1,13 @@
-QualifGaïndé Worldwide — V11.5.18
-Objet : correction régression live/prochain match + moteur KO complet
+QualifGaïndé Worldwide — V11.5.19
 
-Correctifs inclus :
-- Le panneau "Match en direct / Prochain match" ne retombe plus sur Belgique–Sénégal après la fin des 16es.
-- La liste globale des fixtures KO couvre maintenant : 16es, huitièmes, quarts, demies, finale et match pour la 3e place.
-- Canada–Maroc (N90) devient le prochain match global attendu après Ghana–Colombie.
-- La fonction Netlify scores.js suit désormais les huitièmes : can-mar, par-fra, bra-nor, mex-eng, por-esp, usa-bel, arg-egy, sui-col.
-- scores.js peut aussi reconnaître les quarts/demies/finale/3e place par créneau horaire officiel afin d'éviter un nouveau redéploiement à chaque tour.
-- Le moteur de bracket gère maintenant les vainqueurs ET les perdants des demi-finales.
-- Ajout du match pour la 3e place (N103) sous la finale, affiché en gris/discret.
-- Les scores KO live/final peuvent maintenant être appliqués aux huitièmes, quarts, demies, finale et 3e place, pas seulement aux 16es.
-- Les TAB restent gérés : score nul + penaltyHome/penaltyAway + winnerSide.
-- Service worker bumpé en qg-v11-5-18 pour casser le cache.
-
-Tests effectués :
-1) Validation syntaxe JS : index inline scripts, service-worker.js, netlify/functions/scores.js.
-2) Validation JSON : live.json, stats.json, data/*.json, data/pt/*.json.
-3) Test moteur KO : prochain match global = Canada–Maroc au 04/07/2026 15h30 Paris.
-4) Test simulation : huitièmes -> quarts.
-5) Test simulation : quarts -> demies.
-6) Test simulation : demies -> finale.
-7) Test simulation : perdants des demies -> match pour la 3e place.
-8) Test TAB : vainqueur résolu par penalties.
-9) Test Netlify scores.js avec mock API : can-mar live reconnu, qf-97 reconnu par créneau, TAB conservés.
-
-Limite connue :
-- Le test navigateur complet via localhost/file a été bloqué par la politique Chromium du sandbox (ERR_BLOCKED_BY_ADMINISTRATOR). Les tests unitaires JS et mock API passent.
+Corrections incluses :
+1. Prochain match pendant un live : le match live est exclu du bloc “Prochaine affiche”.
+   Exemple : Canada–Maroc live => prochaine affiche = Paraguay–France.
+2. Règle officielle de simulation KO :
+   - scheduled = simulation autorisée ;
+   - live = score officiel affiché, simulation bloquée ;
+   - final = score figé, vainqueur verrouillé.
+3. Scores du tableau KO affichés en face des équipes, en inline, plus sur une ligne séparée.
+4. Compteur supporters fixé à 19 600.
+5. Surbrillance renforcée des 8 huitièmes et halo fort sur la finale.
+6. Bump BUILD_VERSION + service-worker cache en 11.5.19.
