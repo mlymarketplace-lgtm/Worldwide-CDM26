@@ -819,6 +819,29 @@ header{display:flex;align-items:center;justify-content:space-between;padding:12p
 .ko-note{font-size:.58rem;color:#9ca3af;line-height:1.35;padding:0 10px 9px;min-height:28px;}
 .ko-final-winner{margin-top:14px;border:1px solid #FDEF4250;background:linear-gradient(135deg,#241d02,#07180d);border-radius:15px;padding:13px 15px;text-align:center;font-size:.82rem;line-height:1.5;}
 .ko-final-winner strong{font-family:Oswald,sans-serif;color:var(--or);font-size:1.35rem;letter-spacing:.08em;}
+.ko-card.third-place{
+  opacity:.82;
+  filter:grayscale(.28);
+  border-color:#ffffff22;
+  background:linear-gradient(180deg,#151515,#0b0f16);
+  box-shadow:inset 0 0 0 1px #ffffff10;
+}
+.ko-card.third-place .ko-head{
+  color:#cbd5e1;
+  background:linear-gradient(90deg,#111827,#0b0b0b);
+  border-bottom-color:#ffffff16;
+}
+.ko-card.third-place .ko-team{
+  border-bottom-color:#ffffff10;
+}
+.ko-card.third-place .ko-team.picked{
+  color:#d1d5db;
+  background:#ffffff0d;
+  border-color:#ffffff20;
+}
+.ko-card.third-place .ko-team.picked .ko-pick{color:#d1d5db;}
+.ko-card.third-place .ko-note{color:#9ca3af;}
+
 
 @media(max-width:980px){
   .match-countdown-grid{grid-template-columns:1fr;}
@@ -880,7 +903,7 @@ header{display:flex;align-items:center;justify-content:space-between;padding:12p
 .bracket-col-r16 .bracket-stack{justify-content:flex-start;}
 .bracket-col-qf .bracket-stack{justify-content:space-around;padding:48px 0;}
 .bracket-col-sf .bracket-stack{justify-content:space-evenly;padding:150px 0;}
-.bracket-col-final .bracket-stack{justify-content:center;padding:260px 0;}
+.bracket-col-final .bracket-stack{justify-content:center;padding:210px 0;}
 .bracket-col-qf .ko-card,.bracket-col-sf .ko-card,.bracket-col-final .ko-card{
   box-shadow:0 18px 42px #0005,inset 0 0 0 1px #7c3aed16;
 }
@@ -2284,8 +2307,10 @@ function filterImportantMatches() {
 }
 
 function liveImpactText(key) {
-  if (typeof R32_API_KEY_META !== 'undefined' && R32_API_KEY_META[key]) {
-    return '16e de finale en direct · le vainqueur avance dans le tableau.';
+  const koMeta = (typeof KO_API_KEY_META !== 'undefined') ? KO_API_KEY_META[key] : null;
+  if (koMeta) {
+    const labels = { r32:'16e de finale', r16:'Huitième de finale', qf:'Quart de finale', sf:'Demi-finale', final: key === 'third-103' ? 'Match pour la 3e place' : 'Finale' };
+    return `${labels[koMeta.round] || 'Match à élimination directe'} en direct · le vainqueur avance dans le tableau.`;
   }
   const impacts = {
     'cro-gha': "Groupe L : influe sur le rang final du Sénégal et l'adversaire probable.",
@@ -2328,48 +2353,86 @@ const DEFAULT_TOURNAMENT_STATS = {
   }
 };
 
+
 const NEXT_KNOCKOUT_FIXTURES = [
-  { id:'N73', ts:'2026-06-28T21:00:00+02:00', date:'Dim. 28 juin · 21h00 Paris', venue:'Los Angeles · SoFi Stadium', a:NAMES.RSA, b:NAMES.CAN },
-  { id:'N78', ts:'2026-06-29T19:00:00+02:00', date:'Lun. 29 juin · 19h00 Paris', venue:'Houston · NRG Stadium', a:NAMES.BRA, b:NAMES.JPN },
-  { id:'N74', ts:'2026-06-29T22:30:00+02:00', date:'Lun. 29 juin · 22h30 Paris', venue:'Boston · Gillette Stadium', a:NAMES.GER, b:NAMES.PAR },
-  { id:'N75', ts:'2026-06-30T03:00:00+02:00', date:'Mar. 30 juin · 03h00 Paris', venue:'Philadelphia · Lincoln Financial Field', a:NAMES.NED, b:NAMES.MAR },
-  { id:'N76', ts:'2026-06-30T19:00:00+02:00', date:'Mar. 30 juin · 19h00 Paris', venue:'Miami · Hard Rock Stadium', a:NAMES.CIV, b:NAMES.NOR },
-  { id:'N77', ts:'2026-06-30T23:00:00+02:00', date:'Mar. 30 juin · 23h00 Paris', venue:'New York · MetLife Stadium', a:NAMES.FRA, b:NAMES.SWE },
-  { id:'N79', ts:'2026-07-01T03:00:00+02:00', date:'Mer. 1er juillet · 03h00 Paris', venue:'Mexico City · Estadio Azteca', a:NAMES.MEX, b:NAMES.ECU },
-  { id:'N80', ts:'2026-07-01T18:00:00+02:00', date:'Mer. 1er juillet · 18h00 Paris', venue:'Atlanta · Mercedes-Benz Stadium', a:NAMES.ENG, b:NAMES.COD },
-  { id:'N82', ts:'2026-07-01T22:00:00+02:00', date:'Mer. 1er juillet · 22h00 Paris', venue:'Seattle · Lumen Field', a:NAMES.BEL, b:NAMES.SEN },
-  { id:'N81', ts:'2026-07-02T02:00:00+02:00', date:'Jeu. 2 juillet · 02h00 Paris', venue:'San Francisco · Levi’s Stadium', a:NAMES.USA, b:NAMES.BIH },
-  { id:'N84', ts:'2026-07-02T21:00:00+02:00', date:'Jeu. 2 juillet · 21h00 Paris', venue:'Toronto · BMO Field', a:NAMES.ESP, b:NAMES.AUT },
-  { id:'N83', ts:'2026-07-03T01:00:00+02:00', date:'Ven. 3 juillet · 01h00 Paris', venue:'Dallas · AT&T Stadium', a:NAMES.POR, b:NAMES.CRO },
-  { id:'N85', ts:'2026-07-03T05:00:00+02:00', date:'Ven. 3 juillet · 05h00 Paris', venue:'Vancouver · BC Place', a:NAMES.SUI, b:NAMES.ALG },
-  { id:'N86', ts:'2026-07-03T20:00:00+02:00', date:'Ven. 3 juillet · 20h00 Paris', venue:'Kansas City · Arrowhead Stadium', a:NAMES.AUS, b:NAMES.EGY },
-  { id:'N87', ts:'2026-07-04T00:00:00+02:00', date:'Sam. 4 juillet · 00h00 Paris', venue:'Dallas · AT&T Stadium', a:NAMES.ARG, b:NAMES.CPV },
-  { id:'N88', ts:'2026-07-04T03:30:00+02:00', date:'Sam. 4 juillet · 03h30 Paris', venue:'Los Angeles · SoFi Stadium', a:NAMES.COL, b:NAMES.GHA }
+  // 16es de finale — résultats figés localement et utilisés pour résoudre les huitièmes.
+  { key:'rsa-can', round:'r32', id:'N73', koId:'N73', h:'RSA', aCode:'CAN', ts:'2026-06-28T21:00:00+02:00', date:'Dim. 28 juin · 21h00 Paris', venue:'Los Angeles · SoFi Stadium', a:NAMES.RSA, b:NAMES.CAN, roundLabel:'16e de finale' },
+  { key:'bra-jpn', round:'r32', id:'N78', koId:'N78', h:'BRA', aCode:'JPN', ts:'2026-06-29T19:00:00+02:00', date:'Lun. 29 juin · 19h00 Paris', venue:'Houston · NRG Stadium', a:NAMES.BRA, b:NAMES.JPN, roundLabel:'16e de finale' },
+  { key:'ger-par', round:'r32', id:'N74', koId:'N74', h:'GER', aCode:'PAR', ts:'2026-06-29T22:30:00+02:00', date:'Lun. 29 juin · 22h30 Paris', venue:'Boston · Gillette Stadium', a:NAMES.GER, b:NAMES.PAR, roundLabel:'16e de finale' },
+  { key:'ned-mar', round:'r32', id:'N75', koId:'N75', h:'NED', aCode:'MAR', ts:'2026-06-30T03:00:00+02:00', date:'Mar. 30 juin · 03h00 Paris', venue:'Philadelphia · Lincoln Financial Field', a:NAMES.NED, b:NAMES.MAR, roundLabel:'16e de finale' },
+  { key:'civ-nor', round:'r32', id:'N76', koId:'N76', h:'CIV', aCode:'NOR', ts:'2026-06-30T19:00:00+02:00', date:'Mar. 30 juin · 19h00 Paris', venue:'Miami · Hard Rock Stadium', a:NAMES.CIV, b:NAMES.NOR, roundLabel:'16e de finale' },
+  { key:'fra-swe', round:'r32', id:'N77', koId:'N77', h:'FRA', aCode:'SWE', ts:'2026-06-30T23:00:00+02:00', date:'Mar. 30 juin · 23h00 Paris', venue:'New York · MetLife Stadium', a:NAMES.FRA, b:NAMES.SWE, roundLabel:'16e de finale' },
+  { key:'mex-ecu', round:'r32', id:'N79', koId:'N79', h:'MEX', aCode:'ECU', ts:'2026-07-01T03:00:00+02:00', date:'Mer. 1er juillet · 03h00 Paris', venue:'Mexico City · Estadio Azteca', a:NAMES.MEX, b:NAMES.ECU, roundLabel:'16e de finale' },
+  { key:'eng-cod', round:'r32', id:'N80', koId:'N80', h:'ENG', aCode:'COD', ts:'2026-07-01T18:00:00+02:00', date:'Mer. 1er juillet · 18h00 Paris', venue:'Atlanta · Mercedes-Benz Stadium', a:NAMES.ENG, b:NAMES.COD, roundLabel:'16e de finale' },
+  { key:'bel-sen', round:'r32', id:'N82', koId:'N82', h:'BEL', aCode:'SEN', ts:'2026-07-01T22:00:00+02:00', date:'Mer. 1er juillet · 22h00 Paris', venue:'Seattle · Lumen Field', a:NAMES.BEL, b:NAMES.SEN, roundLabel:'16e de finale' },
+  { key:'usa-bih', round:'r32', id:'N81', koId:'N81', h:'USA', aCode:'BIH', ts:'2026-07-02T02:00:00+02:00', date:'Jeu. 2 juillet · 02h00 Paris', venue:'San Francisco · Levi’s Stadium', a:NAMES.USA, b:NAMES.BIH, roundLabel:'16e de finale' },
+  { key:'esp-aut', round:'r32', id:'N84', koId:'N84', h:'ESP', aCode:'AUT', ts:'2026-07-02T21:00:00+02:00', date:'Jeu. 2 juillet · 21h00 Paris', venue:'Toronto · BMO Field', a:NAMES.ESP, b:NAMES.AUT, roundLabel:'16e de finale' },
+  { key:'por-cro', round:'r32', id:'N83', koId:'N83', h:'POR', aCode:'CRO', ts:'2026-07-03T01:00:00+02:00', date:'Ven. 3 juillet · 01h00 Paris', venue:'Dallas · AT&T Stadium', a:NAMES.POR, b:NAMES.CRO, roundLabel:'16e de finale' },
+  { key:'sui-alg', round:'r32', id:'N85', koId:'N85', h:'SUI', aCode:'ALG', ts:'2026-07-03T05:00:00+02:00', date:'Ven. 3 juillet · 05h00 Paris', venue:'Vancouver · BC Place', a:NAMES.SUI, b:NAMES.ALG, roundLabel:'16e de finale' },
+  { key:'aus-egy', round:'r32', id:'N86', koId:'N86', h:'AUS', aCode:'EGY', ts:'2026-07-03T20:00:00+02:00', date:'Ven. 3 juillet · 20h00 Paris', venue:'Kansas City · Arrowhead Stadium', a:NAMES.AUS, b:NAMES.EGY, roundLabel:'16e de finale' },
+  { key:'arg-cpv', round:'r32', id:'N87', koId:'N87', h:'ARG', aCode:'CPV', ts:'2026-07-04T00:00:00+02:00', date:'Sam. 4 juillet · 00h00 Paris', venue:'Dallas · AT&T Stadium', a:NAMES.ARG, b:NAMES.CPV, roundLabel:'16e de finale' },
+  { key:'col-gha', round:'r32', id:'N88', koId:'N88', h:'COL', aCode:'GHA', ts:'2026-07-04T03:30:00+02:00', date:'Sam. 4 juillet · 03h30 Paris', venue:'Los Angeles · SoFi Stadium', a:NAMES.COL, b:NAMES.GHA, roundLabel:'16e de finale' },
+
+  // Huitièmes — la home/prochain match doit désormais commencer ici après Ghana–Colombie.
+  { key:'can-mar', round:'r16', id:'N90', koId:'N90', h:'CAN', aCode:'MAR', ts:'2026-07-04T19:00:00+02:00', date:'Sam. 4 juillet · 19h00 Paris', venue:'Atlanta · Mercedes-Benz Stadium', a:NAMES.CAN, b:NAMES.MAR, roundLabel:'Huitième de finale' },
+  { key:'par-fra', round:'r16', id:'N89', koId:'N89', h:'PAR', aCode:'FRA', ts:'2026-07-04T23:00:00+02:00', date:'Sam. 4 juillet · 23h00 Paris', venue:'New York · MetLife Stadium', a:NAMES.PAR, b:NAMES.FRA, roundLabel:'Huitième de finale' },
+  { key:'bra-nor', round:'r16', id:'N91', koId:'N91', h:'NOR', aCode:'BRA', ts:'2026-07-05T22:00:00+02:00', date:'Dim. 5 juillet · 22h00 Paris', venue:'Dallas · AT&T Stadium', a:NAMES.NOR, b:NAMES.BRA, roundLabel:'Huitième de finale' },
+  { key:'mex-eng', round:'r16', id:'N92', koId:'N92', h:'MEX', aCode:'ENG', ts:'2026-07-06T02:00:00+02:00', date:'Lun. 6 juillet · 02h00 Paris', venue:'Houston · NRG Stadium', a:NAMES.MEX, b:NAMES.ENG, roundLabel:'Huitième de finale' },
+  { key:'por-esp', round:'r16', id:'N93', koId:'N93', h:'POR', aCode:'ESP', ts:'2026-07-06T21:00:00+02:00', date:'Lun. 6 juillet · 21h00 Paris', venue:'Dallas · AT&T Stadium', a:NAMES.POR, b:NAMES.ESP, roundLabel:'Huitième de finale' },
+  { key:'usa-bel', round:'r16', id:'N94', koId:'N94', h:'USA', aCode:'BEL', ts:'2026-07-07T02:00:00+02:00', date:'Mar. 7 juillet · 02h00 Paris', venue:'San Francisco · Levi’s Stadium', a:NAMES.USA, b:NAMES.BEL, roundLabel:'Huitième de finale' },
+  { key:'arg-egy', round:'r16', id:'N95', koId:'N95', h:'ARG', aCode:'EGY', ts:'2026-07-07T18:00:00+02:00', date:'Mar. 7 juillet · 18h00 Paris', venue:'Kansas City · Arrowhead Stadium', a:NAMES.ARG, b:NAMES.EGY, roundLabel:'Huitième de finale' },
+  { key:'sui-col', round:'r16', id:'N96', koId:'N96', h:'SUI', aCode:'COL', ts:'2026-07-07T22:00:00+02:00', date:'Mar. 7 juillet · 22h00 Paris', venue:'Vancouver · BC Place', a:NAMES.SUI, b:NAMES.COL, roundLabel:'Huitième de finale' },
+
+  // Tours suivants — participants résolus automatiquement depuis le bracket.
+  { key:'qf-97', round:'qf', id:'N97', koId:'N97', ts:'2026-07-09T22:00:00+02:00', date:'Jeu. 9 juillet · 22h00 Paris', venue:'À confirmer', sources:[{type:'ko', round:'r16', id:'N89'}, {type:'ko', round:'r16', id:'N90'}], roundLabel:'Quart de finale' },
+  { key:'qf-98', round:'qf', id:'N98', koId:'N98', ts:'2026-07-10T21:00:00+02:00', date:'Ven. 10 juillet · 21h00 Paris', venue:'À confirmer', sources:[{type:'ko', round:'r16', id:'N93'}, {type:'ko', round:'r16', id:'N94'}], roundLabel:'Quart de finale' },
+  { key:'qf-99', round:'qf', id:'N99', koId:'N99', ts:'2026-07-11T23:00:00+02:00', date:'Sam. 11 juillet · 23h00 Paris', venue:'À confirmer', sources:[{type:'ko', round:'r16', id:'N91'}, {type:'ko', round:'r16', id:'N92'}], roundLabel:'Quart de finale' },
+  { key:'qf-100', round:'qf', id:'N100', koId:'N100', ts:'2026-07-12T03:00:00+02:00', date:'Dim. 12 juillet · 03h00 Paris', venue:'À confirmer', sources:[{type:'ko', round:'r16', id:'N95'}, {type:'ko', round:'r16', id:'N96'}], roundLabel:'Quart de finale' },
+  { key:'sf-101', round:'sf', id:'N101', koId:'N101', ts:'2026-07-14T21:00:00+02:00', date:'Mar. 14 juillet · 21h00 Paris', venue:'À confirmer', sources:[{type:'ko', round:'qf', id:'N97'}, {type:'ko', round:'qf', id:'N98'}], roundLabel:'Demi-finale' },
+  { key:'sf-102', round:'sf', id:'N102', koId:'N102', ts:'2026-07-15T21:00:00+02:00', date:'Mer. 15 juillet · 21h00 Paris', venue:'À confirmer', sources:[{type:'ko', round:'qf', id:'N99'}, {type:'ko', round:'qf', id:'N100'}], roundLabel:'Demi-finale' },
+  { key:'third-103', round:'final', id:'N103', koId:'N103', ts:'2026-07-18T23:00:00+02:00', date:'Sam. 18 juillet · 23h00 Paris', venue:'À confirmer', sources:[{type:'ko', round:'sf', id:'N101', result:'loser'}, {type:'ko', round:'sf', id:'N102', result:'loser'}], roundLabel:'Match pour la 3e place', third:true },
+  { key:'final-104', round:'final', id:'N104', koId:'N104', ts:'2026-07-19T21:00:00+02:00', date:'Dim. 19 juillet · 21h00 Paris', venue:'New York · MetLife Stadium', sources:[{type:'ko', round:'sf', id:'N101'}, {type:'ko', round:'sf', id:'N102'}], roundLabel:'Finale', final:true }
 ];
 
 
 // Les matchs à élimination directe ne doivent pas polluer le moteur de groupes.
-// On les garde dans un état séparé pour le panneau live/prochain match.
+// On les garde dans un état séparé pour le panneau live/prochain match et le bracket.
 const KNOCKOUT_LIVE_RESULTS = {};
-const R32_API_KEY_META = {
-  'rsa-can': {h:'RSA', a:'CAN', id:'N73'},
-  'bra-jpn': {h:'BRA', a:'JPN', id:'N78'},
-  'ger-par': {h:'GER', a:'PAR', id:'N74'},
-  'ned-mar': {h:'NED', a:'MAR', id:'N75'},
-  'civ-nor': {h:'CIV', a:'NOR', id:'N76'},
-  'fra-swe': {h:'FRA', a:'SWE', id:'N77'},
-  'mex-ecu': {h:'MEX', a:'ECU', id:'N79'},
-  'eng-cod': {h:'ENG', a:'COD', id:'N80'},
-  'bel-sen': {h:'BEL', a:'SEN', id:'N82'},
-  'usa-bih': {h:'USA', a:'BIH', id:'N81'},
-  'esp-aut': {h:'ESP', a:'AUT', id:'N84'},
-  'por-cro': {h:'POR', a:'CRO', id:'N83'},
-  'sui-alg': {h:'SUI', a:'ALG', id:'N85'},
-  'aus-egy': {h:'AUS', a:'EGY', id:'N86'},
-  'arg-cpv': {h:'ARG', a:'CPV', id:'N87'},
-  'col-gha': {h:'COL', a:'GHA', id:'N88'}
+const KO_API_KEY_META = {
+  'rsa-can': {h:'RSA', a:'CAN', round:'r32', id:'N73'},
+  'bra-jpn': {h:'BRA', a:'JPN', round:'r32', id:'N78'},
+  'ger-par': {h:'GER', a:'PAR', round:'r32', id:'N74'},
+  'ned-mar': {h:'NED', a:'MAR', round:'r32', id:'N75'},
+  'civ-nor': {h:'CIV', a:'NOR', round:'r32', id:'N76'},
+  'fra-swe': {h:'FRA', a:'SWE', round:'r32', id:'N77'},
+  'mex-ecu': {h:'MEX', a:'ECU', round:'r32', id:'N79'},
+  'eng-cod': {h:'ENG', a:'COD', round:'r32', id:'N80'},
+  'bel-sen': {h:'BEL', a:'SEN', round:'r32', id:'N82'},
+  'usa-bih': {h:'USA', a:'BIH', round:'r32', id:'N81'},
+  'esp-aut': {h:'ESP', a:'AUT', round:'r32', id:'N84'},
+  'por-cro': {h:'POR', a:'CRO', round:'r32', id:'N83'},
+  'sui-alg': {h:'SUI', a:'ALG', round:'r32', id:'N85'},
+  'aus-egy': {h:'AUS', a:'EGY', round:'r32', id:'N86'},
+  'arg-cpv': {h:'ARG', a:'CPV', round:'r32', id:'N87'},
+  'col-gha': {h:'COL', a:'GHA', round:'r32', id:'N88'},
+  'can-mar': {h:'CAN', a:'MAR', round:'r16', id:'N90'},
+  'par-fra': {h:'PAR', a:'FRA', round:'r16', id:'N89'},
+  'bra-nor': {h:'NOR', a:'BRA', round:'r16', id:'N91'},
+  'mex-eng': {h:'MEX', a:'ENG', round:'r16', id:'N92'},
+  'por-esp': {h:'POR', a:'ESP', round:'r16', id:'N93'},
+  'usa-bel': {h:'USA', a:'BEL', round:'r16', id:'N94'},
+  'arg-egy': {h:'ARG', a:'EGY', round:'r16', id:'N95'},
+  'sui-col': {h:'SUI', a:'COL', round:'r16', id:'N96'},
+  'qf-97': {round:'qf', id:'N97'},
+  'qf-98': {round:'qf', id:'N98'},
+  'qf-99': {round:'qf', id:'N99'},
+  'qf-100': {round:'qf', id:'N100'},
+  'sf-101': {round:'sf', id:'N101'},
+  'sf-102': {round:'sf', id:'N102'},
+  'third-103': {round:'final', id:'N103'},
+  'final-104': {round:'final', id:'N104'}
 };
-
+const R32_API_KEY_META = Object.fromEntries(Object.entries(KO_API_KEY_META).filter(([, meta]) => meta.round === 'r32'));
 
 
 
@@ -2439,7 +2502,8 @@ const KO_ROUNDS = [
     {id:'N102', ts:'2026-07-15T21:00:00+02:00', date:'15 juillet · 21h00', sources:[{type:'ko', round:'qf', id:'N99'}, {type:'ko', round:'qf', id:'N100'}]}
   ]},
   {key:'final', title:'Finale', matches:[
-    {id:'N104', ts:'2026-07-19T21:00:00+02:00', date:'19 juillet · 21h00', sources:[{type:'ko', round:'sf', id:'N101'}, {type:'ko', round:'sf', id:'N102'}], final:true, senPath:true}
+    {id:'N104', ts:'2026-07-19T21:00:00+02:00', date:'19 juillet · 21h00', sources:[{type:'ko', round:'sf', id:'N101'}, {type:'ko', round:'sf', id:'N102'}], final:true, senPath:true},
+    {id:'N103', ts:'2026-07-18T23:00:00+02:00', date:'18 juillet · 23h00', sources:[{type:'ko', round:'sf', id:'N101', result:'loser'}, {type:'ko', round:'sf', id:'N102', result:'loser'}], third:true}
   ]}
 ];
 
@@ -2448,6 +2512,7 @@ const r32Picks = { N73:1, N78:0, N74:1, N75:1, N76:1, N77:0, N79:0, N80:0, N82:0
 const r32Locked = { N73:true, N78:true, N74:true, N75:true, N76:true, N77:true, N79:true, N80:true, N82:true, N81:true, N84:true, N83:true, N85:true, N86:true, N87:true, N88:true }; // V11.5.17 : tous les 16es finalisés API figés dans la simulation
 const koPicks = { r16:{}, qf:{}, sf:{}, final:{} };
 const koScores = { r16:{}, qf:{}, sf:{}, final:{} };
+const koPenalties = { r16:{}, qf:{}, sf:{}, final:{} };
 const koLocked = { r16:{}, qf:{}, sf:{}, final:{} };
 const ROUND_ORDER = ['r16','qf','sf','final'];
 
@@ -2493,22 +2558,26 @@ function laterRounds(round) {
   return idx < 0 ? ROUND_ORDER : ROUND_ORDER.slice(idx + 1);
 }
 function clearFutureFrom(round) {
-  laterRounds(round).forEach(r => { koPicks[r] = {}; koScores[r] = {}; koLocked[r] = {}; });
+  laterRounds(round).forEach(r => { koPicks[r] = {}; koScores[r] = {}; koPenalties[r] = {}; koLocked[r] = {}; });
 }
 function clearAllKo() {
-  ROUND_ORDER.forEach(r => { koPicks[r] = {}; koScores[r] = {}; koLocked[r] = {}; });
+  ROUND_ORDER.forEach(r => { koPicks[r] = {}; koScores[r] = {}; koPenalties[r] = {}; koLocked[r] = {}; });
 }
 function containsSenegal(label) { return cleanLabel(label).includes('Sénégal'); }
 
 function sourceLabel(source) {
-  if (source.type === 'r32') return r32WinnerLabel(source.id);
-  return koWinnerLabel(source.round, source.id);
+  if (!source) return null;
+  const result = source.result || 'winner';
+  if (source.type === 'r32') return result === 'loser' ? r32LoserLabel(source.id) : r32WinnerLabel(source.id);
+  return result === 'loser' ? koLoserLabel(source.round, source.id) : koWinnerLabel(source.round, source.id);
 }
 function sourceResolved(source) {
+  if (!source) return false;
   if (source.type === 'r32') return r32Picks[source.id] !== undefined;
   return koPicks[source.round] && koPicks[source.round][source.id] !== undefined;
 }
 function unresolvedLabelForSource(source) {
+  if (source?.result === 'loser') return 'Perdant à définir';
   return t('waiting');
 }
 function r32WinnerLabel(id) {
@@ -2517,11 +2586,23 @@ function r32WinnerLabel(id) {
   if (!c || pick === undefined) return null;
   return pick === 0 ? c.a : c.b;
 }
+function r32LoserLabel(id) {
+  const c = r32CardById(id);
+  const pick = r32Picks[id];
+  if (!c || pick === undefined) return null;
+  return pick === 0 ? c.b : c.a;
+}
 function koWinnerLabel(round, id) {
   const m = koMatchById(round, id);
   const pick = koPicks[round]?.[id];
   if (!m || pick === undefined) return null;
   return sourceLabel(m.sources[pick]);
+}
+function koLoserLabel(round, id) {
+  const m = koMatchById(round, id);
+  const pick = koPicks[round]?.[id];
+  if (!m || pick === undefined) return null;
+  return sourceLabel(m.sources[pick === 0 ? 1 : 0]);
 }
 function matchHasSenegal(round, match) {
   return !!match.senPath || match.sources.some(src => {
@@ -2536,7 +2617,7 @@ function r32ApiEntryById(id) {
 
 function normalizeLockEntry(key, lock) {
   if (!lock) return null;
-  const meta = R32_API_KEY_META[key] || {h:lock.h, a:lock.a, id:lock.koId};
+  const meta = KO_API_KEY_META[key] || R32_API_KEY_META[key] || {h:lock.h, a:lock.a, id:lock.koId};
   const ph = lock.penalty?.home ?? lock.penaltyHome ?? null;
   const pa = lock.penalty?.away ?? lock.penaltyAway ?? null;
   return {
@@ -2596,16 +2677,20 @@ function applyKOLocks(locks = {}) {
       if (!m || !lock) return;
       const home = lock.home ?? lock.hg ?? null;
       const away = lock.away ?? lock.ag ?? null;
+      const ph = lock.penalty?.home ?? lock.penaltyHome ?? null;
+      const pa = lock.penalty?.away ?? lock.penaltyAway ?? null;
+      const entry = { ...lock, penalty:{home:ph, away:pa}, penaltyHome:ph, penaltyAway:pa, winnerSide:lock.winnerSide };
       const winnerSide = (lock.winnerSide === 0 || lock.winnerSide === 1)
         ? lock.winnerSide
-        : (home !== null && away !== null && home !== away ? (home > away ? 0 : 1) : null);
-      const prev = JSON.stringify({score:koScores[round]?.[matchId] || null, pick:koPicks[round]?.[matchId], locked:koLocked[round]?.[matchId] || false});
+        : winnerSideFromApi(entry, home, away, lock.status || 'final');
+      const prev = JSON.stringify({score:koScores[round]?.[matchId] || null, pen:koPenalties[round]?.[matchId] || null, pick:koPicks[round]?.[matchId], locked:koLocked[round]?.[matchId] || false});
       if (home !== null && away !== null) koScores[round][matchId] = [home, away];
+      if (ph !== null && pa !== null) koPenalties[round][matchId] = [ph, pa];
       if ((lock.status === 'final' || lock.locked) && winnerSide !== null) {
         koPicks[round][matchId] = winnerSide;
         koLocked[round][matchId] = true;
       }
-      const next = JSON.stringify({score:koScores[round]?.[matchId] || null, pick:koPicks[round]?.[matchId], locked:koLocked[round]?.[matchId] || false});
+      const next = JSON.stringify({score:koScores[round]?.[matchId] || null, pen:koPenalties[round]?.[matchId] || null, pick:koPicks[round]?.[matchId], locked:koLocked[round]?.[matchId] || false});
       if (prev !== next) changed = true;
     });
   });
@@ -2666,6 +2751,27 @@ function syncR32FromApi(koId, homeGoals, awayGoals, status, entry = {}) {
     r32Scores[koId] = [null, null];
   }
   const after = JSON.stringify({score:r32Scores[koId] || null, pick:r32Picks[koId], locked:r32Locked[koId] || false});
+  return before !== after;
+}
+
+function syncKOFromApi(round, koId, homeGoals, awayGoals, status, entry = {}) {
+  if (!round || !koId || !koMatchById(round, koId)) return false;
+  if (!koScores[round]) koScores[round] = {};
+  if (!koPenalties[round]) koPenalties[round] = {};
+  if (!koPicks[round]) koPicks[round] = {};
+  if (!koLocked[round]) koLocked[round] = {};
+  const hasScore = homeGoals !== null && homeGoals !== undefined && awayGoals !== null && awayGoals !== undefined;
+  const pen = penaltyTuple(entry);
+  const before = JSON.stringify({score:koScores[round]?.[koId] || null, pen:koPenalties[round]?.[koId] || null, pick:koPicks[round]?.[koId], locked:koLocked[round]?.[koId] || false});
+  if (hasScore) koScores[round][koId] = [homeGoals, awayGoals];
+  else if (!koScores[round][koId]) koScores[round][koId] = [null, null];
+  if (pen) koPenalties[round][koId] = pen;
+  const officialWinner = winnerSideFromApi(entry, homeGoals, awayGoals, status);
+  if (status === 'final' && officialWinner !== null) {
+    koPicks[round][koId] = officialWinner;
+    koLocked[round][koId] = true;
+  }
+  const after = JSON.stringify({score:koScores[round]?.[koId] || null, pen:koPenalties[round]?.[koId] || null, pick:koPicks[round]?.[koId], locked:koLocked[round]?.[koId] || false});
   return before !== after;
 }
 
@@ -2782,28 +2888,42 @@ function koTeam(round, matchId, idx, label, resolved, picked) {
   const title = resolved ? `title="${locked ? 'Résultat officiel figé' : t('choose') + ' ' + escapeAttr(label)}"` : `title="${t('choosePrev')}"`;
   return `<div class="${css}" ${click} ${title}><span>${label}</span><span class="ko-pick">${pickText}</span></div>`;
 }
+function koStatusText(round, matchId, locked) {
+  const pen = koPenalties[round]?.[matchId];
+  const penTxt = pen ? ` · TAB ${pen[0]}–${pen[1]}` : '';
+  return locked ? `FT${penTxt}` : t('score');
+}
+function koCardTitle(round, match) {
+  if (match.third) return 'Match 3e place';
+  if (match.final) return t('finale');
+  return (t('roundNames')[round] || koRoundByKey(round).title);
+}
 function renderKOCard(round, m) {
   const labels = m.sources.map(src => sourceLabel(src));
   const resolved = m.sources.map(src => sourceResolved(src));
-  const display = labels.map(label => label || t('waiting'));
+  const display = labels.map((label, idx) => label || unresolvedLabelForSource(m.sources[idx]));
   const pick = koPicks[round]?.[m.id];
   const score = (koScores[round] && koScores[round][m.id]) || [null, null];
   const officialLocked = !!(koLocked[round] && koLocked[round][m.id]);
   const senCls = ''; // V11.5.13 — ancien chemin Sénégal neutralisé dans le bracket
   const waitingCls = (!resolved[0] || !resolved[1]) ? ' waiting' : '';
+  const thirdCls = m.third ? ' third-place' : '';
   const scoreInputs = resolved[0] && resolved[1]
     ? `<div class="ko-scoreline">
       <input type="number" min="0" placeholder="-" value="${score[0] ?? ''}" ${officialLocked ? 'disabled' : ''} onclick="event.stopPropagation()" onchange="setKOScore('${round}','${m.id}',0,this.value)">
-      <span>${officialLocked ? 'FT' : t('score')}</span>
+      <span>${koStatusText(round, m.id, officialLocked)}</span>
       <input type="number" min="0" placeholder="-" value="${score[1] ?? ''}" ${officialLocked ? 'disabled' : ''} onclick="event.stopPropagation()" onchange="setKOScore('${round}','${m.id}',1,this.value)">
     </div>`
     : `<div class="ko-scoreline" aria-hidden="true"></div>`;
-  return `<div class="ko-card${senCls}${waitingCls}${officialLocked ? ' official-locked' : ''}" data-round="${round}" data-match="${m.id}">
-    <div class="ko-head"><span>${m.final ? t('finale') : (t('roundNames')[round] || koRoundByKey(round).title)}</span><span class="ko-date">${formatKoLocalDate(m)}</span></div>
+  const note = m.third
+    ? (resolved[0] && resolved[1] ? 'Les deux perdants des demies jouent le podium.' : 'Les perdants des demi-finales apparaîtront ici.')
+    : (resolved[0] && resolved[1] ? t('chooseWinner') : t('choosePrev'));
+  return `<div class="ko-card${senCls}${thirdCls}${waitingCls}${officialLocked ? ' official-locked' : ''}" data-round="${round}" data-match="${m.id}">
+    <div class="ko-head"><span>${koCardTitle(round, m)}</span><span class="ko-date">${formatKoLocalDate(m)}</span></div>
     ${koTeam(round, m.id, 0, display[0], resolved[0], pick === 0)}
     ${koTeam(round, m.id, 1, display[1], resolved[1], pick === 1)}
     ${scoreInputs}
-    <div class="ko-note">${resolved[0] && resolved[1] ? t('chooseWinner') : t('choosePrev')}</div>
+    <div class="ko-note">${note}</div>
   </div>`;
 }
 function renderKnockoutTree() {
@@ -2871,7 +2991,7 @@ function renderTopLiveMatches() {
     return `<div class="next-match-card">
       <div class="next-team"><div class="next-team-name">${next.a}</div><div class="next-team-sub">${t('nextPoster')}</div></div>
       <div class="next-vs"><div class="next-vs-main">VS</div><div class="next-vs-time">${formatNextMatchLocalDate(next)}</div></div>
-      <div class="next-team"><div class="next-team-name">${next.b}</div><div class="next-team-sub">${t('round32')}</div></div>
+      <div class="next-team"><div class="next-team-name">${next.b}</div><div class="next-team-sub">${next.roundLabel || t('round32')}</div></div>
       <div class="next-venue"><strong>${next.venue}</strong></div>
     </div>`;
   };
@@ -2894,8 +3014,8 @@ function renderTopLiveMatches() {
     };
     const statusLabel = STATUS_FR[rawStatus] || rawStatus || '● EN DIRECT';
     const minute = r.minute ? `${r.minute}'` : '●';
-    const homeName = NAMES[r.h] || r.h;
-    const awayName = NAMES[r.a] || r.a;
+    const homeName = r.homeLabel || r.homeName || NAMES[r.h] || r.h;
+    const awayName = r.awayLabel || r.awayName || NAMES[r.a] || r.a;
     const homeScore = (r.home !== null && r.home !== undefined)
       ? r.home
       : ((r.hg !== null && r.hg !== undefined) ? r.hg : '–');
@@ -2965,13 +3085,36 @@ function renderTopLiveMatches() {
   wrap.innerHTML = nextMatchCardHtml(next);
 }
 
+function fixtureByKoId(id) {
+  return (NEXT_KNOCKOUT_FIXTURES || []).find(f => f && (f.koId === id || f.id === id)) || null;
+}
+function fixtureLocked(f) {
+  if (!f) return false;
+  if (f.round === 'r32') return !!r32Locked[f.id];
+  return !!(koLocked[f.round] && koLocked[f.round][f.id]);
+}
+function fixtureSourceLabel(src) {
+  return sourceLabel(src) || unresolvedLabelForSource(src);
+}
+function resolveFixtureForDisplay(f) {
+  if (!f) return null;
+  const labels = f.sources ? f.sources.map(fixtureSourceLabel) : [f.a, f.b];
+  return {
+    ...f,
+    a: labels[0] || f.a || 'À définir',
+    b: labels[1] || f.b || 'À définir',
+    venue: f.venue || 'À confirmer',
+    roundLabel: f.roundLabel || (f.third ? 'Match pour la 3e place' : f.final ? 'Finale' : (t('roundNames')[f.round] || 'Match à élimination directe'))
+  };
+}
 function nextScheduledFixture() {
   const now = Date.now();
-  const upcoming = NEXT_KNOCKOUT_FIXTURES
+  const currentGraceMs = 4 * 60 * 60 * 1000;
+  const upcoming = (NEXT_KNOCKOUT_FIXTURES || [])
     .map(f => ({...f, time: new Date(f.ts).getTime()}))
-    .filter(f => Number.isFinite(f.time) && f.time > now)
+    .filter(f => Number.isFinite(f.time) && !fixtureLocked(f) && f.time > now - currentGraceMs)
     .sort((a,b) => a.time - b.time);
-  return upcoming[0] || NEXT_KNOCKOUT_FIXTURES.find(f => f.id === 'N82') || NEXT_KNOCKOUT_FIXTURES[0];
+  return resolveFixtureForDisplay(upcoming[0] || null);
 }
 
 function teamLabel(value) {
@@ -3905,27 +4048,30 @@ let lastCatchupAttemptByKey = {};
 function isR32KeyLocked(key) {
   const entry = KNOCKOUT_LIVE_RESULTS[key];
   if (entry && entry.status === 'final' && entry.locked) return true;
-  const meta = R32_API_KEY_META[key];
-  if (meta && r32Locked[meta.id]) return true;
+  const meta = KO_API_KEY_META[key] || R32_API_KEY_META[key];
+  if (meta && meta.round === 'r32' && r32Locked[meta.id]) return true;
+  if (meta && meta.round !== 'r32' && koLocked[meta.round] && koLocked[meta.round][meta.id]) return true;
   const staticLock = STATIC_R32_LOCKS && STATIC_R32_LOCKS[key];
   if (staticLock && staticLock.locked !== false && staticLock.status === 'final') return true;
   return false;
 }
 
 function apiKeyForKoId(koId) {
-  return Object.entries(R32_API_KEY_META || {}).find(([, meta]) => meta.id === koId)?.[0] || null;
+  return Object.entries(KO_API_KEY_META || {}).find(([, meta]) => meta.id === koId)?.[0] || null;
 }
 
 function apiPollingSchedule() {
   return (NEXT_KNOCKOUT_FIXTURES || [])
     .map(f => {
-      const key = apiKeyForKoId(f.id);
-      if (!key) return null;
+      const key = f.key || apiKeyForKoId(f.id);
+      if (!key || !KO_API_KEY_META[key]) return null;
+      const display = resolveFixtureForDisplay(f);
       return {
         key,
         koId: f.id,
+        round: f.round,
         kickoffMs: new Date(f.ts).getTime(),
-        label: `${String(f.a || '').replace(/^\S+\s*/, '')}–${String(f.b || '').replace(/^\S+\s*/, '')}`,
+        label: `${String(display.a || '').replace(/^\S+\s*/, '')}–${String(display.b || '').replace(/^\S+\s*/, '')}`,
         date: f.ts
       };
     })
@@ -4049,16 +4195,17 @@ function applyScoresData(data, source = 'api') {
 
     const r = RESULTS[key];
     if (!r) {
-      const koMeta = R32_API_KEY_META[key];
+      const koMeta = KO_API_KEY_META[key] || R32_API_KEY_META[key];
       if (!koMeta) return;
 
-      // V11.5.13 — R32 live display fix.
-      // Les scores live des 16es doivent s'afficher immédiatement dans les cards R32,
-      // mais ne doivent PAS faire avancer le tableau tant que le statut n'est pas final.
+      // KO live display fix généralisé : R32, R16, quarts, demies, finale et 3e place.
+      // Le score live s'affiche tout de suite, mais le vainqueur n'est verrouillé qu'en final.
       const prev = KNOCKOUT_LIVE_RESULTS[key] || {};
       const nextEntry = {
-        h: koMeta.h,
-        a: koMeta.a,
+        h: match.h || match.homeCode || koMeta.h,
+        a: match.a || match.awayCode || koMeta.a,
+        homeLabel: match.homeLabel || match.homeName || null,
+        awayLabel: match.awayLabel || match.awayName || null,
         hg: newH,
         ag: newA,
         home: newH,
@@ -4074,6 +4221,7 @@ function applyScoresData(data, source = 'api') {
         winnerSide: newWinnerSide,
         locked: newLocked,
         apiSynced: apiPriority,
+        round: koMeta.round,
         koId: koMeta.id
       };
 
@@ -4091,21 +4239,24 @@ function applyScoresData(data, source = 'api') {
         prev.locked !== nextEntry.locked ||
         prev.koId !== nextEntry.koId;
 
+      const syncOne = () => koMeta.round === 'r32'
+        ? syncR32FromApi(koMeta.id, newH, newA, newStatus, nextEntry)
+        : syncKOFromApi(koMeta.round, koMeta.id, newH, newA, newStatus, nextEntry);
+
       if (entryChanged) {
         KNOCKOUT_LIVE_RESULTS[key] = nextEntry;
-        const didSync = syncR32FromApi(koMeta.id, newH, newA, newStatus, nextEntry);
+        const didSync = syncOne();
         if (didSync) r32Changed = true;
-        // On ne réinitialise les tours suivants que lorsque le résultat est final.
-        // Un live 1–0 ne doit pas qualifier l'Argentine contre l'Égypte.
-        if (newStatus === 'final' && didSync) clearAllKo();
+        if (newStatus === 'final' && didSync && koMeta.round !== 'r32') clearFutureFrom(koMeta.round);
+        if (newStatus === 'final' && koMeta.round !== 'r32') syncKOFromApi(koMeta.round, koMeta.id, newH, newA, newStatus, nextEntry);
         changed = true;
       } else {
-        // Filet de sécurité : si le score existe dans KNOCKOUT_LIVE_RESULTS mais pas dans r32Scores.
-        const didSync = syncR32FromApi(koMeta.id, newH, newA, newStatus, KNOCKOUT_LIVE_RESULTS[key] || nextEntry);
+        const didSync = syncOne();
         if (didSync) {
           r32Changed = true;
           changed = true;
-          if (newStatus === 'final') clearAllKo();
+          if (newStatus === 'final' && koMeta.round !== 'r32') clearFutureFrom(koMeta.round);
+          if (newStatus === 'final' && koMeta.round !== 'r32') syncKOFromApi(koMeta.round, koMeta.id, newH, newA, newStatus, nextEntry);
         }
       }
       return;

@@ -53,6 +53,16 @@ const TRACKED_MATCHES = {
   "aus-egy": { home: "AUS", away: "EGY" },
   "arg-cpv": { home: "ARG", away: "CPV" },
   "col-gha": { home: "COL", away: "GHA" },
+
+  // Huitièmes de finale — suivi automatique après la bascule R32 → R16.
+  "can-mar": { home: "CAN", away: "MAR" },
+  "par-fra": { home: "PAR", away: "FRA" },
+  "bra-nor": { home: "NOR", away: "BRA" },
+  "mex-eng": { home: "MEX", away: "ENG" },
+  "por-esp": { home: "POR", away: "ESP" },
+  "usa-bel": { home: "USA", away: "BEL" },
+  "arg-egy": { home: "ARG", away: "EGY" },
+  "sui-col": { home: "SUI", away: "COL" },
 };
 
 const TEAM_ALIASES = {
@@ -95,7 +105,22 @@ const TEAM_ALIASES = {
   SUI: ["Switzerland", "Suisse"],
   AUS: ["Australia", "Australie"],
   SEN: ["Senegal", "Sénégal"],
-};
+ };
+
+// Les tours QF/SF/finale/3e place ont des participants dynamiques.
+// Pour éviter de redéployer scores.js après chaque huitième, on peut reconnaître
+// les fixtures API par créneau officiel, puis les renvoyer sous une clé stable du bracket.
+const KO_DATE_SLOTS = [
+  { key: "qf-97", kickoff: "2026-07-09T22:00:00+02:00" },
+  { key: "qf-98", kickoff: "2026-07-10T21:00:00+02:00" },
+  { key: "qf-99", kickoff: "2026-07-11T23:00:00+02:00" },
+  { key: "qf-100", kickoff: "2026-07-12T03:00:00+02:00" },
+  { key: "sf-101", kickoff: "2026-07-14T21:00:00+02:00" },
+  { key: "sf-102", kickoff: "2026-07-15T21:00:00+02:00" },
+  { key: "third-103", kickoff: "2026-07-18T23:00:00+02:00" },
+  { key: "final-104", kickoff: "2026-07-19T21:00:00+02:00" },
+];
+const KO_SLOT_TOLERANCE_MS = 90 * 60 * 1000;
 
 function json(statusCode, body, extraHeaders = {}) {
   return {
@@ -138,6 +163,13 @@ function teamMatches(apiTeam, code) {
     const a = normalize(alias);
     return apiName === a || apiName.includes(a) || a.includes(apiName);
   });
+}
+
+function codeForApiTeam(apiTeam) {
+  for (const code of Object.keys(TEAM_ALIASES)) {
+    if (teamMatches(apiTeam, code)) return code;
+  }
+  return null;
 }
 
 function mapStatus(apiStatusShort) {
@@ -203,7 +235,18 @@ function toMatchPayload(apiFixture, key, reversed = false) {
     }
   }
 
+  const homeApiTeam = reversed ? teams.away : teams.home;
+  const awayApiTeam = reversed ? teams.home : teams.away;
+  const homeCode = codeForApiTeam(homeApiTeam);
+  const awayCode = codeForApiTeam(awayApiTeam);
+
   return {
+    h: homeCode,
+    a: awayCode,
+    homeCode,
+    awayCode,
+    homeLabel: homeApiTeam?.name || null,
+    awayLabel: awayApiTeam?.name || null,
     home: homeScore,
     away: awayScore,
     status: mappedStatus,
@@ -212,8 +255,8 @@ function toMatchPayload(apiFixture, key, reversed = false) {
     apiStatusLong: status.long || null,
     fixtureId: fixture.id || null,
     date: fixture.date || null,
-    homeName: reversed ? teams.away?.name : teams.home?.name,
-    awayName: reversed ? teams.home?.name : teams.away?.name,
+    homeName: homeApiTeam?.name,
+    awayName: awayApiTeam?.name,
     penalty: { home: penaltyHome, away: penaltyAway },
     penaltyHome,
     penaltyAway,
@@ -247,6 +290,24 @@ function findTrackedMatch(apiFixture) {
   }
 
   return null;
+}
+
+function findDateSlotMatch(apiFixture, alreadyUsedKeys = new Set()) {
+  const dateValue = apiFixture?.fixture?.date;
+  if (!dateValue) return null;
+  const fixtureMs = new Date(dateValue).getTime();
+  if (!Number.isFinite(fixtureMs)) return null;
+
+  let best = null;
+  for (const slot of KO_DATE_SLOTS) {
+    if (alreadyUsedKeys.has(slot.key)) continue;
+    const slotMs = new Date(slot.kickoff).getTime();
+    const delta = Math.abs(fixtureMs - slotMs);
+    if (Number.isFinite(slotMs) && delta <= KO_SLOT_TOLERANCE_MS && (!best || delta < best.delta)) {
+      best = { key: slot.key, reversed: false, delta };
+    }
+  }
+  return best ? { key: best.key, reversed: false } : null;
 }
 
 async function fetchFixtures({ from, to }) {
@@ -303,21 +364,26 @@ exports.handler = async function handler(event) {
     const params = event?.queryStringParameters || {};
     const today = new Date();
 
-    // Par défaut : hier → +6 jours.
+    // Par défaut : hier → +16 jours.
     // Fenêtre volontairement plus large pendant les 16es : elle couvre tous les matchs R32 proches
     // sans appeler plus souvent l'API, car le front décide quand appeler cette fonction.
     // Tu peux forcer avec /.netlify/functions/scores?from=2026-06-28&to=2026-07-04
     const from = params.from || process.env.FOOTBALL_DATE_FROM || ymd(addDays(today, -1));
-    const to = params.to || process.env.FOOTBALL_DATE_TO || ymd(addDays(today, 6));
+    const to = params.to || process.env.FOOTBALL_DATE_TO || ymd(addDays(today, 16));
 
     const api = await fetchFixtures({ from, to });
 
     const matches = {};
+    const usedSlotKeys = new Set();
     for (const fixture of api.fixtures) {
-      const found = findTrackedMatch(fixture);
+      let found = findTrackedMatch(fixture);
+      if (!found) found = findDateSlotMatch(fixture, usedSlotKeys);
       if (!found) continue;
 
       matches[found.key] = toMatchPayload(fixture, found.key, found.reversed);
+      if (found.key.startsWith("qf-") || found.key.startsWith("sf-") || found.key.startsWith("third-") || found.key.startsWith("final-")) {
+        usedSlotKeys.add(found.key);
+      }
     }
 
     const body = {

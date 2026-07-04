@@ -341,5 +341,137 @@
     "label_pt": "Argentina–Egito",
     "label_es": "Argentina–Egipto",
     "label_ar": "الأرجنتين–مصر"
+  },
+  "mex-eng": {
+    "home": "mexico",
+    "away": "england",
+    "label": "Mexique–Angleterre",
+    "round": "R16",
+    "dateParis": "2026-07-06T02:00:00+02:00",
+    "dateUTC": "2026-07-06T00:00:00Z",
+    "stadium": "Houston · NRG Stadium",
+    "channel_fr": "beIN Sports 1",
+    "note": "Huitième confirmé : le Mexique retrouve l’Angleterre."
+  },
+  "usa-bel": {
+    "home": "united_states",
+    "away": "belgium",
+    "label": "États-Unis–Belgique",
+    "round": "R16",
+    "dateParis": "2026-07-07T02:00:00+02:00",
+    "dateUTC": "2026-07-07T00:00:00Z",
+    "stadium": "San Francisco · Levi’s Stadium",
+    "channel_fr": "beIN Sports 1",
+    "note": "Pays hôte contre Diables Rouges : un huitième à haute tension."
+  },
+  "arg-egy": {
+    "home": "argentina",
+    "away": "egypt",
+    "label": "Argentine–Égypte",
+    "round": "R16",
+    "dateParis": "2026-07-07T18:00:00+02:00",
+    "dateUTC": "2026-07-07T16:00:00Z",
+    "stadium": "Kansas City · Arrowhead Stadium",
+    "channel_fr": "beIN Sports 1",
+    "note": "L’Argentine rejoint l’Égypte en huitième."
+  },
+  "sui-col": {
+    "home": "switzerland",
+    "away": "colombia",
+    "label": "Suisse–Colombie",
+    "round": "R16",
+    "dateParis": "2026-07-07T22:00:00+02:00",
+    "dateUTC": "2026-07-07T20:00:00Z",
+    "stadium": "Vancouver · BC Place",
+    "channel_fr": "beIN Sports 1",
+    "note": "La Suisse affronte la Colombie après la victoire colombienne contre le Ghana."
+  },
+  "qf-97": {
+    "home": "winner_n89",
+    "away": "winner_n90",
+    "label": "Vainqueur Paraguay–France / Vainqueur Canada–Maroc",
+    "round": "QF",
+    "dateParis": "2026-07-09T22:00:00+02:00",
+    "dateUTC": "2026-07-09T20:00:00Z",
+    "stadium": "À confirmer",
+    "channel_fr": "beIN Sports 1",
+    "dynamic": true
+  },
+  "qf-98": {
+    "home": "winner_n93",
+    "away": "winner_n94",
+    "label": "Vainqueur Portugal–Espagne / Vainqueur États-Unis–Belgique",
+    "round": "QF",
+    "dateParis": "2026-07-10T21:00:00+02:00",
+    "dateUTC": "2026-07-10T19:00:00Z",
+    "stadium": "À confirmer",
+    "channel_fr": "beIN Sports 1",
+    "dynamic": true
+  },
+  "qf-99": {
+    "home": "winner_n91",
+    "away": "winner_n92",
+    "label": "Vainqueur Brésil–Norvège / Vainqueur Mexique–Angleterre",
+    "round": "QF",
+    "dateParis": "2026-07-11T23:00:00+02:00",
+    "dateUTC": "2026-07-11T21:00:00Z",
+    "stadium": "À confirmer",
+    "channel_fr": "beIN Sports 1",
+    "dynamic": true
+  },
+  "qf-100": {
+    "home": "winner_n95",
+    "away": "winner_n96",
+    "label": "Vainqueur Argentine–Égypte / Vainqueur Suisse–Colombie",
+    "round": "QF",
+    "dateParis": "2026-07-12T03:00:00+02:00",
+    "dateUTC": "2026-07-12T01:00:00Z",
+    "stadium": "À confirmer",
+    "channel_fr": "beIN Sports 1",
+    "dynamic": true
+  },
+  "sf-101": {
+    "home": "winner_n97",
+    "away": "winner_n98",
+    "label": "Demi-finale 1",
+    "round": "SF",
+    "dateParis": "2026-07-14T21:00:00+02:00",
+    "dateUTC": "2026-07-14T19:00:00Z",
+    "stadium": "À confirmer",
+    "channel_fr": "beIN Sports 1",
+    "dynamic": true
+  },
+  "sf-102": {
+    "home": "winner_n99",
+    "away": "winner_n100",
+    "label": "Demi-finale 2",
+    "round": "SF",
+    "dateParis": "2026-07-15T21:00:00+02:00",
+    "dateUTC": "2026-07-15T19:00:00Z",
+    "stadium": "À confirmer",
+    "channel_fr": "beIN Sports 1",
+    "dynamic": true
+  },
+  "third-103": {
+    "home": "loser_n101",
+    "away": "loser_n102",
+    "label": "Match pour la 3e place",
+    "round": "THIRD",
+    "dateParis": "2026-07-18T23:00:00+02:00",
+    "dateUTC": "2026-07-18T21:00:00Z",
+    "stadium": "À confirmer",
+    "channel_fr": "beIN Sports 1",
+    "dynamic": true
+  },
+  "final-104": {
+    "home": "winner_n101",
+    "away": "winner_n102",
+    "label": "Finale",
+    "round": "FINAL",
+    "dateParis": "2026-07-19T21:00:00+02:00",
+    "dateUTC": "2026-07-19T19:00:00Z",
+    "stadium": "New York · MetLife Stadium",
+    "channel_fr": "beIN Sports 1",
+    "dynamic": true
   }
 }
