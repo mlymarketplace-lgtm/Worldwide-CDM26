@@ -3208,20 +3208,20 @@ function renderThirdTable(thirds, snIdx, mode) { mode = mode || 'live';
   if (!Array.isArray(thirds) || thirds.length === 0) return;
   let html = '';
   // Phase de groupes terminée : affichage figé aux 8 meilleurs troisièmes qualifiés.
-  thirds.slice(0,8).forEach((t,i)=>{
+  thirds.slice(0,8).forEach((tm,i)=>{
     const rank = i+1;
-    const isSen = t.team==='SEN';
-    const hasFourPts = t.stats.pts >= 4;
+    const isSen = tm.team==='SEN';
+    const hasFourPts = tm.stats.pts >= 4;
     const isTop8 = rank<=8;
     const isQualified = isTop8;
-    const gdStr = t.stats.gd>=0?'+'+t.stats.gd:t.stats.gd;
+    const gdStr = tm.stats.gd>=0?'+'+tm.stats.gd:tm.stats.gd;
     const rowCls = isSen?'rsn':isQualified?'rq':isTop8?'rb':'rel';
-    const gdCls = t.stats.gd>0?'pos':t.stats.gd<0?'neg':'neu';
+    const gdCls = tm.stats.gd>0?'pos':tm.stats.gd<0?'neg':'neu';
     let badge='';
     if(isQualified) {
       badge='<span class="blk"> '+t('qualified').toUpperCase()+'</span>';
     } else {
-      badge = getTeamStatusBadge(t.team);
+      badge = getTeamStatusBadge(tm.team);
     }
 
 
@@ -3229,7 +3229,7 @@ function renderThirdTable(thirds, snIdx, mode) { mode = mode || 'live';
     if(isQualified) {
       statut='<span class="pos"> '+t('qualified')+'</span>';
     } else {
-      const teamMatches = Object.values(RESULTS).filter(r => r.h===t.team||r.a===t.team);
+      const teamMatches = Object.values(RESULTS).filter(r => r.h===tm.team||r.a===tm.team);
       const hasLive = teamMatches.some(r=>r.status==='live'||r.status==='in_progress');
       const allFinal = teamMatches.length>0 && teamMatches.every(r=>r.status==='final');
       if(hasLive) statut='<span style="color:var(--rouge)"> '+t('matchLive')+'</span>';
@@ -3240,11 +3240,11 @@ function renderThirdTable(thirds, snIdx, mode) { mode = mode || 'live';
 
     html+=`<tr class="${rowCls}">
      <td class="rnk">${rank}</td>
-     <td class="tnm">${NAMES[t.team]||t.team}${badge}</td>
-     <td style="font-size:.65rem;color:var(--mu);text-align:center">${t.group}</td>
-     <td class="ptc ${t.stats.pts>=3?'pos':''}">${t.stats.pts}</td>
+     <td class="tnm">${NAMES[tm.team]||tm.team}${badge}</td>
+     <td style="font-size:.65rem;color:var(--mu);text-align:center">${tm.group}</td>
+     <td class="ptc ${tm.stats.pts>=3?'pos':''}">${tm.stats.pts}</td>
      <td class="gdc ${gdCls}">${gdStr}</td>
-     <td class="bmc">${t.stats.gf}</td>
+     <td class="bmc">${tm.stats.gf}</td>
      <td class="stc">${statut}</td>
    </tr>`;
   });
@@ -3647,7 +3647,7 @@ function buildTicker(){
     const r = RESULTS[key];
     if (!r) return {t:`${key} ? – ?`, c:'ti-live'};
     return {
-      t:`${shortTeam(r.h)} ${scoreFromResults(key)} ${shortTeam(r.a)}${statusSuffix(key)}`,
+      t:`${NAMES[r.h]||r.h} ${scoreFromResults(key)} ${NAMES[r.a]||r.a}${statusSuffix(key)}`,
       c:statusCls(key)
     };
   }
