@@ -1,11 +1,25 @@
 {
   "morocco": {
     "status": "qualified",
+    "round": "QF",
+    "nextMatchId": "qf-97",
+    "nextOpponent": "winner_par_fra",
+    "selectorLine": "Qualifié en quart · attend Paraguay ou France",
+    "statusLabel": "Qualifié en quart de finale · attend le vainqueur de Paraguay–France",
+    "roundLabel": "quart de finale",
+    "qualifiedRound": "QF",
+    "stageGroup": "qualified_qf",
+    "heroSubtitle": "Les Lions de l’Atlas sont en quart après Canada 0–3 Maroc. Prochaine marche : le vainqueur de Paraguay–France.",
+    "matchdayHero": false,
+    "quarterfinalLine": "Quart de finale · adversaire à venir : Paraguay ou France"
+  },
+  "france": {
+    "status": "qualified",
     "round": "R16",
-    "nextMatchId": "can-mar",
-    "nextOpponent": "canada",
-    "selectorLine": "Qualifié en 8e · prochain défi : Canada",
-    "statusLabel": "Qualifié en huitième de finale · Prochain défi : Canada",
+    "nextMatchId": "par-fra",
+    "nextOpponent": "paraguay",
+    "selectorLine": "Qualifiée en 8e · prochain défi : Paraguay",
+    "statusLabel": "Qualifiée en huitième de finale · Prochain défi : Paraguay",
     "roundLabel": "huitième de finale"
   },
   "brazil": {
@@ -17,26 +31,33 @@
     "statusLabel": "Qualifié en huitième de finale · Prochain défi : Norvège",
     "roundLabel": "huitième de finale"
   },
-  "ivory_coast": {
-    "status": "eliminated",
-    "round": "R32",
-    "nextMatchId": "civ-nor",
-    "eliminatedBy": "norway",
-    "selectorLine": "Éliminée en 16e · respect aux Éléphants",
-    "statusLabel": "Éliminée en seizième de finale",
-    "roundLabel": "seizième de finale",
-    "heroSubtitle": "Respect total, rendez-vous dans quatre ans — les Éléphants reviendront plus forts.",
-    "exitScoreLine": "🇨🇮 Côte d’Ivoire 1–2 Norvège 🇳🇴",
-    "farewellHeadline": "AU REVOIR “LES ÉLÉPHANTS”"
-  },
-  "france": {
+  "spain": {
     "status": "qualified",
     "round": "R16",
-    "nextMatchId": "par-fra",
-    "nextOpponent": "paraguay",
-    "selectorLine": "Qualifiée en 8e · prochain défi : Paraguay",
-    "statusLabel": "Qualifiée en huitième de finale · Prochain défi : Paraguay",
-    "roundLabel": "huitième de finale"
+    "nextMatchId": "por-spain",
+    "statusLabel": "Qualifiée en huitième · Espagne 3–0 Autriche",
+    "selectorLine": "Qualifiée · Portugal en huitième",
+    "roundLabel": "Qualifiée en huitième de finale",
+    "heroSubtitle": "La Roja a maîtrisé l’Autriche : place au derby ibérique.",
+    "pendingNext": null
+  },
+  "egypt": {
+    "status": "qualified",
+    "round": "R16",
+    "nextMatchId": "argcpv-egypt",
+    "statusLabel": "Qualifiée en huitième · Égypte aux TAB contre l’Australie",
+    "selectorLine": "Qualifiée · Argentine ou Cap-Vert ensuite"
+  },
+  "belgium": {
+    "status": "qualified",
+    "round": "R16",
+    "nextMatchId": "bel-usa",
+    "nextOpponent": "united_states",
+    "selectorLine": "Qualifiée en 8e · prochain défi : États-Unis",
+    "statusLabel": "Qualifiée en huitième de finale · Prochain défi : États-Unis",
+    "roundLabel": "huitième de finale",
+    "heroSubtitle": "Menée 0–2 par le Sénégal, la Belgique a renversé le match 3–2. Prochain test : les États-Unis, pays hôte.",
+    "matchdayHero": false
   },
   "senegal": {
     "status": "eliminated",
@@ -61,15 +82,17 @@
     "heroSubtitle": "Respect aux Fennecs : l’Afrique salue le courage, l’Algérie reviendra.",
     "farewellId": "algeria"
   },
-  "spain": {
-    "status": "qualified",
-    "round": "R16",
-    "nextMatchId": "por-spain",
-    "statusLabel": "Qualifiée en huitième · Espagne 3–0 Autriche",
-    "selectorLine": "Qualifiée · Portugal en huitième",
-    "roundLabel": "Qualifiée en huitième de finale",
-    "heroSubtitle": "La Roja a maîtrisé l’Autriche : place au derby ibérique.",
-    "pendingNext": null
+  "ivory_coast": {
+    "status": "eliminated",
+    "round": "R32",
+    "nextMatchId": "civ-nor",
+    "eliminatedBy": "norway",
+    "selectorLine": "Éliminée en 16e · respect aux Éléphants",
+    "statusLabel": "Éliminée en seizième de finale",
+    "roundLabel": "seizième de finale",
+    "heroSubtitle": "Respect total, rendez-vous dans quatre ans — les Éléphants reviendront plus forts.",
+    "exitScoreLine": "🇨🇮 Côte d’Ivoire 1–2 Norvège 🇳🇴",
+    "farewellHeadline": "AU REVOIR “LES ÉLÉPHANTS”"
   },
   "dr_congo": {
     "status": "eliminated",
@@ -82,17 +105,6 @@
     "heroSubtitle": "Respect total aux Léopards : l’Afrique est fière, le Congo reviendra plus fort.",
     "exitScoreLine": "🏴 Angleterre 2–1 RD Congo 🇨🇩",
     "farewellHeadline": "AU REVOIR “LES LÉOPARDS”",
-    "matchdayHero": false
-  },
-  "belgium": {
-    "status": "qualified",
-    "round": "R16",
-    "nextMatchId": "bel-usa",
-    "nextOpponent": "united_states",
-    "selectorLine": "Qualifiée en 8e · prochain défi : États-Unis",
-    "statusLabel": "Qualifiée en huitième de finale · Prochain défi : États-Unis",
-    "roundLabel": "huitième de finale",
-    "heroSubtitle": "Menée 0–2 par le Sénégal, la Belgique a renversé le match 3–2. Prochain test : les États-Unis, pays hôte.",
     "matchdayHero": false
   },
   "cape_verde": {
@@ -118,12 +130,5 @@
     "heroSubtitle": "Respect total aux Black Stars : le Ghana quitte le Mondial la tête haute après un combat serré contre la Colombie.",
     "exitScoreLine": "🇨🇴 Colombie 1–0 Ghana 🇬🇭",
     "farewellHeadline": "AU REVOIR “LES BLACK STARS”"
-  },
-  "egypt": {
-    "status": "qualified",
-    "round": "R16",
-    "nextMatchId": "argcpv-egypt",
-    "statusLabel": "Qualifiée en huitième · Égypte aux TAB contre l’Australie",
-    "selectorLine": "Qualifiée · Argentine ou Cap-Vert ensuite"
   }
 }

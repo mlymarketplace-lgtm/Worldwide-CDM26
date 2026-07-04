@@ -1,13 +1,12 @@
-QualifGaïndé Worldwide — V11.5.19
+V11.5.20 — Maroc qualifié en quart
 
 Corrections incluses :
-1. Prochain match pendant un live : le match live est exclu du bloc “Prochaine affiche”.
-   Exemple : Canada–Maroc live => prochaine affiche = Paraguay–France.
-2. Règle officielle de simulation KO :
-   - scheduled = simulation autorisée ;
-   - live = score officiel affiché, simulation bloquée ;
-   - final = score figé, vainqueur verrouillé.
-3. Scores du tableau KO affichés en face des équipes, en inline, plus sur une ligne séparée.
-4. Compteur supporters fixé à 19 600.
-5. Surbrillance renforcée des 8 huitièmes et halo fort sur la finale.
-6. Bump BUILD_VERSION + service-worker cache en 11.5.19.
+1. Canada 0–3 Maroc figé dans live.json.
+2. Canada 0–3 Maroc ajouté aux locks KO : r16/N90.
+3. Maroc passe en QF dans teams.json et team-next.json.
+4. Fiche Maroc : prochain match = qf-97, adversaire = vainqueur Paraguay–France.
+5. qf-97 devient : Vainqueur Paraguay–France / Maroc.
+6. Résultats Maroc enrichis avec Canada 0–3 Maroc.
+7. Préparation du groupe logique qualified_qf / round QF pour faire remonter les qualifiés en quart.
+8. Farewell Canada ajouté au cas où une fiche élimination serait activée.
+9. BUILD_VERSION et service-worker bumpés en 11.5.20.

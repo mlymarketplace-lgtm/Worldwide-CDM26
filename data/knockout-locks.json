@@ -218,5 +218,35 @@
     "winner": "home",
     "winnerSide": 0,
     "locked": true
+  },
+  "can-mar": {
+    "koId": "N90",
+    "h": "CAN",
+    "a": "MAR",
+    "home": 0,
+    "away": 3,
+    "status": "final",
+    "apiStatus": "FT",
+    "apiStatusLong": "Match Finished",
+    "winner": "away",
+    "winnerSide": 1,
+    "locked": true,
+    "round": "r16"
+  },
+  "r16": {
+    "N90": {
+      "koId": "N90",
+      "h": "CAN",
+      "a": "MAR",
+      "home": 0,
+      "away": 3,
+      "status": "final",
+      "apiStatus": "FT",
+      "apiStatusLong": "Match Finished",
+      "winner": "away",
+      "winnerSide": 1,
+      "locked": true,
+      "round": "r16"
+    }
   }
 }

@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-04T09:50:00+02:00",
+  "updatedAt": "2026-07-04T21:05:00+02:00",
   "matches": {
     "uru-esp": {
       "home": 0,
@@ -245,7 +245,21 @@
       "winnerSide": 0,
       "locked": true,
       "koId": "N88"
+    },
+    "can-mar": {
+      "home": 0,
+      "away": 3,
+      "status": "final",
+      "apiStatus": "FT",
+      "apiStatusLong": "Match Finished",
+      "winner": "away",
+      "winnerSide": 1,
+      "locked": true,
+      "koId": "N90",
+      "round": "r16",
+      "h": "CAN",
+      "a": "MAR"
     }
   },
-  "_note": "V11.5.17 — Tous les 16es sont figés. Colombie 1–0 Ghana : Ghana éliminé, Colombie qualifiée."
+  "_note": "V11.5.20 — Canada 0–3 Maroc : Maroc qualifié en quart et attend le vainqueur de Paraguay–France."
 }

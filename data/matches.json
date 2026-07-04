@@ -388,14 +388,16 @@
   },
   "qf-97": {
     "home": "winner_n89",
-    "away": "winner_n90",
-    "label": "Vainqueur Paraguay–France / Vainqueur Canada–Maroc",
+    "away": "morocco",
+    "label": "Vainqueur Paraguay–France / Maroc",
     "round": "QF",
     "dateParis": "2026-07-09T22:00:00+02:00",
     "dateUTC": "2026-07-09T20:00:00Z",
     "stadium": "À confirmer",
     "channel_fr": "beIN Sports 1",
-    "dynamic": true
+    "dynamic": true,
+    "note": "Le Maroc est qualifié après Canada 0–3 Maroc et attend le vainqueur de Paraguay–France.",
+    "conditional": false
   },
   "qf-98": {
     "home": "winner_n93",
