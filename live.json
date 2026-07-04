@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-03T21:00:00+02:00",
+  "updatedAt": "2026-07-04T02:30:00+02:00",
   "matches": {
     "uru-esp": {
       "home": 0,
@@ -119,5 +119,6 @@
       "locked": true,
       "koId": "N86"
     }
-  }
+  },
+  "_note": "arg-cpv et col-gha se rempliront automatiquement via le rechargement live.json continu (patch V11.5.13). Pour figer manuellement sans attendre l'API, ajouter le bloc résultat ici."
 }
