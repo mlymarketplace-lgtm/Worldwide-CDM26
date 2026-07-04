@@ -1,6 +1,6 @@
-// QualifGaïndé Worldwide — Service Worker V11.5.13
-const CACHE_VERSION = 'qg-v11-5-13-static';
-const RUNTIME_CACHE = 'qg-v11-5-13-runtime';
+// QualifGaïndé Worldwide — Service Worker V11.5.14
+const CACHE_VERSION = 'qg-v11-5-14-static';
+const RUNTIME_CACHE = 'qg-v11-5-14-runtime';
 const CORE_ASSETS = [
   '/',
   '/index.html',
@@ -9,9 +9,9 @@ const CORE_ASSETS = [
   '/assets/icons/icon-512.png',
   '/assets/icons/maskable-512.png',
   '/assets/lion-mascotte.png',
-  '/src/v10/v10-team-app.css?v=11.5.13',
-  '/src/v10/v10-team-app.js?v=11.5.13',
-  '/src/v10/auto-refresh-scores.js?v=11.5.13'
+  '/src/v10/v10-team-app.css?v=11.5.14',
+  '/src/v10/v10-team-app.js?v=11.5.14',
+  '/src/v10/auto-refresh-scores.js?v=11.5.14'
 ];
 
 self.addEventListener('install', event => {

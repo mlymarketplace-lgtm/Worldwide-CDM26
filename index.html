@@ -6,10 +6,38 @@
 <title>QualifGaïndé Worldwide · V10 multi-équipes</title>
 <meta name="application-name" content="Suivez la CDM 2026">
 <script>
+// V11.5.14 — iOS cache reset one-shot. Force la MAJ du service worker
+// et vide les vieux caches quand la version de build change (fix iPhone/Safari).
+(function(){
+  try {
+    var BUILD = '11.5.14';
+    var stored = localStorage.getItem('qg_build');
+    if (stored !== BUILD) {
+      localStorage.setItem('qg_build', BUILD);
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.getRegistrations().then(function(regs){
+          regs.forEach(function(r){ r.update(); });
+        }).catch(function(){});
+      }
+      if (window.caches && caches.keys) {
+        caches.keys().then(function(keys){
+          keys.forEach(function(k){
+            // Ne supprime que les vieux caches d'une version antérieure
+            if (k.indexOf('qg-') === 0 && k.indexOf('11-5-14') < 0) {
+              caches.delete(k);
+            }
+          });
+        }).catch(function(){});
+      }
+    }
+  } catch(e) {}
+})();
+</script>
+<script>
 // BUILD_VERSION — version stable de build, à bumper à chaque déploiement.
 // Remplace les cache-busters dynamiques (Date.now()) sur les ressources stables
 // afin que le navigateur puisse effectivement les mettre en cache entre deux visites.
-const BUILD_VERSION = '11.5.11';
+const BUILD_VERSION = '11.5.14';
 (function(){
   var p = new URLSearchParams(window.location.search);
   var v10Active = p.has('team') || p.get('mode') !== 'global';
@@ -44,7 +72,7 @@ html.v10-booting #v10-team-selector, html.v10-booting .v10-selector{visibility:v
 
 
 
-/* V11.5.13 — highlight horizontal uniquement sur le bandeau du niveau actif */
+/* V11.5.14 — highlight horizontal uniquement sur le bandeau du niveau actif */
 .bracket-col.current-stage{
   position:relative;
   border-color:inherit !important;
@@ -96,7 +124,7 @@ html.v10-booting #v10-team-selector, html.v10-booting .v10-selector{visibility:v
 }
 
 
-/* V11.5.13 — neutralisation visuelle de l'ancien chemin Sénégal dans les brackets */
+/* V11.5.14 — neutralisation visuelle de l'ancien chemin Sénégal dans les brackets */
 .knockout-sim .r16-card.senegal-path,
 .ko-card.senegal-path{
   border-color:#38bdf830 !important;
@@ -1082,7 +1110,7 @@ header{display:flex;align-items:center;justify-content:space-between;padding:12p
 }
 
 
-/* V11.5.13 — highlight horizontal uniquement sur le bandeau du niveau actif */
+/* V11.5.14 — highlight horizontal uniquement sur le bandeau du niveau actif */
 .bracket-col.current-stage{
   position:relative;
   border-color:inherit !important;
@@ -1142,7 +1170,7 @@ header{display:flex;align-items:center;justify-content:space-between;padding:12p
 <meta name="apple-mobile-web-app-title" content="Suivez la CDM 2026">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <link rel="apple-touch-icon" href="/assets/icons/icon-192.png">
-<link rel="stylesheet" href="src/v10/v10-team-app.css?v=11.5.11">
+<link rel="stylesheet" href="src/v10/v10-team-app.css?v=11.5.14">
 </head>
 <body>
 <div class="band"></div>
@@ -2455,7 +2483,7 @@ function allR32Resolved() {
   return R32_CARDS.every(c => !!r32Locked[c.id] || r32Picks[c.id] !== undefined);
 }
 function firstUnresolvedRoundKey() {
-  // V11.5.13 — la surbrillance doit porter sur le tableau de simulation,
+  // V11.5.14 — la surbrillance doit porter sur le tableau de simulation,
   // pas sur le bloc des 16es. Tant que les huitièmes sont le prochain
   // niveau visible dans le bracket, on garde la colonne Huitièmes active,
   // même s'il reste quelques 16es à finaliser en amont.
@@ -2789,7 +2817,7 @@ function renderKOCard(round, m) {
   const pick = koPicks[round]?.[m.id];
   const score = (koScores[round] && koScores[round][m.id]) || [null, null];
   const officialLocked = !!(koLocked[round] && koLocked[round][m.id]);
-  const senCls = ''; // V11.5.13 — ancien chemin Sénégal neutralisé dans le bracket
+  const senCls = ''; // V11.5.14 — ancien chemin Sénégal neutralisé dans le bracket
   const waitingCls = (!resolved[0] || !resolved[1]) ? ' waiting' : '';
   const scoreInputs = resolved[0] && resolved[1]
     ? `<div class="ko-scoreline">
@@ -4020,7 +4048,7 @@ window.QUALIFGAINDE_SCORE_POLLING = {
 function applyScoresData(data, source = 'api') {
   if (!data || !data.matches) return false;
   let changed = false;
-  let r32Changed = false; // V11.5.13 — force le rendu des cards R32 quand un score live change
+  let r32Changed = false; // V11.5.14 — force le rendu des cards R32 quand un score live change
   const apiPriority = source === 'api' || data.source === 'api-football';
   let liveCount = 0;
   let activePolledFinishedOrLive = false;
@@ -4052,7 +4080,7 @@ function applyScoresData(data, source = 'api') {
       const koMeta = R32_API_KEY_META[key];
       if (!koMeta) return;
 
-      // V11.5.13 — R32 live display fix.
+      // V11.5.14 — R32 live display fix.
       // Les scores live des 16es doivent s'afficher immédiatement dans les cards R32,
       // mais ne doivent PAS faire avancer le tableau tant que le statut n'est pas final.
       const prev = KNOCKOUT_LIVE_RESULTS[key] || {};
@@ -4180,7 +4208,7 @@ function applyScoresData(data, source = 'api') {
 
   if (changed) {
     recalculateAll();
-    // V11.5.13 — rendu forcé des cards R32 après injection d'un score live/final.
+    // V11.5.14 — rendu forcé des cards R32 après injection d'un score live/final.
     if (r32Changed) {
       renderRound32Grid();
       renderKnockoutTree();
@@ -4234,7 +4262,7 @@ function fetchApiScoresIfUseful() {
       lastApiSuccessAt = new Date();
       applyScoresData(data, 'api');
 
-      // V11.5.13 — filet de sécurité rendu R32 :
+      // V11.5.14 — filet de sécurité rendu R32 :
       // si /scores renvoie arg-cpv live, la card N87 doit se repeindre immédiatement.
       // Aucun avancement n'est déclenché ici : syncR32FromApi verrouille uniquement si status === 'final'.
       try {
@@ -4354,8 +4382,8 @@ setTimeout(()=>{
 }, 900);
 
 </script>
-<script src="src/v10/v10-team-app.js?v=11.5.11"></script>
-<script src="src/v10/auto-refresh-scores.js?v=11.5.13"></script>
+<script src="src/v10/v10-team-app.js?v=11.5.14"></script>
+<script src="src/v10/auto-refresh-scores.js?v=11.5.14"></script>
 
 <script>
 // V10.3 — PWA registration. Le service worker garde les scores/API en network-first.
