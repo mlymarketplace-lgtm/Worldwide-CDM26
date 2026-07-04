@@ -245,11 +245,15 @@
     "nextMatchId": "col-gha",
     "defaultLang": "en",
     "tagline": "Black Stars, experience and ambition",
-    "statusLabel": "Black Stars · World Cup memory and Colombian challenge",
+    "statusLabel": "Éliminé en seizième de finale · Colombie 1–0 Ghana",
     "supporterName": "Black Stars",
-    "selectorLine": "Black Stars · Colombia challenge",
-    "tournamentStatus": "pending",
+    "selectorLine": "Éliminé en 16e · respect aux Black Stars",
+    "tournamentStatus": "eliminated",
     "currentRound": "R32",
-    "heroSubtitle": "World Cup memory, respect and African ambition"
+    "heroSubtitle": "Respect total aux Black Stars : le Ghana quitte le Mondial la tête haute après un combat serré contre la Colombie.",
+    "roundLabel": "seizième de finale",
+    "exitScoreLine": "🇨🇴 Colombie 1–0 Ghana 🇬🇭",
+    "farewellHeadline": "AU REVOIR “LES BLACK STARS”",
+    "eliminatedBy": "colombia"
   }
 }

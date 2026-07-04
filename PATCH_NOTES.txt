@@ -1,0 +1,13 @@
+Correctif Ghana éliminé — QualifGaïndé V11.5.17
+
+Changements principaux :
+- Ghana passé de pending à eliminated dans data/teams.json et data/team-next.json.
+- Match col-gha figé : Colombie 1–0 Ghana dans live.json et data/knockout-locks.json.
+- Fallback HTML mis à jour : STATIC_R32_LOCKS, r32Scores, r32Picks et r32Locked incluent N87 et N88.
+- Texte farewell Ghana enrichi dans data/farewells.json.
+- Historique Ghana ajouté : Colombie 1–0 Ghana dans data/team-results.json.
+- Preview/story Ghana passées en mode post-match.
+- Service worker et cache-busters bumpés en 11.5.17 pour éviter que l’iPhone/navigateur garde l’ancienne home.
+- netlify/functions/scores.js : correction d’un doublon `const penaltyAway` qui pouvait casser la fonction Netlify.
+
+À déployer tel quel à la racine du site Netlify.

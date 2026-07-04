@@ -108,10 +108,16 @@
     "eliminatedBy": "Argentine"
   },
   "ghana": {
-    "status": "pending",
+    "status": "eliminated",
     "round": "R32",
     "nextMatchId": "col-gha",
-    "selectorLine": "Black Stars · défi Colombie"
+    "eliminatedBy": "colombia",
+    "selectorLine": "Éliminé en 16e · respect aux Black Stars",
+    "statusLabel": "Éliminé en seizième de finale · Colombie 1–0 Ghana",
+    "roundLabel": "seizième de finale",
+    "heroSubtitle": "Respect total aux Black Stars : le Ghana quitte le Mondial la tête haute après un combat serré contre la Colombie.",
+    "exitScoreLine": "🇨🇴 Colombie 1–0 Ghana 🇬🇭",
+    "farewellHeadline": "AU REVOIR “LES BLACK STARS”"
   },
   "egypt": {
     "status": "qualified",

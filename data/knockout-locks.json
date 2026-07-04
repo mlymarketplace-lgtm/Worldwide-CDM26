@@ -205,5 +205,18 @@
     "winner": "home",
     "winnerSide": 0,
     "locked": true
+  },
+  "col-gha": {
+    "koId": "N88",
+    "h": "COL",
+    "a": "GHA",
+    "home": 1,
+    "away": 0,
+    "status": "final",
+    "apiStatus": "FT",
+    "apiStatusLong": "Match Finished",
+    "winner": "home",
+    "winnerSide": 0,
+    "locked": true
   }
 }

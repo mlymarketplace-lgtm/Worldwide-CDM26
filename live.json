@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-04T03:10:00+02:00",
+  "updatedAt": "2026-07-04T09:50:00+02:00",
   "matches": {
     "uru-esp": {
       "home": 0,
@@ -236,14 +236,16 @@
       "koId": "N87"
     },
     "col-gha": {
-      "home": null,
-      "away": null,
-      "status": "scheduled",
-      "apiStatus": "NS",
-      "apiStatusLong": "Not Started",
-      "koId": "N88",
-      "_todo": "Résultat à figer : home=Colombie, away=Ghana. Si TAB, ajouter penalty{home,away}. winnerSide 0=COL 1=GHA."
+      "home": 1,
+      "away": 0,
+      "status": "final",
+      "apiStatus": "FT",
+      "apiStatusLong": "Match Finished",
+      "winner": "home",
+      "winnerSide": 0,
+      "locked": true,
+      "koId": "N88"
     }
   },
-  "_note": "V11.5.14 — Tous les 16es terminés figés ici pour affichage iPhone (indépendant de l'API). arg-cpv et col-gha à compléter dès résultat connu."
+  "_note": "V11.5.17 — Tous les 16es sont figés. Colombie 1–0 Ghana : Ghana éliminé, Colombie qualifiée."
 }
