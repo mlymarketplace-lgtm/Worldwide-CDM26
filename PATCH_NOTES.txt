@@ -1,8 +1,8 @@
-QualifGaïndé V12.0.2 — France–Maroc + dynamique adversaires
+QualifGaïndé V12.0.3 — UX mobile + moteur KO renforcé
 
-1. Paraguay–France figé : Paraguay 0–1 France, vainqueur France, N89 verrouillé.
-2. Quart N97 mis à jour : France–Maroc.
-3. Fiches Maroc et France mises à jour en qualifiés en quart.
-4. Preview épique France–Maroc ajoutée.
-5. Stats : Mbappé 7 buts, affiché devant Messi.
-6. Sécurité dynamique ajoutée : les placeholders winner_nXX / Vainqueur X–Y se résolvent depuis live.json ou /scores sans redeploy applicatif si la source score est mise à jour.
+- Garde les 4 matchs du header comme demandé.
+- Supporters vus : base 19 990 avec variation stable ±50 par session.
+- Bloc prochain match mobile : suppression des libellés techniques R32/R16/QF et affichage lisible France–Maroc + date sur ligne séparée.
+- Masquage du tableau “Classement final des 8 meilleurs troisièmes”.
+- Renforcement du moteur de verrouillage KO : les scores API/live sont réalignés sur l’ordre du bracket avant figer les quarts, demies, match pour la 3e place et finale.
+- Version/cache : 12.0.3.

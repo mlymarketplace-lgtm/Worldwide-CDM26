@@ -1,6 +1,6 @@
 // QualifGaïndé Worldwide — Service Worker V12
-const CACHE_VERSION = 'qg-v12-0-2-static';
-const RUNTIME_CACHE = 'qg-v12-0-2-runtime';
+const CACHE_VERSION = 'qg-v12-0-3-static';
+const RUNTIME_CACHE = 'qg-v12-0-3-runtime';
 const CORE_ASSETS = [
   '/',
   '/index.html',
