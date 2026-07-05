@@ -1,6 +1,8 @@
-QualifGaïndé V12.0.11 — Team selector restored
+V12.0.12 — restauration des pages équipes
 
-- Restaure la page d’entrée “Je suis supporter de…” sur /
-- Conserve le routage ?team=france, ?team=morocco, etc.
-- Conserve V12.0.10 single source scores et suppressions des cascades.
-- Bump cache/service worker en 12.0.11.
+- Base V12.0.11 + adaptateur multi-équipe complet.
+- Répare Brésil, Espagne, Égypte, Algérie et autres fiches qui retombaient sur Sénégal/Belgique–Sénégal.
+- Conserve page d’entrée “Je suis supporter de…”.
+- Conserve scores 16es single source via STATIC_R32_LOCKS.
+- Conserve France–Maroc en quart et compteur 19 990 ±50.
+- Pas de MutationObserver, TreeWalker ni cascades de re-render.
