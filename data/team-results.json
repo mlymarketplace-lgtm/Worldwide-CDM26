@@ -83,8 +83,13 @@
     },
     {
       "label": "Brésil 2–1 Japon",
-      "note": "Le Brésil passe sans trembler jusqu’au bout",
+      "note": "Le Brésil passe en huitième",
       "result": "V"
+    },
+    {
+      "label": "Norvège 2–1 Brésil",
+      "note": "Neymar marque, mais Haaland envoie la Norvège en quart",
+      "result": "D"
     }
   ],
   "france": [
@@ -271,6 +276,33 @@
       "label": "Colombie 1–0 Ghana",
       "note": "Fin de parcours en 16e, les Black Stars sortent avec respect",
       "result": "D"
+    }
+  ],
+  "norway": [
+    {
+      "label": "Iraq 1–4 Norvège",
+      "note": "Entrée forte",
+      "result": "V"
+    },
+    {
+      "label": "Norvège 3–2 Sénégal",
+      "note": "Match fou, caractère fort",
+      "result": "V"
+    },
+    {
+      "label": "Norvège 1–4 France",
+      "note": "Défaite lourde mais qualification conservée",
+      "result": "D"
+    },
+    {
+      "label": "Côte d’Ivoire 1–2 Norvège",
+      "note": "Haaland marque, la Norvège avance",
+      "result": "V"
+    },
+    {
+      "label": "Norvège 2–1 Brésil",
+      "note": "Doublé de Haaland, quart validé",
+      "result": "V"
     }
   ]
 }

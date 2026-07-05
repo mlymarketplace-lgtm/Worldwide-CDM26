@@ -128,19 +128,23 @@
     "label_ar": "كندا–المغرب"
   },
   "bra-nor": {
-    "home": "brazil",
-    "away": "norway",
-    "label": "Brésil–Norvège",
+    "home": "norway",
+    "away": "brazil",
+    "label": "Norvège–Brésil",
     "round": "R16",
     "dateParis": "2026-07-05T22:00:00+02:00",
     "dateUTC": "2026-07-05T20:00:00Z",
     "stadium": "Stade à confirmer",
     "channel_fr": "beIN Sports 1",
-    "note": "La Seleção face à la puissance froide de Haaland.",
+    "note": "Haaland signe un doublé, Neymar marque une dernière fois, et la Norvège élimine le Brésil 2–1.",
     "label_en": "Brazil–Norway",
     "label_es": "Brasil–Noruega",
     "label_pt": "Brasil–Noruega",
-    "label_ar": "البرازيل–النرويج"
+    "label_ar": "البرازيل–النرويج",
+    "status": "final",
+    "score": "2–1",
+    "winner": "norway",
+    "winnerSide": 0
   },
   "par-fra": {
     "home": "paraguay",
@@ -424,19 +428,20 @@
     "awayDisplay": "Vainqueur États-Unis–Belgique"
   },
   "qf-99": {
-    "home": "winner_n91",
+    "home": "norway",
     "away": "winner_n92",
-    "label": "Vainqueur Norvège–Brésil / Vainqueur Mexique–Angleterre",
+    "label": "Norvège / Vainqueur Mexique–Angleterre",
     "round": "QF",
     "dateParis": "2026-07-11T23:00:00+02:00",
     "dateUTC": "2026-07-11T21:00:00Z",
     "stadium": "À confirmer",
     "channel_fr": "beIN Sports 1",
     "dynamic": true,
-    "homeLabel": "Vainqueur Norvège–Brésil",
-    "homeDisplay": "Vainqueur Norvège–Brésil",
+    "homeLabel": "Norvège",
+    "homeDisplay": "Norvège",
     "awayLabel": "Vainqueur Mexique–Angleterre",
-    "awayDisplay": "Vainqueur Mexique–Angleterre"
+    "awayDisplay": "Vainqueur Mexique–Angleterre",
+    "note": "La Norvège attend le vainqueur de Mexique–Angleterre après avoir éliminé le Brésil."
   },
   "qf-100": {
     "home": "winner_n95",

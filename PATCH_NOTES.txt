@@ -1,8 +1,10 @@
-V12.0.12 — restauration des pages équipes
+QualifGaïndé Worldwide — V12.0.14
 
-- Base V12.0.11 + adaptateur multi-équipe complet.
-- Répare Brésil, Espagne, Égypte, Algérie et autres fiches qui retombaient sur Sénégal/Belgique–Sénégal.
-- Conserve page d’entrée “Je suis supporter de…”.
-- Conserve scores 16es single source via STATIC_R32_LOCKS.
-- Conserve France–Maroc en quart et compteur 19 990 ±50.
-- Pas de MutationObserver, TreeWalker ni cascades de re-render.
+Correctif Brésil–Norvège :
+- Norvège 2–1 Brésil figé officiellement en huitième N91.
+- Brésil basculé en éliminé sur la page d’entrée et dans les données équipe.
+- Norvège ajoutée comme qualifiée en quart, en attente du vainqueur Mexique–Angleterre.
+- Quart N99 mis à jour : Norvège vs Vainqueur Mexique–Angleterre.
+- Haaland passe à 7 buts et remonte devant Messi dans les stats.
+- Texte d’au revoir Brésil/Neymar/Ancelotti ajouté.
+- Cache/service worker bumpés en 12.0.14.

@@ -18,23 +18,23 @@
   ],
   "norway": [
     {
-      "label": "Iraq 1–4 Norvège",
-      "note": "Puissance offensive",
-      "result": "V"
-    },
-    {
       "label": "Norvège 3–2 Sénégal",
-      "note": "Match renversant",
+      "note": "Match fou, caractère fort",
       "result": "V"
     },
     {
       "label": "Norvège 1–4 France",
-      "note": "Défaite lourde face aux Bleus",
+      "note": "Défaite lourde mais qualification conservée",
       "result": "D"
     },
     {
       "label": "Côte d’Ivoire 1–2 Norvège",
       "note": "Haaland marque, la Norvège avance",
+      "result": "V"
+    },
+    {
+      "label": "Norvège 2–1 Brésil",
+      "note": "Doublé de Haaland, quart validé",
       "result": "V"
     }
   ],

@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-05T00:20:00+02:00",
+  "updatedAt": "2026-07-05T22:20:00+02:00",
   "matches": {
     "uru-esp": {
       "home": 0,
@@ -273,6 +273,20 @@
       "round": "r16",
       "h": "PAR",
       "a": "FRA"
+    },
+    "bra-nor": {
+      "home": 2,
+      "away": 1,
+      "status": "final",
+      "apiStatus": "FT",
+      "apiStatusLong": "Match Finished",
+      "winner": "home",
+      "winnerSide": 0,
+      "locked": true,
+      "koId": "N91",
+      "h": "NOR",
+      "a": "BRA",
+      "round": "r16"
     }
   },
   "_note": "V12 — Maroc qualifié en quart, labels propres et simulateur placé avant le tableau officiel des 16es."

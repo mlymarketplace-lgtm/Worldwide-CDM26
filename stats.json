@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-07-05T00:20:00+02:00",
-  "sourceNote": "V12.0.7 — Mbappé 7 buts, devant Messi; France meilleure attaque 14 buts.",
+  "updatedAt": "2026-07-05T22:20:00+02:00",
+  "sourceNote": "V12.0.14 — Haaland rejoint Mbappé et Messi à 7 buts après son doublé contre le Brésil.",
   "topScorers": [
     {
       "rank": 1,
@@ -10,20 +10,20 @@
     },
     {
       "rank": 2,
+      "name": "Erling Haaland",
+      "team": "🇳🇴 Norvège",
+      "goals": 7
+    },
+    {
+      "rank": 3,
       "name": "Lionel Messi",
       "team": "🇦🇷 Argentine",
       "goals": 7
     },
     {
-      "rank": 3,
-      "name": "Erling Haaland",
-      "team": "🇳🇴 Norvège",
-      "goals": 5
-    },
-    {
       "rank": 4,
       "name": "Harry Kane",
-      "team": "🏴󠁧󠁢󠁥󠁮󠁧󠁿 Angleterre",
+      "team": "🏴 Angleterre",
       "goals": 4
     },
     {

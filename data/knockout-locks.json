@@ -261,6 +261,20 @@
       "winnerSide": 1,
       "locked": true,
       "round": "r16"
+    },
+    "N91": {
+      "koId": "N91",
+      "h": "NOR",
+      "a": "BRA",
+      "home": 2,
+      "away": 1,
+      "status": "final",
+      "apiStatus": "FT",
+      "apiStatusLong": "Match Finished",
+      "winner": "home",
+      "winnerSide": 0,
+      "locked": true,
+      "round": "r16"
     }
   },
   "par-fra": {
@@ -498,5 +512,19 @@
       "winnerSide": 0,
       "locked": true
     }
+  },
+  "bra-nor": {
+    "koId": "N91",
+    "h": "NOR",
+    "a": "BRA",
+    "home": 2,
+    "away": 1,
+    "status": "final",
+    "apiStatus": "FT",
+    "apiStatusLong": "Match Finished",
+    "winner": "home",
+    "winnerSide": 0,
+    "locked": true,
+    "round": "r16"
   }
 }
