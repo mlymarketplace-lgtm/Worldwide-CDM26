@@ -1,6 +1,6 @@
-// QualifGaïndé Worldwide — Service Worker V12.0.7 SAFE
-const CACHE_VERSION = 'qg-v12-0-7-static';
-const RUNTIME_CACHE = 'qg-v12-0-7-runtime';
+// QualifGaïndé Worldwide — Service Worker V12.0.8 SAFE
+const CACHE_VERSION = 'qg-v12-0-8-static';
+const RUNTIME_CACHE = 'qg-v12-0-8-runtime';
 
 self.addEventListener('install', event => {
   self.skipWaiting();

@@ -1,9 +1,7 @@
-QualifGaïndé V12.0.7 — clean/stable
+QualifGaïndé V12.0.8 — clean stable scores fix
 
-- Repart de la V12.0.6 affichable.
-- Corrige à la source le compteur supporters : 19 990 ±50.
-- Nettoie la carte prochain match : plus de R32/R16, affichage France–Maroc.
-- Réapplique les scores officiels des 16es et les deux huitièmes terminés après le rendu V10, sans MutationObserver ni TreeWalker.
-- Conserve les 4 matchs du header.
-- Garde le tableau des meilleurs troisièmes hors affichage principal.
-- Service worker versionné en 12.0.7, network-first sur HTML/data/API.
+- Supprime les scripts externes src/v10 qui pouvaient être servis depuis un ancien service worker et réécrire la page après rendu.
+- Force le rendu du tableau officiel des 16es dès initAppDisplay.
+- Conserve les scores officiels R32 et les huitièmes N89/N90.
+- Nettoie la carte prochain match à la source: France–Maroc, sans R32.
+- Cache/service worker bumpé en 12.0.8.
