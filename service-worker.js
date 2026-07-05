@@ -1,41 +1,38 @@
-// QualifGaïndé Worldwide — Service Worker V12
-const CACHE_VERSION = 'qg-v12-0-3-static';
-const RUNTIME_CACHE = 'qg-v12-0-3-runtime';
-const CORE_ASSETS = [
-  '/',
-  '/index.html',
-  '/manifest.webmanifest',
-  '/assets/icons/icon-192.png',
-  '/assets/icons/icon-512.png',
-  '/assets/icons/maskable-512.png',
-  '/assets/lion-mascotte.png'
-];
+// QualifGaïndé Worldwide — Service Worker V12.0.5 SAFE
+const CACHE_VERSION = 'qg-v12-0-5-static';
+const RUNTIME_CACHE = 'qg-v12-0-5-runtime';
 
 self.addEventListener('install', event => {
   self.skipWaiting();
-  event.waitUntil(caches.open(CACHE_VERSION).then(cache => cache.addAll(CORE_ASSETS)).catch(() => null));
 });
 
 self.addEventListener('activate', event => {
   event.waitUntil(
-    caches.keys().then(keys => Promise.all(keys.filter(k => ![CACHE_VERSION, RUNTIME_CACHE].includes(k)).map(k => caches.delete(k))))
+    caches.keys().then(keys => Promise.all(keys.filter(k => k !== CACHE_VERSION && k !== RUNTIME_CACHE).map(k => caches.delete(k))))
       .then(() => self.clients.claim())
   );
 });
 
 function isFreshRoute(url){
-  return url.pathname.startsWith('/.netlify/functions/') ||
+  return url.pathname === '/' ||
+         url.pathname === '/index.html' ||
+         url.pathname.startsWith('/.netlify/functions/') ||
          url.pathname === '/live.json' ||
          url.pathname === '/stats.json' ||
-         url.pathname.startsWith('/data/');
+         url.pathname.startsWith('/data/') ||
+         url.pathname.startsWith('/src/');
 }
 
 async function networkFirst(request){
   const cache = await caches.open(RUNTIME_CACHE);
   try {
     const fresh = await fetch(request, { cache: 'no-store' });
-    if (fresh && fresh.ok && request.method === 'GET' && !request.url.includes('/.netlify/functions/')) {
-      cache.put(request, fresh.clone()).catch(() => null);
+    if (fresh && fresh.ok && request.method === 'GET') {
+      // Ne jamais mettre en cache HTML/navigation : priorité à la version fraîche.
+      const url = new URL(request.url);
+      if (url.pathname !== '/' && url.pathname !== '/index.html' && request.mode !== 'navigate') {
+        cache.put(request, fresh.clone()).catch(() => null);
+      }
     }
     return fresh;
   } catch (err) {
@@ -62,21 +59,11 @@ self.addEventListener('fetch', event => {
   const url = new URL(request.url);
   if (url.origin !== self.location.origin) return;
 
-  if (isFreshRoute(url)) {
+  if (request.mode === 'navigate' || isFreshRoute(url)) {
     event.respondWith(networkFirst(request));
     return;
   }
 
-  if (request.mode === 'navigate') {
-    event.respondWith(networkFirst(request).catch(() => caches.match('/index.html')));
-    return;
-  }
-
-  // /src/ en network-first : évite tout conflit de version de fichier JS/CSS
-  if (url.pathname.startsWith('/src/')) {
-    event.respondWith(networkFirst(request));
-    return;
-  }
   if (url.pathname.startsWith('/assets/') || url.pathname === '/manifest.webmanifest') {
     event.respondWith(cacheFirst(request));
   }

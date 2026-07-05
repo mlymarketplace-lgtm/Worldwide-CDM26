@@ -1,8 +1,13 @@
-QualifGaïndé V12.0.3 — UX mobile + moteur KO renforcé
+QualifGaïndé V12.0.5 — HOTFIX SAFE
 
-- Garde les 4 matchs du header comme demandé.
-- Supporters vus : base 19 990 avec variation stable ±50 par session.
-- Bloc prochain match mobile : suppression des libellés techniques R32/R16/QF et affichage lisible France–Maroc + date sur ligne séparée.
-- Masquage du tableau “Classement final des 8 meilleurs troisièmes”.
-- Renforcement du moteur de verrouillage KO : les scores API/live sont réalignés sur l’ordre du bracket avant figer les quarts, demies, match pour la 3e place et finale.
-- Version/cache : 12.0.3.
+Objectif : corriger le bug bloquant 'Page ne répond pas' après V12.0.3/V12.0.4.
+
+Changements :
+- suppression complète des MutationObserver / TreeWalker globaux ajoutés pour nettoyer winner_n89 ;
+- conservation des données France–Maroc dans les JSON plutôt que nettoyage DOM permanent ;
+- supporters 19 990 ±50 conservés ;
+- prochain match mobile nettoyé via ciblage de carte, sans observer global ;
+- service worker rendu network-first pour index.html et purge des anciens caches ;
+- version 12.0.5.
+
+Déployer ce ZIP, puis hard refresh.
