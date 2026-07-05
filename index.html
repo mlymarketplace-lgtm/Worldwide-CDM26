@@ -3,20 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>QualifGaïndé Worldwide · V12.0.8 clean stable</title>
+<title>QualifGaïndé Worldwide · V12.0.10 scores single source</title>
 <meta name="application-name" content="Suivez la CDM 2026">
 <script>
 // BUILD_VERSION — version stable de build, à bumper à chaque déploiement.
 // Remplace les cache-busters dynamiques (Date.now()) sur les ressources stables
 // afin que le navigateur puisse effectivement les mettre en cache entre deux visites.
-const BUILD_VERSION = '12.0.8';
+const BUILD_VERSION = '12.0.10';
 (function(){
   var p = new URLSearchParams(window.location.search);
   var v10Active = p.has('team') || p.get('mode') !== 'global';
   window.QUALIFGAINDE_V10_ACTIVE = v10Active;
   if(v10Active) {
     document.documentElement.classList.add('v10-booting');
-    // V12.0.8 safety: ne jamais laisser l'écran noir si le script V10 externe tarde/échoue.
+    // V12.0.10 safety: ne jamais laisser l'écran noir si le script V10 externe tarde/échoue.
     setTimeout(function(){ document.documentElement.classList.remove('v10-booting'); }, 1800);
   }
 })();
@@ -1214,20 +1214,36 @@ header{display:flex;align-items:center;justify-content:space-between;padding:12p
 <meta name="apple-mobile-web-app-title" content="Suivez la CDM 2026">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <link rel="apple-touch-icon" href="/assets/icons/icon-192.png">
-<link rel="stylesheet" href="src/v10/v10-team-app.css?v=12.0.8">
+<link rel="stylesheet" href="src/v10/v10-team-app.css?v=12.0.10">
 
 <script>
-// V12.0.8 — purge légère des anciens caches PWA pour sortir des builds bloquants.
+// V12.0.10 — purge légère des anciens caches PWA pour sortir des builds bloquants.
 (function(){
   window.addEventListener('load', function(){
     try {
       if (window.caches && caches.keys) {
-        caches.keys().then(keys => Promise.all(keys.filter(k => /^qg-v(11|12)-/.test(k) && !/12-0-7/.test(k)).map(k => caches.delete(k)))).catch(()=>null);
+        caches.keys().then(keys => Promise.all(keys.filter(k => /^qg-v(11|12)-/.test(k) && !/12-0-10/.test(k)).map(k => caches.delete(k)))).catch(()=>null);
       }
     } catch(e) {}
   });
 })();
 </script>
+
+<style id="qg-v1210-teamfix-style">
+/* V12.0.10 — adaptateur autonome multi-équipe, sans dépendance src/v10 JS */
+#probable-opponent .opp-label{white-space:nowrap;}
+#probable-opponent .opp-main{line-height:1.05;}
+#probable-opponent .opp-sub{white-space:normal;}
+@media(max-width:720px){
+  #probable-opponent{min-width:0;width:calc(100vw - 24px);max-width:520px;align-self:stretch;padding:10px 12px;}
+  #probable-opponent .opp-label{justify-content:center;font-size:.62rem;}
+  #probable-opponent .opp-main{font-size:1.25rem;text-align:center;white-space:normal;}
+  #probable-opponent .opp-sub{text-align:center;font-size:.66rem;line-height:1.35;}
+  .live-header-card.header-scores{grid-template-columns:repeat(2,minmax(0,1fr));width:100%;}
+  .live-header-card.header-scores .hscore{min-height:58px;}
+}
+</style>
+
 </head>
 <body>
 <div class="band"></div>
@@ -2211,7 +2227,7 @@ function getOpponentForSenegalRank(snRank) {
 }
 
 function updateProbableOpponent(snRank) {
-  // V12.0.8 — la carte header ne doit plus retomber sur l'ancien moteur Sénégal/R32
+  // V12.0.10 — la carte header ne doit plus retomber sur l'ancien moteur Sénégal/R32
   // quand une page équipe est ouverte. On affiche l'affiche réelle du prochain match.
   const qgTeamParamForNext = (new URLSearchParams(location.search).get('team') || 'senegal').toLowerCase();
   if (qgTeamParamForNext === 'france' || qgTeamParamForNext === 'morocco') {
@@ -2560,9 +2576,32 @@ const KO_ROUNDS = [
   ]}
 ];
 
-const r32Scores = { N73:[0,1], N78:[2,1], N74:[1,1], N75:[1,1], N76:[1,2], N77:[3,0], N79:[2,0], N80:[2,1], N82:[3,2], N81:[2,0], N84:[3,0], N83:[2,1], N85:[2,0], N86:[1,1], N87:[3,2], N88:[1,0] }; // V11.5.17 fallback officiel local — tous les 16es finalisés
-const r32Picks = { N73:1, N78:0, N74:1, N75:1, N76:1, N77:0, N79:0, N80:0, N82:0, N81:0, N84:0, N83:0, N85:0, N86:1, N87:0, N88:0 };
-const r32Locked = { N73:true, N78:true, N74:true, N75:true, N76:true, N77:true, N79:true, N80:true, N82:true, N81:true, N84:true, N83:true, N85:true, N86:true, N87:true, N88:true }; // V11.5.17 : tous les 16es finalisés API figés dans la simulation
+// V12.0.10 — source unique : l'état R32 est dérivé de STATIC_R32_LOCKS.
+// On évite de maintenir les mêmes scores à trois endroits.
+function deriveR32InitialState(locks){
+  const scores = {}, picks = {}, locked = {};
+  Object.values(locks || {}).forEach(e => {
+    const id = e && e.koId;
+    if(!id) return;
+    scores[id] = [Number(e.home ?? 0), Number(e.away ?? 0)];
+    let winnerSide = (e.winnerSide === 0 || e.winnerSide === 1) ? e.winnerSide : null;
+    if(winnerSide === null){
+      if(e.winner === 'home') winnerSide = 0;
+      else if(e.winner === 'away') winnerSide = 1;
+    }
+    const ph = e.penaltyHome ?? e.penalty?.home;
+    const pa = e.penaltyAway ?? e.penalty?.away;
+    if(winnerSide === null && ph != null && pa != null && Number(ph) !== Number(pa)) winnerSide = Number(ph) > Number(pa) ? 0 : 1;
+    if(winnerSide === null && Number(e.home) !== Number(e.away)) winnerSide = Number(e.home) > Number(e.away) ? 0 : 1;
+    if(winnerSide !== null) picks[id] = winnerSide;
+    if(e.locked || e.status === 'final') locked[id] = true;
+  });
+  return { scores, picks, locked };
+}
+const R32_INITIAL_STATE = deriveR32InitialState(STATIC_R32_LOCKS);
+const r32Scores = R32_INITIAL_STATE.scores;
+const r32Picks = R32_INITIAL_STATE.picks;
+const r32Locked = R32_INITIAL_STATE.locked;
 const koPicks = { r16:{}, qf:{}, sf:{}, final:{} };
 const koScores = { r16:{}, qf:{}, sf:{}, final:{} };
 const koPenalties = { r16:{}, qf:{}, sf:{}, final:{} };
@@ -4625,31 +4664,13 @@ setTimeout(()=>{
 
 </script>
 
-<!-- V12.0.8: scripts V10 externes désactivés pour éviter les retours de cache qui écrasent le rendu officiel. -->
+<!-- V12.0.10: scripts V10 externes désactivés pour éviter les retours de cache qui écrasent le rendu officiel. -->
 
 <script>
-// V12.0.8 — FINALISATION STABLE, ciblée et sans observer global.
-// Objectif : laisser le moteur équipe V10 rendre la page, puis réappliquer uniquement
-// les vérités officielles V12 : scores 16es, France–Maroc, compteur, libellés propres.
+// V12.0.10 — FINALISATION STABLE — source unique de vérité.
+// R32_LOCKS_BOOT supprimé : les 16es viennent uniquement de STATIC_R32_LOCKS.
+// Les re-renders en cascade sont supprimés : un seul filet de sécurité à 300 ms après load.
 (function(){
-  const R32_LOCKS_BOOT = {
-    'rsa-can': { koId:'N73', h:'RSA', a:'CAN', home:0, away:1, status:'final', apiStatus:'FT', apiStatusLong:'Match Finished', winner:'away', winnerSide:1, locked:true },
-    'bra-jpn': { koId:'N78', h:'BRA', a:'JPN', home:2, away:1, status:'final', apiStatus:'FT', apiStatusLong:'Match Finished', winner:'home', winnerSide:0, locked:true },
-    'ger-par': { koId:'N74', h:'GER', a:'PAR', home:1, away:1, penalty:{home:3, away:4}, penaltyHome:3, penaltyAway:4, status:'final', apiStatus:'PEN', apiStatusLong:'Match Finished Penalties', winner:'away', winnerSide:1, locked:true },
-    'ned-mar': { koId:'N75', h:'NED', a:'MAR', home:1, away:1, penalty:{home:2, away:3}, penaltyHome:2, penaltyAway:3, status:'final', apiStatus:'PEN', apiStatusLong:'Match Finished Penalties', winner:'away', winnerSide:1, locked:true },
-    'civ-nor': { koId:'N76', h:'CIV', a:'NOR', home:1, away:2, status:'final', apiStatus:'FT', apiStatusLong:'Match Finished', winner:'away', winnerSide:1, locked:true },
-    'fra-swe': { koId:'N77', h:'FRA', a:'SWE', home:3, away:0, status:'final', apiStatus:'FT', apiStatusLong:'Match Finished', winner:'home', winnerSide:0, locked:true },
-    'mex-ecu': { koId:'N79', h:'MEX', a:'ECU', home:2, away:0, status:'final', apiStatus:'FT', apiStatusLong:'Match Finished', winner:'home', winnerSide:0, locked:true },
-    'eng-cod': { koId:'N80', h:'ENG', a:'COD', home:2, away:1, status:'final', apiStatus:'FT', apiStatusLong:'Match Finished', winner:'home', winnerSide:0, locked:true },
-    'usa-bih': { koId:'N81', h:'USA', a:'BIH', home:2, away:0, status:'final', apiStatus:'FT', apiStatusLong:'Match Finished', winner:'home', winnerSide:0, locked:true },
-    'bel-sen': { koId:'N82', h:'BEL', a:'SEN', home:3, away:2, status:'final', apiStatus:'AET', apiStatusLong:'Match Finished After Extra Time', winner:'home', winnerSide:0, locked:true },
-    'por-cro': { koId:'N83', h:'POR', a:'CRO', home:2, away:1, status:'final', apiStatus:'FT', apiStatusLong:'Match Finished', winner:'home', winnerSide:0, locked:true },
-    'esp-aut': { koId:'N84', h:'ESP', a:'AUT', home:3, away:0, status:'final', apiStatus:'FT', apiStatusLong:'Match Finished', winner:'home', winnerSide:0, locked:true },
-    'sui-alg': { koId:'N85', h:'SUI', a:'ALG', home:2, away:0, status:'final', apiStatus:'FT', apiStatusLong:'Match Finished', winner:'home', winnerSide:0, locked:true },
-    'aus-egy': { koId:'N86', h:'AUS', a:'EGY', home:1, away:1, penalty:{home:2, away:4}, penaltyHome:2, penaltyAway:4, status:'final', apiStatus:'PEN', apiStatusLong:'Match Finished Penalties', winner:'away', winnerSide:1, locked:true },
-    'arg-cpv': { koId:'N87', h:'ARG', a:'CPV', home:3, away:2, status:'final', minute:120, apiStatus:'AET', apiStatusLong:'Match Finished After Extra Time', winner:'home', winnerSide:0, locked:true },
-    'col-gha': { koId:'N88', h:'COL', a:'GHA', home:1, away:0, status:'final', apiStatus:'FT', apiStatusLong:'Match Finished', winner:'home', winnerSide:0, locked:true }
-  };
   const KO_LOCKS_BOOT = {
     r16: {
       N89: { koId:'N89', h:'PAR', a:'FRA', home:0, away:1, status:'final', apiStatus:'FT', apiStatusLong:'Match Finished', winner:'away', winnerSide:1, locked:true, round:'r16' },
@@ -4661,7 +4682,7 @@ setTimeout(()=>{
   function formatFR(n){ return Number(n || 0).toLocaleString('fr-FR').replace(/\u202f/g, ' '); }
   function supportersValue(){
     try {
-      const key = 'qg_supporters_seen_v12_0_8';
+      const key = 'qg_supporters_seen_v12_0_10';
       const saved = sessionStorage.getItem(key);
       if (saved && /^\d+$/.test(saved)) return Number(saved);
       const value = SUPPORTERS_BASE + Math.round((Math.random() * 2 - 1) * SUPPORTERS_SPREAD);
@@ -4672,23 +4693,24 @@ setTimeout(()=>{
   function setText(el, value){ if (el && el.textContent !== value) el.textContent = value; }
   function applyOfficialScores(){
     try {
-      Object.entries(R32_LOCKS_BOOT).forEach(([key, e]) => {
+      const locks = (typeof STATIC_R32_LOCKS !== 'undefined') ? STATIC_R32_LOCKS : {};
+      Object.entries(locks).forEach(([key, e]) => {
         try {
           if (typeof KNOCKOUT_LIVE_RESULTS !== 'undefined') {
             KNOCKOUT_LIVE_RESULTS[key] = Object.assign({}, e, {
-              hg:e.home, ag:e.away,
-              penaltyHome:e.penaltyHome ?? e.penalty?.home ?? null,
-              penaltyAway:e.penaltyAway ?? e.penalty?.away ?? null
+              hg: e.home, ag: e.away,
+              penaltyHome: e.penaltyHome ?? e.penalty?.home ?? null,
+              penaltyAway: e.penaltyAway ?? e.penalty?.away ?? null
             });
           }
         } catch(_) {}
       });
-      if (typeof applyR32Locks === 'function') applyR32Locks(R32_LOCKS_BOOT, 'v12-0-7-final');
+      if (typeof applyR32Locks === 'function') applyR32Locks(locks, 'v12-0-10-single-source');
       if (typeof applyKOLocks === 'function') applyKOLocks(KO_LOCKS_BOOT);
       if (typeof renderRound32Grid === 'function') renderRound32Grid();
       if (typeof renderKnockoutTree === 'function') renderKnockoutTree();
       if (typeof buildTicker === 'function') buildTicker();
-    } catch(e) { console.warn('[QG V12.0.8] official score finalizer skipped', e); }
+    } catch(e) { console.warn('[QG V12.0.10] official score finalizer skipped', e); }
   }
   function normalizeNextMatchCard(){
     const card = document.getElementById('probable-opponent');
@@ -4710,7 +4732,6 @@ setTimeout(()=>{
     if (el) setText(el, formatFR(supportersValue()));
   }
   function cleanVisibleTechnicalLabels(){
-    // Ciblé uniquement sur la carte prochain match : pas de scan global du DOM.
     const label = document.querySelector('#probable-opponent .opp-label');
     if (label && /\b(R32|R16|QF|SF)\b/i.test(label.textContent || '')) normalizeNextMatchCard();
   }
@@ -4720,11 +4741,216 @@ setTimeout(()=>{
     updateSupporters();
     cleanVisibleTechnicalLabels();
   }
-  window.QG_V12_0_7_STABLE = { run, applyOfficialScores, normalizeNextMatchCard, updateSupporters };
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', run);
+  window.QG_V12_0_10_STABLE = { run, applyOfficialScores, normalizeNextMatchCard, updateSupporters };
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', run, {once:true});
   else run();
-  window.addEventListener('load', run);
-  [120, 400, 900, 1800, 3500, 6000].forEach(ms => setTimeout(run, ms));
+  window.addEventListener('load', function(){ setTimeout(run, 300); }, {once:true});
+})();
+</script>
+
+
+<script id="qg-v1210-standalone-team-adapter">
+// V12.0.10 — adaptateur autonome multi-équipe.
+// Objectif : ne plus dépendre de src/v10/v10-team-app.js pour honorer ?team=france/morocco,
+// tout en gardant le rendu KO/scores interne V12.
+(function(){
+  const TEAM_PARAM = (new URLSearchParams(location.search).get('team') || 'senegal').toLowerCase().trim();
+  const TEAM_ALIASES = {
+    'fr':'france','fra':'france','bleus':'france',
+    'ma':'morocco','mar':'morocco','maroc':'morocco',
+    'sn':'senegal','sen':'senegal','sénégal':'senegal','senegal':'senegal'
+  };
+  const TEAM_KEY = TEAM_ALIASES[TEAM_PARAM] || TEAM_PARAM || 'senegal';
+  const QF_MATCH = {
+    id:'qf-97', label:'France–Maroc', title:'Prochain match : France–Maroc · jeudi 9 juillet · 22h00 heure locale',
+    main:'🇫🇷 France–Maroc 🇲🇦', sub:'Jeu. 9 juillet · 22h00 · heure locale',
+    meta:'France–Maroc · jeu. 9 juil. · 22h00 · heure locale', venue:'À confirmer'
+  };
+  const FALLBACK_TEAMS = {
+    france:{teamName:'France',flag:'🇫🇷',supporterName:'Bleus',tagline:'Les Bleus, candidats au titre',statusLabel:'Qualifiée en quart de finale',selectorLine:'Qualifiée en quart · prochain défi : Maroc',heroSubtitle:'Les Bleus survivent au piège paraguayen et filent vers le choc contre le Maroc.',heroPlayer:'Kylian Mbappé',heroImg:'assets/teams/france/player.webp',bannerImg:'assets/teams/france/banner.webp'},
+    morocco:{teamName:'Maroc',flag:'🇲🇦',supporterName:'Lions de l’Atlas',tagline:'Les Lions de l’Atlas, une ambition continentale',statusLabel:'Qualifié en quart de finale',selectorLine:'Qualifié en quart · prochain défi : France',heroSubtitle:'Les Lions de l’Atlas sont en quart après Canada 0–3 Maroc. Prochaine marche : un choc épique contre la France.',heroPlayer:'Achraf Hakimi',heroImg:'assets/teams/morocco/player.webp',bannerImg:'assets/teams/morocco/banner.webp'},
+    senegal:{teamName:'Sénégal',flag:'🇸🇳',supporterName:'Gaïndés',tagline:'Une histoire de Gaïndés',statusLabel:'Éliminé en seizième de finale',selectorLine:'Éliminé en 16e · respect aux Lions',heroSubtitle:'Respect total aux Lions : l’Afrique est fière, rendez-vous dans quatre ans.',heroPlayer:'Sadio Mané',heroImg:'assets/teams/senegal/player.webp',bannerImg:'assets/senegal-team.webp'}
+  };
+  const FALLBACK_RESULTS = {
+    france:[
+      {label:'France 3–0 Iraq',note:'Victoire nette',result:'V'},
+      {label:'Norvège 1–4 France',note:'Les Bleus assument leur rang',result:'V'},
+      {label:'France 3–0 Suède',note:'Mbappé double, Olise distribue, les Bleus filent vers le Paraguay',result:'V'},
+      {label:'Paraguay 0–1 France',note:'Mbappé frappe encore, les Bleus survivent au piège et filent vers le choc contre le Maroc',result:'V'}
+    ],
+    morocco:[
+      {label:'Écosse 0–1 Maroc',note:'Victoire de caractère',result:'V'},
+      {label:'Maroc 4–2 Haïti',note:'Les Lions de l’Atlas accélèrent',result:'V'},
+      {label:'Pays-Bas 1–1 Maroc · TAB 2–3',note:'Les Lions de l’Atlas passent au mental',result:'V'},
+      {label:'Canada 0–3 Maroc',note:'Les Lions de l’Atlas maîtrisent leur huitième et filent en quart',result:'V'}
+    ],
+    senegal:[
+      {label:'France 3–1 Sénégal',note:'Défaite inaugurale',result:'D'},
+      {label:'Norvège 3–2 Sénégal',note:'Les Lions proches du retour',result:'D'},
+      {label:'Sénégal 5–0 Iraq',note:'Réveil des Gaïndés',result:'V'},
+      {label:'Belgique 3–2 Sénégal',note:'Fin de parcours, respect aux Lions',result:'D'}
+    ]
+  };
+  function $(sel, root){ return (root || document).querySelector(sel); }
+  function $all(sel, root){ return Array.from((root || document).querySelectorAll(sel)); }
+  function setText(sel, text){ const el = typeof sel === 'string' ? $(sel) : sel; if(el && text !== undefined && text !== null) el.textContent = String(text); }
+  function setHTML(sel, html){ const el = typeof sel === 'string' ? $(sel) : sel; if(el && html !== undefined && html !== null) el.innerHTML = String(html); }
+  function safeFetchJSON(url){ return fetch(url + (url.includes('?') ? '&' : '?') + 'v=' + encodeURIComponent(window.BUILD_VERSION || '12.0.10'), {cache:'no-store'}).then(r => r.ok ? r.json() : null).catch(() => null); }
+  function resultClass(r){ return r === 'V' ? 'win' : (r === 'D' ? 'loss' : 'neu'); }
+  function htmlEscape(str){ return String(str ?? '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
+  function formatResultLabel(label){
+    return String(label || '')
+      .replace(/France/g,'🇫🇷 France')
+      .replace(/Maroc/g,'🇲🇦 Maroc')
+      .replace(/Sénégal/g,'🇸🇳 Sénégal')
+      .replace(/Iraq/g,'🇮🇶 Iraq')
+      .replace(/Norvège/g,'🇳🇴 Norvège')
+      .replace(/Suède/g,'🇸🇪 Suède')
+      .replace(/Paraguay/g,'🇵🇾 Paraguay')
+      .replace(/Canada/g,'🇨🇦 Canada')
+      .replace(/Pays-Bas/g,'🇳🇱 Pays-Bas')
+      .replace(/Haïti/g,'🇭🇹 Haïti')
+      .replace(/Écosse/g,'🏴 Écosse')
+      .replace(/Belgique/g,'🇧🇪 Belgique');
+  }
+  function patchHeader(team, results){
+    const title = $('.htitle');
+    if(title) title.innerHTML = `<span>${htmlEscape(team.teamName)}</span> — CM 2026`;
+    setText('.site-kicker', team.statusLabel || team.selectorLine || team.tagline || '');
+    const logo = $('.mascot-logo');
+    if(logo){
+      logo.src = team.heroImg || team.mascotImg || logo.getAttribute('src') || '';
+      logo.alt = team.teamName || 'Équipe';
+      logo.onerror = function(){ this.onerror=null; this.src='assets/lion-mascotte.png'; };
+    }
+    const center = $('#live-center');
+    if(center){
+      center.setAttribute('aria-label', `Résultats de ${team.teamName}`);
+      const list = (results && results.length ? results : (FALLBACK_RESULTS[TEAM_KEY] || FALLBACK_RESULTS.senegal)).slice(-4);
+      center.innerHTML = list.map((r, i) => `
+        <div class="hscore ${resultClass(r.result)}">
+          <div class="hs-label">Match ${i+1}</div>
+          <div class="hs-score">${htmlEscape(formatResultLabel(r.label || ''))}</div>
+          <div class="hs-note">${htmlEscape(r.note || '')}</div>
+        </div>`).join('') + '<span id="hdr-score" style="display:none"></span><span id="hdr-statut" style="display:none"></span><span id="hdr-rang" style="display:none"></span><span id="hdr-proba" style="display:none"></span>';
+    }
+  }
+  function patchNextCard(team){
+    const card = $('#probable-opponent');
+    if(!card) return;
+    const label = $('.opp-label', card);
+    if(label){
+      const img = label.querySelector('img') ? label.querySelector('img').outerHTML : '<img class="section-mascot" src="assets/lion-mascotte.png" alt="Mascotte">';
+      label.innerHTML = img + 'Prochain match';
+    }
+    setText('#opp-main-name', QF_MATCH.main);
+    setText('#opp-main-sub', QF_MATCH.sub);
+    card.title = QF_MATCH.title;
+  }
+  function patchHero(team){
+    setText('#hero-title', `${team.flag || ''} ${team.teamName || ''} à la Coupe du monde 2026`.trim());
+    setText('#hero-subtitle', team.heroSubtitle || team.tagline || '');
+    const heroImg = $('#hero-banner img');
+    if(heroImg){
+      heroImg.src = team.bannerImg || team.heroImg || heroImg.getAttribute('src') || '';
+      heroImg.alt = `${team.teamName || 'Équipe'} à la Coupe du monde 2026`;
+      heroImg.onerror = function(){ this.onerror=null; this.style.display='none'; };
+    }
+    const hero = $('#hero-banner');
+    if(hero){
+      hero.style.background = `linear-gradient(110deg, ${team.primary || '#07130b'}22, #000 70%)`;
+    }
+  }
+  function patchCountdown(team){
+    // Quart de finale France–Maroc : ce bloc remplace l'ancien compte à rebours Belgique–Sénégal quand on est sur France/Maroc.
+    if(TEAM_KEY !== 'france' && TEAM_KEY !== 'morocco') return;
+    const sec = $('#countdown-card')?.previousElementSibling;
+    if(sec && sec.classList.contains('sec')) sec.innerHTML = '<img class="section-mascot" src="assets/lion-mascotte.png" alt="Mascotte">Prochaine rencontre';
+    setText('.countdown-kicker', 'Quart de finale');
+    setText('.countdown-match', '🇫🇷 France vs Maroc 🇲🇦');
+    setText('.countdown-meta', 'Jeu. 9 juillet · 22h00 · heure locale');
+    setText('#countdown-end-msg', 'Un choc de mémoire, de talent et de tension : les Bleus face aux Lions de l’Atlas.');
+    const sides = $all('#countdown-card .player-side');
+    if(sides[0]){
+      sides[0].className = 'player-side bel';
+      const img=sides[0].querySelector('img'); if(img){ img.src='assets/teams/france/player.webp'; img.alt='Kylian Mbappé, France'; img.onerror=function(){this.onerror=null;this.style.display='none';}; }
+      setHTML(sides[0].querySelector('.side-title'), '<span>🇫🇷 France</span><span>Bleus</span>');
+      setText(sides[0].querySelector('.side-sub'), 'Derniers résultats');
+      const list=sides[0].querySelector('.form-list'); if(list) list.innerHTML = (FALLBACK_RESULTS.france.slice(-3)).map(r=>`<div class="form-row"><span>${htmlEscape(r.label)}</span><strong>${htmlEscape(r.result)}</strong></div>`).join('');
+    }
+    if(sides[1]){
+      sides[1].className = 'player-side sen';
+      const img=sides[1].querySelector('img'); if(img){ img.src='assets/teams/morocco/player.webp'; img.alt='Achraf Hakimi, Maroc'; img.onerror=function(){this.onerror=null;this.style.display='none';}; }
+      setHTML(sides[1].querySelector('.side-title'), '<span>🇲🇦 Maroc</span><span>Lions de l’Atlas</span>');
+      setText(sides[1].querySelector('.side-sub'), 'Derniers résultats');
+      const list=sides[1].querySelector('.form-list'); if(list) list.innerHTML = (FALLBACK_RESULTS.morocco.slice(-3)).map(r=>`<div class="form-row"><span>${htmlEscape(r.label)}</span><strong>${htmlEscape(r.result)}</strong></div>`).join('');
+    }
+  }
+  function patchStory(team, story){
+    if(!story) return;
+    setText('#histoire-gaindes .story-title, #histoire-gaindes h2', story.title || '');
+    const section = $('#histoire-gaindes');
+    if(section){
+      const sec = section.querySelector('.sec');
+      if(sec) sec.innerHTML = '<img class="section-mascot" src="assets/lion-mascotte.png" alt="Mascotte">' + htmlEscape(story.title || `Histoire de ${team.teamName}`);
+      const body = section.querySelector('.story-body');
+      if(body && Array.isArray(story.paragraphs)){
+        body.innerHTML = (story.paragraphs || []).map(p=>`<p>${htmlEscape(p)}</p>`).join('') + (Array.isArray(story.timeline) ? `<div class="story-timeline">${story.timeline.map(t=>`<div class="story-tile"><b>${htmlEscape(String(t).split('·')[0] || '')}</b>${htmlEscape(String(t).split('·').slice(1).join('·').trim())}</div>`).join('')}</div>` : '');
+      }
+    }
+  }
+  function patchSupporters(){
+    const base = 19990, spread = 50;
+    let val = base;
+    try{
+      const key = 'qg-supporters-v12-0-10';
+      const old = sessionStorage.getItem(key);
+      if(old && /^\d+$/.test(old)) val = Number(old);
+      else { val = base + Math.round((Math.random()*2 - 1)*spread); sessionStorage.setItem(key, String(val)); }
+    }catch(e){}
+    setText('#sup-num', new Intl.NumberFormat('fr-FR').format(val));
+  }
+  function patchTechnicalLabels(){
+    // Ciblé : pas de scan global ; on corrige uniquement les zones qui ont posé problème.
+    const label = $('#probable-opponent .opp-label');
+    if(label && /R32|R16|QF|SF/i.test(label.textContent || '')) patchNextCard(FALLBACK_TEAMS[TEAM_KEY] || FALLBACK_TEAMS.senegal);
+    const main = $('#opp-main-name');
+    if(main && /winner_n89|WINNER_N89|Maroc$/i.test(main.textContent || '') && (TEAM_KEY === 'france' || TEAM_KEY === 'morocco')) main.textContent = QF_MATCH.main;
+  }
+  function patchScores(){
+    try{
+      if(typeof applyR32Locks === 'function' && typeof STATIC_R32_LOCKS !== 'undefined') applyR32Locks(STATIC_R32_LOCKS, 'v12-0-10-teamfix');
+      // KO r16 locks are applied by the V12.0.10 finalizer above.
+      if(typeof renderRound32Grid === 'function') renderRound32Grid();
+      if(typeof renderKnockoutTree === 'function') renderKnockoutTree();
+    }catch(e){ console.warn('[QG V12.0.10] score patch skipped', e); }
+  }
+  async function loadData(){
+    const [teams, next, results, stories] = await Promise.all([
+      safeFetchJSON('/data/teams.json'), safeFetchJSON('/data/team-next.json'), safeFetchJSON('/data/team-results.json'), safeFetchJSON('/data/stories.json')
+    ]);
+    const mergedTeam = Object.assign({}, FALLBACK_TEAMS[TEAM_KEY] || FALLBACK_TEAMS.senegal, (teams && teams[TEAM_KEY]) || {}, (next && next[TEAM_KEY]) || {});
+    const teamResults = (results && results[TEAM_KEY]) || FALLBACK_RESULTS[TEAM_KEY] || FALLBACK_RESULTS.senegal;
+    const story = stories && stories[TEAM_KEY];
+    return {team:mergedTeam, results:teamResults, story};
+  }
+  async function run(){
+    document.documentElement.classList.remove('v10-booting');
+    const {team, results, story} = await loadData();
+    document.body.setAttribute('data-qg-team', TEAM_KEY);
+    document.title = `QualifGaïndé Worldwide · ${team.teamName || TEAM_KEY}`;
+    patchHeader(team, results);
+    patchNextCard(team);
+    patchHero(team);
+    patchCountdown(team);
+    patchStory(team, story);
+    patchSupporters();
+    patchScores();
+    patchTechnicalLabels();
+  }
+  window.QG_V12_0_10_TEAMFIX = {run};
+  if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', run, {once:true}); else run();
+  window.addEventListener('load', function(){ setTimeout(run, 350); }, {once:true});
 })();
 </script>
 

@@ -1,7 +1,12 @@
-QualifGaïndé V12.0.8 — clean stable scores fix
+QualifGaïndé V12.0.10 — scores 16es single source / clean stable
 
-- Supprime les scripts externes src/v10 qui pouvaient être servis depuis un ancien service worker et réécrire la page après rendu.
-- Force le rendu du tableau officiel des 16es dès initAppDisplay.
-- Conserve les scores officiels R32 et les huitièmes N89/N90.
-- Nettoie la carte prochain match à la source: France–Maroc, sans R32.
-- Cache/service worker bumpé en 12.0.8.
+- Base complète issue de V12.0.9 clean team routing.
+- Patch Claude intégré : suppression du doublon R32_LOCKS_BOOT et des re-renders en cascade du finalizer officiel.
+- Source unique R32 : STATIC_R32_LOCKS.
+- r32Scores/r32Picks/r32Locked sont dérivés automatiquement de STATIC_R32_LOCKS.
+- Adaptateur multi-équipe conservé pour ?team=france et ?team=morocco.
+- patchScores de l’adaptateur utilise STATIC_R32_LOCKS, plus R32_LOCKS_BOOT.
+- Réduction du rerender adapter : DOMContentLoaded + load différé léger, plus de cascade 250/900/1800/3200/5500.
+- France–Maroc, Mbappé 7 buts et compteur 19 990 ±50 conservés.
+- Cache/service-worker bumpés en 12.0.10.
+- Headers Netlify ajoutés pour forcer index.html en no-store.
