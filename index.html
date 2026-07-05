@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>QualifGaïndé Worldwide · V12.0.12 stable team pages</title>
+<title>QualifGaïndé Worldwide · V12.0.13 UX next match</title>
 <meta name="application-name" content="Suivez la CDM 2026">
 <script>
 // BUILD_VERSION — version stable de build, à bumper à chaque déploiement.
 // Remplace les cache-busters dynamiques (Date.now()) sur les ressources stables
 // afin que le navigateur puisse effectivement les mettre en cache entre deux visites.
-const BUILD_VERSION = '12.0.12';
+const BUILD_VERSION = '12.0.13';
 (function(){
   var p = new URLSearchParams(window.location.search);
   var selectorActive = !p.has('team') && p.get('mode') !== 'global';
@@ -19,7 +19,7 @@ const BUILD_VERSION = '12.0.12';
   if(selectorActive) document.documentElement.classList.add('qg-selector-active');
   if(v10Active) {
     document.documentElement.classList.add('v10-booting');
-    // V12.0.12 safety: ne jamais laisser l'écran noir si le script V10 externe tarde/échoue.
+    // V12.0.13 safety: ne jamais laisser l'écran noir si le script V10 externe tarde/échoue.
     // Exception volontaire : sur la page d'entrée, on garde le boot mode pour masquer la home legacy.
     setTimeout(function(){ if(!window.QUALIFGAINDE_SELECTOR_ACTIVE) document.documentElement.classList.remove('v10-booting'); }, 1800);
   }
@@ -123,7 +123,7 @@ html.v10-booting #v10-team-selector, html.v10-booting .v10-selector{visibility:v
 
 
 
-/* V12.0.12 — page d'entrée restaurée : “Je suis supporter de…” */
+/* V12.0.13 — page d'entrée restaurée : “Je suis supporter de…” */
 html.qg-selector-active body{background:#050505;min-height:100vh;overflow:auto;}
 html.qg-selector-active body > :not(#v10-team-selector):not(script):not(style){display:none !important;}
 #v10-team-selector{display:none;visibility:hidden;}
@@ -1259,23 +1259,23 @@ header{display:flex;align-items:center;justify-content:space-between;padding:12p
 <meta name="apple-mobile-web-app-title" content="Suivez la CDM 2026">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <link rel="apple-touch-icon" href="/assets/icons/icon-192.png">
-<link rel="stylesheet" href="src/v10/v10-team-app.css?v=12.0.12">
+<link rel="stylesheet" href="src/v10/v10-team-app.css?v=12.0.13">
 
 <script>
-// V12.0.12 — purge légère des anciens caches PWA pour sortir des builds bloquants.
+// V12.0.13 — purge légère des anciens caches PWA pour sortir des builds bloquants.
 (function(){
   window.addEventListener('load', function(){
     try {
       if (window.caches && caches.keys) {
-        caches.keys().then(keys => Promise.all(keys.filter(k => /^qg-v(11|12)-/.test(k) && !/12-0-12/.test(k)).map(k => caches.delete(k)))).catch(()=>null);
+        caches.keys().then(keys => Promise.all(keys.filter(k => /^qg-v(11|12)-/.test(k) && !/12-0-13/.test(k)).map(k => caches.delete(k)))).catch(()=>null);
       }
     } catch(e) {}
   });
 })();
 </script>
 
-<style id="qg-v1212-teamfix-style">
-/* V12.0.12 — adaptateur autonome multi-équipe, sans dépendance src/v10 JS */
+<style id="qg-v1213-teamfix-style">
+/* V12.0.13 — adaptateur autonome multi-équipe, sans dépendance src/v10 JS */
 #probable-opponent .opp-label{white-space:nowrap;}
 #probable-opponent .opp-main{line-height:1.05;}
 #probable-opponent .opp-sub{white-space:normal;}
@@ -2327,10 +2327,26 @@ function getOpponentForSenegalRank(snRank) {
 }
 
 function updateProbableOpponent(snRank) {
-  // V12.0.12 — la carte header ne doit plus retomber sur l'ancien moteur Sénégal/R32
+  // V12.0.13 — ne jamais retomber sur l'ancien moteur Sénégal/R32
   // quand une page équipe est ouverte. On affiche l'affiche réelle du prochain match.
   const qgTeamParamForNext = (new URLSearchParams(location.search).get('team') || 'senegal').toLowerCase();
-  if (qgTeamParamForNext === 'france' || qgTeamParamForNext === 'morocco') {
+  const NEXT_MATCH_BY_TEAM = {
+    france:   { main:'🇫🇷 France–Maroc 🇲🇦', sub:'Jeu. 9 juillet · 22h00 · heure locale' },
+    morocco:  { main:'🇫🇷 France–Maroc 🇲🇦', sub:'Jeu. 9 juillet · 22h00 · heure locale' },
+    maroc:    { main:'🇫🇷 France–Maroc 🇲🇦', sub:'Jeu. 9 juillet · 22h00 · heure locale' },
+    brazil:   { main:'🇳🇴 Norvège–Brésil 🇧🇷', sub:'Dim. 5 juillet · 22h00 · heure locale' },
+    bresil:   { main:'🇳🇴 Norvège–Brésil 🇧🇷', sub:'Dim. 5 juillet · 22h00 · heure locale' },
+    'brésil': { main:'🇳🇴 Norvège–Brésil 🇧🇷', sub:'Dim. 5 juillet · 22h00 · heure locale' },
+    spain:    { main:'🇵🇹 Portugal–Espagne 🇪🇸', sub:'Lun. 6 juillet · 21h00 · heure locale' },
+    espagne:  { main:'🇵🇹 Portugal–Espagne 🇪🇸', sub:'Lun. 6 juillet · 21h00 · heure locale' },
+    egypt:    { main:'🇦🇷 Argentine–Égypte 🇪🇬', sub:'Mar. 7 juillet · 18h00 · heure locale' },
+    egypte:   { main:'🇦🇷 Argentine–Égypte 🇪🇬', sub:'Mar. 7 juillet · 18h00 · heure locale' },
+    'égypte': { main:'🇦🇷 Argentine–Égypte 🇪🇬', sub:'Mar. 7 juillet · 18h00 · heure locale' },
+    belgium:  { main:'🇺🇸 États-Unis–Belgique 🇧🇪', sub:'Mar. 7 juillet · 02h00 · heure locale' },
+    belgique: { main:'🇺🇸 États-Unis–Belgique 🇧🇪', sub:'Mar. 7 juillet · 02h00 · heure locale' }
+  };
+  const forcedNext = NEXT_MATCH_BY_TEAM[qgTeamParamForNext];
+  if (forcedNext) {
     const cardEl = document.getElementById('probable-opponent');
     const labelEl = cardEl ? cardEl.querySelector('.opp-label') : null;
     const mainEl = document.getElementById('opp-main-name');
@@ -2339,9 +2355,9 @@ function updateProbableOpponent(snRank) {
       const img = labelEl.querySelector('img') ? labelEl.querySelector('img').outerHTML : '';
       labelEl.innerHTML = img + 'Prochain match';
     }
-    if (mainEl) mainEl.textContent = '🇫🇷 France–Maroc 🇲🇦';
-    if (subEl) subEl.textContent = 'Jeu. 9 juillet · 22h00 · heure locale';
-    if (cardEl) cardEl.title = 'Prochain match : France–Maroc · jeudi 9 juillet · 22h00 heure locale';
+    if (mainEl) mainEl.textContent = forcedNext.main;
+    if (subEl) subEl.textContent = forcedNext.sub;
+    if (cardEl) cardEl.title = 'Prochain match : ' + forcedNext.main + ' · ' + forcedNext.sub;
     return;
   }
   // Si snRank n'est pas transmis, on le recalcule depuis l'état live courant.
@@ -2676,7 +2692,7 @@ const KO_ROUNDS = [
   ]}
 ];
 
-// V12.0.12 — source unique : l'état R32 est dérivé de STATIC_R32_LOCKS.
+// V12.0.13 — source unique : l'état R32 est dérivé de STATIC_R32_LOCKS.
 // On évite de maintenir les mêmes scores à trois endroits.
 function deriveR32InitialState(locks){
   const scores = {}, picks = {}, locked = {};
@@ -3133,7 +3149,7 @@ function koStatusText(round, matchId) {
   const state = koOfficialState(round, matchId);
   if (state === 'final') return `FT${penTxt}`;
   if (state === 'live') return 'LIVE · simulation bloquée';
-  return 'Simulation autorisée';
+  return 'À venir · simulation autorisée';
 }
 function koStatusClass(round, matchId) {
   const state = koOfficialState(round, matchId);
@@ -3161,8 +3177,8 @@ function renderKOCard(round, m) {
   const thirdCls = m.third ? ' third-place' : '';
   const finalCls = m.final ? ' big-final' : '';
   const statusLine = resolved[0] && resolved[1]
-    ? `<div class="ko-statusline ${koStatusClass(round, m.id)}"><span>${koStatusText(round, m.id)}</span><span>${controlled ? 'Score officiel' : 'Score simulable'}</span></div>`
-    : `<div class="ko-statusline"><span>${t('waiting')}</span><span>En attente</span></div>`;
+    ? `<div class="ko-statusline ${koStatusClass(round, m.id)}"><span>${koStatusText(round, m.id)}</span><span>${controlled ? (officialState === 'live' ? 'Score officiel live' : 'Score officiel') : 'Score simulable'}</span></div>`
+    : `<div class="ko-statusline sim-open"><span>À venir · simulation autorisée</span><span>Score simulable</span></div>`;
   const note = m.third
     ? (resolved[0] && resolved[1] ? 'Les deux perdants des demies jouent le podium.' : 'Les perdants des demi-finales apparaîtront ici.')
     : (resolved[0] && resolved[1] ? (officialState === 'live' ? 'Match en direct : score officiel affiché, simulation suspendue.' : (officialState === 'final' ? 'Score final figé, vainqueur verrouillé.' : t('chooseWinner'))) : t('choosePrev'));
@@ -4764,10 +4780,10 @@ setTimeout(()=>{
 
 </script>
 
-<!-- V12.0.12: scripts V10 externes désactivés pour éviter les retours de cache qui écrasent le rendu officiel. -->
+<!-- V12.0.13: scripts V10 externes désactivés pour éviter les retours de cache qui écrasent le rendu officiel. -->
 
 <script>
-// V12.0.12 — FINALISATION STABLE — source unique de vérité.
+// V12.0.13 — FINALISATION STABLE — source unique de vérité.
 // R32_LOCKS_BOOT supprimé : les 16es viennent uniquement de STATIC_R32_LOCKS.
 // Les re-renders en cascade sont supprimés : un seul filet de sécurité à 300 ms après load.
 (function(){
@@ -4782,7 +4798,7 @@ setTimeout(()=>{
   function formatFR(n){ return Number(n || 0).toLocaleString('fr-FR').replace(/\u202f/g, ' '); }
   function supportersValue(){
     try {
-      const key = 'qg_supporters_seen_v12_0_12';
+      const key = 'qg_supporters_seen_v12_0_13';
       const saved = sessionStorage.getItem(key);
       if (saved && /^\d+$/.test(saved)) return Number(saved);
       const value = SUPPORTERS_BASE + Math.round((Math.random() * 2 - 1) * SUPPORTERS_SPREAD);
@@ -4805,16 +4821,29 @@ setTimeout(()=>{
           }
         } catch(_) {}
       });
-      if (typeof applyR32Locks === 'function') applyR32Locks(locks, 'v12-0-12-single-source');
+      if (typeof applyR32Locks === 'function') applyR32Locks(locks, 'v12-0-13-single-source');
       if (typeof applyKOLocks === 'function') applyKOLocks(KO_LOCKS_BOOT);
       if (typeof renderRound32Grid === 'function') renderRound32Grid();
       if (typeof renderKnockoutTree === 'function') renderKnockoutTree();
       if (typeof buildTicker === 'function') buildTicker();
-    } catch(e) { console.warn('[QG V12.0.12] official score finalizer skipped', e); }
+    } catch(e) { console.warn('[QG V12.0.13] official score finalizer skipped', e); }
   }
   function normalizeNextMatchCard(){
     const card = document.getElementById('probable-opponent');
     if (!card) return;
+    const p = new URLSearchParams(location.search);
+    const raw = (p.get('team') || '').toLowerCase().trim();
+    const team = ({maroc:'morocco','brésil':'brazil',bresil:'brazil',espagne:'spain','égypte':'egypt',egypte:'egypt',belgique:'belgium'})[raw] || raw;
+    const map = {
+      france:{main:'🇫🇷 France–Maroc 🇲🇦', sub:'Jeu. 9 juillet · 22h00 · heure locale', key:'france-maroc'},
+      morocco:{main:'🇫🇷 France–Maroc 🇲🇦', sub:'Jeu. 9 juillet · 22h00 · heure locale', key:'france-maroc'},
+      brazil:{main:'🇳🇴 Norvège–Brésil 🇧🇷', sub:'Dim. 5 juillet · 22h00 · heure locale', key:'norway-brazil'},
+      spain:{main:'🇵🇹 Portugal–Espagne 🇪🇸', sub:'Lun. 6 juillet · 21h00 · heure locale', key:'portugal-spain'},
+      egypt:{main:'🇦🇷 Argentine–Égypte 🇪🇬', sub:'Mar. 7 juillet · 18h00 · heure locale', key:'argentina-egypt'},
+      belgium:{main:'🇺🇸 États-Unis–Belgique 🇧🇪', sub:'Mar. 7 juillet · 02h00 · heure locale', key:'usa-belgium'}
+    };
+    const next = map[team];
+    if (!next) return;
     const label = card.querySelector('.opp-label');
     const main = document.getElementById('opp-main-name');
     const sub = document.getElementById('opp-main-sub');
@@ -4822,10 +4851,10 @@ setTimeout(()=>{
       const img = label.querySelector('img') ? label.querySelector('img').outerHTML : '';
       label.innerHTML = img + 'Prochain match';
     }
-    if (main) main.textContent = '🇫🇷 France–Maroc 🇲🇦';
-    if (sub) sub.textContent = 'Jeu. 9 juillet · 22h00 · heure locale';
-    card.title = 'Prochain match : France–Maroc · jeudi 9 juillet · 22h00 heure locale';
-    card.setAttribute('data-next-match-clean', 'france-maroc');
+    if (main) main.textContent = next.main;
+    if (sub) sub.textContent = next.sub;
+    card.title = 'Prochain match : ' + next.main + ' · ' + next.sub;
+    card.setAttribute('data-next-match-clean', next.key);
   }
   function updateSupporters(){
     const el = document.getElementById('sup-num');
@@ -4841,7 +4870,7 @@ setTimeout(()=>{
     updateSupporters();
     cleanVisibleTechnicalLabels();
   }
-  window.QG_V12_0_12_STABLE = { run, applyOfficialScores, normalizeNextMatchCard, updateSupporters };
+  window.QG_V12_0_13_STABLE = { run, applyOfficialScores, normalizeNextMatchCard, updateSupporters };
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', run, {once:true});
   else run();
   window.addEventListener('load', function(){ setTimeout(run, 300); }, {once:true});
@@ -4849,8 +4878,8 @@ setTimeout(()=>{
 </script>
 
 
-<script id="qg-v1212-stable-team-adapter">
-// V12.0.12 — adaptateur stable multi-équipe.
+<script id="qg-v1213-stable-team-adapter">
+// V12.0.13 — adaptateur stable multi-équipe.
 // Objectif : conserver les pages équipe construites (France, Maroc, Sénégal, Belgique,
 // Brésil, Espagne, Égypte, Algérie, etc.) sans dépendre d'un script externe V10.
 (function(){
@@ -4912,7 +4941,7 @@ setTimeout(()=>{
   function setText(sel, text){ const el = typeof sel === 'string' ? $(sel) : sel; if(el && text !== undefined && text !== null) el.textContent = String(text); }
   function setHTML(sel, html){ const el = typeof sel === 'string' ? $(sel) : sel; if(el && html !== undefined && html !== null) el.innerHTML = String(html); }
   function escapeHtml(str){ return String(str ?? '').replace(/[&<>\"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
-  function safeFetchJSON(url){ return fetch(url + (url.includes('?') ? '&' : '?') + 'v=' + encodeURIComponent(window.BUILD_VERSION || '12.0.12'), {cache:'no-store'}).then(r => r.ok ? r.json() : null).catch(() => null); }
+  function safeFetchJSON(url){ return fetch(url + (url.includes('?') ? '&' : '?') + 'v=' + encodeURIComponent(window.BUILD_VERSION || '12.0.13'), {cache:'no-store'}).then(r => r.ok ? r.json() : null).catch(() => null); }
   function resultClass(r){ return r === 'V' ? 'win' : (r === 'D' ? 'loss' : 'neu'); }
   function keyToName(key){ return String(key || '').replace(/_/g,' ').replace(/\b\w/g, m => m.toUpperCase()); }
   function teamRecord(key, teams, opponents){ return (teams && teams[key]) || (opponents && opponents[key]) || FALLBACK_TEAMS[key] || {teamName:keyToName(key), flag:'🏳️'}; }
@@ -5108,7 +5137,7 @@ setTimeout(()=>{
     const base = 19990, spread = 50;
     let val = base;
     try{
-      const key = 'qg-supporters-v12-0-12';
+      const key = 'qg-supporters-v12-0-13';
       const old = sessionStorage.getItem(key);
       if(old && /^\d+$/.test(old)) val = Number(old);
       else { val = base + Math.round((Math.random()*2 - 1)*spread); sessionStorage.setItem(key, String(val)); }
@@ -5118,10 +5147,10 @@ setTimeout(()=>{
 
   function patchScores(){
     try{
-      if(typeof applyR32Locks === 'function' && typeof STATIC_R32_LOCKS !== 'undefined') applyR32Locks(STATIC_R32_LOCKS, 'v12-0-12-team-pages');
+      if(typeof applyR32Locks === 'function' && typeof STATIC_R32_LOCKS !== 'undefined') applyR32Locks(STATIC_R32_LOCKS, 'v12-0-13-team-pages');
       if(typeof renderRound32Grid === 'function') renderRound32Grid();
       if(typeof renderKnockoutTree === 'function') renderKnockoutTree();
-    }catch(e){ console.warn('[QG V12.0.12] score patch skipped', e); }
+    }catch(e){ console.warn('[QG V12.0.13] score patch skipped', e); }
   }
 
   async function loadData(){
@@ -5150,7 +5179,7 @@ setTimeout(()=>{
     patchSupporters();
     patchScores();
   }
-  window.QG_V12_0_12_TEAMFIX = {run};
+  window.QG_V12_0_13_TEAMFIX = {run};
   if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', run, {once:true}); else run();
   window.addEventListener('load', function(){ setTimeout(run, 350); }, {once:true});
 })();
