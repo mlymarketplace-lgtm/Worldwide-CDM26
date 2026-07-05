@@ -9,7 +9,7 @@
 // BUILD_VERSION — version stable de build, à bumper à chaque déploiement.
 // Remplace les cache-busters dynamiques (Date.now()) sur les ressources stables
 // afin que le navigateur puisse effectivement les mettre en cache entre deux visites.
-const BUILD_VERSION = '12.0.5';
+const BUILD_VERSION = '12.0.6';
 (function(){
   var p = new URLSearchParams(window.location.search);
   var v10Active = p.has('team') || p.get('mode') !== 'global';
@@ -1210,10 +1210,10 @@ header{display:flex;align-items:center;justify-content:space-between;padding:12p
 <meta name="apple-mobile-web-app-title" content="Suivez la CDM 2026">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <link rel="apple-touch-icon" href="/assets/icons/icon-192.png">
-<link rel="stylesheet" href="src/v10/v10-team-app.css?v=12.0.5">
+<link rel="stylesheet" href="src/v10/v10-team-app.css?v=12.0.6">
 
 <script>
-// V12.0.5 — purge légère des anciens caches PWA pour sortir des builds bloquants.
+// V12.0.6 — purge légère des anciens caches PWA pour sortir des builds bloquants.
 (function(){
   window.addEventListener('load', function(){
     try {
@@ -4604,7 +4604,57 @@ setTimeout(()=>{
 </script>
 
 <script>
-// V12.0.5 — HOTFIX safe : UX mobile + supporters sans observateur global.
+// V12.0.6 — SCORE LOCK BOOTSTRAP : affichage garanti des 16es + verrouillage KO sans DOM observer.
+(function(){
+  const R32_LOCKS_BOOT = {
+    'rsa-can': { koId:'N73', h:'RSA', a:'CAN', home:0, away:1, status:'final', apiStatus:'FT', apiStatusLong:'Match Finished', winner:'away', winnerSide:1, locked:true },
+    'bra-jpn': { koId:'N78', h:'BRA', a:'JPN', home:2, away:1, status:'final', apiStatus:'FT', apiStatusLong:'Match Finished', winner:'home', winnerSide:0, locked:true },
+    'ger-par': { koId:'N74', h:'GER', a:'PAR', home:1, away:1, penalty:{home:3, away:4}, penaltyHome:3, penaltyAway:4, status:'final', apiStatus:'PEN', apiStatusLong:'Match Finished Penalties', winner:'away', winnerSide:1, locked:true },
+    'ned-mar': { koId:'N75', h:'NED', a:'MAR', home:1, away:1, penalty:{home:2, away:3}, penaltyHome:2, penaltyAway:3, status:'final', apiStatus:'PEN', apiStatusLong:'Match Finished Penalties', winner:'away', winnerSide:1, locked:true },
+    'civ-nor': { koId:'N76', h:'CIV', a:'NOR', home:1, away:2, status:'final', apiStatus:'FT', apiStatusLong:'Match Finished', winner:'away', winnerSide:1, locked:true },
+    'fra-swe': { koId:'N77', h:'FRA', a:'SWE', home:3, away:0, status:'final', apiStatus:'FT', apiStatusLong:'Match Finished', winner:'home', winnerSide:0, locked:true },
+    'mex-ecu': { koId:'N79', h:'MEX', a:'ECU', home:2, away:0, status:'final', apiStatus:'FT', apiStatusLong:'Match Finished', winner:'home', winnerSide:0, locked:true },
+    'eng-cod': { koId:'N80', h:'ENG', a:'COD', home:2, away:1, status:'final', apiStatus:'FT', apiStatusLong:'Match Finished', winner:'home', winnerSide:0, locked:true },
+    'usa-bih': { koId:'N81', h:'USA', a:'BIH', home:2, away:0, status:'final', apiStatus:'FT', apiStatusLong:'Match Finished', winner:'home', winnerSide:0, locked:true },
+    'bel-sen': { koId:'N82', h:'BEL', a:'SEN', home:3, away:2, status:'final', apiStatus:'AET', apiStatusLong:'Match Finished After Extra Time', winner:'home', winnerSide:0, locked:true },
+    'por-cro': { koId:'N83', h:'POR', a:'CRO', home:2, away:1, status:'final', apiStatus:'FT', apiStatusLong:'Match Finished', winner:'home', winnerSide:0, locked:true },
+    'esp-aut': { koId:'N84', h:'ESP', a:'AUT', home:3, away:0, status:'final', apiStatus:'FT', apiStatusLong:'Match Finished', winner:'home', winnerSide:0, locked:true },
+    'sui-alg': { koId:'N85', h:'SUI', a:'ALG', home:2, away:0, status:'final', apiStatus:'FT', apiStatusLong:'Match Finished', winner:'home', winnerSide:0, locked:true },
+    'aus-egy': { koId:'N86', h:'AUS', a:'EGY', home:1, away:1, penalty:{home:2, away:4}, penaltyHome:2, penaltyAway:4, status:'final', apiStatus:'PEN', apiStatusLong:'Match Finished Penalties', winner:'away', winnerSide:1, locked:true },
+    'arg-cpv': { koId:'N87', h:'ARG', a:'CPV', home:3, away:2, status:'final', minute:120, apiStatus:'AET', apiStatusLong:'Match Finished After Extra Time', winner:'home', winnerSide:0, locked:true },
+    'col-gha': { koId:'N88', h:'COL', a:'GHA', home:1, away:0, status:'final', apiStatus:'FT', apiStatusLong:'Match Finished', winner:'home', winnerSide:0, locked:true }
+  };
+  const KO_LOCKS_BOOT = {
+    r16: {
+      N89: { koId:'N89', h:'PAR', a:'FRA', home:0, away:1, status:'final', apiStatus:'FT', apiStatusLong:'Match Finished', winner:'away', winnerSide:1, locked:true, round:'r16' },
+      N90: { koId:'N90', h:'CAN', a:'MAR', home:0, away:3, status:'final', apiStatus:'FT', apiStatusLong:'Match Finished', winner:'away', winnerSide:1, locked:true, round:'r16' }
+    }
+  };
+  function runScoreBoot(){
+    try {
+      if (typeof applyR32Locks === 'function') applyR32Locks(R32_LOCKS_BOOT, 'v12-boot');
+      else if (typeof syncR32FromApi === 'function') {
+        Object.entries(R32_LOCKS_BOOT).forEach(([key, e]) => {
+          try { if (typeof KNOCKOUT_LIVE_RESULTS !== 'undefined') KNOCKOUT_LIVE_RESULTS[key] = Object.assign({}, e, {hg:e.home, ag:e.away, penaltyHome:e.penaltyHome ?? e.penalty?.home ?? null, penaltyAway:e.penaltyAway ?? e.penalty?.away ?? null}); } catch(_) {}
+          syncR32FromApi(e.koId, e.home, e.away, 'final', e);
+        });
+      }
+      if (typeof applyKOLocks === 'function') applyKOLocks(KO_LOCKS_BOOT);
+      if (typeof renderRound32Grid === 'function') renderRound32Grid();
+      if (typeof renderKnockoutTree === 'function') renderKnockoutTree();
+      if (typeof renderTopLiveMatches === 'function') renderTopLiveMatches();
+      if (typeof buildTicker === 'function') buildTicker();
+    } catch(e) { console.warn('[QG] score boot skipped', e); }
+  }
+  window.QG_FORCE_OFFICIAL_SCORES_V12 = runScoreBoot;
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', runScoreBoot);
+  else runScoreBoot();
+  [250, 900, 1800, 3500].forEach(ms => setTimeout(runScoreBoot, ms));
+})();
+</script>
+
+<script>
+// V12.0.6 — HOTFIX safe : UX mobile + supporters sans observateur global.
 (function(){
   const SUPPORTERS_BASE = 19990;
   const SUPPORTERS_SPREAD = 50;
@@ -4662,8 +4712,8 @@ setTimeout(()=>{
 })();
 </script>
 
-<script src="src/v10/v10-team-app.js?v=12.0.5"></script>
-<script src="src/v10/auto-refresh-scores.js?v=12.0.5"></script>
+<script src="src/v10/v10-team-app.js?v=12.0.6"></script>
+<script src="src/v10/auto-refresh-scores.js?v=12.0.6"></script>
 
 <script>
 // V10.3 — PWA registration. Le service worker garde les scores/API en network-first.

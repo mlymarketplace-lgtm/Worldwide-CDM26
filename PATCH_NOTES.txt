@@ -1,13 +1,5 @@
-QualifGaïndé V12.0.5 — HOTFIX SAFE
-
-Objectif : corriger le bug bloquant 'Page ne répond pas' après V12.0.3/V12.0.4.
-
-Changements :
-- suppression complète des MutationObserver / TreeWalker globaux ajoutés pour nettoyer winner_n89 ;
-- conservation des données France–Maroc dans les JSON plutôt que nettoyage DOM permanent ;
-- supporters 19 990 ±50 conservés ;
-- prochain match mobile nettoyé via ciblage de carte, sans observer global ;
-- service worker rendu network-first pour index.html et purge des anciens caches ;
-- version 12.0.5.
-
-Déployer ce ZIP, puis hard refresh.
+V12.0.6 — Hotfix scores officiels
+- Bootstrap fini et limité des scores officiels des 16es.
+- Ajout r32 dans data/knockout-locks.json.
+- Conservation du hotfix anti-freeze V12.0.5.
+- Aucun MutationObserver / TreeWalker global.
