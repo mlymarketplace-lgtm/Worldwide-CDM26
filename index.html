@@ -3,21 +3,25 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>QualifGaïndé Worldwide · V12.0.10 scores single source</title>
+<title>QualifGaïndé Worldwide · V12.0.11 team selector restored</title>
 <meta name="application-name" content="Suivez la CDM 2026">
 <script>
 // BUILD_VERSION — version stable de build, à bumper à chaque déploiement.
 // Remplace les cache-busters dynamiques (Date.now()) sur les ressources stables
 // afin que le navigateur puisse effectivement les mettre en cache entre deux visites.
-const BUILD_VERSION = '12.0.10';
+const BUILD_VERSION = '12.0.11';
 (function(){
   var p = new URLSearchParams(window.location.search);
-  var v10Active = p.has('team') || p.get('mode') !== 'global';
+  var selectorActive = !p.has('team') && p.get('mode') !== 'global';
+  var v10Active = selectorActive || p.has('team') || p.get('mode') !== 'global';
+  window.QUALIFGAINDE_SELECTOR_ACTIVE = selectorActive;
   window.QUALIFGAINDE_V10_ACTIVE = v10Active;
+  if(selectorActive) document.documentElement.classList.add('qg-selector-active');
   if(v10Active) {
     document.documentElement.classList.add('v10-booting');
-    // V12.0.10 safety: ne jamais laisser l'écran noir si le script V10 externe tarde/échoue.
-    setTimeout(function(){ document.documentElement.classList.remove('v10-booting'); }, 1800);
+    // V12.0.11 safety: ne jamais laisser l'écran noir si le script V10 externe tarde/échoue.
+    // Exception volontaire : sur la page d'entrée, on garde le boot mode pour masquer la home legacy.
+    setTimeout(function(){ if(!window.QUALIFGAINDE_SELECTOR_ACTIVE) document.documentElement.classList.remove('v10-booting'); }, 1800);
   }
 })();
 </script>
@@ -117,6 +121,47 @@ html.v10-booting #v10-team-selector, html.v10-booting .v10-selector{visibility:v
   background:#4ade8012 !important;
 }
 
+
+
+/* V12.0.11 — page d'entrée restaurée : “Je suis supporter de…” */
+html.qg-selector-active body{background:#050505;min-height:100vh;overflow:auto;}
+html.qg-selector-active body > :not(#v10-team-selector):not(script):not(style){display:none !important;}
+#v10-team-selector{display:none;visibility:hidden;}
+html.qg-selector-active #v10-team-selector,
+html.v10-booting.qg-selector-active #v10-team-selector{display:block !important;visibility:visible !important;}
+.qg-team-entry{position:fixed;inset:0;z-index:100000;background:#050505;color:#fff;overflow:auto;font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;}
+.qg-entry-bg{position:fixed;inset:0;background:radial-gradient(circle at 18% 0,#00853f42,transparent 34%),radial-gradient(circle at 85% 6%,#fdef4230,transparent 32%),radial-gradient(circle at 50% 100%,#e31b2326,transparent 42%),linear-gradient(135deg,#020403,#050b10 55%,#090606);pointer-events:none;}
+.qg-entry-wrap{position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:28px 18px 42px;}
+.qg-entry-top{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:34px;}
+.qg-entry-brand{display:flex;align-items:center;gap:12px;font-family:Oswald,Inter,sans-serif;text-transform:uppercase;letter-spacing:.08em;font-size:1.02rem;font-weight:900;}
+.qg-entry-brand img{width:48px;height:48px;border-radius:12px;object-fit:cover;border:1px solid #fdef4266;box-shadow:0 0 0 2px #00853f55;}
+.qg-entry-pill{border:1px solid #ffffff1f;background:#ffffff0c;border-radius:999px;padding:8px 13px;color:#cbd5e1;font-size:.75rem;white-space:nowrap;}
+.qg-entry-hero{text-align:center;margin:0 auto 30px;max-width:820px;}
+.qg-entry-kicker{font-family:Oswald,Inter,sans-serif;color:#4ade80;letter-spacing:.18em;text-transform:uppercase;font-size:.78rem;font-weight:900;margin-bottom:10px;}
+.qg-entry-hero h1{font-family:Oswald,Inter,sans-serif;font-size:clamp(2.1rem,6vw,4.6rem);line-height:.98;letter-spacing:.04em;text-transform:uppercase;margin:0 0 12px;color:#fff;text-shadow:0 12px 40px #000;}
+.qg-entry-hero h1 span{color:#fdef42;}
+.qg-entry-hero p{margin:0;color:#b6c2cf;font-size:.98rem;line-height:1.65;}
+.qg-selector-group{margin:26px 0 0;}
+.qg-selector-title{display:flex;align-items:center;gap:10px;font-family:Oswald,Inter,sans-serif;text-transform:uppercase;letter-spacing:.14em;color:#fdef42;font-size:.82rem;margin:0 0 12px;}
+.qg-selector-title::after{content:"";height:1px;flex:1;background:linear-gradient(90deg,#fdef4244,transparent);}
+.qg-team-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;}
+.qg-team-card{position:relative;display:flex;align-items:center;gap:12px;text-decoration:none;color:#fff;background:linear-gradient(145deg,#101820,#080b10);border:1px solid #ffffff18;border-radius:18px;padding:15px 15px;min-height:104px;box-shadow:0 16px 45px #0006,inset 0 0 0 1px #ffffff08;transition:transform .18s,border-color .18s,box-shadow .18s,background .18s;overflow:hidden;}
+.qg-team-card::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 88% 0,#ffffff12,transparent 34%);pointer-events:none;}
+.qg-team-card:hover{transform:translateY(-3px);border-color:#fdef4266;box-shadow:0 18px 55px #0008,0 0 0 1px #fdef4226;}
+.qg-team-flag{position:relative;z-index:1;font-size:2.05rem;line-height:1;filter:drop-shadow(0 8px 16px #0008);}
+.qg-team-copy{position:relative;z-index:1;min-width:0;}
+.qg-team-name{font-family:Oswald,Inter,sans-serif;font-size:1.22rem;font-weight:900;letter-spacing:.04em;text-transform:uppercase;line-height:1.05;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.qg-team-line{margin-top:6px;color:#94a3b8;font-size:.72rem;line-height:1.35;}
+.qg-team-card.qf{border-color:#fdef426a;background:linear-gradient(145deg,#192208,#07160d 58%,#0b1020);}
+.qg-team-card.qf .qg-team-line{color:#d9f99d;}
+.qg-team-card.live{border-color:#38bdf850;background:linear-gradient(145deg,#061428,#08111f 58%,#10102a);}
+.qg-team-card.out{opacity:.72;filter:grayscale(.18);}
+.qg-team-card.out:hover{opacity:1;filter:none;}
+.qg-entry-actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:28px;}
+.qg-entry-action{display:inline-flex;align-items:center;justify-content:center;border-radius:999px;border:1px solid #ffffff24;color:#e5e7eb;text-decoration:none;padding:10px 16px;background:#ffffff0b;font-weight:800;font-size:.78rem;}
+.qg-entry-action:hover{border-color:#fdef4260;background:#fdef4212;color:#fdef42;}
+@media(max-width:980px){.qg-team-grid{grid-template-columns:repeat(3,minmax(0,1fr));}.qg-entry-top{flex-direction:column;align-items:flex-start}.qg-entry-pill{white-space:normal}}
+@media(max-width:720px){.qg-entry-wrap{padding:22px 12px 34px}.qg-team-grid{grid-template-columns:1fr}.qg-team-card{min-height:88px}.qg-entry-hero{text-align:left}.qg-entry-hero h1{font-size:2.4rem}.qg-entry-pill{font-size:.68rem}.qg-entry-brand{font-size:.88rem}.qg-entry-brand img{width:42px;height:42px}}
 </style>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap');
@@ -1214,23 +1259,23 @@ header{display:flex;align-items:center;justify-content:space-between;padding:12p
 <meta name="apple-mobile-web-app-title" content="Suivez la CDM 2026">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <link rel="apple-touch-icon" href="/assets/icons/icon-192.png">
-<link rel="stylesheet" href="src/v10/v10-team-app.css?v=12.0.10">
+<link rel="stylesheet" href="src/v10/v10-team-app.css?v=12.0.11">
 
 <script>
-// V12.0.10 — purge légère des anciens caches PWA pour sortir des builds bloquants.
+// V12.0.11 — purge légère des anciens caches PWA pour sortir des builds bloquants.
 (function(){
   window.addEventListener('load', function(){
     try {
       if (window.caches && caches.keys) {
-        caches.keys().then(keys => Promise.all(keys.filter(k => /^qg-v(11|12)-/.test(k) && !/12-0-10/.test(k)).map(k => caches.delete(k)))).catch(()=>null);
+        caches.keys().then(keys => Promise.all(keys.filter(k => /^qg-v(11|12)-/.test(k) && !/12-0-11/.test(k)).map(k => caches.delete(k)))).catch(()=>null);
       }
     } catch(e) {}
   });
 })();
 </script>
 
-<style id="qg-v1210-teamfix-style">
-/* V12.0.10 — adaptateur autonome multi-équipe, sans dépendance src/v10 JS */
+<style id="qg-v1211-teamfix-style">
+/* V12.0.11 — adaptateur autonome multi-équipe, sans dépendance src/v10 JS */
 #probable-opponent .opp-label{white-space:nowrap;}
 #probable-opponent .opp-main{line-height:1.05;}
 #probable-opponent .opp-sub{white-space:normal;}
@@ -1248,6 +1293,61 @@ header{display:flex;align-items:center;justify-content:space-between;padding:12p
 <body>
 <div class="band"></div>
 <div id="yt-player" style="position:fixed;top:-9999px;left:-9999px;width:1px;height:1px;"></div>
+
+<section id="v10-team-selector" class="qg-team-entry" aria-label="Choisir son équipe">
+  <div class="qg-entry-bg"></div>
+  <div class="qg-entry-wrap">
+    <div class="qg-entry-top">
+      <div class="qg-entry-brand">
+        <img src="assets/lion-mascotte.png" alt="QualifGaïndé">
+        <div>QualifGaïndé Worldwide · V12</div>
+      </div>
+      <div class="qg-entry-pill">Phase finale · choisis ton équipe et suis son chemin jusqu’à la finale</div>
+    </div>
+
+    <div class="qg-entry-hero">
+      <div class="qg-entry-kicker">Bienvenue dans l’app mondiale</div>
+      <h1>Je suis supporter <span>de...</span></h1>
+      <p>Retrouve la fiche de ton équipe, ses résultats, son prochain adversaire, le tableau simulable et le parcours complet vers la finale.</p>
+    </div>
+
+    <div class="qg-selector-group">
+      <h2 class="qg-selector-title">Qualifiés en quart</h2>
+      <div class="qg-team-grid">
+        <a class="qg-team-card qf" href="?team=morocco&v=1211"><span class="qg-team-flag">🇲🇦</span><span class="qg-team-copy"><span class="qg-team-name">Maroc</span><span class="qg-team-line">Qualifié en quart · prochain défi : France</span></span></a>
+        <a class="qg-team-card qf" href="?team=france&v=1211"><span class="qg-team-flag">🇫🇷</span><span class="qg-team-copy"><span class="qg-team-name">France</span><span class="qg-team-line">Qualifiée en quart · prochain défi : Maroc</span></span></a>
+      </div>
+    </div>
+
+    <div class="qg-selector-group">
+      <h2 class="qg-selector-title">Encore en course</h2>
+      <div class="qg-team-grid">
+        <a class="qg-team-card live" href="?team=brazil&v=1211"><span class="qg-team-flag">🇧🇷</span><span class="qg-team-copy"><span class="qg-team-name">Brésil</span><span class="qg-team-line">Qualifié en 8e · prochain défi : Norvège</span></span></a>
+        <a class="qg-team-card live" href="?team=spain&v=1211"><span class="qg-team-flag">🇪🇸</span><span class="qg-team-copy"><span class="qg-team-name">Espagne</span><span class="qg-team-line">Qualifiée · Portugal en huitième</span></span></a>
+        <a class="qg-team-card live" href="?team=egypt&v=1211"><span class="qg-team-flag">🇪🇬</span><span class="qg-team-copy"><span class="qg-team-name">Égypte</span><span class="qg-team-line">Qualifiée · Argentine ensuite</span></span></a>
+        <a class="qg-team-card live" href="?team=belgium&v=1211"><span class="qg-team-flag">🇧🇪</span><span class="qg-team-copy"><span class="qg-team-name">Belgique</span><span class="qg-team-line">Qualifiée en 8e · États-Unis</span></span></a>
+      </div>
+    </div>
+
+    <div class="qg-selector-group">
+      <h2 class="qg-selector-title">Éliminés · respect</h2>
+      <div class="qg-team-grid">
+        <a class="qg-team-card out" href="?team=senegal&v=1211"><span class="qg-team-flag">🇸🇳</span><span class="qg-team-copy"><span class="qg-team-name">Sénégal</span><span class="qg-team-line">Éliminé en 16e · respect aux Lions</span></span></a>
+        <a class="qg-team-card out" href="?team=algeria&v=1211"><span class="qg-team-flag">🇩🇿</span><span class="qg-team-copy"><span class="qg-team-name">Algérie</span><span class="qg-team-line">Éliminée · respect aux Fennecs</span></span></a>
+        <a class="qg-team-card out" href="?team=ivory_coast&v=1211"><span class="qg-team-flag">🇨🇮</span><span class="qg-team-copy"><span class="qg-team-name">Côte d’Ivoire</span><span class="qg-team-line">Éliminée · respect aux Éléphants</span></span></a>
+        <a class="qg-team-card out" href="?team=dr_congo&v=1211"><span class="qg-team-flag">🇨🇩</span><span class="qg-team-copy"><span class="qg-team-name">RD Congo</span><span class="qg-team-line">Éliminée · respect aux Léopards</span></span></a>
+        <a class="qg-team-card out" href="?team=cape_verde&v=1211"><span class="qg-team-flag">🇨🇻</span><span class="qg-team-copy"><span class="qg-team-name">Cap-Vert</span><span class="qg-team-line">Sortie héroïque face à l’Argentine</span></span></a>
+        <a class="qg-team-card out" href="?team=ghana&v=1211"><span class="qg-team-flag">🇬🇭</span><span class="qg-team-copy"><span class="qg-team-name">Ghana</span><span class="qg-team-line">Éliminé · respect aux Black Stars</span></span></a>
+      </div>
+    </div>
+
+    <div class="qg-entry-actions">
+      <a class="qg-entry-action" href="?mode=global&v=1211">Voir la page globale</a>
+      <a class="qg-entry-action" href="?team=france&v=1211">Accès rapide France–Maroc</a>
+    </div>
+  </div>
+</section>
+
 
 <header>
  <a class="hflag header-home" href="/" title="Rafraîchir la page">
@@ -2227,7 +2327,7 @@ function getOpponentForSenegalRank(snRank) {
 }
 
 function updateProbableOpponent(snRank) {
-  // V12.0.10 — la carte header ne doit plus retomber sur l'ancien moteur Sénégal/R32
+  // V12.0.11 — la carte header ne doit plus retomber sur l'ancien moteur Sénégal/R32
   // quand une page équipe est ouverte. On affiche l'affiche réelle du prochain match.
   const qgTeamParamForNext = (new URLSearchParams(location.search).get('team') || 'senegal').toLowerCase();
   if (qgTeamParamForNext === 'france' || qgTeamParamForNext === 'morocco') {
@@ -2576,7 +2676,7 @@ const KO_ROUNDS = [
   ]}
 ];
 
-// V12.0.10 — source unique : l'état R32 est dérivé de STATIC_R32_LOCKS.
+// V12.0.11 — source unique : l'état R32 est dérivé de STATIC_R32_LOCKS.
 // On évite de maintenir les mêmes scores à trois endroits.
 function deriveR32InitialState(locks){
   const scores = {}, picks = {}, locked = {};
@@ -4664,10 +4764,10 @@ setTimeout(()=>{
 
 </script>
 
-<!-- V12.0.10: scripts V10 externes désactivés pour éviter les retours de cache qui écrasent le rendu officiel. -->
+<!-- V12.0.11: scripts V10 externes désactivés pour éviter les retours de cache qui écrasent le rendu officiel. -->
 
 <script>
-// V12.0.10 — FINALISATION STABLE — source unique de vérité.
+// V12.0.11 — FINALISATION STABLE — source unique de vérité.
 // R32_LOCKS_BOOT supprimé : les 16es viennent uniquement de STATIC_R32_LOCKS.
 // Les re-renders en cascade sont supprimés : un seul filet de sécurité à 300 ms après load.
 (function(){
@@ -4682,7 +4782,7 @@ setTimeout(()=>{
   function formatFR(n){ return Number(n || 0).toLocaleString('fr-FR').replace(/\u202f/g, ' '); }
   function supportersValue(){
     try {
-      const key = 'qg_supporters_seen_v12_0_10';
+      const key = 'qg_supporters_seen_v12_0_11';
       const saved = sessionStorage.getItem(key);
       if (saved && /^\d+$/.test(saved)) return Number(saved);
       const value = SUPPORTERS_BASE + Math.round((Math.random() * 2 - 1) * SUPPORTERS_SPREAD);
@@ -4705,12 +4805,12 @@ setTimeout(()=>{
           }
         } catch(_) {}
       });
-      if (typeof applyR32Locks === 'function') applyR32Locks(locks, 'v12-0-10-single-source');
+      if (typeof applyR32Locks === 'function') applyR32Locks(locks, 'v12-0-11-single-source');
       if (typeof applyKOLocks === 'function') applyKOLocks(KO_LOCKS_BOOT);
       if (typeof renderRound32Grid === 'function') renderRound32Grid();
       if (typeof renderKnockoutTree === 'function') renderKnockoutTree();
       if (typeof buildTicker === 'function') buildTicker();
-    } catch(e) { console.warn('[QG V12.0.10] official score finalizer skipped', e); }
+    } catch(e) { console.warn('[QG V12.0.11] official score finalizer skipped', e); }
   }
   function normalizeNextMatchCard(){
     const card = document.getElementById('probable-opponent');
@@ -4741,7 +4841,7 @@ setTimeout(()=>{
     updateSupporters();
     cleanVisibleTechnicalLabels();
   }
-  window.QG_V12_0_10_STABLE = { run, applyOfficialScores, normalizeNextMatchCard, updateSupporters };
+  window.QG_V12_0_11_STABLE = { run, applyOfficialScores, normalizeNextMatchCard, updateSupporters };
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', run, {once:true});
   else run();
   window.addEventListener('load', function(){ setTimeout(run, 300); }, {once:true});
@@ -4749,8 +4849,8 @@ setTimeout(()=>{
 </script>
 
 
-<script id="qg-v1210-standalone-team-adapter">
-// V12.0.10 — adaptateur autonome multi-équipe.
+<script id="qg-v1211-standalone-team-adapter">
+// V12.0.11 — adaptateur autonome multi-équipe.
 // Objectif : ne plus dépendre de src/v10/v10-team-app.js pour honorer ?team=france/morocco,
 // tout en gardant le rendu KO/scores interne V12.
 (function(){
@@ -4795,7 +4895,7 @@ setTimeout(()=>{
   function $all(sel, root){ return Array.from((root || document).querySelectorAll(sel)); }
   function setText(sel, text){ const el = typeof sel === 'string' ? $(sel) : sel; if(el && text !== undefined && text !== null) el.textContent = String(text); }
   function setHTML(sel, html){ const el = typeof sel === 'string' ? $(sel) : sel; if(el && html !== undefined && html !== null) el.innerHTML = String(html); }
-  function safeFetchJSON(url){ return fetch(url + (url.includes('?') ? '&' : '?') + 'v=' + encodeURIComponent(window.BUILD_VERSION || '12.0.10'), {cache:'no-store'}).then(r => r.ok ? r.json() : null).catch(() => null); }
+  function safeFetchJSON(url){ return fetch(url + (url.includes('?') ? '&' : '?') + 'v=' + encodeURIComponent(window.BUILD_VERSION || '12.0.11'), {cache:'no-store'}).then(r => r.ok ? r.json() : null).catch(() => null); }
   function resultClass(r){ return r === 'V' ? 'win' : (r === 'D' ? 'loss' : 'neu'); }
   function htmlEscape(str){ return String(str ?? '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
   function formatResultLabel(label){
@@ -4903,7 +5003,7 @@ setTimeout(()=>{
     const base = 19990, spread = 50;
     let val = base;
     try{
-      const key = 'qg-supporters-v12-0-10';
+      const key = 'qg-supporters-v12-0-11';
       const old = sessionStorage.getItem(key);
       if(old && /^\d+$/.test(old)) val = Number(old);
       else { val = base + Math.round((Math.random()*2 - 1)*spread); sessionStorage.setItem(key, String(val)); }
@@ -4919,11 +5019,11 @@ setTimeout(()=>{
   }
   function patchScores(){
     try{
-      if(typeof applyR32Locks === 'function' && typeof STATIC_R32_LOCKS !== 'undefined') applyR32Locks(STATIC_R32_LOCKS, 'v12-0-10-teamfix');
-      // KO r16 locks are applied by the V12.0.10 finalizer above.
+      if(typeof applyR32Locks === 'function' && typeof STATIC_R32_LOCKS !== 'undefined') applyR32Locks(STATIC_R32_LOCKS, 'v12-0-11-teamfix');
+      // KO r16 locks are applied by the V12.0.11 finalizer above.
       if(typeof renderRound32Grid === 'function') renderRound32Grid();
       if(typeof renderKnockoutTree === 'function') renderKnockoutTree();
-    }catch(e){ console.warn('[QG V12.0.10] score patch skipped', e); }
+    }catch(e){ console.warn('[QG V12.0.11] score patch skipped', e); }
   }
   async function loadData(){
     const [teams, next, results, stories] = await Promise.all([
@@ -4948,7 +5048,7 @@ setTimeout(()=>{
     patchScores();
     patchTechnicalLabels();
   }
-  window.QG_V12_0_10_TEAMFIX = {run};
+  window.QG_V12_0_11_TEAMFIX = {run};
   if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', run, {once:true}); else run();
   window.addEventListener('load', function(){ setTimeout(run, 350); }, {once:true});
 })();

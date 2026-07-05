@@ -1,12 +1,6 @@
-QualifGaïndé V12.0.10 — scores 16es single source / clean stable
+QualifGaïndé V12.0.11 — Team selector restored
 
-- Base complète issue de V12.0.9 clean team routing.
-- Patch Claude intégré : suppression du doublon R32_LOCKS_BOOT et des re-renders en cascade du finalizer officiel.
-- Source unique R32 : STATIC_R32_LOCKS.
-- r32Scores/r32Picks/r32Locked sont dérivés automatiquement de STATIC_R32_LOCKS.
-- Adaptateur multi-équipe conservé pour ?team=france et ?team=morocco.
-- patchScores de l’adaptateur utilise STATIC_R32_LOCKS, plus R32_LOCKS_BOOT.
-- Réduction du rerender adapter : DOMContentLoaded + load différé léger, plus de cascade 250/900/1800/3200/5500.
-- France–Maroc, Mbappé 7 buts et compteur 19 990 ±50 conservés.
-- Cache/service-worker bumpés en 12.0.10.
-- Headers Netlify ajoutés pour forcer index.html en no-store.
+- Restaure la page d’entrée “Je suis supporter de…” sur /
+- Conserve le routage ?team=france, ?team=morocco, etc.
+- Conserve V12.0.10 single source scores et suppressions des cascades.
+- Bump cache/service worker en 12.0.11.
