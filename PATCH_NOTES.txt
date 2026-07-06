@@ -1,6 +1,9 @@
-V12.0.16 — Compatibilité URL
-- Aucun changement de modèle d'URL ne doit casser les liens déjà partagés.
-- Ajout de redirects Netlify pour /bresil, /algerie, /egypte, /espagne, /france, /maroc, etc.
-- Ajout d'un fallback SPA /* -> /index.html.
-- Ajout d'un bridge JS qui normalise les anciens chemins directs vers /?team=<slug>&v=1216.
-- Conservation de la V12.0.15 team-independent.
+V13.0.0 — i18n core / langues restaurées
+
+- Ajout d’un vrai cœur langue FR/EN/PT/ES/AR.
+- Détection device: ar-*, pt-*, es-*, en-*, fr-* avec ?lang prioritaire.
+- Pages équipe rendues depuis team + locale + data, sans retour legacy Sénégal.
+- RTL arabe activé avec scores conservés en LTR.
+- Données localisées ajoutées pour arabe, anglais, espagnol et portugais renforcé.
+- Home selector traduite selon la langue active.
+- Cache/service worker bumpés en V13.0.0.

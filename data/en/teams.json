@@ -1,0 +1,72 @@
+{
+  "morocco": {
+    "teamName": "Morocco",
+    "statusLabel": "Qualified for the quarter-finals · next challenge: France",
+    "selectorLine": "Quarter-finalist · next: France",
+    "tagline": "The Atlas Lions, continental ambition",
+    "heroSubtitle": "The Atlas Lions are in the quarter-finals after Canada 0–3 Morocco. Next step: an epic clash with France.",
+    "supporterName": "Atlas Lions",
+    "roundLabel": "quarter-final"
+  },
+  "france": {
+    "teamName": "France",
+    "statusLabel": "Qualified for the quarter-finals · next challenge: Morocco",
+    "selectorLine": "Quarter-finalist · next: Morocco",
+    "tagline": "Les Bleus, title contenders",
+    "heroSubtitle": "France survived the Paraguayan trap and now meet Morocco in a quarter-final loaded with history.",
+    "supporterName": "Les Bleus",
+    "roundLabel": "quarter-final"
+  },
+  "brazil": {
+    "teamName": "Brazil",
+    "statusLabel": "Eliminated in the Round of 16 · Norway 2–1 Brazil",
+    "selectorLine": "Eliminated · Neymar scored in his last World Cup",
+    "tagline": "The country of football",
+    "heroSubtitle": "Neymar scored one last time, but the Seleção leave the stage.",
+    "supporterName": "Seleção",
+    "roundLabel": "Round of 16"
+  },
+  "norway": {
+    "teamName": "Norway",
+    "statusLabel": "Qualified for the quarter-finals · next: England",
+    "selectorLine": "Quarter-finalist · next: England",
+    "tagline": "Haaland’s cold power",
+    "supporterName": "Norwegian Lions",
+    "roundLabel": "quarter-final"
+  },
+  "spain": {
+    "teamName": "Spain",
+    "statusLabel": "Qualified for the Round of 16 · Portugal next",
+    "selectorLine": "Qualified · Portugal next",
+    "tagline": "La Roja, control and rhythm",
+    "supporterName": "La Roja"
+  },
+  "egypt": {
+    "teamName": "Egypt",
+    "statusLabel": "Qualified for the Round of 16 · Argentina next",
+    "selectorLine": "Qualified · Argentina next",
+    "tagline": "The Pharaohs and Salah’s dream",
+    "supporterName": "Pharaohs"
+  },
+  "belgium": {
+    "teamName": "Belgium",
+    "statusLabel": "Qualified for the Round of 16 · next: United States",
+    "selectorLine": "Qualified · United States next",
+    "tagline": "The Red Devils",
+    "supporterName": "Red Devils"
+  },
+  "senegal": {
+    "teamName": "Senegal",
+    "statusLabel": "Eliminated in the Round of 32",
+    "selectorLine": "Eliminated · respect to the Lions",
+    "tagline": "A Gaïndés story",
+    "supporterName": "Gaïndés"
+  },
+  "algeria": {
+    "teamName": "Algeria",
+    "statusLabel": "Eliminated in the Round of 32",
+    "selectorLine": "Eliminated · respect to the Fennecs",
+    "tagline": "Fennecs pride",
+    "supporterName": "Fennecs"
+  }
+}

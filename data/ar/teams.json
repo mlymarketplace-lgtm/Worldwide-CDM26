@@ -1,0 +1,97 @@
+{
+  "morocco": {
+    "teamName": "المغرب",
+    "statusLabel": "تأهل إلى ربع النهائي · التحدي القادم: فرنسا",
+    "selectorLine": "ربع النهائي · التحدي القادم: فرنسا",
+    "tagline": "أسود الأطلس وطموح قاري",
+    "heroSubtitle": "تأهل أسود الأطلس إلى ربع النهائي بعد الفوز على كندا 3–0. الخطوة القادمة: مواجهة كبيرة أمام فرنسا.",
+    "supporterName": "أسود الأطلس",
+    "roundLabel": "ربع النهائي"
+  },
+  "france": {
+    "teamName": "فرنسا",
+    "statusLabel": "تأهلت إلى ربع النهائي · التحدي القادم: المغرب",
+    "selectorLine": "ربع النهائي · التحدي القادم: المغرب",
+    "tagline": "الديوك مرشحون للقب",
+    "heroSubtitle": "تجاوزت فرنسا فخ باراغواي وتلتقي المغرب في ربع نهائي يحمل الكثير من الرمزية.",
+    "supporterName": "الديوك",
+    "roundLabel": "ربع النهائي"
+  },
+  "brazil": {
+    "teamName": "البرازيل",
+    "statusLabel": "خرجت من ثمن النهائي · النرويج 2–1 البرازيل",
+    "selectorLine": "خرجت · نيمار سجّل في كأسه الأخيرة",
+    "tagline": "بلد كرة القدم",
+    "heroSubtitle": "سجّل نيمار للمرة الأخيرة، لكن السيليساو غادر المسرح.",
+    "supporterName": "السيليساو",
+    "roundLabel": "ثمن النهائي"
+  },
+  "norway": {
+    "teamName": "النرويج",
+    "statusLabel": "تأهلت إلى ربع النهائي · تنتظر إنجلترا",
+    "selectorLine": "ربع النهائي · تنتظر إنجلترا",
+    "tagline": "قوة هالاند الباردة",
+    "supporterName": "أسود النرويج",
+    "roundLabel": "ربع النهائي"
+  },
+  "spain": {
+    "teamName": "إسبانيا",
+    "statusLabel": "تأهلت إلى ثمن النهائي · البرتغال قادمة",
+    "selectorLine": "تأهلت · البرتغال قادمة",
+    "tagline": "لا روخا، السيطرة والإيقاع",
+    "supporterName": "لا روخا"
+  },
+  "egypt": {
+    "teamName": "مصر",
+    "statusLabel": "تأهلت إلى ثمن النهائي · الأرجنتين قادمة",
+    "selectorLine": "تأهلت · الأرجنتين قادمة",
+    "tagline": "الفراعنة وحلم صلاح",
+    "heroSubtitle": "الفراعنة يدخلون ثمن النهائي بين التاريخ والطموح، ومعهم حلم محمد صلاح في ليلة كبيرة.",
+    "supporterName": "الفراعنة"
+  },
+  "belgium": {
+    "teamName": "بلجيكا",
+    "statusLabel": "تأهلت إلى ثمن النهائي · الولايات المتحدة قادمة",
+    "selectorLine": "تأهلت · الولايات المتحدة قادمة",
+    "tagline": "الشياطين الحمر",
+    "supporterName": "الشياطين الحمر"
+  },
+  "senegal": {
+    "teamName": "السنغال",
+    "statusLabel": "خرجت من دور الـ32",
+    "selectorLine": "خرجت · احتراماً للأسود",
+    "tagline": "قصة الأسود",
+    "supporterName": "الأسود"
+  },
+  "algeria": {
+    "teamName": "الجزائر",
+    "statusLabel": "خرجت من دور الـ32",
+    "selectorLine": "خرجت · احتراماً لمحاربي الصحراء",
+    "tagline": "فخر محاربي الصحراء",
+    "supporterName": "محاربو الصحراء"
+  },
+  "ghana": {
+    "teamName": "غانا",
+    "statusLabel": "خرجت · احتراماً للنجوم السوداء",
+    "selectorLine": "خرجت · احتراماً للنجوم السوداء",
+    "supporterName": "النجوم السوداء"
+  },
+  "cape_verde": {
+    "teamName": "الرأس الأخضر",
+    "statusLabel": "خرجت بشرف",
+    "selectorLine": "خروج بطولي",
+    "supporterName": "القروش الزرقاء"
+  },
+  "ivory_coast": {
+    "teamName": "كوت ديفوار",
+    "statusLabel": "خرجت · احتراماً للأفيال",
+    "selectorLine": "خرجت · احتراماً للأفيال",
+    "supporterName": "الأفيال"
+  },
+  "dr_congo": {
+    "teamName": "الكونغو الديمقراطية",
+    "statusLabel": "خرجت · احتراماً للفهود",
+    "selectorLine": "خرجت · احتراماً للفهود",
+    "supporterName": "الفهود"
+  }
+}

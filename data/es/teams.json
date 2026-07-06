@@ -1,0 +1,70 @@
+{
+  "morocco": {
+    "teamName": "Marruecos",
+    "statusLabel": "Clasificado a cuartos · próximo reto: Francia",
+    "selectorLine": "Cuartos · Francia por delante",
+    "tagline": "Los Leones del Atlas",
+    "heroSubtitle": "Marruecos está en cuartos tras el 0–3 ante Canadá. Ahora llega una cita épica contra Francia.",
+    "supporterName": "Leones del Atlas",
+    "roundLabel": "cuartos"
+  },
+  "france": {
+    "teamName": "Francia",
+    "statusLabel": "Clasificada a cuartos · próximo reto: Marruecos",
+    "selectorLine": "Cuartos · Marruecos por delante",
+    "tagline": "Les Bleus, candidatos al título",
+    "heroSubtitle": "Francia sobrevivió a Paraguay y se medirá con Marruecos en un cruce histórico.",
+    "supporterName": "Les Bleus",
+    "roundLabel": "cuartos"
+  },
+  "brazil": {
+    "teamName": "Brasil",
+    "statusLabel": "Eliminado en octavos · Noruega 2–1 Brasil",
+    "selectorLine": "Eliminado · Neymar marcó en su último Mundial",
+    "tagline": "El país del fútbol",
+    "heroSubtitle": "Neymar marcó una última vez, pero la Seleção se despide.",
+    "supporterName": "Seleção"
+  },
+  "norway": {
+    "teamName": "Noruega",
+    "statusLabel": "Clasificada a cuartos · espera Inglaterra",
+    "selectorLine": "Cuartos · espera Inglaterra",
+    "tagline": "La potencia fría de Haaland",
+    "supporterName": "Leones noruegos"
+  },
+  "spain": {
+    "teamName": "España",
+    "statusLabel": "Clasificada a octavos · Portugal por delante",
+    "selectorLine": "Clasificada · Portugal por delante",
+    "tagline": "La Roja",
+    "supporterName": "La Roja"
+  },
+  "egypt": {
+    "teamName": "Egipto",
+    "statusLabel": "Clasificado a octavos · Argentina por delante",
+    "selectorLine": "Clasificado · Argentina por delante",
+    "tagline": "Los faraones y el sueño de Salah",
+    "supporterName": "Faraones"
+  },
+  "belgium": {
+    "teamName": "Bélgica",
+    "statusLabel": "Clasificada a octavos · Estados Unidos por delante",
+    "selectorLine": "Clasificada · Estados Unidos",
+    "tagline": "Los Diablos Rojos",
+    "supporterName": "Diablos Rojos"
+  },
+  "senegal": {
+    "teamName": "Senegal",
+    "statusLabel": "Eliminado en dieciseisavos",
+    "selectorLine": "Eliminado · respeto a los Leones",
+    "tagline": "Una historia de Gaïndés",
+    "supporterName": "Gaïndés"
+  },
+  "algeria": {
+    "teamName": "Argelia",
+    "statusLabel": "Eliminada en dieciseisavos",
+    "selectorLine": "Eliminada · respeto a los Fennecs",
+    "tagline": "Orgullo de los Fennecs",
+    "supporterName": "Fennecs"
+  }
+}

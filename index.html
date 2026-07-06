@@ -3,15 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>QualifGaïndé Worldwide · V12.0.16 URL compatibility</title>
+<title>QualifGaïndé Worldwide · V13.0.0 i18n core</title>
 <meta name="application-name" content="Suivez la CDM 2026">
 <script>
 // BUILD_VERSION — version stable de build, à bumper à chaque déploiement.
 // Remplace les cache-busters dynamiques (Date.now()) sur les ressources stables
 // afin que le navigateur puisse effectivement les mettre en cache entre deux visites.
-const BUILD_VERSION = '12.0.16';
+const BUILD_VERSION = '13.0.0';
 (function(){
-  // V12.0.16 — compatibilité des anciens liens directs.
+  // V13.0.0 — compatibilité des anciens liens directs.
   // Les anciennes URLs partagées du type /bresil, /brésil, /algerie,
   // /team/brazil, /teams/morocco, etc. sont normalisées vers la route stable
   // /?team=<slug>. On conserve les liens existants au lieu de provoquer une 404.
@@ -48,7 +48,7 @@ const BUILD_VERSION = '12.0.16';
     if(!team && parts.length >= 2 && /^(team|teams|equipe|equipes|pays)$/i.test(parts[parts.length-2])) team = aliases[slug];
     if(team){
       params.set('team', team);
-      if(!params.has('v')) params.set('v','1216');
+      if(!params.has('v')) params.set('v','1300');
       window.location.replace(window.location.origin + '/' + '?' + params.toString());
     }
   }catch(e){}
@@ -62,7 +62,7 @@ const BUILD_VERSION = '12.0.16';
   if(selectorActive) document.documentElement.classList.add('qg-selector-active');
   if(v10Active) {
     document.documentElement.classList.add('v10-booting');
-    // V12.0.16 safety: ne jamais laisser l'écran noir si le script V10 externe tarde/échoue.
+    // V13.0.0 safety: ne jamais laisser l'écran noir si le script V10 externe tarde/échoue.
     // Exception volontaire : sur la page d'entrée, on garde le boot mode pour masquer la home legacy.
     setTimeout(function(){ if(!window.QUALIFGAINDE_SELECTOR_ACTIVE) document.documentElement.classList.remove('v10-booting'); }, 1800);
   }
@@ -166,7 +166,7 @@ html.v10-booting #v10-team-selector, html.v10-booting .v10-selector{visibility:v
 
 
 
-/* V12.0.16 — page d'entrée restaurée : “Je suis supporter de…” */
+/* V13.0.0 — page d'entrée restaurée : “Je suis supporter de…” */
 html.qg-selector-active body{background:#050505;min-height:100vh;overflow:auto;}
 html.qg-selector-active body > :not(#v10-team-selector):not(script):not(style){display:none !important;}
 #v10-team-selector{display:none;visibility:hidden;}
@@ -1302,10 +1302,10 @@ header{display:flex;align-items:center;justify-content:space-between;padding:12p
 <meta name="apple-mobile-web-app-title" content="Suivez la CDM 2026">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <link rel="apple-touch-icon" href="/assets/icons/icon-192.png">
-<link rel="stylesheet" href="src/v10/v10-team-app.css?v=12.0.16">
+<link rel="stylesheet" href="src/v10/v10-team-app.css?v=13.0.0">
 
 <script>
-// V12.0.16 — purge légère des anciens caches PWA pour sortir des builds bloquants.
+// V13.0.0 — purge légère des anciens caches PWA pour sortir des builds bloquants.
 (function(){
   window.addEventListener('load', function(){
     try {
@@ -1317,8 +1317,8 @@ header{display:flex;align-items:center;justify-content:space-between;padding:12p
 })();
 </script>
 
-<style id="qg-v1216-teamfix-style">
-/* V12.0.16 — adaptateur autonome multi-équipe, sans dépendance src/v10 JS */
+<style id="qg-v1300-teamfix-style">
+/* V13.0.0 — adaptateur autonome multi-équipe, sans dépendance src/v10 JS */
 #probable-opponent .opp-label{white-space:nowrap;}
 #probable-opponent .opp-main{line-height:1.05;}
 #probable-opponent .opp-sub{white-space:normal;}
@@ -1334,8 +1334,8 @@ header{display:flex;align-items:center;justify-content:space-between;padding:12p
 
 
 
-<style id="qg-v1216-structural-css">
-/* V12.0.16 — home plus lisible et cartes pays structurées */
+<style id="qg-v1300-structural-css">
+/* V13.0.0 — home plus lisible et cartes pays structurées */
 .qg-team-card{flex-direction:column;justify-content:center;text-align:center;align-items:center;gap:10px;padding:18px 14px;min-height:132px;}
 .qg-team-copy{width:100%;display:block;}
 .qg-team-name{display:block;text-align:center;white-space:normal;overflow:visible;text-overflow:clip;font-size:1.28rem;}
@@ -1350,6 +1350,15 @@ header{display:flex;align-items:center;justify-content:space-between;padding:12p
 body[data-qg-eliminated="true"] #countdown-card{display:none!important;}
 body[data-qg-eliminated="true"] .qg-countdown-title{display:none!important;}
 @media(max-width:720px){.qg-team-grid{grid-template-columns:1fr!important}.qg-team-card{min-height:116px}.qg-team-name{font-size:1.22rem}.qg-team-line{max-width:28ch}}
+
+/* V13 — RTL Arabic support */
+html[dir="rtl"] body{direction:rtl;text-align:right;}
+html[dir="rtl"] .hflag,html[dir="rtl"] .hright,html[dir="rtl"] .qg-team-card,html[dir="rtl"] .opponent-card{direction:rtl;}
+html[dir="rtl"] .mscore,html[dir="rtl"] .tl-score,html[dir="rtl"] .r32-inline-score,html[dir="rtl"] .ko-inline-score,html[dir="rtl"] .ko-inline-input{direction:ltr;unicode-bidi:embed;}
+html[dir="rtl"] .qg-team-name::before{margin-left:8px;margin-right:0;}
+html[dir="rtl"] .qg-team-copy{text-align:right;}
+html[dir="rtl"] .opp-sub,html[dir="rtl"] .opp-main{text-align:right;}
+
 </style>
 
 </head>
@@ -1363,7 +1372,7 @@ body[data-qg-eliminated="true"] .qg-countdown-title{display:none!important;}
     <div class="qg-entry-top">
       <div class="qg-entry-brand">
         <img src="assets/lion-mascotte.png" alt="QualifGaïndé">
-        <div>QualifGaïndé Worldwide · V12</div>
+        <div>QualifGaïndé Worldwide · V13</div>
       </div>
       <div class="qg-entry-pill">Phase finale · choisis ton équipe et suis son chemin jusqu’à la finale</div>
     </div>
@@ -1377,37 +1386,37 @@ body[data-qg-eliminated="true"] .qg-countdown-title{display:none!important;}
     <div class="qg-selector-group">
       <h2 class="qg-selector-title">Qualifiés en quart</h2>
       <div class="qg-team-grid">
-        <a class="qg-team-card qf" href="?team=morocco&v=1216"><span class="qg-team-flag">🇲🇦</span><span class="qg-team-copy"><span class="qg-team-name">Maroc</span><span class="qg-team-line">Qualifié en quart · prochain défi : France</span></span></a>
-        <a class="qg-team-card qf" href="?team=france&v=1216"><span class="qg-team-flag">🇫🇷</span><span class="qg-team-copy"><span class="qg-team-name">France</span><span class="qg-team-line">Qualifiée en quart · prochain défi : Maroc</span></span></a>
-        <a class="qg-team-card qf" href="?team=norway&v=1216"><span class="qg-team-flag">🇳🇴</span><span class="qg-team-copy"><span class="qg-team-name">Norvège</span><span class="qg-team-line">Qualifiée en quart · attend Mexique ou Angleterre</span></span></a>
+        <a class="qg-team-card qf" href="?team=morocco&v=1300"><span class="qg-team-flag">🇲🇦</span><span class="qg-team-copy"><span class="qg-team-name">Maroc</span><span class="qg-team-line">Qualifié en quart · prochain défi : France</span></span></a>
+        <a class="qg-team-card qf" href="?team=france&v=1300"><span class="qg-team-flag">🇫🇷</span><span class="qg-team-copy"><span class="qg-team-name">France</span><span class="qg-team-line">Qualifiée en quart · prochain défi : Maroc</span></span></a>
+        <a class="qg-team-card qf" href="?team=norway&v=1300"><span class="qg-team-flag">🇳🇴</span><span class="qg-team-copy"><span class="qg-team-name">Norvège</span><span class="qg-team-line">Qualifiée en quart · attend Mexique ou Angleterre</span></span></a>
       </div>
     </div>
 
     <div class="qg-selector-group">
       <h2 class="qg-selector-title">Encore en course</h2>
       <div class="qg-team-grid">
-        <a class="qg-team-card live" href="?team=spain&v=1216"><span class="qg-team-flag">🇪🇸</span><span class="qg-team-copy"><span class="qg-team-name">Espagne</span><span class="qg-team-line">Qualifiée · Portugal en huitième</span></span></a>
-        <a class="qg-team-card live" href="?team=egypt&v=1216"><span class="qg-team-flag">🇪🇬</span><span class="qg-team-copy"><span class="qg-team-name">Égypte</span><span class="qg-team-line">Qualifiée · Argentine ensuite</span></span></a>
-        <a class="qg-team-card live" href="?team=belgium&v=1216"><span class="qg-team-flag">🇧🇪</span><span class="qg-team-copy"><span class="qg-team-name">Belgique</span><span class="qg-team-line">Qualifiée en 8e · États-Unis</span></span></a>
+        <a class="qg-team-card live" href="?team=spain&v=1300"><span class="qg-team-flag">🇪🇸</span><span class="qg-team-copy"><span class="qg-team-name">Espagne</span><span class="qg-team-line">Qualifiée · Portugal en huitième</span></span></a>
+        <a class="qg-team-card live" href="?team=egypt&v=1300"><span class="qg-team-flag">🇪🇬</span><span class="qg-team-copy"><span class="qg-team-name">Égypte</span><span class="qg-team-line">Qualifiée · Argentine ensuite</span></span></a>
+        <a class="qg-team-card live" href="?team=belgium&v=1300"><span class="qg-team-flag">🇧🇪</span><span class="qg-team-copy"><span class="qg-team-name">Belgique</span><span class="qg-team-line">Qualifiée en 8e · États-Unis</span></span></a>
       </div>
     </div>
 
     <div class="qg-selector-group">
       <h2 class="qg-selector-title">Éliminés · respect</h2>
       <div class="qg-team-grid">
-        <a class="qg-team-card out" href="?team=brazil&v=1216"><span class="qg-team-flag">🇧🇷</span><span class="qg-team-copy"><span class="qg-team-name">Brésil</span><span class="qg-team-line">Éliminé en huitième · Neymar a marqué pour son dernier Mondial</span></span></a>
-        <a class="qg-team-card out" href="?team=senegal&v=1216"><span class="qg-team-flag">🇸🇳</span><span class="qg-team-copy"><span class="qg-team-name">Sénégal</span><span class="qg-team-line">Éliminé en 16e · respect aux Lions</span></span></a>
-        <a class="qg-team-card out" href="?team=algeria&v=1216"><span class="qg-team-flag">🇩🇿</span><span class="qg-team-copy"><span class="qg-team-name">Algérie</span><span class="qg-team-line">Éliminée · respect aux Fennecs</span></span></a>
-        <a class="qg-team-card out" href="?team=ivory_coast&v=1216"><span class="qg-team-flag">🇨🇮</span><span class="qg-team-copy"><span class="qg-team-name">Côte d’Ivoire</span><span class="qg-team-line">Éliminée · respect aux Éléphants</span></span></a>
-        <a class="qg-team-card out" href="?team=dr_congo&v=1216"><span class="qg-team-flag">🇨🇩</span><span class="qg-team-copy"><span class="qg-team-name">RD Congo</span><span class="qg-team-line">Éliminée · respect aux Léopards</span></span></a>
-        <a class="qg-team-card out" href="?team=cape_verde&v=1216"><span class="qg-team-flag">🇨🇻</span><span class="qg-team-copy"><span class="qg-team-name">Cap-Vert</span><span class="qg-team-line">Sortie héroïque face à l’Argentine</span></span></a>
-        <a class="qg-team-card out" href="?team=ghana&v=1216"><span class="qg-team-flag">🇬🇭</span><span class="qg-team-copy"><span class="qg-team-name">Ghana</span><span class="qg-team-line">Éliminé · respect aux Black Stars</span></span></a>
+        <a class="qg-team-card out" href="?team=brazil&v=1300"><span class="qg-team-flag">🇧🇷</span><span class="qg-team-copy"><span class="qg-team-name">Brésil</span><span class="qg-team-line">Éliminé en huitième · Neymar a marqué pour son dernier Mondial</span></span></a>
+        <a class="qg-team-card out" href="?team=senegal&v=1300"><span class="qg-team-flag">🇸🇳</span><span class="qg-team-copy"><span class="qg-team-name">Sénégal</span><span class="qg-team-line">Éliminé en 16e · respect aux Lions</span></span></a>
+        <a class="qg-team-card out" href="?team=algeria&v=1300"><span class="qg-team-flag">🇩🇿</span><span class="qg-team-copy"><span class="qg-team-name">Algérie</span><span class="qg-team-line">Éliminée · respect aux Fennecs</span></span></a>
+        <a class="qg-team-card out" href="?team=ivory_coast&v=1300"><span class="qg-team-flag">🇨🇮</span><span class="qg-team-copy"><span class="qg-team-name">Côte d’Ivoire</span><span class="qg-team-line">Éliminée · respect aux Éléphants</span></span></a>
+        <a class="qg-team-card out" href="?team=dr_congo&v=1300"><span class="qg-team-flag">🇨🇩</span><span class="qg-team-copy"><span class="qg-team-name">RD Congo</span><span class="qg-team-line">Éliminée · respect aux Léopards</span></span></a>
+        <a class="qg-team-card out" href="?team=cape_verde&v=1300"><span class="qg-team-flag">🇨🇻</span><span class="qg-team-copy"><span class="qg-team-name">Cap-Vert</span><span class="qg-team-line">Sortie héroïque face à l’Argentine</span></span></a>
+        <a class="qg-team-card out" href="?team=ghana&v=1300"><span class="qg-team-flag">🇬🇭</span><span class="qg-team-copy"><span class="qg-team-name">Ghana</span><span class="qg-team-line">Éliminé · respect aux Black Stars</span></span></a>
       </div>
     </div>
 
     <div class="qg-entry-actions">
-      <a class="qg-entry-action" href="?mode=global&v=1216">Voir la page globale</a>
-      <a class="qg-entry-action" href="?team=france&v=1216">Accès rapide France–Maroc</a>
+      <a class="qg-entry-action" href="?mode=global&v=1300">Voir la page globale</a>
+      <a class="qg-entry-action" href="?team=france&v=1300">Accès rapide France–Maroc</a>
     </div>
   </div>
 </section>
@@ -1649,7 +1658,7 @@ body[data-qg-eliminated="true"] .qg-countdown-title{display:none!important;}
 </section>
 
 <!-- ═══ TABLEAU 3E PLACES MASQUÉ — phase à élimination directe active ═══ -->
-<!-- Section retirée de l’affichage en V12.0.4 : le tableau des meilleurs troisièmes n’est plus utile en phase finale. -->
+<!-- Section retirée de l’affichage en V13.0.4 : le tableau des meilleurs troisièmes n’est plus utile en phase finale. -->
 
 <!-- Simulateur retiré de l’interface : moteurs conservés dans le code. -->
 
@@ -1883,22 +1892,54 @@ body[data-qg-eliminated="true"] .qg-countdown-title{display:none!important;}
 // Aucun moteur de score/simulation n'est modifié.
 // ════════════════════════════════════════════════
 const I18N = {"fr": {"title": "Sénégal à la Coupe du monde 2026 · Une histoire de Gaïndés", "siteName": "<span>Sénégal</span> — CM 2026", "siteKicker": "Une histoire de Gaïndés", "match1": "Match 1", "match2": "Match 2", "match3": "Match 3", "lossStart": "Défaite inaugurale", "nearComeback": "Les Lions proches du retour", "gaindesAwakening": "Réveil des Gaïndés", "nextMatchR32": "Prochain match", "opponentSub": "Belgique–Sénégal · heure locale selon votre appareil · Seattle Lumen Field", "supporters": "supporters ont vu", "music": "Ambiance Gaïndé", "musicOn": "Ambiance ON", "heroTitle": "Sénégal à la Coupe du monde 2026", "heroSubtitle": "Une histoire de Gaïndés, de courage et de fierté", "scores": "Scores", "matchLive": "Match en direct", "nextMatch": "Prochain match", "apiPaused": "API connectée · aucun live", "noLiveShort": "Aucun match en direct pour le moment.", "nextPoster": "Prochaine affiche", "round32": "Round of 32", "liveStatus": "Live", "nextEncounter": "Prochaine rencontre des Gaïndés", "kickoffIn": "Coup d’envoi dans", "matchCountdown": "🇧🇪 Belgique vs Sénégal 🇸🇳", "matchMeta": "Heure locale selon votre appareil · Seattle · Lumen Field", "days": "jours", "hours": "heures", "minutes": "min", "seconds": "sec", "countdownActive": "Les secondes défilent : les Gaïndés arrivent.", "countdownDay": "C’est le jour du match : allez les Lions !", "redDevils": "Diables Rouges", "gaindes": "Gaïndés", "lastThree": "Trois derniers résultats", "leaders": "Leaders du tournoi", "topScorers": "Meilleurs buteurs · 4 buts et plus", "topScorersNote": "Données lues depuis stats.json, avec fallback HTML si le fichier manque.", "bestAttack": "Meilleure attaque", "bestAttackNote": "Équipes avec le plus grand nombre de buts marqués. Modifiable dans stats.json.", "bestDefense": "Meilleure défense", "bestDefenseNote": "Équipes avec le moins de buts encaissés. Modifiable dans stats.json.", "topAssist": "Meilleur passeur", "teaserTitle": "Belgique–Sénégal : le choc de rang", "teaserBody": "<strong>Belgique–Sénégal</strong>, c’est plus qu’un 16e de finale : c’est un test de rang. Les Diables Rouges arrivent avec leur expérience européenne. Les Lions, eux, viennent avec leur orgueil, leur puissance et une histoire qui rappelle que le Sénégal sait faire tomber les grands.<br><br>Le vainqueur pourrait retrouver les États-Unis, pays organisateur, au tour suivant. Alors il faudra être fort, froid, discipliné. Les Gaïndés ne viennent pas subir. Ils viennent faire respecter leur rang de champions d’Afrique.", "bestThirdTitle": "Classement final des 8 meilleurs troisièmes — ", "bestThirdLbl": "qualifiés pour les 16es", "thirdCols": ["#", "Équipe", "Gr", "Pts", "GD", "BM", "Statut"], "thirdTip": "<strong>Lecture du tableau :</strong><br>À l’issue de tous les matchs de groupes, ces huit équipes sont les meilleurs troisièmes qualifiés pour les 16es de finale. Les quatre autres troisièmes sont éliminés et ne sont plus affichés ici.<br><span class=\"tor\">Le Sénégal termine 8e des meilleurs troisièmes :</span> il affronte donc <strong>la Belgique</strong> en 16e de finale, selon le tableau officiel.<br><span class=\"tvert\">Le classement est désormais figé : place au match Belgique–Sénégal.</span>", "storyTitle": "Mémoire des Gaïndés au Mondial", "storyKicker": "De 2002 à 2026, une histoire de courage, de fierté et de rang à faire respecter.", "storyHTML": "<p>Il y a des équipes qui jouent une Coupe du monde. Et puis il y a celles qui y entrent comme dans une légende. Le Sénégal appartient à cette deuxième catégorie.</p><p>Tout commence en <strong>2002</strong>. Pour sa première participation, le Sénégal arrive en Corée-Japon avec une génération dorée menée par El Hadji Diouf, Pape Bouba Diop, Henri Camara, Khalilou Fadiga, Aliou Cissé et Bruno Metsu.</p><p>Le 31 mai 2002, le monde regarde le match d’ouverture. Face à la France, championne du monde et d’Europe, Pape Bouba Diop marque. Le Sénégal gagne <strong>France 0–1 Sénégal</strong> et force la planète football à respecter les Lions.</p><p>La suite confirme l’exploit : nul contre le Danemark, match fou contre l’Uruguay, puis but en or d’Henri Camara contre la Suède. Dès sa première Coupe du monde, le Sénégal atteint les quarts de finale.</p><p>En <strong>2018</strong>, les Lions reviennent en Russie, battent la Pologne, accrochent le Japon et sortent cruellement au fair-play.</p><p>En <strong>2022</strong>, au Qatar, le Sénégal arrive champion d’Afrique, bat le Qatar, domine l’Équateur et retrouve les huitièmes de finale. L’Angleterre arrête le parcours, mais les Lions confirment leur rang mondial.</p><p>En <strong>2026</strong>, après un début difficile, les Gaïndés rugissent face à l’Iraq et s’offrent un 16e de finale contre la Belgique. Toute la nation de la Téranga, et bien au-delà, regarde ces Lions avec fierté.</p><div class=\"story-timeline\"><div class=\"story-tile\"><b>2002</b>Victoire contre la France, quart de finale historique.</div><div class=\"story-tile\"><b>2018</b>Retour mondial, élimination cruelle au fair-play.</div><div class=\"story-tile\"><b>2022</b>Champion d’Afrique, huitième de finale au Qatar.</div><div class=\"story-tile\"><b>2026</b>Réveil contre l’Iraq, 16e contre la Belgique.</div></div>", "r32Title": "Tableau officiel des 16es de finale — scores figés", "r32Help": "Affiches figées après la phase de groupes. Clique sur une équipe ou renseigne un score : le simulateur complet se met à jour automatiquement jusqu’à la finale.", "simTitle": "Simule le chemin jusqu’à la finale", "simHelp": "Choisis les vainqueurs tour après tour. Les cases restent vides tant que le tour précédent n’est pas décidé : le parcours se construit proprement jusqu’à la finale.", "championPending": "Le champion simulé apparaîtra ici après tes choix.", "championSimulated": "Champion simulé :", "groupsArchiveTitle": "Classement final des 12 groupes — archive de la phase de poules", "groupsArchiveTip": "<strong>Pour mémoire :</strong> la phase de groupes est terminée. Ce tableau reste en bas de page comme archive et contexte, mais l’actualité des supporters est désormais le 16e Belgique–Sénégal et le chemin possible des Lions.", "footerLine": "Allez les Lions de la Téranga !", "footerCredit": "Offert par Mohamed LY et le Think Tank IPODE", "choose": "Choisir", "victory": "Victoire", "waiting": "En attente", "chooseWinner": "Choisis le vainqueur ou renseigne le score.", "choosePrev": "Choisis les vainqueurs du tour précédent pour ouvrir ce match.", "score": "score", "finale": "Finale", "group": "Groupe", "finished": "Terminé", "qualified": "Qualifiée", "team": "Équipe", "roundNames": {"r16": "Huitièmes", "qf": "Quarts", "sf": "Demi-finales", "final": "Finale"}}, "en": {"title": "Senegal at the 2026 World Cup · A Gaïndés story", "siteName": "<span>Senegal</span> — WC 2026", "siteKicker": "A Gaïndés story", "match1": "Match 1", "match2": "Match 2", "match3": "Match 3", "lossStart": "Opening defeat", "nearComeback": "The Lions nearly came back", "gaindesAwakening": "The Gaïndés roar back", "nextMatchR32": "Next match", "opponentSub": "Belgium–Senegal · Wed. July 1 · 22:00 Paris · Seattle Lumen Field", "supporters": "supporters watched", "music": "Gaïndé vibe", "musicOn": "Vibe ON", "heroTitle": "Senegal at the 2026 World Cup", "heroSubtitle": "A Gaïndés story of courage and pride", "scores": "Scores", "matchLive": "Live match", "nextMatch": "Next match", "apiPaused": "API connected · no live match", "noLiveShort": "No live match right now.", "nextPoster": "Next fixture", "round32": "Round of 32", "liveStatus": "Live", "nextEncounter": "Next match for the Gaïndés", "kickoffIn": "Kick-off in", "matchCountdown": "🇧🇪 Belgium vs Senegal 🇸🇳", "matchMeta": "Wednesday, July 1, 2026 · 22:00 Paris · Seattle · Lumen Field", "days": "days", "hours": "hours", "minutes": "min", "seconds": "sec", "countdownActive": "The seconds are ticking: the Gaïndés are coming.", "countdownDay": "Match day: come on Lions!", "redDevils": "Red Devils", "gaindes": "Gaïndés", "lastThree": "Last three results", "leaders": "Tournament leaders", "topScorers": "Top scorers · 4+ goals", "topScorersNote": "Data read from stats.json, with HTML fallback if the file is missing.", "bestAttack": "Best attack", "bestAttackNote": "Teams with the most goals scored. Editable in stats.json.", "bestDefense": "Best defense", "bestDefenseNote": "Teams with the fewest goals conceded. Editable in stats.json.", "topAssist": "Best assist", "teaserTitle": "Belgium–Senegal: a clash of status", "teaserBody": "<strong>Belgium–Senegal</strong> is more than a Round of 32 match: it is a test of status. The Red Devils bring European experience. The Lions bring pride, power and a history that proves Senegal can bring down giants.<br><br>The winner could meet the United States, one of the host nations, in the next round. Senegal must be strong, calm and disciplined. The Gaïndés are not here to suffer. They are here to defend their status as African champions.", "bestThirdTitle": "Final ranking of the 8 best third-place teams — ", "bestThirdLbl": "qualified for the Round of 32", "thirdCols": ["#", "Team", "Grp", "Pts", "GD", "GF", "Status"], "thirdTip": "<strong>How to read this table:</strong><br>After all group-stage matches, these eight teams are the best third-place sides qualified for the Round of 32. The other four third-place teams are eliminated and no longer shown here.<br><span class=\"tor\">Senegal finished 8th among the best third-place teams:</span> they will face <strong>Belgium</strong> in the Round of 32, according to the official bracket.<br><span class=\"tvert\">The ranking is now fixed: time for Belgium–Senegal.</span>", "storyTitle": "Gaïndés World Cup memory", "storyKicker": "From 2002 to 2026: courage, pride and a status to defend.", "storyHTML": "<p>Some teams play a World Cup. Others enter it like a legend. Senegal belongs to that second family.</p><p>It began in <strong>2002</strong>. In their first appearance, Senegal arrived in Korea-Japan with a golden generation led by El Hadji Diouf, Pape Bouba Diop, Henri Camara, Khalilou Fadiga, Aliou Cissé and Bruno Metsu.</p><p>On May 31, 2002, the world watched the opening match. Against France, world and European champions, Pape Bouba Diop scored. Senegal won <strong>France 0–1 Senegal</strong> and forced world football to respect the Lions.</p><p>The rest confirmed the feat: a draw against Denmark, a wild match against Uruguay, then Henri Camara’s golden goal against Sweden. In their first World Cup, Senegal reached the quarter-finals.</p><p>In <strong>2018</strong>, the Lions returned in Russia, beat Poland, drew with Japan and suffered a cruel fair-play exit.</p><p>In <strong>2022</strong>, in Qatar, Senegal arrived as African champions, beat Qatar, defeated Ecuador and reached the Round of 16. England stopped the run, but the Lions confirmed their global status.</p><p>In <strong>2026</strong>, after a difficult start, the Gaïndés roared against Iraq and earned a Round of 32 clash with Belgium. The nation of Teranga, and far beyond, watches these Lions with pride.</p><div class=\"story-timeline\"><div class=\"story-tile\"><b>2002</b>Victory over France, historic quarter-final.</div><div class=\"story-tile\"><b>2018</b>World Cup return, cruel fair-play exit.</div><div class=\"story-tile\"><b>2022</b>African champions, Round of 16 in Qatar.</div><div class=\"story-tile\"><b>2026</b>Roar against Iraq, Round of 32 vs Belgium.</div></div>", "r32Title": "Official Round of 32 bracket — confirmed fixtures", "r32Help": "Fixtures are fixed after the group stage. Click a team or enter a score: the full simulator updates automatically all the way to the final.", "simTitle": "Simulate the road to the final", "simHelp": "Pick winners round by round. Boxes stay empty until the previous round is decided: the route builds cleanly to the final.", "championPending": "The simulated champion will appear here after your picks.", "championSimulated": "Simulated champion:", "groupsArchiveTitle": "Final standings of the 12 groups — group-stage archive", "groupsArchiveTip": "<strong>For reference:</strong> the group stage is over. This table remains at the bottom as archive and context, while the supporter story now moves to Belgium–Senegal and the Lions’ possible road ahead.", "footerLine": "Come on, Lions of Teranga!", "footerCredit": "Offered by Mohamed LY and the IPODE Think Tank", "choose": "Pick", "victory": "Win", "waiting": "Waiting", "chooseWinner": "Pick the winner or enter the score.", "choosePrev": "Pick the previous-round winners to unlock this match.", "score": "score", "finale": "Final", "group": "Group", "finished": "Finished", "qualified": "Qualified", "team": "Team", "roundNames": {"r16": "Round of 16", "qf": "Quarter-finals", "sf": "Semi-finals", "final": "Final"}}, "pt": {"title": "Senegal na Copa do Mundo 2026 · Uma história dos Gaïndés", "siteName": "<span>Senegal</span> — Copa 2026", "siteKicker": "Uma história dos Gaïndés", "match1": "Jogo 1", "match2": "Jogo 2", "match3": "Jogo 3", "lossStart": "Derrota na estreia", "nearComeback": "Os Leões quase reagiram", "gaindesAwakening": "O despertar dos Gaïndés", "nextMatchR32": "Próximo jogo", "opponentSub": "Bélgica–Senegal · Qua. 1 julho · 22:00 Paris · Seattle Lumen Field", "supporters": "torcedores viram", "music": "Ambiente Gaïndé", "musicOn": "Ambiente ON", "heroTitle": "Senegal na Copa do Mundo 2026", "heroSubtitle": "Uma história de Gaïndés, coragem e orgulho", "scores": "Resultados", "matchLive": "Jogo ao vivo", "nextMatch": "Próximo jogo", "apiPaused": "API conectada · sem jogo ao vivo", "noLiveShort": "Nenhum jogo ao vivo no momento.", "nextPoster": "Próxima partida", "round32": "16 avos", "liveStatus": "Live", "nextEncounter": "Próximo jogo dos Gaïndés", "kickoffIn": "Começa em", "matchCountdown": "🇧🇪 Bélgica vs Senegal 🇸🇳", "matchMeta": "Quarta, 1 de julho de 2026 · 22:00 Paris · Seattle · Lumen Field", "days": "dias", "hours": "horas", "minutes": "min", "seconds": "seg", "countdownActive": "Os segundos passam: os Gaïndés estão chegando.", "countdownDay": "É dia de jogo: vamos, Leões!", "redDevils": "Diabos Vermelhos", "gaindes": "Gaïndés", "lastThree": "Últimos três resultados", "leaders": "Destaques do torneio", "topScorers": "Artilheiros · 4+ gols", "topScorersNote": "Dados lidos de stats.json, com fallback HTML se o arquivo faltar.", "bestAttack": "Melhor ataque", "bestAttackNote": "Equipes com mais gols marcados. Editável em stats.json.", "bestDefense": "Melhor defesa", "bestDefenseNote": "Equipes com menos gols sofridos. Editável em stats.json.", "topAssist": "Melhor assistente", "teaserTitle": "Bélgica–Senegal: um choque de estatuto", "teaserBody": "<strong>Bélgica–Senegal</strong> é mais do que um jogo de mata-mata: é um teste de estatuto. Os Diabos Vermelhos chegam com experiência europeia. Os Leões chegam com orgulho, força e uma história que prova que Senegal sabe derrubar gigantes.<br><br>O vencedor pode encontrar os Estados Unidos, país anfitrião, na próxima fase. Será preciso força, calma e disciplina. Os Gaïndés não vêm para sofrer. Vêm defender o seu estatuto de campeões africanos.", "bestThirdTitle": "Classificação final dos 8 melhores terceiros — ", "bestThirdLbl": "classificados para os 16 avos", "thirdCols": ["#", "Equipe", "Grp", "Pts", "SG", "GP", "Status"], "thirdTip": "<strong>Leitura da tabela:</strong><br>Após todos os jogos da fase de grupos, estas oito equipes são os melhores terceiros classificados para a fase a eliminar. Os outros quatro terceiros estão eliminados e já não aparecem aqui.<br><span class=\"tor\">Senegal terminou em 8.º entre os melhores terceiros:</span> enfrenta a <strong>Bélgica</strong> nos 16 avos, segundo o quadro oficial.<br><span class=\"tvert\">A classificação está fechada: agora é Bélgica–Senegal.</span>", "storyTitle": "Memória dos Gaïndés no Mundial", "storyKicker": "De 2002 a 2026, uma história de coragem, orgulho e estatuto a defender.", "storyHTML": "<p>Há equipes que jogam uma Copa do Mundo. E há equipes que entram nela como uma lenda. Senegal pertence a esta segunda família.</p><p>Tudo começa em <strong>2002</strong>. Na primeira participação, Senegal chega à Coreia-Japão com uma geração dourada liderada por El Hadji Diouf, Pape Bouba Diop, Henri Camara, Khalilou Fadiga, Aliou Cissé e Bruno Metsu.</p><p>Em 31 de maio de 2002, o mundo assiste ao jogo de abertura. Contra a França, campeã mundial e europeia, Pape Bouba Diop marca. Senegal vence <strong>França 0–1 Senegal</strong> e obriga o futebol mundial a respeitar os Leões.</p><p>A sequência confirma o feito: empate contra a Dinamarca, jogo louco contra o Uruguai e gol de ouro de Henri Camara contra a Suécia. Logo na estreia, Senegal chega aos quartos de final.</p><p>Em <strong>2018</strong>, os Leões voltam na Rússia, vencem a Polónia, empatam com o Japão e caem cruelmente pelo fair-play.</p><p>Em <strong>2022</strong>, no Qatar, Senegal chega como campeão africano, vence o Qatar, supera o Equador e alcança os oitavos. A Inglaterra encerra a caminhada, mas os Leões confirmam o seu estatuto mundial.</p><p>Em <strong>2026</strong>, depois de um início difícil, os Gaïndés rugem contra o Iraque e conquistam um mata-mata contra a Bélgica. A nação da Teranga, e muito além dela, olha para estes Leões com orgulho.</p><div class=\"story-timeline\"><div class=\"story-tile\"><b>2002</b>Vitória sobre a França, quarto de final histórico.</div><div class=\"story-tile\"><b>2018</b>Regresso mundial, eliminação cruel pelo fair-play.</div><div class=\"story-tile\"><b>2022</b>Campeão africano, oitavos no Qatar.</div><div class=\"story-tile\"><b>2026</b>Reação contra o Iraque, mata-mata contra a Bélgica.</div></div>", "r32Title": "Quadro oficial dos 16 avos — confrontos confirmados", "r32Help": "Confrontos fechados após a fase de grupos. Clique numa equipe ou informe um placar: o simulador atualiza automaticamente até à final.", "simTitle": "Simule o caminho até à final", "simHelp": "Escolha os vencedores rodada a rodada. As caixas ficam vazias até a rodada anterior ser definida: o percurso se constrói até à final.", "championPending": "O campeão simulado aparecerá aqui depois das suas escolhas.", "championSimulated": "Campeão simulado:", "groupsArchiveTitle": "Classificação final dos 12 grupos — arquivo da fase de grupos", "groupsArchiveTip": "<strong>Para memória:</strong> a fase de grupos terminou. Esta tabela fica no fim da página como arquivo e contexto, enquanto a atenção dos torcedores vai para Bélgica–Senegal e o caminho possível dos Leões.", "footerLine": "Vamos, Leões da Teranga!", "footerCredit": "Oferecido por Mohamed LY e o Think Tank IPODE", "choose": "Escolher", "victory": "Vitória", "waiting": "Aguardando", "chooseWinner": "Escolha o vencedor ou informe o placar.", "choosePrev": "Escolha os vencedores da rodada anterior para abrir este jogo.", "score": "placar", "finale": "Final", "group": "Grupo", "finished": "Encerrado", "qualified": "Classificada", "team": "Equipe", "roundNames": {"r16": "Oitavos", "qf": "Quartas", "sf": "Semifinais", "final": "Final"}}, "es": {"title": "Senegal en la Copa Mundial 2026 · Una historia de Gaïndés", "siteName": "<span>Senegal</span> — Mundial 2026", "siteKicker": "Una historia de Gaïndés", "match1": "Partido 1", "match2": "Partido 2", "match3": "Partido 3", "lossStart": "Derrota inicial", "nearComeback": "Los Leones rozaron la remontada", "gaindesAwakening": "El despertar de los Gaïndés", "nextMatchR32": "Próximo partido", "opponentSub": "Bélgica–Senegal · Mié. 1 julio · 22:00 París · Seattle Lumen Field", "supporters": "seguidores lo vieron", "music": "Ambiente Gaïndé", "musicOn": "Ambiente ON", "heroTitle": "Senegal en la Copa Mundial 2026", "heroSubtitle": "Una historia de Gaïndés, coraje y orgullo", "scores": "Marcadores", "matchLive": "Partido en directo", "nextMatch": "Próximo partido", "apiPaused": "API conectada · sin directo", "noLiveShort": "No hay partido en directo ahora.", "nextPoster": "Próximo cruce", "round32": "Dieciseisavos", "liveStatus": "Live", "nextEncounter": "Próximo partido de los Gaïndés", "kickoffIn": "Comienza en", "matchCountdown": "🇧🇪 Bélgica vs Senegal 🇸🇳", "matchMeta": "Miércoles 1 de julio de 2026 · 22:00 París · Seattle · Lumen Field", "days": "días", "hours": "horas", "minutes": "min", "seconds": "seg", "countdownActive": "Los segundos corren: llegan los Gaïndés.", "countdownDay": "Día de partido: ¡vamos, Leones!", "redDevils": "Diablos Rojos", "gaindes": "Gaïndés", "lastThree": "Últimos tres resultados", "leaders": "Líderes del torneo", "topScorers": "Máximos goleadores · 4+ goles", "topScorersNote": "Datos leídos desde stats.json, con fallback HTML si falta el archivo.", "bestAttack": "Mejor ataque", "bestAttackNote": "Equipos con más goles marcados. Editable en stats.json.", "bestDefense": "Mejor defensa", "bestDefenseNote": "Equipos con menos goles recibidos. Editable en stats.json.", "topAssist": "Mejor asistente", "teaserTitle": "Bélgica–Senegal: un duelo de jerarquía", "teaserBody": "<strong>Bélgica–Senegal</strong> es más que un partido de dieciseisavos: es una prueba de jerarquía. Los Diablos Rojos llegan con experiencia europea. Los Leones llegan con orgullo, potencia y una historia que recuerda que Senegal sabe tumbar a los grandes.<br><br>El vencedor podría cruzarse con Estados Unidos, país anfitrión, en la siguiente ronda. Habrá que ser fuerte, frío y disciplinado. Los Gaïndés no vienen a sufrir. Vienen a defender su rango de campeones de África.", "bestThirdTitle": "Clasificación final de los 8 mejores terceros — ", "bestThirdLbl": "clasificados a dieciseisavos", "thirdCols": ["#", "Equipo", "Gr", "Pts", "DG", "GF", "Estado"], "thirdTip": "<strong>Lectura de la tabla:</strong><br>Tras todos los partidos de grupos, estos ocho equipos son los mejores terceros clasificados para los dieciseisavos. Los otros cuatro terceros quedan eliminados y ya no aparecen aquí.<br><span class=\"tor\">Senegal termina 8.º entre los mejores terceros:</span> se enfrentará a <strong>Bélgica</strong> en dieciseisavos, según el cuadro oficial.<br><span class=\"tvert\">La clasificación ya está fijada: llega Bélgica–Senegal.</span>", "storyTitle": "Memoria de los Gaïndés en el Mundial", "storyKicker": "De 2002 a 2026, una historia de coraje, orgullo y rango por defender.", "storyHTML": "<p>Hay equipos que juegan una Copa Mundial. Y hay equipos que entran en ella como una leyenda. Senegal pertenece a esta segunda familia.</p><p>Todo empieza en <strong>2002</strong>. En su primera participación, Senegal llega a Corea-Japón con una generación dorada liderada por El Hadji Diouf, Pape Bouba Diop, Henri Camara, Khalilou Fadiga, Aliou Cissé y Bruno Metsu.</p><p>El 31 de mayo de 2002, el mundo mira el partido inaugural. Contra Francia, campeona mundial y europea, Pape Bouba Diop marca. Senegal gana <strong>Francia 0–1 Senegal</strong> y obliga al fútbol mundial a respetar a los Leones.</p><p>La continuación confirma la hazaña: empate contra Dinamarca, partido loco ante Uruguay y gol de oro de Henri Camara contra Suecia. En su primera Copa Mundial, Senegal alcanza los cuartos de final.</p><p>En <strong>2018</strong>, los Leones vuelven en Rusia, vencen a Polonia, empatan con Japón y caen cruelmente por fair-play.</p><p>En <strong>2022</strong>, en Qatar, Senegal llega como campeón de África, vence a Qatar, supera a Ecuador y alcanza los octavos. Inglaterra detiene el recorrido, pero los Leones confirman su rango mundial.</p><p>En <strong>2026</strong>, tras un inicio difícil, los Gaïndés rugen ante Iraq y se ganan un cruce ante Bélgica. La nación de la Teranga, y mucho más allá, mira a estos Leones con orgullo.</p><div class=\"story-timeline\"><div class=\"story-tile\"><b>2002</b>Victoria contra Francia, cuartos históricos.</div><div class=\"story-tile\"><b>2018</b>Regreso mundial, cruel eliminación por fair-play.</div><div class=\"story-tile\"><b>2022</b>Campeón de África, octavos en Qatar.</div><div class=\"story-tile\"><b>2026</b>Reacción ante Iraq, dieciseisavos contra Bélgica.</div></div>", "r32Title": "Cuadro oficial de dieciseisavos — cruces confirmados", "r32Help": "Cruces fijados tras la fase de grupos. Haz clic en un equipo o introduce un marcador: el simulador se actualiza automáticamente hasta la final.", "simTitle": "Simula el camino hasta la final", "simHelp": "Elige ganadores ronda por ronda. Las casillas quedan vacías hasta decidir la ronda anterior: el camino se construye limpiamente hasta la final.", "championPending": "El campeón simulado aparecerá aquí después de tus elecciones.", "championSimulated": "Campeón simulado:", "groupsArchiveTitle": "Clasificación final de los 12 grupos — archivo de la fase de grupos", "groupsArchiveTip": "<strong>Para memoria:</strong> la fase de grupos terminó. Esta tabla queda al final como archivo y contexto, mientras la actualidad de los hinchas pasa a Bélgica–Senegal y al posible camino de los Leones.", "footerLine": "¡Vamos, Leones de la Teranga!", "footerCredit": "Ofrecido por Mohamed LY y el Think Tank IPODE", "choose": "Elegir", "victory": "Victoria", "waiting": "En espera", "chooseWinner": "Elige el ganador o introduce el marcador.", "choosePrev": "Elige los ganadores de la ronda anterior para abrir este partido.", "score": "marcador", "finale": "Final", "group": "Grupo", "finished": "Terminado", "qualified": "Clasificada", "team": "Equipo", "roundNames": {"r16": "Octavos", "qf": "Cuartos", "sf": "Semifinales", "final": "Final"}}};
+// V13 — i18n core : arabe ajouté au dictionnaire legacy pour éviter tout fallback français/Sénégal.
+I18N.ar = Object.assign({}, I18N.fr, {
+  title:'QualifGaïndé Worldwide · كأس العالم 2026',
+  siteName:'<span>QualifGaïndé</span> — كأس العالم 2026',
+  siteKicker:'تجربة المشجعين حول العالم',
+  match1:'المباراة 1', match2:'المباراة 2', match3:'المباراة 3',
+  nextMatchR32:'المباراة القادمة', supporters:'شاهدوا', music:'الأجواء', musicOn:'الأجواء مفعّلة',
+  heroTitle:'كأس العالم 2026', heroSubtitle:'صفحة الفريق، النتائج، الطريق إلى النهائي',
+  scores:'النتائج', matchLive:'مباراة مباشرة', nextMatch:'المباراة القادمة', apiPaused:'متصل بالنتائج · لا توجد مباراة مباشرة', noLiveShort:'لا توجد مباراة مباشرة الآن.', nextPoster:'المواجهة القادمة', round32:'دور الـ32', liveStatus:'مباشر',
+  nextEncounter:'المباراة القادمة', kickoffIn:'بداية المباراة خلال', matchCountdown:'المباراة القادمة', matchMeta:'التوقيت المحلي حسب جهازك',
+  days:'أيام', hours:'ساعات', minutes:'دقائق', seconds:'ثوانٍ', countdownActive:'العد التنازلي مستمر.', countdownDay:'اليوم يوم المباراة.',
+  redDevils:'الشياطين الحمر', gaindes:'الأسود', lastThree:'آخر النتائج', leaders:'متصدرو البطولة', topScorers:'أفضل الهدافين', bestAttack:'أفضل هجوم', bestDefense:'أفضل دفاع', topAssist:'أفضل صانع أهداف',
+  teaserTitle:'قصة المباراة', teaserBody:'<p>تابع الصفحة المختارة لمعرفة النتائج والطريق إلى النهائي.</p>',
+  bestThirdTitle:'ترتيب أفضل أصحاب المركز الثالث — ', bestThirdLbl:'متأهلون إلى دور الـ32', thirdCols:['#','الفريق','مج','ن','فارق','له','الحالة'], thirdTip:'',
+  storyTitle:'قصة الفريق في كأس العالم', storyKicker:'الذاكرة، الطموح والطريق إلى النهائي.', storyHTML:'<p>اختر فريقك لمتابعة قصته ونتائجه.</p>',
+  r32Title:'الجدول الرسمي لدور الـ32 — نتائج نهائية', r32Help:'نتائج دور الـ32 مثبتة رسمياً.', simTitle:'حاكِ الطريق إلى النهائي', simHelp:'اختر الفائزين دوراً بعد دور. النتائج الرسمية وحدها تُثبت عند نهاية المباراة.',
+  championPending:'سيظهر البطل المتوقع هنا بعد اختياراتك.', championSimulated:'البطل المتوقع:', groupsArchiveTitle:'الأرشيف النهائي للمجموعات', groupsArchiveTip:'',
+  footerLine:'تابع البطولة مع QualifGaïndé', footerCredit:'مقدم من Mohamed LY و Think Tank IPODE',
+  choose:'اختر', victory:'فوز', waiting:'انتظار', chooseWinner:'اختر الفائز أو أدخل النتيجة.', choosePrev:'اختر الفائزين في الدور السابق لفتح هذه المباراة.', score:'النتيجة', finale:'النهائي', group:'المجموعة', finished:'انتهت', qualified:'متأهل', team:'الفريق',
+  roundNames:{r16:'ثمن النهائي', qf:'ربع النهائي', sf:'نصف النهائي', final:'النهائي'}
+});
+function normalizeQGLang(lang){
+  const low = String(lang || '').toLowerCase();
+  if(low.startsWith('ar')) return 'ar';
+  if(low.startsWith('pt')) return 'pt';
+  if(low.startsWith('es')) return 'es';
+  if(low.startsWith('en')) return 'en';
+  if(low.startsWith('fr')) return 'fr';
+  return 'fr';
+}
+function requestedLangFromUrl(){
+  try { const q = new URLSearchParams(location.search).get('lang'); return q ? normalizeQGLang(q) : null; } catch(e) { return null; }
+}
 function detectLegacyBrowserLang(){
   const nav = (navigator.languages && navigator.languages[0]) || navigator.language || 'fr';
-  const low = String(nav).toLowerCase();
-  if (low.startsWith('pt')) return 'pt';
-  if (low.startsWith('es')) return 'es';
-  if (low.startsWith('en')) return 'en';
-  return 'fr';
+  return normalizeQGLang(nav);
 }
 const savedLang = localStorage.getItem('siteLang');
 const savedLangSource = localStorage.getItem('siteLangSource');
-let currentLang = (savedLangSource === 'manual' && I18N[savedLang]) ? savedLang : detectLegacyBrowserLang();
+const requestedLang = requestedLangFromUrl();
+let currentLang = requestedLang || ((savedLangSource === 'manual' && I18N[savedLang]) ? savedLang : detectLegacyBrowserLang());
+if(requestedLang){ try{ localStorage.setItem('siteLang', requestedLang); localStorage.setItem('siteLangSource','manual'); }catch(e){} }
 function t(key){ return (I18N[currentLang] && I18N[currentLang][key]) || I18N.fr[key] || key; }
 function setHtml(sel, value){ const el=document.querySelector(sel); if(el) el.innerHTML=value; }
 function setText(sel, value){ const el=document.querySelector(sel); if(el) el.textContent=value; }
 function mascotImg(){ return '<img class="section-mascot" src="assets/lion-mascotte.png" alt="Mascotte">'; }
 function setLanguage(lang){
+  lang = normalizeQGLang(lang);
   // V11.5.4 — sur les pages équipe (?team=ghana, etc.), le legacy I18N Sénégal
   // ne doit jamais reprendre la main. On délègue au contrôleur multi-équipes.
   if (window.__QG_TEAM_LANG_BRIDGE && window.__QG_TEAM_LANG_BRIDGE.active && window.__QG_TEAM_LANG_BRIDGE.active()) {
@@ -1945,6 +1986,8 @@ function applyLanguage(){
   }
   const L = I18N[currentLang] || I18N.fr;
   document.documentElement.lang = currentLang;
+  document.documentElement.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
+  document.body.classList.toggle('qg-rtl', currentLang === 'ar');
   document.title = L.title;
   document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.toggle('active', btn.dataset.langBtn === currentLang));
   setHtml('.htitle', L.siteName); setText('.site-kicker', L.siteKicker);
@@ -2391,7 +2434,7 @@ function getOpponentForSenegalRank(snRank) {
 }
 
 function updateProbableOpponent(snRank) {
-  // V12.0.16 — ne jamais retomber sur l'ancien moteur Sénégal/R32
+  // V13.0.0 — ne jamais retomber sur l'ancien moteur Sénégal/R32
   // quand une page équipe est ouverte. On affiche l'affiche réelle du prochain match.
   const qgTeamParamForNext = (new URLSearchParams(location.search).get('team') || 'senegal').toLowerCase();
   const NEXT_MATCH_BY_TEAM = {
@@ -2756,7 +2799,7 @@ const KO_ROUNDS = [
   ]}
 ];
 
-// V12.0.16 — source unique : l'état R32 est dérivé de STATIC_R32_LOCKS.
+// V13.0.0 — source unique : l'état R32 est dérivé de STATIC_R32_LOCKS.
 // On évite de maintenir les mêmes scores à trois endroits.
 function deriveR32InitialState(locks){
   const scores = {}, picks = {}, locked = {};
@@ -4844,10 +4887,10 @@ setTimeout(()=>{
 
 </script>
 
-<!-- V12.0.16: scripts V10 externes désactivés pour éviter les retours de cache qui écrasent le rendu officiel. -->
+<!-- V13.0.0: scripts V10 externes désactivés pour éviter les retours de cache qui écrasent le rendu officiel. -->
 
 <script>
-// V12.0.16 — FINALISATION STABLE — source unique de vérité.
+// V13.0.0 — FINALISATION STABLE — source unique de vérité.
 // R32_LOCKS_BOOT supprimé : les 16es viennent uniquement de STATIC_R32_LOCKS.
 // Les re-renders en cascade sont supprimés : un seul filet de sécurité à 300 ms après load.
 (function(){
@@ -4890,7 +4933,7 @@ setTimeout(()=>{
       if (typeof renderRound32Grid === 'function') renderRound32Grid();
       if (typeof renderKnockoutTree === 'function') renderKnockoutTree();
       if (typeof buildTicker === 'function') buildTicker();
-    } catch(e) { console.warn('[QG V12.0.16] official score finalizer skipped', e); }
+    } catch(e) { console.warn('[QG V13.0.0] official score finalizer skipped', e); }
   }
   function normalizeNextMatchCard(){
     const card = document.getElementById('probable-opponent');
@@ -4934,7 +4977,7 @@ setTimeout(()=>{
     updateSupporters();
     cleanVisibleTechnicalLabels();
   }
-  window.QG_V12_0_15_STABLE = { run, applyOfficialScores, normalizeNextMatchCard, updateSupporters };
+  window.QG_V13_0_15_STABLE = { run, applyOfficialScores, normalizeNextMatchCard, updateSupporters };
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', run, {once:true});
   else run();
   window.addEventListener('load', function(){ setTimeout(run, 300); }, {once:true});
@@ -4942,8 +4985,8 @@ setTimeout(()=>{
 </script>
 
 
-<script id="qg-v1216-stable-team-adapter">
-// V12.0.16 — adaptateur stable multi-équipe.
+<script id="qg-v1300-stable-team-adapter">
+// V13.0.0 — adaptateur stable multi-équipe.
 // Objectif : conserver les pages équipe construites (France, Maroc, Sénégal, Belgique,
 // Brésil, Espagne, Égypte, Algérie, etc.) sans dépendre d'un script externe V10.
 (function(){
@@ -5033,11 +5076,11 @@ setTimeout(()=>{
     es:{nextMatch:'Próximo partido',end:'Fin del recorrido',thank:'Gracias por el recorrido',world:(t)=>`${t.flag||''} ${t.teamName||''} en la Copa Mundial 2026`.trim(), last:'Últimos resultados', noTimer:'Recorrido terminado', supporters:'seguidores lo vieron'},
     ar:{nextMatch:'المباراة القادمة',end:'نهاية المشوار',thank:'شكراً على المشوار',world:(t)=>`${t.flag||''} ${t.teamName||''} في كأس العالم 2026`.trim(), last:'آخر النتائج', noTimer:'انتهى المشوار', supporters:'شاهدوا'}
   };
-  function activeLang(){ try { return (typeof currentLang !== 'undefined' && currentLang) || localStorage.getItem('siteLang') || 'fr'; } catch(e){ return 'fr'; } }
+  function activeLang(){ try { const q = (typeof requestedLangFromUrl === 'function') ? requestedLangFromUrl() : null; return (typeof normalizeQGLang === 'function') ? normalizeQGLang(q || (typeof currentLang !== 'undefined' && currentLang) || localStorage.getItem('siteLang') || 'fr') : (q || currentLang || 'fr'); } catch(e){ return 'fr'; } }
   function ui(){ return UI_LABELS[activeLang()] || UI_LABELS.fr; }
-  function syncLangButtons(){ const lang=activeLang(); document.documentElement.lang=lang; document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.toggle('active', btn.dataset.langBtn === lang)); }
+  function syncLangButtons(){ const lang=activeLang(); document.documentElement.lang=lang; document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr'; document.body.classList.toggle('qg-rtl', lang === 'ar'); document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.toggle('active', btn.dataset.langBtn === lang)); }
 
-  function safeFetchJSON(url){ return fetch(url + (url.includes('?') ? '&' : '?') + 'v=' + encodeURIComponent(window.BUILD_VERSION || '12.0.16'), {cache:'no-store'}).then(r => r.ok ? r.json() : null).catch(() => null); }
+  function safeFetchJSON(url){ return fetch(url + (url.includes('?') ? '&' : '?') + 'v=' + encodeURIComponent(window.BUILD_VERSION || '13.0.0'), {cache:'no-store'}).then(r => r.ok ? r.json() : null).catch(() => null); }
   function resultClass(r){ return r === 'V' ? 'win' : (r === 'D' ? 'loss' : 'neu'); }
   function keyToName(key){ return String(key || '').replace(/_/g,' ').replace(/\b\w/g, m => m.toUpperCase()); }
   function teamRecord(key, teams, opponents){ return (teams && teams[key]) || (opponents && opponents[key]) || FALLBACK_TEAMS[key] || {teamName:keyToName(key), flag:'🏳️'}; }
@@ -5053,22 +5096,29 @@ setTimeout(()=>{
     return match.label || match.title || '';
   }
   function formatDateTime(match){
-    if(!match || !match.dateParis) return 'Horaire à confirmer';
+    const lang = activeLang();
+    const unknown = {fr:'Horaire à confirmer',en:'Time to be confirmed',pt:'Horário a confirmar',es:'Horario por confirmar',ar:'توقيت المباراة سيُؤكَّد'}[lang] || 'Horaire à confirmer';
+    if(!match || !match.dateParis) return unknown;
     try{
       const d = new Date(match.dateParis);
-      const day = d.toLocaleDateString('fr-FR', {weekday:'short', day:'numeric', month:'short'}).replace('.', '');
-      const hour = d.toLocaleTimeString('fr-FR', {hour:'2-digit', minute:'2-digit'});
-      return `${day} · ${hour} · heure locale`;
-    }catch(e){ return 'Horaire à confirmer'; }
+      const locale = lang === 'ar' ? 'ar-EG' : lang === 'en' ? 'en-GB' : lang === 'pt' ? 'pt-PT' : lang === 'es' ? 'es-ES' : 'fr-FR';
+      const local = {fr:'heure locale',en:'local time',pt:'hora local',es:'hora local',ar:'التوقيت المحلي'}[lang] || 'heure locale';
+      const day = d.toLocaleDateString(locale, {weekday:'short', day:'numeric', month:'short'}).replace('.', '');
+      const hour = d.toLocaleTimeString(locale, {hour:'2-digit', minute:'2-digit'});
+      return `${day} · ${hour} · ${local}`;
+    }catch(e){ return unknown; }
   }
   function matchRoundLabel(round){
+    const lang = activeLang();
     const r = String(round || '').toUpperCase();
-    if(r === 'QF') return 'Quart de finale';
-    if(r === 'R16') return 'Huitième de finale';
-    if(r === 'R32') return 'Seizième de finale';
-    if(r === 'SF') return 'Demi-finale';
-    if(r === 'FINAL') return 'Finale';
-    return 'Prochain match';
+    const map = {
+      fr:{QF:'Quart de finale',R16:'Huitième de finale',R32:'Seizième de finale',SF:'Demi-finale',FINAL:'Finale',NEXT:'Prochain match'},
+      en:{QF:'Quarter-final',R16:'Round of 16',R32:'Round of 32',SF:'Semi-final',FINAL:'Final',NEXT:'Next match'},
+      pt:{QF:'Quartas de final',R16:'Oitavos de final',R32:'16 avos',SF:'Semifinal',FINAL:'Final',NEXT:'Próximo jogo'},
+      es:{QF:'Cuartos de final',R16:'Octavos de final',R32:'Dieciseisavos',SF:'Semifinal',FINAL:'Final',NEXT:'Próximo partido'},
+      ar:{QF:'ربع النهائي',R16:'ثمن النهائي',R32:'دور الـ32',SF:'نصف النهائي',FINAL:'النهائي',NEXT:'المباراة القادمة'}
+    };
+    return (map[lang] || map.fr)[r] || (map[lang] || map.fr).NEXT;
   }
   function getNextMatch(team, matches){ return team && team.nextMatchId && matches ? matches[team.nextMatchId] : null; }
   function teamStatus(team){ return String(team.status || team.tournamentStatus || '').toLowerCase(); }
@@ -5247,34 +5297,36 @@ setTimeout(()=>{
       if(typeof applyR32Locks === 'function' && typeof STATIC_R32_LOCKS !== 'undefined') applyR32Locks(STATIC_R32_LOCKS, 'v12-0-15-team-pages');
       if(typeof renderRound32Grid === 'function') renderRound32Grid();
       if(typeof renderKnockoutTree === 'function') renderKnockoutTree();
-    }catch(e){ console.warn('[QG V12.0.16] score patch skipped', e); }
+    }catch(e){ console.warn('[QG V13.0.0] score patch skipped', e); }
   }
 
   async function loadData(){
     const lang = activeLang();
     const langPath = lang && lang !== 'fr' ? `/data/${lang}` : null;
-    const [teams, next, results, stories, matches, previews, opponents, farewells, langTeams, langStories, langPreviews] = await Promise.all([
+    const [teams, next, results, stories, matches, previews, opponents, farewells, langTeams, langStories, langPreviews, langFarewells] = await Promise.all([
       safeFetchJSON('/data/teams.json'), safeFetchJSON('/data/team-next.json'), safeFetchJSON('/data/team-results.json'), safeFetchJSON('/data/stories.json'),
       safeFetchJSON('/data/matches.json'), safeFetchJSON('/data/previews.json'), safeFetchJSON('/data/opponents.json'), safeFetchJSON('/data/farewells.json'),
       langPath ? safeFetchJSON(langPath + '/teams.json') : Promise.resolve(null),
       langPath ? safeFetchJSON(langPath + '/stories.json') : Promise.resolve(null),
-      langPath ? safeFetchJSON(langPath + '/previews.json') : Promise.resolve(null)
+      langPath ? safeFetchJSON(langPath + '/previews.json') : Promise.resolve(null),
+      langPath ? safeFetchJSON(langPath + '/farewells.json') : Promise.resolve(null)
     ]);
     const mergedTeams = Object.assign({}, teams || {}, langTeams || {});
     const mergedStories = Object.assign({}, stories || {}, langStories || {});
     const mergedPreviews = Object.assign({}, previews || {}, langPreviews || {});
+    const mergedFarewells = Object.assign({}, farewells || {}, langFarewells || {});
     const team = Object.assign({}, FALLBACK_TEAMS[TEAM_KEY] || FALLBACK_TEAMS.senegal, (mergedTeams && mergedTeams[TEAM_KEY]) || {}, (next && next[TEAM_KEY]) || {});
     const teamResults = (results && results[TEAM_KEY]) || FALLBACK_RESULTS[TEAM_KEY] || [];
     const story = mergedStories && mergedStories[TEAM_KEY];
     const match = getNextMatch(team, matches || {});
-    return {teams: mergedTeams || {}, next: next || {}, results: results || {}, team, teamResults, story, matches: matches || {}, match, previews: mergedPreviews || {}, opponents: opponents || {}, farewells: farewells || {}};
+    return {teams: mergedTeams || {}, next: next || {}, results: results || {}, team, teamResults, story, matches: matches || {}, match, previews: mergedPreviews || {}, opponents: opponents || {}, farewells: mergedFarewells || {}};
   }
 
 
   window.__QG_TEAM_LANG_BRIDGE = {
     active: function(){ return HAS_TEAM; },
     set: function(lang){
-      const safe = (typeof I18N !== 'undefined' && I18N[lang]) ? lang : 'fr';
+      const safe = (typeof normalizeQGLang === 'function' ? normalizeQGLang(lang) : lang);
       try { currentLang = safe; localStorage.setItem('siteLang', safe); localStorage.setItem('siteLangSource','manual'); } catch(e) {}
       syncLangButtons();
       run();
@@ -5297,12 +5349,49 @@ setTimeout(()=>{
     patchSupporters();
     patchScores();
   }
-  window.QG_V12_0_15_TEAMFIX = {run};
+  window.QG_V13_0_15_TEAMFIX = {run};
   if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', run, {once:true}); else run();
   window.addEventListener('load', function(){ setTimeout(run, 350); }, {once:true});
 })();
 </script>
 
+
+
+<script id="qg-v13-i18n-selector">
+// V13 — traduction de la page d'entrée selon ?lang, choix manuel ou langue du device.
+(function(){
+  const COPY = {
+    fr:{brand:'QualifGaïndé Worldwide · V13', pill:'Phase finale · choisis ton équipe et suis son chemin jusqu’à la finale', kicker:'Bienvenue dans l’app mondiale', title:'Je suis supporter <span>de...</span>', lead:'Retrouve la fiche de ton équipe, ses résultats, son prochain adversaire, le tableau simulable et le parcours complet vers la finale.', qf:'Qualifiés en quart', live:'Encore en course', out:'Éliminés · respect', global:'Voir la page globale', quick:'Accès rapide France–Maroc'},
+    en:{brand:'QualifGaïndé Worldwide · V13', pill:'Knockout stage · choose your team and follow its road to the final', kicker:'Welcome to the worldwide app', title:'I support <span>...</span>', lead:'Open your team page, results, next opponent, interactive bracket and full road to the final.', qf:'Qualified for the quarter-finals', live:'Still alive', out:'Eliminated · respect', global:'Open global page', quick:'Quick access France–Morocco'},
+    pt:{brand:'QualifGaïndé Worldwide · V13', pill:'Mata-mata · escolha sua equipe e acompanhe o caminho até à final', kicker:'Bem-vindo ao app mundial', title:'Eu sou torcedor <span>de...</span>', lead:'Veja a página da sua equipe, resultados, próximo adversário, chave simulável e caminho completo até à final.', qf:'Classificados para as quartas', live:'Ainda na disputa', out:'Eliminados · respeito', global:'Ver página global', quick:'Acesso rápido França–Marrocos'},
+    es:{brand:'QualifGaïndé Worldwide · V13', pill:'Fase final · elige tu equipo y sigue su camino hasta la final', kicker:'Bienvenido a la app mundial', title:'Soy hincha <span>de...</span>', lead:'Consulta la ficha de tu equipo, sus resultados, próximo rival, cuadro simulable y camino completo hasta la final.', qf:'Clasificados a cuartos', live:'Siguen en carrera', out:'Eliminados · respeto', global:'Ver página global', quick:'Acceso rápido Francia–Marruecos'},
+    ar:{brand:'QualifGaïndé Worldwide · V13', pill:'الأدوار الإقصائية · اختر فريقك وتابع طريقه إلى النهائي', kicker:'مرحباً بك في التطبيق العالمي', title:'أنا أشجع <span>...</span>', lead:'تابع صفحة فريقك، نتائجه، خصمه القادم، الجدول التفاعلي والطريق الكامل إلى النهائي.', qf:'المتأهلون إلى ربع النهائي', live:'ما زالوا في السباق', out:'خرجوا · بكل احترام', global:'الصفحة العامة', quick:'فرنسا–المغرب'}
+  };
+  const TEAM_LINES = {
+    fr:{morocco:'Qualifié en quart · prochain défi : France',france:'Qualifiée en quart · prochain défi : Maroc',norway:'Qualifiée en quart · attend Angleterre',spain:'Qualifiée · Portugal en huitième',egypt:'Qualifiée · Argentine ensuite',belgium:'Qualifiée en 8e · États-Unis',brazil:'Éliminé en huitième · Neymar a marqué pour son dernier Mondial',senegal:'Éliminé en 16e · respect aux Lions',algeria:'Éliminée · respect aux Fennecs'},
+    en:{morocco:'Quarter-finalist · next: France',france:'Quarter-finalist · next: Morocco',norway:'Quarter-finalist · next: England',spain:'Round of 16 · Portugal next',egypt:'Round of 16 · Argentina next',belgium:'Round of 16 · United States next',brazil:'Eliminated in the Round of 16 · Neymar scored in his last World Cup',senegal:'Eliminated in the Round of 32 · respect to the Lions',algeria:'Eliminated · respect to the Fennecs'},
+    pt:{morocco:'Quartas · próximo desafio: França',france:'Quartas · próximo desafio: Marrocos',norway:'Quartas · espera a Inglaterra',spain:'Oitavos · Portugal pela frente',egypt:'Oitavos · Argentina pela frente',belgium:'Oitavos · Estados Unidos pela frente',brazil:'Eliminado nos oitavos · Neymar marcou em sua última Copa',senegal:'Eliminado nos 16 avos · respeito aos Leões',algeria:'Eliminada · respeito aos Fennecs'},
+    es:{morocco:'Cuartos · próximo reto: Francia',france:'Cuartos · próximo reto: Marruecos',norway:'Cuartos · espera a Inglaterra',spain:'Octavos · Portugal por delante',egypt:'Octavos · Argentina por delante',belgium:'Octavos · Estados Unidos por delante',brazil:'Eliminado en octavos · Neymar marcó en su último Mundial',senegal:'Eliminado en dieciseisavos · respeto a los Leones',algeria:'Eliminada · respeto a los Fennecs'},
+    ar:{morocco:'ربع النهائي · التحدي القادم: فرنسا',france:'ربع النهائي · التحدي القادم: المغرب',norway:'ربع النهائي · تنتظر إنجلترا',spain:'ثمن النهائي · البرتغال قادمة',egypt:'ثمن النهائي · الأرجنتين قادمة',belgium:'ثمن النهائي · الولايات المتحدة قادمة',brazil:'خرج في ثمن النهائي · نيمار سجّل في كأسه الأخيرة',senegal:'خرج من دور الـ32 · احترام للأسود',algeria:'خرجت · احتراماً لمحاربي الصحراء'}
+  };
+  function lang(){ try{ return (typeof normalizeQGLang==='function') ? normalizeQGLang(requestedLangFromUrl() || currentLang || localStorage.getItem('siteLang') || navigator.language || 'fr') : 'fr'; }catch(e){return 'fr';} }
+  function apply(){
+    if(!document.documentElement.classList.contains('qg-selector-active')) return;
+    const l=lang(), c=COPY[l]||COPY.fr, lines=TEAM_LINES[l]||TEAM_LINES.fr;
+    document.documentElement.lang=l; document.documentElement.dir=l==='ar'?'rtl':'ltr'; document.body.classList.toggle('qg-rtl',l==='ar');
+    const brand=document.querySelector('.qg-entry-brand div'); if(brand) brand.textContent=c.brand;
+    const pill=document.querySelector('.qg-entry-pill'); if(pill) pill.textContent=c.pill;
+    const kicker=document.querySelector('.qg-entry-kicker'); if(kicker) kicker.textContent=c.kicker;
+    const h=document.querySelector('.qg-entry-hero h1'); if(h) h.innerHTML=c.title;
+    const p=document.querySelector('.qg-entry-hero p'); if(p) p.textContent=c.lead;
+    const titles=document.querySelectorAll('.qg-selector-title'); if(titles[0]) titles[0].textContent=c.qf; if(titles[1]) titles[1].textContent=c.live; if(titles[2]) titles[2].textContent=c.out;
+    document.querySelectorAll('.qg-team-card').forEach(a=>{ const key=(new URL(a.href, location.origin)).searchParams.get('team'); const line=a.querySelector('.qg-team-line'); if(line && lines[key]) line.textContent=lines[key]; });
+    const actions=document.querySelectorAll('.qg-entry-action'); if(actions[0]) actions[0].textContent=c.global; if(actions[1]) actions[1].textContent=c.quick;
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded', apply, {once:true}); else apply();
+  window.addEventListener('pageshow', apply);
+})();
+</script>
 
 <script>
 // V10.3 — PWA registration. Le service worker garde les scores/API en network-first.

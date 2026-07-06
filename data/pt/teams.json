@@ -2,8 +2,10 @@
   "brazil": {
     "teamName": "Brasil",
     "tagline": "O país do futebol",
-    "statusLabel": "Potência mundial · Cultura de vitória",
-    "heroPlayer": "Vinícius Júnior"
+    "statusLabel": "Eliminado nos oitavos · Noruega 2–1 Brasil",
+    "selectorLine": "Eliminado nos oitavos · Neymar marcou em sua última Copa",
+    "heroSubtitle": "Neymar marcou uma última vez, mas a Seleção se despede.",
+    "supporterName": "Seleção"
   },
   "cape_verde": {
     "teamName": "Cabo Verde",
@@ -49,5 +51,22 @@
     "tagline": "O orgulho dos Fennecs",
     "statusLabel": "Eliminada nos 16 avos",
     "selectorLine": "Eliminada · respeito aos Fennecs"
+  },
+  "morocco": {
+    "teamName": "Marrocos",
+    "statusLabel": "Quartas de final · próximo desafio: França",
+    "selectorLine": "Quartas · França pela frente",
+    "supporterName": "Leões do Atlas"
+  },
+  "egypt": {
+    "teamName": "Egito",
+    "statusLabel": "Oitavos · Argentina pela frente",
+    "selectorLine": "Oitavos · Argentina pela frente",
+    "supporterName": "Faraós"
+  },
+  "france": {
+    "teamName": "França",
+    "statusLabel": "Quartas de final · próximo desafio: Marrocos",
+    "selectorLine": "Quartas · Marrocos pela frente"
   }
 }
