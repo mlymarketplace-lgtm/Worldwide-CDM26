@@ -2,7 +2,7 @@
   "name": "QualifGaïndé Worldwide",
   "short_name": "QualifGaïndé",
   "description": "Scores, tableaux et récits supporters de la Coupe du monde 2026.",
-  "start_url": "/?source=pwa&v=1301",
+  "start_url": "/?source=pwa&v=1302",
   "scope": "/",
   "display": "standalone",
   "orientation": "portrait",

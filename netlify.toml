@@ -64,7 +64,7 @@
     Cache-Control = "no-store, no-cache, must-revalidate, proxy-revalidate"
 
 
-# V13.0.1 URL compatibility redirects — anciens liens partagés
+# V13.0.2 URL compatibility redirects — anciens liens partagés
 # Les liens directs /bresil, /algerie, /team/france, etc. ne doivent jamais tomber en 404.
 [[redirects]]
   from = "/bresil"
@@ -215,12 +215,12 @@
 
 [[redirects]]
   from = "/angleterre"
-  to = "/?team=england&lang=en&v=1301"
+  to = "/?team=england&lang=en&v=1302"
   status = 302
   force = true
 [[redirects]]
   from = "/england"
-  to = "/?team=england&lang=en&v=1301"
+  to = "/?team=england&lang=en&v=1302"
   status = 302
   force = true
 

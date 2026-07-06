@@ -33,7 +33,13 @@
     "tagline": "Haaland’s cold power",
     "supporterName": "Norwegian Lions",
     "roundLabel": "quarter-final",
-    "heroSubtitle": "Norway knocked out Brazil and now meets England in a huge quarter-final."
+    "heroSubtitle": "Norway knocked out Brazil and now meets England in Miami.",
+    "flag": "🇳🇴",
+    "heroImg": "assets/teams/norway/player.webp",
+    "playerImg": "assets/teams/norway/player.webp",
+    "bannerImg": "assets/teams/norway/banner.webp",
+    "nextMatchId": "qf-99",
+    "nextOpponent": "england"
   },
   "spain": {
     "teamName": "Spain",
@@ -75,8 +81,14 @@
     "statusLabel": "Qualified for the quarter-finals · next challenge: Norway",
     "selectorLine": "Quarter-finalist · next: Norway",
     "tagline": "The Three Lions keep marching",
-    "heroSubtitle": "England beat Mexico 3–2 and now faces Norway in the quarter-finals.",
+    "heroSubtitle": "England beat Mexico 3–2 and now faces Norway in Miami.",
     "supporterName": "Three Lions",
-    "roundLabel": "quarter-final"
+    "roundLabel": "quarter-final",
+    "flag": "🏴",
+    "heroImg": "assets/teams/england/player.webp",
+    "playerImg": "assets/teams/england/player.webp",
+    "bannerImg": "assets/teams/england/banner.webp",
+    "nextMatchId": "qf-99",
+    "nextOpponent": "norway"
   }
 }

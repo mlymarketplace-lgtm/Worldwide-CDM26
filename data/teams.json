@@ -292,7 +292,7 @@
     "heroPlayer": "Erling Haaland",
     "nextMatchId": "qf-99",
     "defaultLang": "en",
-    "tagline": "La puissance froide de Haaland",
+    "tagline": "Haaland, verticalité et sang-froid nordique",
     "statusLabel": "Qualifiée en quart de finale · prochain défi : Angleterre",
     "supporterName": "Lions norvégiens",
     "selectorLine": "Qualifiée en quart · prochain défi : Angleterre",
@@ -302,7 +302,8 @@
     "round": "QF",
     "qualifiedRound": "QF",
     "stageGroup": "qualified_qf",
-    "nextOpponent": "england"
+    "nextOpponent": "england",
+    "playerImg": "assets/teams/norway/player.webp"
   },
   "england": {
     "teamName": "Angleterre",
@@ -315,7 +316,7 @@
     "heroPlayer": "Jude Bellingham",
     "nextMatchId": "qf-99",
     "defaultLang": "en",
-    "tagline": "Les Three Lions avancent avec autorité",
+    "tagline": "Bellingham, Kane et le rêve du “coming home”",
     "statusLabel": "Qualifiée en quart de finale · prochain défi : Norvège",
     "supporterName": "Three Lions",
     "selectorLine": "Qualifiée en quart · prochain défi : Norvège",
@@ -325,6 +326,7 @@
     "round": "QF",
     "qualifiedRound": "QF",
     "stageGroup": "qualified_qf",
-    "nextOpponent": "norway"
+    "nextOpponent": "norway",
+    "playerImg": "assets/teams/england/player.webp"
   }
 }

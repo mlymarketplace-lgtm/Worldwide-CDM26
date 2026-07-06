@@ -13,7 +13,9 @@
     "nickname": "Lions norvégiens",
     "supporterName": "Lions norvégiens",
     "heroPlayer": "Erling Haaland",
-    "playerImg": "assets/teams/norway/player.webp"
+    "playerImg": "assets/teams/norway/player.webp",
+    "heroImg": "assets/teams/norway/player.webp",
+    "bannerImg": "assets/teams/norway/banner.webp"
   },
   "japan": {
     "teamName": "Japon",
@@ -29,7 +31,9 @@
     "nickname": "Three Lions",
     "supporterName": "Three Lions",
     "heroPlayer": "Jude Bellingham",
-    "playerImg": "assets/teams/england/player.webp"
+    "playerImg": "assets/teams/england/player.webp",
+    "heroImg": "assets/teams/england/player.webp",
+    "bannerImg": "assets/teams/england/banner.webp"
   },
   "netherlands": {
     "teamName": "Pays-Bas",

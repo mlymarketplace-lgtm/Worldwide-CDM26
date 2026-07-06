@@ -1,0 +1,9 @@
+QualifGaïndé V13.0.2 — Haaland/Bellingham photos + Norway–England polish
+
+- Fixed localized team data merge so English language no longer drops heroImg/playerImg paths.
+- Fixed player side cards to display Haaland/Bellingham photos instead of Senegal fallback icon.
+- Player-side form lists now show last 4 matches instead of last 3.
+- Enriched Norway and England stories with tactical/football angles.
+- Enriched Norway–England preview with Miami quarter-final context, Bellingham brace, Kane penalty, Quansah red card, Haaland double and Nyland heroics.
+- QF N99 remains Norway–England and uses Miami/July 12 wording.
+- Build/cache bumped to 13.0.2.
