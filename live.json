@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-06T11:30:00+02:00",
+  "updatedAt": "2026-07-06T21:45:00+02:00",
   "matches": {
     "uru-esp": {
       "home": 0,
@@ -301,6 +301,12 @@
       "h": "MEX",
       "a": "ENG",
       "round": "r16"
+    },
+    "por-spain": {
+      "home": 0,
+      "away": 1,
+      "status": "final",
+      "winner": "away"
     }
   },
   "_note": "V12 — Maroc qualifié en quart, labels propres et simulateur placé avant le tableau officiel des 16es."

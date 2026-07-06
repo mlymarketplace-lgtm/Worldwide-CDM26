@@ -1,0 +1,10 @@
+QualifGaïndé V13.0.4 — Espagne en quart / labels QF
+
+- Portugal 0–1 Espagne figé officiellement en huitième N93.
+- Espagne propagée en quart N98.
+- Home page : Espagne déplacée dans le groupe des qualifiés en quart.
+- Étiquettes Espagne mises à jour : qualifiée en quart, attend États-Unis ou Belgique.
+- Page Espagne : prochain match qf-98.
+- qf-98 : Espagne vs Vainqueur États-Unis–Belgique.
+- Traductions EN/ES/PT/AR des labels Espagne mises à jour.
+- Version/cache bumpés en 13.0.4.

@@ -40,13 +40,17 @@
   },
   "spain": {
     "status": "qualified",
-    "round": "R16",
-    "nextMatchId": "por-spain",
-    "statusLabel": "Qualifiée en huitième · Espagne 3–0 Autriche",
-    "selectorLine": "Qualifiée · Portugal en huitième",
-    "roundLabel": "Qualifiée en huitième de finale",
-    "heroSubtitle": "La Roja a maîtrisé l’Autriche : place au derby ibérique.",
-    "pendingNext": null
+    "round": "QF",
+    "currentRound": "QF",
+    "qualifiedRound": "QF",
+    "stageGroup": "qualified_qf",
+    "nextMatchId": "qf-98",
+    "nextOpponent": "winner_usa_belgium",
+    "selectorLine": "Qualifiée en quart · attend États-Unis ou Belgique",
+    "statusLabel": "Qualifiée en quart de finale · attend le vainqueur États-Unis–Belgique",
+    "roundLabel": "quart de finale",
+    "quarterfinalLine": "Quart de finale · Espagne–Vainqueur États-Unis–Belgique",
+    "heroSubtitle": "L’Espagne a battu le Portugal 1–0 et file en quart. Elle attend désormais le vainqueur de États-Unis–Belgique."
   },
   "egypt": {
     "status": "qualified",

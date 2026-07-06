@@ -328,12 +328,17 @@
     "dateUTC": "2026-07-06T19:00:00Z",
     "stadium": "Dallas · Arlington Stadium",
     "channel_fr": "beIN Sports 1",
-    "note": "Derby ibérique, voisins et futurs co-organisateurs du Mondial 2030.",
+    "note": "La Roja s’impose 1–0 dans le derby ibérique et rejoint les quarts.",
     "label_fr": "Portugal–Espagne",
     "label_en": "Portugal–Spain",
     "label_es": "Portugal–España",
     "label_pt": "Portugal–Espanha",
-    "label_ar": "البرتغال–إسبانيا"
+    "label_ar": "البرتغال–إسبانيا",
+    "status": "final",
+    "score": "0–1",
+    "winner": "spain",
+    "winnerSide": 1,
+    "finalLabel": "Portugal 0–1 Espagne"
   },
   "argcpv-egypt": {
     "home": "argentina",
@@ -421,19 +426,20 @@
     "awayDisplay": "Maroc"
   },
   "qf-98": {
-    "home": "winner_n93",
+    "home": "spain",
     "away": "winner_n94",
-    "label": "Vainqueur Portugal–Espagne / Vainqueur États-Unis–Belgique",
+    "label": "Espagne / Vainqueur États-Unis–Belgique",
     "round": "QF",
     "dateParis": "2026-07-10T21:00:00+02:00",
     "dateUTC": "2026-07-10T19:00:00Z",
     "stadium": "À confirmer",
     "channel_fr": "beIN Sports 1",
     "dynamic": true,
-    "homeLabel": "Vainqueur Portugal–Espagne",
-    "homeDisplay": "Vainqueur Portugal–Espagne",
+    "homeLabel": "Espagne",
+    "homeDisplay": "Espagne",
     "awayLabel": "Vainqueur États-Unis–Belgique",
-    "awayDisplay": "Vainqueur États-Unis–Belgique"
+    "awayDisplay": "Vainqueur États-Unis–Belgique",
+    "note": "L’Espagne attend le vainqueur du huitième États-Unis–Belgique."
   },
   "qf-99": {
     "home": "norway",

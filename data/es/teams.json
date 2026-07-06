@@ -34,10 +34,11 @@
   },
   "spain": {
     "teamName": "España",
-    "statusLabel": "Clasificada a octavos · Portugal por delante",
-    "selectorLine": "Clasificada · Portugal por delante",
-    "tagline": "La Roja",
-    "supporterName": "La Roja"
+    "statusLabel": "Clasificada a cuartos de final · espera a Estados Unidos o Bélgica",
+    "selectorLine": "Clasificada a cuartos · espera a Estados Unidos o Bélgica",
+    "tagline": "La Roja, control y sangre fría",
+    "supporterName": "La Roja",
+    "heroSubtitle": "España derrotó a Portugal 1–0 y avanza a cuartos. Próximo rival: Estados Unidos o Bélgica."
   },
   "egypt": {
     "teamName": "Egipto",

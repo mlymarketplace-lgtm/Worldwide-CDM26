@@ -1,0 +1,9 @@
+QualifGaïndé V13.0.4 — automatic team state engine
+
+- Ajout d'un moteur computedTeamState côté front.
+- La home page n'est plus statiquement dépendante des groupes écrits en dur : elle est reconstruite depuis les résultats finalisés.
+- Les statuts courts équipe sont calculés automatiquement :
+  final -> score verrouillé -> vainqueur propagé -> perdant éliminé -> labels/home recalculés.
+- Les données éditoriales restent dans teams/stories/previews/farewells.
+- Fallback conservé : si un cas n'est pas couvert par le moteur, les données existantes restent affichables.
+- Base incluse : V13.0.3 Espagne en quart, V13.0.2 Norvège–Angleterre, V13 i18n core.

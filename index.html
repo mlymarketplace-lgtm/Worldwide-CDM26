@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>QualifGaïndé Worldwide · V13.0.2 i18n core</title>
+<title>QualifGaïndé Worldwide · V13.0.4 automatic team state</title>
 <meta name="application-name" content="Suivez la CDM 2026">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -21,9 +21,9 @@
 // BUILD_VERSION — version stable de build, à bumper à chaque déploiement.
 // Remplace les cache-busters dynamiques (Date.now()) sur les ressources stables
 // afin que le navigateur puisse effectivement les mettre en cache entre deux visites.
-const BUILD_VERSION = '13.0.2';
+const BUILD_VERSION = '13.0.4';
 (function(){
-  // V13.0.2 — compatibilité des anciens liens directs.
+  // V13.0.4 — compatibilité des anciens liens directs.
   // Les anciennes URLs partagées du type /bresil, /brésil, /algerie,
   // /team/brazil, /teams/morocco, etc. sont normalisées vers la route stable
   // /?team=<slug>. On conserve les liens existants au lieu de provoquer une 404.
@@ -61,7 +61,7 @@ const BUILD_VERSION = '13.0.2';
     if(!team && parts.length >= 2 && /^(team|teams|equipe|equipes|pays)$/i.test(parts[parts.length-2])) team = aliases[slug];
     if(team){
       params.set('team', team);
-      if(!params.has('v')) params.set('v','1302');
+      if(!params.has('v')) params.set('v','1304');
       window.location.replace(window.location.origin + '/' + '?' + params.toString());
     }
   }catch(e){}
@@ -75,7 +75,7 @@ const BUILD_VERSION = '13.0.2';
   if(selectorActive) document.documentElement.classList.add('qg-selector-active');
   if(v10Active) {
     document.documentElement.classList.add('v10-booting');
-    // V13.0.2 safety: ne jamais laisser l'écran noir si le script V10 externe tarde/échoue.
+    // V13.0.4 safety: ne jamais laisser l'écran noir si le script V10 externe tarde/échoue.
     // Exception volontaire : sur la page d'entrée, on garde le boot mode pour masquer la home legacy.
     setTimeout(function(){ if(!window.QUALIFGAINDE_SELECTOR_ACTIVE) document.documentElement.classList.remove('v10-booting'); }, 1800);
   }
@@ -179,7 +179,7 @@ html.v10-booting #v10-team-selector, html.v10-booting .v10-selector{visibility:v
 
 
 
-/* V13.0.2 — page d'entrée restaurée : “Je suis supporter de…” */
+/* V13.0.4 — page d'entrée restaurée : “Je suis supporter de…” */
 html.qg-selector-active body{background:#050505;min-height:100vh;overflow:auto;}
 html.qg-selector-active body > :not(#v10-team-selector):not(script):not(style){display:none !important;}
 #v10-team-selector{display:none;visibility:hidden;}
@@ -1315,10 +1315,10 @@ header{display:flex;align-items:center;justify-content:space-between;padding:12p
 <meta name="apple-mobile-web-app-title" content="Suivez la CDM 2026">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <link rel="apple-touch-icon" href="/assets/icons/icon-192.png">
-<link rel="stylesheet" href="src/v10/v10-team-app.css?v=13.0.2">
+<link rel="stylesheet" href="src/v10/v10-team-app.css?v=13.0.4">
 
 <script>
-// V13.0.2 — purge légère des anciens caches PWA pour sortir des builds bloquants.
+// V13.0.4 — purge légère des anciens caches PWA pour sortir des builds bloquants.
 (function(){
   window.addEventListener('load', function(){
     try {
@@ -1331,7 +1331,7 @@ header{display:flex;align-items:center;justify-content:space-between;padding:12p
 </script>
 
 <style id="qg-v1301-teamfix-style">
-/* V13.0.2 — adaptateur autonome multi-équipe, sans dépendance src/v10 JS */
+/* V13.0.4 — adaptateur autonome multi-équipe, sans dépendance src/v10 JS */
 #probable-opponent .opp-label{white-space:nowrap;}
 #probable-opponent .opp-main{line-height:1.05;}
 #probable-opponent .opp-sub{white-space:normal;}
@@ -1348,7 +1348,7 @@ header{display:flex;align-items:center;justify-content:space-between;padding:12p
 
 
 <style id="qg-v1301-structural-css">
-/* V13.0.2 — home plus lisible et cartes pays structurées */
+/* V13.0.4 — home plus lisible et cartes pays structurées */
 .qg-team-card{flex-direction:column;justify-content:center;text-align:center;align-items:center;gap:10px;padding:18px 14px;min-height:132px;}
 .qg-team-copy{width:100%;display:block;}
 .qg-team-name{display:block;text-align:center;white-space:normal;overflow:visible;text-overflow:clip;font-size:1.28rem;}
@@ -1376,7 +1376,7 @@ html[dir="rtl"] .opp-sub,html[dir="rtl"] .opp-main{text-align:right;}
 
 
 <style id="qg-v1301-home-clean-css">
-/* V13.0.2 — homepage: suppression définitive du label "Pays". */
+/* V13.0.4 — homepage: suppression définitive du label "Pays". */
 .qg-team-name::before{content:none!important;display:none!important;}
 </style>
 </head>
@@ -1404,38 +1404,37 @@ html[dir="rtl"] .opp-sub,html[dir="rtl"] .opp-main{text-align:right;}
     <div class="qg-selector-group">
       <h2 class="qg-selector-title">Qualifiés en quart</h2>
       <div class="qg-team-grid">
-        <a class="qg-team-card qf" href="?team=morocco&v=1302"><span class="qg-team-flag">🇲🇦</span><span class="qg-team-copy"><span class="qg-team-name">Maroc</span><span class="qg-team-line">Qualifié en quart · prochain défi : France</span></span></a>
-        <a class="qg-team-card qf" href="?team=france&v=1302"><span class="qg-team-flag">🇫🇷</span><span class="qg-team-copy"><span class="qg-team-name">France</span><span class="qg-team-line">Qualifiée en quart · prochain défi : Maroc</span></span></a>
-        <a class="qg-team-card qf" href="?team=norway&lang=en&v=1302"><span class="qg-team-flag">🇳🇴</span><span class="qg-team-copy"><span class="qg-team-name">Norvège</span><span class="qg-team-line">Qualifiée en quart · prochain défi : Angleterre</span></span></a>
-        <a class="qg-team-card qf" href="?team=england&lang=en&v=1302"><span class="qg-team-flag">🏴</span><span class="qg-team-copy"><span class="qg-team-name">Angleterre</span><span class="qg-team-line">Qualifiée en quart · prochain défi : Norvège</span></span></a>
+        <a class="qg-team-card qf" href="?team=morocco&v=1304"><span class="qg-team-flag">🇲🇦</span><span class="qg-team-copy"><span class="qg-team-name">Maroc</span><span class="qg-team-line">Qualifié en quart · prochain défi : France</span></span></a>
+        <a class="qg-team-card qf" href="?team=france&v=1304"><span class="qg-team-flag">🇫🇷</span><span class="qg-team-copy"><span class="qg-team-name">France</span><span class="qg-team-line">Qualifiée en quart · prochain défi : Maroc</span></span></a>
+        <a class="qg-team-card qf" href="?team=norway&lang=en&v=1304"><span class="qg-team-flag">🇳🇴</span><span class="qg-team-copy"><span class="qg-team-name">Norvège</span><span class="qg-team-line">Qualifiée en quart · prochain défi : Angleterre</span></span></a>
+        <a class="qg-team-card qf" href="?team=england&lang=en&v=1304"><span class="qg-team-flag">🏴</span><span class="qg-team-copy"><span class="qg-team-name">Angleterre</span><span class="qg-team-line">Qualifiée en quart · prochain défi : Norvège</span></span></a>
       </div>
     </div>
 
     <div class="qg-selector-group">
       <h2 class="qg-selector-title">Encore en course</h2>
       <div class="qg-team-grid">
-        <a class="qg-team-card live" href="?team=spain&v=1302"><span class="qg-team-flag">🇪🇸</span><span class="qg-team-copy"><span class="qg-team-name">Espagne</span><span class="qg-team-line">Qualifiée · Portugal en huitième</span></span></a>
-        <a class="qg-team-card live" href="?team=egypt&v=1302"><span class="qg-team-flag">🇪🇬</span><span class="qg-team-copy"><span class="qg-team-name">Égypte</span><span class="qg-team-line">Qualifiée · Argentine ensuite</span></span></a>
-        <a class="qg-team-card live" href="?team=belgium&v=1302"><span class="qg-team-flag">🇧🇪</span><span class="qg-team-copy"><span class="qg-team-name">Belgique</span><span class="qg-team-line">Qualifiée en 8e · États-Unis</span></span></a>
+        <a class="qg-team-card live" href="?team=egypt&v=1304"><span class="qg-team-flag">🇪🇬</span><span class="qg-team-copy"><span class="qg-team-name">Égypte</span><span class="qg-team-line">Qualifiée · Argentine ensuite</span></span></a>
+        <a class="qg-team-card live" href="?team=belgium&v=1304"><span class="qg-team-flag">🇧🇪</span><span class="qg-team-copy"><span class="qg-team-name">Belgique</span><span class="qg-team-line">Qualifiée en 8e · États-Unis</span></span></a>
       </div>
     </div>
 
     <div class="qg-selector-group">
       <h2 class="qg-selector-title">Éliminés · respect</h2>
       <div class="qg-team-grid">
-        <a class="qg-team-card out" href="?team=brazil&v=1302"><span class="qg-team-flag">🇧🇷</span><span class="qg-team-copy"><span class="qg-team-name">Brésil</span><span class="qg-team-line">Éliminé en huitième · Neymar a marqué pour son dernier Mondial</span></span></a>
-        <a class="qg-team-card out" href="?team=senegal&v=1302"><span class="qg-team-flag">🇸🇳</span><span class="qg-team-copy"><span class="qg-team-name">Sénégal</span><span class="qg-team-line">Éliminé en 16e · respect aux Lions</span></span></a>
-        <a class="qg-team-card out" href="?team=algeria&v=1302"><span class="qg-team-flag">🇩🇿</span><span class="qg-team-copy"><span class="qg-team-name">Algérie</span><span class="qg-team-line">Éliminée · respect aux Fennecs</span></span></a>
-        <a class="qg-team-card out" href="?team=ivory_coast&v=1302"><span class="qg-team-flag">🇨🇮</span><span class="qg-team-copy"><span class="qg-team-name">Côte d’Ivoire</span><span class="qg-team-line">Éliminée · respect aux Éléphants</span></span></a>
-        <a class="qg-team-card out" href="?team=dr_congo&v=1302"><span class="qg-team-flag">🇨🇩</span><span class="qg-team-copy"><span class="qg-team-name">RD Congo</span><span class="qg-team-line">Éliminée · respect aux Léopards</span></span></a>
-        <a class="qg-team-card out" href="?team=cape_verde&v=1302"><span class="qg-team-flag">🇨🇻</span><span class="qg-team-copy"><span class="qg-team-name">Cap-Vert</span><span class="qg-team-line">Sortie héroïque face à l’Argentine</span></span></a>
-        <a class="qg-team-card out" href="?team=ghana&v=1302"><span class="qg-team-flag">🇬🇭</span><span class="qg-team-copy"><span class="qg-team-name">Ghana</span><span class="qg-team-line">Éliminé · respect aux Black Stars</span></span></a>
+        <a class="qg-team-card out" href="?team=brazil&v=1304"><span class="qg-team-flag">🇧🇷</span><span class="qg-team-copy"><span class="qg-team-name">Brésil</span><span class="qg-team-line">Éliminé en huitième · Neymar a marqué pour son dernier Mondial</span></span></a>
+        <a class="qg-team-card out" href="?team=senegal&v=1304"><span class="qg-team-flag">🇸🇳</span><span class="qg-team-copy"><span class="qg-team-name">Sénégal</span><span class="qg-team-line">Éliminé en 16e · respect aux Lions</span></span></a>
+        <a class="qg-team-card out" href="?team=algeria&v=1304"><span class="qg-team-flag">🇩🇿</span><span class="qg-team-copy"><span class="qg-team-name">Algérie</span><span class="qg-team-line">Éliminée · respect aux Fennecs</span></span></a>
+        <a class="qg-team-card out" href="?team=ivory_coast&v=1304"><span class="qg-team-flag">🇨🇮</span><span class="qg-team-copy"><span class="qg-team-name">Côte d’Ivoire</span><span class="qg-team-line">Éliminée · respect aux Éléphants</span></span></a>
+        <a class="qg-team-card out" href="?team=dr_congo&v=1304"><span class="qg-team-flag">🇨🇩</span><span class="qg-team-copy"><span class="qg-team-name">RD Congo</span><span class="qg-team-line">Éliminée · respect aux Léopards</span></span></a>
+        <a class="qg-team-card out" href="?team=cape_verde&v=1304"><span class="qg-team-flag">🇨🇻</span><span class="qg-team-copy"><span class="qg-team-name">Cap-Vert</span><span class="qg-team-line">Sortie héroïque face à l’Argentine</span></span></a>
+        <a class="qg-team-card out" href="?team=ghana&v=1304"><span class="qg-team-flag">🇬🇭</span><span class="qg-team-copy"><span class="qg-team-name">Ghana</span><span class="qg-team-line">Éliminé · respect aux Black Stars</span></span></a>
       </div>
     </div>
 
     <div class="qg-entry-actions">
-      <a class="qg-entry-action" href="?mode=global&v=1302">Voir la page globale</a>
-      <a class="qg-entry-action" href="?team=france&v=1302">Accès rapide France–Maroc</a>
+      <a class="qg-entry-action" href="?mode=global&v=1304">Voir la page globale</a>
+      <a class="qg-entry-action" href="?team=france&v=1304">Accès rapide France–Maroc</a>
     </div>
   </div>
 </section>
@@ -2453,7 +2452,7 @@ function getOpponentForSenegalRank(snRank) {
 }
 
 function updateProbableOpponent(snRank) {
-  // V13.0.2 — ne jamais retomber sur l'ancien moteur Sénégal/R32
+  // V13.0.4 — ne jamais retomber sur l'ancien moteur Sénégal/R32
   // quand une page équipe est ouverte. On affiche l'affiche réelle du prochain match.
   const qgTeamParamForNext = (new URLSearchParams(location.search).get('team') || 'senegal').toLowerCase();
   const NEXT_MATCH_BY_TEAM = {
@@ -2818,7 +2817,7 @@ const KO_ROUNDS = [
   ]}
 ];
 
-// V13.0.2 — source unique : l'état R32 est dérivé de STATIC_R32_LOCKS.
+// V13.0.4 — source unique : l'état R32 est dérivé de STATIC_R32_LOCKS.
 // On évite de maintenir les mêmes scores à trois endroits.
 function deriveR32InitialState(locks){
   const scores = {}, picks = {}, locked = {};
@@ -4908,10 +4907,10 @@ setTimeout(()=>{
 
 </script>
 
-<!-- V13.0.2: scripts V10 externes désactivés pour éviter les retours de cache qui écrasent le rendu officiel. -->
+<!-- V13.0.4: scripts V10 externes désactivés pour éviter les retours de cache qui écrasent le rendu officiel. -->
 
 <script>
-// V13.0.2 — FINALISATION STABLE — source unique de vérité.
+// V13.0.4 — FINALISATION STABLE — source unique de vérité.
 // R32_LOCKS_BOOT supprimé : les 16es viennent uniquement de STATIC_R32_LOCKS.
 // Les re-renders en cascade sont supprimés : un seul filet de sécurité à 300 ms après load.
 (function(){
@@ -4919,6 +4918,7 @@ setTimeout(()=>{
     r16: {
       N89: { koId:'N89', h:'PAR', a:'FRA', home:0, away:1, status:'final', apiStatus:'FT', apiStatusLong:'Match Finished', winner:'away', winnerSide:1, locked:true, round:'r16' },
       N90: { koId:'N90', h:'CAN', a:'MAR', home:0, away:3, status:'final', apiStatus:'FT', apiStatusLong:'Match Finished', winner:'away', winnerSide:1, locked:true, round:'r16' },
+      N93: { koId:'N93', h:'POR', a:'ESP', home:0, away:1, status:'final', apiStatus:'FT', apiStatusLong:'Match Finished', winner:'away', winnerSide:1, locked:true, round:'r16' },
       N91: { koId:'N91', h:'NOR', a:'BRA', home:2, away:1, status:'final', apiStatus:'FT', apiStatusLong:'Match Finished', winner:'home', winnerSide:0, locked:true, round:'r16' },
       N92: { koId:'N92', h:'MEX', a:'ENG', home:2, away:3, status:'final', apiStatus:'FT', apiStatusLong:'Match Finished', winner:'away', winnerSide:1, locked:true, round:'r16' }
     }
@@ -4956,7 +4956,7 @@ setTimeout(()=>{
       if (typeof renderRound32Grid === 'function') renderRound32Grid();
       if (typeof renderKnockoutTree === 'function') renderKnockoutTree();
       if (typeof buildTicker === 'function') buildTicker();
-    } catch(e) { console.warn('[QG V13.0.2] official score finalizer skipped', e); }
+    } catch(e) { console.warn('[QG V13.0.4] official score finalizer skipped', e); }
   }
   function normalizeNextMatchCard(){
     const card = document.getElementById('probable-opponent');
@@ -4967,7 +4967,7 @@ setTimeout(()=>{
     const map = {
       france:{main:'🇫🇷 France–Maroc 🇲🇦', sub:'Jeu. 9 juillet · 22h00 · heure locale', key:'france-maroc'},
       morocco:{main:'🇫🇷 France–Maroc 🇲🇦', sub:'Jeu. 9 juillet · 22h00 · heure locale', key:'france-maroc'},
-      spain:{main:'🇵🇹 Portugal–Espagne 🇪🇸', sub:'Lun. 6 juillet · 21h00 · heure locale', key:'portugal-spain'},
+      spain:{main:'🇪🇸 Espagne–Vainqueur États-Unis–Belgique', sub:'Ven. 10 juillet · 21h00 · heure locale', key:'spain-qf'},
       egypt:{main:'🇦🇷 Argentine–Égypte 🇪🇬', sub:'Mar. 7 juillet · 18h00 · heure locale', key:'argentina-egypt'},
       belgium:{main:'🇺🇸 États-Unis–Belgique 🇧🇪', sub:'Mar. 7 juillet · 02h00 · heure locale', key:'usa-belgium'},
       norway:{main:'🇳🇴 Norvège–Angleterre 🏴', sub:'Dim. 12 juillet · Miami · heure locale', key:'norway-england'},
@@ -5010,7 +5010,7 @@ setTimeout(()=>{
 
 
 <script id="qg-v1301-stable-team-adapter">
-// V13.0.2 — adaptateur stable multi-équipe.
+// V13.0.4 — adaptateur stable multi-équipe.
 // Objectif : conserver les pages équipe construites (France, Maroc, Sénégal, Belgique,
 // Brésil, Espagne, Égypte, Algérie, etc.) sans dépendre d'un script externe V10.
 (function(){
@@ -5048,7 +5048,7 @@ setTimeout(()=>{
     brazil:{teamName:'Brésil',flag:'🇧🇷',supporterName:'Seleção',status:'eliminated',tournamentStatus:'eliminated',statusLabel:'Éliminé en huitième de finale · Norvège 2–1 Brésil',tagline:'O país do futebol',heroImg:'assets/teams/brazil/player.webp',bannerImg:'assets/teams/brazil/banner.webp',exitScoreLine:'🇳🇴 Norvège 2–1 Brésil 🇧🇷'},
     norway:{teamName:'Norvège',flag:'🇳🇴',supporterName:'Lions norvégiens',status:'qualified',tournamentStatus:'qualified',statusLabel:'Qualifiée en quart de finale · prochain défi : Angleterre',tagline:'La puissance froide de Haaland',heroPlayer:'Erling Haaland',heroImg:'assets/teams/norway/player.webp',bannerImg:'assets/teams/norway/banner.webp',nextMatchId:'qf-99'},
     england:{teamName:'Angleterre',flag:'🏴',supporterName:'Three Lions',status:'qualified',tournamentStatus:'qualified',statusLabel:'Qualifiée en quart de finale · prochain défi : Norvège',tagline:'Les Three Lions avancent',heroPlayer:'Jude Bellingham',heroImg:'assets/teams/england/player.webp',bannerImg:'assets/teams/england/banner.webp',nextMatchId:'qf-99'},
-    spain:{teamName:'Espagne',flag:'🇪🇸',supporterName:'La Roja',statusLabel:'Qualifiée en huitième de finale',tagline:'La Roja',heroImg:'assets/teams/spain/player.webp',bannerImg:'assets/teams/spain/banner.webp',nextMatchId:'por-spain'},
+    spain:{teamName:'Espagne',flag:'🇪🇸',supporterName:'La Roja',status:'qualified',tournamentStatus:'qualified',statusLabel:'Qualifiée en quart de finale · attend États-Unis ou Belgique',tagline:'La Roja, maîtrise et sang-froid',heroImg:'assets/teams/spain/player.webp',bannerImg:'assets/teams/spain/banner.webp',nextMatchId:'qf-98',nextOpponent:'winner_usa_belgium',currentRound:'QF',round:'QF',qualifiedRound:'QF',stageGroup:'qualified_qf'},
     egypt:{teamName:'Égypte',flag:'🇪🇬',supporterName:'Pharaons',statusLabel:'Qualifiée en huitième de finale',tagline:'Les Pharaons',heroImg:'assets/teams/egypt/player.webp',bannerImg:'assets/teams/egypt/banner.webp',nextMatchId:'argcpv-egypt'},
     algeria:{teamName:'Algérie',flag:'🇩🇿',supporterName:'Fennecs',statusLabel:'Éliminée en seizième de finale',tagline:'La fierté des Fennecs',heroImg:'assets/teams/algeria/player.webp',bannerImg:'assets/teams/algeria/banner.webp'},
     ivory_coast:{teamName:'Côte d’Ivoire',flag:'🇨🇮',supporterName:'Éléphants',statusLabel:'Éliminée en seizième de finale',tagline:'Respect aux Éléphants',heroImg:'assets/teams/ivory_coast/player.webp',bannerImg:'assets/teams/ivory_coast/banner.webp'},
@@ -5112,7 +5112,7 @@ setTimeout(()=>{
   function ui(){ return UI_LABELS[activeLang()] || UI_LABELS.fr; }
   function syncLangButtons(){ const lang=activeLang(); document.documentElement.lang=lang; document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr'; document.body.classList.toggle('qg-rtl', lang === 'ar'); document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.toggle('active', btn.dataset.langBtn === lang)); }
 
-  function safeFetchJSON(url){ return fetch(url + (url.includes('?') ? '&' : '?') + 'v=' + encodeURIComponent(window.BUILD_VERSION || '13.0.2'), {cache:'no-store'}).then(r => r.ok ? r.json() : null).catch(() => null); }
+  function safeFetchJSON(url){ return fetch(url + (url.includes('?') ? '&' : '?') + 'v=' + encodeURIComponent(window.BUILD_VERSION || '13.0.4'), {cache:'no-store'}).then(r => r.ok ? r.json() : null).catch(() => null); }
   function resultClass(r){ return r === 'V' ? 'win' : (r === 'D' ? 'loss' : 'neu'); }
   function keyToName(key){ return String(key || '').replace(/_/g,' ').replace(/\b\w/g, m => m.toUpperCase()); }
   function teamRecord(key, teams, opponents){ return Object.assign({teamName:keyToName(key), flag:'🏳️'}, FALLBACK_TEAMS[key] || {}, (opponents && opponents[key]) || {}, (teams && teams[key]) || {}); }
@@ -5333,7 +5333,7 @@ setTimeout(()=>{
       if(typeof applyR32Locks === 'function' && typeof STATIC_R32_LOCKS !== 'undefined') applyR32Locks(STATIC_R32_LOCKS, 'v12-0-15-team-pages');
       if(typeof renderRound32Grid === 'function') renderRound32Grid();
       if(typeof renderKnockoutTree === 'function') renderKnockoutTree();
-    }catch(e){ console.warn('[QG V13.0.2] score patch skipped', e); }
+    }catch(e){ console.warn('[QG V13.0.4] score patch skipped', e); }
   }
 
   async function loadData(){
@@ -5410,7 +5410,7 @@ setTimeout(()=>{
     ar:{brand:'QualifGaïndé Worldwide · V13', pill:'الأدوار الإقصائية · اختر فريقك وتابع طريقه إلى النهائي', kicker:'مرحباً بك في التطبيق العالمي', title:'أنا أشجع <span>...</span>', lead:'تابع صفحة فريقك، نتائجه، خصمه القادم، الجدول التفاعلي والطريق الكامل إلى النهائي.', qf:'المتأهلون إلى ربع النهائي', live:'ما زالوا في السباق', out:'خرجوا · بكل احترام', global:'الصفحة العامة', quick:'فرنسا–المغرب'}
   };
   const TEAM_LINES = {
-    fr:{morocco:'Qualifié en quart · prochain défi : France',france:'Qualifiée en quart · prochain défi : Maroc',norway:'Qualifiée en quart · prochain défi : Angleterre',england:'Qualifiée en quart · prochain défi : Norvège',spain:'Qualifiée · Portugal en huitième',egypt:'Qualifiée · Argentine ensuite',belgium:'Qualifiée en 8e · États-Unis',brazil:'Éliminé en huitième · Neymar a marqué pour son dernier Mondial',senegal:'Éliminé en 16e · respect aux Lions',algeria:'Éliminée · respect aux Fennecs'},
+    fr:{morocco:'Qualifié en quart · prochain défi : France',france:'Qualifiée en quart · prochain défi : Maroc',norway:'Qualifiée en quart · prochain défi : Angleterre',england:'Qualifiée en quart · prochain défi : Norvège',spain:'Qualifiée en quart · attend États-Unis ou Belgique',egypt:'Qualifiée · Argentine ensuite',belgium:'Qualifiée en 8e · États-Unis',brazil:'Éliminé en huitième · Neymar a marqué pour son dernier Mondial',senegal:'Éliminé en 16e · respect aux Lions',algeria:'Éliminée · respect aux Fennecs'},
     en:{morocco:'Quarter-finalist · next: France',france:'Quarter-finalist · next: Morocco',norway:'Quarter-finalist · next: England',spain:'Round of 16 · Portugal next',egypt:'Round of 16 · Argentina next',belgium:'Round of 16 · United States next',brazil:'Eliminated in the Round of 16 · Neymar scored in his last World Cup',senegal:'Eliminated in the Round of 32 · respect to the Lions',algeria:'Eliminated · respect to the Fennecs'},
     pt:{morocco:'Quartas · próximo desafio: França',france:'Quartas · próximo desafio: Marrocos',norway:'Quartas · espera a Inglaterra',spain:'Oitavos · Portugal pela frente',egypt:'Oitavos · Argentina pela frente',belgium:'Oitavos · Estados Unidos pela frente',brazil:'Eliminado nos oitavos · Neymar marcou em sua última Copa',senegal:'Eliminado nos 16 avos · respeito aos Leões',algeria:'Eliminada · respeito aos Fennecs'},
     es:{morocco:'Cuartos · próximo reto: Francia',france:'Cuartos · próximo reto: Marruecos',norway:'Cuartos · espera a Inglaterra',spain:'Octavos · Portugal por delante',egypt:'Octavos · Argentina por delante',belgium:'Octavos · Estados Unidos por delante',brazil:'Eliminado en octavos · Neymar marcó en su último Mundial',senegal:'Eliminado en dieciseisavos · respeto a los Leones',algeria:'Eliminada · respeto a los Fennecs'},
@@ -5463,5 +5463,6 @@ if ('serviceWorker' in navigator) {
   document.addEventListener('click', function(e){ const a=e.target.closest && e.target.closest('a.qg-team-card'); if(a) qgTrack('team_card_click',{href:a.getAttribute('href')}); const b=e.target.closest && e.target.closest('.lang-btn'); if(b) qgTrack('lang_click',{lang:b.dataset.langBtn}); }, true);
 })();
 </script>
+<script src="assets/js/computed-team-state.js?v=13.0.4"></script>
 </body>
 </html>

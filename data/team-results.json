@@ -192,11 +192,6 @@
   ],
   "spain": [
     {
-      "label": "Espagne 0–0 Cap-Vert",
-      "note": "Contrôle sans trouver la faille",
-      "result": "N"
-    },
-    {
       "label": "Espagne 4–0 Arabie Saoudite",
       "note": "La Roja déroule",
       "result": "V"
@@ -209,6 +204,11 @@
     {
       "label": "Espagne 3–0 Autriche",
       "note": "La Roja maîtrise son seizième",
+      "result": "V"
+    },
+    {
+      "label": "Portugal 0–1 Espagne",
+      "note": "La Roja gagne le derby ibérique et file en quart",
       "result": "V"
     }
   ],

@@ -540,5 +540,19 @@
     "winnerSide": 1,
     "locked": true,
     "round": "r16"
+  },
+  "por-spain": {
+    "koId": "N93",
+    "h": "POR",
+    "a": "ESP",
+    "home": 0,
+    "away": 1,
+    "status": "final",
+    "apiStatus": "FT",
+    "apiStatusLong": "Match Finished",
+    "winner": "away",
+    "winnerSide": 1,
+    "locked": true,
+    "round": "r16"
   }
 }

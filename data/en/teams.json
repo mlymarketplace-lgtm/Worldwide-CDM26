@@ -43,10 +43,11 @@
   },
   "spain": {
     "teamName": "Spain",
-    "statusLabel": "Qualified for the Round of 16 · Portugal next",
-    "selectorLine": "Qualified · Portugal next",
-    "tagline": "La Roja, control and rhythm",
-    "supporterName": "La Roja"
+    "statusLabel": "Qualified for the quarter-finals · waiting for United States or Belgium",
+    "selectorLine": "Quarter-finalist · waiting for United States or Belgium",
+    "tagline": "La Roja, control and composure",
+    "supporterName": "La Roja",
+    "heroSubtitle": "Spain beat Portugal 1–0 and move into the quarter-finals. Next: United States or Belgium."
   },
   "egypt": {
     "teamName": "Egypt",
