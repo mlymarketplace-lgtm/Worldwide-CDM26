@@ -1,10 +1,6 @@
-QualifGaïndé Worldwide — V12.0.14
-
-Correctif Brésil–Norvège :
-- Norvège 2–1 Brésil figé officiellement en huitième N91.
-- Brésil basculé en éliminé sur la page d’entrée et dans les données équipe.
-- Norvège ajoutée comme qualifiée en quart, en attente du vainqueur Mexique–Angleterre.
-- Quart N99 mis à jour : Norvège vs Vainqueur Mexique–Angleterre.
-- Haaland passe à 7 buts et remonte devant Messi dans les stats.
-- Texte d’au revoir Brésil/Neymar/Ancelotti ajouté.
-- Cache/service worker bumpés en 12.0.14.
+V12.0.16 — Compatibilité URL
+- Aucun changement de modèle d'URL ne doit casser les liens déjà partagés.
+- Ajout de redirects Netlify pour /bresil, /algerie, /egypte, /espagne, /france, /maroc, etc.
+- Ajout d'un fallback SPA /* -> /index.html.
+- Ajout d'un bridge JS qui normalise les anciens chemins directs vers /?team=<slug>&v=1216.
+- Conservation de la V12.0.15 team-independent.
