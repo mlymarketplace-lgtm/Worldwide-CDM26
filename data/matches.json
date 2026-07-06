@@ -360,7 +360,15 @@
     "dateUTC": "2026-07-06T00:00:00Z",
     "stadium": "Houston · NRG Stadium",
     "channel_fr": "beIN Sports 1",
-    "note": "Huitième confirmé : le Mexique retrouve l’Angleterre."
+    "note": "L’Angleterre s’impose 3–2 dans un huitième intense et rejoint la Norvège en quart.",
+    "status": "final",
+    "score": "2–3",
+    "winner": "england",
+    "winnerSide": 1,
+    "label_en": "Mexico–England",
+    "label_pt": "México–Inglaterra",
+    "label_es": "México–Inglaterra",
+    "label_ar": "المكسيك–إنجلترا"
   },
   "usa-bel": {
     "home": "united_states",
@@ -429,19 +437,23 @@
   },
   "qf-99": {
     "home": "norway",
-    "away": "winner_n92",
-    "label": "Norvège / Vainqueur Mexique–Angleterre",
+    "away": "england",
+    "label": "Norvège–Angleterre",
     "round": "QF",
     "dateParis": "2026-07-11T23:00:00+02:00",
     "dateUTC": "2026-07-11T21:00:00Z",
     "stadium": "À confirmer",
     "channel_fr": "beIN Sports 1",
-    "dynamic": true,
+    "dynamic": false,
     "homeLabel": "Norvège",
     "homeDisplay": "Norvège",
-    "awayLabel": "Vainqueur Mexique–Angleterre",
-    "awayDisplay": "Vainqueur Mexique–Angleterre",
-    "note": "La Norvège attend le vainqueur de Mexique–Angleterre après avoir éliminé le Brésil."
+    "awayLabel": "Angleterre",
+    "awayDisplay": "Angleterre",
+    "note": "Quart de finale confirmé : la puissance de Haaland face aux Three Lions de Bellingham et Kane.",
+    "label_en": "Norway–England",
+    "label_pt": "Noruega–Inglaterra",
+    "label_es": "Noruega–Inglaterra",
+    "label_ar": "النرويج–إنجلترا"
   },
   "qf-100": {
     "home": "winner_n95",

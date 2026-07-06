@@ -28,11 +28,12 @@
   },
   "norway": {
     "teamName": "Norway",
-    "statusLabel": "Qualified for the quarter-finals · next: England",
+    "statusLabel": "Qualified for the quarter-finals · next challenge: England",
     "selectorLine": "Quarter-finalist · next: England",
     "tagline": "Haaland’s cold power",
     "supporterName": "Norwegian Lions",
-    "roundLabel": "quarter-final"
+    "roundLabel": "quarter-final",
+    "heroSubtitle": "Norway knocked out Brazil and now meets England in a huge quarter-final."
   },
   "spain": {
     "teamName": "Spain",
@@ -68,5 +69,14 @@
     "selectorLine": "Eliminated · respect to the Fennecs",
     "tagline": "Fennecs pride",
     "supporterName": "Fennecs"
+  },
+  "england": {
+    "teamName": "England",
+    "statusLabel": "Qualified for the quarter-finals · next challenge: Norway",
+    "selectorLine": "Quarter-finalist · next: Norway",
+    "tagline": "The Three Lions keep marching",
+    "heroSubtitle": "England beat Mexico 3–2 and now faces Norway in the quarter-finals.",
+    "supporterName": "Three Lions",
+    "roundLabel": "quarter-final"
   }
 }

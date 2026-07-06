@@ -145,9 +145,25 @@
     "qualifiedRound": "QF",
     "stageGroup": "qualified_qf",
     "nextMatchId": "qf-99",
-    "nextOpponent": "winner_mex_eng",
-    "selectorLine": "Qualifiée en quart · attend Mexique ou Angleterre",
-    "statusLabel": "Qualifiée en quart de finale · attend le vainqueur de Mexique–Angleterre",
-    "roundLabel": "quart de finale"
+    "nextOpponent": "england",
+    "selectorLine": "Qualifiée en quart · prochain défi : Angleterre",
+    "statusLabel": "Qualifiée en quart de finale · prochain défi : Angleterre",
+    "roundLabel": "quart de finale",
+    "quarterfinalLine": "Quart de finale · Norvège–Angleterre",
+    "heroSubtitle": "La Norvège a fait tomber le Brésil grâce à Haaland. Le prochain obstacle s’appelle Angleterre."
+  },
+  "england": {
+    "status": "qualified",
+    "round": "QF",
+    "currentRound": "QF",
+    "qualifiedRound": "QF",
+    "stageGroup": "qualified_qf",
+    "nextMatchId": "qf-99",
+    "nextOpponent": "norway",
+    "selectorLine": "Qualifiée en quart · prochain défi : Norvège",
+    "statusLabel": "Qualifiée en quart de finale · prochain défi : Norvège",
+    "roundLabel": "quart de finale",
+    "quarterfinalLine": "Quart de finale · Norvège–Angleterre",
+    "heroSubtitle": "Les Three Lions ont renversé le Mexique 3–2 et retrouvent la Norvège pour un quart de finale explosif."
   }
 }

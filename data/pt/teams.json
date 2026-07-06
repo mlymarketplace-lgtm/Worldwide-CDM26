@@ -68,5 +68,15 @@
     "teamName": "França",
     "statusLabel": "Quartas de final · próximo desafio: Marrocos",
     "selectorLine": "Quartas · Marrocos pela frente"
+  },
+  "norway": {
+    "teamName": "Noruega",
+    "selectorLine": "Nas quartas · próximo desafio: Inglaterra",
+    "statusLabel": "Classificada para as quartas · próximo desafio: Inglaterra"
+  },
+  "england": {
+    "teamName": "Inglaterra",
+    "selectorLine": "Nas quartas · próximo desafio: Noruega",
+    "statusLabel": "Classificada para as quartas · próximo desafio: Noruega"
   }
 }

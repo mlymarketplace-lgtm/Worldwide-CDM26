@@ -295,13 +295,30 @@
       "result": "D"
     },
     {
-      "label": "Côte d’Ivoire 1–2 Norvège",
-      "note": "Haaland marque, la Norvège avance",
+      "label": "Norvège 2–1 Brésil",
+      "note": "Doublé de Haaland, quart validé",
+      "result": "V"
+    }
+  ],
+  "england": [
+    {
+      "label": "Angleterre 4–2 Croatie",
+      "note": "Entrée spectaculaire",
       "result": "V"
     },
     {
-      "label": "Norvège 2–1 Brésil",
-      "note": "Doublé de Haaland, quart validé",
+      "label": "Angleterre 0–0 Ghana",
+      "note": "Match fermé mais maîtrise défensive",
+      "result": "N"
+    },
+    {
+      "label": "Panama 0–2 Angleterre",
+      "note": "Qualification assumée",
+      "result": "V"
+    },
+    {
+      "label": "Mexique 2–3 Angleterre",
+      "note": "Les Three Lions survivent au volcan mexicain",
       "result": "V"
     }
   ]

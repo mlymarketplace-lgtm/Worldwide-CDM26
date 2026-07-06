@@ -204,18 +204,35 @@
     ]
   },
   "norway": {
-    "title": "Norvège, la force froide et le rêve immense",
-    "kicker": "Haaland porte la Norvège vers un quart historique.",
+    "title": "Norvège, la vague froide qui avance",
+    "subtitle": "Haaland, discipline, verticalité : une sélection qui ne s’excuse plus d’être ambitieuse.",
     "paragraphs": [
-      "La Norvège n’a pas l’histoire la plus chargée du Mondial, mais elle possède une arme que tout le monde respecte : Erling Haaland. En 2026, cette équipe n’avance pas dans le bruit, elle avance dans la verticalité, la puissance et la précision.",
-      "Le 2–1 contre le Brésil change son tournoi. Battre la Seleção dans un match couperet, c’est passer d’un statut d’outsider dangereux à celui d’équipe que personne ne veut croiser.",
-      "Avec Haaland à 7 buts, la Norvège a désormais une certitude : une occasion peut suffire. Le prochain défi sera contre le vainqueur de Mexique–Angleterre, avec une place en demi-finale en jeu."
+      "La Norvège n’est plus seulement l’équipe d’un géant. Elle est devenue une proposition de football : directe, froide, courageuse, capable de punir la moindre erreur.",
+      "Face au Brésil, Erling Haaland a rappelé ce qu’est un attaquant de rupture : deux occasions, deux blessures ouvertes dans la défense adverse, et un quart de finale arraché au prestige de la Seleção.",
+      "Le prochain rendez-vous face à l’Angleterre ressemble à un choc de cultures proches : intensité nordique, football de transition, duels puissants, et cette vieille familiarité entre les îles britanniques et la Scandinavie.",
+      "Pour la Norvège, ce quart n’est plus une surprise. C’est une frontière à franchir pour entrer dans une autre dimension."
     ],
     "timeline": [
-      "2026 · Qualification en phase finale",
+      "Phase de groupes · caractère et qualification",
       "16e · Côte d’Ivoire 1–2 Norvège",
       "8e · Norvège 2–1 Brésil",
-      "Quart · attend Mexique ou Angleterre"
+      "Quart · Norvège–Angleterre"
+    ]
+  },
+  "england": {
+    "title": "Angleterre, l’éternel rendez-vous avec elle-même",
+    "subtitle": "Les Three Lions arrivent avec du talent, de la pression et un vieux rêve à transformer en trophée.",
+    "paragraphs": [
+      "L’Angleterre joue toujours contre deux adversaires : celui d’en face, et le poids de son propre récit. À chaque tournoi, la même question revient : cette génération peut-elle enfin aller au bout ?",
+      "Le huitième contre le Mexique a rappelé la fragilité et la force des Three Lions : un match ouvert, nerveux, dangereux, mais au bout une victoire 3–2 qui maintient la route vivante.",
+      "Face à la Norvège, l’affiche est parfaite : Haaland contre la défense anglaise, Bellingham entre les lignes, Kane comme repère, et deux pays de football qui se connaissent par leur rythme, leur culture du duel et leur intensité.",
+      "Ce quart de finale ne sera pas seulement un match de stars. Ce sera un test de maturité. L’Angleterre devra prouver qu’elle sait survivre aux soirées où le talent ne suffit pas."
+    ],
+    "timeline": [
+      "Groupes · première place assumée",
+      "16e · Angleterre 2–1 RD Congo",
+      "8e · Mexique 2–3 Angleterre",
+      "Quart · Norvège–Angleterre"
     ]
   }
 }

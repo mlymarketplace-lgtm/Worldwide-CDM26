@@ -13,7 +13,7 @@
     "nickname": "Lions norvégiens",
     "supporterName": "Lions norvégiens",
     "heroPlayer": "Erling Haaland",
-    "playerImg": "assets/opponents/norway/player.webp"
+    "playerImg": "assets/teams/norway/player.webp"
   },
   "japan": {
     "teamName": "Japon",
@@ -29,7 +29,7 @@
     "nickname": "Three Lions",
     "supporterName": "Three Lions",
     "heroPlayer": "Jude Bellingham",
-    "playerImg": "assets/opponents/england/player.webp"
+    "playerImg": "assets/teams/england/player.webp"
   },
   "netherlands": {
     "teamName": "Pays-Bas",
@@ -200,12 +200,12 @@
     "playerImg": "assets/opponents/norway/player.webp"
   },
   "winner_n92": {
-    "teamName": "Vainqueur Mexique–Angleterre",
-    "flag": "🏆",
-    "nickname": "Quart de finale",
-    "supporterName": "Vainqueur Mexique–Angleterre",
-    "heroPlayer": "À déterminer",
-    "playerImg": null
+    "teamName": "Angleterre",
+    "flag": "🏴",
+    "nickname": "Three Lions",
+    "supporterName": "Three Lions",
+    "heroPlayer": "Jude Bellingham",
+    "playerImg": "assets/teams/england/player.webp"
   },
   "winner_n93": {
     "teamName": "Vainqueur Portugal–Espagne",
@@ -288,11 +288,11 @@
     "playerImg": null
   },
   "winner_mex_eng": {
-    "teamName": "Vainqueur Mexique–Angleterre",
-    "flag": "🏆",
-    "nickname": "Quart de finale",
-    "supporterName": "Vainqueur Mexique–Angleterre",
-    "heroPlayer": "À déterminer",
-    "playerImg": null
+    "teamName": "Angleterre",
+    "flag": "🏴",
+    "nickname": "Three Lions",
+    "supporterName": "Three Lions",
+    "heroPlayer": "Jude Bellingham",
+    "playerImg": "assets/teams/england/player.webp"
   }
 }

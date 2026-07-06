@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://qualifgainde.netlify.app/sitemap.xml

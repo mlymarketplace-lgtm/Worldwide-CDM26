@@ -1,1 +1,32 @@
-{}
+{
+  "norway": {
+    "title": "Norway, the cold wave keeps rolling",
+    "subtitle": "Haaland, discipline and ruthless transitions.",
+    "paragraphs": [
+      "Norway is no longer just the team of one giant striker. It has become a football idea: direct, cold, brave and able to punish the smallest mistake.",
+      "Against Brazil, Erling Haaland struck twice and turned a prestigious night into a Norwegian statement.",
+      "England now awaits: power, rhythm, duels and a football culture both nations understand very well."
+    ],
+    "timeline": [
+      "Group stage · character",
+      "Round of 32 · Ivory Coast 1–2 Norway",
+      "Round of 16 · Norway 2–1 Brazil",
+      "Quarter-final · Norway–England"
+    ]
+  },
+  "england": {
+    "title": "England, the endless meeting with itself",
+    "subtitle": "Talent, pressure and an old dream to turn into a trophy.",
+    "paragraphs": [
+      "England always plays two opponents: the team in front, and the weight of its own story.",
+      "The 3–2 win over Mexico showed both the fragility and strength of the Three Lions.",
+      "Against Norway, Bellingham and Kane meet Haaland in a quarter-final built for intensity and nerve."
+    ],
+    "timeline": [
+      "Group stage · authority",
+      "Round of 32 · England 2–1 DR Congo",
+      "Round of 16 · Mexico 2–3 England",
+      "Quarter-final · Norway–England"
+    ]
+  }
+}

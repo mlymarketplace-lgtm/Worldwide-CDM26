@@ -27,8 +27,8 @@
   },
   "norway": {
     "teamName": "Noruega",
-    "statusLabel": "Clasificada a cuartos · espera Inglaterra",
-    "selectorLine": "Cuartos · espera Inglaterra",
+    "statusLabel": "Clasificada a cuartos · próximo desafío: Inglaterra",
+    "selectorLine": "En cuartos · próximo desafío: Inglaterra",
     "tagline": "La potencia fría de Haaland",
     "supporterName": "Leones noruegos"
   },
@@ -66,5 +66,10 @@
     "selectorLine": "Eliminada · respeto a los Fennecs",
     "tagline": "Orgullo de los Fennecs",
     "supporterName": "Fennecs"
+  },
+  "england": {
+    "teamName": "Inglaterra",
+    "selectorLine": "En cuartos · próximo desafío: Noruega",
+    "statusLabel": "Clasificada a cuartos · próximo desafío: Noruega"
   }
 }
