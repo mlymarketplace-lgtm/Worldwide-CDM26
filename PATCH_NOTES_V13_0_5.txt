@@ -1,4 +1,4 @@
-QualifGaïndé V13.0.5 — live-driven computedTeamState
+QualifGaïndé V13.0.6 — live-driven computedTeamState
 
 - computedTeamState lit désormais aussi l’état runtime KNOCKOUT_LIVE_RESULTS.
 - computedTeamState lit window.QUALIFGAINDE_LAST_SCORES.

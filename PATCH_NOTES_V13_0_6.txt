@@ -1,0 +1,9 @@
+QualifGaïndé V13.0.6 — resolved next fixture panel
+
+- Correctif sur le panneau central 'Prochaine rencontre'.
+- La fiche équipe ne se contente plus de corriger le header/probable opponent :
+  elle recalcule aussi le grand bloc minuteur, les deux cartes équipes et les libellés de match.
+- Si N94 est final dans KNOCKOUT_LIVE_RESULTS / QUALIFGAINDE_LAST_SCORES, qf-98 devient Espagne–Belgique sans déploiement statique.
+- Le panneau central remplace les placeholders du type 'Vainqueur États-Unis–Belgique' par l'équipe réellement qualifiée.
+- Les cartes latérales utilisent les images/résultats des équipes résolues.
+- Fallback JSON conservé.

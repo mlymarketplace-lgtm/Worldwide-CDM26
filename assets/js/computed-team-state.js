@@ -2,7 +2,7 @@
 (function(){
   'use strict';
 
-  const VERSION = '13.0.5';
+  const VERSION = '13.0.6';
   const FEATURED_ORDER = [
     'morocco','france','spain','norway','england',
     'belgium','egypt',
@@ -39,7 +39,7 @@
     N97:'qf-97', N98:'qf-98', N99:'qf-99', N100:'qf-100', N101:'sf-101', N102:'sf-102', N103:'third-103', N104:'final-104'
   };
 
-  // V13.0.5 — aliases de clés live/API vers l'identifiant KO canonique.
+  // V13.0.6 — aliases de clés live/API vers l'identifiant KO canonique.
   // Objectif : la home doit réagir même si la simulation reçoit `por-esp`, `por-spain`,
   // `usa-bel`, `bel-usa`, `usa-belgium`, etc.
   const KO_ID_BY_KEY = Object.assign(
@@ -233,7 +233,7 @@
 
     Object.entries((live && live.matches) || {}).forEach(([key, v]) => addEntry(key, v, 'live-json'));
 
-    // V13.0.5 — état réel du moteur KO en mémoire. C'est ce que la simulation utilise.
+    // V13.0.6 — état réel du moteur KO en mémoire. C'est ce que la simulation utilise.
     // La home doit lire cette source prioritaire pour ne plus attendre un nouveau déploiement.
     try {
       if (typeof KNOCKOUT_LIVE_RESULTS !== 'undefined' && KNOCKOUT_LIVE_RESULTS) {
@@ -433,7 +433,7 @@
       const p = new URLSearchParams();
       p.set('team', s.key);
       if(meta.defaultLang && ['england','norway'].includes(s.key)) p.set('lang', meta.defaultLang);
-      p.set('v','1305');
+      p.set('v','1306');
       return '?' + p.toString();
     }
     function card(s, cls){
@@ -443,7 +443,7 @@
       <div class="qg-entry-bg"></div>
       <div class="qg-entry-wrap">
         <div class="qg-entry-top">
-          <div class="qg-entry-brand"><img src="assets/lion-mascotte.png" alt="QualifGaïndé"><span>QualifGaïndé Worldwide · V13.0.5</span></div>
+          <div class="qg-entry-brand"><img src="assets/lion-mascotte.png" alt="QualifGaïndé"><span>QualifGaïndé Worldwide · V13.0.6</span></div>
           <div class="qg-entry-pill">${lang === 'en' ? 'Knockout stage · automatic team state' : 'Phase finale · statuts calculés automatiquement'}</div>
         </div>
         <div class="qg-entry-hero">
@@ -454,11 +454,102 @@
         <div class="qg-selector-group"><h2 class="qg-selector-title">${esc(c.qf)}</h2><div class="qg-team-grid">${groups.qf.map(s=>card(s,'qf')).join('')}</div></div>
         <div class="qg-selector-group"><h2 class="qg-selector-title">${esc(c.live)}</h2><div class="qg-team-grid">${groups.live.map(s=>card(s,'live')).join('')}</div></div>
         <div class="qg-selector-group"><h2 class="qg-selector-title">${esc(c.out)}</h2><div class="qg-team-grid">${groups.out.map(s=>card(s,'out')).join('')}</div></div>
-        <div class="qg-entry-actions"><a class="qg-entry-action" href="?mode=global&v=1305">${esc(c.global)}</a><a class="qg-entry-action" href="?team=france&v=1305">${esc(c.quick)}</a></div>
+        <div class="qg-entry-actions"><a class="qg-entry-action" href="?mode=global&v=1306">${esc(c.global)}</a><a class="qg-entry-action" href="?team=france&v=1306">${esc(c.quick)}</a></div>
       </div>`;
   }
 
-  function updateTeamPage(activeTeam, teams, computed){
+  
+function resultLetter(result){
+    if(!result) return '';
+    const r = String(result).toUpperCase();
+    if(r === 'V' || r === 'W') return 'V';
+    if(r === 'D' || r === 'L') return 'D';
+    if(r === 'N' || r === 'DRAW') return 'N';
+    return r[0] || '';
+  }
+  function teamImage(key, teams){
+    const meta = teamMeta(key, teams);
+    return meta.heroImg || meta.playerImg || meta.bannerImg || 'assets/lion-mascotte.png';
+  }
+  function patchSideCard(card, key, teams, teamResults){
+    if(!card || !key) return;
+    const meta = teamMeta(key, teams);
+    card.className = 'player-side ' + key.replace(/_/g,'-');
+    card.setAttribute('aria-label', 'Forme récente de ' + (meta.teamName || teamName(key, teams)));
+    const img = card.querySelector('.player-photo');
+    if(img){
+      img.src = teamImage(key, teams);
+      img.alt = (meta.heroPlayer ? meta.heroPlayer + ', ' : '') + (meta.teamName || teamName(key, teams));
+      img.loading = 'lazy';
+      img.decoding = 'async';
+    }
+    const spans = card.querySelectorAll('.side-title span');
+    if(spans[0]) spans[0].textContent = (meta.flag || teamFlag(key, teams)) + ' ' + (meta.teamName || teamName(key, teams));
+    if(spans[1]) spans[1].textContent = meta.supporterName || meta.nickname || meta.teamName || teamName(key, teams);
+    const sideSub = card.querySelector('.side-sub');
+    if(sideSub) sideSub.textContent = copy().last || 'Derniers résultats';
+    const list = card.querySelector('.form-list');
+    if(list){
+      const rows = ((teamResults && teamResults[key]) || []).slice(-4);
+      if(rows.length){
+        list.innerHTML = rows.map(r => `<div class="form-row"><span>${esc(r.label || '')}</span><strong>${esc(resultLetter(r.result) || '')}</strong></div>`).join('');
+      } else {
+        list.innerHTML = `<div class="form-row"><span>${esc(copy().nextMatch || 'Prochain match')}</span><strong>·</strong></div>`;
+      }
+    }
+  }
+  function resolvedMatchTitle(match, teams){
+    if(!match) return '';
+    const h = match.home ? `${teamFlag(match.home, teams)} ${teamName(match.home, teams)}` : match.homeLabel;
+    const a = match.away ? `${teamName(match.away, teams)} ${teamFlag(match.away, teams)}` : match.awayLabel;
+    return [h,a].filter(Boolean).join('–');
+  }
+  function patchCountdownPanel(activeTeam, teams, computed, teamResults){
+    const s = computed && computed.state && computed.state[activeTeam];
+    if(!s || s.status === 'eliminated') return;
+    const card = document.getElementById('countdown-card');
+    if(!card || !s.nextMatchId) return;
+    const match = computed.resolved && computed.resolved[s.nextMatchId];
+    if(!match) return;
+    const def = match.def || MATCH_DEFS[s.nextMatchId] || {};
+    const lang = activeLang();
+    const matchTitle = resolvedMatchTitle(match, teams) || s.nextMatchLabel || s.nextOpponentLabel || '';
+    const kicker = card.querySelector('.countdown-kicker');
+    const matchEl = card.querySelector('.countdown-match');
+    const meta = card.querySelector('.countdown-meta');
+    const endMsg = document.getElementById('countdown-end-msg');
+    if(kicker) kicker.textContent = roundLabel(def.round || s.currentRound || 'qf', lang);
+    if(matchEl && matchTitle) matchEl.textContent = matchTitle;
+    if(meta) meta.textContent = s.nextMatchDate || dateForMatch(s.nextMatchId) || '';
+    if(endMsg){
+      const h = match.home ? teamName(match.home, teams) : match.homeLabel;
+      const a = match.away ? teamName(match.away, teams) : match.awayLabel;
+      if(match.home && match.away) {
+        endMsg.textContent = `${h}–${a} : ${copy().nextMatch || 'prochain match'} confirmé.`;
+      } else {
+        endMsg.textContent = s.statusLabel || '';
+      }
+    }
+    const sides = card.querySelectorAll('.player-side');
+    if(sides[0]) patchSideCard(sides[0], match.home || activeTeam, teams, teamResults || {});
+    if(sides[1]) patchSideCard(sides[1], match.away || null, teams, teamResults || {});
+    // Corrige les placeholders visibles hérités du renderer statique.
+    card.querySelectorAll('*').forEach(el => {
+      if(el.children.length) return;
+      let t = el.textContent || '';
+      if(!t) return;
+      if(match.away && /Vainqueur\s+États-Unis[–-]Belgique|Winner of United States[–-]Belgium|Ganador Estados Unidos[–-]Bélgica|Vencedor Estados Unidos[–-]Bélgica/i.test(t)){
+        el.textContent = t
+          .replace(/Vainqueur\s+États-Unis[–-]Belgique/g, teamName(match.away, teams))
+          .replace(/Winner of United States[–-]Belgium/g, teamName(match.away, teams))
+          .replace(/Ganador Estados Unidos[–-]Bélgica/g, teamName(match.away, teams))
+          .replace(/Vencedor Estados Unidos[–-]Bélgica/g, teamName(match.away, teams));
+      }
+    });
+    card.setAttribute('data-qg-computed-fixture', s.nextMatchId);
+  }
+
+  function updateTeamPage(activeTeam, teams, computed, teamResults){
     if(!activeTeam) return;
     const s = computed.state[activeTeam];
     if(!s) return;
@@ -486,15 +577,23 @@
         if(main) main.textContent = s.nextMatchLabel || s.nextOpponentLabel || s.statusLabel || '';
         if(sub) sub.textContent = s.nextMatchDate || s.statusLabel || '';
         document.body.removeAttribute('data-qg-eliminated');
+        patchCountdownPanel(activeTeam, teams, computed, teamResults || {});
       }
+    } else {
+      patchCountdownPanel(activeTeam, teams, computed, teamResults || {});
     }
   }
 
-  async function run(){
+
+async function run(){
     const lang = activeLang();
     const langPath = lang && lang !== 'fr' ? '/data/' + lang + '/teams.json' : null;
-    const [baseTeams, localizedTeams, rawLocks, live] = await Promise.all([
-      getJSON('/data/teams.json'), langPath ? getJSON(langPath) : Promise.resolve(null), getJSON('/data/knockout-locks.json'), getJSON('/live.json')
+    const [baseTeams, localizedTeams, rawLocks, live, teamResults] = await Promise.all([
+      getJSON('/data/teams.json'),
+      langPath ? getJSON(langPath) : Promise.resolve(null),
+      getJSON('/data/knockout-locks.json'),
+      getJSON('/live.json'),
+      getJSON('/data/team-results.json')
     ]);
     const teams = mergeTeams(baseTeams || {}, localizedTeams || {});
     const locks = lockMap(rawLocks || {}, live || {});
@@ -505,20 +604,20 @@
     const activeTeam = params.get('team');
     const selector = document.getElementById('v10-team-selector');
     if(selector && !activeTeam && params.get('mode') !== 'global') renderHome(selector, teams, computed);
-    if(activeTeam) updateTeamPage(activeTeam.toLowerCase(), teams, computed);
+    if(activeTeam) updateTeamPage(activeTeam.toLowerCase(), teams, computed, teamResults || {});
   }
 
   let __qgAutoStateTimer = null;
   function scheduleRun(reason, delay){
     clearTimeout(__qgAutoStateTimer);
     __qgAutoStateTimer = setTimeout(function(){
-      run().catch(function(e){ console.warn('[QG V13.0.5] computedTeamState refresh skipped', reason, e); });
+      run().catch(function(e){ console.warn('[QG V13.0.6] computedTeamState refresh skipped', reason, e); });
     }, delay == null ? 160 : delay);
   }
 
   window.QG_AUTO_TEAM_STATE_ENGINE = {run, buildState, scheduleRun};
 
-  // V13.0.5 — rebrancher la home sur le vrai flux live.
+  // V13.0.6 — rebrancher la home sur le vrai flux live.
   // `qualifgainde:scoresUpdated` est émis tôt par applyScoresData ; on relance donc plusieurs fois
   // pour passer APRÈS l'écriture de KNOCKOUT_LIVE_RESULTS et la propagation du bracket.
   window.addEventListener('qualifgainde:scoresUpdated', function(){
