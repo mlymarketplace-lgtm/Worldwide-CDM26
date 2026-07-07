@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>QualifGaïndé Worldwide · V13.0.7 flag and Argentina card</title>
+<title>QualifGaïndé Worldwide · V13.0.8 Les Brèves du Mondial</title>
 <meta name="application-name" content="Suivez la CDM 2026">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -21,9 +21,9 @@
 // BUILD_VERSION — version stable de build, à bumper à chaque déploiement.
 // Remplace les cache-busters dynamiques (Date.now()) sur les ressources stables
 // afin que le navigateur puisse effectivement les mettre en cache entre deux visites.
-const BUILD_VERSION = '13.0.7';
+const BUILD_VERSION = '13.0.8';
 (function(){
-  // V13.0.7 — compatibilité des anciens liens directs.
+  // V13.0.8 — compatibilité des anciens liens directs.
   // Les anciennes URLs partagées du type /bresil, /brésil, /algerie,
   // /team/brazil, /teams/morocco, etc. sont normalisées vers la route stable
   // /?team=<slug>. On conserve les liens existants au lieu de provoquer une 404.
@@ -54,14 +54,16 @@ const BUILD_VERSION = '13.0.7';
       rd_congo:'dr_congo', rdc:'dr_congo', dr_congo:'dr_congo', congo:'dr_congo', leopards:'dr_congo',
       cap_vert:'cape_verde', cape_verde:'cape_verde', capeverde:'cape_verde', cpv:'cape_verde',
       ghana:'ghana', gha:'ghana', black_stars:'ghana',
-      angleterre:'england', england:'england', eng:'england', three_lions:'england'
+      angleterre:'england', england:'england', eng:'england', three_lions:'england',
+      argentine:'argentina', argentina:'argentina', albiceleste:'argentina', messi:'argentina',
+      suisse:'switzerland', switzerland:'switzerland', suiza:'switzerland', suica:'switzerland', nati:'switzerland'
     };
     var team = aliases[slug];
     // Cas /team/brazil ou /teams/bresil : on tente aussi l'avant-dernier segment
     if(!team && parts.length >= 2 && /^(team|teams|equipe|equipes|pays)$/i.test(parts[parts.length-2])) team = aliases[slug];
     if(team){
       params.set('team', team);
-      if(!params.has('v')) params.set('v','1307');
+      if(!params.has('v')) params.set('v','1308');
       window.location.replace(window.location.origin + '/' + '?' + params.toString());
     }
   }catch(e){}
@@ -75,7 +77,7 @@ const BUILD_VERSION = '13.0.7';
   if(selectorActive) document.documentElement.classList.add('qg-selector-active');
   if(v10Active) {
     document.documentElement.classList.add('v10-booting');
-    // V13.0.7 safety: ne jamais laisser l'écran noir si le script V10 externe tarde/échoue.
+    // V13.0.8 safety: ne jamais laisser l'écran noir si le script V10 externe tarde/échoue.
     // Exception volontaire : sur la page d'entrée, on garde le boot mode pour masquer la home legacy.
     setTimeout(function(){ if(!window.QUALIFGAINDE_SELECTOR_ACTIVE) document.documentElement.classList.remove('v10-booting'); }, 1800);
   }
@@ -179,7 +181,7 @@ html.v10-booting #v10-team-selector, html.v10-booting .v10-selector{visibility:v
 
 
 
-/* V13.0.7 — page d'entrée restaurée : “Je suis supporter de…” */
+/* V13.0.8 — page d'entrée restaurée : “Je suis supporter de…” */
 html.qg-selector-active body{background:#050505;min-height:100vh;overflow:auto;}
 html.qg-selector-active body > :not(#v10-team-selector):not(script):not(style){display:none !important;}
 #v10-team-selector{display:none;visibility:hidden;}
@@ -1315,10 +1317,10 @@ header{display:flex;align-items:center;justify-content:space-between;padding:12p
 <meta name="apple-mobile-web-app-title" content="Suivez la CDM 2026">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <link rel="apple-touch-icon" href="/assets/icons/icon-192.png">
-<link rel="stylesheet" href="src/v10/v10-team-app.css?v=13.0.7">
+<link rel="stylesheet" href="src/v10/v10-team-app.css?v=13.0.8">
 
 <script>
-// V13.0.7 — purge légère des anciens caches PWA pour sortir des builds bloquants.
+// V13.0.8 — purge légère des anciens caches PWA pour sortir des builds bloquants.
 (function(){
   window.addEventListener('load', function(){
     try {
@@ -1331,7 +1333,7 @@ header{display:flex;align-items:center;justify-content:space-between;padding:12p
 </script>
 
 <style id="qg-v1301-teamfix-style">
-/* V13.0.7 — adaptateur autonome multi-équipe, sans dépendance src/v10 JS */
+/* V13.0.8 — adaptateur autonome multi-équipe, sans dépendance src/v10 JS */
 #probable-opponent .opp-label{white-space:nowrap;}
 #probable-opponent .opp-main{line-height:1.05;}
 #probable-opponent .opp-sub{white-space:normal;}
@@ -1348,7 +1350,7 @@ header{display:flex;align-items:center;justify-content:space-between;padding:12p
 
 
 <style id="qg-v1301-structural-css">
-/* V13.0.7 — home plus lisible et cartes pays structurées */
+/* V13.0.8 — home plus lisible et cartes pays structurées */
 .qg-team-card{flex-direction:column;justify-content:center;text-align:center;align-items:center;gap:10px;padding:18px 14px;min-height:132px;}
 .qg-team-copy{width:100%;display:block;}
 .qg-team-name{display:block;text-align:center;white-space:normal;overflow:visible;text-overflow:clip;font-size:1.28rem;}
@@ -1376,9 +1378,32 @@ html[dir="rtl"] .opp-sub,html[dir="rtl"] .opp-main{text-align:right;}
 
 
 <style id="qg-v1301-home-clean-css">
-/* V13.0.7 — homepage: suppression définitive du label "Pays". */
+/* V13.0.8 — homepage: suppression définitive du label "Pays". */
 .qg-team-name::before{content:none!important;display:none!important;}
 </style>
+
+<style id="qg-v1308-world-news-css">
+.world-news-section{margin:28px 0 10px;padding:22px;border:1px solid #fdef4230;border-radius:26px;background:radial-gradient(circle at 12% 0,#00853f36,transparent 34%),linear-gradient(135deg,#06120d,#08090d 65%,#160b0b);box-shadow:0 24px 70px #0008,inset 0 0 0 1px #ffffff08;}
+.world-news-head{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;margin-bottom:16px;}
+.world-news-kicker{font-size:.72rem;text-transform:uppercase;letter-spacing:.18em;color:#fdef42;font-weight:800;margin-bottom:6px;}
+.world-news-head h2{font-family:Oswald,Inter,sans-serif;font-size:clamp(1.7rem,4vw,3rem);line-height:1;margin:0;color:#fff;text-transform:uppercase;}
+.world-news-head p{margin:8px 0 0;color:#cbd5e1;max-width:760px;font-size:.95rem;}
+.world-news-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;}
+.world-news-card{display:grid;grid-template-rows:145px 1fr;min-height:310px;border-radius:20px;overflow:hidden;background:linear-gradient(145deg,#111827,#050505);border:1px solid #ffffff16;box-shadow:0 18px 42px #0006;}
+.world-news-card.featured{grid-column:span 3;grid-template-columns:1.05fr 1.4fr;grid-template-rows:auto;min-height:290px;border-color:#fdef4260;background:linear-gradient(135deg,#092016,#100f08 58%,#220b0b);}
+.world-news-media{position:relative;background:#0b0b0b;min-height:135px;}
+.world-news-media img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(1.05) contrast(1.02);}
+.world-news-content{padding:16px 16px 18px;}
+.world-news-tag{display:inline-flex;align-items:center;gap:6px;font-size:.66rem;text-transform:uppercase;letter-spacing:.14em;font-weight:900;color:#fdef42;background:#fdef4212;border:1px solid #fdef4234;border-radius:999px;padding:5px 9px;margin-bottom:10px;}
+.world-news-card h3{font-family:Oswald,Inter,sans-serif;font-size:1.25rem;line-height:1.03;text-transform:uppercase;margin:0 0 9px;color:#fff;}
+.world-news-card.featured h3{font-size:clamp(1.6rem,3vw,2.55rem);}
+.world-news-card p{margin:0;color:#d5dde8;line-height:1.55;font-size:.92rem;}
+html[dir="rtl"] .world-news-section{text-align:right;}
+html[dir="rtl"] .world-news-kicker,html[dir="rtl"] .world-news-tag{letter-spacing:0;}
+@media(max-width:900px){.world-news-grid{grid-template-columns:1fr 1fr}.world-news-card.featured{grid-column:span 2;grid-template-columns:1fr;}.world-news-card{grid-template-rows:135px 1fr;}}
+@media(max-width:620px){.world-news-section{padding:16px;border-radius:20px}.world-news-grid{grid-template-columns:1fr}.world-news-card.featured{grid-column:span 1}.world-news-card{min-height:auto}.world-news-card h3{font-size:1.15rem}.world-news-card.featured h3{font-size:1.65rem}}
+</style>
+
 </head>
 <body>
 <div class="band"></div>
@@ -1404,37 +1429,37 @@ html[dir="rtl"] .opp-sub,html[dir="rtl"] .opp-main{text-align:right;}
     <div class="qg-selector-group">
       <h2 class="qg-selector-title">Qualifiés en quart</h2>
       <div class="qg-team-grid">
-        <a class="qg-team-card qf" href="?team=morocco&v=1307"><span class="qg-team-flag">🇲🇦</span><span class="qg-team-copy"><span class="qg-team-name">Maroc</span><span class="qg-team-line">Qualifié en quart · prochain défi : France</span></span></a>
-        <a class="qg-team-card qf" href="?team=france&v=1307"><span class="qg-team-flag">🇫🇷</span><span class="qg-team-copy"><span class="qg-team-name">France</span><span class="qg-team-line">Qualifiée en quart · prochain défi : Maroc</span></span></a>
-        <a class="qg-team-card qf" href="?team=norway&lang=en&v=1307"><span class="qg-team-flag">🇳🇴</span><span class="qg-team-copy"><span class="qg-team-name">Norvège</span><span class="qg-team-line">Qualifiée en quart · prochain défi : Angleterre</span></span></a>
-        <a class="qg-team-card qf" href="?team=england&lang=en&v=1307"><span class="qg-team-flag">🏴󠁧󠁢󠁥󠁮󠁧󠁿</span><span class="qg-team-copy"><span class="qg-team-name">Angleterre</span><span class="qg-team-line">Qualifiée en quart · prochain défi : Norvège</span></span></a>
+        <a class="qg-team-card qf" href="?team=morocco&v=1308"><span class="qg-team-flag">🇲🇦</span><span class="qg-team-copy"><span class="qg-team-name">Maroc</span><span class="qg-team-line">Qualifié en quart · prochain défi : France</span></span></a>
+        <a class="qg-team-card qf" href="?team=france&v=1308"><span class="qg-team-flag">🇫🇷</span><span class="qg-team-copy"><span class="qg-team-name">France</span><span class="qg-team-line">Qualifiée en quart · prochain défi : Maroc</span></span></a>
+        <a class="qg-team-card qf" href="?team=norway&lang=en&v=1308"><span class="qg-team-flag">🇳🇴</span><span class="qg-team-copy"><span class="qg-team-name">Norvège</span><span class="qg-team-line">Qualifiée en quart · prochain défi : Angleterre</span></span></a>
+        <a class="qg-team-card qf" href="?team=england&lang=en&v=1308"><span class="qg-team-flag">🏴󠁧󠁢󠁥󠁮󠁧󠁿</span><span class="qg-team-copy"><span class="qg-team-name">Angleterre</span><span class="qg-team-line">Qualifiée en quart · prochain défi : Norvège</span></span></a>
       </div>
     </div>
 
     <div class="qg-selector-group">
       <h2 class="qg-selector-title">Encore en course</h2>
       <div class="qg-team-grid">
-        <a class="qg-team-card live" href="?team=egypt&v=1307"><span class="qg-team-flag">🇪🇬</span><span class="qg-team-copy"><span class="qg-team-name">Égypte</span><span class="qg-team-line">Qualifiée · Argentine ensuite</span></span></a>
-        <a class="qg-team-card live" href="?team=belgium&v=1307"><span class="qg-team-flag">🇧🇪</span><span class="qg-team-copy"><span class="qg-team-name">Belgique</span><span class="qg-team-line">Qualifiée en 8e · États-Unis</span></span></a>
+        <a class="qg-team-card live" href="?team=egypt&v=1308"><span class="qg-team-flag">🇪🇬</span><span class="qg-team-copy"><span class="qg-team-name">Égypte</span><span class="qg-team-line">Qualifiée · Argentine ensuite</span></span></a>
+        <a class="qg-team-card live" href="?team=belgium&v=1308"><span class="qg-team-flag">🇧🇪</span><span class="qg-team-copy"><span class="qg-team-name">Belgique</span><span class="qg-team-line">Qualifiée en 8e · États-Unis</span></span></a>
       </div>
     </div>
 
     <div class="qg-selector-group">
       <h2 class="qg-selector-title">Éliminés · respect</h2>
       <div class="qg-team-grid">
-        <a class="qg-team-card out" href="?team=brazil&v=1307"><span class="qg-team-flag">🇧🇷</span><span class="qg-team-copy"><span class="qg-team-name">Brésil</span><span class="qg-team-line">Éliminé en huitième · Neymar a marqué pour son dernier Mondial</span></span></a>
-        <a class="qg-team-card out" href="?team=senegal&v=1307"><span class="qg-team-flag">🇸🇳</span><span class="qg-team-copy"><span class="qg-team-name">Sénégal</span><span class="qg-team-line">Éliminé en 16e · respect aux Lions</span></span></a>
-        <a class="qg-team-card out" href="?team=algeria&v=1307"><span class="qg-team-flag">🇩🇿</span><span class="qg-team-copy"><span class="qg-team-name">Algérie</span><span class="qg-team-line">Éliminée · respect aux Fennecs</span></span></a>
-        <a class="qg-team-card out" href="?team=ivory_coast&v=1307"><span class="qg-team-flag">🇨🇮</span><span class="qg-team-copy"><span class="qg-team-name">Côte d’Ivoire</span><span class="qg-team-line">Éliminée · respect aux Éléphants</span></span></a>
-        <a class="qg-team-card out" href="?team=dr_congo&v=1307"><span class="qg-team-flag">🇨🇩</span><span class="qg-team-copy"><span class="qg-team-name">RD Congo</span><span class="qg-team-line">Éliminée · respect aux Léopards</span></span></a>
-        <a class="qg-team-card out" href="?team=cape_verde&v=1307"><span class="qg-team-flag">🇨🇻</span><span class="qg-team-copy"><span class="qg-team-name">Cap-Vert</span><span class="qg-team-line">Sortie héroïque face à l’Argentine</span></span></a>
-        <a class="qg-team-card out" href="?team=ghana&v=1307"><span class="qg-team-flag">🇬🇭</span><span class="qg-team-copy"><span class="qg-team-name">Ghana</span><span class="qg-team-line">Éliminé · respect aux Black Stars</span></span></a>
+        <a class="qg-team-card out" href="?team=brazil&v=1308"><span class="qg-team-flag">🇧🇷</span><span class="qg-team-copy"><span class="qg-team-name">Brésil</span><span class="qg-team-line">Éliminé en huitième · Neymar a marqué pour son dernier Mondial</span></span></a>
+        <a class="qg-team-card out" href="?team=senegal&v=1308"><span class="qg-team-flag">🇸🇳</span><span class="qg-team-copy"><span class="qg-team-name">Sénégal</span><span class="qg-team-line">Éliminé en 16e · respect aux Lions</span></span></a>
+        <a class="qg-team-card out" href="?team=algeria&v=1308"><span class="qg-team-flag">🇩🇿</span><span class="qg-team-copy"><span class="qg-team-name">Algérie</span><span class="qg-team-line">Éliminée · respect aux Fennecs</span></span></a>
+        <a class="qg-team-card out" href="?team=ivory_coast&v=1308"><span class="qg-team-flag">🇨🇮</span><span class="qg-team-copy"><span class="qg-team-name">Côte d’Ivoire</span><span class="qg-team-line">Éliminée · respect aux Éléphants</span></span></a>
+        <a class="qg-team-card out" href="?team=dr_congo&v=1308"><span class="qg-team-flag">🇨🇩</span><span class="qg-team-copy"><span class="qg-team-name">RD Congo</span><span class="qg-team-line">Éliminée · respect aux Léopards</span></span></a>
+        <a class="qg-team-card out" href="?team=cape_verde&v=1308"><span class="qg-team-flag">🇨🇻</span><span class="qg-team-copy"><span class="qg-team-name">Cap-Vert</span><span class="qg-team-line">Sortie héroïque face à l’Argentine</span></span></a>
+        <a class="qg-team-card out" href="?team=ghana&v=1308"><span class="qg-team-flag">🇬🇭</span><span class="qg-team-copy"><span class="qg-team-name">Ghana</span><span class="qg-team-line">Éliminé · respect aux Black Stars</span></span></a>
       </div>
     </div>
 
     <div class="qg-entry-actions">
-      <a class="qg-entry-action" href="?mode=global&v=1307">Voir la page globale</a>
-      <a class="qg-entry-action" href="?team=france&v=1307">Accès rapide France–Maroc</a>
+      <a class="qg-entry-action" href="?mode=global&v=1308">Voir la page globale</a>
+      <a class="qg-entry-action" href="?team=france&v=1308">Accès rapide France–Maroc</a>
     </div>
   </div>
 </section>
@@ -1676,7 +1701,7 @@ html[dir="rtl"] .opp-sub,html[dir="rtl"] .opp-main{text-align:right;}
 </section>
 
 <!-- ═══ TABLEAU 3E PLACES MASQUÉ — phase à élimination directe active ═══ -->
-<!-- Section retirée de l’affichage en V13.0.7 : le tableau des meilleurs troisièmes n’est plus utile en phase finale. -->
+<!-- Section retirée de l’affichage en V13.0.8 : le tableau des meilleurs troisièmes n’est plus utile en phase finale. -->
 
 <!-- Simulateur retiré de l’interface : moteurs conservés dans le code. -->
 
@@ -2452,7 +2477,7 @@ function getOpponentForSenegalRank(snRank) {
 }
 
 function updateProbableOpponent(snRank) {
-  // V13.0.7 — ne jamais retomber sur l'ancien moteur Sénégal/R32
+  // V13.0.8 — ne jamais retomber sur l'ancien moteur Sénégal/R32
   // quand une page équipe est ouverte. On affiche l'affiche réelle du prochain match.
   const qgTeamParamForNext = (new URLSearchParams(location.search).get('team') || 'senegal').toLowerCase();
   const NEXT_MATCH_BY_TEAM = {
@@ -2817,7 +2842,7 @@ const KO_ROUNDS = [
   ]}
 ];
 
-// V13.0.7 — source unique : l'état R32 est dérivé de STATIC_R32_LOCKS.
+// V13.0.8 — source unique : l'état R32 est dérivé de STATIC_R32_LOCKS.
 // On évite de maintenir les mêmes scores à trois endroits.
 function deriveR32InitialState(locks){
   const scores = {}, picks = {}, locked = {};
@@ -4907,10 +4932,10 @@ setTimeout(()=>{
 
 </script>
 
-<!-- V13.0.7: scripts V10 externes désactivés pour éviter les retours de cache qui écrasent le rendu officiel. -->
+<!-- V13.0.8: scripts V10 externes désactivés pour éviter les retours de cache qui écrasent le rendu officiel. -->
 
 <script>
-// V13.0.7 — FINALISATION STABLE — source unique de vérité.
+// V13.0.8 — FINALISATION STABLE — source unique de vérité.
 // R32_LOCKS_BOOT supprimé : les 16es viennent uniquement de STATIC_R32_LOCKS.
 // Les re-renders en cascade sont supprimés : un seul filet de sécurité à 300 ms après load.
 (function(){
@@ -4956,7 +4981,7 @@ setTimeout(()=>{
       if (typeof renderRound32Grid === 'function') renderRound32Grid();
       if (typeof renderKnockoutTree === 'function') renderKnockoutTree();
       if (typeof buildTicker === 'function') buildTicker();
-    } catch(e) { console.warn('[QG V13.0.7] official score finalizer skipped', e); }
+    } catch(e) { console.warn('[QG V13.0.8] official score finalizer skipped', e); }
   }
   function normalizeNextMatchCard(){
     const card = document.getElementById('probable-opponent');
@@ -5010,7 +5035,7 @@ setTimeout(()=>{
 
 
 <script id="qg-v1301-stable-team-adapter">
-// V13.0.7 — adaptateur stable multi-équipe.
+// V13.0.8 — adaptateur stable multi-équipe.
 // Objectif : conserver les pages équipe construites (France, Maroc, Sénégal, Belgique,
 // Brésil, Espagne, Égypte, Algérie, etc.) sans dépendre d'un script externe V10.
 (function(){
@@ -5112,7 +5137,7 @@ setTimeout(()=>{
   function ui(){ return UI_LABELS[activeLang()] || UI_LABELS.fr; }
   function syncLangButtons(){ const lang=activeLang(); document.documentElement.lang=lang; document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr'; document.body.classList.toggle('qg-rtl', lang === 'ar'); document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.toggle('active', btn.dataset.langBtn === lang)); }
 
-  function safeFetchJSON(url){ return fetch(url + (url.includes('?') ? '&' : '?') + 'v=' + encodeURIComponent(window.BUILD_VERSION || '13.0.7'), {cache:'no-store'}).then(r => r.ok ? r.json() : null).catch(() => null); }
+  function safeFetchJSON(url){ return fetch(url + (url.includes('?') ? '&' : '?') + 'v=' + encodeURIComponent(window.BUILD_VERSION || '13.0.8'), {cache:'no-store'}).then(r => r.ok ? r.json() : null).catch(() => null); }
   function resultClass(r){ return r === 'V' ? 'win' : (r === 'D' ? 'loss' : 'neu'); }
   function keyToName(key){ return String(key || '').replace(/_/g,' ').replace(/\b\w/g, m => m.toUpperCase()); }
   function teamRecord(key, teams, opponents){ return Object.assign({teamName:keyToName(key), flag:'🏳️'}, FALLBACK_TEAMS[key] || {}, (opponents && opponents[key]) || {}, (teams && teams[key]) || {}); }
@@ -5333,7 +5358,7 @@ setTimeout(()=>{
       if(typeof applyR32Locks === 'function' && typeof STATIC_R32_LOCKS !== 'undefined') applyR32Locks(STATIC_R32_LOCKS, 'v12-0-15-team-pages');
       if(typeof renderRound32Grid === 'function') renderRound32Grid();
       if(typeof renderKnockoutTree === 'function') renderKnockoutTree();
-    }catch(e){ console.warn('[QG V13.0.7] score patch skipped', e); }
+    }catch(e){ console.warn('[QG V13.0.8] score patch skipped', e); }
   }
 
   async function loadData(){
@@ -5463,6 +5488,6 @@ if ('serviceWorker' in navigator) {
   document.addEventListener('click', function(e){ const a=e.target.closest && e.target.closest('a.qg-team-card'); if(a) qgTrack('team_card_click',{href:a.getAttribute('href')}); const b=e.target.closest && e.target.closest('.lang-btn'); if(b) qgTrack('lang_click',{lang:b.dataset.langBtn}); }, true);
 })();
 </script>
-<script src="assets/js/computed-team-state.js?v=13.0.7"></script>
+<script src="assets/js/computed-team-state.js?v=13.0.8"></script>
 </body>
 </html>

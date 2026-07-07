@@ -87,5 +87,17 @@
       "Se vier a Argentina, será Messi e os campeões do mundo. Se vier Cabo Verde, será um duelo africano inesperado e histórico.",
       "O recado do Egito é claro: os Faraós continuam vivos."
     ]
+  },
+  "qf-100": {
+    "homeTeam": "argentina",
+    "awayTeam": "switzerland",
+    "matchId": "qf-100",
+    "title": "Argentina–Suíça: Messi contra o muro suíço",
+    "angle": "Um quarto entre a última dança de Messi e a disciplina fria da Suíça.",
+    "body": [
+      "A Argentina traz gênio, emoção e memória de grandes noites. A Suíça traz estrutura, paciência e capacidade de sobreviver em jogos fechados.",
+      "A virada contra o Egito mostrou força mental, mas também fragilidade defensiva nas transições. A Suíça tentará transformar o jogo num duelo tático.",
+      "Um detalhe pode decidir: bola parada, toque de Messi ou lucidez suíça nos minutos finais."
+    ]
   }
 }

@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-06T21:45:00+02:00",
+  "updatedAt": "2026-07-07T23:45:00+02:00",
   "matches": {
     "uru-esp": {
       "home": 0,
@@ -307,6 +307,31 @@
       "away": 1,
       "status": "final",
       "winner": "away"
+    },
+    "arg-egy": {
+      "home": 3,
+      "away": 2,
+      "status": "final",
+      "winner": "home",
+      "winnerTeam": "argentina"
+    },
+    "sui-col": {
+      "home": null,
+      "away": null,
+      "status": "final",
+      "winner": "home",
+      "winnerTeam": "switzerland",
+      "displayScore": "TAB 4–3",
+      "penaltyHome": 4,
+      "penaltyAway": 3
+    },
+    "usa-bel": {
+      "home": null,
+      "away": null,
+      "status": "final",
+      "winner": "away",
+      "winnerTeam": "belgium",
+      "displayScore": "Belgique qualifiée"
     }
   },
   "_note": "V12 — Maroc qualifié en quart, labels propres et simulateur placé avant le tableau officiel des 16es."

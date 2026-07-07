@@ -214,24 +214,24 @@
   ],
   "egypt": [
     {
-      "label": "Belgique 1–1 Égypte",
-      "note": "Point de prestige face aux Diables",
-      "result": "N"
-    },
-    {
       "label": "Égypte 3–1 Nouvelle-Zélande",
       "note": "Les Pharaons accélèrent",
       "result": "V"
     },
     {
       "label": "Égypte 1–1 Iran",
-      "note": "Qualification, mais alerte Salah",
+      "note": "Qualification accrochée",
       "result": "N"
     },
     {
       "label": "Australie 1–1 Égypte (TAB 2–4)",
-      "note": "Les Pharaons tiennent le choc puis gagnent aux tirs au but",
+      "note": "Passage au mental",
       "result": "V"
+    },
+    {
+      "label": "Argentine 3–2 Égypte",
+      "note": "Élimination cruelle après avoir mené 2–0",
+      "result": "D"
     }
   ],
   "cape_verde": [
@@ -334,13 +334,35 @@
       "result": "V"
     },
     {
-      "label": "Argentine 1–1 Autriche",
-      "note": "Qualification assurée",
+      "label": "Argentine 3–2 Cap-Vert",
+      "note": "Succès spectaculaire en 16e",
+      "result": "V"
+    },
+    {
+      "label": "Argentine 3–2 Égypte",
+      "note": "Renversement fou, Messi décisif",
+      "result": "V"
+    }
+  ],
+  "switzerland": [
+    {
+      "label": "Canada 2–1 Suisse",
+      "note": "Défaite initiale",
+      "result": "D"
+    },
+    {
+      "label": "Suisse 2–0 Qatar",
+      "note": "La Nati se relance",
+      "result": "V"
+    },
+    {
+      "label": "Bosnie 1–1 Suisse",
+      "note": "Qualification arrachée",
       "result": "N"
     },
     {
-      "label": "Argentine 3–2 Cap-Vert",
-      "note": "Succès spectaculaire en 16e",
+      "label": "Suisse qualifiée TAB 4–3",
+      "note": "Sang-froid helvétique aux tirs au but",
       "result": "V"
     }
   ]

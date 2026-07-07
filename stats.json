@@ -1,23 +1,23 @@
 {
-  "updatedAt": "2026-07-06T11:30:00+02:00",
-  "sourceNote": "V13.0.1 — Haaland reste à 7 buts, l’Angleterre passe en quart après Mexique 2–3 Angleterre.",
+  "updatedAt": "2026-07-07T23:45:00+02:00",
+  "sourceNote": "V13.0.8 — Messi passe à 8 buts après Argentine 3–2 Égypte.",
   "topScorers": [
     {
       "rank": 1,
+      "name": "Lionel Messi",
+      "team": "🇦🇷 Argentine",
+      "goals": 8
+    },
+    {
+      "rank": 2,
       "name": "Kylian Mbappé",
       "team": "🇫🇷 France",
       "goals": 7
     },
     {
-      "rank": 2,
+      "rank": 3,
       "name": "Erling Haaland",
       "team": "🇳🇴 Norvège",
-      "goals": 7
-    },
-    {
-      "rank": 3,
-      "name": "Lionel Messi",
-      "team": "🇦🇷 Argentine",
       "goals": 7
     },
     {
@@ -27,13 +27,13 @@
       "goals": 4
     },
     {
-      "rank": 4,
+      "rank": 5,
       "name": "Ousmane Dembélé",
       "team": "🇫🇷 France",
       "goals": 4
     },
     {
-      "rank": 4,
+      "rank": 6,
       "name": "Vinícius Júnior",
       "team": "🇧🇷 Brésil",
       "goals": 4

@@ -244,7 +244,12 @@
     "label_en": "United States–Belgium",
     "label_es": "Estados Unidos–Bélgica",
     "label_pt": "Estados Unidos–Bélgica",
-    "label_ar": "الولايات المتحدة–بلجيكا"
+    "label_ar": "الولايات المتحدة–بلجيكا",
+    "status": "final",
+    "winner": "belgium",
+    "winnerSide": 1,
+    "score": "Belgique qualifiée",
+    "finalLabel": "Belgique qualifiée"
   },
   "bel-bih": {
     "home": "belgium",
@@ -384,7 +389,12 @@
     "dateUTC": "2026-07-07T00:00:00Z",
     "stadium": "San Francisco · Levi’s Stadium",
     "channel_fr": "beIN Sports 1",
-    "note": "Pays hôte contre Diables Rouges : un huitième à haute tension."
+    "note": "Pays hôte contre Diables Rouges : un huitième à haute tension.",
+    "status": "final",
+    "winner": "belgium",
+    "winnerSide": 1,
+    "score": "Belgique qualifiée",
+    "finalLabel": "Belgique qualifiée"
   },
   "arg-egy": {
     "home": "argentina",
@@ -395,7 +405,12 @@
     "dateUTC": "2026-07-07T16:00:00Z",
     "stadium": "Kansas City · Arrowhead Stadium",
     "channel_fr": "beIN Sports 1",
-    "note": "L’Argentine rejoint l’Égypte en huitième."
+    "note": "L’Argentine renverse l’Égypte 3–2 après avoir été menée 0–2.",
+    "status": "final",
+    "score": "3–2",
+    "winner": "argentina",
+    "winnerSide": 0,
+    "finalLabel": "Argentine 3–2 Égypte"
   },
   "sui-col": {
     "home": "switzerland",
@@ -406,7 +421,12 @@
     "dateUTC": "2026-07-07T20:00:00Z",
     "stadium": "Vancouver · BC Place",
     "channel_fr": "beIN Sports 1",
-    "note": "La Suisse affronte la Colombie après la victoire colombienne contre le Ghana."
+    "note": "La Suisse se qualifie aux tirs au but 4–3.",
+    "status": "final",
+    "score": "TAB 4–3",
+    "winner": "switzerland",
+    "winnerSide": 0,
+    "finalLabel": "Suisse qualifiée TAB 4–3"
   },
   "qf-97": {
     "home": "france",
@@ -427,19 +447,23 @@
   },
   "qf-98": {
     "home": "spain",
-    "away": "winner_n94",
-    "label": "Espagne / Vainqueur États-Unis–Belgique",
+    "away": "belgium",
+    "label": "Espagne–Belgique",
     "round": "QF",
     "dateParis": "2026-07-10T21:00:00+02:00",
     "dateUTC": "2026-07-10T19:00:00Z",
     "stadium": "À confirmer",
     "channel_fr": "beIN Sports 1",
-    "dynamic": true,
+    "dynamic": false,
     "homeLabel": "Espagne",
     "homeDisplay": "Espagne",
-    "awayLabel": "Vainqueur États-Unis–Belgique",
-    "awayDisplay": "Vainqueur États-Unis–Belgique",
-    "note": "L’Espagne attend le vainqueur du huitième États-Unis–Belgique."
+    "awayLabel": "Belgique",
+    "awayDisplay": "Belgique",
+    "note": "Quart de finale confirmé : l’Espagne retrouve la Belgique.",
+    "label_en": "Spain–Belgium",
+    "label_es": "España–Bélgica",
+    "label_pt": "Espanha–Bélgica",
+    "label_ar": "إسبانيا–بلجيكا"
   },
   "qf-99": {
     "home": "norway",
@@ -462,19 +486,24 @@
     "label_ar": "النرويج–إنجلترا"
   },
   "qf-100": {
-    "home": "winner_n95",
-    "away": "winner_n96",
-    "label": "Vainqueur Argentine–Égypte / Vainqueur Suisse–Colombie",
+    "home": "argentina",
+    "away": "switzerland",
+    "label": "Argentine–Suisse",
     "round": "QF",
     "dateParis": "2026-07-12T03:00:00+02:00",
     "dateUTC": "2026-07-12T01:00:00Z",
     "stadium": "À confirmer",
     "channel_fr": "beIN Sports 1",
-    "dynamic": true,
-    "homeLabel": "Vainqueur Argentine–Égypte",
-    "homeDisplay": "Vainqueur Argentine–Égypte",
-    "awayLabel": "Vainqueur Suisse–Colombie",
-    "awayDisplay": "Vainqueur Suisse–Colombie"
+    "dynamic": false,
+    "homeLabel": "Argentine",
+    "homeDisplay": "Argentine",
+    "awayLabel": "Suisse",
+    "awayDisplay": "Suisse",
+    "note": "Quart de finale confirmé : Messi face au mur helvétique.",
+    "label_en": "Argentina–Switzerland",
+    "label_es": "Argentina–Suiza",
+    "label_pt": "Argentina–Suíça",
+    "label_ar": "الأرجنتين–سويسرا"
   },
   "sf-101": {
     "home": "winner_n97",

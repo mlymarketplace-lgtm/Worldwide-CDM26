@@ -1,0 +1,299 @@
+[
+  {
+    "id": "quarter-three-confederations",
+    "type": "analysis",
+    "priority": 1,
+    "image": "assets/news/confederations.webp",
+    "langs": {
+      "fr": {
+        "tag": "Analyse",
+        "title": "Un quart de finale à trois confédérations",
+        "body": "Le tableau des quarts de finale est désormais complet : seules trois confédérations seront représentées. La CAF garde un seul ambassadeur, le Maroc. L’UEFA domine avec France, Espagne, Belgique, Norvège, Angleterre et Suisse. La CONMEBOL comptera sur l’Argentine, miraculée face à l’Égypte. L’AFC, la CONCACAF et l’OFC ont disparu avant les quarts."
+      },
+      "en": {
+        "tag": "Analysis",
+        "title": "A quarter-final lineup across three confederations",
+        "body": "The quarter-final picture is now complete: only three confederations remain. CAF has one survivor, Morocco. UEFA dominates with France, Spain, Belgium, Norway, England and Switzerland. CONMEBOL relies on Argentina after their dramatic comeback against Egypt. AFC, CONCACAF and OFC are out before the quarter-finals."
+      },
+      "es": {
+        "tag": "Análisis",
+        "title": "Unos cuartos con tres confederaciones",
+        "body": "El cuadro de cuartos ya está completo: solo tres confederaciones siguen representadas. La CAF conserva a Marruecos. La UEFA domina con Francia, España, Bélgica, Noruega, Inglaterra y Suiza. La CONMEBOL cuenta con Argentina tras su remontada ante Egipto. AFC, CONCACAF y OFC quedaron fuera."
+      },
+      "pt": {
+        "tag": "Análise",
+        "title": "Quartos com três confederações",
+        "body": "O quadro dos quartos está completo: apenas três confederações continuam representadas. A CAF mantém Marrocos. A UEFA domina com França, Espanha, Bélgica, Noruega, Inglaterra e Suíça. A CONMEBOL conta com a Argentina depois da virada contra o Egito. AFC, CONCACAF e OFC ficaram pelo caminho."
+      },
+      "ar": {
+        "tag": "تحليل",
+        "title": "ربع نهائي بثلاث قارات كروية",
+        "body": "اكتمل مشهد ربع النهائي، وبقيت ثلاث اتحادات قارية فقط. تمثل المغرب القارة الإفريقية وحدها، بينما تهيمن أوروبا بفرنسا وإسبانيا وبلجيكا والنرويج وإنجلترا وسويسرا. أما أمريكا الجنوبية فتدخل بالأرجنتين بعد عودتها المثيرة أمام مصر."
+      }
+    }
+  },
+  {
+    "id": "scandinavian-quake",
+    "type": "brief",
+    "priority": 2,
+    "image": "assets/news/norway-brazil.webp",
+    "langs": {
+      "fr": {
+        "tag": "Brève",
+        "title": "Séisme scandinave",
+        "body": "La Norvège d’Erling Haaland a signé la plus grande sensation du tournoi en éliminant le Brésil 2-1. Un doublé tardif, une résistance héroïque, et un quart historique face à l’Angleterre."
+      },
+      "en": {
+        "tag": "Brief",
+        "title": "Scandinavian shockwave",
+        "body": "Erling Haaland’s Norway produced the tournament’s biggest upset by knocking out Brazil 2–1. A late double, heroic resistance and a historic quarter-final against England."
+      },
+      "es": {
+        "tag": "Breve",
+        "title": "Terremoto escandinavo",
+        "body": "La Noruega de Haaland firmó la gran sorpresa del torneo al eliminar a Brasil 2-1. Doblete tardío, resistencia heroica y cuartos históricos ante Inglaterra."
+      },
+      "pt": {
+        "tag": "Nota",
+        "title": "Abalo escandinavo",
+        "body": "A Noruega de Haaland conseguiu a maior surpresa do torneio ao eliminar o Brasil por 2–1. Doblete tardio, resistência heroica e quartos históricos contra a Inglaterra."
+      },
+      "ar": {
+        "tag": "خبر",
+        "title": "زلزال إسكندنافي",
+        "body": "حققت النرويج بقيادة هالاند أكبر مفاجآت البطولة بإقصاء البرازيل 2-1. ثنائية متأخرة وصمود بطولي وربع نهائي تاريخي أمام إنجلترا."
+      }
+    }
+  },
+  {
+    "id": "africa-money-time",
+    "type": "brief",
+    "priority": 3,
+    "image": "assets/news/egypt-farewell.webp",
+    "langs": {
+      "fr": {
+        "tag": "Tendance",
+        "title": "La malédiction du dernier quart d’heure",
+        "body": "L’Égypte menait 2-0 avant de sombrer face à l’Argentine. Sénégal et Côte d’Ivoire avaient déjà craqué dans le money-time. Fraîcheur, banc, gestion émotionnelle : les chantiers africains sont identifiés. Le Maroc reste le seul rescapé."
+      },
+      "en": {
+        "tag": "Trend",
+        "title": "The final-quarter curse",
+        "body": "Egypt led 2–0 before collapsing against Argentina. Senegal and Ivory Coast had already suffered late blows. Fitness, bench depth and emotional control remain key African challenges. Morocco stands alone."
+      },
+      "es": {
+        "tag": "Tendencia",
+        "title": "La maldición del último cuarto de hora",
+        "body": "Egipto ganaba 2-0 antes de caer ante Argentina. Senegal y Costa de Marfil también sufrieron en el tramo final. Físico, banquillo y gestión emocional: los retos africanos están claros. Marruecos resiste."
+      },
+      "pt": {
+        "tag": "Tendência",
+        "title": "A maldição do último quarto de hora",
+        "body": "O Egito vencia por 2–0 antes de cair contra a Argentina. Senegal e Costa do Marfim também sofreram no fim. Físico, banco e gestão emocional seguem como desafios. Marrocos resiste."
+      },
+      "ar": {
+        "tag": "اتجاه",
+        "title": "لعنة الربع ساعة الأخير",
+        "body": "تقدمت مصر 2-0 قبل أن تسقط أمام الأرجنتين. وسبق أن دفع السنغال وكوت ديفوار ثمن الدقائق الأخيرة. اللياقة، دكة البدلاء والتحكم العاطفي أصبحت ملفات واضحة للكرة الإفريقية. المغرب هو الناجي الوحيد."
+      }
+    }
+  },
+  {
+    "id": "amarilla-affair",
+    "type": "brief",
+    "priority": 4,
+    "image": "assets/news/amarilla.webp",
+    "langs": {
+      "fr": {
+        "tag": "Société",
+        "title": "L’affaire Amarilla",
+        "body": "Les propos racistes de la sénatrice paraguayenne Celeste Amarilla contre Kylian Mbappé ont terni l’après France–Paraguay. La réponse du capitaine français, ferme et digne, a rappelé que la haine ne devait jamais trouver refuge dans le football."
+      },
+      "en": {
+        "tag": "Society",
+        "title": "The Amarilla affair",
+        "body": "Racist remarks by Paraguayan senator Celeste Amarilla toward Kylian Mbappé overshadowed the aftermath of France–Paraguay. The French captain answered firmly and with dignity: hate has no place in football."
+      },
+      "es": {
+        "tag": "Sociedad",
+        "title": "El caso Amarilla",
+        "body": "Los comentarios racistas de la senadora paraguaya Celeste Amarilla contra Kylian Mbappé ensombrecieron el pospartido. El capitán francés respondió con firmeza y dignidad: el odio no tiene lugar en el fútbol."
+      },
+      "pt": {
+        "tag": "Sociedade",
+        "title": "O caso Amarilla",
+        "body": "As declarações racistas da senadora paraguaia Celeste Amarilla contra Kylian Mbappé mancharam o pós-jogo. O capitão francês respondeu com firmeza e dignidade: o ódio não cabe no futebol."
+      },
+      "ar": {
+        "tag": "قضية",
+        "title": "قضية أماريا",
+        "body": "ألقت تصريحات السيناتورة الباراغوايانية سيليست أماريا العنصرية ضد كيليان مبابي بظلالها على ما بعد مباراة فرنسا وباراغواي. رد قائد فرنسا بحزم وكرامة مؤكداً أن الكراهية لا مكان لها في كرة القدم."
+      }
+    }
+  },
+  {
+    "id": "messi-eight",
+    "type": "brief",
+    "priority": 5,
+    "image": "assets/news/messi.webp",
+    "langs": {
+      "fr": {
+        "tag": "Star",
+        "title": "Messi, encore et toujours",
+        "body": "Penalty manqué, passe décisive, but égalisateur puis qualification arrachée : Lionel Messi refuse de quitter la scène. Avec huit buts dans ce Mondial, sa dernière danse continue de défier le temps."
+      },
+      "en": {
+        "tag": "Star",
+        "title": "Messi, again and again",
+        "body": "A missed penalty, an assist, an equaliser and survival: Lionel Messi refuses to leave the stage. With eight goals in this World Cup, his last dance keeps defying time."
+      },
+      "es": {
+        "tag": "Estrella",
+        "title": "Messi, una y otra vez",
+        "body": "Penal fallado, asistencia, gol del empate y clasificación: Lionel Messi se niega a salir de escena. Con ocho goles en este Mundial, su última danza sigue desafiando al tiempo."
+      },
+      "pt": {
+        "tag": "Estrela",
+        "title": "Messi, sempre Messi",
+        "body": "Pênalti perdido, assistência, gol de empate e classificação: Lionel Messi recusa deixar o palco. Com oito gols neste Mundial, sua última dança desafia o tempo."
+      },
+      "ar": {
+        "tag": "نجم",
+        "title": "ميسي… دائماً ميسي",
+        "body": "ركلة جزاء ضائعة، تمريرة حاسمة، هدف تعادل وتأهل صعب: ليونيل ميسي يرفض مغادرة المسرح. بثمانية أهداف في هذا المونديال، تواصل رقصته الأخيرة تحدي الزمن."
+      }
+    }
+  },
+  {
+    "id": "iran-respect",
+    "type": "brief",
+    "priority": 6,
+    "image": "assets/news/iran.webp",
+    "langs": {
+      "fr": {
+        "tag": "Respect",
+        "title": "Iran, la résistance digne",
+        "body": "L’Iran quitte le tournoi avec l’image d’un bloc compact, courageux et difficile à manœuvrer. Peu d’équipes ont aimé affronter cette formation disciplinée, symbole d’un collectif qui sait souffrir."
+      },
+      "en": {
+        "tag": "Respect",
+        "title": "Iran, dignified resistance",
+        "body": "Iran leave with the image of a compact, brave and difficult side. Few teams enjoyed facing such a disciplined block, a symbol of collective resilience."
+      },
+      "es": {
+        "tag": "Respeto",
+        "title": "Irán, resistencia digna",
+        "body": "Irán se marcha con la imagen de un bloque compacto, valiente y difícil. Pocos disfrutaron enfrentando a un equipo tan disciplinado y resistente."
+      },
+      "pt": {
+        "tag": "Respeito",
+        "title": "Irã, resistência digna",
+        "body": "O Irã sai com a imagem de um bloco compacto, corajoso e difícil. Poucas equipes gostaram de enfrentar uma seleção tão disciplinada."
+      },
+      "ar": {
+        "tag": "احترام",
+        "title": "إيران… مقاومة بكرامة",
+        "body": "تغادر إيران البطولة بصورة فريق منظم وشجاع يصعب التعامل معه. لم تستمتع أي منتخبات تقريباً بمواجهة هذا التكتل الصلب والمنضبط."
+      }
+    }
+  },
+  {
+    "id": "olise-fluidity",
+    "type": "brief",
+    "priority": 7,
+    "image": "assets/news/olise.webp",
+    "langs": {
+      "fr": {
+        "tag": "Bleus",
+        "title": "Olise, celui qui fluidifie les Bleus",
+        "body": "Michael Olise n’est pas toujours le plus bruyant, mais il donne de l’air au jeu français. Entre les lignes, dans les petits espaces et sur les dernières passes, il devient un facteur d’équilibre précieux."
+      },
+      "en": {
+        "tag": "France",
+        "title": "Olise, France’s fluid connector",
+        "body": "Michael Olise is not always the loudest name, but he gives France breathing room. Between the lines and in tight spaces, he is becoming a precious balance player."
+      },
+      "es": {
+        "tag": "Francia",
+        "title": "Olise, el que da fluidez a Francia",
+        "body": "Michael Olise no siempre es el más llamativo, pero oxigena el juego francés. Entre líneas y en espacios reducidos, aporta un equilibrio decisivo."
+      },
+      "pt": {
+        "tag": "França",
+        "title": "Olise, o homem da fluidez",
+        "body": "Michael Olise nem sempre é o mais falado, mas dá ar ao jogo francês. Entre linhas e nos espaços curtos, tornou-se peça de equilíbrio."
+      },
+      "ar": {
+        "tag": "فرنسا",
+        "title": "أوليس… من يمنح فرنسا السلاسة",
+        "body": "مايكل أوليس ليس دائماً الاسم الأعلى صوتاً، لكنه يمنح فرنسا نفساً في اللعب. بين الخطوط وفي المساحات الضيقة، أصبح لاعب توازن ثميناً."
+      }
+    }
+  },
+  {
+    "id": "cape-verde-pride",
+    "type": "brief",
+    "priority": 8,
+    "image": "assets/news/cape-verde.webp",
+    "langs": {
+      "fr": {
+        "tag": "Fierté",
+        "title": "Cap-Vert, le petit qui a forcé le respect",
+        "body": "Le Cap-Vert quitte la compétition, mais pas les mémoires. Organisation, solidarité, courage : les Requins bleus ont prouvé que leur présence n’était pas anecdotique."
+      },
+      "en": {
+        "tag": "Pride",
+        "title": "Cape Verde, the small side that earned respect",
+        "body": "Cape Verde leave the tournament, but not the memories. Organisation, solidarity and courage: the Blue Sharks proved they belonged on this stage."
+      },
+      "es": {
+        "tag": "Orgullo",
+        "title": "Cabo Verde, el pequeño que ganó respeto",
+        "body": "Cabo Verde se marcha, pero deja huella. Organización, solidaridad y valentía: los Tiburones Azules demostraron que merecían este escenario."
+      },
+      "pt": {
+        "tag": "Orgulho",
+        "title": "Cabo Verde, o pequeno que ganhou respeito",
+        "body": "Cabo Verde sai da competição, mas não da memória. Organização, solidariedade e coragem: os Tubarões Azuis provaram que pertencem a este palco."
+      },
+      "ar": {
+        "tag": "فخر",
+        "title": "الرأس الأخضر… الصغير الذي فرض الاحترام",
+        "body": "يغادر منتخب الرأس الأخضر البطولة لكنه لا يغادر الذاكرة. تنظيم وتضامن وشجاعة: لقد أثبتت القروش الزرقاء أنها تستحق هذا المسرح."
+      }
+    }
+  },
+  {
+    "id": "swiss-calm",
+    "type": "brief",
+    "priority": 9,
+    "image": "assets/news/swiss-calm.webp",
+    "langs": {
+      "fr": {
+        "tag": "Quart",
+        "title": "Suisse, la force du calme",
+        "body": "La Suisse avance sans bruit, sans panique, avec une froideur compétitive impressionnante. Qualifiée aux tirs au but, elle retrouve l’Argentine dans un duel entre le génie et la structure."
+      },
+      "en": {
+        "tag": "Quarter-final",
+        "title": "Switzerland, the power of calm",
+        "body": "Switzerland move forward quietly, without panic, with impressive competitive coolness. Through on penalties, they now face Argentina: genius against structure."
+      },
+      "es": {
+        "tag": "Cuartos",
+        "title": "Suiza, la fuerza de la calma",
+        "body": "Suiza avanza sin ruido y sin pánico, con una frialdad competitiva notable. Clasificada por penales, enfrentará a Argentina: genio contra estructura."
+      },
+      "pt": {
+        "tag": "Quartos",
+        "title": "Suíça, a força da calma",
+        "body": "A Suíça avança sem ruído e sem pânico, com frieza competitiva. Classificada nos pênaltis, enfrenta a Argentina: gênio contra estrutura."
+      },
+      "ar": {
+        "tag": "ربع النهائي",
+        "title": "سويسرا… قوة الهدوء",
+        "body": "تتقدم سويسرا بهدوء ومن دون ضجيج، ببرودة تنافسية لافتة. بعد التأهل بركلات الترجيح، تواجه الأرجنتين في صدام بين العبقرية والتنظيم."
+      }
+    }
+  }
+]

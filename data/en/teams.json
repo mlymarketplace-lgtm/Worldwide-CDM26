@@ -51,10 +51,11 @@
   },
   "egypt": {
     "teamName": "Egypt",
-    "statusLabel": "Qualified for the Round of 16 · Argentina next",
-    "selectorLine": "Qualified · Argentina next",
+    "statusLabel": "Eliminated in the Round of 16 · Argentina 3–2 Egypt",
+    "selectorLine": "Eliminated in the Round of 16 · huge regrets",
     "tagline": "The Pharaohs and Salah’s dream",
-    "supporterName": "Pharaohs"
+    "supporterName": "Pharaohs",
+    "flag": "🇪🇬"
   },
   "belgium": {
     "teamName": "Belgium",
@@ -98,7 +99,16 @@
     "supporterName": "Albiceleste",
     "heroPlayer": "Lionel Messi",
     "tagline": "The Albiceleste march on with Messi",
-    "statusLabel": "Qualified for the Round of 16 · Egypt next",
-    "selectorLine": "Qualified · Egypt next"
+    "statusLabel": "Qualified for the quarter-finals · next challenge: Switzerland",
+    "selectorLine": "Quarter-finalist · next: Switzerland",
+    "heroSubtitle": "Argentina came back from 0–2 to beat Egypt 3–2. Messi reaches 8 goals."
+  },
+  "switzerland": {
+    "teamName": "Switzerland",
+    "flag": "🇨🇭",
+    "supporterName": "Nati",
+    "statusLabel": "Qualified for the quarter-finals · next challenge: Argentina",
+    "selectorLine": "Quarter-finalist · next: Argentina",
+    "heroSubtitle": "Switzerland held their nerve on penalties and now face Argentina."
   }
 }

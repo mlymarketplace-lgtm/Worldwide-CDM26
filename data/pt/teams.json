@@ -60,9 +60,10 @@
   },
   "egypt": {
     "teamName": "Egito",
-    "statusLabel": "Oitavos · Argentina pela frente",
-    "selectorLine": "Oitavos · Argentina pela frente",
-    "supporterName": "Faraós"
+    "statusLabel": "Eliminado nos oitavos · Argentina 3–2 Egito",
+    "selectorLine": "Eliminado nos oitavos · muitos arrependimentos",
+    "supporterName": "Faraós",
+    "flag": "🇪🇬"
   },
   "france": {
     "teamName": "França",
@@ -86,7 +87,16 @@
     "supporterName": "Albiceleste",
     "heroPlayer": "Lionel Messi",
     "tagline": "A Albiceleste avança com Messi",
-    "statusLabel": "Qualificada para os oitavos · Egito pela frente",
-    "selectorLine": "Qualificada · Egito nos oitavos"
+    "statusLabel": "Qualificada aos quartos · próximo desafio: Suíça",
+    "selectorLine": "Qualificada aos quartos · Suíça pela frente",
+    "heroSubtitle": "A Argentina virou de 0–2 para 3–2 contra o Egito. Messi chega a 8 gols."
+  },
+  "switzerland": {
+    "teamName": "Suíça",
+    "flag": "🇨🇭",
+    "supporterName": "Nati",
+    "statusLabel": "Qualificada aos quartos · próximo desafio: Argentina",
+    "selectorLine": "Qualificada aos quartos · Argentina pela frente",
+    "heroSubtitle": "A Suíça segurou a pressão nos pênaltis e enfrentará a Argentina."
   }
 }

@@ -53,22 +53,26 @@
     "heroSubtitle": "L’Espagne a battu le Portugal 1–0 et file en quart. Elle attend désormais le vainqueur de États-Unis–Belgique."
   },
   "egypt": {
-    "status": "qualified",
+    "status": "eliminated",
     "round": "R16",
-    "nextMatchId": "argcpv-egypt",
-    "statusLabel": "Qualifiée en huitième · Égypte aux TAB contre l’Australie",
-    "selectorLine": "Qualifiée · Argentine ou Cap-Vert ensuite"
+    "currentRound": "R16",
+    "stageGroup": "eliminated",
+    "statusLabel": "Éliminée en huitième de finale · Argentine 3–2 Égypte",
+    "selectorLine": "Éliminée en huitième · regrets immenses",
+    "exitScoreLine": "Argentine 3–2 Égypte"
   },
   "belgium": {
     "status": "qualified",
-    "round": "R16",
-    "nextMatchId": "bel-usa",
-    "nextOpponent": "united_states",
-    "selectorLine": "Qualifiée en 8e · prochain défi : États-Unis",
-    "statusLabel": "Qualifiée en huitième de finale · Prochain défi : États-Unis",
-    "roundLabel": "huitième de finale",
-    "heroSubtitle": "Menée 0–2 par le Sénégal, la Belgique a renversé le match 3–2. Prochain test : les États-Unis, pays hôte.",
-    "matchdayHero": false
+    "round": "QF",
+    "currentRound": "QF",
+    "qualifiedRound": "QF",
+    "stageGroup": "qualified_qf",
+    "nextMatchId": "qf-98",
+    "nextOpponent": "spain",
+    "selectorLine": "Qualifiée en quart · prochain défi : Espagne",
+    "statusLabel": "Qualifiée en quart de finale · prochain défi : Espagne",
+    "roundLabel": "quart de finale",
+    "quarterfinalLine": "Quart de finale · Espagne–Belgique"
   },
   "senegal": {
     "status": "eliminated",
@@ -169,5 +173,33 @@
     "roundLabel": "quart de finale",
     "quarterfinalLine": "Quart de finale · Norvège–Angleterre",
     "heroSubtitle": "Les Three Lions ont survécu à l’Azteca contre le Mexique. Prochaine bataille : la Norvège de Haaland à Miami."
+  },
+  "argentina": {
+    "status": "qualified",
+    "round": "QF",
+    "currentRound": "QF",
+    "qualifiedRound": "QF",
+    "stageGroup": "qualified_qf",
+    "nextMatchId": "qf-100",
+    "nextOpponent": "switzerland",
+    "selectorLine": "Qualifiée en quart · prochain défi : Suisse",
+    "statusLabel": "Qualifiée en quart de finale · prochain défi : Suisse",
+    "roundLabel": "quart de finale",
+    "quarterfinalLine": "Quart de finale · Argentine–Suisse",
+    "heroSubtitle": "L’Argentine a renversé l’Égypte 3–2 et jouera la Suisse en quart."
+  },
+  "switzerland": {
+    "status": "qualified",
+    "round": "QF",
+    "currentRound": "QF",
+    "qualifiedRound": "QF",
+    "stageGroup": "qualified_qf",
+    "nextMatchId": "qf-100",
+    "nextOpponent": "argentina",
+    "selectorLine": "Qualifiée en quart · prochain défi : Argentine",
+    "statusLabel": "Qualifiée en quart de finale · prochain défi : Argentine",
+    "roundLabel": "quart de finale",
+    "quarterfinalLine": "Quart de finale · Argentine–Suisse",
+    "heroSubtitle": "La Suisse est passée aux tirs au but et retrouve l’Argentine en quart."
   }
 }

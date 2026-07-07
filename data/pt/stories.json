@@ -46,5 +46,50 @@
       "2014 · experiência em grupo duro",
       "2026 · saída nos 16 avos contra a Colômbia"
     ]
+  },
+  "egypt": {
+    "title": "Adeus Egito, com respeito e arrependimento",
+    "subtitle": "Os Faraós saem depois de quase derrubar os campeões do mundo.",
+    "paragraphs": [
+      "O Egito deixa o Mundial com o coração pesado, mas de cabeça erguida. Vencia a Argentina por 2–0 e ficou perto de uma façanha histórica.",
+      "O final ficará como dor. Em treze minutos, a Argentina virou um jogo que o Egito parecia ter preparado perfeitamente.",
+      "Se este foi o último grande palco mundialista de Mohamed Salah, ele sai como uma lenda: líder, símbolo e esperança de um país."
+    ],
+    "timeline": [
+      "Egito 3–1 Nova Zelândia",
+      "Austrália 1–1 Egito · pen. 2–4",
+      "Argentina 3–2 Egito",
+      "Fim de um sonho, respeito aos Faraós"
+    ]
+  },
+  "argentina": {
+    "title": "Argentina vira contra o Egito e chega aos quartos",
+    "subtitle": "Messi erra, cria, marca e se recusa a deixar o palco.",
+    "paragraphs": [
+      "Os campeões do mundo tremeram e depois golpearam como os grandes. Perdendo por 0–2 para um Egito disciplinado, a Argentina venceu por 3–2 num final espetacular.",
+      "Romero recolocou a Argentina no jogo após cruzamento de Messi, e Messi empatou com um chute forte depois de perder um pênalti. Nos acréscimos, Enzo Fernández completou a virada.",
+      "A Argentina sobrevive, Messi chega a oito gols e a Suíça espera nos quartos."
+    ],
+    "timeline": [
+      "Argentina 3–2 Cabo Verde",
+      "Argentina 3–2 Egito",
+      "Messi chega a 8 gols",
+      "Quartos · Argentina–Suíça"
+    ]
+  },
+  "switzerland": {
+    "title": "Suíça, a força da calma",
+    "subtitle": "A Nati avança em silêncio, mas com frieza competitiva.",
+    "paragraphs": [
+      "A Suíça segue avançando à sua maneira: calma, organização e dificuldade para ser batida. Classificada nos pênaltis, enfrenta a Argentina.",
+      "Nem sempre encanta, mas sabe permanecer viva, fechar espaços e esperar a pressão mudar.",
+      "Contra a Argentina não será favorita, mas tem o perfil ideal para tornar o quarto de final desconfortável."
+    ],
+    "timeline": [
+      "Suíça 2–0 Qatar",
+      "Bósnia 1–1 Suíça",
+      "Suíça avança nos pênaltis 4–3",
+      "Quartos · Argentina–Suíça"
+    ]
   }
 }
