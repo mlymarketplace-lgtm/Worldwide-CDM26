@@ -85,11 +85,20 @@
     "heroSubtitle": "England beat Mexico 3–2 and now faces Norway in Miami.",
     "supporterName": "Three Lions",
     "roundLabel": "quarter-final",
-    "flag": "🏴",
+    "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
     "heroImg": "assets/teams/england/player.webp",
     "playerImg": "assets/teams/england/player.webp",
     "bannerImg": "assets/teams/england/banner.webp",
     "nextMatchId": "qf-99",
     "nextOpponent": "norway"
+  },
+  "argentina": {
+    "teamName": "Argentina",
+    "flag": "🇦🇷",
+    "supporterName": "Albiceleste",
+    "heroPlayer": "Lionel Messi",
+    "tagline": "The Albiceleste march on with Messi",
+    "statusLabel": "Qualified for the Round of 16 · Egypt next",
+    "selectorLine": "Qualified · Egypt next"
   }
 }

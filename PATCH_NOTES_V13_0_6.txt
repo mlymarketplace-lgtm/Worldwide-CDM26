@@ -1,4 +1,4 @@
-QualifGaïndé V13.0.6 — resolved next fixture panel
+QualifGaïndé V13.0.7 — resolved next fixture panel
 
 - Correctif sur le panneau central 'Prochaine rencontre'.
 - La fiche équipe ne se contente plus de corriger le header/probable opponent :

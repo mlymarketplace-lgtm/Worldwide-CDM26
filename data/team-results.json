@@ -321,5 +321,27 @@
       "note": "Bellingham double, Kane penalty, résistance à dix à l’Azteca",
       "result": "V"
     }
+  ],
+  "argentina": [
+    {
+      "label": "Argentine 3–0 Jordanie",
+      "note": "Entrée maîtrisée",
+      "result": "V"
+    },
+    {
+      "label": "Argentine 2–1 Algérie",
+      "note": "Messi guide l’Albiceleste",
+      "result": "V"
+    },
+    {
+      "label": "Argentine 1–1 Autriche",
+      "note": "Qualification assurée",
+      "result": "N"
+    },
+    {
+      "label": "Argentine 3–2 Cap-Vert",
+      "note": "Succès spectaculaire en 16e",
+      "result": "V"
+    }
   ]
 }

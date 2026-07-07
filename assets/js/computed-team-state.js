@@ -2,7 +2,7 @@
 (function(){
   'use strict';
 
-  const VERSION = '13.0.6';
+  const VERSION = '13.0.7';
   const FEATURED_ORDER = [
     'morocco','france','spain','norway','england',
     'belgium','egypt',
@@ -24,9 +24,9 @@
     netherlands:{teamName:'Pays-Bas',flag:'🇳🇱'}, sweden:{teamName:'Suède',flag:'🇸🇪'}, mexico:{teamName:'Mexique',flag:'🇲🇽'},
     ecuador:{teamName:'Équateur',flag:'🇪🇨'}, united_states:{teamName:'États-Unis',flag:'🇺🇸'}, bosnia:{teamName:'Bosnie-Herzégovine',flag:'🇧🇦'},
     austria:{teamName:'Autriche',flag:'🇦🇹'}, portugal:{teamName:'Portugal',flag:'🇵🇹'}, croatia:{teamName:'Croatie',flag:'🇭🇷'},
-    switzerland:{teamName:'Suisse',flag:'🇨🇭'}, australia:{teamName:'Australie',flag:'🇦🇺'}, argentina:{teamName:'Argentine',flag:'🇦🇷'},
+    switzerland:{teamName:'Suisse',flag:'🇨🇭'}, australia:{teamName:'Australie',flag:'🇦🇺'}, argentina:{teamName:'Argentine',flag:'🇦🇷',supporterName:'Albiceleste',heroImg:'assets/opponents/argentina/player.webp',playerImg:'assets/opponents/argentina/player.webp',heroPlayer:'Lionel Messi'},
     colombia:{teamName:'Colombie',flag:'🇨🇴'}, morocco:{teamName:'Maroc',flag:'🇲🇦'}, france:{teamName:'France',flag:'🇫🇷'},
-    spain:{teamName:'Espagne',flag:'🇪🇸'}, norway:{teamName:'Norvège',flag:'🇳🇴'}, england:{teamName:'Angleterre',flag:'🏴'},
+    spain:{teamName:'Espagne',flag:'🇪🇸'}, norway:{teamName:'Norvège',flag:'🇳🇴'}, england:{teamName:'Angleterre',flag:'🏴󠁧󠁢󠁥󠁮󠁧󠁿',supporterName:'Three Lions',heroImg:'assets/teams/england/player.webp'},
     belgium:{teamName:'Belgique',flag:'🇧🇪'}, egypt:{teamName:'Égypte',flag:'🇪🇬'}, brazil:{teamName:'Brésil',flag:'🇧🇷'},
     senegal:{teamName:'Sénégal',flag:'🇸🇳'}, algeria:{teamName:'Algérie',flag:'🇩🇿'}, ivory_coast:{teamName:'Côte d’Ivoire',flag:'🇨🇮'},
     dr_congo:{teamName:'RD Congo',flag:'🇨🇩'}, cape_verde:{teamName:'Cap-Vert',flag:'🇨🇻'}, ghana:{teamName:'Ghana',flag:'🇬🇭'}
@@ -39,7 +39,7 @@
     N97:'qf-97', N98:'qf-98', N99:'qf-99', N100:'qf-100', N101:'sf-101', N102:'sf-102', N103:'third-103', N104:'final-104'
   };
 
-  // V13.0.6 — aliases de clés live/API vers l'identifiant KO canonique.
+  // V13.0.7 — aliases de clés live/API vers l'identifiant KO canonique.
   // Objectif : la home doit réagir même si la simulation reçoit `por-esp`, `por-spain`,
   // `usa-bel`, `bel-usa`, `usa-belgium`, etc.
   const KO_ID_BY_KEY = Object.assign(
@@ -233,7 +233,7 @@
 
     Object.entries((live && live.matches) || {}).forEach(([key, v]) => addEntry(key, v, 'live-json'));
 
-    // V13.0.6 — état réel du moteur KO en mémoire. C'est ce que la simulation utilise.
+    // V13.0.7 — état réel du moteur KO en mémoire. C'est ce que la simulation utilise.
     // La home doit lire cette source prioritaire pour ne plus attendre un nouveau déploiement.
     try {
       if (typeof KNOCKOUT_LIVE_RESULTS !== 'undefined' && KNOCKOUT_LIVE_RESULTS) {
@@ -433,7 +433,7 @@
       const p = new URLSearchParams();
       p.set('team', s.key);
       if(meta.defaultLang && ['england','norway'].includes(s.key)) p.set('lang', meta.defaultLang);
-      p.set('v','1306');
+      p.set('v','1307');
       return '?' + p.toString();
     }
     function card(s, cls){
@@ -443,7 +443,7 @@
       <div class="qg-entry-bg"></div>
       <div class="qg-entry-wrap">
         <div class="qg-entry-top">
-          <div class="qg-entry-brand"><img src="assets/lion-mascotte.png" alt="QualifGaïndé"><span>QualifGaïndé Worldwide · V13.0.6</span></div>
+          <div class="qg-entry-brand"><img src="assets/lion-mascotte.png" alt="QualifGaïndé"><span>QualifGaïndé Worldwide · V13.0.7</span></div>
           <div class="qg-entry-pill">${lang === 'en' ? 'Knockout stage · automatic team state' : 'Phase finale · statuts calculés automatiquement'}</div>
         </div>
         <div class="qg-entry-hero">
@@ -454,7 +454,7 @@
         <div class="qg-selector-group"><h2 class="qg-selector-title">${esc(c.qf)}</h2><div class="qg-team-grid">${groups.qf.map(s=>card(s,'qf')).join('')}</div></div>
         <div class="qg-selector-group"><h2 class="qg-selector-title">${esc(c.live)}</h2><div class="qg-team-grid">${groups.live.map(s=>card(s,'live')).join('')}</div></div>
         <div class="qg-selector-group"><h2 class="qg-selector-title">${esc(c.out)}</h2><div class="qg-team-grid">${groups.out.map(s=>card(s,'out')).join('')}</div></div>
-        <div class="qg-entry-actions"><a class="qg-entry-action" href="?mode=global&v=1306">${esc(c.global)}</a><a class="qg-entry-action" href="?team=france&v=1306">${esc(c.quick)}</a></div>
+        <div class="qg-entry-actions"><a class="qg-entry-action" href="?mode=global&v=1307">${esc(c.global)}</a><a class="qg-entry-action" href="?team=france&v=1307">${esc(c.quick)}</a></div>
       </div>`;
   }
 
@@ -611,13 +611,13 @@ async function run(){
   function scheduleRun(reason, delay){
     clearTimeout(__qgAutoStateTimer);
     __qgAutoStateTimer = setTimeout(function(){
-      run().catch(function(e){ console.warn('[QG V13.0.6] computedTeamState refresh skipped', reason, e); });
+      run().catch(function(e){ console.warn('[QG V13.0.7] computedTeamState refresh skipped', reason, e); });
     }, delay == null ? 160 : delay);
   }
 
   window.QG_AUTO_TEAM_STATE_ENGINE = {run, buildState, scheduleRun};
 
-  // V13.0.6 — rebrancher la home sur le vrai flux live.
+  // V13.0.7 — rebrancher la home sur le vrai flux live.
   // `qualifgainde:scoresUpdated` est émis tôt par applyScoresData ; on relance donc plusieurs fois
   // pour passer APRÈS l'écriture de KNOCKOUT_LIVE_RESULTS et la propagation du bracket.
   window.addEventListener('qualifgainde:scoresUpdated', function(){

@@ -314,7 +314,7 @@
   },
   "england": {
     "teamName": "Angleterre",
-    "flag": "🏴",
+    "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
     "primary": "#FFFFFF",
     "secondary": "#CF081F",
     "accent": "#1B365D",
@@ -335,5 +335,24 @@
     "stageGroup": "qualified_qf",
     "nextOpponent": "norway",
     "playerImg": "assets/teams/england/player.webp"
+  },
+  "argentina": {
+    "teamName": "Argentine",
+    "flag": "🇦🇷",
+    "primary": "#6CACE4",
+    "secondary": "#FFFFFF",
+    "accent": "#F6B40E",
+    "heroImg": "assets/opponents/argentina/player.webp",
+    "playerImg": "assets/opponents/argentina/player.webp",
+    "heroPlayer": "Lionel Messi",
+    "supporterName": "Albiceleste",
+    "tagline": "L’Albiceleste avance avec Messi en guide",
+    "statusLabel": "Qualifiée en huitième · prochain défi : Égypte",
+    "selectorLine": "Qualifiée · Égypte en huitième",
+    "tournamentStatus": "qualified",
+    "status": "qualified",
+    "currentRound": "R16",
+    "nextMatchId": "arg-egy",
+    "defaultLang": "es"
   }
 }

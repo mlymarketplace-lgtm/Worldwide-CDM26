@@ -71,6 +71,16 @@
   "england": {
     "teamName": "Inglaterra",
     "selectorLine": "En cuartos · próximo desafío: Noruega",
-    "statusLabel": "Clasificada a cuartos · próximo desafío: Noruega"
+    "statusLabel": "Clasificada a cuartos · próximo desafío: Noruega",
+    "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿"
+  },
+  "argentina": {
+    "teamName": "Argentina",
+    "flag": "🇦🇷",
+    "supporterName": "Albiceleste",
+    "heroPlayer": "Lionel Messi",
+    "tagline": "La Albiceleste avanza con Messi",
+    "statusLabel": "Clasificada a octavos · Egipto por delante",
+    "selectorLine": "Clasificada · Egipto por delante"
   }
 }

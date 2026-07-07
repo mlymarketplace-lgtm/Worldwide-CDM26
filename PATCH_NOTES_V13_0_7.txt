@@ -1,0 +1,10 @@
+QualifGaïndé V13.0.7 — England flag + Argentina/Messi side card
+
+- Home page : drapeau Angleterre remplacé par l’emoji régional England flag.
+- Fallback Angleterre corrigé dans computedTeamState.
+- Ajout d’une fiche technique Argentina/Albiceleste pour les panneaux de match.
+- Ajout de assets/opponents/argentina/player.webp pour éviter le fallback logo Sénégal sur Argentine.
+- Carte Argentine : second libellé = Albiceleste au lieu de répéter Argentine.
+- team-results Argentina ajoutés pour remplir la carte latérale.
+- Version/cache bumpés en 13.0.7.
+Note : l’image Argentina intégrée est un visuel placeholder interne, pas une photo officielle fournie.
