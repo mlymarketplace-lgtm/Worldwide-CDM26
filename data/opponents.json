@@ -13,7 +13,9 @@
     "nickname": "Lions norvégiens",
     "supporterName": "Lions norvégiens",
     "heroPlayer": "Erling Haaland",
-    "playerImg": "assets/opponents/norway/player.webp"
+    "playerImg": "assets/teams/norway/player.webp",
+    "heroImg": "assets/teams/norway/player.webp",
+    "bannerImg": "assets/teams/norway/banner.webp"
   },
   "japan": {
     "teamName": "Japon",
@@ -29,7 +31,9 @@
     "nickname": "Three Lions",
     "supporterName": "Three Lions",
     "heroPlayer": "Jude Bellingham",
-    "playerImg": "assets/opponents/england/player.webp"
+    "playerImg": "assets/teams/england/player.webp",
+    "heroImg": "assets/teams/england/player.webp",
+    "bannerImg": "assets/teams/england/banner.webp"
   },
   "netherlands": {
     "teamName": "Pays-Bas",
@@ -192,20 +196,20 @@
     "playerImg": null
   },
   "winner_n91": {
-    "teamName": "Vainqueur Norvège–Brésil",
-    "flag": "🏆",
-    "nickname": "Quart de finale",
-    "supporterName": "Vainqueur Norvège–Brésil",
-    "heroPlayer": "À déterminer",
-    "playerImg": null
+    "teamName": "Norvège",
+    "flag": "🇳🇴",
+    "nickname": "Lions norvégiens",
+    "supporterName": "Lions norvégiens",
+    "heroPlayer": "Erling Haaland",
+    "playerImg": "assets/opponents/norway/player.webp"
   },
   "winner_n92": {
-    "teamName": "Vainqueur Mexique–Angleterre",
-    "flag": "🏆",
-    "nickname": "Quart de finale",
-    "supporterName": "Vainqueur Mexique–Angleterre",
-    "heroPlayer": "À déterminer",
-    "playerImg": null
+    "teamName": "Angleterre",
+    "flag": "🏴",
+    "nickname": "Three Lions",
+    "supporterName": "Three Lions",
+    "heroPlayer": "Jude Bellingham",
+    "playerImg": "assets/teams/england/player.webp"
   },
   "winner_n93": {
     "teamName": "Vainqueur Portugal–Espagne",
@@ -286,5 +290,13 @@
     "supporterName": "Vainqueur demi-finale 2",
     "heroPlayer": "À déterminer",
     "playerImg": null
+  },
+  "winner_mex_eng": {
+    "teamName": "Angleterre",
+    "flag": "🏴",
+    "nickname": "Three Lions",
+    "supporterName": "Three Lions",
+    "heroPlayer": "Jude Bellingham",
+    "playerImg": "assets/teams/england/player.webp"
   }
 }

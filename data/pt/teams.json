@@ -2,8 +2,10 @@
   "brazil": {
     "teamName": "Brasil",
     "tagline": "O país do futebol",
-    "statusLabel": "Potência mundial · Cultura de vitória",
-    "heroPlayer": "Vinícius Júnior"
+    "statusLabel": "Eliminado nos oitavos · Noruega 2–1 Brasil",
+    "selectorLine": "Eliminado nos oitavos · Neymar marcou em sua última Copa",
+    "heroSubtitle": "Neymar marcou uma última vez, mas a Seleção se despede.",
+    "supporterName": "Seleção"
   },
   "cape_verde": {
     "teamName": "Cabo Verde",
@@ -31,12 +33,12 @@
   },
   "spain": {
     "teamName": "Espanha",
-    "tagline": "La Roja, o império do controlo",
-    "statusLabel": "Qualificada para os oitavos · Espanha 3–0 Áustria",
+    "tagline": "La Roja, controlo e sangue-frio",
+    "statusLabel": "Qualificada para os quartos · aguarda Estados Unidos ou Bélgica",
     "supporterName": "La Roja",
-    "selectorLine": "Qualificada · Portugal nos oitavos",
+    "selectorLine": "Qualificada aos quartos · aguarda Estados Unidos ou Bélgica",
     "heroTitle": "🇪🇸 Espanha na Copa do Mundo 2026",
-    "heroSubtitle": "La Roja dominou a Áustria: a caminhada continua.",
+    "heroSubtitle": "A Espanha venceu Portugal por 1–0 e está nos quartos. Próximo adversário: Estados Unidos ou Bélgica.",
     "heroPlayer": "Rodri"
   },
   "portugal_croatia": {
@@ -49,5 +51,32 @@
     "tagline": "O orgulho dos Fennecs",
     "statusLabel": "Eliminada nos 16 avos",
     "selectorLine": "Eliminada · respeito aos Fennecs"
+  },
+  "morocco": {
+    "teamName": "Marrocos",
+    "statusLabel": "Quartas de final · próximo desafio: França",
+    "selectorLine": "Quartas · França pela frente",
+    "supporterName": "Leões do Atlas"
+  },
+  "egypt": {
+    "teamName": "Egito",
+    "statusLabel": "Oitavos · Argentina pela frente",
+    "selectorLine": "Oitavos · Argentina pela frente",
+    "supporterName": "Faraós"
+  },
+  "france": {
+    "teamName": "França",
+    "statusLabel": "Quartas de final · próximo desafio: Marrocos",
+    "selectorLine": "Quartas · Marrocos pela frente"
+  },
+  "norway": {
+    "teamName": "Noruega",
+    "selectorLine": "Nas quartas · próximo desafio: Inglaterra",
+    "statusLabel": "Classificada para as quartas · próximo desafio: Inglaterra"
+  },
+  "england": {
+    "teamName": "Inglaterra",
+    "selectorLine": "Nas quartas · próximo desafio: Noruega",
+    "statusLabel": "Classificada para as quartas · próximo desafio: Noruega"
   }
 }

@@ -1,8 +1,9 @@
-V12.0.12 — restauration des pages équipes
+V13.0.0 — i18n core / langues restaurées
 
-- Base V12.0.11 + adaptateur multi-équipe complet.
-- Répare Brésil, Espagne, Égypte, Algérie et autres fiches qui retombaient sur Sénégal/Belgique–Sénégal.
-- Conserve page d’entrée “Je suis supporter de…”.
-- Conserve scores 16es single source via STATIC_R32_LOCKS.
-- Conserve France–Maroc en quart et compteur 19 990 ±50.
-- Pas de MutationObserver, TreeWalker ni cascades de re-render.
+- Ajout d’un vrai cœur langue FR/EN/PT/ES/AR.
+- Détection device: ar-*, pt-*, es-*, en-*, fr-* avec ?lang prioritaire.
+- Pages équipe rendues depuis team + locale + data, sans retour legacy Sénégal.
+- RTL arabe activé avec scores conservés en LTR.
+- Données localisées ajoutées pour arabe, anglais, espagnol et portugais renforcé.
+- Home selector traduite selon la langue active.
+- Cache/service worker bumpés en V13.0.0.
