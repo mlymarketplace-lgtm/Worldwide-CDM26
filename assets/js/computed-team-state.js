@@ -2,7 +2,7 @@
 (function(){
   'use strict';
 
-  const VERSION = '13.0.4';
+  const VERSION = '13.0.5';
   const FEATURED_ORDER = [
     'morocco','france','spain','norway','england',
     'belgium','egypt',
@@ -37,6 +37,27 @@
     N81:'usa-bih', N82:'bel-sen', N83:'por-cro', N84:'esp-aut', N85:'sui-alg', N86:'aus-egy', N87:'arg-cpv', N88:'col-gha',
     N89:'par-fra', N90:'can-mar', N91:'bra-nor', N92:'mex-eng', N93:'por-spain', N94:'usa-bel', N95:'arg-egy', N96:'sui-col',
     N97:'qf-97', N98:'qf-98', N99:'qf-99', N100:'qf-100', N101:'sf-101', N102:'sf-102', N103:'third-103', N104:'final-104'
+  };
+
+  // V13.0.5 — aliases de clés live/API vers l'identifiant KO canonique.
+  // Objectif : la home doit réagir même si la simulation reçoit `por-esp`, `por-spain`,
+  // `usa-bel`, `bel-usa`, `usa-belgium`, etc.
+  const KO_ID_BY_KEY = Object.assign(
+    {},
+    Object.fromEntries(Object.entries(MATCH_KEY_BY_ID).map(([id, key]) => [key, id])),
+    {
+      'por-esp':'N93', 'por-spain':'N93', 'portugal-spain':'N93', 'portugal-espagne':'N93',
+      'usa-bel':'N94', 'bel-usa':'N94', 'usa-belgium':'N94', 'belgium-usa':'N94', 'united-states-belgium':'N94', 'us-belgium':'N94',
+      'arg-egy':'N95', 'argentina-egypt':'N95', 'arg-egypt':'N95',
+      'sui-col':'N96', 'switzerland-colombia':'N96',
+      'qf98':'N98', 'qf-98':'N98', 'qf99':'N99', 'qf-99':'N99'
+    }
+  );
+
+  const KO_CODES_BY_ID = {
+    N89:{h:'PAR',a:'FRA'}, N90:{h:'CAN',a:'MAR'}, N91:{h:'NOR',a:'BRA'}, N92:{h:'MEX',a:'ENG'},
+    N93:{h:'POR',a:'ESP'}, N94:{h:'USA',a:'BEL'}, N95:{h:'ARG',a:'EGY'}, N96:{h:'SUI',a:'COL'},
+    N97:{}, N98:{}, N99:{}, N100:{}, N101:{}, N102:{}, N103:{}, N104:{}
   };
 
   const MATCH_DEFS = {
@@ -139,27 +160,93 @@
   }
   function lockMap(rawLocks, live){
     const map = {};
-    Object.values(rawLocks || {}).forEach(v => {
-      if(v && v.koId && String(v.status || '').toLowerCase() === 'final') map[v.koId] = v;
-    });
-    const liveMatches = (live && live.matches) || {};
-    Object.entries(liveMatches).forEach(([key, v]) => {
-      if(!v || String(v.status || '').toLowerCase() !== 'final') return;
-      const id = Object.keys(MATCH_KEY_BY_ID).find(k => MATCH_KEY_BY_ID[k] === key);
-      if(!id) return;
+
+    function keyToId(key, v){
+      const rawId = v && (v.koId || v.id || v.matchId);
+      if(rawId && /^N\d+$/i.test(String(rawId))) return String(rawId).toUpperCase();
+      const normalized = String(key || '').toLowerCase().trim().replace(/_/g,'-');
+      return KO_ID_BY_KEY[normalized] || null;
+    }
+    function readScore(v, side){
+      if(!v) return null;
+      const direct = side === 'home'
+        ? (v.home ?? v.hg ?? v.homeScore ?? v.goalsHome ?? (v.goals && v.goals.home))
+        : (v.away ?? v.ag ?? v.awayScore ?? v.goalsAway ?? (v.goals && v.goals.away));
+      return direct === undefined || direct === null || direct === '' ? null : Number(direct);
+    }
+    function readPenalty(v, side){
+      if(!v) return null;
+      const direct = side === 'home'
+        ? (v.penaltyHome ?? (v.penalty && v.penalty.home) ?? (v.penalties && v.penalties.home))
+        : (v.penaltyAway ?? (v.penalty && v.penalty.away) ?? (v.penalties && v.penalties.away));
+      return direct === undefined || direct === null || direct === '' ? null : Number(direct);
+    }
+    function inferWinnerSide(v, home, away, penHome, penAway){
+      if(v && (v.winnerSide === 0 || v.winnerSide === 1)) return Number(v.winnerSide);
+      const w = String((v && v.winner) || '').toLowerCase();
+      if(w === 'home' || w === 'h') return 0;
+      if(w === 'away' || w === 'a') return 1;
+      if(w && (w === String(v && (v.h || v.homeCode || '')).toLowerCase() || CODE_TO_TEAM[w.toUpperCase()] === CODE_TO_TEAM[String(v && (v.h || v.homeCode || '')).toUpperCase()])) return 0;
+      if(w && (w === String(v && (v.a || v.awayCode || '')).toLowerCase() || CODE_TO_TEAM[w.toUpperCase()] === CODE_TO_TEAM[String(v && (v.a || v.awayCode || '')).toUpperCase()])) return 1;
+      if(penHome !== null && penAway !== null && penHome !== penAway) return penHome > penAway ? 0 : 1;
+      if(home !== null && away !== null && home !== away) return home > away ? 0 : 1;
+      return null;
+    }
+    function addEntry(key, v, source){
+      if(!v) return;
+      const status = String(v.status || v.apiStatus || '').toLowerCase();
+      const isFinal = status === 'final' || status === 'ft' || status === 'aet' || status === 'pen' || status.includes('match finished') || v.locked === true;
+      if(!isFinal) return;
+      const id = keyToId(key, v);
+      if(!id || !MATCH_DEFS[id]) return;
       const def = MATCH_DEFS[id];
-      if(!def) return;
-      const h = def.home || null, a = def.away || null;
+      const codes = KO_CODES_BY_ID[id] || {};
+      const home = readScore(v, 'home');
+      const away = readScore(v, 'away');
+      if(home === null || away === null) return;
+      const penaltyHome = readPenalty(v, 'home');
+      const penaltyAway = readPenalty(v, 'away');
+      const h = v.h || v.homeCode || codes.h || (def.home ? teamCode(def.home) : undefined);
+      const a = v.a || v.awayCode || codes.a || (def.away ? teamCode(def.away) : undefined);
+      const winnerSide = inferWinnerSide(v, home, away, penaltyHome, penaltyAway);
+      if(winnerSide !== 0 && winnerSide !== 1) return;
       map[id] = Object.assign({}, map[id] || {}, {
-        koId:id, home:v.home, away:v.away, status:'final',
-        winnerSide: v.winnerSide != null ? v.winnerSide : (v.winner === 'away' ? 1 : 0),
-        winner: v.winner || (v.winnerSide === 1 ? 'away' : 'home'),
+        koId:id,
+        h, a,
+        home, away,
+        hg:home, ag:away,
+        status:'final',
+        apiStatus:v.apiStatus || 'FT',
+        apiStatusLong:v.apiStatusLong || 'Match Finished',
+        penaltyHome, penaltyAway,
+        penalty: {home: penaltyHome, away: penaltyAway},
+        winner: winnerSide === 1 ? 'away' : 'home',
+        winnerSide,
         locked:true,
-        h: h ? teamCode(h) : (map[id] && map[id].h),
-        a: a ? teamCode(a) : (map[id] && map[id].a)
+        source
       });
+    }
+
+    Object.entries(rawLocks || {}).forEach(([key, v]) => {
+      if(v && v.koId && String(v.status || '').toLowerCase() === 'final') addEntry(key, v, 'knockout-locks');
     });
-    if(window.__QG_MANUAL_KO_LOCKS) Object.assign(map, window.__QG_MANUAL_KO_LOCKS);
+
+    Object.entries((live && live.matches) || {}).forEach(([key, v]) => addEntry(key, v, 'live-json'));
+
+    // V13.0.5 — état réel du moteur KO en mémoire. C'est ce que la simulation utilise.
+    // La home doit lire cette source prioritaire pour ne plus attendre un nouveau déploiement.
+    try {
+      if (typeof KNOCKOUT_LIVE_RESULTS !== 'undefined' && KNOCKOUT_LIVE_RESULTS) {
+        Object.entries(KNOCKOUT_LIVE_RESULTS).forEach(([key, v]) => addEntry(key, v, 'runtime-ko'));
+      }
+    } catch(e) {}
+
+    try {
+      const last = window.QUALIFGAINDE_LAST_SCORES;
+      if(last && last.matches) Object.entries(last.matches).forEach(([key, v]) => addEntry(key, v, 'last-scores'));
+    } catch(e) {}
+
+    if(window.__QG_MANUAL_KO_LOCKS) Object.entries(window.__QG_MANUAL_KO_LOCKS).forEach(([key, v]) => addEntry(key, v, 'manual'));
     return map;
   }
   function teamCode(team){
@@ -346,7 +433,7 @@
       const p = new URLSearchParams();
       p.set('team', s.key);
       if(meta.defaultLang && ['england','norway'].includes(s.key)) p.set('lang', meta.defaultLang);
-      p.set('v','1304');
+      p.set('v','1305');
       return '?' + p.toString();
     }
     function card(s, cls){
@@ -356,7 +443,7 @@
       <div class="qg-entry-bg"></div>
       <div class="qg-entry-wrap">
         <div class="qg-entry-top">
-          <div class="qg-entry-brand"><img src="assets/lion-mascotte.png" alt="QualifGaïndé"><span>QualifGaïndé Worldwide · V13.0.4</span></div>
+          <div class="qg-entry-brand"><img src="assets/lion-mascotte.png" alt="QualifGaïndé"><span>QualifGaïndé Worldwide · V13.0.5</span></div>
           <div class="qg-entry-pill">${lang === 'en' ? 'Knockout stage · automatic team state' : 'Phase finale · statuts calculés automatiquement'}</div>
         </div>
         <div class="qg-entry-hero">
@@ -367,7 +454,7 @@
         <div class="qg-selector-group"><h2 class="qg-selector-title">${esc(c.qf)}</h2><div class="qg-team-grid">${groups.qf.map(s=>card(s,'qf')).join('')}</div></div>
         <div class="qg-selector-group"><h2 class="qg-selector-title">${esc(c.live)}</h2><div class="qg-team-grid">${groups.live.map(s=>card(s,'live')).join('')}</div></div>
         <div class="qg-selector-group"><h2 class="qg-selector-title">${esc(c.out)}</h2><div class="qg-team-grid">${groups.out.map(s=>card(s,'out')).join('')}</div></div>
-        <div class="qg-entry-actions"><a class="qg-entry-action" href="?mode=global&v=1304">${esc(c.global)}</a><a class="qg-entry-action" href="?team=france&v=1304">${esc(c.quick)}</a></div>
+        <div class="qg-entry-actions"><a class="qg-entry-action" href="?mode=global&v=1305">${esc(c.global)}</a><a class="qg-entry-action" href="?team=france&v=1305">${esc(c.quick)}</a></div>
       </div>`;
   }
 
@@ -421,7 +508,43 @@
     if(activeTeam) updateTeamPage(activeTeam.toLowerCase(), teams, computed);
   }
 
-  window.QG_AUTO_TEAM_STATE_ENGINE = {run, buildState};
+  let __qgAutoStateTimer = null;
+  function scheduleRun(reason, delay){
+    clearTimeout(__qgAutoStateTimer);
+    __qgAutoStateTimer = setTimeout(function(){
+      run().catch(function(e){ console.warn('[QG V13.0.5] computedTeamState refresh skipped', reason, e); });
+    }, delay == null ? 160 : delay);
+  }
+
+  window.QG_AUTO_TEAM_STATE_ENGINE = {run, buildState, scheduleRun};
+
+  // V13.0.5 — rebrancher la home sur le vrai flux live.
+  // `qualifgainde:scoresUpdated` est émis tôt par applyScoresData ; on relance donc plusieurs fois
+  // pour passer APRÈS l'écriture de KNOCKOUT_LIVE_RESULTS et la propagation du bracket.
+  window.addEventListener('qualifgainde:scoresUpdated', function(){
+    scheduleRun('scoresUpdated-early', 80);
+    setTimeout(function(){ scheduleRun('scoresUpdated-after-ko', 520); }, 120);
+    setTimeout(function(){ scheduleRun('scoresUpdated-late', 1300); }, 650);
+  });
+  window.addEventListener('qualifgainde:koFinalized', function(){ scheduleRun('koFinalized', 80); });
+
+  // Filet de sécurité : si applyScoresData est accessible globalement, on le wrappe pour relancer
+  // computedTeamState à la fin de son traitement, pas seulement au début de l'arrivée API.
+  try {
+    if (typeof applyScoresData === 'function' && !applyScoresData.__qgComputedWrapped) {
+      const __qgOriginalApplyScoresData = applyScoresData;
+      const __qgWrappedApplyScoresData = function(){
+        const result = __qgOriginalApplyScoresData.apply(this, arguments);
+        scheduleRun('after-applyScoresData', 120);
+        setTimeout(function(){ scheduleRun('after-applyScoresData-late', 700); }, 260);
+        return result;
+      };
+      __qgWrappedApplyScoresData.__qgComputedWrapped = true;
+      applyScoresData = __qgWrappedApplyScoresData;
+      window.applyScoresData = __qgWrappedApplyScoresData;
+    }
+  } catch(e) {}
+
   if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', run, {once:true});
   else run();
   window.addEventListener('load', () => setTimeout(run, 650), {once:true});

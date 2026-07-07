@@ -1,4 +1,4 @@
-QualifGaïndé V13.0.4 — automatic team state engine
+QualifGaïndé V13.0.5 — automatic team state engine
 
 - Ajout d'un moteur computedTeamState côté front.
 - La home page n'est plus statiquement dépendante des groupes écrits en dur : elle est reconstruite depuis les résultats finalisés.
