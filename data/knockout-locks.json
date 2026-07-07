@@ -261,20 +261,6 @@
       "winnerSide": 1,
       "locked": true,
       "round": "r16"
-    },
-    "N91": {
-      "koId": "N91",
-      "h": "NOR",
-      "a": "BRA",
-      "home": 2,
-      "away": 1,
-      "status": "final",
-      "apiStatus": "FT",
-      "apiStatusLong": "Match Finished",
-      "winner": "home",
-      "winnerSide": 0,
-      "locked": true,
-      "round": "r16"
     }
   },
   "par-fra": {
@@ -512,47 +498,5 @@
       "winnerSide": 0,
       "locked": true
     }
-  },
-  "bra-nor": {
-    "koId": "N91",
-    "h": "NOR",
-    "a": "BRA",
-    "home": 2,
-    "away": 1,
-    "status": "final",
-    "apiStatus": "FT",
-    "apiStatusLong": "Match Finished",
-    "winner": "home",
-    "winnerSide": 0,
-    "locked": true,
-    "round": "r16"
-  },
-  "mex-eng": {
-    "koId": "N92",
-    "h": "MEX",
-    "a": "ENG",
-    "home": 2,
-    "away": 3,
-    "status": "final",
-    "apiStatus": "FT",
-    "apiStatusLong": "Match Finished",
-    "winner": "away",
-    "winnerSide": 1,
-    "locked": true,
-    "round": "r16"
-  },
-  "por-spain": {
-    "koId": "N93",
-    "h": "POR",
-    "a": "ESP",
-    "home": 0,
-    "away": 1,
-    "status": "final",
-    "apiStatus": "FT",
-    "apiStatusLong": "Match Finished",
-    "winner": "away",
-    "winnerSide": 1,
-    "locked": true,
-    "round": "r16"
   }
 }

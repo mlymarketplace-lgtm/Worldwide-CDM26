@@ -83,13 +83,8 @@
     },
     {
       "label": "Brésil 2–1 Japon",
-      "note": "Le Brésil passe en huitième",
+      "note": "Le Brésil passe sans trembler jusqu’au bout",
       "result": "V"
-    },
-    {
-      "label": "Norvège 2–1 Brésil",
-      "note": "Neymar marque, mais Haaland envoie la Norvège en quart",
-      "result": "D"
     }
   ],
   "france": [
@@ -192,6 +187,11 @@
   ],
   "spain": [
     {
+      "label": "Espagne 0–0 Cap-Vert",
+      "note": "Contrôle sans trouver la faille",
+      "result": "N"
+    },
+    {
       "label": "Espagne 4–0 Arabie Saoudite",
       "note": "La Roja déroule",
       "result": "V"
@@ -204,11 +204,6 @@
     {
       "label": "Espagne 3–0 Autriche",
       "note": "La Roja maîtrise son seizième",
-      "result": "V"
-    },
-    {
-      "label": "Portugal 0–1 Espagne",
-      "note": "La Roja gagne le derby ibérique et file en quart",
       "result": "V"
     }
   ],
@@ -276,50 +271,6 @@
       "label": "Colombie 1–0 Ghana",
       "note": "Fin de parcours en 16e, les Black Stars sortent avec respect",
       "result": "D"
-    }
-  ],
-  "norway": [
-    {
-      "label": "Norvège 3–2 Sénégal",
-      "note": "Un match de caractère, gagné dans le chaos et l’intensité",
-      "result": "V"
-    },
-    {
-      "label": "Norvège 1–4 France",
-      "note": "Défaite lourde, mais enseignement tactique utile avant les matchs couperets",
-      "result": "D"
-    },
-    {
-      "label": "Côte d’Ivoire 1–2 Norvège",
-      "note": "Haaland lance le parcours à élimination directe",
-      "result": "V"
-    },
-    {
-      "label": "Norvège 2–1 Brésil",
-      "note": "Doublé tardif de Haaland, Nyland héroïque, quart historique",
-      "result": "V"
-    }
-  ],
-  "england": [
-    {
-      "label": "Angleterre 4–2 Croatie",
-      "note": "Entrée spectaculaire, intensité et efficacité offensive",
-      "result": "V"
-    },
-    {
-      "label": "Angleterre 0–0 Ghana",
-      "note": "Match fermé, bloc solide, maîtrise sans éclat",
-      "result": "N"
-    },
-    {
-      "label": "Panama 0–2 Angleterre",
-      "note": "Bellingham et Kane guident les Three Lions",
-      "result": "V"
-    },
-    {
-      "label": "Mexique 2–3 Angleterre",
-      "note": "Bellingham double, Kane penalty, résistance à dix à l’Azteca",
-      "result": "V"
     }
   ]
 }

@@ -28,29 +28,23 @@
     "quarterfinalLine": "Quart de finale · France–Maroc"
   },
   "brazil": {
-    "status": "eliminated",
-    "round": "ELIMINATED",
-    "tournamentStatus": "eliminated",
-    "stageGroup": "eliminated",
-    "eliminatedBy": "norway",
-    "selectorLine": "Éliminé en huitième · Neymar a marqué pour son dernier Mondial",
-    "statusLabel": "Éliminé en huitième de finale · Norvège 2–1 Brésil",
-    "roundLabel": "éliminé en huitième de finale",
-    "exitScoreLine": "🇳🇴 Norvège 2–1 Brésil 🇧🇷"
+    "status": "qualified",
+    "round": "R16",
+    "nextMatchId": "bra-nor",
+    "nextOpponent": "norway",
+    "selectorLine": "Qualifié en 8e · prochain défi : Norvège",
+    "statusLabel": "Qualifié en huitième de finale · Prochain défi : Norvège",
+    "roundLabel": "huitième de finale"
   },
   "spain": {
     "status": "qualified",
-    "round": "QF",
-    "currentRound": "QF",
-    "qualifiedRound": "QF",
-    "stageGroup": "qualified_qf",
-    "nextMatchId": "qf-98",
-    "nextOpponent": "winner_usa_belgium",
-    "selectorLine": "Qualifiée en quart · attend États-Unis ou Belgique",
-    "statusLabel": "Qualifiée en quart de finale · attend le vainqueur États-Unis–Belgique",
-    "roundLabel": "quart de finale",
-    "quarterfinalLine": "Quart de finale · Espagne–Vainqueur États-Unis–Belgique",
-    "heroSubtitle": "L’Espagne a battu le Portugal 1–0 et file en quart. Elle attend désormais le vainqueur de États-Unis–Belgique."
+    "round": "R16",
+    "nextMatchId": "por-spain",
+    "statusLabel": "Qualifiée en huitième · Espagne 3–0 Autriche",
+    "selectorLine": "Qualifiée · Portugal en huitième",
+    "roundLabel": "Qualifiée en huitième de finale",
+    "heroSubtitle": "La Roja a maîtrisé l’Autriche : place au derby ibérique.",
+    "pendingNext": null
   },
   "egypt": {
     "status": "qualified",
@@ -141,33 +135,5 @@
     "heroSubtitle": "Respect total aux Black Stars : le Ghana quitte le Mondial la tête haute après un combat serré contre la Colombie.",
     "exitScoreLine": "🇨🇴 Colombie 1–0 Ghana 🇬🇭",
     "farewellHeadline": "AU REVOIR “LES BLACK STARS”"
-  },
-  "norway": {
-    "status": "qualified",
-    "round": "QF",
-    "currentRound": "QF",
-    "qualifiedRound": "QF",
-    "stageGroup": "qualified_qf",
-    "nextMatchId": "qf-99",
-    "nextOpponent": "england",
-    "selectorLine": "Qualifiée en quart · prochain défi : Angleterre",
-    "statusLabel": "Qualifiée en quart de finale · prochain défi : Angleterre",
-    "roundLabel": "quart de finale",
-    "quarterfinalLine": "Quart de finale · Norvège–Angleterre",
-    "heroSubtitle": "La Norvège a fait tomber le Brésil grâce à Haaland et Nyland. À Miami, elle défie l’Angleterre pour une place historique en demi-finale."
-  },
-  "england": {
-    "status": "qualified",
-    "round": "QF",
-    "currentRound": "QF",
-    "qualifiedRound": "QF",
-    "stageGroup": "qualified_qf",
-    "nextMatchId": "qf-99",
-    "nextOpponent": "norway",
-    "selectorLine": "Qualifiée en quart · prochain défi : Norvège",
-    "statusLabel": "Qualifiée en quart de finale · prochain défi : Norvège",
-    "roundLabel": "quart de finale",
-    "quarterfinalLine": "Quart de finale · Norvège–Angleterre",
-    "heroSubtitle": "Les Three Lions ont survécu à l’Azteca contre le Mexique. Prochaine bataille : la Norvège de Haaland à Miami."
   }
 }

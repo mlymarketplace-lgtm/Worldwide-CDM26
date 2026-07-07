@@ -18,23 +18,23 @@
   ],
   "norway": [
     {
+      "label": "Iraq 1–4 Norvège",
+      "note": "Puissance offensive",
+      "result": "V"
+    },
+    {
       "label": "Norvège 3–2 Sénégal",
-      "note": "Un match de caractère, gagné dans le chaos et l’intensité",
+      "note": "Match renversant",
       "result": "V"
     },
     {
       "label": "Norvège 1–4 France",
-      "note": "Défaite lourde, mais enseignement tactique utile avant les matchs couperets",
+      "note": "Défaite lourde face aux Bleus",
       "result": "D"
     },
     {
       "label": "Côte d’Ivoire 1–2 Norvège",
-      "note": "Haaland lance le parcours à élimination directe",
-      "result": "V"
-    },
-    {
-      "label": "Norvège 2–1 Brésil",
-      "note": "Doublé tardif de Haaland, Nyland héroïque, quart historique",
+      "note": "Haaland marque, la Norvège avance",
       "result": "V"
     }
   ],
@@ -58,22 +58,17 @@
   "england": [
     {
       "label": "Angleterre 4–2 Croatie",
-      "note": "Entrée spectaculaire, intensité et efficacité offensive",
+      "note": "Entrée spectaculaire",
       "result": "V"
     },
     {
       "label": "Angleterre 0–0 Ghana",
-      "note": "Match fermé, bloc solide, maîtrise sans éclat",
+      "note": "Match fermé",
       "result": "N"
     },
     {
       "label": "Panama 0–2 Angleterre",
-      "note": "Bellingham et Kane guident les Three Lions",
-      "result": "V"
-    },
-    {
-      "label": "Mexique 2–3 Angleterre",
-      "note": "Bellingham double, Kane penalty, résistance à dix à l’Azteca",
+      "note": "Bellingham et Kane décisifs",
       "result": "V"
     }
   ],
