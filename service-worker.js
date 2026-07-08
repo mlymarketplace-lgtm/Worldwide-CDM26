@@ -1,6 +1,6 @@
-// QualifGaïndé Worldwide — Service Worker V13.0.8 SAFE
-const CACHE_VERSION = 'qg-v13-0-8-static';
-const RUNTIME_CACHE = 'qg-v13-0-8-runtime';
+// Mondial Pulse 2026 — Service Worker V13.0.9 SAFE
+const CACHE_VERSION = 'qg-v13-0-9-static';
+const RUNTIME_CACHE = 'qg-v13-0-9-runtime';
 
 self.addEventListener('install', event => {
   self.skipWaiting();

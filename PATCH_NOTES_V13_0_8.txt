@@ -1,4 +1,4 @@
-QualifGaïndé V13.0.8 — Les Brèves du Mondial + countdown + i18n
+QualifGaïndé V13.0.9 — Les Brèves du Mondial + countdown + i18n
 
 - Fix countdown : redémarrage du timer après re-render du panneau central.
 - Fix i18n dynamique : labels computedTeamState, panneau central et home passent par les libellés FR/EN/ES/PT/AR.

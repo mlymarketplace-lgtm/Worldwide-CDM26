@@ -1,0 +1,8 @@
+Mondial Pulse 2026 V13.0.9 — News hub / Brèves du Mondial
+
+- Home allégée : les 9 brèves ne s’affichent plus toutes sur l’accueil.
+- Ajout d’une carte unique “Les Brèves du Mondial” avec 3 aperçus et CTA.
+- Ajout d’une page dédiée ?mode=news et routes /news, /breves, /brèves.
+- Le contenu reste piloté par data/world-news.json, sans duplication.
+- Remplacement des libellés visibles “QualifGaïndé” par “Mondial Pulse 2026” / “Mondial Pulse Editorial”.
+- Aucun changement moteur score / computedTeamState tournament logic.

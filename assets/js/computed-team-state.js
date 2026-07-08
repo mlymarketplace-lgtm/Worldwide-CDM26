@@ -2,7 +2,7 @@
 (function(){
   'use strict';
 
-  const VERSION = '13.0.8';
+  const VERSION = '13.0.9';
   const FEATURED_ORDER = [
     'morocco','france','spain','belgium','norway','england','argentina','switzerland',
     'egypt',
@@ -39,7 +39,7 @@
     N97:'qf-97', N98:'qf-98', N99:'qf-99', N100:'qf-100', N101:'sf-101', N102:'sf-102', N103:'third-103', N104:'final-104'
   };
 
-  // V13.0.8 — aliases de clés live/API vers l'identifiant KO canonique.
+  // V13.0.9 — aliases de clés live/API vers l'identifiant KO canonique.
   // Objectif : la home doit réagir même si la simulation reçoit `por-esp`, `por-spain`,
   // `usa-bel`, `bel-usa`, `usa-belgium`, etc.
   const KO_ID_BY_KEY = Object.assign(
@@ -97,11 +97,11 @@
   const ORDER = ['N73','N74','N75','N76','N77','N78','N79','N80','N81','N82','N83','N84','N85','N86','N87','N88','N89','N90','N91','N92','N93','N94','N95','N96','N97','N98','N99','N100','N101','N102','N103','N104'];
 
   const UI = {
-    fr:{qf:'Qualifiés en quart', live:'Encore en course', out:'Éliminés · respect', global:'Voir la page globale', quick:'Accès rapide France–Maroc', qualified:'Qualifiée', qualifiedM:'Qualifié', eliminated:'Éliminée', eliminatedM:'Éliminé', inRound:'en', next:'prochain défi', wait:'attend', vs:'ou', champion:'Champion simulé', nextMatch:'Prochain match', end:'Fin de parcours', last:'Derniers résultats', nextMatchConfirmed:'Prochain match confirmé', newsTitle:'Les Brèves du Mondial', newsLead:'Analyse, histoires fortes et signaux faibles de la phase finale.', homePill:'Phase finale · statuts calculés automatiquement', homeKicker:'Bienvenue dans l’app mondiale', homeTitle:'Je suis supporter <span>de...</span>', homeLead:'Retrouve la fiche de ton équipe, ses résultats, son prochain adversaire, le tableau simulable et le parcours complet vers la finale.'},
-    en:{qf:'Qualified for the quarter-finals', live:'Still alive', out:'Eliminated · respect', global:'Open global page', quick:'Quick access France–Morocco', qualified:'Qualified', qualifiedM:'Qualified', eliminated:'Eliminated', eliminatedM:'Eliminated', inRound:'for', next:'next challenge', wait:'waiting for', vs:'or', champion:'Champion', nextMatch:'Next match', end:'End of the road', last:'Last results', nextMatchConfirmed:'Next match confirmed', newsTitle:'World Cup Briefs', newsLead:'Stories, analysis and turning points from the knockout stage.', homePill:'Knockout stage · automatic team state', homeKicker:'Welcome to the worldwide app', homeTitle:'I support <span>...</span>', homeLead:'Open your team page, results, next opponent, interactive bracket and full road to the final.'},
-    pt:{qf:'Qualificados aos quartos', live:'Ainda em prova', out:'Eliminados · respeito', global:'Ver página global', quick:'Acesso rápido França–Marrocos', qualified:'Qualificada', qualifiedM:'Qualificado', eliminated:'Eliminada', eliminatedM:'Eliminado', inRound:'nos', next:'próximo desafio', wait:'aguarda', vs:'ou', champion:'Campeão', nextMatch:'Próximo jogo', end:'Fim do percurso', last:'Últimos resultados', nextMatchConfirmed:'Próximo jogo confirmado', newsTitle:'Notas do Mundial', newsLead:'Análises, histórias fortes e momentos-chave da fase final.', homePill:'Mata-mata · estado das equipes calculado automaticamente', homeKicker:'Bem-vindo ao app mundial', homeTitle:'Eu torço <span>por...</span>', homeLead:'Veja a página da sua equipe, resultados, próximo adversário, chave interativa e caminho até à final.'},
-    es:{qf:'Clasificados a cuartos', live:'Siguen en carrera', out:'Eliminados · respeto', global:'Ver página global', quick:'Acceso rápido Francia–Marruecos', qualified:'Clasificada', qualifiedM:'Clasificado', eliminated:'Eliminada', eliminatedM:'Eliminado', inRound:'en', next:'próximo reto', wait:'espera a', vs:'o', champion:'Campeón', nextMatch:'Próximo partido', end:'Fin del recorrido', last:'Últimos resultados', nextMatchConfirmed:'Próximo partido confirmado', newsTitle:'Breves del Mundial', newsLead:'Historias, análisis y puntos de inflexión de la fase final.', homePill:'Eliminatorias · estado calculado automáticamente', homeKicker:'Bienvenido a la app mundial', homeTitle:'Soy hincha <span>de...</span>', homeLead:'Consulta la página de tu equipo, resultados, próximo rival, cuadro interactivo y camino a la final.'},
-    ar:{qf:'المتأهلون إلى ربع النهائي', live:'ما زالوا في المنافسة', out:'المقصيون · احترام', global:'عرض الصفحة العامة', quick:'دخول سريع فرنسا–المغرب', qualified:'تأهلت', qualifiedM:'تأهل', eliminated:'أُقصيت', eliminatedM:'أُقصي', inRound:'إلى', next:'التحدي القادم', wait:'ينتظر', vs:'أو', champion:'البطل', nextMatch:'المباراة القادمة', end:'نهاية المشوار', last:'آخر النتائج', nextMatchConfirmed:'تم تأكيد المباراة القادمة', newsTitle:'موجز أخبار المونديال', newsLead:'تحليلات وقصص ولحظات حاسمة من الأدوار الإقصائية.', homePill:'الأدوار الإقصائية · حالة المنتخبات تُحسب تلقائياً', homeKicker:'مرحباً بك في التطبيق العالمي', homeTitle:'أنا أشجع <span>...</span>', homeLead:'تابع صفحة منتخبك ونتائجه وخصمه القادم والطريق الكامل نحو النهائي.'}
+    fr:{qf:'Qualifiés en quart', live:'Encore en course', out:'Éliminés · respect', global:'Voir la page globale', quick:'Accès rapide France–Maroc', qualified:'Qualifiée', qualifiedM:'Qualifié', eliminated:'Éliminée', eliminatedM:'Éliminé', inRound:'en', next:'prochain défi', wait:'attend', vs:'ou', champion:'Champion simulé', nextMatch:'Prochain match', end:'Fin de parcours', last:'Derniers résultats', nextMatchConfirmed:'Prochain match confirmé', newsTitle:'Les Brèves du Mondial', newsLead:'Analyse, histoires fortes et signaux faibles de la phase finale.', homePill:'Phase finale · statuts calculés automatiquement', homeKicker:'Bienvenue dans l’app mondiale', homeTitle:'Je suis supporter <span>de...</span>', homeLead:'Retrouve la fiche de ton équipe, ses résultats, son prochain adversaire, le tableau simulable et le parcours complet vers la finale.', readAllNews:'Lire toutes les brèves'},
+    en:{qf:'Qualified for the quarter-finals', live:'Still alive', out:'Eliminated · respect', global:'Open global page', quick:'Quick access France–Morocco', qualified:'Qualified', qualifiedM:'Qualified', eliminated:'Eliminated', eliminatedM:'Eliminated', inRound:'for', next:'next challenge', wait:'waiting for', vs:'or', champion:'Champion', nextMatch:'Next match', end:'End of the road', last:'Last results', nextMatchConfirmed:'Next match confirmed', newsTitle:'World Cup Briefs', newsLead:'Stories, analysis and turning points from the knockout stage.', homePill:'Knockout stage · automatic team state', homeKicker:'Welcome to the worldwide app', homeTitle:'I support <span>...</span>', homeLead:'Open your team page, results, next opponent, interactive bracket and full road to the final.', readAllNews:'Read all briefs'},
+    pt:{qf:'Qualificados aos quartos', live:'Ainda em prova', out:'Eliminados · respeito', global:'Ver página global', quick:'Acesso rápido França–Marrocos', qualified:'Qualificada', qualifiedM:'Qualificado', eliminated:'Eliminada', eliminatedM:'Eliminado', inRound:'nos', next:'próximo desafio', wait:'aguarda', vs:'ou', champion:'Campeão', nextMatch:'Próximo jogo', end:'Fim do percurso', last:'Últimos resultados', nextMatchConfirmed:'Próximo jogo confirmado', newsTitle:'Notas do Mundial', newsLead:'Análises, histórias fortes e momentos-chave da fase final.', homePill:'Mata-mata · estado das equipes calculado automaticamente', homeKicker:'Bem-vindo ao app mundial', homeTitle:'Eu torço <span>por...</span>', homeLead:'Veja a página da sua equipe, resultados, próximo adversário, chave interativa e caminho até à final.', readAllNews:'Ler todas as notas'},
+    es:{qf:'Clasificados a cuartos', live:'Siguen en carrera', out:'Eliminados · respeto', global:'Ver página global', quick:'Acceso rápido Francia–Marruecos', qualified:'Clasificada', qualifiedM:'Clasificado', eliminated:'Eliminada', eliminatedM:'Eliminado', inRound:'en', next:'próximo reto', wait:'espera a', vs:'o', champion:'Campeón', nextMatch:'Próximo partido', end:'Fin del recorrido', last:'Últimos resultados', nextMatchConfirmed:'Próximo partido confirmado', newsTitle:'Breves del Mundial', newsLead:'Historias, análisis y puntos de inflexión de la fase final.', homePill:'Eliminatorias · estado calculado automáticamente', homeKicker:'Bienvenido a la app mundial', homeTitle:'Soy hincha <span>de...</span>', homeLead:'Consulta la página de tu equipo, resultados, próximo rival, cuadro interactivo y camino a la final.', readAllNews:'Leer todas las breves'},
+    ar:{qf:'المتأهلون إلى ربع النهائي', live:'ما زالوا في المنافسة', out:'المقصيون · احترام', global:'عرض الصفحة العامة', quick:'دخول سريع فرنسا–المغرب', qualified:'تأهلت', qualifiedM:'تأهل', eliminated:'أُقصيت', eliminatedM:'أُقصي', inRound:'إلى', next:'التحدي القادم', wait:'ينتظر', vs:'أو', champion:'البطل', nextMatch:'المباراة القادمة', end:'نهاية المشوار', last:'آخر النتائج', nextMatchConfirmed:'تم تأكيد المباراة القادمة', newsTitle:'موجز أخبار المونديال', newsLead:'تحليلات وقصص ولحظات حاسمة من الأدوار الإقصائية.', homePill:'الأدوار الإقصائية · حالة المنتخبات تُحسب تلقائياً', homeKicker:'مرحباً بك في التطبيق العالمي', homeTitle:'أنا أشجع <span>...</span>', homeLead:'تابع صفحة منتخبك ونتائجه وخصمه القادم والطريق الكامل نحو النهائي.', readAllNews:'قراءة كل الأخبار'}
   };
 
   function t(key, vars){
@@ -253,7 +253,7 @@
 
     Object.entries((live && live.matches) || {}).forEach(([key, v]) => addEntry(key, v, 'live-json'));
 
-    // V13.0.8 — état réel du moteur KO en mémoire. C'est ce que la simulation utilise.
+    // V13.0.9 — état réel du moteur KO en mémoire. C'est ce que la simulation utilise.
     // La home doit lire cette source prioritaire pour ne plus attendre un nouveau déploiement.
     try {
       if (typeof KNOCKOUT_LIVE_RESULTS !== 'undefined' && KNOCKOUT_LIVE_RESULTS) {
@@ -457,13 +457,56 @@ function worldNewsHtml(worldNews){
     return `<section class="world-news-section" dir="${lang === 'ar' ? 'rtl' : 'ltr'}">
       <div class="world-news-head">
         <div>
-          <div class="world-news-kicker">QualifGaïndé Editorial</div>
+          <div class="world-news-kicker">Mondial Pulse Editorial</div>
           <h2>${esc(c.newsTitle)}</h2>
           <p>${esc(c.newsLead)}</p>
         </div>
       </div>
       <div class="world-news-grid">${items.map(entry).join('')}</div>
     </section>`;
+  }
+
+
+  function worldNewsTeaserHtml(worldNews){
+    const lang = activeLang(), c = copy();
+    const items = Array.isArray(worldNews) ? worldNews.slice().sort((a,b)=>(a.priority||99)-(b.priority||99)) : [];
+    if(!items.length) return '';
+    const preview = items.slice(0,3).map(item => {
+      const L = (item.langs && (item.langs[lang] || item.langs.fr)) || {};
+      return `<span>${esc(L.title || '')}</span>`;
+    }).join('');
+    const first = items[0] || {};
+    const L0 = (first.langs && (first.langs[lang] || first.langs.fr)) || {};
+    return `<section class="world-news-teaser" dir="${lang === 'ar' ? 'rtl' : 'ltr'}">
+      <div class="world-news-teaser-media">${first.image ? `<img src="${esc(first.image)}" loading="lazy" decoding="async" alt="">` : ''}</div>
+      <div class="world-news-teaser-content">
+        <div class="world-news-kicker">Mondial Pulse Editorial</div>
+        <h2>${esc(c.newsTitle)}</h2>
+        <p>${esc(c.newsLead)}</p>
+        <div class="world-news-teaser-preview">${preview}</div>
+        <a class="world-news-open" href="?mode=news&v=1309">${esc(c.readAllNews || c.newsTitle)}</a>
+      </div>
+    </section>`;
+  }
+
+  function renderNewsHub(selector, worldNews){
+    if(!selector) return;
+    const lang = activeLang(), c = copy();
+    selector.innerHTML = `
+      <div class="qg-entry-bg"></div>
+      <div class="qg-entry-wrap news-hub-wrap">
+        <div class="qg-entry-top">
+          <div class="qg-entry-brand"><img src="assets/lion-mascotte.png" alt="Mondial Pulse"><span>Mondial Pulse 2026 · V13.0.9</span></div>
+          <div class="qg-entry-pill">${esc(c.newsLead)}</div>
+        </div>
+        <div class="qg-entry-hero news-hub-hero">
+          <div class="qg-entry-kicker">Mondial Pulse Editorial</div>
+          <h1>${esc(c.newsTitle)}</h1>
+          <p>${esc(c.newsLead)}</p>
+        </div>
+        ${worldNewsTeaserHtml(worldNews)}
+        <div class="qg-entry-actions"><a class="qg-entry-action" href="?v=1309">${esc(c.global)}</a><a class="qg-entry-action" href="?team=france&v=1309">${esc(c.quick)}</a></div>
+      </div>`;
   }
 
   function renderHome(selector, teams, computed, worldNews){
@@ -482,7 +525,7 @@ function worldNewsHtml(worldNews){
       const p = new URLSearchParams();
       p.set('team', s.key);
       if(meta.defaultLang && ['england','norway','argentina','egypt'].includes(s.key)) p.set('lang', meta.defaultLang);
-      p.set('v','1308');
+      p.set('v','1309');
       return '?' + p.toString();
     }
     function card(s, cls){
@@ -492,7 +535,7 @@ function worldNewsHtml(worldNews){
       <div class="qg-entry-bg"></div>
       <div class="qg-entry-wrap">
         <div class="qg-entry-top">
-          <div class="qg-entry-brand"><img src="assets/lion-mascotte.png" alt="QualifGaïndé"><span>QualifGaïndé Worldwide · V13.0.8</span></div>
+          <div class="qg-entry-brand"><img src="assets/lion-mascotte.png" alt="Mondial Pulse"><span>Mondial Pulse 2026 · V13.0.9</span></div>
           <div class="qg-entry-pill">${esc(c.homePill)}</div>
         </div>
         <div class="qg-entry-hero">
@@ -504,7 +547,7 @@ function worldNewsHtml(worldNews){
         <div class="qg-selector-group"><h2 class="qg-selector-title">${esc(c.live)}</h2><div class="qg-team-grid">${groups.live.map(s=>card(s,'live')).join('')}</div></div>
         <div class="qg-selector-group"><h2 class="qg-selector-title">${esc(c.out)}</h2><div class="qg-team-grid">${groups.out.map(s=>card(s,'out')).join('')}</div></div>
         ${worldNewsHtml(worldNews)}
-        <div class="qg-entry-actions"><a class="qg-entry-action" href="?mode=global&v=1308">${esc(c.global)}</a><a class="qg-entry-action" href="?team=france&v=1308">${esc(c.quick)}</a></div>
+        <div class="qg-entry-actions"><a class="qg-entry-action" href="?mode=global&v=1309">${esc(c.global)}</a><a class="qg-entry-action" href="?team=france&v=1309">${esc(c.quick)}</a></div>
       </div>`;
   }
 
@@ -707,7 +750,9 @@ async function run(){
     const params = new URLSearchParams(location.search);
     const activeTeam = params.get('team');
     const selector = document.getElementById('v10-team-selector');
-    if(selector && !activeTeam && params.get('mode') !== 'global') renderHome(selector, teams, computed, worldNews || []);
+    const mode = (params.get('mode') || '').toLowerCase();
+    if(selector && !activeTeam && mode === 'news') renderNewsHub(selector, worldNews || []);
+    else if(selector && !activeTeam && mode !== 'global') renderHome(selector, teams, computed, worldNews || []);
     if(activeTeam) updateTeamPage(activeTeam.toLowerCase(), teams, computed, teamResults || {});
   }
 
@@ -715,13 +760,13 @@ async function run(){
   function scheduleRun(reason, delay){
     clearTimeout(__qgAutoStateTimer);
     __qgAutoStateTimer = setTimeout(function(){
-      run().catch(function(e){ console.warn('[QG V13.0.8] computedTeamState refresh skipped', reason, e); });
+      run().catch(function(e){ console.warn('[QG V13.0.9] computedTeamState refresh skipped', reason, e); });
     }, delay == null ? 160 : delay);
   }
 
   window.QG_AUTO_TEAM_STATE_ENGINE = {run, buildState, scheduleRun};
 
-  // V13.0.8 — rebrancher la home sur le vrai flux live.
+  // V13.0.9 — rebrancher la home sur le vrai flux live.
   // `qualifgainde:scoresUpdated` est émis tôt par applyScoresData ; on relance donc plusieurs fois
   // pour passer APRÈS l'écriture de KNOCKOUT_LIVE_RESULTS et la propagation du bracket.
   window.addEventListener('qualifgainde:scoresUpdated', function(){
