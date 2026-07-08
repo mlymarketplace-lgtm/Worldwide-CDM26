@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-07-07T23:45:00+02:00",
-  "sourceNote": "V13.0.8 — Messi passe à 8 buts après Argentine 3–2 Égypte.",
+  "updatedAt": "2026-07-08T22:45:00+02:00",
+  "sourceNote": "V13 — correction meilleure défense : le Mexique sort après avoir encaissé 2 buts contre l’Angleterre ; seule l’Espagne reste à 0 but encaissé.",
   "topScorers": [
     {
       "rank": 1,
@@ -48,7 +48,6 @@
   "bestDefense": {
     "goalsAgainst": 0,
     "teams": [
-      "🇲🇽 Mexique",
       "🇪🇸 Espagne"
     ]
   },
