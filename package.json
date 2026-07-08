@@ -1,0 +1,13 @@
+{
+  "name": "mondial-pulse-2026",
+  "version": "13.0.12",
+  "private": true,
+  "description": "Mondial Pulse 2026 — app statique multi-equipes pour Netlify.",
+  "scripts": {
+    "build": "echo \"No build required — static Netlify deployment\"",
+    "start": "python3 -m http.server 8888"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
