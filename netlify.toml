@@ -34,22 +34,22 @@
 
 [[redirects]]
   from = "/suisse"
-  to = "/index.html?team=switzerland&v=1312"
+  to = "/index.html?team=switzerland&v=1313"
   status = 302
 
 [[redirects]]
   from = "/switzerland"
-  to = "/index.html?team=switzerland&v=1312"
+  to = "/index.html?team=switzerland&v=1313"
   status = 302
 
 [[redirects]]
   from = "/argentine"
-  to = "/index.html?team=argentina&v=1312"
+  to = "/index.html?team=argentina&v=1313"
   status = 302
 
 [[redirects]]
   from = "/argentina"
-  to = "/index.html?team=argentina&v=1312"
+  to = "/index.html?team=argentina&v=1313"
   status = 302
 
 [[redirects]]
