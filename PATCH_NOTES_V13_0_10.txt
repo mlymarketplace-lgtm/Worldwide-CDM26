@@ -1,0 +1,7 @@
+Mondial Pulse V13.0.10 — News hub fix
+
+- Correction de la régression V13.0.9 :
+  * Home page = carte teaser unique “Les Brèves du Mondial”.
+  * Page /?mode=news et /news = toutes les brèves complètes.
+- Aucun changement sur le moteur scores / computedTeamState tournoi.
+- Version/cache bumpés en 13.0.10 / 1310.

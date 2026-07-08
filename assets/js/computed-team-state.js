@@ -2,7 +2,7 @@
 (function(){
   'use strict';
 
-  const VERSION = '13.0.9';
+  const VERSION = '13.0.10';
   const FEATURED_ORDER = [
     'morocco','france','spain','belgium','norway','england','argentina','switzerland',
     'egypt',
@@ -39,7 +39,7 @@
     N97:'qf-97', N98:'qf-98', N99:'qf-99', N100:'qf-100', N101:'sf-101', N102:'sf-102', N103:'third-103', N104:'final-104'
   };
 
-  // V13.0.9 — aliases de clés live/API vers l'identifiant KO canonique.
+  // V13.0.10 — aliases de clés live/API vers l'identifiant KO canonique.
   // Objectif : la home doit réagir même si la simulation reçoit `por-esp`, `por-spain`,
   // `usa-bel`, `bel-usa`, `usa-belgium`, etc.
   const KO_ID_BY_KEY = Object.assign(
@@ -253,7 +253,7 @@
 
     Object.entries((live && live.matches) || {}).forEach(([key, v]) => addEntry(key, v, 'live-json'));
 
-    // V13.0.9 — état réel du moteur KO en mémoire. C'est ce que la simulation utilise.
+    // V13.0.10 — état réel du moteur KO en mémoire. C'est ce que la simulation utilise.
     // La home doit lire cette source prioritaire pour ne plus attendre un nouveau déploiement.
     try {
       if (typeof KNOCKOUT_LIVE_RESULTS !== 'undefined' && KNOCKOUT_LIVE_RESULTS) {
@@ -484,7 +484,7 @@ function worldNewsHtml(worldNews){
         <h2>${esc(c.newsTitle)}</h2>
         <p>${esc(c.newsLead)}</p>
         <div class="world-news-teaser-preview">${preview}</div>
-        <a class="world-news-open" href="?mode=news&v=1309">${esc(c.readAllNews || c.newsTitle)}</a>
+        <a class="world-news-open" href="?mode=news&v=1310">${esc(c.readAllNews || c.newsTitle)}</a>
       </div>
     </section>`;
   }
@@ -496,7 +496,7 @@ function worldNewsHtml(worldNews){
       <div class="qg-entry-bg"></div>
       <div class="qg-entry-wrap news-hub-wrap">
         <div class="qg-entry-top">
-          <div class="qg-entry-brand"><img src="assets/lion-mascotte.png" alt="Mondial Pulse"><span>Mondial Pulse 2026 · V13.0.9</span></div>
+          <div class="qg-entry-brand"><img src="assets/lion-mascotte.png" alt="Mondial Pulse"><span>Mondial Pulse 2026 · V13.0.10</span></div>
           <div class="qg-entry-pill">${esc(c.newsLead)}</div>
         </div>
         <div class="qg-entry-hero news-hub-hero">
@@ -504,8 +504,8 @@ function worldNewsHtml(worldNews){
           <h1>${esc(c.newsTitle)}</h1>
           <p>${esc(c.newsLead)}</p>
         </div>
-        ${worldNewsTeaserHtml(worldNews)}
-        <div class="qg-entry-actions"><a class="qg-entry-action" href="?v=1309">${esc(c.global)}</a><a class="qg-entry-action" href="?team=france&v=1309">${esc(c.quick)}</a></div>
+        ${worldNewsHtml(worldNews)}
+        <div class="qg-entry-actions"><a class="qg-entry-action" href="?v=1310">${esc(c.global)}</a><a class="qg-entry-action" href="?team=france&v=1310">${esc(c.quick)}</a></div>
       </div>`;
   }
 
@@ -525,7 +525,7 @@ function worldNewsHtml(worldNews){
       const p = new URLSearchParams();
       p.set('team', s.key);
       if(meta.defaultLang && ['england','norway','argentina','egypt'].includes(s.key)) p.set('lang', meta.defaultLang);
-      p.set('v','1309');
+      p.set('v','1310');
       return '?' + p.toString();
     }
     function card(s, cls){
@@ -535,7 +535,7 @@ function worldNewsHtml(worldNews){
       <div class="qg-entry-bg"></div>
       <div class="qg-entry-wrap">
         <div class="qg-entry-top">
-          <div class="qg-entry-brand"><img src="assets/lion-mascotte.png" alt="Mondial Pulse"><span>Mondial Pulse 2026 · V13.0.9</span></div>
+          <div class="qg-entry-brand"><img src="assets/lion-mascotte.png" alt="Mondial Pulse"><span>Mondial Pulse 2026 · V13.0.10</span></div>
           <div class="qg-entry-pill">${esc(c.homePill)}</div>
         </div>
         <div class="qg-entry-hero">
@@ -546,8 +546,8 @@ function worldNewsHtml(worldNews){
         <div class="qg-selector-group"><h2 class="qg-selector-title">${esc(c.qf)}</h2><div class="qg-team-grid">${groups.qf.map(s=>card(s,'qf')).join('')}</div></div>
         <div class="qg-selector-group"><h2 class="qg-selector-title">${esc(c.live)}</h2><div class="qg-team-grid">${groups.live.map(s=>card(s,'live')).join('')}</div></div>
         <div class="qg-selector-group"><h2 class="qg-selector-title">${esc(c.out)}</h2><div class="qg-team-grid">${groups.out.map(s=>card(s,'out')).join('')}</div></div>
-        ${worldNewsHtml(worldNews)}
-        <div class="qg-entry-actions"><a class="qg-entry-action" href="?mode=global&v=1309">${esc(c.global)}</a><a class="qg-entry-action" href="?team=france&v=1309">${esc(c.quick)}</a></div>
+        ${worldNewsTeaserHtml(worldNews)}
+        <div class="qg-entry-actions"><a class="qg-entry-action" href="?mode=global&v=1310">${esc(c.global)}</a><a class="qg-entry-action" href="?team=france&v=1310">${esc(c.quick)}</a></div>
       </div>`;
   }
 
@@ -760,13 +760,13 @@ async function run(){
   function scheduleRun(reason, delay){
     clearTimeout(__qgAutoStateTimer);
     __qgAutoStateTimer = setTimeout(function(){
-      run().catch(function(e){ console.warn('[QG V13.0.9] computedTeamState refresh skipped', reason, e); });
+      run().catch(function(e){ console.warn('[QG V13.0.10] computedTeamState refresh skipped', reason, e); });
     }, delay == null ? 160 : delay);
   }
 
   window.QG_AUTO_TEAM_STATE_ENGINE = {run, buildState, scheduleRun};
 
-  // V13.0.9 — rebrancher la home sur le vrai flux live.
+  // V13.0.10 — rebrancher la home sur le vrai flux live.
   // `qualifgainde:scoresUpdated` est émis tôt par applyScoresData ; on relance donc plusieurs fois
   // pour passer APRÈS l'écriture de KNOCKOUT_LIVE_RESULTS et la propagation du bracket.
   window.addEventListener('qualifgainde:scoresUpdated', function(){

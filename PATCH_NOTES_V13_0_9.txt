@@ -1,4 +1,4 @@
-Mondial Pulse 2026 V13.0.9 — News hub / Brèves du Mondial
+Mondial Pulse 2026 V13.0.10 — News hub / Brèves du Mondial
 
 - Home allégée : les 9 brèves ne s’affichent plus toutes sur l’accueil.
 - Ajout d’une carte unique “Les Brèves du Mondial” avec 3 aperçus et CTA.
