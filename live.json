@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-07T23:45:00+02:00",
+  "updatedAt": "2026-07-10T00:10:00+02:00",
   "matches": {
     "uru-esp": {
       "home": 0,
@@ -332,7 +332,31 @@
       "winner": "away",
       "winnerTeam": "belgium",
       "displayScore": "Belgique qualifiée"
+    },
+    "por-esp": {
+      "home": 0,
+      "away": 1,
+      "status": "final",
+      "winner": "away"
+    },
+    "qf-97": {
+      "home": 2,
+      "away": 0,
+      "status": "final",
+      "apiStatus": "FT",
+      "apiStatusLong": "Match Finished",
+      "winner": "home",
+      "winnerSide": 0,
+      "winnerTeam": "france",
+      "locked": true,
+      "koId": "N97",
+      "round": "qf",
+      "h": "FRA",
+      "a": "MAR",
+      "homeLabel": "France",
+      "awayLabel": "Maroc",
+      "displayScore": "France 2–0 Maroc"
     }
   },
-  "_note": "V12 — Maroc qualifié en quart, labels propres et simulateur placé avant le tableau officiel des 16es."
+  "_note": "V13.0.10 — France 2–0 Maroc en quart, France en demi-finale contre le vainqueur Espagne–Belgique."
 }

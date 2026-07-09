@@ -1,57 +1,246 @@
-# Mondial Pulse 2026 — Netlify configuration
-# Static single-page deployment. No build step is required.
-
 [build]
   publish = "."
-  command = ""
+
 
 [[headers]]
-  for = "/*"
+  for = "/"
   [headers.values]
-    X-Frame-Options = "SAMEORIGIN"
-    X-Content-Type-Options = "nosniff"
-    Referrer-Policy = "strict-origin-when-cross-origin"
+    Cache-Control = "no-store, no-cache, must-revalidate, proxy-revalidate"
 
 [[headers]]
   for = "/index.html"
   [headers.values]
-    Cache-Control = "no-cache, no-store, must-revalidate"
+    Cache-Control = "no-store, no-cache, must-revalidate, proxy-revalidate"
+
+[[headers]]
+  for = "/live.json"
+  [headers.values]
+    Cache-Control = "no-store, no-cache, must-revalidate, proxy-revalidate"
+
+
+[[headers]]
+  for = "/stats.json"
+  [headers.values]
+    Cache-Control = "no-store, no-cache, must-revalidate, proxy-revalidate"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+
+
+[[headers]]
+  for = "/data/*"
+  [headers.values]
+    Cache-Control = "no-store, no-cache, must-revalidate, proxy-revalidate"
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
+
+# Bundle applicatif v10 : pas de cache long. Ces fichiers pilotent la home,
+# les badges et le routing, et changent souvent — on privilégie la fraîcheur
+# systématique (même régime que /data/*) plutôt qu'un gain de cache.
+[[headers]]
+  for = "/src/*"
+  [headers.values]
+    Cache-Control = "no-store, no-cache, must-revalidate, proxy-revalidate"
+
+[[headers]]
+  for = "/service-worker.js"
+  [headers.values]
+    Cache-Control = "no-store, no-cache, must-revalidate, proxy-revalidate"
+
+[[headers]]
+  for = "/manifest.webmanifest"
+  [headers.values]
+    Cache-Control = "no-cache"
+
+[[headers]]
+  for = "/.netlify/functions/scores"
+  [headers.values]
+    Cache-Control = "no-store, no-cache, must-revalidate, proxy-revalidate"
+
+
+# V13.0.9 URL compatibility redirects — anciens liens partagés
+# Les liens directs /bresil, /algerie, /team/france, etc. ne doivent jamais tomber en 404.
+[[redirects]]
+  from = "/bresil"
+  to = "/?team=brazil"
+  status = 302
+  force = true
+[[redirects]]
+  from = "/brésil"
+  to = "/?team=brazil"
+  status = 302
+  force = true
+[[redirects]]
+  from = "/brasil"
+  to = "/?team=brazil"
+  status = 302
+  force = true
+[[redirects]]
+  from = "/brazil"
+  to = "/?team=brazil"
+  status = 302
+  force = true
+[[redirects]]
+  from = "/algerie"
+  to = "/?team=algeria"
+  status = 302
+  force = true
+[[redirects]]
+  from = "/algérie"
+  to = "/?team=algeria"
+  status = 302
+  force = true
+[[redirects]]
+  from = "/algeria"
+  to = "/?team=algeria"
+  status = 302
+  force = true
+[[redirects]]
+  from = "/egypte"
+  to = "/?team=egypt"
+  status = 302
+  force = true
+[[redirects]]
+  from = "/égypte"
+  to = "/?team=egypt"
+  status = 302
+  force = true
+[[redirects]]
+  from = "/egypt"
+  to = "/?team=egypt"
+  status = 302
+  force = true
+[[redirects]]
+  from = "/espagne"
+  to = "/?team=spain"
+  status = 302
+  force = true
+[[redirects]]
+  from = "/spain"
+  to = "/?team=spain"
+  status = 302
+  force = true
+[[redirects]]
+  from = "/maroc"
+  to = "/?team=morocco"
+  status = 302
+  force = true
+[[redirects]]
+  from = "/morocco"
+  to = "/?team=morocco"
+  status = 302
+  force = true
+[[redirects]]
+  from = "/france"
+  to = "/?team=france"
+  status = 302
+  force = true
+[[redirects]]
+  from = "/senegal"
+  to = "/?team=senegal"
+  status = 302
+  force = true
+[[redirects]]
+  from = "/sénégal"
+  to = "/?team=senegal"
+  status = 302
+  force = true
+[[redirects]]
+  from = "/belgique"
+  to = "/?team=belgium"
+  status = 302
+  force = true
+[[redirects]]
+  from = "/belgium"
+  to = "/?team=belgium"
+  status = 302
+  force = true
+[[redirects]]
+  from = "/norvege"
+  to = "/?team=norway&lang=en"
+  status = 302
+  force = true
+[[redirects]]
+  from = "/norvège"
+  to = "/?team=norway&lang=en"
+  status = 302
+  force = true
+[[redirects]]
+  from = "/norway"
+  to = "/?team=norway&lang=en"
+  status = 302
+  force = true
+[[redirects]]
+  from = "/ghana"
+  to = "/?team=ghana"
+  status = 302
+  force = true
+[[redirects]]
+  from = "/cap-vert"
+  to = "/?team=cape_verde"
+  status = 302
+  force = true
+[[redirects]]
+  from = "/cape-verde"
+  to = "/?team=cape_verde"
+  status = 302
+  force = true
+[[redirects]]
+  from = "/rd-congo"
+  to = "/?team=dr_congo"
+  status = 302
+  force = true
+[[redirects]]
+  from = "/rdc"
+  to = "/?team=dr_congo"
+  status = 302
+  force = true
+[[redirects]]
+  from = "/cote-ivoire"
+  to = "/?team=ivory_coast"
+  status = 302
+  force = true
+[[redirects]]
+  from = "/côte-ivoire"
+  to = "/?team=ivory_coast"
+  status = 302
+  force = true
+
 
 [[redirects]]
-  from = "/news"
+  from = "/angleterre"
+  to = "/?team=england&lang=en&v=1309"
+  status = 302
+  force = true
+[[redirects]]
+  from = "/england"
+  to = "/?team=england&lang=en&v=1309"
+  status = 302
+  force = true
+
+# Fallback SPA : toute URL inconnue sert index.html, puis le bridge JS normalise si c'est un pays.
+[[redirects]]
+  from = "/team/:slug"
   to = "/index.html"
   status = 200
-
 [[redirects]]
-  from = "/breves"
+  from = "/teams/:slug"
   to = "/index.html"
   status = 200
-
 [[redirects]]
-  from = "/brèves"
+  from = "/equipe/:slug"
   to = "/index.html"
   status = 200
-
 [[redirects]]
-  from = "/suisse"
-  to = "/index.html?team=switzerland&v=1313"
-  status = 302
-
-[[redirects]]
-  from = "/switzerland"
-  to = "/index.html?team=switzerland&v=1313"
-  status = 302
-
-[[redirects]]
-  from = "/argentine"
-  to = "/index.html?team=argentina&v=1313"
-  status = 302
-
-[[redirects]]
-  from = "/argentina"
-  to = "/index.html?team=argentina&v=1313"
-  status = 302
-
+  from = "/equipes/:slug"
+  to = "/index.html"
+  status = 200
 [[redirects]]
   from = "/*"
   to = "/index.html"
