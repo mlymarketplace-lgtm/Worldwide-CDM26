@@ -12,7 +12,7 @@
       "rank": 2,
       "name": "Kylian Mbappé",
       "team": "🇫🇷 France",
-      "goals": 7
+      "goals": 8
     },
     {
       "rank": 3,
@@ -21,15 +21,15 @@
       "goals": 7
     },
     {
-      "rank": 4,
-      "name": "Harry Kane",
-      "team": "🏴 Angleterre",
-      "goals": 4
-    },
-    {
       "rank": 5,
       "name": "Ousmane Dembélé",
       "team": "🇫🇷 France",
+      "goals": 5
+    },
+    {
+      "rank": 4,
+      "name": "Harry Kane",
+      "team": "🏴 Angleterre",
       "goals": 4
     },
     {
@@ -40,7 +40,7 @@
     }
   ],
   "bestAttack": {
-    "goals": 14,
+    "goals": 16,
     "teams": [
       "🇫🇷 France"
     ]
