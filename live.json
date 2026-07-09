@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-10T00:10:00+02:00",
+  "updatedAt": "2026-07-10T00:35:00+02:00",
   "matches": {
     "uru-esp": {
       "home": 0,
@@ -358,5 +358,5 @@
       "displayScore": "France 2–0 Maroc"
     }
   },
-  "_note": "V13.0.10 — France 2–0 Maroc en quart, France en demi-finale contre le vainqueur Espagne–Belgique."
+  "_note": "V13.0.11 — correctif France/Maroc : France en demi-finale, attente Espagne–Belgique, au revoir Maroc."
 }

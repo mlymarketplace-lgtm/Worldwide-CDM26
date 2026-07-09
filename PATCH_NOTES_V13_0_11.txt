@@ -1,0 +1,9 @@
+Mondial Pulse / QualifGaïndé V13.0.11 — correctif France / Maroc
+
+- Page France : suppression du reliquat visuel Maroc/Hakimi dans le bloc prochain match.
+- France forcée en demi-finale : prochain adversaire = vainqueur Espagne–Belgique.
+- Texte d’attente France réécrit : début difficile, penalty raté par Mbappé, but de Mbappé à la 60e, Dembélé scelle la victoire, maîtrise technique et tactique.
+- Page Maroc : message d’au revoir forcé même si data/farewells.json ancien reste en production.
+- Message Maroc : Afrique fière des Lions de l’Atlas, dernière équipe africaine éliminée, absence de Saibari soulignée.
+- Correctif robuste contre les anciens fichiers /data/* Netlify qui pouvaient écraser les fallback V13.0.10.
+- Build/cache bumpés en 13.0.11 / v=1311.
