@@ -1,0 +1,8 @@
+Mondial Pulse / QualifGaïndé V13.0.13 — Correction espagnole France–Espagne
+
+- Correction de la traduction espagnole du speech France–Espagne sur la page Espagne.
+- Nouveau texte espagnol natif, plus naturel et plus piquant : prestige, mémoire, ego, Yamal/Mbappé/Dembélé, mini Clásico mondial.
+- La page Espagne n'affiche plus le grand récit France–Espagne en français quand la langue active est ES.
+- Carte prochain match localisée en espagnol : « Próximo partido », « Francia–España », « hora local ».
+- Statuts Espagne/France localisés en espagnol pour la demi-finale.
+- Build/cache bumpés en 13.0.13 / v=1313.

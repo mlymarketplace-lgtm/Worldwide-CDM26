@@ -1,0 +1,10 @@
+Mondial Pulse 2026 V13.0.14 — Belgique farewell page fix
+
+- Correctif ciblé page Belgique (?team=belgium) après élimination.
+- Cache/build bumpés en 13.0.14 / v=1314.
+- La carte “Prochain match” devient “Fin de parcours”.
+- Le bloc compte à rebours est masqué pour la Belgique éliminée.
+- Le texte d’au revoir Belgique est injecté de façon robuste dans le bloc éditorial.
+- Ajout d’un garde-fou final DOM pour éviter qu’une règle “éliminé = pas d’adversaire” laisse une page vide.
+- Correction du final override : fonction lang() ajoutée pour éviter une erreur sur France/Espagne.
+- Conservation de la correction espagnole France–Espagne de la V13.0.13.
