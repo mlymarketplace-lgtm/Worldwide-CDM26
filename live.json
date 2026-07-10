@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-10T00:35:00+02:00",
+  "updatedAt": "2026-07-10T23:20:00+02:00",
   "matches": {
     "uru-esp": {
       "home": 0,
@@ -333,12 +333,6 @@
       "winnerTeam": "belgium",
       "displayScore": "Belgique qualifiée"
     },
-    "por-esp": {
-      "home": 0,
-      "away": 1,
-      "status": "final",
-      "winner": "away"
-    },
     "qf-97": {
       "home": 2,
       "away": 0,
@@ -352,11 +346,34 @@
       "koId": "N97",
       "round": "qf",
       "h": "FRA",
-      "a": "MAR",
-      "homeLabel": "France",
-      "awayLabel": "Maroc",
-      "displayScore": "France 2–0 Maroc"
+      "a": "MAR"
+    },
+    "qf-98": {
+      "home": 2,
+      "away": 1,
+      "status": "final",
+      "apiStatus": "FT",
+      "apiStatusLong": "Match Finished",
+      "winner": "home",
+      "winnerSide": 0,
+      "winnerTeam": "spain",
+      "locked": true,
+      "koId": "N98",
+      "round": "qf",
+      "h": "ESP",
+      "a": "BEL"
+    },
+    "sf-101": {
+      "home": null,
+      "away": null,
+      "status": "scheduled",
+      "koId": "N101",
+      "round": "sf",
+      "h": "FRA",
+      "a": "ESP",
+      "homeTeam": "france",
+      "awayTeam": "spain"
     }
   },
-  "_note": "V13.0.11 — correctif France/Maroc : France en demi-finale, attente Espagne–Belgique, au revoir Maroc."
+  "_note": "V13.0.12 — Espagne bat Belgique 2–1, France–Espagne en demi-finale, Belgique éliminée avec hommage."
 }

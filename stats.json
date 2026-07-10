@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-10T00:35:00+02:00",
+  "updatedAt": "2026-07-10T23:20:00+02:00",
   "topScorers": [
     {
       "rank": 1,
@@ -28,7 +28,7 @@
     {
       "rank": 5,
       "name": "Harry Kane",
-      "team": "🏴󠁧󠁢󠁥󠁮󠁧󠁿 Angleterre",
+      "team": "🏴 Angleterre",
       "goals": 4
     },
     {
@@ -45,9 +45,8 @@
     ]
   },
   "bestDefense": {
-    "goalsAgainst": 0,
+    "goalsAgainst": 1,
     "teams": [
-      "🇲🇽 Mexique",
       "🇪🇸 Espagne"
     ]
   },
