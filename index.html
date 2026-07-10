@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mondial Pulse 2026 · V13.0.14 Belgique farewell fix</title>
+<title>Mondial Pulse 2026 · V13.0.15 Spain Spanish route/story fix</title>
 <meta name="application-name" content="Suivez la CDM 2026">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -21,9 +21,9 @@
 // BUILD_VERSION — version stable de build, à bumper à chaque déploiement.
 // Remplace les cache-busters dynamiques (Date.now()) sur les ressources stables
 // afin que le navigateur puisse effectivement les mettre en cache entre deux visites.
-const BUILD_VERSION = '13.0.14';
+const BUILD_VERSION = '13.0.15';
 (function(){
-  // V13.0.14 — compatibilité des anciens liens directs.
+  // V13.0.15 — compatibilité des anciens liens directs.
   // Les anciennes URLs partagées du type /bresil, /brésil, /algerie,
   // /team/brazil, /teams/morocco, etc. sont normalisées vers la route stable
   // /?team=<slug>. On conserve les liens existants au lieu de provoquer une 404.
@@ -34,7 +34,7 @@ const BUILD_VERSION = '13.0.14';
     if(!rawPath || rawPath === 'index.html') return;
     if(rawPath.toLowerCase() === 'news' || rawPath.toLowerCase() === 'breves' || rawPath.toLowerCase() === 'brèves'){
       params.set('mode','news');
-      if(!params.has('v')) params.set('v','1314');
+      if(!params.has('v')) params.set('v','1315');
       window.location.replace(window.location.origin + '/' + '?' + params.toString());
       return;
     }
@@ -69,7 +69,7 @@ const BUILD_VERSION = '13.0.14';
     if(!team && parts.length >= 2 && /^(team|teams|equipe|equipes|pays)$/i.test(parts[parts.length-2])) team = aliases[slug];
     if(team){
       params.set('team', team);
-      if(!params.has('v')) params.set('v','1314');
+      if(!params.has('v')) params.set('v','1315');
       window.location.replace(window.location.origin + '/' + '?' + params.toString());
     }
   }catch(e){}
@@ -83,7 +83,7 @@ const BUILD_VERSION = '13.0.14';
   if(selectorActive) document.documentElement.classList.add('qg-selector-active');
   if(v10Active) {
     document.documentElement.classList.add('v10-booting');
-    // V13.0.14 safety: ne jamais laisser l'écran noir si le script V10 externe tarde/échoue.
+    // V13.0.15 safety: ne jamais laisser l'écran noir si le script V10 externe tarde/échoue.
     // Exception volontaire : sur la page d'entrée, on garde le boot mode pour masquer la home legacy.
     setTimeout(function(){ if(!window.QUALIFGAINDE_SELECTOR_ACTIVE) document.documentElement.classList.remove('v10-booting'); }, 1800);
   }
@@ -187,7 +187,7 @@ html.v10-booting #v10-team-selector, html.v10-booting .v10-selector{visibility:v
 
 
 
-/* V13.0.14 — page d'entrée restaurée : “Je suis supporter de…” */
+/* V13.0.15 — page d'entrée restaurée : “Je suis supporter de…” */
 html.qg-selector-active body{background:#050505;min-height:100vh;overflow:auto;}
 html.qg-selector-active body > :not(#v10-team-selector):not(script):not(style){display:none !important;}
 #v10-team-selector{display:none;visibility:hidden;}
@@ -1323,10 +1323,10 @@ header{display:flex;align-items:center;justify-content:space-between;padding:12p
 <meta name="apple-mobile-web-app-title" content="Suivez la CDM 2026">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <link rel="apple-touch-icon" href="/assets/icons/icon-192.png">
-<link rel="stylesheet" href="src/v10/v10-team-app.css?v=13.0.14">
+<link rel="stylesheet" href="src/v10/v10-team-app.css?v=13.0.15">
 
 <script>
-// V13.0.14 — purge légère des anciens caches PWA pour sortir des builds bloquants.
+// V13.0.15 — purge légère des anciens caches PWA pour sortir des builds bloquants.
 (function(){
   window.addEventListener('load', function(){
     try {
@@ -1338,8 +1338,8 @@ header{display:flex;align-items:center;justify-content:space-between;padding:12p
 })();
 </script>
 
-<style id="qg-v1314-teamfix-style">
-/* V13.0.14 — adaptateur autonome multi-équipe, sans dépendance src/v10 JS */
+<style id="qg-v1315-teamfix-style">
+/* V13.0.15 — adaptateur autonome multi-équipe, sans dépendance src/v10 JS */
 #probable-opponent .opp-label{white-space:nowrap;}
 #probable-opponent .opp-main{line-height:1.05;}
 #probable-opponent .opp-sub{white-space:normal;}
@@ -1355,8 +1355,8 @@ header{display:flex;align-items:center;justify-content:space-between;padding:12p
 
 
 
-<style id="qg-v1314-structural-css">
-/* V13.0.14 — home plus lisible et cartes pays structurées */
+<style id="qg-v1315-structural-css">
+/* V13.0.15 — home plus lisible et cartes pays structurées */
 .qg-team-card{flex-direction:column;justify-content:center;text-align:center;align-items:center;gap:10px;padding:18px 14px;min-height:132px;}
 .qg-team-copy{width:100%;display:block;}
 .qg-team-name{display:block;text-align:center;white-space:normal;overflow:visible;text-overflow:clip;font-size:1.28rem;}
@@ -1383,12 +1383,12 @@ html[dir="rtl"] .opp-sub,html[dir="rtl"] .opp-main{text-align:right;}
 </style>
 
 
-<style id="qg-v1314-home-clean-css">
-/* V13.0.14 — homepage: suppression définitive du label "Pays". */
+<style id="qg-v1315-home-clean-css">
+/* V13.0.15 — homepage: suppression définitive du label "Pays". */
 .qg-team-name::before{content:none!important;display:none!important;}
 </style>
 
-<style id="qg-v1314-world-news-css">
+<style id="qg-v1315-world-news-css">
 .world-news-section{margin:28px 0 10px;padding:22px;border:1px solid #fdef4230;border-radius:26px;background:radial-gradient(circle at 12% 0,#00853f36,transparent 34%),linear-gradient(135deg,#06120d,#08090d 65%,#160b0b);box-shadow:0 24px 70px #0008,inset 0 0 0 1px #ffffff08;}
 .world-news-head{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;margin-bottom:16px;}
 .world-news-kicker{font-size:.72rem;text-transform:uppercase;letter-spacing:.18em;color:#fdef42;font-weight:800;margin-bottom:6px;}
@@ -1411,7 +1411,7 @@ html[dir="rtl"] .world-news-kicker,html[dir="rtl"] .world-news-tag{letter-spacin
 </style>
 
 
-<style id="qg-v1314-news-hub-css">
+<style id="qg-v1315-news-hub-css">
 .world-news-teaser{margin:28px 0 10px;display:grid;grid-template-columns:.9fr 1.35fr;gap:0;overflow:hidden;border-radius:28px;border:1px solid #fdef4245;background:radial-gradient(circle at 5% 0,#fdef4228,transparent 32%),linear-gradient(135deg,#06120d,#090b10 66%,#1d0d0d);box-shadow:0 24px 70px #0008,inset 0 0 0 1px #ffffff08;}
 .world-news-teaser-media{min-height:265px;background:#060606;}
 .world-news-teaser-media img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(1.08) contrast(1.05);}
@@ -1453,37 +1453,37 @@ html[dir="rtl"] .world-news-open{align-self:flex-end;}
     <div class="qg-selector-group">
       <h2 class="qg-selector-title">Demi-finale connue</h2>
       <div class="qg-team-grid">
-        <a class="qg-team-card qf" href="?team=france&v=1314"><span class="qg-team-flag">🇫🇷</span><span class="qg-team-copy"><span class="qg-team-name">France</span><span class="qg-team-line">Qualifiée en demi-finale · prochain défi : Espagne</span></span></a>
-        <a class="qg-team-card qf" href="?team=spain&v=1314"><span class="qg-team-flag">🇪🇸</span><span class="qg-team-copy"><span class="qg-team-name">Espagne</span><span class="qg-team-line">Qualifiée en demi-finale · prochain défi : France</span></span></a>
+        <a class="qg-team-card qf" href="?team=france&v=1315"><span class="qg-team-flag">🇫🇷</span><span class="qg-team-copy"><span class="qg-team-name">France</span><span class="qg-team-line">Qualifiée en demi-finale · prochain défi : Espagne</span></span></a>
+        <a class="qg-team-card qf" href="?team=spain&lang=es&v=1315"><span class="qg-team-flag">🇪🇸</span><span class="qg-team-copy"><span class="qg-team-name">Espagne</span><span class="qg-team-line">Qualifiée en demi-finale · prochain défi : France</span></span></a>
       </div>
     </div>
 
     <div class="qg-selector-group">
       <h2 class="qg-selector-title">Quarts à suivre</h2>
       <div class="qg-team-grid">
-        <a class="qg-team-card live" href="?team=norway&lang=en&v=1314"><span class="qg-team-flag">🇳🇴</span><span class="qg-team-copy"><span class="qg-team-name">Norvège</span><span class="qg-team-line">Qualifiée en quart · prochain défi : Angleterre</span></span></a>
-        <a class="qg-team-card live" href="?team=england&lang=en&v=1314"><span class="qg-team-flag">🏴󠁧󠁢󠁥󠁮󠁧󠁿</span><span class="qg-team-copy"><span class="qg-team-name">Angleterre</span><span class="qg-team-line">Qualifiée en quart · prochain défi : Norvège</span></span></a>
+        <a class="qg-team-card live" href="?team=norway&lang=en&v=1315"><span class="qg-team-flag">🇳🇴</span><span class="qg-team-copy"><span class="qg-team-name">Norvège</span><span class="qg-team-line">Qualifiée en quart · prochain défi : Angleterre</span></span></a>
+        <a class="qg-team-card live" href="?team=england&lang=en&v=1315"><span class="qg-team-flag">🏴󠁧󠁢󠁥󠁮󠁧󠁿</span><span class="qg-team-copy"><span class="qg-team-name">Angleterre</span><span class="qg-team-line">Qualifiée en quart · prochain défi : Norvège</span></span></a>
       </div>
     </div>
 
     <div class="qg-selector-group">
       <h2 class="qg-selector-title">Éliminés · respect</h2>
       <div class="qg-team-grid">
-        <a class="qg-team-card out" href="?team=belgium&v=1314"><span class="qg-team-flag">🇧🇪</span><span class="qg-team-copy"><span class="qg-team-name">Belgique</span><span class="qg-team-line">Éliminée en quart · sortie honorable des Diables Rouges</span></span></a>
-        <a class="qg-team-card out" href="?team=brazil&v=1314"><span class="qg-team-flag">🇧🇷</span><span class="qg-team-copy"><span class="qg-team-name">Brésil</span><span class="qg-team-line">Éliminé en huitième · Neymar a marqué pour son dernier Mondial</span></span></a>
-        <a class="qg-team-card out" href="?team=morocco&v=1314"><span class="qg-team-flag">🇲🇦</span><span class="qg-team-copy"><span class="qg-team-name">Maroc</span><span class="qg-team-line">Éliminé en quart · l’Afrique fière des Lions de l’Atlas</span></span></a>
-        <a class="qg-team-card out" href="?team=senegal&v=1314"><span class="qg-team-flag">🇸🇳</span><span class="qg-team-copy"><span class="qg-team-name">Sénégal</span><span class="qg-team-line">Éliminé en 16e · respect aux Lions</span></span></a>
-        <a class="qg-team-card out" href="?team=algeria&v=1314"><span class="qg-team-flag">🇩🇿</span><span class="qg-team-copy"><span class="qg-team-name">Algérie</span><span class="qg-team-line">Éliminée · respect aux Fennecs</span></span></a>
-        <a class="qg-team-card out" href="?team=ivory_coast&v=1314"><span class="qg-team-flag">🇨🇮</span><span class="qg-team-copy"><span class="qg-team-name">Côte d’Ivoire</span><span class="qg-team-line">Éliminée · respect aux Éléphants</span></span></a>
-        <a class="qg-team-card out" href="?team=dr_congo&v=1314"><span class="qg-team-flag">🇨🇩</span><span class="qg-team-copy"><span class="qg-team-name">RD Congo</span><span class="qg-team-line">Éliminée · respect aux Léopards</span></span></a>
-        <a class="qg-team-card out" href="?team=cape_verde&v=1314"><span class="qg-team-flag">🇨🇻</span><span class="qg-team-copy"><span class="qg-team-name">Cap-Vert</span><span class="qg-team-line">Sortie héroïque face à l’Argentine</span></span></a>
-        <a class="qg-team-card out" href="?team=ghana&v=1314"><span class="qg-team-flag">🇬🇭</span><span class="qg-team-copy"><span class="qg-team-name">Ghana</span><span class="qg-team-line">Éliminé · respect aux Black Stars</span></span></a>
+        <a class="qg-team-card out" href="?team=belgium&v=1315"><span class="qg-team-flag">🇧🇪</span><span class="qg-team-copy"><span class="qg-team-name">Belgique</span><span class="qg-team-line">Éliminée en quart · sortie honorable des Diables Rouges</span></span></a>
+        <a class="qg-team-card out" href="?team=brazil&v=1315"><span class="qg-team-flag">🇧🇷</span><span class="qg-team-copy"><span class="qg-team-name">Brésil</span><span class="qg-team-line">Éliminé en huitième · Neymar a marqué pour son dernier Mondial</span></span></a>
+        <a class="qg-team-card out" href="?team=morocco&v=1315"><span class="qg-team-flag">🇲🇦</span><span class="qg-team-copy"><span class="qg-team-name">Maroc</span><span class="qg-team-line">Éliminé en quart · l’Afrique fière des Lions de l’Atlas</span></span></a>
+        <a class="qg-team-card out" href="?team=senegal&v=1315"><span class="qg-team-flag">🇸🇳</span><span class="qg-team-copy"><span class="qg-team-name">Sénégal</span><span class="qg-team-line">Éliminé en 16e · respect aux Lions</span></span></a>
+        <a class="qg-team-card out" href="?team=algeria&v=1315"><span class="qg-team-flag">🇩🇿</span><span class="qg-team-copy"><span class="qg-team-name">Algérie</span><span class="qg-team-line">Éliminée · respect aux Fennecs</span></span></a>
+        <a class="qg-team-card out" href="?team=ivory_coast&v=1315"><span class="qg-team-flag">🇨🇮</span><span class="qg-team-copy"><span class="qg-team-name">Côte d’Ivoire</span><span class="qg-team-line">Éliminée · respect aux Éléphants</span></span></a>
+        <a class="qg-team-card out" href="?team=dr_congo&v=1315"><span class="qg-team-flag">🇨🇩</span><span class="qg-team-copy"><span class="qg-team-name">RD Congo</span><span class="qg-team-line">Éliminée · respect aux Léopards</span></span></a>
+        <a class="qg-team-card out" href="?team=cape_verde&v=1315"><span class="qg-team-flag">🇨🇻</span><span class="qg-team-copy"><span class="qg-team-name">Cap-Vert</span><span class="qg-team-line">Sortie héroïque face à l’Argentine</span></span></a>
+        <a class="qg-team-card out" href="?team=ghana&v=1315"><span class="qg-team-flag">🇬🇭</span><span class="qg-team-copy"><span class="qg-team-name">Ghana</span><span class="qg-team-line">Éliminé · respect aux Black Stars</span></span></a>
       </div>
     </div>
 
     <div class="qg-entry-actions">
-      <a class="qg-entry-action" href="?mode=global&v=1314">Voir la page globale</a>
-      <a class="qg-entry-action" href="?team=france&v=1314">Accès rapide France</a>
+      <a class="qg-entry-action" href="?mode=global&v=1315">Voir la page globale</a>
+      <a class="qg-entry-action" href="?team=france&v=1315">Accès rapide France</a>
     </div>
   </div>
 </section>
@@ -1725,7 +1725,7 @@ html[dir="rtl"] .world-news-open{align-self:flex-end;}
 </section>
 
 <!-- ═══ TABLEAU 3E PLACES MASQUÉ — phase à élimination directe active ═══ -->
-<!-- Section retirée de l’affichage en V13.0.14 : le tableau des meilleurs troisièmes n’est plus utile en phase finale. -->
+<!-- Section retirée de l’affichage en V13.0.15 : le tableau des meilleurs troisièmes n’est plus utile en phase finale. -->
 
 <!-- Simulateur retiré de l’interface : moteurs conservés dans le code. -->
 
@@ -2501,7 +2501,7 @@ function getOpponentForSenegalRank(snRank) {
 }
 
 function updateProbableOpponent(snRank) {
-  // V13.0.14 — ne jamais retomber sur l'ancien moteur Sénégal/R32
+  // V13.0.15 — ne jamais retomber sur l'ancien moteur Sénégal/R32
   // quand une page équipe est ouverte. On affiche l'affiche réelle du prochain match.
   const qgTeamParamForNext = (new URLSearchParams(location.search).get('team') || 'senegal').toLowerCase();
   const NEXT_MATCH_BY_TEAM = {
@@ -2866,7 +2866,7 @@ const KO_ROUNDS = [
   ]}
 ];
 
-// V13.0.14 — source unique : l'état R32 est dérivé de STATIC_R32_LOCKS.
+// V13.0.15 — source unique : l'état R32 est dérivé de STATIC_R32_LOCKS.
 // On évite de maintenir les mêmes scores à trois endroits.
 function deriveR32InitialState(locks){
   const scores = {}, picks = {}, locked = {};
@@ -4956,10 +4956,10 @@ setTimeout(()=>{
 
 </script>
 
-<!-- V13.0.14: scripts V10 externes désactivés pour éviter les retours de cache qui écrasent le rendu officiel. -->
+<!-- V13.0.15: scripts V10 externes désactivés pour éviter les retours de cache qui écrasent le rendu officiel. -->
 
 <script>
-// V13.0.14 — FINALISATION STABLE — source unique de vérité.
+// V13.0.15 — FINALISATION STABLE — source unique de vérité.
 // R32_LOCKS_BOOT supprimé : les 16es viennent uniquement de STATIC_R32_LOCKS.
 // Les re-renders en cascade sont supprimés : un seul filet de sécurité à 300 ms après load.
 (function(){
@@ -5015,7 +5015,7 @@ setTimeout(()=>{
       if (typeof renderRound32Grid === 'function') renderRound32Grid();
       if (typeof renderKnockoutTree === 'function') renderKnockoutTree();
       if (typeof buildTicker === 'function') buildTicker();
-    } catch(e) { console.warn('[QG V13.0.14] official score finalizer skipped', e); }
+    } catch(e) { console.warn('[QG V13.0.15] official score finalizer skipped', e); }
   }
   function normalizeNextMatchCard(){
     const card = document.getElementById('probable-opponent');
@@ -5068,8 +5068,8 @@ setTimeout(()=>{
 </script>
 
 
-<script id="qg-v1314-stable-team-adapter">
-// V13.0.14 — adaptateur stable multi-équipe.
+<script id="qg-v1315-stable-team-adapter">
+// V13.0.15 — adaptateur stable multi-équipe.
 // Objectif : conserver les pages équipe construites (France, Maroc, Sénégal, Belgique,
 // Brésil, Espagne, Égypte, Algérie, etc.) sans dépendre d'un script externe V10.
 (function(){
@@ -5093,6 +5093,17 @@ setTimeout(()=>{
     'eng':'england','england':'england','angleterre':'england','three_lions':'england'
   };
   const TEAM_KEY = TEAM_ALIASES[PARAM] || PARAM || 'senegal';
+  const TEAM_DEFAULT_LANG = { spain: 'es' };
+  // V13.0.15 — règle produit : la carte Espagne de la home ouvre directement la page Espagne en espagnol.
+  // Si l'URL est déjà explicite (?lang=fr/en/pt/ar), on respecte le choix de l'utilisateur.
+  if (HAS_TEAM && TEAM_DEFAULT_LANG[TEAM_KEY] && !SEARCH_PARAMS.has('lang')) {
+    try {
+      currentLang = TEAM_DEFAULT_LANG[TEAM_KEY];
+      localStorage.setItem('siteLang', TEAM_DEFAULT_LANG[TEAM_KEY]);
+      localStorage.setItem('siteLangSource', 'team-default');
+    } catch(e) {}
+    document.documentElement.lang = TEAM_DEFAULT_LANG[TEAM_KEY];
+  }
   if(!HAS_TEAM){
     // Page d'entrée : ne pas patcher la home legacy cachée. Le sélecteur est la vraie page.
     document.documentElement.classList.remove('v10-booting');
@@ -5225,7 +5236,7 @@ setTimeout(()=>{
   function ui(){ return UI_LABELS[activeLang()] || UI_LABELS.fr; }
   function syncLangButtons(){ const lang=activeLang(); document.documentElement.lang=lang; document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr'; document.body.classList.toggle('qg-rtl', lang === 'ar'); document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.toggle('active', btn.dataset.langBtn === lang)); }
 
-  function safeFetchJSON(url){ return fetch(url + (url.includes('?') ? '&' : '?') + 'v=' + encodeURIComponent(window.BUILD_VERSION || '13.0.14'), {cache:'no-store'}).then(r => r.ok ? r.json() : null).catch(() => null); }
+  function safeFetchJSON(url){ return fetch(url + (url.includes('?') ? '&' : '?') + 'v=' + encodeURIComponent(window.BUILD_VERSION || '13.0.15'), {cache:'no-store'}).then(r => r.ok ? r.json() : null).catch(() => null); }
   function resultClass(r){ return r === 'V' ? 'win' : (r === 'D' ? 'loss' : 'neu'); }
   function keyToName(key){ return String(key || '').replace(/_/g,' ').replace(/\b\w/g, m => m.toUpperCase()); }
   function teamRecord(key, teams, opponents){ const pseudo={winner_spain_belgium:{teamName:'Espagne',flag:'🇪🇸',supporterName:'La Roja',heroImg:'assets/teams/spain/player.webp',bannerImg:'assets/teams/spain/banner.webp'}}; return Object.assign({teamName:keyToName(key), flag:'🏳️'}, pseudo[key] || {}, FALLBACK_TEAMS[key] || {}, (opponents && opponents[key]) || {}, (teams && teams[key]) || {}); }
@@ -5447,7 +5458,7 @@ setTimeout(()=>{
       if(typeof applyR32Locks === 'function' && typeof STATIC_R32_LOCKS !== 'undefined') applyR32Locks(STATIC_R32_LOCKS, 'v12-0-15-team-pages');
       if(typeof renderRound32Grid === 'function') renderRound32Grid();
       if(typeof renderKnockoutTree === 'function') renderKnockoutTree();
-    }catch(e){ console.warn('[QG V13.0.14] score patch skipped', e); }
+    }catch(e){ console.warn('[QG V13.0.15] score patch skipped', e); }
   }
 
   async function loadData(){
@@ -5471,7 +5482,7 @@ setTimeout(()=>{
     const mergedPreviews = Object.assign({}, FALLBACK_PREVIEWS, mergeRecords(previews || {}, langPreviews || {}));
     const mergedFarewells = Object.assign({}, FALLBACK_FAREWELLS, mergeRecords(farewells || {}, langFarewells || {}));
 
-    // V13.0.14 — correctif forcé France/Espagne/Belgique.
+    // V13.0.15 — correctif forcé France/Espagne/Belgique.
     // Les fichiers /data/* existants sur Netlify peuvent encore porter l'ancien état
     // France–Maroc ou Espagne–Belgique. On force donc ici l'état éditorial demandé.
     const forcedNext = Object.assign({}, next || {});
@@ -5498,6 +5509,14 @@ setTimeout(()=>{
       'España querrá quedarse con el balón. Francia querrá quedarse con el destino.',
       'Y en este tipo de partido hay una verdad simple: no basta con jugar bien; hay que saber rematar. Y los Bleus saben esperar… y castigar.']};
     const franceSpainPreview = (activeLang() === 'es') ? franceSpainPreviewES : franceSpainPreviewFR;
+    const spainStoryES = {title:'España, el imperio del juego y el regreso del dominio', kicker:'De 2002 a 2026: una historia de talento, paciencia y autoridad recuperada.', paragraphs:[
+      'España no es una selección cualquiera. Es una idea de fútbol: una manera de tomar el balón, esconderlo, desgastarte y recordarte que el ritmo del partido también puede ser una forma de autoridad.',
+      'Durante mucho tiempo, la Roja vivió con una contradicción: clubes inmensos, jugadores de genio y una selección frenada por el peso de la espera. Después llegó la gran ruptura. Entre 2008 y 2012, España transformó la posesión en dominio mental: campeona de Europa, campeona del mundo y otra vez campeona de Europa.',
+      'El punto más alto fue 2010, en Sudáfrica. España perdió su primer partido, pero apretó el juego, avanzó, asfixió y ganó. El gol de Iniesta ante los Países Bajos quedó como una imagen eterna: la Roja no solo ganó una Copa del Mundo, impuso una época.',
+      'Desde entonces, España ha cambiado. El tiki-taka puro dejó paso a una versión más vertical, más joven, más atrevida, pero siempre obsesionada con el control. La pelota sigue siendo su idioma; la presión, su escudo; la paciencia, su veneno.',
+      'En 2026, esta España vuelve a oler a gran equipo. Ha ganado con oficio, ha sufrido cuando tocaba sufrir y ahora llega a semifinales después de tumbar a Bélgica en un partido grande. Lamine Yamal, elegido hombre del partido, simboliza ese nuevo descaro: talento joven, mirada fría y la sensación de que algo puede explotar en cualquier momento.',
+      'Contra Francia, la Roja no solo jugará una semifinal. Jugará contra la memoria, contra Mbappé, contra la verticalidad francesa y contra esa capacidad de los Bleus para esperar… y castigar. España tendrá el balón. La pregunta es si también tendrá el destino.'
+    ], timeline:['2008 · Campeona de Europa, nace una era de dominio.','2010 · Campeona del mundo en Sudáfrica, gol eterno de Iniesta.','2012 · Nueva Euro, la posesión se convierte en poder.','2026 · Yamal despierta, Bélgica cae y Francia espera en semifinales.']};
     const moroccoFarewell = {title:'Merci les Lions de l’Atlas', body:[
       'L’Afrique peut être fière du Maroc. Dernière équipe du continent encore en course, les Lions de l’Atlas quittent le Mondial avec dignité, courage et personnalité.',
       'L’absence de Saibari a vraiment pesé sur l’équipe marocaine, notamment dans la capacité à tenir le ballon, à casser les lignes et à garder de la fraîcheur dans les temps forts.',
@@ -5525,6 +5544,11 @@ setTimeout(()=>{
         heroSubtitle:(lang==='es' ? 'Semifinal de prestigio contra España: memoria, ego y choque de estilos.' : 'Demi-finale de prestige face à l’Espagne : mémoire, ego et choc de styles.')
       });
       forcedResults.france = FALLBACK_RESULTS.france;
+      if(lang==='es'){
+        mergedTeams.france = Object.assign({}, mergedTeams.france || {}, {teamName:'Francia', flag:'🇫🇷', supporterName:'Les Bleus'});
+        mergedTeams.spain = Object.assign({}, mergedTeams.spain || {}, {teamName:'España', flag:'🇪🇸', supporterName:'La Roja'});
+        forcedMatches['sf-101'] = Object.assign({}, forcedMatches['sf-101'], {stadium:'Por confirmar', label:'🇫🇷 Francia–España 🇪🇸', note:'Semifinal de prestigio: Francia clínica contra una España de posesión.'});
+      }
       mergedPreviews.N101 = franceSpainPreview;
       mergedPreviews['sf-101'] = franceSpainPreview;
     }
@@ -5538,7 +5562,17 @@ setTimeout(()=>{
         heroPlayer:'Lamine Yamal',
         heroSubtitle:(lang==='es' ? 'Lamine Yamal, elegido hombre del partido contra Bélgica: España llega lanzada al duelo contra los Bleus.' : 'Lamine Yamal homme du match contre la Belgique : l’Espagne arrive lancée face aux Bleus.')
       });
-      forcedResults.spain = FALLBACK_RESULTS.spain;
+      forcedResults.spain = (lang==='es') ? [
+        {label:'España 3–0 Austria',note:'Clasificación dominada en octavos',result:'V'},
+        {label:'Portugal 0–1 España',note:'La Roja pasa con sangre fría',result:'V'},
+        {label:'España 2–1 Bélgica',note:'Gran partido, Yamal hombre del partido',result:'V'}
+      ] : FALLBACK_RESULTS.spain;
+      if(lang==='es'){
+        mergedTeams.france = Object.assign({}, mergedTeams.france || {}, {teamName:'Francia', flag:'🇫🇷', supporterName:'Les Bleus'});
+        mergedTeams.spain = Object.assign({}, mergedTeams.spain || {}, {teamName:'España', flag:'🇪🇸', supporterName:'La Roja', statusLabel:'Semifinalista · próximo reto: Francia', selectorLine:'Semifinalista · próximo reto: Francia', tagline:'La Roja: balón, presión y descaro'});
+        mergedStories.spain = spainStoryES;
+        forcedMatches['sf-101'] = Object.assign({}, forcedMatches['sf-101'], {stadium:'Por confirmar', label:'🇫🇷 Francia–España 🇪🇸', note:'Semifinal de prestigio: Francia clínica contra una España de posesión.'});
+      }
       mergedPreviews.N101 = franceSpainPreview;
       mergedPreviews['sf-101'] = franceSpainPreview;
     }
@@ -5638,7 +5672,14 @@ setTimeout(()=>{
     const h=document.querySelector('.qg-entry-hero h1'); if(h) h.innerHTML=c.title;
     const p=document.querySelector('.qg-entry-hero p'); if(p) p.textContent=c.lead;
     const titles=document.querySelectorAll('.qg-selector-title'); if(titles[0]) titles[0].textContent=c.qf; if(titles[1]) titles[1].textContent=c.live; if(titles[2]) titles[2].textContent=c.out;
-    document.querySelectorAll('.qg-team-card').forEach(a=>{ const key=(new URL(a.href, location.origin)).searchParams.get('team'); const line=a.querySelector('.qg-team-line'); if(line && lines[key]) line.textContent=lines[key]; });
+    document.querySelectorAll('.qg-team-card').forEach(a=>{
+      const u = new URL(a.href, location.origin);
+      const key = u.searchParams.get('team');
+      const line=a.querySelector('.qg-team-line');
+      if(key==='spain'){ u.searchParams.set('lang','es'); u.searchParams.set('v','1315'); a.href='?' + u.searchParams.toString(); }
+      else { u.searchParams.set('v','1315'); a.href='?' + u.searchParams.toString(); }
+      if(line && lines[key]) line.textContent=lines[key];
+    });
     const actions=document.querySelectorAll('.qg-entry-action'); if(actions[0]) actions[0].textContent=c.global; if(actions[1]) actions[1].textContent=c.quick;
   }
   if(document.readyState==='loading') document.addEventListener('DOMContentLoaded', apply, {once:true}); else apply();
@@ -5658,7 +5699,7 @@ if ('serviceWorker' in navigator) {
 </script>
 
 
-<script id="qg-v1314-clean-tracking">
+<script id="qg-v1315-clean-tracking">
 (function(){
   function params(){ try{return new URLSearchParams(location.search)}catch(e){return new URLSearchParams()}}
   function lang(){ try{return (typeof normalizeQGLang==='function') ? normalizeQGLang(params().get('lang') || localStorage.getItem('siteLang') || navigator.language || 'fr') : 'fr'}catch(e){return 'fr'}}
@@ -5674,9 +5715,9 @@ if ('serviceWorker' in navigator) {
   document.addEventListener('click', function(e){ const a=e.target.closest && e.target.closest('a.qg-team-card'); if(a) qgTrack('team_card_click',{href:a.getAttribute('href')}); const b=e.target.closest && e.target.closest('.lang-btn'); if(b) qgTrack('lang_click',{lang:b.dataset.langBtn}); }, true);
 })();
 </script>
-<script src="assets/js/computed-team-state.js?v=13.0.14"></script>
+<script src="assets/js/computed-team-state.js?v=13.0.15"></script>
 
-<script id="qg-v1314-final-override">
+<script id="qg-v1315-final-override">
 (function(){
   const BELGIUM_FAREWELL = {
     title: '🇧🇪 Au revoir la Belgique — sortie honorable pour une génération de caractère',
@@ -5703,7 +5744,10 @@ if ('serviceWorker' in navigator) {
       try{
         const key=new URL(a.href, location.origin).searchParams.get('team');
         const line=a.querySelector('.qg-team-line');
-        a.href = a.href.replace(/v=13\d{2}/, 'v=1314');
+        const u = new URL(a.href, location.origin);
+        if(key==='spain'){ u.searchParams.set('lang','es'); }
+        u.searchParams.set('v','1315');
+        a.href = '?' + u.searchParams.toString();
         if(key==='france'){ a.classList.remove('live','out'); a.classList.add('qf'); if(line) line.textContent='Qualifiée en demi-finale · prochain défi : Espagne'; }
         if(key==='spain'){ a.classList.remove('live','out'); a.classList.add('qf'); if(line) line.textContent='Qualifiée en demi-finale · prochain défi : France'; }
         if(key==='belgium'){ a.classList.remove('live','qf'); a.classList.add('out'); if(line) line.textContent='Éliminée en quart · sortie honorable des Diables Rouges'; }
@@ -5752,5 +5796,50 @@ if ('serviceWorker' in navigator) {
   document.addEventListener('qualifgainde:scoresUpdated', apply);
 })();
 </script>
+
+<script id="qg-v1315-spain-es-story-guard">
+(function(){
+  function params(){ try{return new URLSearchParams(location.search)}catch(e){return new URLSearchParams()} }
+  function rawTeam(){ return (params().get('team') || '').toLowerCase(); }
+  function normTeam(){ return ({espagne:'spain',esp:'spain',es:'spain'})[rawTeam()] || rawTeam(); }
+  function lang(){ try{return String(params().get('lang') || localStorage.getItem('siteLang') || document.documentElement.lang || navigator.language || 'fr').slice(0,2).toLowerCase()}catch(e){return 'fr'} }
+  const story = {
+    title:'España, el imperio del juego y el regreso del dominio',
+    paragraphs:[
+      'España no es una selección cualquiera. Es una idea de fútbol: una manera de tomar el balón, esconderlo, desgastarte y recordarte que el ritmo del partido también puede ser una forma de autoridad.',
+      'Durante mucho tiempo, la Roja vivió con una contradicción: clubes inmensos, jugadores de genio y una selección frenada por el peso de la espera. Después llegó la gran ruptura. Entre 2008 y 2012, España transformó la posesión en dominio mental: campeona de Europa, campeona del mundo y otra vez campeona de Europa.',
+      'El punto más alto fue 2010, en Sudáfrica. España perdió su primer partido, pero apretó el juego, avanzó, asfixió y ganó. El gol de Iniesta ante los Países Bajos quedó como una imagen eterna: la Roja no solo ganó una Copa del Mundo, impuso una época.',
+      'Desde entonces, España ha cambiado. El tiki-taka puro dejó paso a una versión más vertical, más joven, más atrevida, pero siempre obsesionada con el control. La pelota sigue siendo su idioma; la presión, su escudo; la paciencia, su veneno.',
+      'En 2026, esta España vuelve a oler a gran equipo. Ha ganado con oficio, ha sufrido cuando tocaba sufrir y ahora llega a semifinales después de tumbar a Bélgica en un partido grande. Lamine Yamal, elegido hombre del partido, simboliza ese nuevo descaro: talento joven, mirada fría y la sensación de que algo puede explotar en cualquier momento.',
+      'Contra Francia, la Roja no solo jugará una semifinal. Jugará contra la memoria, contra Mbappé, contra la verticalidad francesa y contra esa capacidad de los Bleus para esperar… y castigar. España tendrá el balón. La pregunta es si también tendrá el destino.'
+    ],
+    timeline:['2008 · Campeona de Europa, nace una era de dominio.','2010 · Campeona del mundo en Sudáfrica, gol eterno de Iniesta.','2012 · Nueva Euro, la posesión se convierte en poder.','2026 · Yamal despierta, Bélgica cae y Francia espera en semifinales.']
+  };
+  function esc(s){return String(s==null?'':s).replace(/[&<>\"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;'}[c]||c;});}
+  function apply(){
+    if(normTeam() !== 'spain') return;
+    if(!params().has('lang')){ try{ localStorage.setItem('siteLang','es'); localStorage.setItem('siteLangSource','team-default'); }catch(e){} document.documentElement.lang='es'; }
+    if(lang() !== 'es') return;
+    document.title='Mondial Pulse 2026 · España';
+    const ht=document.querySelector('.htitle'); if(ht) ht.innerHTML='<span>España</span> — CM 2026';
+    const sk=document.querySelector('.site-kicker'); if(sk) sk.textContent='Semifinalista · próximo reto: Francia';
+    const hero=document.querySelector('#hero-title'); if(hero) hero.textContent='🇪🇸 España en la Copa Mundial 2026';
+    const heroSub=document.querySelector('#hero-subtitle'); if(heroSub) heroSub.textContent='Lamine Yamal, elegido hombre del partido contra Bélgica: España llega lanzada al duelo contra los Bleus.';
+    const section=document.querySelector('#histoire-gaindes');
+    if(section){
+      const sec=section.querySelector('.sec'); if(sec) sec.innerHTML='<img class="section-mascot" src="assets/lion-mascotte.png" alt="Mascotte">' + esc(story.title);
+      const title=section.querySelector('.story-title, h2'); if(title) title.textContent=story.title;
+      const kicker=section.querySelector('.story-kicker'); if(kicker) kicker.textContent='De 2002 a 2026: una historia de talento, paciencia y autoridad recuperada.';
+      const body=section.querySelector('.story-body');
+      if(body){ body.innerHTML=story.paragraphs.map(function(t){return '<p>'+esc(t)+'</p>';}).join('') + '<div class="story-timeline">' + story.timeline.map(function(t){ const parts=String(t).split('·'); return '<div class="story-tile"><b>'+esc(parts.shift().trim())+'</b>'+esc(parts.join('·').trim())+'</div>';}).join('') + '</div>'; }
+    }
+    document.querySelectorAll('a.qg-team-card').forEach(function(a){ try{ const u=new URL(a.href, location.origin); if(u.searchParams.get('team')==='spain'){ u.searchParams.set('lang','es'); u.searchParams.set('v','1315'); a.href='?'+u.searchParams.toString(); } }catch(e){} });
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded', apply, {once:true}); else apply();
+  window.addEventListener('load', function(){ setTimeout(apply,400); setTimeout(apply,1400); setTimeout(apply,2600); }, {once:true});
+  document.addEventListener('qualifgainde:scoresUpdated', apply);
+})();
+</script>
+
 </body>
 </html>
