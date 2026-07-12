@@ -3,12 +3,12 @@
     "id": "quarter-three-confederations",
     "type": "analysis",
     "priority": 1,
-    "image": "assets/news/confederations.webp",
+    "image": "assets/news/bilan-quarts-finale.webp",
     "langs": {
       "fr": {
         "tag": "Analyse",
-        "title": "Un quart de finale à trois confédérations",
-        "body": "Le tableau des quarts de finale est désormais complet : seules trois confédérations seront représentées. La CAF garde un seul ambassadeur, le Maroc. L’UEFA domine avec France, Espagne, Belgique, Norvège, Angleterre et Suisse. La CONMEBOL comptera sur l’Argentine, miraculée face à l’Égypte. L’AFC, la CONCACAF et l’OFC ont disparu avant les quarts."
+        "title": "Bilan des quarts de finale : un monde en trois blocs",
+        "body": "Le tableau des quarts a dessiné une carte très nette : l’UEFA a dominé la phase finale, la CONMEBOL a survécu grâce à l’Argentine, et le Maroc a longtemps porté seul le drapeau africain. Une photographie du tournoi en trois blocs, avant le dernier carré."
       },
       "en": {
         "tag": "Analysis",
@@ -36,11 +36,11 @@
     "id": "scandinavian-quake",
     "type": "brief",
     "priority": 2,
-    "image": "assets/news/norway-brazil.webp",
+    "image": "assets/news/exploit-historique-norvege.webp",
     "langs": {
       "fr": {
         "tag": "Brève",
-        "title": "Séisme scandinave",
+        "title": "Séisme scandinave : l’exploit historique de la Norvège",
         "body": "La Norvège d’Erling Haaland a signé la plus grande sensation du tournoi en éliminant le Brésil 2-1. Un doublé tardif, une résistance héroïque, et un quart historique face à l’Angleterre."
       },
       "en": {
@@ -69,11 +69,11 @@
     "id": "africa-money-time",
     "type": "brief",
     "priority": 3,
-    "image": "assets/news/egypt-farewell.webp",
+    "image": "assets/news/dernier-quart-heure-africain.webp",
     "langs": {
       "fr": {
         "tag": "Tendance",
-        "title": "La malédiction du dernier quart d’heure",
+        "title": "La malédiction du dernier quart d’heure africain",
         "body": "L’Égypte menait 2-0 avant de sombrer face à l’Argentine. Sénégal et Côte d’Ivoire avaient déjà craqué dans le money-time. Fraîcheur, banc, gestion émotionnelle : les chantiers africains sont identifiés. Le Maroc reste le seul rescapé."
       },
       "en": {
@@ -102,7 +102,7 @@
     "id": "amarilla-affair",
     "type": "brief",
     "priority": 4,
-    "image": "assets/news/amarilla.webp",
+    "image": "assets/news/affaire-amarilla-2026.webp",
     "langs": {
       "fr": {
         "tag": "Société",

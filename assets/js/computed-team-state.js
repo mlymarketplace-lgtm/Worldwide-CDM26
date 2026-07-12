@@ -2,7 +2,7 @@
 (function(){
   'use strict';
 
-  const VERSION = '13.0.16';
+  const VERSION = '13.0.17';
   const FEATURED_ORDER = [
     'morocco','france','spain','belgium','norway','england','argentina','switzerland',
     'egypt',
@@ -479,15 +479,16 @@ function worldNewsHtml(worldNews){
       return `<span>${esc(L.title || '')}</span>`;
     }).join('');
     const first = items[0] || {};
+    const teaserImage = 'assets/news/breves-du-mondial.webp';
     const L0 = (first.langs && (first.langs[lang] || first.langs.fr)) || {};
     return `<section class="world-news-teaser" dir="${lang === 'ar' ? 'rtl' : 'ltr'}">
-      <div class="world-news-teaser-media">${first.image ? `<img src="${esc(first.image)}" loading="lazy" decoding="async" alt="">` : ''}</div>
+      <div class="world-news-teaser-media"><img src="${esc(teaserImage)}" loading="lazy" decoding="async" alt="Les Brèves du Mondial"></div>
       <div class="world-news-teaser-content">
         <div class="world-news-kicker">Mondial Pulse Editorial</div>
         <h2>${esc(c.newsTitle)}</h2>
         <p>${esc(c.newsLead)}</p>
         <div class="world-news-teaser-preview">${preview}</div>
-        <a class="world-news-open" href="?mode=news&v=1316">${esc(c.readAllNews || c.newsTitle)}</a>
+        <a class="world-news-open" href="?mode=news&v=1317">${esc(c.readAllNews || c.newsTitle)}</a>
       </div>
     </section>`;
   }
@@ -508,7 +509,7 @@ function worldNewsHtml(worldNews){
           <p>${esc(c.newsLead)}</p>
         </div>
         ${worldNewsHtml(worldNews)}
-        <div class="qg-entry-actions"><a class="qg-entry-action" href="?v=1316">${esc(c.global)}</a><a class="qg-entry-action" href="?team=france&v=1316">${esc(c.quick)}</a></div>
+        <div class="qg-entry-actions"><a class="qg-entry-action" href="?v=1317">${esc(c.global)}</a><a class="qg-entry-action" href="?team=france&v=1317">${esc(c.quick)}</a></div>
       </div>`;
   }
 
@@ -550,7 +551,7 @@ function worldNewsHtml(worldNews){
         ${groups.live.length ? `<div class="qg-selector-group"><h2 class="qg-selector-title">${esc(c.live)}</h2><div class="qg-team-grid">${groups.live.map(s=>card(s,'live')).join('')}</div></div>` : ''}
         <div class="qg-selector-group"><h2 class="qg-selector-title">${esc(c.out)}</h2><div class="qg-team-grid">${groups.out.map(s=>card(s,'out')).join('')}</div></div>
         ${worldNewsTeaserHtml(worldNews)}
-        <div class="qg-entry-actions"><a class="qg-entry-action" href="?mode=global&v=1316">${esc(c.global)}</a></div>
+        <div class="qg-entry-actions"><a class="qg-entry-action" href="?mode=global&v=1317">${esc(c.global)}</a></div>
       </div>`;
   }
 
