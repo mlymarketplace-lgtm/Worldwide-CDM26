@@ -2,7 +2,7 @@
 (function(){
   'use strict';
 
-  const VERSION = '13.0.17';
+  const VERSION = '13.0.18';
   const FEATURED_ORDER = [
     'morocco','france','spain','belgium','norway','england','argentina','switzerland',
     'egypt',
@@ -441,75 +441,112 @@
   }
 
   
-function worldNewsHtml(worldNews){
+function newsHref(id){
+    const p = new URLSearchParams();
+    p.set('mode','news');
+    if(id) p.set('article', id);
+    p.set('v','1318');
+    return '?' + p.toString();
+  }
+
+  function newsLang(item, lang){
+    return (item && item.langs && (item.langs[lang] || item.langs.fr)) || {};
+  }
+
+  function worldNewsHtml(worldNews){
     const lang = activeLang(), c = copy();
     const items = Array.isArray(worldNews) ? worldNews.slice().sort((a,b)=>(a.priority||99)-(b.priority||99)) : [];
     if(!items.length) return '';
     function entry(item){
-      const L = (item.langs && (item.langs[lang] || item.langs.fr)) || {};
+      const L = newsLang(item, lang);
       const featured = item.type === 'analysis' || item.priority === 1;
-      return `<article class="world-news-card ${featured ? 'featured' : ''}" data-news-id="${esc(item.id)}">
-        <div class="world-news-media">${item.image ? `<img src="${esc(item.image)}" loading="lazy" decoding="async" alt="">` : ''}</div>
+      return `<a class="world-news-card ${featured ? 'featured' : ''}" data-news-id="${esc(item.id)}" href="${esc(newsHref(item.id))}" aria-label="${esc(L.title || '')}">
+        <div class="world-news-media">${item.image ? `<img src="${esc(item.image)}" loading="lazy" decoding="async" alt="${esc(L.title || '')}">` : ''}</div>
         <div class="world-news-content">
           <div class="world-news-tag">${esc(L.tag || '')}</div>
           <h3>${esc(L.title || '')}</h3>
           <p>${esc(L.body || '')}</p>
+          <span class="world-news-read">Lire la brève →</span>
         </div>
-      </article>`;
+      </a>`;
     }
     return `<section class="world-news-section" dir="${lang === 'ar' ? 'rtl' : 'ltr'}">
       <div class="world-news-head">
-        <div>
+        <a class="news-home-link" href="?v=1318" aria-label="Retour à la page d’accueil">
           <div class="world-news-kicker">Mondial Pulse Editorial</div>
           <h2>${esc(c.newsTitle)}</h2>
           <p>${esc(c.newsLead)}</p>
-        </div>
+        </a>
       </div>
       <div class="world-news-grid">${items.map(entry).join('')}</div>
     </section>`;
   }
-
 
   function worldNewsTeaserHtml(worldNews){
     const lang = activeLang(), c = copy();
     const items = Array.isArray(worldNews) ? worldNews.slice().sort((a,b)=>(a.priority||99)-(b.priority||99)) : [];
     if(!items.length) return '';
     const preview = items.slice(0,3).map(item => {
-      const L = (item.langs && (item.langs[lang] || item.langs.fr)) || {};
+      const L = newsLang(item, lang);
       return `<span>${esc(L.title || '')}</span>`;
     }).join('');
-    const first = items[0] || {};
     const teaserImage = 'assets/news/breves-du-mondial.webp';
-    const L0 = (first.langs && (first.langs[lang] || first.langs.fr)) || {};
-    return `<section class="world-news-teaser" dir="${lang === 'ar' ? 'rtl' : 'ltr'}">
+    return `<a class="world-news-teaser" href="${esc(newsHref())}" dir="${lang === 'ar' ? 'rtl' : 'ltr'}" aria-label="Ouvrir Les Brèves du Mondial">
       <div class="world-news-teaser-media"><img src="${esc(teaserImage)}" loading="lazy" decoding="async" alt="Les Brèves du Mondial"></div>
       <div class="world-news-teaser-content">
         <div class="world-news-kicker">Mondial Pulse Editorial</div>
         <h2>${esc(c.newsTitle)}</h2>
         <p>${esc(c.newsLead)}</p>
         <div class="world-news-teaser-preview">${preview}</div>
-        <a class="world-news-open" href="?mode=news&v=1317">${esc(c.readAllNews || c.newsTitle)}</a>
+        <span class="world-news-open">${esc(c.readAllNews || c.newsTitle)}</span>
       </div>
-    </section>`;
+    </a>`;
+  }
+
+  function articleParagraphs(L){
+    const raw = Array.isArray(L.article) ? L.article : [L.body || ''];
+    return raw.filter(Boolean).map(p => `<p>${esc(p)}</p>`).join('');
+  }
+
+  function renderNewsArticle(selector, item){
+    if(!selector || !item) return;
+    const lang = activeLang(), c = copy(), L = newsLang(item, lang);
+    selector.innerHTML = `
+      <div class="qg-entry-bg"></div>
+      <div class="qg-entry-wrap news-hub-wrap news-article-wrap">
+        <div class="qg-entry-top">
+          <a class="qg-entry-brand news-brand-home" href="?v=1318" aria-label="Retour à la page d’accueil"><img src="assets/lion-mascotte.png" alt="Mondial Pulse"><span>Mondial Pulse 2026 · V13.0.18</span></a>
+          <a class="qg-entry-pill news-pill-home" href="?mode=news&v=1318">${esc(c.newsTitle)}</a>
+        </div>
+        <article class="news-article" dir="${lang === 'ar' ? 'rtl' : 'ltr'}">
+          <a class="news-article-header" href="?v=1318" aria-label="Retour à la home">
+            <div class="qg-entry-kicker">${esc(L.tag || 'Brève')}</div>
+            <h1>${esc(L.title || '')}</h1>
+          </a>
+          ${item.image ? `<img class="news-article-image" src="${esc(item.image)}" alt="${esc(L.title || '')}">` : ''}
+          <div class="news-article-body">${articleParagraphs(L)}</div>
+          <div class="qg-entry-actions"><a class="qg-entry-action" href="?mode=news&v=1318">← Toutes les brèves</a><a class="qg-entry-action" href="?v=1318">Accueil</a></div>
+        </article>
+      </div>`;
   }
 
   function renderNewsHub(selector, worldNews){
     if(!selector) return;
-    const lang = activeLang(), c = copy();
+    const c = copy();
     selector.innerHTML = `
       <div class="qg-entry-bg"></div>
       <div class="qg-entry-wrap news-hub-wrap">
         <div class="qg-entry-top">
-          <div class="qg-entry-brand"><img src="assets/lion-mascotte.png" alt="Mondial Pulse"><span>Mondial Pulse 2026 · V13.0.10</span></div>
-          <div class="qg-entry-pill">${esc(c.newsLead)}</div>
+          <a class="qg-entry-brand news-brand-home" href="?v=1318" aria-label="Retour à la page d’accueil"><img src="assets/lion-mascotte.png" alt="Mondial Pulse"><span>Mondial Pulse 2026 · V13.0.18</span></a>
+          <a class="qg-entry-pill news-pill-home" href="?v=1318">Accueil</a>
         </div>
-        <div class="qg-entry-hero news-hub-hero">
+        <a class="qg-entry-hero news-hub-hero news-home-link" href="?v=1318" aria-label="Retour à la page d’accueil">
           <div class="qg-entry-kicker">Mondial Pulse Editorial</div>
           <h1>${esc(c.newsTitle)}</h1>
           <p>${esc(c.newsLead)}</p>
-        </div>
+        </a>
         ${worldNewsHtml(worldNews)}
-        <div class="qg-entry-actions"><a class="qg-entry-action" href="?v=1317">${esc(c.global)}</a><a class="qg-entry-action" href="?team=france&v=1317">${esc(c.quick)}</a></div>
+        <div class="qg-entry-actions"><a class="qg-entry-action" href="?v=1318">Retour à l’accueil</a></div>
       </div>`;
   }
 
@@ -529,7 +566,7 @@ function worldNewsHtml(worldNews){
       const p = new URLSearchParams();
       p.set('team', s.key);
       if(meta.defaultLang && ['england','norway','argentina','egypt'].includes(s.key)) p.set('lang', meta.defaultLang);
-      p.set('v','1316');
+      p.set('v','1318');
       return '?' + p.toString();
     }
     function card(s, cls){
@@ -755,8 +792,12 @@ async function run(){
     const activeTeam = params.get('team');
     const selector = document.getElementById('v10-team-selector');
     const mode = (params.get('mode') || '').toLowerCase();
-    if(selector && !activeTeam && mode === 'news') renderNewsHub(selector, worldNews || []);
-    else if(selector && !activeTeam && mode !== 'global') renderHome(selector, teams, computed, worldNews || []);
+    if(selector && !activeTeam && mode === 'news') {
+      const articleId = params.get('article');
+      const article = articleId && Array.isArray(worldNews) ? worldNews.find(x => x.id === articleId) : null;
+      if(article) renderNewsArticle(selector, article);
+      else renderNewsHub(selector, worldNews || []);
+    } else if(selector && !activeTeam && mode !== 'global') renderHome(selector, teams, computed, worldNews || []);
     if(activeTeam) updateTeamPage(activeTeam.toLowerCase(), teams, computed, teamResults || {});
   }
 

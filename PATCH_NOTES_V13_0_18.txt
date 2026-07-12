@@ -1,0 +1,10 @@
+QualifGaïndé V13.0.18 — News Experience
+
+- Toute la carte Les Brèves du Mondial sur la home est désormais cliquable.
+- Toutes les cartes article sont entièrement cliquables.
+- Ajout d’une page article dédiée via ?mode=news&article=<id>&v=1318.
+- Header/brande de la page Brèves cliquable et retour vers la home.
+- Ajout de l’article « Le football finit souvent par respecter une certaine logique ».
+- Rattachement des PNG fournis à Messi, Iran, Olise, Cap-Vert et Suisse.
+- Ajout du PNG « football logique » au nouvel article.
+- Aucun changement au moteur scores, API, qualification ou simulateur.

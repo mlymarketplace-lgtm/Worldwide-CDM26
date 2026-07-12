@@ -1,8 +1,67 @@
 [
   {
-    "id": "quarter-three-confederations",
+    "id": "football-logic",
     "type": "analysis",
     "priority": 1,
+    "image": "assets/news/football-logique.png",
+    "langs": {
+      "fr": {
+        "tag": "Analyse",
+        "title": "Le football finit souvent par respecter une certaine logique",
+        "body": "Les surprises font le charme d’une Coupe du monde. Mais lorsque la compétition approche de son dénouement, une réalité finit souvent par s’imposer : le football récompense généralement les nations qui dominent durablement le football mondial.",
+        "article": [
+          "Les surprises font le charme d’une Coupe du monde. Mais lorsque la compétition approche de son dénouement, une réalité finit souvent par s’imposer : le football récompense généralement les nations qui dominent durablement le football mondial.",
+          "Le dernier carré de ce Mondial en est une parfaite illustration.",
+          "L’Argentine, championne du monde en titre, confirme qu’elle reste une référence absolue. Portée par un Lionel Messi toujours décisif, l’Albiceleste prouve qu’un champion du monde ne conserve pas son statut par hasard.",
+          "La France, finaliste de la dernière Coupe du monde, poursuit une incroyable régularité au plus haut niveau. Les Bleus enchaînent les grandes compétitions avec une remarquable constance, tandis que le football français s’appuie également sur un Paris Saint-Germain, récent vainqueur de la Ligue des champions, la compétition de clubs la plus relevée de la planète.",
+          "L’Angleterre s’appuie, elle, sur ce que beaucoup considèrent comme le meilleur championnat du monde. La Premier League concentre chaque saison les joueurs les plus talentueux, les effectifs les plus profonds et une intensité que peu de compétitions peuvent égaler. Cette exigence quotidienne forge naturellement des internationaux capables de répondre présents dans les grands rendez-vous.",
+          "Enfin, l’Espagne continue de démontrer que la qualité de sa formation et de ses clubs reste exceptionnelle. La Liga demeure l’un des championnats les plus prestigieux au monde grâce à des géants comme le Real Madrid et le FC Barcelone, rejoints ces dernières années par un Atlético de Madrid toujours compétitif. Depuis plus d’une décennie, ces trois clubs sont des habitués des phases finales de la Ligue des champions et alimentent régulièrement la sélection espagnole en joueurs rompus aux matchs à très haute pression.",
+          "Bien sûr, le football gardera toujours sa part d’imprévu. Mais voir l’Argentine, la France, l’Angleterre et l’Espagne se retrouver dans le dernier carré n’a finalement rien d’un hasard. Ces quatre nations représentent aujourd’hui les championnats, les clubs, les centres de formation et les générations de joueurs qui dominent le football mondial depuis de nombreuses années.",
+          "En Coupe du monde, les exploits existent. Mais au bout du compte, la hiérarchie du football mondial finit souvent par reprendre ses droits."
+        ]
+      },
+      "en": {
+        "tag": "Analysis",
+        "title": "Football often ends up following a certain logic",
+        "body": "World Cups love surprises, but the final stages often reward the nations that dominate the game over time.",
+        "article": [
+          "World Cups thrive on surprises, but the final stages often reward the nations that dominate football over time. Argentina, France, England and Spain embody the strongest recent national teams, clubs and leagues.",
+          "Upsets exist, but at the highest level the global hierarchy often reasserts itself."
+        ]
+      },
+      "es": {
+        "tag": "Análisis",
+        "title": "El fútbol suele terminar respetando cierta lógica",
+        "body": "Las sorpresas alimentan el Mundial, pero al final suelen imponerse las naciones que dominan el fútbol de forma duradera.",
+        "article": [
+          "Las sorpresas hacen grande un Mundial, pero cuando llega el desenlace suelen imponerse las selecciones que dominan el fútbol durante años. Argentina, Francia, Inglaterra y España representan esa continuidad.",
+          "Las hazañas existen, pero la jerarquía mundial suele recuperar sus derechos."
+        ]
+      },
+      "pt": {
+        "tag": "Análise",
+        "title": "O futebol acaba por respeitar uma certa lógica",
+        "body": "As surpresas encantam, mas a reta final costuma premiar as nações que dominam o futebol de forma duradoura.",
+        "article": [
+          "As surpresas fazem parte do Mundial, mas a fase decisiva costuma premiar as seleções que dominam o futebol ao longo do tempo.",
+          "No fim, a hierarquia mundial frequentemente volta a impor-se."
+        ]
+      },
+      "ar": {
+        "tag": "تحليل",
+        "title": "كرة القدم غالباً ما تحترم منطقها في النهاية",
+        "body": "المفاجآت تصنع جمال كأس العالم، لكن الأدوار الأخيرة تكافئ غالباً المنتخبات التي تهيمن على اللعبة باستمرار.",
+        "article": [
+          "تصنع المفاجآت سحر كأس العالم، لكن عندما تقترب البطولة من نهايتها غالباً ما تتفوق المنتخبات التي تهيمن على كرة القدم على المدى الطويل.",
+          "تظل الإنجازات المفاجئة ممكنة، لكن هرمية الكرة العالمية تستعيد مكانها غالباً في النهاية."
+        ]
+      }
+    }
+  },
+  {
+    "id": "quarter-three-confederations",
+    "type": "analysis",
+    "priority": 2,
     "image": "assets/news/bilan-quarts-finale.webp",
     "langs": {
       "fr": {
@@ -35,7 +94,7 @@
   {
     "id": "scandinavian-quake",
     "type": "brief",
-    "priority": 2,
+    "priority": 3,
     "image": "assets/news/exploit-historique-norvege.webp",
     "langs": {
       "fr": {
@@ -68,7 +127,7 @@
   {
     "id": "africa-money-time",
     "type": "brief",
-    "priority": 3,
+    "priority": 4,
     "image": "assets/news/dernier-quart-heure-africain.webp",
     "langs": {
       "fr": {
@@ -101,7 +160,7 @@
   {
     "id": "amarilla-affair",
     "type": "brief",
-    "priority": 4,
+    "priority": 5,
     "image": "assets/news/affaire-amarilla-2026.webp",
     "langs": {
       "fr": {
@@ -134,8 +193,8 @@
   {
     "id": "messi-eight",
     "type": "brief",
-    "priority": 5,
-    "image": "assets/news/messi.webp",
+    "priority": 6,
+    "image": "assets/news/messi-encore-toujours.png",
     "langs": {
       "fr": {
         "tag": "Star",
@@ -167,8 +226,8 @@
   {
     "id": "iran-respect",
     "type": "brief",
-    "priority": 6,
-    "image": "assets/news/iran.webp",
+    "priority": 7,
+    "image": "assets/news/iran-resistance-digne.png",
     "langs": {
       "fr": {
         "tag": "Respect",
@@ -200,8 +259,8 @@
   {
     "id": "olise-fluidity",
     "type": "brief",
-    "priority": 7,
-    "image": "assets/news/olise.webp",
+    "priority": 8,
+    "image": "assets/news/olise-fluidifie-bleus.png",
     "langs": {
       "fr": {
         "tag": "Bleus",
@@ -233,8 +292,8 @@
   {
     "id": "cape-verde-pride",
     "type": "brief",
-    "priority": 8,
-    "image": "assets/news/cape-verde.webp",
+    "priority": 9,
+    "image": "assets/news/cap-vert-respect.png",
     "langs": {
       "fr": {
         "tag": "Fierté",
@@ -266,8 +325,8 @@
   {
     "id": "swiss-calm",
     "type": "brief",
-    "priority": 9,
-    "image": "assets/news/swiss-calm.webp",
+    "priority": 10,
+    "image": "assets/news/suisse-force-calme.png",
     "langs": {
       "fr": {
         "tag": "Quart",
