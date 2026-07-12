@@ -280,59 +280,39 @@
   ],
   "norway": [
     {
-      "label": "Norvège 3–2 Sénégal",
-      "note": "Un match de caractère, gagné dans le chaos et l’intensité",
-      "result": "V"
-    },
-    {
-      "label": "Norvège 1–4 France",
-      "note": "Défaite lourde, mais enseignement tactique utile avant les matchs couperets",
-      "result": "D"
-    },
-    {
       "label": "Côte d’Ivoire 1–2 Norvège",
       "note": "Haaland lance le parcours à élimination directe",
       "result": "V"
     },
     {
       "label": "Norvège 2–1 Brésil",
-      "note": "Doublé tardif de Haaland, Nyland héroïque, quart historique",
+      "note": "Haaland double, Nyland héroïque, quart historique",
       "result": "V"
+    },
+    {
+      "label": "Norvège 1–2 Angleterre",
+      "note": "Fin de parcours en quart, sortie digne",
+      "result": "D"
     }
   ],
   "england": [
     {
-      "label": "Angleterre 4–2 Croatie",
-      "note": "Entrée spectaculaire, intensité et efficacité offensive",
-      "result": "V"
-    },
-    {
-      "label": "Angleterre 0–0 Ghana",
-      "note": "Match fermé, bloc solide, maîtrise sans éclat",
-      "result": "N"
-    },
-    {
-      "label": "Panama 0–2 Angleterre",
-      "note": "Bellingham et Kane guident les Three Lions",
+      "label": "Angleterre 2–1 RD Congo",
+      "note": "Les Three Lions passent le premier couperet",
       "result": "V"
     },
     {
       "label": "Mexique 2–3 Angleterre",
-      "note": "Bellingham double, Kane penalty, résistance à dix à l’Azteca",
+      "note": "Bellingham double, Kane transforme, l’Angleterre survit à l’Azteca",
+      "result": "V"
+    },
+    {
+      "label": "Norvège 1–2 Angleterre",
+      "note": "Quart maîtrisé dans la douleur, place à l’Argentine",
       "result": "V"
     }
   ],
   "argentina": [
-    {
-      "label": "Argentine 3–0 Jordanie",
-      "note": "Entrée maîtrisée",
-      "result": "V"
-    },
-    {
-      "label": "Argentine 2–1 Algérie",
-      "note": "Messi guide l’Albiceleste",
-      "result": "V"
-    },
     {
       "label": "Argentine 3–2 Cap-Vert",
       "note": "Succès spectaculaire en 16e",
@@ -342,28 +322,28 @@
       "label": "Argentine 3–2 Égypte",
       "note": "Renversement fou, Messi décisif",
       "result": "V"
+    },
+    {
+      "label": "Argentine 3–1 Suisse",
+      "note": "L’Albiceleste file en demi-finale",
+      "result": "V"
     }
   ],
   "switzerland": [
     {
-      "label": "Canada 2–1 Suisse",
-      "note": "Défaite initiale",
-      "result": "D"
-    },
-    {
-      "label": "Suisse 2–0 Qatar",
-      "note": "La Nati se relance",
+      "label": "Suisse 2–0 Algérie",
+      "note": "La Nati passe en 16e",
       "result": "V"
     },
     {
-      "label": "Bosnie 1–1 Suisse",
-      "note": "Qualification arrachée",
-      "result": "N"
-    },
-    {
-      "label": "Suisse qualifiée TAB 4–3",
+      "label": "Suisse 0–0 Colombie · TAB 4–3",
       "note": "Sang-froid helvétique aux tirs au but",
       "result": "V"
+    },
+    {
+      "label": "Argentine 3–1 Suisse",
+      "note": "Fin de parcours face à Messi et l’Albiceleste",
+      "result": "D"
     }
   ]
 }

@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-10T23:20:00+02:00",
+  "updatedAt": "2026-07-12T15:16:00+02:00",
   "matches": {
     "uru-esp": {
       "home": 0,
@@ -373,6 +373,80 @@
       "a": "ESP",
       "homeTeam": "france",
       "awayTeam": "spain"
+    },
+    "qf-99": {
+      "home": 1,
+      "away": 2,
+      "status": "final",
+      "apiStatus": "FT",
+      "apiStatusLong": "Match Finished",
+      "winner": "away",
+      "winnerSide": 1,
+      "locked": true,
+      "koId": "N99",
+      "h": "NOR",
+      "a": "ENG",
+      "round": "qf"
+    },
+    "nor-eng": {
+      "home": 1,
+      "away": 2,
+      "status": "final",
+      "apiStatus": "FT",
+      "apiStatusLong": "Match Finished",
+      "winner": "away",
+      "winnerSide": 1,
+      "locked": true,
+      "koId": "N99",
+      "h": "NOR",
+      "a": "ENG",
+      "round": "qf"
+    },
+    "qf-100": {
+      "home": 3,
+      "away": 1,
+      "status": "final",
+      "apiStatus": "FT",
+      "apiStatusLong": "Match Finished",
+      "winner": "home",
+      "winnerSide": 0,
+      "locked": true,
+      "koId": "N100",
+      "h": "ARG",
+      "a": "SUI",
+      "round": "qf"
+    },
+    "arg-sui": {
+      "home": 3,
+      "away": 1,
+      "status": "final",
+      "apiStatus": "FT",
+      "apiStatusLong": "Match Finished",
+      "winner": "home",
+      "winnerSide": 0,
+      "locked": true,
+      "koId": "N100",
+      "h": "ARG",
+      "a": "SUI",
+      "round": "qf"
+    },
+    "sf-102": {
+      "home": null,
+      "away": null,
+      "status": "scheduled",
+      "koId": "N102",
+      "h": "ENG",
+      "a": "ARG",
+      "round": "sf"
+    },
+    "eng-arg": {
+      "home": null,
+      "away": null,
+      "status": "scheduled",
+      "koId": "N102",
+      "h": "ENG",
+      "a": "ARG",
+      "round": "sf"
     }
   },
   "_note": "V13.0.13 — correction espagnole du récit France–Espagne sur la page Espagne, maintien France–Espagne en demi-finale."

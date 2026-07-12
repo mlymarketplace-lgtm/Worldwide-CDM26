@@ -603,5 +603,91 @@
     "winnerSide": 1,
     "locked": true,
     "round": "r16"
+  },
+  "qf-99": {
+    "koId": "N99",
+    "h": "NOR",
+    "a": "ENG",
+    "home": 1,
+    "away": 2,
+    "status": "final",
+    "apiStatus": "FT",
+    "apiStatusLong": "Match Finished",
+    "winner": "away",
+    "winnerSide": 1,
+    "locked": true,
+    "round": "qf"
+  },
+  "nor-eng": {
+    "koId": "N99",
+    "h": "NOR",
+    "a": "ENG",
+    "home": 1,
+    "away": 2,
+    "status": "final",
+    "apiStatus": "FT",
+    "apiStatusLong": "Match Finished",
+    "winner": "away",
+    "winnerSide": 1,
+    "locked": true,
+    "round": "qf"
+  },
+  "qf-100": {
+    "koId": "N100",
+    "h": "ARG",
+    "a": "SUI",
+    "home": 3,
+    "away": 1,
+    "status": "final",
+    "apiStatus": "FT",
+    "apiStatusLong": "Match Finished",
+    "winner": "home",
+    "winnerSide": 0,
+    "locked": true,
+    "round": "qf"
+  },
+  "arg-sui": {
+    "koId": "N100",
+    "h": "ARG",
+    "a": "SUI",
+    "home": 3,
+    "away": 1,
+    "status": "final",
+    "apiStatus": "FT",
+    "apiStatusLong": "Match Finished",
+    "winner": "home",
+    "winnerSide": 0,
+    "locked": true,
+    "round": "qf"
+  },
+  "qf": {
+    "N99": {
+      "koId": "N99",
+      "h": "NOR",
+      "a": "ENG",
+      "home": 1,
+      "away": 2,
+      "status": "final",
+      "apiStatus": "FT",
+      "apiStatusLong": "Match Finished",
+      "winner": "away",
+      "winnerSide": 1,
+      "locked": true,
+      "round": "qf"
+    },
+    "N100": {
+      "koId": "N100",
+      "h": "ARG",
+      "a": "SUI",
+      "home": 3,
+      "away": 1,
+      "status": "final",
+      "apiStatus": "FT",
+      "apiStatusLong": "Match Finished",
+      "winner": "home",
+      "winnerSide": 0,
+      "locked": true,
+      "round": "qf"
+    }
   }
 }

@@ -468,7 +468,7 @@
   "qf-99": {
     "home": "norway",
     "away": "england",
-    "label": "Norvège–Angleterre",
+    "label": "Norvège 1–2 Angleterre",
     "round": "QF",
     "dateParis": "2026-07-12T02:00:00+02:00",
     "dateUTC": "2026-07-12T00:00:00Z",
@@ -479,16 +479,20 @@
     "homeDisplay": "Norvège",
     "awayLabel": "Angleterre",
     "awayDisplay": "Angleterre",
-    "note": "Quart de finale confirmé à Miami : la Norvège de Haaland face à l’Angleterre de Bellingham et Kane.",
+    "note": "Quart terminé : l’Angleterre rejoint l’Argentine en demi-finale.",
     "label_en": "Norway–England",
     "label_pt": "Noruega–Inglaterra",
     "label_es": "Noruega–Inglaterra",
-    "label_ar": "النرويج–إنجلترا"
+    "label_ar": "النرويج–إنجلترا",
+    "status": "final",
+    "locked": true,
+    "homeScore": 1,
+    "awayScore": 2
   },
   "qf-100": {
     "home": "argentina",
     "away": "switzerland",
-    "label": "Argentine–Suisse",
+    "label": "Argentine 3–1 Suisse",
     "round": "QF",
     "dateParis": "2026-07-12T03:00:00+02:00",
     "dateUTC": "2026-07-12T01:00:00Z",
@@ -499,11 +503,15 @@
     "homeDisplay": "Argentine",
     "awayLabel": "Suisse",
     "awayDisplay": "Suisse",
-    "note": "Quart de finale confirmé : Messi face au mur helvétique.",
+    "note": "Quart terminé : l’Argentine rejoint l’Angleterre en demi-finale.",
     "label_en": "Argentina–Switzerland",
     "label_es": "Argentina–Suiza",
     "label_pt": "Argentina–Suíça",
-    "label_ar": "الأرجنتين–سويسرا"
+    "label_ar": "الأرجنتين–سويسرا",
+    "status": "final",
+    "locked": true,
+    "homeScore": 3,
+    "awayScore": 1
   },
   "sf-101": {
     "home": "winner_n97",
@@ -521,19 +529,23 @@
     "awayDisplay": "Vainqueur quart 2"
   },
   "sf-102": {
-    "home": "winner_n99",
-    "away": "winner_n100",
-    "label": "Vainqueur quart 3 / Vainqueur quart 4",
+    "home": "england",
+    "away": "argentina",
+    "label": "Angleterre–Argentine",
     "round": "SF",
     "dateParis": "2026-07-15T21:00:00+02:00",
     "dateUTC": "2026-07-15T19:00:00Z",
     "stadium": "À confirmer",
     "channel_fr": "beIN Sports 1",
-    "dynamic": true,
-    "homeLabel": "Vainqueur quart 3",
-    "homeDisplay": "Vainqueur quart 3",
-    "awayLabel": "Vainqueur quart 4",
-    "awayDisplay": "Vainqueur quart 4"
+    "dynamic": false,
+    "homeLabel": "Angleterre",
+    "homeDisplay": "Angleterre",
+    "awayLabel": "Argentine",
+    "awayDisplay": "Argentine",
+    "note": "Une demi-finale de mémoire, de revanche et de destin.",
+    "label_en": "England–Argentina",
+    "label_es": "Inglaterra–Argentina",
+    "label_ar": "إنجلترا–الأرجنتين"
   },
   "third-103": {
     "home": "loser_n101",
