@@ -1,6 +1,6 @@
 {
   "name": "mondial-pulse-2026",
-  "version": "13.0.13",
+  "version": "14.1.2",
   "private": true,
   "description": "Mondial Pulse 2026 — app statique multi-equipes pour Netlify.",
   "scripts": {

@@ -449,5 +449,5 @@
       "round": "sf"
     }
   },
-  "_note": "V13.0.13 — correction espagnole du récit France–Espagne sur la page Espagne, maintien France–Espagne en demi-finale."
+  "_note": "V14.1.2 — renderer stabilisé, parcours des demi-finalistes, expérience Finale et carte Angleterre native en anglais."
 }

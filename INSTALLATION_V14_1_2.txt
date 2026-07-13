@@ -1,0 +1,12 @@
+QUALIFGAÏNDÉ / SPORTS MANGARA — INSTALLATION V14.1.2
+
+1. Décompresser le ZIP à la racine du dépôt Netlify.
+2. Vérifier que le publish directory reste « . ».
+3. Commit conseillé : V14.1.2 - Final Four and Finale experience
+4. Déployer sur Netlify.
+5. Tester :
+   - https://qualifgainde.netlify.app/?v=1412
+   - https://qualifgainde.netlify.app/?team=england&lang=en&v=1412
+   - https://qualifgainde.netlify.app/?mode=final&v=1412
+   - https://qualifgainde.netlify.app/mangara/?v=1412
+6. Si un ancien rendu apparaît, fermer l’onglet puis recharger une fois : le service worker V14.1.2 supprime les anciens caches.

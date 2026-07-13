@@ -2,7 +2,9 @@
 (function(){
   'use strict';
 
-  const VERSION = '13.0.18';
+  const VERSION = (window.BUILD_VERSION || '14.1.2');
+  const VERSION_TOKEN = (window.BUILD_VERSION_TOKEN || String(VERSION).replace(/\D/g,'') || '1412');
+  const SEMIFINALISTS = new Set(['france','spain','england','argentina']);
   const FEATURED_ORDER = [
     'morocco','france','spain','belgium','norway','england','argentina','switzerland',
     'egypt',
@@ -39,7 +41,7 @@
     N97:'qf-97', N98:'qf-98', N99:'qf-99', N100:'qf-100', N101:'sf-101', N102:'sf-102', N103:'third-103', N104:'final-104'
   };
 
-  // V14.1.1 — aliases de clés live/API vers l'identifiant KO canonique.
+  // V14.1.2 — aliases de clés live/API vers l'identifiant KO canonique.
   // Objectif : la home doit réagir même si la simulation reçoit `por-esp`, `por-spain`,
   // `usa-bel`, `bel-usa`, `usa-belgium`, etc.
   const KO_ID_BY_KEY = Object.assign(
@@ -256,7 +258,7 @@
 
     Object.entries((live && live.matches) || {}).forEach(([key, v]) => addEntry(key, v, 'live-json'));
 
-    // V14.1.1 — état réel du moteur KO en mémoire. C'est ce que la simulation utilise.
+    // V14.1.2 — état réel du moteur KO en mémoire. C'est ce que la simulation utilise.
     // La home doit lire cette source prioritaire pour ne plus attendre un nouveau déploiement.
     try {
       if (typeof KNOCKOUT_LIVE_RESULTS !== 'undefined' && KNOCKOUT_LIVE_RESULTS) {
@@ -394,14 +396,21 @@
   }
   function rankRound(r){ return {r32:1,r16:2,qf:3,sf:4,final:5,champion:6}[r] || 0; }
   function championLine(team){ return (activeLang() === 'fr' ? 'Champion du monde' : copy().champion); }
+  function roundStatusText(adj, round, lang){
+    const c = UI[lang] || UI.fr;
+    if(lang === 'en') return `${adj} for the ${round}`;
+    if(lang === 'ar') return `${adj} ${c.inRound} ${round}`;
+    return `${adj} ${c.inRound} ${round}`;
+  }
   function finalizeState(s, resolved, teams){
     const lang = activeLang();
     const c = copy();
     const fem = feminine(s.key);
     if(s.status === 'eliminated'){
       const adj = fem ? c.eliminated : c.eliminatedM;
-      s.statusLabel = adj + ' en ' + roundLabel(s.eliminatedRound, lang) + (s.lastMatchLabel ? ' · ' + s.lastMatchLabel : '');
-      s.selectorLine = adj + ' en ' + roundLabel(s.eliminatedRound, lang);
+      const eliminatedAt = roundStatusText(adj, roundLabel(s.eliminatedRound, lang), lang);
+      s.statusLabel = eliminatedAt + (s.lastMatchLabel ? ' · ' + s.lastMatchLabel : '');
+      s.selectorLine = eliminatedAt;
       return;
     }
     if(s.status === 'champion') return;
@@ -411,8 +420,9 @@
     s.nextOpponentLabel = next.label;
     s.nextMatchLabel = next.matchLabel;
     s.nextMatchDate = next.date;
-    s.statusLabel = adj + ' en ' + rd + (next.label ? ' · ' + c.wait + ' ' + next.shortLabel : '');
-    s.selectorLine = adj + ' en ' + rd + (next.label ? ' · ' + c.wait + ' ' + next.shortLabel : '');
+    const qualifiedFor = roundStatusText(adj, rd, lang);
+    s.statusLabel = qualifiedFor + (next.label ? ' · ' + c.wait + ' ' + next.shortLabel : '');
+    s.selectorLine = qualifiedFor + (next.label ? ' · ' + c.wait + ' ' + next.shortLabel : '');
   }
   function nextOpponentInfo(s, resolved, teams){
     if(!s.nextMatchId || !MATCH_DEFS[s.nextMatchId]) return {label:'', shortLabel:'', matchLabel:'', date:''};
@@ -428,16 +438,18 @@
   }
   function compactOpponent(label){
     const s = String(label || '');
-    return s.replace(/^Vainqueur\s+/i,'').replace(/^Winner of\s+/i,'').replace(/^Vencedor\s+/i,'').replace(/^Ganador\s+/i,'').replace(/^الفائز من\s+/,'').replace('–', ' ou ');
+    return s.replace(/^Vainqueur\s+/i,'').replace(/^Winner of\s+/i,'').replace(/^Vencedor\s+/i,'').replace(/^Ganador\s+/i,'').replace(/^الفائز من\s+/,'').replace('–', ' ' + copy().vs + ' ');
   }
   function dateForMatch(id){
     const dates = {
-      N94:'Mar. 7 juillet · 02h00 · heure locale', N95:'Mar. 7 juillet · 18h00 · heure locale', N96:'Mar. 7 juillet · 22h00 · heure locale',
-      N97:'Jeu. 9 juillet · 22h00 · heure locale', N98:'Ven. 10 juillet · 21h00 · heure locale',
-      N99:'Sam. 11 juillet · 23h00 · heure locale', N100:'Dim. 12 juillet · 03h00 · heure locale',
-      N101:'Mar. 14 juillet · 21h00 · heure locale', N102:'Mer. 15 juillet · 21h00 · heure locale', N104:'Dim. 19 juillet · 21h00 · heure locale'
+      fr:{N94:'Mar. 7 juillet · 02h00 · heure locale',N95:'Mar. 7 juillet · 18h00 · heure locale',N96:'Mar. 7 juillet · 22h00 · heure locale',N97:'Jeu. 9 juillet · 22h00 · heure locale',N98:'Ven. 10 juillet · 21h00 · heure locale',N99:'Sam. 11 juillet · 23h00 · heure locale',N100:'Dim. 12 juillet · 03h00 · heure locale',N101:'Mar. 14 juillet · 21h00 · heure locale',N102:'Mer. 15 juillet · 21h00 · heure locale',N104:'Dim. 19 juillet · 21h00 · heure locale'},
+      en:{N94:'Tue 7 July · 02:00 · local time',N95:'Tue 7 July · 18:00 · local time',N96:'Tue 7 July · 22:00 · local time',N97:'Thu 9 July · 22:00 · local time',N98:'Fri 10 July · 21:00 · local time',N99:'Sat 11 July · 23:00 · local time',N100:'Sun 12 July · 03:00 · local time',N101:'Tue 14 July · 21:00 · local time',N102:'Wed 15 July · 21:00 · local time',N104:'Sun 19 July · 21:00 · local time'},
+      es:{N101:'Mar. 14 de julio · 21:00 · hora local',N102:'Mié. 15 de julio · 21:00 · hora local',N104:'Dom. 19 de julio · 21:00 · hora local'},
+      pt:{N101:'Ter. 14 de julho · 21:00 · hora local',N102:'Qua. 15 de julho · 21:00 · hora local',N104:'Dom. 19 de julho · 21:00 · hora local'},
+      ar:{N101:'الثلاثاء 14 يوليو · 21:00 · بالتوقيت المحلي',N102:'الأربعاء 15 يوليو · 21:00 · بالتوقيت المحلي',N104:'الأحد 19 يوليو · 21:00 · بالتوقيت المحلي'}
     };
-    return dates[id] || '';
+    const lang = activeLang();
+    return (dates[lang] && dates[lang][id]) || dates.fr[id] || '';
   }
 
   
@@ -445,7 +457,7 @@ function newsHref(id){
     const p = new URLSearchParams();
     p.set('mode','news');
     if(id) p.set('article', id);
-    p.set('v','1411');
+    p.set('v', VERSION_TOKEN);
     return '?' + p.toString();
   }
 
@@ -472,7 +484,7 @@ function newsHref(id){
     }
     return `<section class="world-news-section" dir="${lang === 'ar' ? 'rtl' : 'ltr'}">
       <div class="world-news-head">
-        <a class="news-home-link" href="?v=1411" aria-label="Retour à la page d’accueil">
+        <a class="news-home-link" href="?v=${VERSION_TOKEN}" aria-label="Retour à la page d’accueil">
           <div class="world-news-kicker">Mondial Pulse Editorial</div>
           <h2>${esc(c.newsTitle)}</h2>
           <p>${esc(c.newsLead)}</p>
@@ -484,7 +496,7 @@ function newsHref(id){
 
 
   function sportsMangaraTeaserHtml(){
-    return `<a class="qg-mangara-hub" href="/mangara/?v=1411" aria-label="Découvrir Sports Mangara, la tanière numérique des Lions">
+    return `<a class="qg-mangara-hub" href="/mangara/?v=${VERSION_TOKEN}" aria-label="Découvrir Sports Mangara, la tanière numérique des Lions">
       <div class="qg-mangara-media">
         <img src="/mangara/assets/people/yoro-mangara.png" loading="lazy" decoding="async" alt="Yoro Mangara · Sports Mangara">
       </div>
@@ -496,6 +508,170 @@ function newsHref(id){
         <span class="qg-mangara-cta">Découvrir la tanière →</span>
       </div>
     </a>`;
+  }
+
+
+  function localizedResultRow(row, lang){
+    const suffix = '_' + lang;
+    const rawResult = String((row && row.result) || '').toUpperCase();
+    let displayResult = rawResult;
+    if(lang === 'en') displayResult = rawResult === 'V' ? 'W' : rawResult === 'N' ? 'D' : rawResult === 'D' ? 'L' : rawResult;
+    return Object.assign({}, row || {}, {
+      label: (row && row['label' + suffix]) || (row && row.label) || '',
+      note: (row && row['note' + suffix]) || (row && row.note) || '',
+      rawResult,
+      displayResult
+    });
+  }
+
+  function resultClassFor(raw){
+    const r = String(raw || '').toUpperCase();
+    return r === 'V' || r === 'W' ? 'win' : r === 'N' || r === 'DRAW' ? 'draw' : 'loss';
+  }
+
+  function journeyLimit(key, computed){
+    const finalMatch = computed && computed.resolved && computed.resolved.N104;
+    if(finalMatch && finalMatch.home && finalMatch.away && (finalMatch.home === key || finalMatch.away === key)) return 6;
+    return SEMIFINALISTS.has(key) ? 5 : 4;
+  }
+
+  function journeyResultsForTeam(key, teamResults, computed, teams){
+    const lang = activeLang();
+    const rows = (((teamResults && teamResults[key]) || []).map(row => localizedResultRow(row, lang)));
+    const seen = new Set(rows.map(row => row.matchId || String(row.label || '').toLowerCase().replace(/\s+/g,' ').trim()));
+    ORDER.forEach(id => {
+      const match = computed && computed.resolved && computed.resolved[id];
+      if(!match || !match.final || !match.home || !match.away || (match.home !== key && match.away !== key) || seen.has(id)) return;
+      const rawResult = match.winner === key ? 'V' : 'D';
+      const label = `${teamName(match.home, teams)} ${match.score || ''} ${teamName(match.away, teams)}`.replace(/\s+/g,' ').trim();
+      const note = roundLabel((match.def && match.def.round) || '', lang);
+      rows.push({matchId:id, label, note, rawResult, displayResult: lang === 'en' ? (rawResult === 'V' ? 'W' : 'L') : rawResult});
+      seen.add(id);
+    });
+    return rows;
+  }
+
+  function journeyRowsHtml(key, teamResults, computed, teams, limit){
+    const rows = journeyResultsForTeam(key, teamResults, computed, teams).slice(-limit);
+    return rows.map(row => `<div class="qg-journey-row ${resultClassFor(row.rawResult)}"><span>${esc(row.label || '')}</span><strong>${esc(row.displayResult || '')}</strong></div>`).join('');
+  }
+
+  function finalLiveSnapshot(live){
+    const stores = [];
+    if(live && live.matches) stores.push(live.matches);
+    try { if(window.QUALIFGAINDE_LAST_SCORES && window.QUALIFGAINDE_LAST_SCORES.matches) stores.push(window.QUALIFGAINDE_LAST_SCORES.matches); } catch(e) {}
+    try { if(typeof KNOCKOUT_LIVE_RESULTS !== 'undefined' && KNOCKOUT_LIVE_RESULTS) stores.push(KNOCKOUT_LIVE_RESULTS); } catch(e) {}
+    for(const store of stores){
+      for(const [key, value] of Object.entries(store || {})){
+        const id = String((value && (value.koId || value.id || value.matchId)) || '').toUpperCase();
+        const normalized = String(key || '').toLowerCase().replace(/_/g,'-');
+        if(id === 'N104' || KO_ID_BY_KEY[normalized] === 'N104') return value || null;
+      }
+    }
+    return null;
+  }
+
+  function finalContext(teams, computed, live){
+    const match = computed && computed.resolved && computed.resolved.N104;
+    const known = !!(match && match.home && match.away);
+    const snapshot = finalLiveSnapshot(live);
+    const status = String((snapshot && (snapshot.status || snapshot.apiStatus)) || '').toLowerCase();
+    const isLive = known && !match.final && !!snapshot && !['scheduled','not started','ns','tbd',''].includes(status) && !['final','ft','aet','pen','match finished'].includes(status);
+    let score = '';
+    if(snapshot){
+      const h = snapshot.home ?? snapshot.hg ?? snapshot.homeScore;
+      const a = snapshot.away ?? snapshot.ag ?? snapshot.awayScore;
+      if(h != null && a != null) score = `${h}–${a}`;
+    }
+    if(match && match.final) score = match.score || score;
+    return {match, known, snapshot, state: match && match.final ? 'final' : isLive ? 'live' : 'upcoming', score, winner:match && match.final ? match.winner : null};
+  }
+
+  function finalCopy(){
+    const lang = activeLang();
+    const all = {
+      fr:{badge:'FINALE · COUPE DU MONDE 2026',open:'Entrer dans la Finale',countdown:'Coup d’envoi dans',journey:'Les 6 derniers matchs dans ce Mondial',waiting:'La finale attend ses deux équipes',waitingDetail:'France–Espagne et Angleterre–Argentine doivent encore livrer leur verdict.',back:'Retour à l’accueil',live:'EN DIRECT',champion:'CHAMPION DU MONDE',scheduled:'Dim. 19 juillet · 21h00 · heure locale'},
+      en:{badge:'FINAL · 2026 WORLD CUP',open:'Enter the Final',countdown:'Kick-off in',journey:'Last 6 matches at this World Cup',waiting:'The final is waiting for its two teams',waitingDetail:'France–Spain and England–Argentina still have to decide the two finalists.',back:'Back to home',live:'LIVE',champion:'WORLD CHAMPION',scheduled:'Sun 19 July · 21:00 · local time'},
+      es:{badge:'FINAL · MUNDIAL 2026',open:'Entrar en la Final',countdown:'Comienza en',journey:'Los últimos 6 partidos en este Mundial',waiting:'La final espera a sus dos equipos',waitingDetail:'Francia–España e Inglaterra–Argentina aún deben decidir los dos finalistas.',back:'Volver al inicio',live:'EN DIRECTO',champion:'CAMPEÓN DEL MUNDO',scheduled:'Dom. 19 de julio · 21:00 · hora local'},
+      pt:{badge:'FINAL · COPA DO MUNDO 2026',open:'Entrar na Final',countdown:'Começa em',journey:'Os últimos 6 jogos neste Mundial',waiting:'A final espera pelas duas equipes',waitingDetail:'França–Espanha e Inglaterra–Argentina ainda vão definir os finalistas.',back:'Voltar ao início',live:'AO VIVO',champion:'CAMPEÃO DO MUNDO',scheduled:'Dom. 19 de julho · 21:00 · hora local'},
+      ar:{badge:'نهائي كأس العالم 2026',open:'دخول صفحة النهائي',countdown:'انطلاق المباراة بعد',journey:'آخر 6 مباريات في هذا المونديال',waiting:'النهائي ينتظر طرفيه',waitingDetail:'مباراتا فرنسا–إسبانيا وإنجلترا–الأرجنتين ستحددان طرفي النهائي.',back:'العودة إلى الرئيسية',live:'مباشر',champion:'بطل العالم',scheduled:'الأحد 19 يوليو · 21:00 · بالتوقيت المحلي'}
+    };
+    return all[lang] || all.fr;
+  }
+
+  function finalCountdownHtml(ctx, teams){
+    const c = finalCopy();
+    if(ctx.state === 'live') return `<div class="qg-final-live"><span>${esc(c.live)}</span><strong>${esc(ctx.score || '0–0')}</strong></div>`;
+    if(ctx.state === 'final') {
+      const winnerName = ctx.winner ? teamName(ctx.winner, teams) : '';
+      return `<div class="qg-final-live is-final"><span>${esc(c.champion + (winnerName ? ' · ' + winnerName : ''))}</span><strong>${esc(ctx.score || '')}</strong></div>`;
+    }
+    return `<div class="qg-final-countdown" data-final-countdown><div class="qg-final-countdown-label">${esc(c.countdown)}</div><div class="qg-final-boxes"><span><b data-final-days>00</b><small>J</small></span><span><b data-final-hours>00</b><small>H</small></span><span><b data-final-minutes>00</b><small>MIN</small></span><span><b data-final-seconds>00</b><small>SEC</small></span></div></div>`;
+  }
+
+  function finalTeamsHtml(ctx, teams){
+    if(!ctx.known) return '';
+    const c = finalCopy(), home = ctx.match.home, away = ctx.match.away;
+    const teamBlock = key => {
+      const champion = ctx.state === 'final' && ctx.winner === key;
+      return `<div class="qg-final-team${champion ? ' is-champion' : ''}"><span>${esc(teamFlag(key, teams))}</span><strong>${esc(teamName(key, teams))}</strong>${champion ? `<em class="qg-final-team-crown">🏆 ${esc(c.champion)}</em>` : ''}</div>`;
+    };
+    return `<div class="qg-final-matchup">${teamBlock(home)}<div class="qg-final-vs">VS</div>${teamBlock(away)}</div>`;
+  }
+
+  function finalJourneyHtml(ctx, teams, teamResults, computed){
+    if(!ctx.known) return '';
+    const c = finalCopy();
+    return `<div class="qg-final-journeys"><div class="qg-final-journey"><h3>${esc(teamFlag(ctx.match.home, teams) + ' ' + teamName(ctx.match.home, teams))}</h3><p>${esc(c.journey)}</p>${journeyRowsHtml(ctx.match.home, teamResults, computed, teams, 6)}</div><div class="qg-final-journey"><h3>${esc(teamFlag(ctx.match.away, teams) + ' ' + teamName(ctx.match.away, teams))}</h3><p>${esc(c.journey)}</p>${journeyRowsHtml(ctx.match.away, teamResults, computed, teams, 6)}</div></div>`;
+  }
+
+  function localizedHomeHref(){
+    const p = new URLSearchParams(), lang = activeLang();
+    if(lang !== 'fr') p.set('lang', lang);
+    p.set('v', VERSION_TOKEN);
+    return '?' + p.toString();
+  }
+
+  function localizedFinalHref(){
+    const p = new URLSearchParams(), lang = activeLang();
+    p.set('mode','final');
+    if(lang !== 'fr') p.set('lang', lang);
+    p.set('v', VERSION_TOKEN);
+    return '?' + p.toString();
+  }
+
+  function finaleHomeCardHtml(teams, computed, teamResults, live){
+    const ctx = finalContext(teams, computed, live), c = finalCopy();
+    if(!ctx.known) return '';
+    return `<a class="qg-final-hero" href="${esc(localizedFinalHref())}" aria-label="${esc(c.open)}"><div class="qg-final-shine"></div><div class="qg-final-badge">${esc(c.badge)}</div>${finalTeamsHtml(ctx, teams)}${finalCountdownHtml(ctx, teams)}<div class="qg-final-date">${esc(c.scheduled)}</div>${finalJourneyHtml(ctx, teams, teamResults, computed)}<span class="qg-final-open">${esc(c.open)} →</span></a>`;
+  }
+
+  function startFinalCountdown(root){
+    if(window.__QG_FINAL_COUNTDOWN_TIMER__){ clearInterval(window.__QG_FINAL_COUNTDOWN_TIMER__); window.__QG_FINAL_COUNTDOWN_TIMER__ = null; }
+    const blocks = Array.from((root || document).querySelectorAll('[data-final-countdown]'));
+    if(!blocks.length) return;
+    const target = new Date(isoForMatch('N104')).getTime();
+    if(!Number.isFinite(target)) return;
+    const pad = n => String(Math.max(0, Math.floor(n))).padStart(2,'0');
+    function tick(){
+      const diff = Math.max(0, target - Date.now());
+      const values = {days:Math.floor(diff/86400000),hours:Math.floor((diff%86400000)/3600000),minutes:Math.floor((diff%3600000)/60000),seconds:Math.floor((diff%60000)/1000)};
+      blocks.forEach(block => {
+        const d=block.querySelector('[data-final-days]'), h=block.querySelector('[data-final-hours]'), m=block.querySelector('[data-final-minutes]'), sec=block.querySelector('[data-final-seconds]');
+        if(d) d.textContent=String(values.days); if(h) h.textContent=pad(values.hours); if(m) m.textContent=pad(values.minutes); if(sec) sec.textContent=pad(values.seconds);
+      });
+      if(diff <= 0 && window.__QG_FINAL_COUNTDOWN_TIMER__){ clearInterval(window.__QG_FINAL_COUNTDOWN_TIMER__); window.__QG_FINAL_COUNTDOWN_TIMER__=null; }
+    }
+    tick();
+    window.__QG_FINAL_COUNTDOWN_TIMER__ = setInterval(tick,1000);
+  }
+
+  function renderFinal(selector, teams, computed, teamResults, live){
+    if(!selector) return;
+    const ctx = finalContext(teams, computed, live), c = finalCopy();
+    const homeHref = localizedHomeHref();
+    selector.innerHTML = `<div class="qg-entry-bg"></div><div class="qg-entry-wrap qg-final-page"><div class="qg-entry-top"><a class="qg-entry-brand" href="${esc(homeHref)}"><img src="assets/lion-mascotte.png" alt="Mondial Pulse"><span>Mondial Pulse 2026 · V${esc(VERSION)}</span></a><a class="qg-entry-pill" href="${esc(homeHref)}">${esc(c.back)}</a></div>${ctx.known ? `<section class="qg-final-stage"><div class="qg-final-badge">${esc(c.badge)}</div>${finalTeamsHtml(ctx, teams)}${finalCountdownHtml(ctx, teams)}<div class="qg-final-date">${esc(c.scheduled)}</div>${finalJourneyHtml(ctx, teams, teamResults, computed)}</section>` : `<section class="qg-final-stage qg-final-waiting"><div class="qg-final-badge">${esc(c.badge)}</div><h1>${esc(c.waiting)}</h1><p>${esc(c.waitingDetail)}</p></section>`}<div class="qg-entry-actions"><a class="qg-entry-action" href="${esc(homeHref)}">${esc(c.back)}</a></div></div>`;
+    startFinalCountdown(selector);
   }
 
   function worldNewsTeaserHtml(worldNews){
@@ -531,17 +707,17 @@ function newsHref(id){
       <div class="qg-entry-bg"></div>
       <div class="qg-entry-wrap news-hub-wrap news-article-wrap">
         <div class="qg-entry-top">
-          <a class="qg-entry-brand news-brand-home" href="?v=1411" aria-label="Retour à la page d’accueil"><img src="assets/lion-mascotte.png" alt="Mondial Pulse"><span>Mondial Pulse 2026 · V14.1.1</span></a>
-          <a class="qg-entry-pill news-pill-home" href="?mode=news&v=1411">${esc(c.newsTitle)}</a>
+          <a class="qg-entry-brand news-brand-home" href="?v=${VERSION_TOKEN}" aria-label="Retour à la page d’accueil"><img src="assets/lion-mascotte.png" alt="Mondial Pulse"><span>Mondial Pulse 2026 · V${esc(VERSION)}</span></a>
+          <a class="qg-entry-pill news-pill-home" href="?mode=news&v=${VERSION_TOKEN}">${esc(c.newsTitle)}</a>
         </div>
         <article class="news-article" dir="${lang === 'ar' ? 'rtl' : 'ltr'}">
-          <a class="news-article-header" href="?v=1411" aria-label="Retour à la home">
+          <a class="news-article-header" href="?v=${VERSION_TOKEN}" aria-label="Retour à la home">
             <div class="qg-entry-kicker">${esc(L.tag || 'Brève')}</div>
             <h1>${esc(L.title || '')}</h1>
           </a>
           ${item.image ? `<img class="news-article-image" src="${esc(item.image)}" alt="${esc(L.title || '')}">` : ''}
           <div class="news-article-body">${articleParagraphs(L)}</div>
-          <div class="qg-entry-actions"><a class="qg-entry-action" href="?mode=news&v=1411">← Toutes les brèves</a><a class="qg-entry-action" href="?v=1411">Accueil</a></div>
+          <div class="qg-entry-actions"><a class="qg-entry-action" href="?mode=news&v=${VERSION_TOKEN}">← Toutes les brèves</a><a class="qg-entry-action" href="?v=${VERSION_TOKEN}">Accueil</a></div>
         </article>
       </div>`;
   }
@@ -553,20 +729,20 @@ function newsHref(id){
       <div class="qg-entry-bg"></div>
       <div class="qg-entry-wrap news-hub-wrap">
         <div class="qg-entry-top">
-          <a class="qg-entry-brand news-brand-home" href="?v=1411" aria-label="Retour à la page d’accueil"><img src="assets/lion-mascotte.png" alt="Mondial Pulse"><span>Mondial Pulse 2026 · V14.1.1</span></a>
-          <a class="qg-entry-pill news-pill-home" href="?v=1411">Accueil</a>
+          <a class="qg-entry-brand news-brand-home" href="?v=${VERSION_TOKEN}" aria-label="Retour à la page d’accueil"><img src="assets/lion-mascotte.png" alt="Mondial Pulse"><span>Mondial Pulse 2026 · V${esc(VERSION)}</span></a>
+          <a class="qg-entry-pill news-pill-home" href="?v=${VERSION_TOKEN}">Accueil</a>
         </div>
-        <a class="qg-entry-hero news-hub-hero news-home-link" href="?v=1411" aria-label="Retour à la page d’accueil">
+        <a class="qg-entry-hero news-hub-hero news-home-link" href="?v=${VERSION_TOKEN}" aria-label="Retour à la page d’accueil">
           <div class="qg-entry-kicker">Mondial Pulse Editorial</div>
           <h1>${esc(c.newsTitle)}</h1>
           <p>${esc(c.newsLead)}</p>
         </a>
         ${worldNewsHtml(worldNews)}
-        <div class="qg-entry-actions"><a class="qg-entry-action" href="?v=1411">Retour à l’accueil</a></div>
+        <div class="qg-entry-actions"><a class="qg-entry-action" href="?v=${VERSION_TOKEN}">Retour à l’accueil</a></div>
       </div>`;
   }
 
-  function renderHome(selector, teams, computed, worldNews){
+  function renderHome(selector, teams, computed, worldNews, teamResults, live){
     if(!selector) return;
     const lang = activeLang(), c = copy();
     const groups = {qf:[], live:[], out:[]};
@@ -582,17 +758,29 @@ function newsHref(id){
       const p = new URLSearchParams();
       p.set('team', s.key);
       if(meta.defaultLang && ['england','norway','argentina','egypt'].includes(s.key)) p.set('lang', meta.defaultLang);
-      p.set('v','1411');
+      p.set('v', VERSION_TOKEN);
       return '?' + p.toString();
     }
+    function cardCopy(s){
+      if(s.key !== 'england') return {name:s.teamName || teamName(s.key, teams), line:s.selectorLine || s.statusLabel || ''};
+      const enNames = {england:'England',argentina:'Argentina',france:'France',spain:'Spain',norway:'Norway',mexico:'Mexico',dr_congo:'DR Congo'};
+      if(s.status === 'champion') return {name:'England',line:'World champions'};
+      if(s.status === 'eliminated') return {name:'England',line:`Eliminated in the ${roundLabel(s.eliminatedRound || s.currentRound, 'en')}`};
+      const match = s.nextMatchId && computed.resolved ? computed.resolved[s.nextMatchId] : null;
+      const opponentKey = match ? (match.home === 'england' ? match.away : (match.away === 'england' ? match.home : null)) : null;
+      const opponent = opponentKey ? (enNames[opponentKey] || teamName(opponentKey, teams)) : '';
+      const line = `Qualified for the ${roundLabel(s.currentRound, 'en')}` + (opponent ? ` · next: ${opponent}` : '');
+      return {name:'England',line};
+    }
     function card(s, cls){
-      return `<a class="qg-team-card ${cls}" href="${esc(href(s))}" data-team="${esc(s.key)}"><span class="qg-team-flag">${esc(s.flag || teamFlag(s.key, teams))}</span><span class="qg-team-copy"><span class="qg-team-name">${esc(s.teamName || teamName(s.key, teams))}</span><span class="qg-team-line">${esc(s.selectorLine || s.statusLabel || '')}</span></span></a>`;
+      const native = cardCopy(s);
+      return `<a class="qg-team-card ${cls}" href="${esc(href(s))}" data-team="${esc(s.key)}"><span class="qg-team-flag">${esc(s.flag || teamFlag(s.key, teams))}</span><span class="qg-team-copy"><span class="qg-team-name">${esc(native.name)}</span><span class="qg-team-line">${esc(native.line)}</span></span></a>`;
     }
     selector.innerHTML = `
       <div class="qg-entry-bg"></div>
       <div class="qg-entry-wrap">
         <div class="qg-entry-top">
-          <div class="qg-entry-brand"><img src="assets/lion-mascotte.png" alt="Mondial Pulse"><span>Mondial Pulse 2026 · V14.1.1</span></div>
+          <div class="qg-entry-brand"><img src="assets/lion-mascotte.png" alt="Mondial Pulse"><span>Mondial Pulse 2026 · V${esc(VERSION)}</span></div>
           <div class="qg-entry-pill">${esc(c.homePill)}</div>
         </div>
         <div class="qg-entry-hero">
@@ -600,19 +788,22 @@ function newsHref(id){
           <h1>${c.homeTitle}</h1>
           <p>${esc(c.homeLead)}</p>
         </div>
+        ${finaleHomeCardHtml(teams, computed, teamResults, live)}
         <div class="qg-selector-group"><h2 class="qg-selector-title">${esc(c.qf)}</h2><div class="qg-team-grid">${groups.qf.map(s=>card(s,'qf')).join('')}</div></div>
         ${groups.live.length ? `<div class="qg-selector-group"><h2 class="qg-selector-title">${esc(c.live)}</h2><div class="qg-team-grid">${groups.live.map(s=>card(s,'live')).join('')}</div></div>` : ''}
         <div class="qg-selector-group"><h2 class="qg-selector-title">${esc(c.out)}</h2><div class="qg-team-grid">${groups.out.map(s=>card(s,'out')).join('')}</div></div>
         ${sportsMangaraTeaserHtml()}
         ${worldNewsTeaserHtml(worldNews)}
-        <div class="qg-entry-actions"><a class="qg-entry-action" href="?mode=global&v=1411">${esc(c.global)}</a></div>
+        <div class="qg-entry-actions"><a class="qg-entry-action" href="?mode=global&v=${VERSION_TOKEN}">${esc(c.global)}</a></div>
       </div>`;
+    startFinalCountdown(selector);
   }
 
 
-function resultLetter(result){
+function resultLetter(result, lang){
     if(!result) return '';
     const r = String(result).toUpperCase();
+    if(lang === 'en'){ if(r === 'V' || r === 'W') return 'W'; if(r === 'D' || r === 'L') return 'L'; if(r === 'N' || r === 'DRAW') return 'D'; }
     if(r === 'V' || r === 'W') return 'V';
     if(r === 'D' || r === 'L') return 'D';
     if(r === 'N' || r === 'DRAW') return 'N';
@@ -622,11 +813,12 @@ function resultLetter(result){
     const meta = teamMeta(key, teams);
     return meta.heroImg || meta.playerImg || meta.bannerImg || 'assets/lion-mascotte.png';
   }
-  function patchSideCard(card, key, teams, teamResults){
+  function patchSideCard(card, key, teams, teamResults, computed){
     if(!card || !key) return;
     const meta = teamMeta(key, teams);
     card.className = 'player-side ' + key.replace(/_/g,'-');
-    card.setAttribute('aria-label', 'Forme récente de ' + (meta.teamName || teamName(key, teams)));
+    const lang = activeLang();
+    card.setAttribute('aria-label', (lang === 'en' ? 'Recent form of ' : 'Forme récente de ') + (meta.teamName || teamName(key, teams)));
     const img = card.querySelector('.player-photo');
     if(img){
       img.src = teamImage(key, teams);
@@ -638,12 +830,13 @@ function resultLetter(result){
     if(spans[0]) spans[0].textContent = (meta.flag || teamFlag(key, teams)) + ' ' + (meta.teamName || teamName(key, teams));
     if(spans[1]) spans[1].textContent = meta.supporterName || meta.nickname || meta.teamName || teamName(key, teams);
     const sideSub = card.querySelector('.side-sub');
-    if(sideSub) sideSub.textContent = copy().last || 'Derniers résultats';
+    const limit = journeyLimit(key, computed);
+    if(sideSub) sideSub.textContent = lang === 'en' ? `Last ${limit} matches at this World Cup` : lang === 'es' ? `Los últimos ${limit} partidos en este Mundial` : `Les ${limit} derniers matchs dans ce Mondial`;
     const list = card.querySelector('.form-list');
     if(list){
-      const rows = ((teamResults && teamResults[key]) || []).slice(-4);
+      const rows = journeyResultsForTeam(key, teamResults, computed, teams).slice(-limit);
       if(rows.length){
-        list.innerHTML = rows.map(r => `<div class="form-row"><span>${esc(r.label || '')}</span><strong>${esc(resultLetter(r.result) || '')}</strong></div>`).join('');
+        list.innerHTML = rows.map(r => `<div class="form-row ${resultClassFor(r.rawResult)}"><span>${esc(r.label || '')}</span><strong>${esc(r.displayResult || resultLetter(r.result, lang) || '')}</strong></div>`).join('');
       } else {
         list.innerHTML = `<div class="form-row"><span>${esc(copy().nextMatch || 'Prochain match')}</span><strong>·</strong></div>`;
       }
@@ -733,8 +926,8 @@ function isoForMatch(id){
       }
     }
     const sides = card.querySelectorAll('.player-side');
-    if(sides[0]) patchSideCard(sides[0], match.home || activeTeam, teams, teamResults || {});
-    if(sides[1]) patchSideCard(sides[1], match.away || null, teams, teamResults || {});
+    if(sides[0]) patchSideCard(sides[0], match.home || activeTeam, teams, teamResults || {}, computed);
+    if(sides[1]) patchSideCard(sides[1], match.away || null, teams, teamResults || {}, computed);
     // Corrige les placeholders visibles hérités du renderer statique.
     card.querySelectorAll('*').forEach(el => {
       if(el.children.length) return;
@@ -809,12 +1002,14 @@ async function run(){
     const activeTeam = params.get('team');
     const selector = document.getElementById('v10-team-selector');
     const mode = (params.get('mode') || '').toLowerCase();
-    if(selector && !activeTeam && mode === 'news') {
+    if(selector && !activeTeam && mode === 'final') {
+      renderFinal(selector, teams, computed, teamResults || {}, live || {});
+    } else if(selector && !activeTeam && mode === 'news') {
       const articleId = params.get('article');
       const article = articleId && Array.isArray(worldNews) ? worldNews.find(x => x.id === articleId) : null;
       if(article) renderNewsArticle(selector, article);
       else renderNewsHub(selector, worldNews || []);
-    } else if(selector && !activeTeam && mode !== 'global') renderHome(selector, teams, computed, worldNews || []);
+    } else if(selector && !activeTeam && mode !== 'global') renderHome(selector, teams, computed, worldNews || [], teamResults || {}, live || {});
     if(activeTeam) updateTeamPage(activeTeam.toLowerCase(), teams, computed, teamResults || {});
   }
 
@@ -822,13 +1017,13 @@ async function run(){
   function scheduleRun(reason, delay){
     clearTimeout(__qgAutoStateTimer);
     __qgAutoStateTimer = setTimeout(function(){
-      run().catch(function(e){ console.warn('[QG V14.1.1] computedTeamState refresh skipped', reason, e); });
+      run().catch(function(e){ console.warn('[QG V' + VERSION + '] computedTeamState refresh skipped', reason, e); });
     }, delay == null ? 160 : delay);
   }
 
   window.QG_AUTO_TEAM_STATE_ENGINE = {run, buildState, scheduleRun};
 
-  // V14.1.1 — rebrancher la home sur le vrai flux live.
+  // V14.1.2 — rebrancher la home sur le vrai flux live.
   // `qualifgainde:scoresUpdated` est émis tôt par applyScoresData ; on relance donc plusieurs fois
   // pour passer APRÈS l'écriture de KNOCKOUT_LIVE_RESULTS et la propagation du bracket.
   window.addEventListener('qualifgainde:scoresUpdated', function(){
