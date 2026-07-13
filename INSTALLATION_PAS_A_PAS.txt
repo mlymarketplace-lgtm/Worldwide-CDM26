@@ -1,0 +1,35 @@
+V14.0.1 — INSTALLATION DANS LE BON REPOSITORY
+
+IMPORTANT : utiliser GitHub Desktop, jamais « Add files via upload » sur GitHub.com.
+
+1. Dans GitHub Desktop, sélectionner :
+   Current Repository = Worldwide-CDM26
+   Current Branch = main
+
+2. Cliquer sur Repository > Show in Finder.
+
+3. Dans le dossier Worldwide-CDM26 ouvert par Finder :
+   - supprimer tous les éléments visibles ;
+   - ne pas supprimer le dossier caché .git.
+
+4. Décompresser ce ZIP.
+
+5. Ouvrir le dossier décompressé et copier son CONTENU :
+   index.html, assets, data, mangara, netlify, src, etc.
+
+6. Coller ce contenu directement dans Worldwide-CDM26.
+
+7. Retourner dans GitHub Desktop.
+   Vérifier que Current Repository affiche toujours Worldwide-CDM26.
+
+8. Summary :
+   V14.0.1 - Clean production repository
+
+9. Cliquer Commit to main, puis Push origin.
+
+10. Sur GitHub, vérifier que le dernier commit V14.0.1 apparaît dans :
+    mlymarketplace-lgtm/Worldwide-CDM26
+
+11. Netlify doit rester connecté à :
+    mlymarketplace-lgtm/Worldwide-CDM26
+    branche main

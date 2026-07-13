@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Sports Mangara · V14.9 · Tanière des Lions</title>
+<title>Sports Mangara · V14.0.1 · Tanière des Lions</title>
 <meta name="description" content="La tanière mobile-first des Lions : équipe nationale, clubs, compétitions, joueurs et Europe.">
 <meta name="theme-color" content="#00853F">
 <link rel="manifest" href="/mangara/manifest.webmanifest">
@@ -14,9 +14,54 @@
 @media(min-width:680px){body{padding-bottom:0}.bottom-nav{display:none}.wrap{padding:18px 16px 80px}.topbar-inner{padding:10px 16px}.hero-row{grid-template-columns:1fr 1.2fr}.home-grid{grid-template-columns:repeat(3,1fr)}.national-hero{grid-template-columns:1.1fr .9fr}.national-grid{grid-template-columns:repeat(2,1fr)}.boxing-grid,.europe-grid{grid-template-columns:repeat(2,1fr)}.clubs-grid{grid-template-columns:repeat(auto-fill,minmax(270px,1fr))}.league-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.players{grid-template-columns:repeat(auto-fill,minmax(315px,1fr))}.filters{grid-template-columns:1.4fr .9fr .9fr .7fr}.week-panels{grid-template-columns:1fr 1fr}.statgrid{grid-template-columns:repeat(4,1fr)}}
 @media(min-width:1040px){.boxing-grid{grid-template-columns:repeat(3,1fr)}.national-grid{grid-template-columns:repeat(3,1fr)}}
 </style>
+
+<style id="sports-mangara-v14-premium-cards">
+:root{
+  --premium-line:rgba(255,255,255,.16);
+  --premium-line-soft:rgba(255,255,255,.10);
+  --premium-highlight:rgba(253,239,66,.34);
+}
+.home-card,.boxing-card,.club-card,.europe-card,.national-card,.league,.player,.mangara-card,.metric,.week-panel,.stat{
+  border:1px solid var(--premium-line)!important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.035),
+    0 14px 34px rgba(0,0,0,.22);
+}
+.home-card:hover,.boxing-card:hover,.club-card:hover,.europe-card:hover,.national-card:hover,.player:hover,.mangara-card:hover,.metric:hover{
+  border-color:var(--premium-highlight)!important;
+}
+.boxing-card,.club-card,.europe-card,.national-card,.player{
+  background:linear-gradient(145deg,rgba(16,35,66,.94),rgba(7,16,31,.97));
+  border-radius:20px;
+  padding:15px;
+}
+.weekend-player-head{
+  display:flex;
+  align-items:center;
+  gap:13px;
+}
+.weekend-player-photo{
+  width:68px;
+  height:68px;
+  flex:0 0 68px;
+  object-fit:cover;
+  object-position:center top;
+  border-radius:18px;
+  border:1px solid rgba(253,239,66,.48);
+  background:#07101f;
+  box-shadow:0 10px 26px rgba(0,0,0,.34);
+}
+.weekend-player-copy{min-width:0}
+.weekend-player-copy strong{margin-top:5px}
+@media(max-width:520px){
+  .boxing-card{padding:13px}
+  .weekend-player-photo{width:60px;height:60px;flex-basis:60px;border-radius:16px}
+}
+</style>
+
 </head>
 <body>
-<header class="topbar"><div class="topbar-inner"><a class="brand" href="#home"><span class="brand-logo"></span><span>Sports Mangara · V14.9</span></a><div class="langbar"><button class="active" data-lang="fr">FR</button><button data-lang="en">EN</button><button data-lang="ar">AR</button></div><div class="pwa-badge">PWA</div></div></header>
+<header class="topbar"><div class="topbar-inner"><a class="brand" href="#home"><span class="brand-logo"></span><span>Sports Mangara · V14.0.1</span></a><div class="langbar"><button class="active" data-lang="fr">FR</button><button data-lang="en">EN</button><button data-lang="ar">AR</button></div><div class="pwa-badge">PWA</div></div></header>
 <main class="wrap" id="home">
 <section class="hero"><div class="kicker">Tanière des Lions · Sélection · Clubs · Europe</div><h1>La tanière des Lions</h1><p class="tagline">Une tanière mobile plus courte, avec des portes d’entrée claires puis des fiches profondes : équipe nationale, week-end des Lions, clubs suivis, compétitions, Europe et joueurs.</p><div class="hero-row"><div class="mangara-card" onclick="openJournalist('yoro-mangara')" role="button" aria-label="Ouvrir la fiche de Yoro Mangara"><img src="/mangara/assets/people/yoro-mangara.png" alt="Yoro Mangara"><div><b>Sports Mangara</b><span>Une app pensée comme un média de suivi : simple en surface, profonde dans les fiches.</span></div></div><div class="metrics"><div class="metric" onclick="go('players')"><b id="m-players">0</b><span>Joueurs</span></div><div class="metric" onclick="go('clubs')"><b id="m-clubs">0</b><span>Clubs</span></div><div class="metric" onclick="go('competitions')"><b id="m-leagues">0</b><span>Compétitions</span></div></div></div></section>
 <nav class="quickbar"><a href="#national">Equipe Nationale</a><a href="#weekend">Week-end</a><a href="#competitions">Compétitions</a><a href="#europe">Europe</a><a href="#clubs">Clubs</a><a href="#players">Joueurs</a></nav>
@@ -62,7 +107,7 @@ function renderNational(){const t=NATIONAL.team, coach=NATIONAL.coach;
 }
 function matchRow(m){return `<div class="match-row"><small>${esc(m.date)}<br>${esc(m.competition)}</small><div><b>${esc(m.home)} - ${esc(m.away)}</b><br><small>${esc(m.status)}</small></div><div><span class="score">${esc(m.score)}</span><br><span class="result ${esc(m.senegal)}">${esc(m.senegal)}</span></div></div>`}
 function roleStats(p){const w=p.week||{}, r=p.role_group; if(r==='gardien')return [`Buts encaissés: ${w.goals_conceded??'–'}`,`Clean sheet: ${w.clean_sheet?'Oui':'Non'}`,`Arrêts: ${w.saves??'–'}`,`Note: ${w.rating??'–'}`]; if(r==='defenseur')return [`Duels: ${w.duels_won??'–'}`,`Interceptions: ${w.interceptions??'–'}`,`Dégagements: ${w.clearances??'–'}`,`Note: ${w.rating??'–'}`]; if(r==='milieu')return [`Récups: ${w.recoveries??'–'}`,`Passes clés: ${w.key_passes??'–'}`,`Passes prog.: ${w.progressive_passes??'–'}`,`Note: ${w.rating??'–'}`]; return [`Buts: ${w.goals??'–'}`,`Passes: ${w.assists??'–'}`,`Tirs cadrés: ${w.shots_on_target??'–'}`,`Note: ${w.rating??'–'}`];}
-function renderWeekend(){const list=PLAYERS.filter(p=>p.week).sort((a,b)=>String(b.week.rating||'0').localeCompare(String(a.week.rating||'0'))).slice(0,6); $('boxing-grid').innerHTML=list.map(p=>`<article class="boxing-card" onclick="openPlayer('${esc(p.id)}')"><span class="pill">${esc(p.week.trend==='up'?'En hausse':p.week.trend==='stable'?'Stable':'À suivre')}</span><strong>${esc(p.name)}</strong><p>${esc(p.week.fixture||'Dernier match')}</p><div class="chips">${roleStats(p).map(s=>`<span class="chip">${esc(s)}</span>`).join('')}</div><div class="week-panels"><div class="week-panel"><b>Prochain match</b><span>${esc(p.week.next_fixture)}</span><span>${esc(formatDate(p.week.next_kickoff))}</span></div><div class="week-panel"><b>Compte à rebours</b><span class="countdown" data-kickoff="${esc(p.week.next_kickoff)}">${esc(countdown(p.week.next_kickoff))}</span><span>${esc(p.week.next_competition||p.league)}</span></div></div></article>`).join('')}
+function renderWeekend(){const list=PLAYERS.filter(p=>p.week).sort((a,b)=>String(b.week.rating||'0').localeCompare(String(a.week.rating||'0'))).slice(0,6); $('boxing-grid').innerHTML=list.map(p=>`<article class="boxing-card" onclick="openPlayer('${esc(p.id)}')"><div class="weekend-player-head"><img class="weekend-player-photo" src="/mangara/${esc(p.photo||'assets/players/'+p.id+'.png')}" alt="${esc(p.name)}"><div class="weekend-player-copy"><span class="pill">${esc(p.week.trend==='up'?'En hausse':p.week.trend==='stable'?'Stable':'À suivre')}</span><strong>${esc(p.name)}</strong><p>${esc(p.week.fixture||'Dernier match')}</p></div></div><div class="chips">${roleStats(p).map(s=>`<span class="chip">${esc(s)}</span>`).join('')}</div><div class="week-panels"><div class="week-panel"><b>Prochain match</b><span>${esc(p.week.next_fixture)}</span><span>${esc(formatDate(p.week.next_kickoff))}</span></div><div class="week-panel"><b>Compte à rebours</b><span class="countdown" data-kickoff="${esc(p.week.next_kickoff)}">${esc(countdown(p.week.next_kickoff))}</span><span>${esc(p.week.next_competition||p.league)}</span></div></div></article>`).join('')}
 function playersByClub(club){return PLAYERS.filter(p=>p.club===club)}
 function renderLeagues(){ $('league-grid').innerHTML=Object.entries(LEAGUES).map(([name,info])=>{const rows=(info.rows||[]).map((r,i)=>{const lions=(r.lions||[]).map(byId).filter(Boolean); return `<tr class="${lions.length?'has-lion':''}" onclick="filterClub('${esc(r.club)}')"><td><div class="club-cell"><span class="rank">${i+1}</span>${lions.length?'<span class="dot"></span>':''}${clubLogo(r.club,'club-mini')}<span>${esc(r.club)}</span></div></td><td>${r.played||0}</td><td>${r.wins||0}</td><td>${r.draws||0}</td><td>${r.losses||0}</td><td>${r.gd>0?'+'+r.gd:r.gd}</td><td><b>${r.pts||0}</b></td></tr>`}).join(''); const lions=PLAYERS.filter(p=>p.league===name).map(p=>p.name).join(' · ')||'Aucun Lion'; return `<article class="league"><div class="league-top"><div class="league-title">${esc(info.flag||'')} ${esc(name)}</div><span class="pill">${esc(info.status||'Simulation')}</span></div><div class="league-focus"><b>Focus :</b> ${esc(info.focus||'')}</div><div class="table-wrap"><table><thead><tr><th>Club</th><th>J</th><th>G</th><th>N</th><th>P</th><th>Diff.</th><th>Pts</th></tr></thead><tbody>${rows}</tbody></table></div><div class="lions-line"><b>Lions :</b> ${esc(lions)}</div></article>`}).join('') }
 function renderEurope(){const ucl=['Bayern Munich','Inter Milan','AS Monaco','Galatasaray']; const uel=['Villarreal','West Ham','Olympique Lyonnais','Crystal Palace']; const mk=(title,tag,clubs,body)=>{const lions=PLAYERS.filter(p=>clubs.includes(p.club)); return `<article class="europe-card" onclick="filterEurope('${tag}')"><span class="pill">${tag}</span><strong>${title}</strong><p>${body}</p><div class="chips">${lions.map(p=>`<span class="chip league-chip">${esc(p.name)}</span>`).join('')}</div><div class="week-panel"><b>Suivi proposé</b><span>Statut du club, adversaire, tour, minute jouée, note et enjeu qualification.</span></div></article>`}; $('europe-grid').innerHTML=mk('Nos Lions en Champions League','UCL',ucl,'La reine : carré dédié aux soirées européennes.')+mk('Europa League','UEL',uel,'Le suivi des Lions engagés dans les soirées du jeudi.')}

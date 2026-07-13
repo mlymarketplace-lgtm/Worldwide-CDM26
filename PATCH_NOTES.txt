@@ -1,9 +1,0 @@
-V13.0.0 — i18n core / langues restaurées
-
-- Ajout d’un vrai cœur langue FR/EN/PT/ES/AR.
-- Détection device: ar-*, pt-*, es-*, en-*, fr-* avec ?lang prioritaire.
-- Pages équipe rendues depuis team + locale + data, sans retour legacy Sénégal.
-- RTL arabe activé avec scores conservés en LTR.
-- Données localisées ajoutées pour arabe, anglais, espagnol et portugais renforcé.
-- Home selector traduite selon la langue active.
-- Cache/service worker bumpés en V13.0.0.
