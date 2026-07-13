@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mondial Pulse 2026 · V14.1.0 Brèves images pack</title>
+<title>Mondial Pulse 2026 · V14.1.1 Brèves images pack</title>
 <meta name="application-name" content="Suivez la CDM 2026">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -21,9 +21,9 @@
 // BUILD_VERSION — version stable de build, à bumper à chaque déploiement.
 // Remplace les cache-busters dynamiques (Date.now()) sur les ressources stables
 // afin que le navigateur puisse effectivement les mettre en cache entre deux visites.
-const BUILD_VERSION = '14.1.0';
+const BUILD_VERSION = '14.1.1';
 (function(){
-  // V14.1.0 — compatibilité des anciens liens directs.
+  // V14.1.1 — compatibilité des anciens liens directs.
   // Les anciennes URLs partagées du type /bresil, /brésil, /algerie,
   // /team/brazil, /teams/morocco, etc. sont normalisées vers la route stable
   // /?team=<slug>. On conserve les liens existants au lieu de provoquer une 404.
@@ -83,7 +83,7 @@ const BUILD_VERSION = '14.1.0';
   if(selectorActive) document.documentElement.classList.add('qg-selector-active');
   if(v10Active) {
     document.documentElement.classList.add('v10-booting');
-    // V14.1.0 safety: ne jamais laisser l'écran noir si le script V10 externe tarde/échoue.
+    // V14.1.1 safety: ne jamais laisser l'écran noir si le script V10 externe tarde/échoue.
     // Exception volontaire : sur la page d'entrée, on garde le boot mode pour masquer la home legacy.
     setTimeout(function(){ if(!window.QUALIFGAINDE_SELECTOR_ACTIVE) document.documentElement.classList.remove('v10-booting'); }, 1800);
   }
@@ -187,7 +187,7 @@ html.v10-booting #v10-team-selector, html.v10-booting .v10-selector{visibility:v
 
 
 
-/* V14.1.0 — page d'entrée restaurée : “Je suis supporter de…” */
+/* V14.1.1 — page d'entrée restaurée : “Je suis supporter de…” */
 html.qg-selector-active body{background:#050505;min-height:100vh;overflow:auto;}
 html.qg-selector-active body > :not(#v10-team-selector):not(script):not(style){display:none !important;}
 #v10-team-selector{display:none;visibility:hidden;}
@@ -1323,10 +1323,10 @@ header{display:flex;align-items:center;justify-content:space-between;padding:12p
 <meta name="apple-mobile-web-app-title" content="Suivez la CDM 2026">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <link rel="apple-touch-icon" href="/assets/icons/icon-192.png">
-<link rel="stylesheet" href="src/v10/v10-team-app.css?v=14.1.0">
+<link rel="stylesheet" href="src/v10/v10-team-app.css?v=14.1.1">
 
 <script>
-// V14.1.0 — purge légère des anciens caches PWA pour sortir des builds bloquants.
+// V14.1.1 — purge légère des anciens caches PWA pour sortir des builds bloquants.
 (function(){
   window.addEventListener('load', function(){
     try {
@@ -1339,7 +1339,7 @@ header{display:flex;align-items:center;justify-content:space-between;padding:12p
 </script>
 
 <style id="qg-v1315-teamfix-style">
-/* V14.1.0 — adaptateur autonome multi-équipe, sans dépendance src/v10 JS */
+/* V14.1.1 — adaptateur autonome multi-équipe, sans dépendance src/v10 JS */
 #probable-opponent .opp-label{white-space:nowrap;}
 #probable-opponent .opp-main{line-height:1.05;}
 #probable-opponent .opp-sub{white-space:normal;}
@@ -1356,7 +1356,7 @@ header{display:flex;align-items:center;justify-content:space-between;padding:12p
 
 
 <style id="qg-v1315-structural-css">
-/* V14.1.0 — home plus lisible et cartes pays structurées */
+/* V14.1.1 — home plus lisible et cartes pays structurées */
 .qg-team-card{flex-direction:column;justify-content:center;text-align:center;align-items:center;gap:10px;padding:18px 14px;min-height:132px;}
 .qg-team-copy{width:100%;display:block;}
 .qg-team-name{display:block;text-align:center;white-space:normal;overflow:visible;text-overflow:clip;font-size:1.28rem;}
@@ -1384,7 +1384,7 @@ html[dir="rtl"] .opp-sub,html[dir="rtl"] .opp-main{text-align:right;}
 
 
 <style id="qg-v1315-home-clean-css">
-/* V14.1.0 — homepage: suppression définitive du label "Pays". */
+/* V14.1.1 — homepage: suppression définitive du label "Pays". */
 .qg-team-name::before{content:none!important;display:none!important;}
 </style>
 
@@ -1484,31 +1484,31 @@ html[dir="rtl"] .world-news-open{align-self:flex-end;}
     <div class="qg-selector-group">
       <h2 class="qg-selector-title">Qualifiés en demi-finale</h2>
       <div class="qg-team-grid">
-        <a class="qg-team-card qf" href="?team=france&v=1410"><span class="qg-team-flag">🇫🇷</span><span class="qg-team-copy"><span class="qg-team-name">France</span><span class="qg-team-line">Qualifiée en demi-finale · attend l’Espagne</span></span></a>
-        <a class="qg-team-card qf" href="?team=spain&lang=es&v=1410"><span class="qg-team-flag">🇪🇸</span><span class="qg-team-copy"><span class="qg-team-name">Espagne</span><span class="qg-team-line">Qualifiée en demi-finale · attend la France</span></span></a>
-        <a class="qg-team-card qf" href="?team=england&lang=en&v=1410"><span class="qg-team-flag">🏴󠁧󠁢󠁥󠁮󠁧󠁿</span><span class="qg-team-copy"><span class="qg-team-name">Angleterre</span><span class="qg-team-line">Qualifiée en demi-finale · attend l’Argentine</span></span></a>
-        <a class="qg-team-card qf" href="?team=argentina&lang=es&v=1410"><span class="qg-team-flag">🇦🇷</span><span class="qg-team-copy"><span class="qg-team-name">Argentine</span><span class="qg-team-line">Qualifiée en demi-finale · attend l’Angleterre</span></span></a>
+        <a class="qg-team-card qf" href="?team=france&v=1411"><span class="qg-team-flag">🇫🇷</span><span class="qg-team-copy"><span class="qg-team-name">France</span><span class="qg-team-line">Qualifiée en demi-finale · attend l’Espagne</span></span></a>
+        <a class="qg-team-card qf" href="?team=spain&lang=es&v=1411"><span class="qg-team-flag">🇪🇸</span><span class="qg-team-copy"><span class="qg-team-name">Espagne</span><span class="qg-team-line">Qualifiée en demi-finale · attend la France</span></span></a>
+        <a class="qg-team-card qf" href="?team=england&lang=en&v=1411"><span class="qg-team-flag">🏴󠁧󠁢󠁥󠁮󠁧󠁿</span><span class="qg-team-copy"><span class="qg-team-name">Angleterre</span><span class="qg-team-line">Qualifiée en demi-finale · attend l’Argentine</span></span></a>
+        <a class="qg-team-card qf" href="?team=argentina&lang=es&v=1411"><span class="qg-team-flag">🇦🇷</span><span class="qg-team-copy"><span class="qg-team-name">Argentine</span><span class="qg-team-line">Qualifiée en demi-finale · attend l’Angleterre</span></span></a>
       </div>
     </div>
 
     <div class="qg-selector-group">
       <h2 class="qg-selector-title">Éliminés · respect</h2>
       <div class="qg-team-grid">
-        <a class="qg-team-card out" href="?team=norway&v=1410"><span class="qg-team-flag">🇳🇴</span><span class="qg-team-copy"><span class="qg-team-name">Norvège</span><span class="qg-team-line">Éliminée en quart · Haaland aura marqué ce Mondial</span></span></a>
-        <a class="qg-team-card out" href="?team=switzerland&v=1410"><span class="qg-team-flag">🇨🇭</span><span class="qg-team-copy"><span class="qg-team-name">Suisse</span><span class="qg-team-line">Éliminée en quart · une Nati courageuse jusqu’au bout</span></span></a>
-        <a class="qg-team-card out" href="?team=belgium&v=1410"><span class="qg-team-flag">🇧🇪</span><span class="qg-team-copy"><span class="qg-team-name">Belgique</span><span class="qg-team-line">Éliminée en quart · sortie honorable des Diables Rouges</span></span></a>
-        <a class="qg-team-card out" href="?team=brazil&v=1410"><span class="qg-team-flag">🇧🇷</span><span class="qg-team-copy"><span class="qg-team-name">Brésil</span><span class="qg-team-line">Éliminé en huitième · Neymar a marqué pour son dernier Mondial</span></span></a>
-        <a class="qg-team-card out" href="?team=morocco&v=1410"><span class="qg-team-flag">🇲🇦</span><span class="qg-team-copy"><span class="qg-team-name">Maroc</span><span class="qg-team-line">Éliminé en quart · l’Afrique fière des Lions de l’Atlas</span></span></a>
-        <a class="qg-team-card out" href="?team=senegal&v=1410"><span class="qg-team-flag">🇸🇳</span><span class="qg-team-copy"><span class="qg-team-name">Sénégal</span><span class="qg-team-line">Éliminé en 16e · respect aux Lions</span></span></a>
-        <a class="qg-team-card out" href="?team=algeria&v=1410"><span class="qg-team-flag">🇩🇿</span><span class="qg-team-copy"><span class="qg-team-name">Algérie</span><span class="qg-team-line">Éliminée · respect aux Fennecs</span></span></a>
-        <a class="qg-team-card out" href="?team=ivory_coast&v=1410"><span class="qg-team-flag">🇨🇮</span><span class="qg-team-copy"><span class="qg-team-name">Côte d’Ivoire</span><span class="qg-team-line">Éliminée · respect aux Éléphants</span></span></a>
-        <a class="qg-team-card out" href="?team=dr_congo&v=1410"><span class="qg-team-flag">🇨🇩</span><span class="qg-team-copy"><span class="qg-team-name">RD Congo</span><span class="qg-team-line">Éliminée · respect aux Léopards</span></span></a>
-        <a class="qg-team-card out" href="?team=cape_verde&v=1410"><span class="qg-team-flag">🇨🇻</span><span class="qg-team-copy"><span class="qg-team-name">Cap-Vert</span><span class="qg-team-line">Sortie héroïque face à l’Argentine</span></span></a>
-        <a class="qg-team-card out" href="?team=ghana&v=1410"><span class="qg-team-flag">🇬🇭</span><span class="qg-team-copy"><span class="qg-team-name">Ghana</span><span class="qg-team-line">Éliminé · respect aux Black Stars</span></span></a>
+        <a class="qg-team-card out" href="?team=norway&v=1411"><span class="qg-team-flag">🇳🇴</span><span class="qg-team-copy"><span class="qg-team-name">Norvège</span><span class="qg-team-line">Éliminée en quart · Haaland aura marqué ce Mondial</span></span></a>
+        <a class="qg-team-card out" href="?team=switzerland&v=1411"><span class="qg-team-flag">🇨🇭</span><span class="qg-team-copy"><span class="qg-team-name">Suisse</span><span class="qg-team-line">Éliminée en quart · une Nati courageuse jusqu’au bout</span></span></a>
+        <a class="qg-team-card out" href="?team=belgium&v=1411"><span class="qg-team-flag">🇧🇪</span><span class="qg-team-copy"><span class="qg-team-name">Belgique</span><span class="qg-team-line">Éliminée en quart · sortie honorable des Diables Rouges</span></span></a>
+        <a class="qg-team-card out" href="?team=brazil&v=1411"><span class="qg-team-flag">🇧🇷</span><span class="qg-team-copy"><span class="qg-team-name">Brésil</span><span class="qg-team-line">Éliminé en huitième · Neymar a marqué pour son dernier Mondial</span></span></a>
+        <a class="qg-team-card out" href="?team=morocco&v=1411"><span class="qg-team-flag">🇲🇦</span><span class="qg-team-copy"><span class="qg-team-name">Maroc</span><span class="qg-team-line">Éliminé en quart · l’Afrique fière des Lions de l’Atlas</span></span></a>
+        <a class="qg-team-card out" href="?team=senegal&v=1411"><span class="qg-team-flag">🇸🇳</span><span class="qg-team-copy"><span class="qg-team-name">Sénégal</span><span class="qg-team-line">Éliminé en 16e · respect aux Lions</span></span></a>
+        <a class="qg-team-card out" href="?team=algeria&v=1411"><span class="qg-team-flag">🇩🇿</span><span class="qg-team-copy"><span class="qg-team-name">Algérie</span><span class="qg-team-line">Éliminée · respect aux Fennecs</span></span></a>
+        <a class="qg-team-card out" href="?team=ivory_coast&v=1411"><span class="qg-team-flag">🇨🇮</span><span class="qg-team-copy"><span class="qg-team-name">Côte d’Ivoire</span><span class="qg-team-line">Éliminée · respect aux Éléphants</span></span></a>
+        <a class="qg-team-card out" href="?team=dr_congo&v=1411"><span class="qg-team-flag">🇨🇩</span><span class="qg-team-copy"><span class="qg-team-name">RD Congo</span><span class="qg-team-line">Éliminée · respect aux Léopards</span></span></a>
+        <a class="qg-team-card out" href="?team=cape_verde&v=1411"><span class="qg-team-flag">🇨🇻</span><span class="qg-team-copy"><span class="qg-team-name">Cap-Vert</span><span class="qg-team-line">Sortie héroïque face à l’Argentine</span></span></a>
+        <a class="qg-team-card out" href="?team=ghana&v=1411"><span class="qg-team-flag">🇬🇭</span><span class="qg-team-copy"><span class="qg-team-name">Ghana</span><span class="qg-team-line">Éliminé · respect aux Black Stars</span></span></a>
       </div>
     </div>
 
-    <a class="qg-mangara-hub" href="/mangara/?v=1410" aria-label="Découvrir Sports Mangara, la tanière numérique des Lions">
+    <a class="qg-mangara-hub" href="/mangara/?v=1411" aria-label="Découvrir Sports Mangara, la tanière numérique des Lions">
       <div class="qg-mangara-media">
         <img src="/mangara/assets/people/yoro-mangara.png" alt="Yoro Mangara · Sports Mangara">
       </div>
@@ -1522,7 +1522,7 @@ html[dir="rtl"] .world-news-open{align-self:flex-end;}
     </a>
 
     <div class="qg-entry-actions">
-      <a class="qg-entry-action" href="?mode=global&v=1410">Voir la page globale</a>
+      <a class="qg-entry-action" href="?mode=global&v=1411">Voir la page globale</a>
     </div>
   </div>
 </section>
@@ -1764,7 +1764,7 @@ html[dir="rtl"] .world-news-open{align-self:flex-end;}
 </section>
 
 <!-- ═══ TABLEAU 3E PLACES MASQUÉ — phase à élimination directe active ═══ -->
-<!-- Section retirée de l’affichage en V14.1.0 : le tableau des meilleurs troisièmes n’est plus utile en phase finale. -->
+<!-- Section retirée de l’affichage en V14.1.1 : le tableau des meilleurs troisièmes n’est plus utile en phase finale. -->
 
 <!-- Simulateur retiré de l’interface : moteurs conservés dans le code. -->
 
@@ -2542,7 +2542,7 @@ function getOpponentForSenegalRank(snRank) {
 }
 
 function updateProbableOpponent(snRank) {
-  // V14.1.0 — ne jamais retomber sur l'ancien moteur Sénégal/R32
+  // V14.1.1 — ne jamais retomber sur l'ancien moteur Sénégal/R32
   // quand une page équipe est ouverte. On affiche l'affiche réelle du prochain match.
   const qgTeamParamForNext = (new URLSearchParams(location.search).get('team') || 'senegal').toLowerCase();
   const NEXT_MATCH_BY_TEAM = {
@@ -2907,7 +2907,7 @@ const KO_ROUNDS = [
   ]}
 ];
 
-// V14.1.0 — source unique : l'état R32 est dérivé de STATIC_R32_LOCKS.
+// V14.1.1 — source unique : l'état R32 est dérivé de STATIC_R32_LOCKS.
 // On évite de maintenir les mêmes scores à trois endroits.
 function deriveR32InitialState(locks){
   const scores = {}, picks = {}, locked = {};
@@ -4997,10 +4997,10 @@ setTimeout(()=>{
 
 </script>
 
-<!-- V14.1.0: scripts V10 externes désactivés pour éviter les retours de cache qui écrasent le rendu officiel. -->
+<!-- V14.1.1: scripts V10 externes désactivés pour éviter les retours de cache qui écrasent le rendu officiel. -->
 
 <script>
-// V14.1.0 — FINALISATION STABLE — source unique de vérité.
+// V14.1.1 — FINALISATION STABLE — source unique de vérité.
 // R32_LOCKS_BOOT supprimé : les 16es viennent uniquement de STATIC_R32_LOCKS.
 // Les re-renders en cascade sont supprimés : un seul filet de sécurité à 300 ms après load.
 (function(){
@@ -5056,7 +5056,7 @@ setTimeout(()=>{
       if (typeof renderRound32Grid === 'function') renderRound32Grid();
       if (typeof renderKnockoutTree === 'function') renderKnockoutTree();
       if (typeof buildTicker === 'function') buildTicker();
-    } catch(e) { console.warn('[QG V14.1.0] official score finalizer skipped', e); }
+    } catch(e) { console.warn('[QG V14.1.1] official score finalizer skipped', e); }
   }
   function normalizeNextMatchCard(){
     const card = document.getElementById('probable-opponent');
@@ -5110,7 +5110,7 @@ setTimeout(()=>{
 
 
 <script id="qg-v1315-stable-team-adapter">
-// V14.1.0 — adaptateur stable multi-équipe.
+// V14.1.1 — adaptateur stable multi-équipe.
 // Objectif : conserver les pages équipe construites (France, Maroc, Sénégal, Belgique,
 // Brésil, Espagne, Égypte, Algérie, etc.) sans dépendre d'un script externe V10.
 (function(){
@@ -5135,7 +5135,7 @@ setTimeout(()=>{
   };
   const TEAM_KEY = TEAM_ALIASES[PARAM] || PARAM || 'senegal';
   const TEAM_DEFAULT_LANG = { spain: 'es' };
-  // V14.1.0 — règle produit : la carte Espagne de la home ouvre directement la page Espagne en espagnol.
+  // V14.1.1 — règle produit : la carte Espagne de la home ouvre directement la page Espagne en espagnol.
   // Si l'URL est déjà explicite (?lang=fr/en/pt/ar), on respecte le choix de l'utilisateur.
   if (HAS_TEAM && TEAM_DEFAULT_LANG[TEAM_KEY] && !SEARCH_PARAMS.has('lang')) {
     try {
@@ -5277,7 +5277,7 @@ setTimeout(()=>{
   function ui(){ return UI_LABELS[activeLang()] || UI_LABELS.fr; }
   function syncLangButtons(){ const lang=activeLang(); document.documentElement.lang=lang; document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr'; document.body.classList.toggle('qg-rtl', lang === 'ar'); document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.toggle('active', btn.dataset.langBtn === lang)); }
 
-  function safeFetchJSON(url){ return fetch(url + (url.includes('?') ? '&' : '?') + 'v=' + encodeURIComponent(window.BUILD_VERSION || '14.1.0'), {cache:'no-store'}).then(r => r.ok ? r.json() : null).catch(() => null); }
+  function safeFetchJSON(url){ return fetch(url + (url.includes('?') ? '&' : '?') + 'v=' + encodeURIComponent(window.BUILD_VERSION || '14.1.1'), {cache:'no-store'}).then(r => r.ok ? r.json() : null).catch(() => null); }
   function resultClass(r){ return r === 'V' ? 'win' : (r === 'D' ? 'loss' : 'neu'); }
   function keyToName(key){ return String(key || '').replace(/_/g,' ').replace(/\b\w/g, m => m.toUpperCase()); }
   function teamRecord(key, teams, opponents){ const pseudo={winner_spain_belgium:{teamName:'Espagne',flag:'🇪🇸',supporterName:'La Roja',heroImg:'assets/teams/spain/player.webp',bannerImg:'assets/teams/spain/banner.webp'}}; return Object.assign({teamName:keyToName(key), flag:'🏳️'}, pseudo[key] || {}, FALLBACK_TEAMS[key] || {}, (opponents && opponents[key]) || {}, (teams && teams[key]) || {}); }
@@ -5499,7 +5499,7 @@ setTimeout(()=>{
       if(typeof applyR32Locks === 'function' && typeof STATIC_R32_LOCKS !== 'undefined') applyR32Locks(STATIC_R32_LOCKS, 'v12-0-15-team-pages');
       if(typeof renderRound32Grid === 'function') renderRound32Grid();
       if(typeof renderKnockoutTree === 'function') renderKnockoutTree();
-    }catch(e){ console.warn('[QG V14.1.0] score patch skipped', e); }
+    }catch(e){ console.warn('[QG V14.1.1] score patch skipped', e); }
   }
 
   async function loadData(){
@@ -5523,7 +5523,7 @@ setTimeout(()=>{
     const mergedPreviews = Object.assign({}, FALLBACK_PREVIEWS, mergeRecords(previews || {}, langPreviews || {}));
     const mergedFarewells = Object.assign({}, FALLBACK_FAREWELLS, mergeRecords(farewells || {}, langFarewells || {}));
 
-    // V14.1.0 — correctif forcé France/Espagne/Belgique.
+    // V14.1.1 — correctif forcé France/Espagne/Belgique.
     // Les fichiers /data/* existants sur Netlify peuvent encore porter l'ancien état
     // France–Maroc ou Espagne–Belgique. On force donc ici l'état éditorial demandé.
     const forcedNext = Object.assign({}, next || {});
@@ -5756,7 +5756,7 @@ if ('serviceWorker' in navigator) {
   document.addEventListener('click', function(e){ const a=e.target.closest && e.target.closest('a.qg-team-card'); if(a) qgTrack('team_card_click',{href:a.getAttribute('href')}); const b=e.target.closest && e.target.closest('.lang-btn'); if(b) qgTrack('lang_click',{lang:b.dataset.langBtn}); }, true);
 })();
 </script>
-<script src="assets/js/computed-team-state.js?v=14.1.0"></script>
+<script src="assets/js/computed-team-state.js?v=14.1.1"></script>
 
 <script id="qg-v1315-final-override">
 (function(){

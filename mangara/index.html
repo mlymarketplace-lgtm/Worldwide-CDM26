@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Sports Mangara · V14.1.0 · Tanière des Lions</title>
+<title>Sports Mangara · V14.1.1 · Tanière des Lions</title>
 <meta name="description" content="La tanière mobile-first des Lions : équipe nationale, clubs, compétitions, joueurs et Europe.">
 <meta name="theme-color" content="#00853F">
 <link rel="manifest" href="/mangara/manifest.webmanifest">
@@ -72,7 +72,7 @@
 </style>
 </head>
 <body>
-<header class="topbar"><div class="topbar-inner"><a class="brand" href="/?v=1410" aria-label="Retour à la home QualifGaïndé"><span class="brand-logo"></span><span>Sports Mangara · V14.1.0</span></a><div class="langbar"><button class="active" data-lang="fr">FR</button><button data-lang="en">EN</button><button data-lang="ar">AR</button></div><a class="pwa-badge" href="/?v=1410" aria-label="Retour à QualifGaïndé">← QualifGaïndé</a></div></header>
+<header class="topbar"><div class="topbar-inner"><a class="brand" href="/?v=1411" aria-label="Retour à la home QualifGaïndé"><span class="brand-logo"></span><span>Sports Mangara · V14.1.1</span></a><div class="langbar"><button class="active" data-lang="fr">FR</button><button data-lang="en">EN</button><button data-lang="ar">AR</button></div><a class="pwa-badge" href="/?v=1411" aria-label="Retour à QualifGaïndé">← QualifGaïndé</a></div></header>
 <main class="wrap" id="home">
 <section class="hero"><div class="kicker">Tanière des Lions · Sélection · Clubs · Europe</div><h1>La tanière des Lions</h1><p class="tagline">Une tanière mobile plus courte, avec des portes d’entrée claires puis des fiches profondes : équipe nationale, week-end des Lions, clubs suivis, compétitions, Europe et joueurs.</p><div class="hero-row"><div class="mangara-card" onclick="openJournalist('yoro-mangara')" role="button" aria-label="Ouvrir la fiche de Yoro Mangara"><img src="/mangara/assets/people/yoro-mangara.png" alt="Yoro Mangara"><div><b>Sports Mangara</b><span>Une app pensée comme un média de suivi : simple en surface, profonde dans les fiches.</span></div></div><div class="metrics"><div class="metric" onclick="go('players')"><b id="m-players">0</b><span>Joueurs</span></div><div class="metric" onclick="go('clubs')"><b id="m-clubs">0</b><span>Clubs</span></div><div class="metric" onclick="go('competitions')"><b id="m-leagues">0</b><span>Compétitions</span></div></div></div></section>
 <nav class="quickbar"><a href="#national">Equipe Nationale</a><a href="#weekend">Week-end</a><a href="#competitions">Compétitions</a><a href="#europe">Europe</a><a href="#clubs">Clubs</a><a href="#players">Joueurs</a></nav>
@@ -83,7 +83,7 @@
 <section class="section" id="europe"><div class="section-head"><div class="section-title"><h2>Les Lions Champions & Europa League</h2><p class="hint">Carrés Europe : phase de ligue, barrages, matchs couperets, minutes et notes.</p></div><span class="source-badge simulated">Données simulées</span></div><div class="europe-grid" id="europe-grid"></div></section>
 <section class="section" id="clubs"><div class="section-head"><div class="section-title"><h2>Clubs suivis</h2><p class="hint">Pays, drapeau, championnat, entraîneur et rôle du club dans le suivi Sports Mangara.</p></div><span class="source-badge local">Données locales</span></div><div class="clubs-grid" id="club-grid"></div></section>
 <section class="section" id="players"><div class="section-head"><div class="section-title"><h2>Suivi des Lions</h2><p class="hint">Chaque card ouvre une fiche adaptée au poste : gardien, défenseur, milieu ou attaquant.</p></div><span class="source-badge local">Données locales</span></div><div class="filters"><input id="search" placeholder="Rechercher un joueur, club, championnat…" oninput="renderPlayers()"><select id="league" onchange="renderPlayers()"><option value="">Tous les championnats</option></select><select id="club" onchange="renderPlayers()"><option value="">Tous les clubs</option></select><select id="role" onchange="renderPlayers()"><option value="">Tous les postes</option><option value="gardien">Gardiens</option><option value="defenseur">Défenseurs</option><option value="milieu">Milieux</option><option value="attaquant">Attaquants</option></select></div><div class="players" id="players-list"></div></section>
-<div class="source-note" id="source-note">Sources locales et simulées · validation humaine avant publication.</div><footer>SPORTS MANGARA · V14.1.0 · Données locales et simulées · validation humaine avant production.</footer>
+<div class="source-note" id="source-note">Sources locales et simulées · validation humaine avant publication.</div><footer>SPORTS MANGARA · V14.1.1 · Données locales et simulées · validation humaine avant production.</footer>
 </main>
 <nav class="bottom-nav"><a href="#home">Accueil</a><a href="#national">Equipe</a><a href="#weekend">Week-end</a><a href="#clubs">Clubs</a><a href="#players">Joueurs</a></nav>
 <div class="overlay" id="overlay" onclick="if(event.target===this)closeSheet()"><div class="sheet" id="sheet"></div></div>
@@ -118,7 +118,7 @@ async function boot(){
 function showDataError(){
  let p=document.getElementById('data-error-panel');
  if(!p){p=document.createElement('section');p.id='data-error-panel';p.className='data-error-panel';const main=document.querySelector('main.wrap');const hero=main&&main.querySelector('.hero');if(main)main.insertBefore(p,hero?hero.nextSibling:main.firstChild)}
- p.innerHTML='<h2>Les données n’ont pas pu être chargées</h2><p>La navigation reste disponible. Vérifie ta connexion puis réessaie.</p><div class="data-error-actions"><button type="button" onclick="boot()">Réessayer</button><a href="/?v=1410">Retour à QualifGaïndé</a></div>';p.hidden=false
+ p.innerHTML='<h2>Les données n’ont pas pu être chargées</h2><p>La navigation reste disponible. Vérifie ta connexion puis réessaie.</p><div class="data-error-actions"><button type="button" onclick="boot()">Réessayer</button><a href="/?v=1411">Retour à QualifGaïndé</a></div>';p.hidden=false
 }
 function hideDataError(){const p=document.getElementById('data-error-panel');if(p)p.hidden=true}
 function updateSourceNote(){const e=document.getElementById('source-note');if(!e)return;const d=SOURCE_NOTE.updatedAt?' · mise à jour '+SOURCE_NOTE.updatedAt:'';e.textContent=(SOURCE_NOTE.note||'Sources locales et simulées · validation humaine avant publication.')+d}

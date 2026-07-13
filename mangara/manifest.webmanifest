@@ -2,7 +2,7 @@
   "name": "Sports Mangara · Tanière des Lions",
   "short_name": "Mangara",
   "description": "Tanière mobile des Lions du Sénégal, avec clubs, logos et fiches journalistes.",
-  "start_url": "/mangara/?v=1410",
+  "start_url": "/mangara/?v=1411",
   "scope": "/mangara/",
   "display": "standalone",
   "background_color": "#06101d",

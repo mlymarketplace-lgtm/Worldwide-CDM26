@@ -39,7 +39,7 @@
     N97:'qf-97', N98:'qf-98', N99:'qf-99', N100:'qf-100', N101:'sf-101', N102:'sf-102', N103:'third-103', N104:'final-104'
   };
 
-  // V13.0.10 — aliases de clés live/API vers l'identifiant KO canonique.
+  // V14.1.1 — aliases de clés live/API vers l'identifiant KO canonique.
   // Objectif : la home doit réagir même si la simulation reçoit `por-esp`, `por-spain`,
   // `usa-bel`, `bel-usa`, `usa-belgium`, etc.
   const KO_ID_BY_KEY = Object.assign(
@@ -256,7 +256,7 @@
 
     Object.entries((live && live.matches) || {}).forEach(([key, v]) => addEntry(key, v, 'live-json'));
 
-    // V13.0.10 — état réel du moteur KO en mémoire. C'est ce que la simulation utilise.
+    // V14.1.1 — état réel du moteur KO en mémoire. C'est ce que la simulation utilise.
     // La home doit lire cette source prioritaire pour ne plus attendre un nouveau déploiement.
     try {
       if (typeof KNOCKOUT_LIVE_RESULTS !== 'undefined' && KNOCKOUT_LIVE_RESULTS) {
@@ -445,7 +445,7 @@ function newsHref(id){
     const p = new URLSearchParams();
     p.set('mode','news');
     if(id) p.set('article', id);
-    p.set('v','1318');
+    p.set('v','1411');
     return '?' + p.toString();
   }
 
@@ -472,7 +472,7 @@ function newsHref(id){
     }
     return `<section class="world-news-section" dir="${lang === 'ar' ? 'rtl' : 'ltr'}">
       <div class="world-news-head">
-        <a class="news-home-link" href="?v=1318" aria-label="Retour à la page d’accueil">
+        <a class="news-home-link" href="?v=1411" aria-label="Retour à la page d’accueil">
           <div class="world-news-kicker">Mondial Pulse Editorial</div>
           <h2>${esc(c.newsTitle)}</h2>
           <p>${esc(c.newsLead)}</p>
@@ -480,6 +480,22 @@ function newsHref(id){
       </div>
       <div class="world-news-grid">${items.map(entry).join('')}</div>
     </section>`;
+  }
+
+
+  function sportsMangaraTeaserHtml(){
+    return `<a class="qg-mangara-hub" href="/mangara/?v=1411" aria-label="Découvrir Sports Mangara, la tanière numérique des Lions">
+      <div class="qg-mangara-media">
+        <img src="/mangara/assets/people/yoro-mangara.png" loading="lazy" decoding="async" alt="Yoro Mangara · Sports Mangara">
+      </div>
+      <div class="qg-mangara-content">
+        <div class="qg-mangara-kicker">Nouvel espace · Sénégal</div>
+        <h2>Sports Mangara</h2>
+        <p>La tanière numérique des Lions : sélection nationale, joueurs, clubs, compétitions et parcours des Sénégalais en Europe.</p>
+        <div class="qg-mangara-tags"><span>Joueurs</span><span>Clubs</span><span>Sélection</span><span>Europe</span></div>
+        <span class="qg-mangara-cta">Découvrir la tanière →</span>
+      </div>
+    </a>`;
   }
 
   function worldNewsTeaserHtml(worldNews){
@@ -515,17 +531,17 @@ function newsHref(id){
       <div class="qg-entry-bg"></div>
       <div class="qg-entry-wrap news-hub-wrap news-article-wrap">
         <div class="qg-entry-top">
-          <a class="qg-entry-brand news-brand-home" href="?v=1318" aria-label="Retour à la page d’accueil"><img src="assets/lion-mascotte.png" alt="Mondial Pulse"><span>Mondial Pulse 2026 · V13.0.18</span></a>
-          <a class="qg-entry-pill news-pill-home" href="?mode=news&v=1318">${esc(c.newsTitle)}</a>
+          <a class="qg-entry-brand news-brand-home" href="?v=1411" aria-label="Retour à la page d’accueil"><img src="assets/lion-mascotte.png" alt="Mondial Pulse"><span>Mondial Pulse 2026 · V14.1.1</span></a>
+          <a class="qg-entry-pill news-pill-home" href="?mode=news&v=1411">${esc(c.newsTitle)}</a>
         </div>
         <article class="news-article" dir="${lang === 'ar' ? 'rtl' : 'ltr'}">
-          <a class="news-article-header" href="?v=1318" aria-label="Retour à la home">
+          <a class="news-article-header" href="?v=1411" aria-label="Retour à la home">
             <div class="qg-entry-kicker">${esc(L.tag || 'Brève')}</div>
             <h1>${esc(L.title || '')}</h1>
           </a>
           ${item.image ? `<img class="news-article-image" src="${esc(item.image)}" alt="${esc(L.title || '')}">` : ''}
           <div class="news-article-body">${articleParagraphs(L)}</div>
-          <div class="qg-entry-actions"><a class="qg-entry-action" href="?mode=news&v=1318">← Toutes les brèves</a><a class="qg-entry-action" href="?v=1318">Accueil</a></div>
+          <div class="qg-entry-actions"><a class="qg-entry-action" href="?mode=news&v=1411">← Toutes les brèves</a><a class="qg-entry-action" href="?v=1411">Accueil</a></div>
         </article>
       </div>`;
   }
@@ -537,16 +553,16 @@ function newsHref(id){
       <div class="qg-entry-bg"></div>
       <div class="qg-entry-wrap news-hub-wrap">
         <div class="qg-entry-top">
-          <a class="qg-entry-brand news-brand-home" href="?v=1318" aria-label="Retour à la page d’accueil"><img src="assets/lion-mascotte.png" alt="Mondial Pulse"><span>Mondial Pulse 2026 · V13.0.18</span></a>
-          <a class="qg-entry-pill news-pill-home" href="?v=1318">Accueil</a>
+          <a class="qg-entry-brand news-brand-home" href="?v=1411" aria-label="Retour à la page d’accueil"><img src="assets/lion-mascotte.png" alt="Mondial Pulse"><span>Mondial Pulse 2026 · V14.1.1</span></a>
+          <a class="qg-entry-pill news-pill-home" href="?v=1411">Accueil</a>
         </div>
-        <a class="qg-entry-hero news-hub-hero news-home-link" href="?v=1318" aria-label="Retour à la page d’accueil">
+        <a class="qg-entry-hero news-hub-hero news-home-link" href="?v=1411" aria-label="Retour à la page d’accueil">
           <div class="qg-entry-kicker">Mondial Pulse Editorial</div>
           <h1>${esc(c.newsTitle)}</h1>
           <p>${esc(c.newsLead)}</p>
         </a>
         ${worldNewsHtml(worldNews)}
-        <div class="qg-entry-actions"><a class="qg-entry-action" href="?v=1318">Retour à l’accueil</a></div>
+        <div class="qg-entry-actions"><a class="qg-entry-action" href="?v=1411">Retour à l’accueil</a></div>
       </div>`;
   }
 
@@ -566,7 +582,7 @@ function newsHref(id){
       const p = new URLSearchParams();
       p.set('team', s.key);
       if(meta.defaultLang && ['england','norway','argentina','egypt'].includes(s.key)) p.set('lang', meta.defaultLang);
-      p.set('v','1318');
+      p.set('v','1411');
       return '?' + p.toString();
     }
     function card(s, cls){
@@ -576,7 +592,7 @@ function newsHref(id){
       <div class="qg-entry-bg"></div>
       <div class="qg-entry-wrap">
         <div class="qg-entry-top">
-          <div class="qg-entry-brand"><img src="assets/lion-mascotte.png" alt="Mondial Pulse"><span>Mondial Pulse 2026 · V13.0.10</span></div>
+          <div class="qg-entry-brand"><img src="assets/lion-mascotte.png" alt="Mondial Pulse"><span>Mondial Pulse 2026 · V14.1.1</span></div>
           <div class="qg-entry-pill">${esc(c.homePill)}</div>
         </div>
         <div class="qg-entry-hero">
@@ -587,8 +603,9 @@ function newsHref(id){
         <div class="qg-selector-group"><h2 class="qg-selector-title">${esc(c.qf)}</h2><div class="qg-team-grid">${groups.qf.map(s=>card(s,'qf')).join('')}</div></div>
         ${groups.live.length ? `<div class="qg-selector-group"><h2 class="qg-selector-title">${esc(c.live)}</h2><div class="qg-team-grid">${groups.live.map(s=>card(s,'live')).join('')}</div></div>` : ''}
         <div class="qg-selector-group"><h2 class="qg-selector-title">${esc(c.out)}</h2><div class="qg-team-grid">${groups.out.map(s=>card(s,'out')).join('')}</div></div>
+        ${sportsMangaraTeaserHtml()}
         ${worldNewsTeaserHtml(worldNews)}
-        <div class="qg-entry-actions"><a class="qg-entry-action" href="?mode=global&v=1317">${esc(c.global)}</a></div>
+        <div class="qg-entry-actions"><a class="qg-entry-action" href="?mode=global&v=1411">${esc(c.global)}</a></div>
       </div>`;
   }
 
@@ -805,13 +822,13 @@ async function run(){
   function scheduleRun(reason, delay){
     clearTimeout(__qgAutoStateTimer);
     __qgAutoStateTimer = setTimeout(function(){
-      run().catch(function(e){ console.warn('[QG V13.0.10] computedTeamState refresh skipped', reason, e); });
+      run().catch(function(e){ console.warn('[QG V14.1.1] computedTeamState refresh skipped', reason, e); });
     }, delay == null ? 160 : delay);
   }
 
   window.QG_AUTO_TEAM_STATE_ENGINE = {run, buildState, scheduleRun};
 
-  // V13.0.10 — rebrancher la home sur le vrai flux live.
+  // V14.1.1 — rebrancher la home sur le vrai flux live.
   // `qualifgainde:scoresUpdated` est émis tôt par applyScoresData ; on relance donc plusieurs fois
   // pour passer APRÈS l'écriture de KNOCKOUT_LIVE_RESULTS et la propagation du bracket.
   window.addEventListener('qualifgainde:scoresUpdated', function(){
