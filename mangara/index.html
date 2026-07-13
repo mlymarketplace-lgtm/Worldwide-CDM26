@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Sports Mangara · V14.0.1 · Tanière des Lions</title>
+<title>Sports Mangara · V14.1.0 · Tanière des Lions</title>
 <meta name="description" content="La tanière mobile-first des Lions : équipe nationale, clubs, compétitions, joueurs et Europe.">
 <meta name="theme-color" content="#00853F">
 <link rel="manifest" href="/mangara/manifest.webmanifest">
@@ -59,25 +59,36 @@
 }
 </style>
 
+<style id="sports-mangara-v1410-resilience">
+.source-badge{display:inline-flex;align-items:center;gap:6px;border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.055);color:#dbe6f7;border-radius:999px;padding:6px 9px;font-size:10px;font-weight:900;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap}
+.source-badge:before{content:"";width:7px;height:7px;border-radius:50%;background:#c9a43b;box-shadow:0 0 0 3px rgba(201,164,59,.12)}
+.source-badge.local:before{background:#3ddc84;box-shadow:0 0 0 3px rgba(61,220,132,.12)}
+.source-badge.simulated:before{background:#ffb020;box-shadow:0 0 0 3px rgba(255,176,32,.12)}
+.source-note{margin:14px 0 0;padding:10px 12px;border-radius:14px;border:1px solid rgba(255,255,255,.10);background:rgba(255,255,255,.035);color:#a9b7ce;font-size:12px}
+.data-error-panel{margin:18px 0;padding:20px;border-radius:22px;border:1px solid rgba(255,107,116,.40);background:linear-gradient(145deg,rgba(78,20,31,.94),rgba(22,12,23,.98));box-shadow:0 18px 42px rgba(0,0,0,.30)}
+.data-error-panel h2{font-size:1.18rem;margin-bottom:8px}.data-error-panel p{color:#d8e1ed;margin-bottom:14px}.data-error-actions{display:flex;gap:10px;flex-wrap:wrap}
+.data-error-actions button,.data-error-actions a{border:1px solid rgba(255,255,255,.17);border-radius:999px;background:#ffffff0d;color:white;padding:9px 13px;font-weight:900;cursor:pointer}
+.data-error-actions button{background:#fdef42;color:#111;border-color:#fdef42}
+</style>
 </head>
 <body>
-<header class="topbar"><div class="topbar-inner"><a class="brand" href="#home"><span class="brand-logo"></span><span>Sports Mangara · V14.0.1</span></a><div class="langbar"><button class="active" data-lang="fr">FR</button><button data-lang="en">EN</button><button data-lang="ar">AR</button></div><div class="pwa-badge">PWA</div></div></header>
+<header class="topbar"><div class="topbar-inner"><a class="brand" href="/?v=1410" aria-label="Retour à la home QualifGaïndé"><span class="brand-logo"></span><span>Sports Mangara · V14.1.0</span></a><div class="langbar"><button class="active" data-lang="fr">FR</button><button data-lang="en">EN</button><button data-lang="ar">AR</button></div><a class="pwa-badge" href="/?v=1410" aria-label="Retour à QualifGaïndé">← QualifGaïndé</a></div></header>
 <main class="wrap" id="home">
 <section class="hero"><div class="kicker">Tanière des Lions · Sélection · Clubs · Europe</div><h1>La tanière des Lions</h1><p class="tagline">Une tanière mobile plus courte, avec des portes d’entrée claires puis des fiches profondes : équipe nationale, week-end des Lions, clubs suivis, compétitions, Europe et joueurs.</p><div class="hero-row"><div class="mangara-card" onclick="openJournalist('yoro-mangara')" role="button" aria-label="Ouvrir la fiche de Yoro Mangara"><img src="/mangara/assets/people/yoro-mangara.png" alt="Yoro Mangara"><div><b>Sports Mangara</b><span>Une app pensée comme un média de suivi : simple en surface, profonde dans les fiches.</span></div></div><div class="metrics"><div class="metric" onclick="go('players')"><b id="m-players">0</b><span>Joueurs</span></div><div class="metric" onclick="go('clubs')"><b id="m-clubs">0</b><span>Clubs</span></div><div class="metric" onclick="go('competitions')"><b id="m-leagues">0</b><span>Compétitions</span></div></div></div></section>
 <nav class="quickbar"><a href="#national">Equipe Nationale</a><a href="#weekend">Week-end</a><a href="#competitions">Compétitions</a><a href="#europe">Europe</a><a href="#clubs">Clubs</a><a href="#players">Joueurs</a></nav>
 <section class="section" id="entrees"><div class="section-head"><div class="section-title"><h2>Entrées rapides</h2><p class="hint">Objectif mobile : on évite le scroll inutile et on arrive vite au bon univers.</p></div></div><div class="home-grid" id="home-grid"></div></section>
-<section class="section" id="national"><div class="section-head"><div class="section-title"><h2>Equipe Nationale</h2><p class="hint">Calendrier, résultats, classement, coach et mémoire des matchs.</p></div><span class="pill">Sélection</span></div><div class="national-hero" id="national-hero"></div><div class="national-grid" id="national-grid"></div></section>
-<section class="section" id="weekend"><div class="section-head"><div class="section-title"><h2>Week-end des Lions</h2><p class="hint">Le rendez-vous éditorial : qui a joué, qui a marqué, qui est à surveiller.</p></div><span class="pill">Simulé</span></div><div class="boxing-grid" id="boxing-grid"><div class="loading">Chargement…</div></div></section>
-<section class="section" id="competitions"><div class="section-head"><div class="section-title"><h2>Compétitions & classements simulés</h2><p class="hint">Les clubs avec Lions sont surlignés. Un clic filtre les joueurs concernés.</p></div></div><div class="league-grid" id="league-grid"></div></section>
-<section class="section" id="europe"><div class="section-head"><div class="section-title"><h2>Les Lions Champions & Europa League</h2><p class="hint">Carrés Europe : phase de ligue, barrages, matchs couperets, minutes et notes.</p></div></div><div class="europe-grid" id="europe-grid"></div></section>
-<section class="section" id="clubs"><div class="section-head"><div class="section-title"><h2>Clubs suivis</h2><p class="hint">Pays, drapeau, championnat, entraîneur et rôle du club dans le suivi Sports Mangara.</p></div><span class="count" id="club-count"></span></div><div class="clubs-grid" id="club-grid"></div></section>
-<section class="section" id="players"><div class="section-head"><div class="section-title"><h2>Suivi des Lions</h2><p class="hint">Chaque card ouvre une fiche adaptée au poste : gardien, défenseur, milieu ou attaquant.</p></div><span class="count" id="count"></span></div><div class="filters"><input id="search" placeholder="Rechercher un joueur, club, championnat…" oninput="renderPlayers()"><select id="league" onchange="renderPlayers()"><option value="">Tous les championnats</option></select><select id="club" onchange="renderPlayers()"><option value="">Tous les clubs</option></select><select id="role" onchange="renderPlayers()"><option value="">Tous les postes</option><option value="gardien">Gardiens</option><option value="defenseur">Défenseurs</option><option value="milieu">Milieux</option><option value="attaquant">Attaquants</option></select></div><div class="players" id="players-list"></div></section>
-<footer>SPORTS MANGARA · V14.9 · Données mixtes : prototype, structure produit, vérification humaine avant production.</footer>
+<section class="section" id="national"><div class="section-head"><div class="section-title"><h2>Equipe Nationale</h2><p class="hint">Calendrier, résultats, classement, coach et mémoire des matchs.</p></div><span class="source-badge local">Données locales</span></div><div class="national-hero" id="national-hero"></div><div class="national-grid" id="national-grid"></div></section>
+<section class="section" id="weekend"><div class="section-head"><div class="section-title"><h2>Week-end des Lions</h2><p class="hint">Le rendez-vous éditorial : qui a joué, qui a marqué, qui est à surveiller.</p></div><span class="source-badge simulated">Données simulées</span></div><div class="boxing-grid" id="boxing-grid"><div class="loading">Chargement…</div></div></section>
+<section class="section" id="competitions"><div class="section-head"><div class="section-title"><h2>Compétitions & classements simulés</h2><p class="hint">Les clubs avec Lions sont surlignés. Un clic filtre les joueurs concernés.</p></div><span class="source-badge simulated">Données simulées</span></div><div class="league-grid" id="league-grid"></div></section>
+<section class="section" id="europe"><div class="section-head"><div class="section-title"><h2>Les Lions Champions & Europa League</h2><p class="hint">Carrés Europe : phase de ligue, barrages, matchs couperets, minutes et notes.</p></div><span class="source-badge simulated">Données simulées</span></div><div class="europe-grid" id="europe-grid"></div></section>
+<section class="section" id="clubs"><div class="section-head"><div class="section-title"><h2>Clubs suivis</h2><p class="hint">Pays, drapeau, championnat, entraîneur et rôle du club dans le suivi Sports Mangara.</p></div><span class="source-badge local">Données locales</span></div><div class="clubs-grid" id="club-grid"></div></section>
+<section class="section" id="players"><div class="section-head"><div class="section-title"><h2>Suivi des Lions</h2><p class="hint">Chaque card ouvre une fiche adaptée au poste : gardien, défenseur, milieu ou attaquant.</p></div><span class="source-badge local">Données locales</span></div><div class="filters"><input id="search" placeholder="Rechercher un joueur, club, championnat…" oninput="renderPlayers()"><select id="league" onchange="renderPlayers()"><option value="">Tous les championnats</option></select><select id="club" onchange="renderPlayers()"><option value="">Tous les clubs</option></select><select id="role" onchange="renderPlayers()"><option value="">Tous les postes</option><option value="gardien">Gardiens</option><option value="defenseur">Défenseurs</option><option value="milieu">Milieux</option><option value="attaquant">Attaquants</option></select></div><div class="players" id="players-list"></div></section>
+<div class="source-note" id="source-note">Sources locales et simulées · validation humaine avant publication.</div><footer>SPORTS MANGARA · V14.1.0 · Données locales et simulées · validation humaine avant production.</footer>
 </main>
 <nav class="bottom-nav"><a href="#home">Accueil</a><a href="#national">Equipe</a><a href="#weekend">Week-end</a><a href="#clubs">Clubs</a><a href="#players">Joueurs</a></nav>
 <div class="overlay" id="overlay" onclick="if(event.target===this)closeSheet()"><div class="sheet" id="sheet"></div></div>
 <script>
-let PLAYERS=[], LEAGUES={}, CLUBS=[], NATIONAL={}, JOURNALISTS=[];
+let PLAYERS=[], LEAGUES={}, CLUBS=[], NATIONAL={}, JOURNALISTS=[], SOURCE_NOTE={}; let bootInFlight=false,countdownTimer=null;
 const $=id=>document.getElementById(id);
 function clubInfo(name){return CLUBS.find(c=>c.club===name)||{club:name,logo:null,flag:''}}
 function clubLogo(name,cls='club-mini'){const c=clubInfo(name);return c.logo?`<img class="${cls}" src="/mangara/${esc(c.logo)}" alt="${esc(name)}">`:(c.flag?`<span>${esc(c.flag)}</span>`:'')}
@@ -90,14 +101,43 @@ function roleLabel(r){return {gardien:'Gardien',defenseur:'Défenseur',milieu:'M
 function formatDate(v){if(!v)return 'Date à renseigner'; const d=new Date(v); if(isNaN(d))return v; return d.toLocaleString('fr-FR',{weekday:'short',day:'2-digit',month:'short',hour:'2-digit',minute:'2-digit'});}
 function countdown(v){if(!v)return 'à renseigner'; const d=new Date(v); const ms=d-new Date(); if(isNaN(d))return 'à renseigner'; if(ms<=0)return 'bientôt / terminé'; const h=Math.floor(ms/36e5), days=Math.floor(h/24), hrs=h%24; if(days>0)return `${days}j ${hrs}h`; return `${hrs}h ${Math.floor((ms%36e5)/6e4)}m`;}
 async function loadJSON(path){const res=await fetch(path,{cache:'no-store'}); if(!res.ok)throw new Error(path); return res.json();}
-async function boot(){try{const [p,l,c,n,j]=await Promise.all([loadJSON('/mangara/data/players.json'),loadJSON('/mangara/data/leagues.json'),loadJSON('/mangara/data/clubs.json'),loadJSON('/mangara/data/national-team.json'),loadJSON('/mangara/data/journalists.json')]); PLAYERS=p.players||[]; LEAGUES=l.leagues||{}; CLUBS=c.clubs||[]; NATIONAL=n; JOURNALISTS=j.journalists||[]; init();}catch(e){document.body.innerHTML='<div style="padding:30px;color:white">Erreur de chargement des données.</div>'; console.error(e)}}
+async function boot(){
+ if(bootInFlight)return; bootInFlight=true; hideDataError();
+ try{
+  const r=await Promise.allSettled([
+   loadJSON('/mangara/data/players.json'),loadJSON('/mangara/data/leagues.json'),
+   loadJSON('/mangara/data/clubs.json'),loadJSON('/mangara/data/national-team.json'),
+   loadJSON('/mangara/data/journalists.json'),loadJSON('/mangara/data/sources-note.json')
+  ]);
+  if(r.slice(0,5).some(x=>x.status!=='fulfilled'))throw new Error('Une ou plusieurs sources sont indisponibles');
+  const [p,l,c,n,j]=r.slice(0,5).map(x=>x.value);
+  PLAYERS=p.players||[]; LEAGUES=l.leagues||{}; CLUBS=c.clubs||[]; NATIONAL=n||{}; JOURNALISTS=j.journalists||[];
+  SOURCE_NOTE=r[5].status==='fulfilled'?r[5].value:{}; init(); updateSourceNote();
+ }catch(e){console.error(e);showDataError(e)}finally{bootInFlight=false}
+}
+function showDataError(){
+ let p=document.getElementById('data-error-panel');
+ if(!p){p=document.createElement('section');p.id='data-error-panel';p.className='data-error-panel';const main=document.querySelector('main.wrap');const hero=main&&main.querySelector('.hero');if(main)main.insertBefore(p,hero?hero.nextSibling:main.firstChild)}
+ p.innerHTML='<h2>Les données n’ont pas pu être chargées</h2><p>La navigation reste disponible. Vérifie ta connexion puis réessaie.</p><div class="data-error-actions"><button type="button" onclick="boot()">Réessayer</button><a href="/?v=1410">Retour à QualifGaïndé</a></div>';p.hidden=false
+}
+function hideDataError(){const p=document.getElementById('data-error-panel');if(p)p.hidden=true}
+function updateSourceNote(){const e=document.getElementById('source-note');if(!e)return;const d=SOURCE_NOTE.updatedAt?' · mise à jour '+SOURCE_NOTE.updatedAt:'';e.textContent=(SOURCE_NOTE.note||'Sources locales et simulées · validation humaine avant publication.')+d}
 function init(){
  $('m-players').textContent=PLAYERS.length; $('m-clubs').textContent=CLUBS.length; $('m-leagues').textContent=Object.keys(LEAGUES).length;
  const leagues=[...new Set(PLAYERS.map(p=>p.league))].sort(); $('league').innerHTML='<option value="">Tous les championnats</option>'+leagues.map(x=>`<option>${esc(x)}</option>`).join('');
  const clubs=[...new Set(PLAYERS.map(p=>p.club))].sort(); $('club').innerHTML='<option value="">Tous les clubs</option>'+clubs.map(x=>`<option>${esc(x)}</option>`).join('');
- renderHome(); renderNational(); renderWeekend(); renderLeagues(); renderEurope(); renderClubs(); renderPlayers(); handleRoute(); registerPWA(); setInterval(()=>{document.querySelectorAll('[data-kickoff]').forEach(el=>el.textContent=countdown(el.dataset.kickoff))},60000)
+ renderHome(); renderNational(); renderWeekend(); renderLeagues(); renderEurope(); renderClubs(); renderPlayers(); handleRoute(); registerPWA(); if(countdownTimer)clearInterval(countdownTimer); countdownTimer=setInterval(()=>{document.querySelectorAll('[data-kickoff]').forEach(el=>el.textContent=countdown(el.dataset.kickoff))},60000)
 }
-function renderHome(){const cards=[['01','Equipe Nationale','Calendrier, classement FIFA/CAF, coach, parcours Coupe du monde et mémoire des Lions.','national','Sélection'],['02','Week-end des Lions','Le résumé rapide : minutes, notes, buts, clean sheets et prochains matchs.','weekend','Rituel'],['03','Compétitions & classements simulés','Les championnats des clubs suivis, avec surbrillance des Lions.','competitions','Classements'],['04','Lions Champions & Europa League','La reine Champions League + Europa League, avec suivi par tour.','europe','Europe'],['05','Clubs suivis','Pays, drapeau, entraîneur, fonction du club et Lions concernés.','clubs','19 clubs'],['06','Suivi des Lions','Cards photos et fiches adaptées au poste : gardien, défenseur, milieu, attaquant.','players','21 joueurs']]; $('home-grid').innerHTML=cards.map(c=>`<article class="home-card" onclick="go('${c[3]}')"><div class="num">${c[0]}</div><span class="pill">${c[4]}</span><strong>${c[1]}</strong><p>${c[2]}</p><div class="chips"><span class="chip ok">ouvrir</span></div></article>`).join('')}
+function renderHome(){
+ const cards=[
+ ['01','Equipe Nationale','Calendrier, classement FIFA/CAF, coach, parcours Coupe du monde et mémoire des Lions.','national','Sélection'],
+ ['02','Week-end des Lions','Le résumé rapide : minutes, notes, buts, clean sheets et prochains matchs.','weekend','Rituel'],
+ ['03','Compétitions & classements simulés','Les championnats des clubs suivis, avec surbrillance des Lions.','competitions',Object.keys(LEAGUES).length+' compétitions'],
+ ['04','Lions Champions & Europa League','La reine Champions League + Europa League, avec suivi par tour.','europe','Europe'],
+ ['05','Clubs suivis','Pays, drapeau, entraîneur, fonction du club et Lions concernés.','clubs',CLUBS.length+' clubs'],
+ ['06','Suivi des Lions','Cards photos et fiches adaptées au poste : gardien, défenseur, milieu, attaquant.','players',PLAYERS.length+' joueurs']];
+ $('home-grid').innerHTML=cards.map(c=>`<article class="home-card" onclick="go('${c[3]}')"><div class="num">${c[0]}</div><span class="pill">${c[4]}</span><strong>${c[1]}</strong><p>${c[2]}</p><div class="chips"><span class="chip ok">ouvrir</span></div></article>`).join('')
+}
 function renderNational(){const t=NATIONAL.team, coach=NATIONAL.coach;
  $('national-hero').innerHTML=`<article class="national-card"><div class="national-top"><span class="sn-flag"><i class="g"></i><i class="y"></i><i class="r"></i></span><div><h3>${esc(t.name)}</h3><p>${esc(t.nickname)} · ${esc(t.confederation)}</p></div></div><p>${esc(t.headline)}</p><div class="statgrid"><div class="stat"><b>${esc(t.fifaRank)}</b><span>Classement FIFA</span></div><div class="stat"><b>${esc(t.cafRank)}</b><span>Rang CAF</span></div><div class="stat"><b>${esc(t.bestRankRecent)}</b><span>Pic récent</span></div><div class="stat"><b>${esc(t.form)}</b><span>Forme</span></div></div><div class="week-panel"><b>Prochain rendez-vous</b><span>${esc(t.nextMatch)}</span></div></article><article class="national-card coach-card"><img class="coach-photo" src="/mangara/${esc(coach.photo)}" alt="${esc(coach.name)}"><div><span class="pill">Coach</span><strong>${esc(coach.name)}</strong><p>${esc(coach.role)} · ${esc(coach.birth)}</p><p>${esc(coach.philosophy)}</p></div><div class="statgrid"><div class="stat"><b>${esc(coach.record.matches)}</b><span>Matchs</span></div><div class="stat"><b>${esc(coach.record.wins)}</b><span>Victoires</span></div><div class="stat"><b>${esc(coach.record.draws)}</b><span>Nuls</span></div><div class="stat"><b>${esc(coach.record.trophies)}</b><span>Trophées</span></div></div></article>`;
  const wc=`<article class="national-card"><span class="pill">Coupe du monde 2026</span><strong>Parcours des Lions</strong><div class="timeline">${NATIONAL.worldCup2026.map(m=>matchRow(m)).join('')}</div></article>`;

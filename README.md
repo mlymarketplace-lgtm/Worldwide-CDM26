@@ -1,4 +1,4 @@
-# QualifGaïndé / Mondial Pulse — V14.0.1
+# QualifGaïndé / Mondial Pulse — V14.1.0
 
 Dépôt propre de production comprenant :
 
@@ -18,6 +18,6 @@ Dépôt propre de production comprenant :
 ## URLs de contrôle
 
 - `/`
-- `/?v=1401`
-- `/mangara/?v=1401`
+- `/?v=1410`
+- `/mangara/?v=1410`
 - `/.netlify/functions/scores`
