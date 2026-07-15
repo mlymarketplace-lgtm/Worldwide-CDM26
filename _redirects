@@ -1,6 +1,4 @@
 # V15 — atelier Sports Mangara privé (non indexé)
-/mangara-studio-7f3k9q /mangara-studio-7f3k9q/ 301!
-/mangara-studio-7f3k9q/* /mangara-studio-7f3k9q/:splat 200
 # V13.0.9 — routes éditoriales
 /news /?mode=news&v=1500 302!
 /breves /?mode=news&v=1500 302!
