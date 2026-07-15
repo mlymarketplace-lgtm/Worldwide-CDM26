@@ -34,12 +34,18 @@
   "spain": {
     "teamName": "Espanha",
     "tagline": "La Roja, controlo e sangue-frio",
-    "statusLabel": "Qualificada para os quartos · aguarda Estados Unidos ou Bélgica",
+    "statusLabel": "Primeira finalista · aguarda Inglaterra ou Argentina",
     "supporterName": "La Roja",
-    "selectorLine": "Qualificada aos quartos · aguarda Estados Unidos ou Bélgica",
+    "selectorLine": "Finalista · aguarda Inglaterra ou Argentina",
     "heroTitle": "🇪🇸 Espanha na Copa do Mundo 2026",
-    "heroSubtitle": "A Espanha venceu Portugal por 1–0 e está nos quartos. Próximo adversário: Estados Unidos ou Bélgica.",
-    "heroPlayer": "Rodri"
+    "heroSubtitle": "A Espanha dominou a França por 2–0 e disputará a final do Mundial.",
+    "heroPlayer": "Rodri",
+    "nextMatchId": "N104",
+    "status": "qualified",
+    "tournamentStatus": "qualified",
+    "currentRound": "F",
+    "qualifiedRound": "F",
+    "stageGroup": "qualified_qf"
   },
   "portugal_croatia": {
     "teamName": "Portugal ou Croácia",
@@ -67,8 +73,9 @@
   },
   "france": {
     "teamName": "França",
-    "statusLabel": "Quartas de final · próximo desafio: Marrocos",
-    "selectorLine": "Quartas · Marrocos pela frente"
+    "statusLabel": "Eliminada na semifinal · Espanha 2–0 França",
+    "selectorLine": "Eliminada na semifinal · Espanha 2–0 França",
+    "heroSubtitle": "A França deixa o Mundial após perder por 2–0 para a Espanha."
   },
   "norway": {
     "teamName": "Noruega",

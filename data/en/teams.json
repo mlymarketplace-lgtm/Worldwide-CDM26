@@ -10,12 +10,12 @@
   },
   "france": {
     "teamName": "France",
-    "statusLabel": "Qualified for the quarter-finals · next challenge: Morocco",
-    "selectorLine": "Quarter-finalist · next: Morocco",
+    "statusLabel": "Eliminated in the semi-final · Spain 2–0 France",
+    "selectorLine": "Eliminated in the semi-final · Spain 2–0 France",
     "tagline": "Les Bleus, title contenders",
-    "heroSubtitle": "France survived the Paraguayan trap and now meet Morocco in a quarter-final loaded with history.",
+    "heroSubtitle": "France leave the World Cup after a 2–0 defeat by Spain.",
     "supporterName": "Les Bleus",
-    "roundLabel": "quarter-final"
+    "roundLabel": "semi-final"
   },
   "brazil": {
     "teamName": "Brazil",
@@ -43,11 +43,17 @@
   },
   "spain": {
     "teamName": "Spain",
-    "statusLabel": "Qualified for the quarter-finals · waiting for United States or Belgium",
-    "selectorLine": "Quarter-finalist · waiting for United States or Belgium",
+    "statusLabel": "First finalist · waiting for England or Argentina",
+    "selectorLine": "Finalist · waiting for England or Argentina",
     "tagline": "La Roja, control and composure",
     "supporterName": "La Roja",
-    "heroSubtitle": "Spain beat Portugal 1–0 and move into the quarter-finals. Next: United States or Belgium."
+    "heroSubtitle": "Spain dominated France 2–0 and will play in the World Cup final.",
+    "nextMatchId": "N104",
+    "status": "qualified",
+    "tournamentStatus": "qualified",
+    "currentRound": "F",
+    "qualifiedRound": "F",
+    "stageGroup": "qualified_qf"
   },
   "egypt": {
     "teamName": "Egypt",

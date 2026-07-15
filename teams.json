@@ -82,7 +82,10 @@
     "statusLabel": "Favori mondial · Statut à assumer",
     "supporterName": "Bleus",
     "selectorLine": "Favori mondial, vitesse et rang",
-    "mascotImg": null
+    "mascotImg": null,
+    "roundLabel": "demi-finale",
+    "qualifiedRound": "SF",
+    "quarterfinalLine": "Demi-finale · France 0–2 Espagne"
   },
   "ivory_coast": {
     "teamName": "Côte d’Ivoire",

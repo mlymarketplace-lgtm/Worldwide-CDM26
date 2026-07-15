@@ -1,0 +1,15 @@
+QUALIFGAINDE V15.0.0 — DÉPLOIEMENT
+
+1. Décompresser le ZIP.
+2. Copier tout le contenu à la racine du dépôt GitHub QualifGaïndé.
+3. Vérifier les fichiers modifiés dans GitHub Desktop.
+4. Commit suggéré : "V15.0.0 — Spain finalist, editorial briefs, private Mangara".
+5. Push sur la branche reliée à Netlify.
+6. Attendre la fin du déploiement Netlify puis ouvrir la home en navigation privée.
+7. Vérifier le brand V15.0.0, la carte Espagne finaliste, les deux Brèves et l’absence de Sports Mangara sur la home.
+
+
+URL PRIVÉE SPORTS MANGARA APRÈS DÉPLOIEMENT
+https://qualifgainde.netlify.app/mangara-studio-7f3k9q/?access=mangara-v15-kft-7q2p&v=1500
+
+Après le déploiement, faire un rechargement forcé ou tester en navigation privée afin d’éviter un ancien service worker.

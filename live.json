@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-12T15:16:00+02:00",
+  "updatedAt": "2026-07-15T03:15:00+02:00",
   "matches": {
     "uru-esp": {
       "home": 0,
@@ -364,15 +364,19 @@
       "a": "BEL"
     },
     "sf-101": {
-      "home": null,
-      "away": null,
-      "status": "scheduled",
       "koId": "N101",
-      "round": "sf",
       "h": "FRA",
       "a": "ESP",
-      "homeTeam": "france",
-      "awayTeam": "spain"
+      "home": 0,
+      "away": 2,
+      "status": "final",
+      "apiStatus": "FT",
+      "apiStatusLong": "Match Finished",
+      "winner": "away",
+      "winnerSide": 1,
+      "winnerTeam": "spain",
+      "locked": true,
+      "round": "sf"
     },
     "qf-99": {
       "home": 1,
@@ -447,7 +451,22 @@
       "h": "ENG",
       "a": "ARG",
       "round": "sf"
+    },
+    "fra-esp": {
+      "koId": "N101",
+      "h": "FRA",
+      "a": "ESP",
+      "home": 0,
+      "away": 2,
+      "status": "final",
+      "apiStatus": "FT",
+      "apiStatusLong": "Match Finished",
+      "winner": "away",
+      "winnerSide": 1,
+      "winnerTeam": "spain",
+      "locked": true,
+      "round": "sf"
     }
   },
-  "_note": "V14.1.2 — renderer stabilisé, parcours des demi-finalistes, expérience Finale et carte Angleterre native en anglais."
+  "_note": "V15.0.0 — Espagne première finaliste, Brèves enrichies et Sports Mangara retiré de la home publique."
 }

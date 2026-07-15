@@ -689,5 +689,52 @@
       "locked": true,
       "round": "qf"
     }
+  },
+  "sf-101": {
+    "koId": "N101",
+    "h": "FRA",
+    "a": "ESP",
+    "home": 0,
+    "away": 2,
+    "status": "final",
+    "apiStatus": "FT",
+    "apiStatusLong": "Match Finished",
+    "winner": "away",
+    "winnerSide": 1,
+    "winnerTeam": "spain",
+    "locked": true,
+    "round": "sf"
+  },
+  "fra-esp": {
+    "koId": "N101",
+    "h": "FRA",
+    "a": "ESP",
+    "home": 0,
+    "away": 2,
+    "status": "final",
+    "apiStatus": "FT",
+    "apiStatusLong": "Match Finished",
+    "winner": "away",
+    "winnerSide": 1,
+    "winnerTeam": "spain",
+    "locked": true,
+    "round": "sf"
+  },
+  "sf": {
+    "N101": {
+      "koId": "N101",
+      "h": "FRA",
+      "a": "ESP",
+      "home": 0,
+      "away": 2,
+      "status": "final",
+      "apiStatus": "FT",
+      "apiStatusLong": "Match Finished",
+      "winner": "away",
+      "winnerSide": 1,
+      "winnerTeam": "spain",
+      "locked": true,
+      "round": "sf"
+    }
   }
 }

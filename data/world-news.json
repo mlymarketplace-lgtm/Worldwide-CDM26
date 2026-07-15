@@ -1,8 +1,58 @@
 [
   {
-    "id": "football-logic",
+    "id": "spain-masterclass-france",
     "type": "analysis",
     "priority": 1,
+    "image": "assets/news/espagne-masterclass-france-0-2.png",
+    "langs": {
+      "fr": {
+        "tag": "Demi-finale · Analyse",
+        "title": "L’Espagne sort une masterclass et éteint les Bleus",
+        "body": "Espagne 2–0 France — La Roja s’offre une finale mondiale après une démonstration de maîtrise technique, tactique et collective. La France, sans fraîcheur ni inspiration, n’a jamais véritablement trouvé la clé.",
+        "article": [
+          "Espagne 2–0 France — La Roja s’offre une finale mondiale après une démonstration de maîtrise technique, tactique et collective. La France, sans fraîcheur ni inspiration, n’a jamais véritablement trouvé la clé.",
+          "Ce ne fut pas une demi-finale à suspense. Ce fut une leçon. Une masterclass espagnole, un match d’anthologie non par son scénario, mais par la façon presque clinique dont la Roja a confisqué à la France ses certitudes, son rythme et jusqu’à son imagination.",
+          "Dès les premières minutes, l’Espagne a imposé son football : une circulation rapide, des déplacements constants, une maîtrise du ballon sans précipitation et un pressing parfaitement coordonné à sa perte. Là où les Espagnols semblaient toujours savoir où se trouvait l’espace suivant, les Français ont couru après le ballon et, trop souvent, après leurs propres intentions.",
+          "La récompense est arrivée à la 22e minute. Trouvé dans la surface après un centre de Marc Cucurella, Lamine Yamal a provoqué l’intervention de Lucas Digne et obtenu un penalty transformé par Mikel Oyarzabal. La décision arbitrale pourra toujours être débattue, mais elle ne saurait résumer une rencontre dominée par l’Espagne.",
+          "À l’heure de jeu, Pedro Porro a conclu un superbe mouvement collectif pour porter le score à 2–0 et mettre définitivement les Bleus à distance. La France, qui avait inscrit 16 buts avant cette demi-finale, a dû attendre après la 80e minute pour cadrer sa première frappe.",
+          "Les hommes de Didier Deschamps ont semblé émoussés. Moins précis dans les transmissions, rarement capables de casser les lignes et privés de continuité entre leur milieu et leurs attaquants, ils ont donné l’image d’une équipe sans fraîcheur et sans véritable plan de secours. La sortie sur blessure de William Saliba a aggravé les difficultés, mais elle n’explique pas la pauvreté offensive d’un collectif pourtant riche en talents.",
+          "Après le match, Didier Deschamps a interrogé publiquement le niveau de l’arbitre. Mais il a également reconnu que son équipe avait été moins dangereuse, techniquement inférieure et que l’Espagne avait « montré quelque chose de plus ». À nos yeux, le procès fait à l’arbitrage est donc mal placé : le penalty a influencé le scénario, certes, mais il n’a ni empêché la France de construire ni obligé les Bleus à rester aussi longtemps sans tir cadré. Le meilleur a gagné, et assez nettement.",
+          "Luis de la Fuente a résumé cette performance avec des mots simples : « Ils rendent facile ce qui est difficile. » Le sélectionneur espagnol estime que son groupe a retrouvé l’esprit de l’équipe championne du monde en 2010 : de l’humilité, une ambition partagée et aucun ego placé au-dessus du collectif.",
+          "Cette Espagne ne se contente plus de garder le ballon. Elle sait quand accélérer, quand souffrir et, surtout, comment tuer un match. La Roja disputera donc la finale. Et après une telle démonstration, elle ne s’y présentera pas seulement comme finaliste : elle y arrivera comme l’équipe à battre."
+        ]
+      }
+    }
+  },
+  {
+    "id": "argentina-england-1986",
+    "type": "story",
+    "priority": 2,
+    "image": "assets/news/argentine-angleterre-revanche-1986.png",
+    "langs": {
+      "fr": {
+        "tag": "Avant-match · Histoire",
+        "title": "Argentine–Angleterre : la main de Dieu, le poids de l’Histoire et le dernier défi de Messi",
+        "body": "Ce n’est jamais un simple match lorsque l’Argentine affronte l’Angleterre. À Atlanta, deux nations séparées par l’histoire, les blessures et les légendes se retrouvent pour une place en finale contre l’Espagne.",
+        "article": [
+          "Ce n’est jamais un simple match lorsque l’Argentine affronte l’Angleterre. Ce mercredi, à Atlanta, deux nations séparées par l’histoire, les blessures et les légendes se retrouvent pour une place en finale contre l’Espagne.",
+          "Il existe des matchs dont l’importance dépasse le tableau d’affichage. Argentine–Angleterre appartient à cette catégorie rare. À chaque retrouvaille, les mêmes images ressurgissent : les tensions de 1966, la guerre des Malouines en 1982, la main de Diego Maradona en 1986, l’expulsion de David Beckham en 1998, puis sa revanche sur penalty en 2002.",
+          "Mais au centre de cette histoire se trouve toujours le même homme : Diego Armando Maradona.",
+          "Le 22 juin 1986, quatre ans après la guerre des Malouines, l’Argentine et l’Angleterre se retrouvent en quart de finale au stade Azteca. À la 51e minute, Maradona devance Peter Shilton en s’aidant de la main. Après la rencontre, il prononce la phrase qui entrera dans la légende : le but avait été marqué « un peu avec la tête de Maradona et un peu avec la main de Dieu ».",
+          "Quatre minutes plus tard, le génie efface la controverse par l’un des gestes les plus purs jamais vus sur un terrain. Parti de sa propre moitié de terrain, Maradona traverse la défense anglaise, élimine plusieurs adversaires, contourne Shilton et marque. Cette chevauchée sera plus tard élue But du siècle de la Coupe du monde par la FIFA. En quelques minutes, Maradona avait montré ses deux visages : le filou et l’artiste, la transgression et le génie absolu.",
+          "Depuis, chaque Argentine–Angleterre semble rejouer une partie de cette histoire. En 1998, l’Albiceleste élimine les Anglais aux tirs au but après une rencontre électrique. En 2002, David Beckham transforme le penalty de la revanche et contribue à l’élimination prématurée de l’Argentine. Ces confrontations sont rares, mais presque aucune n’est ordinaire.",
+          "Quarante ans après Mexico, Lionel Messi se retrouve face à la même question que celle qui accompagnait Maradona : peut-il prendre une demi-finale mondiale, la placer sous son autorité et écrire un chapitre que l’on racontera encore dans plusieurs décennies ?",
+          "Messi n’a pas besoin d’imiter Maradona. Son football est différent, son époque aussi. Mais le symbole est immense. L’Argentine, championne du monde en titre, poursuit le rêve d’un deuxième sacre consécutif. En face, l’Angleterre de Harry Kane et Jude Bellingham possède la puissance, la jeunesse et la discipline nécessaires pour atteindre sa première finale mondiale depuis son titre de 1966.",
+          "L’Albiceleste s’est qualifiée en battant la Suisse 3–1 ; l’Angleterre a écarté la Norvège 2–1. Les deux sélectionneurs ont tenté de refroidir l’atmosphère. Lionel Scaloni assure qu’il ne s’agit que d’un match de football. Thomas Tuchel sait pourtant que l’Argentine sera nourrie par l’histoire, l’émotion et l’idée d’offrir une nouvelle couronne à Messi. Derrière les discours d’apaisement, personne n’ignore le poids de cette affiche.",
+          "Le football ne réparera pas les blessures de l’histoire et n’effacera pas les mémoires opposées autour des Malouines. Mais pendant quatre-vingt-dix minutes — peut-être davantage — il peut offrir aux deux nations un langage commun : celui de la passion, du respect de l’adversaire et du fair-play.",
+          "En 1986, Maradona avait transformé un quart de finale en mythologie. En 2026, Messi entre à son tour dans l’arène. Saura-t-il écrire face à l’Angleterre l’une des dernières grandes pages de sa légende ?"
+        ]
+      }
+    }
+  },
+  {
+    "id": "football-logic",
+    "type": "analysis",
+    "priority": 3,
     "image": "assets/news/football-logique.png",
     "langs": {
       "fr": {
@@ -61,7 +111,7 @@
   {
     "id": "quarter-three-confederations",
     "type": "analysis",
-    "priority": 2,
+    "priority": 4,
     "image": "assets/news/bilan-quarts-finale.webp",
     "langs": {
       "fr": {
@@ -94,7 +144,7 @@
   {
     "id": "scandinavian-quake",
     "type": "brief",
-    "priority": 3,
+    "priority": 5,
     "image": "assets/news/exploit-historique-norvege.webp",
     "langs": {
       "fr": {
@@ -127,7 +177,7 @@
   {
     "id": "africa-money-time",
     "type": "brief",
-    "priority": 4,
+    "priority": 6,
     "image": "assets/news/dernier-quart-heure-africain.webp",
     "langs": {
       "fr": {
@@ -160,7 +210,7 @@
   {
     "id": "amarilla-affair",
     "type": "brief",
-    "priority": 5,
+    "priority": 7,
     "image": "assets/news/affaire-amarilla-2026.webp",
     "langs": {
       "fr": {
@@ -193,7 +243,7 @@
   {
     "id": "messi-eight",
     "type": "brief",
-    "priority": 6,
+    "priority": 8,
     "image": "assets/news/messi-encore-toujours.png",
     "langs": {
       "fr": {
@@ -226,7 +276,7 @@
   {
     "id": "iran-respect",
     "type": "brief",
-    "priority": 7,
+    "priority": 9,
     "image": "assets/news/iran-resistance-digne.png",
     "langs": {
       "fr": {
@@ -259,7 +309,7 @@
   {
     "id": "olise-fluidity",
     "type": "brief",
-    "priority": 8,
+    "priority": 10,
     "image": "assets/news/olise-fluidifie-bleus.png",
     "langs": {
       "fr": {
@@ -292,7 +342,7 @@
   {
     "id": "cape-verde-pride",
     "type": "brief",
-    "priority": 9,
+    "priority": 11,
     "image": "assets/news/cap-vert-respect.png",
     "langs": {
       "fr": {
@@ -325,7 +375,7 @@
   {
     "id": "swiss-calm",
     "type": "brief",
-    "priority": 10,
+    "priority": 12,
     "image": "assets/news/suisse-force-calme.png",
     "langs": {
       "fr": {

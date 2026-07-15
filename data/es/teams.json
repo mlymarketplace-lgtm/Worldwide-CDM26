@@ -10,12 +10,12 @@
   },
   "france": {
     "teamName": "Francia",
-    "statusLabel": "Clasificada a cuartos · próximo reto: Marruecos",
-    "selectorLine": "Cuartos · Marruecos por delante",
+    "statusLabel": "Eliminada en semifinales · España 2–0 Francia",
+    "selectorLine": "Eliminada en semifinales · España 2–0 Francia",
     "tagline": "Les Bleus, candidatos al título",
-    "heroSubtitle": "Francia sobrevivió a Paraguay y se medirá con Marruecos en un cruce histórico.",
+    "heroSubtitle": "Francia abandona el Mundial tras caer 2–0 ante España.",
     "supporterName": "Les Bleus",
-    "roundLabel": "cuartos"
+    "roundLabel": "semifinales"
   },
   "brazil": {
     "teamName": "Brasil",
@@ -34,11 +34,17 @@
   },
   "spain": {
     "teamName": "España",
-    "statusLabel": "Clasificada a cuartos de final · espera a Estados Unidos o Bélgica",
-    "selectorLine": "Clasificada a cuartos · espera a Estados Unidos o Bélgica",
+    "statusLabel": "Primera finalista · espera a Inglaterra o Argentina",
+    "selectorLine": "Finalista · espera a Inglaterra o Argentina",
     "tagline": "La Roja, control y sangre fría",
     "supporterName": "La Roja",
-    "heroSubtitle": "España derrotó a Portugal 1–0 y avanza a cuartos. Próximo rival: Estados Unidos o Bélgica."
+    "heroSubtitle": "España dominó a Francia 2–0 y disputará la final del Mundial.",
+    "nextMatchId": "N104",
+    "status": "qualified",
+    "tournamentStatus": "qualified",
+    "currentRound": "F",
+    "qualifiedRound": "F",
+    "stageGroup": "qualified_qf"
   },
   "egypt": {
     "teamName": "Egipto",

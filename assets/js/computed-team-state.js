@@ -2,8 +2,8 @@
 (function(){
   'use strict';
 
-  const VERSION = (window.BUILD_VERSION || '14.1.2');
-  const VERSION_TOKEN = (window.BUILD_VERSION_TOKEN || String(VERSION).replace(/\D/g,'') || '1412');
+  const VERSION = (window.BUILD_VERSION || '15.0.0');
+  const VERSION_TOKEN = (window.BUILD_VERSION_TOKEN || String(VERSION).replace(/\D/g,'') || '1500');
   const SEMIFINALISTS = new Set(['france','spain','england','argentina']);
   const FEATURED_ORDER = [
     'morocco','france','spain','belgium','norway','england','argentina','switzerland',
@@ -41,7 +41,7 @@
     N97:'qf-97', N98:'qf-98', N99:'qf-99', N100:'qf-100', N101:'sf-101', N102:'sf-102', N103:'third-103', N104:'final-104'
   };
 
-  // V14.1.2 — aliases de clés live/API vers l'identifiant KO canonique.
+  // V15.0.0 — aliases de clés live/API vers l'identifiant KO canonique.
   // Objectif : la home doit réagir même si la simulation reçoit `por-esp`, `por-spain`,
   // `usa-bel`, `bel-usa`, `usa-belgium`, etc.
   const KO_ID_BY_KEY = Object.assign(
@@ -99,11 +99,11 @@
   const ORDER = ['N73','N74','N75','N76','N77','N78','N79','N80','N81','N82','N83','N84','N85','N86','N87','N88','N89','N90','N91','N92','N93','N94','N95','N96','N97','N98','N99','N100','N101','N102','N103','N104'];
 
   const UI = {
-    fr:{qf:'Qualifiés en demi-finale', live:'Encore en course', out:'Éliminés · respect', global:'Voir la page globale', quick:'', qualified:'Qualifiée', qualifiedM:'Qualifié', eliminated:'Éliminée', eliminatedM:'Éliminé', inRound:'en', next:'prochain défi', wait:'attend', vs:'ou', champion:'Champion simulé', nextMatch:'Prochain match', end:'Fin de parcours', last:'Derniers résultats', nextMatchConfirmed:'Prochain match confirmé', newsTitle:'Les Brèves du Mondial', newsLead:'Analyse, histoires fortes et signaux faibles de la phase finale.', homePill:'Phase finale · choisis ton équipe et suis son chemin jusqu’à la finale', homeKicker:'Bienvenue dans l’app mondiale', homeTitle:'Je suis supporter <span>de...</span>', homeLead:'Choisis ton équipe, suis ses résultats, son prochain adversaire, le tableau final et sa route jusqu’à la finale.', readAllNews:'Lire toutes les brèves'},
-    en:{qf:'Semi-finalists', live:'Still alive', out:'Eliminated · respect', global:'Open global page', quick:'', qualified:'Qualified', qualifiedM:'Qualified', eliminated:'Eliminated', eliminatedM:'Eliminated', inRound:'for', next:'next challenge', wait:'waiting for', vs:'or', champion:'Champion', nextMatch:'Next match', end:'End of the road', last:'Last results', nextMatchConfirmed:'Next match confirmed', newsTitle:'Les Brèves du Mondial', newsLead:'Récits, analyses et tournants de la phase finale.', homePill:'Knockout stage · choose your team and follow its road to the final', homeKicker:'Welcome to the worldwide app', homeTitle:'I support <span>...</span>', homeLead:'Open your team page, results, next opponent, interactive bracket and full road to the final.', readAllNews:'Lire toutes les brèves'},
-    pt:{qf:'Qualificados aos quartos', live:'Ainda em prova', out:'Eliminados · respeito', global:'Ver página global', quick:'Acesso rápido França–Marrocos', qualified:'Qualificada', qualifiedM:'Qualificado', eliminated:'Eliminada', eliminatedM:'Eliminado', inRound:'nos', next:'próximo desafio', wait:'aguarda', vs:'ou', champion:'Campeão', nextMatch:'Próximo jogo', end:'Fim do percurso', last:'Últimos resultados', nextMatchConfirmed:'Próximo jogo confirmado', newsTitle:'Notas do Mundial', newsLead:'Análises, histórias fortes e momentos-chave da fase final.', homePill:'Mata-mata · estado das equipes calculado automaticamente', homeKicker:'Bem-vindo ao app mundial', homeTitle:'Eu torço <span>por...</span>', homeLead:'Veja a página da sua equipe, resultados, próximo adversário, chave interativa e caminho até à final.', readAllNews:'Ler todas as notas'},
-    es:{qf:'Clasificados a cuartos', live:'Siguen en carrera', out:'Eliminados · respeto', global:'Ver página global', quick:'Acceso rápido Francia–Marruecos', qualified:'Clasificada', qualifiedM:'Clasificado', eliminated:'Eliminada', eliminatedM:'Eliminado', inRound:'en', next:'próximo reto', wait:'espera a', vs:'o', champion:'Campeón', nextMatch:'Próximo partido', end:'Fin del recorrido', last:'Últimos resultados', nextMatchConfirmed:'Próximo partido confirmado', newsTitle:'Breves del Mundial', newsLead:'Historias, análisis y puntos de inflexión de la fase final.', homePill:'Eliminatorias · estado calculado automáticamente', homeKicker:'Bienvenido a la app mundial', homeTitle:'Soy hincha <span>de...</span>', homeLead:'Consulta la página de tu equipo, resultados, próximo rival, cuadro interactivo y camino a la final.', readAllNews:'Leer todas las breves'},
-    ar:{qf:'المتأهلون إلى ربع النهائي', live:'ما زالوا في المنافسة', out:'المقصيون · احترام', global:'عرض الصفحة العامة', quick:'دخول سريع فرنسا–المغرب', qualified:'تأهلت', qualifiedM:'تأهل', eliminated:'أُقصيت', eliminatedM:'أُقصي', inRound:'إلى', next:'التحدي القادم', wait:'ينتظر', vs:'أو', champion:'البطل', nextMatch:'المباراة القادمة', end:'نهاية المشوار', last:'آخر النتائج', nextMatchConfirmed:'تم تأكيد المباراة القادمة', newsTitle:'موجز أخبار المونديال', newsLead:'تحليلات وقصص ولحظات حاسمة من الأدوار الإقصائية.', homePill:'الأدوار الإقصائية · حالة المنتخبات تُحسب تلقائياً', homeKicker:'مرحباً بك في التطبيق العالمي', homeTitle:'أنا أشجع <span>...</span>', homeLead:'تابع صفحة منتخبك ونتائجه وخصمه القادم والطريق الكامل نحو النهائي.', readAllNews:'قراءة كل الأخبار'}
+    fr:{qf:'Finaliste et demi-finalistes', live:'Encore en course', out:'Les équipes qui nous ont fait vibrer', global:'Voir la page globale', quick:'', qualified:'Qualifiée', qualifiedM:'Qualifié', eliminated:'Éliminée', eliminatedM:'Éliminé', inRound:'en', next:'prochain défi', wait:'attend', vs:'ou', champion:'Champion simulé', nextMatch:'Prochain match', end:'Fin de parcours', last:'Derniers résultats', nextMatchConfirmed:'Prochain match confirmé', newsTitle:'Les Brèves du Mondial', newsLead:'Analyse, histoires fortes et signaux faibles de la phase finale.', homePill:'Phase finale · choisis ton équipe et suis son chemin jusqu’à la finale', homeKicker:'Bienvenue dans l’app mondiale', homeTitle:'Je suis supporter <span>de...</span>', homeLead:'Choisis ton équipe, suis ses résultats, son prochain adversaire, le tableau final et sa route jusqu’à la finale.', readAllNews:'Lire toutes les brèves'},
+    en:{qf:'Finalist and semi-finalists', live:'Still alive', out:'Teams that made us dream', global:'Open global page', quick:'', qualified:'Qualified', qualifiedM:'Qualified', eliminated:'Eliminated', eliminatedM:'Eliminated', inRound:'for', next:'next challenge', wait:'waiting for', vs:'or', champion:'Champion', nextMatch:'Next match', end:'End of the road', last:'Last results', nextMatchConfirmed:'Next match confirmed', newsTitle:'Les Brèves du Mondial', newsLead:'Récits, analyses et tournants de la phase finale.', homePill:'Knockout stage · choose your team and follow its road to the final', homeKicker:'Welcome to the worldwide app', homeTitle:'I support <span>...</span>', homeLead:'Open your team page, results, next opponent, interactive bracket and full road to the final.', readAllNews:'Lire toutes les brèves'},
+    pt:{qf:'Finalista e semifinalistas', live:'Ainda em prova', out:'As equipes que nos fizeram vibrar', global:'Ver página global', quick:'Acesso rápido França–Marrocos', qualified:'Qualificada', qualifiedM:'Qualificado', eliminated:'Eliminada', eliminatedM:'Eliminado', inRound:'nos', next:'próximo desafio', wait:'aguarda', vs:'ou', champion:'Campeão', nextMatch:'Próximo jogo', end:'Fim do percurso', last:'Últimos resultados', nextMatchConfirmed:'Próximo jogo confirmado', newsTitle:'Notas do Mundial', newsLead:'Análises, histórias fortes e momentos-chave da fase final.', homePill:'Mata-mata · estado das equipes calculado automaticamente', homeKicker:'Bem-vindo ao app mundial', homeTitle:'Eu torço <span>por...</span>', homeLead:'Veja a página da sua equipe, resultados, próximo adversário, chave interativa e caminho até à final.', readAllNews:'Ler todas as notas'},
+    es:{qf:'Finalista y semifinalistas', live:'Siguen en carrera', out:'Los equipos que nos hicieron vibrar', global:'Ver página global', quick:'Acceso rápido Francia–Marruecos', qualified:'Clasificada', qualifiedM:'Clasificado', eliminated:'Eliminada', eliminatedM:'Eliminado', inRound:'en', next:'próximo reto', wait:'espera a', vs:'o', champion:'Campeón', nextMatch:'Próximo partido', end:'Fin del recorrido', last:'Últimos resultados', nextMatchConfirmed:'Próximo partido confirmado', newsTitle:'Breves del Mundial', newsLead:'Historias, análisis y puntos de inflexión de la fase final.', homePill:'Eliminatorias · estado calculado automáticamente', homeKicker:'Bienvenido a la app mundial', homeTitle:'Soy hincha <span>de...</span>', homeLead:'Consulta la página de tu equipo, resultados, próximo rival, cuadro interactivo y camino a la final.', readAllNews:'Leer todas las breves'},
+    ar:{qf:'المتأهل للنهائي ونصف النهائي', live:'ما زالوا في المنافسة', out:'المنتخبات التي منحتنا الإثارة', global:'عرض الصفحة العامة', quick:'دخول سريع فرنسا–المغرب', qualified:'تأهلت', qualifiedM:'تأهل', eliminated:'أُقصيت', eliminatedM:'أُقصي', inRound:'إلى', next:'التحدي القادم', wait:'ينتظر', vs:'أو', champion:'البطل', nextMatch:'المباراة القادمة', end:'نهاية المشوار', last:'آخر النتائج', nextMatchConfirmed:'تم تأكيد المباراة القادمة', newsTitle:'موجز أخبار المونديال', newsLead:'تحليلات وقصص ولحظات حاسمة من الأدوار الإقصائية.', homePill:'الأدوار الإقصائية · حالة المنتخبات تُحسب تلقائياً', homeKicker:'مرحباً بك في التطبيق العالمي', homeTitle:'أنا أشجع <span>...</span>', homeLead:'تابع صفحة منتخبك ونتائجه وخصمه القادم والطريق الكامل نحو النهائي.', readAllNews:'قراءة كل الأخبار'}
   };
 
   function t(key, vars){
@@ -258,7 +258,7 @@
 
     Object.entries((live && live.matches) || {}).forEach(([key, v]) => addEntry(key, v, 'live-json'));
 
-    // V14.1.2 — état réel du moteur KO en mémoire. C'est ce que la simulation utilise.
+    // V15.0.0 — état réel du moteur KO en mémoire. C'est ce que la simulation utilise.
     // La home doit lire cette source prioritaire pour ne plus attendre un nouveau déploiement.
     try {
       if (typeof KNOCKOUT_LIVE_RESULTS !== 'undefined' && KNOCKOUT_LIVE_RESULTS) {
@@ -494,23 +494,6 @@ function newsHref(id){
     </section>`;
   }
 
-
-  function sportsMangaraTeaserHtml(){
-    return `<a class="qg-mangara-hub" href="/mangara/?v=${VERSION_TOKEN}" aria-label="Découvrir Sports Mangara, la tanière numérique des Lions">
-      <div class="qg-mangara-media">
-        <img src="/mangara/assets/people/yoro-mangara.png" loading="lazy" decoding="async" alt="Yoro Mangara · Sports Mangara">
-      </div>
-      <div class="qg-mangara-content">
-        <div class="qg-mangara-kicker">Nouvel espace · Sénégal</div>
-        <h2>Sports Mangara</h2>
-        <p>La tanière numérique des Lions : sélection nationale, joueurs, clubs, compétitions et parcours des Sénégalais en Europe.</p>
-        <div class="qg-mangara-tags"><span>Joueurs</span><span>Clubs</span><span>Sélection</span><span>Europe</span></div>
-        <span class="qg-mangara-cta">Découvrir la tanière →</span>
-      </div>
-    </a>`;
-  }
-
-
   function localizedResultRow(row, lang){
     const suffix = '_' + lang;
     const rawResult = String((row && row.result) || '').toUpperCase();
@@ -531,7 +514,7 @@ function newsHref(id){
 
   function journeyLimit(key, computed){
     const finalMatch = computed && computed.resolved && computed.resolved.N104;
-    if(finalMatch && finalMatch.home && finalMatch.away && (finalMatch.home === key || finalMatch.away === key)) return 6;
+    if(finalMatch && (finalMatch.home === key || finalMatch.away === key)) return 6;
     return SEMIFINALISTS.has(key) ? 5 : 4;
   }
 
@@ -573,7 +556,9 @@ function newsHref(id){
 
   function finalContext(teams, computed, live){
     const match = computed && computed.resolved && computed.resolved.N104;
-    const known = !!(match && match.home && match.away);
+    const participants = match ? [match.home, match.away].filter(Boolean) : [];
+    const known = participants.length === 2;
+    const partial = participants.length === 1;
     const snapshot = finalLiveSnapshot(live);
     const status = String((snapshot && (snapshot.status || snapshot.apiStatus)) || '').toLowerCase();
     const isLive = known && !match.final && !!snapshot && !['scheduled','not started','ns','tbd',''].includes(status) && !['final','ft','aet','pen','match finished'].includes(status);
@@ -584,17 +569,17 @@ function newsHref(id){
       if(h != null && a != null) score = `${h}–${a}`;
     }
     if(match && match.final) score = match.score || score;
-    return {match, known, snapshot, state: match && match.final ? 'final' : isLive ? 'live' : 'upcoming', score, winner:match && match.final ? match.winner : null};
+    return {match, known, partial, participants, snapshot, state: match && match.final ? 'final' : isLive ? 'live' : 'upcoming', score, winner:match && match.final ? match.winner : null};
   }
 
   function finalCopy(){
     const lang = activeLang();
     const all = {
-      fr:{badge:'FINALE · COUPE DU MONDE 2026',open:'Entrer dans la Finale',countdown:'Coup d’envoi dans',journey:'Les 6 derniers matchs dans ce Mondial',waiting:'La finale attend ses deux équipes',waitingDetail:'France–Espagne et Angleterre–Argentine doivent encore livrer leur verdict.',back:'Retour à l’accueil',live:'EN DIRECT',champion:'CHAMPION DU MONDE',scheduled:'Dim. 19 juillet · 21h00 · heure locale'},
-      en:{badge:'FINAL · 2026 WORLD CUP',open:'Enter the Final',countdown:'Kick-off in',journey:'Last 6 matches at this World Cup',waiting:'The final is waiting for its two teams',waitingDetail:'France–Spain and England–Argentina still have to decide the two finalists.',back:'Back to home',live:'LIVE',champion:'WORLD CHAMPION',scheduled:'Sun 19 July · 21:00 · local time'},
-      es:{badge:'FINAL · MUNDIAL 2026',open:'Entrar en la Final',countdown:'Comienza en',journey:'Los últimos 6 partidos en este Mundial',waiting:'La final espera a sus dos equipos',waitingDetail:'Francia–España e Inglaterra–Argentina aún deben decidir los dos finalistas.',back:'Volver al inicio',live:'EN DIRECTO',champion:'CAMPEÓN DEL MUNDO',scheduled:'Dom. 19 de julio · 21:00 · hora local'},
-      pt:{badge:'FINAL · COPA DO MUNDO 2026',open:'Entrar na Final',countdown:'Começa em',journey:'Os últimos 6 jogos neste Mundial',waiting:'A final espera pelas duas equipes',waitingDetail:'França–Espanha e Inglaterra–Argentina ainda vão definir os finalistas.',back:'Voltar ao início',live:'AO VIVO',champion:'CAMPEÃO DO MUNDO',scheduled:'Dom. 19 de julho · 21:00 · hora local'},
-      ar:{badge:'نهائي كأس العالم 2026',open:'دخول صفحة النهائي',countdown:'انطلاق المباراة بعد',journey:'آخر 6 مباريات في هذا المونديال',waiting:'النهائي ينتظر طرفيه',waitingDetail:'مباراتا فرنسا–إسبانيا وإنجلترا–الأرجنتين ستحددان طرفي النهائي.',back:'العودة إلى الرئيسية',live:'مباشر',champion:'بطل العالم',scheduled:'الأحد 19 يوليو · 21:00 · بالتوقيت المحلي'}
+      fr:{badge:'FINALE · COUPE DU MONDE 2026',open:'Entrer dans la Finale',countdown:'Coup d’envoi dans',journey:'Les 6 derniers matchs dans ce Mondial',waiting:'La finale attend ses deux équipes',waitingDetail:'France–Espagne et Angleterre–Argentine doivent encore livrer leur verdict.',back:'Retour à l’accueil',live:'EN DIRECT',champion:'CHAMPION DU MONDE',scheduled:'Dim. 19 juillet · 21h00 · heure locale',firstFinalist:'PREMIÈRE FINALISTE',waitingOpponent:'L’Espagne attend le vainqueur d’Angleterre–Argentine',unknownFinalist:'Deuxième finaliste à venir'},
+      en:{badge:'FINAL · 2026 WORLD CUP',open:'Enter the Final',countdown:'Kick-off in',journey:'Last 6 matches at this World Cup',waiting:'The final is waiting for its two teams',waitingDetail:'France–Spain and England–Argentina still have to decide the two finalists.',back:'Back to home',live:'LIVE',champion:'WORLD CHAMPION',scheduled:'Sun 19 July · 21:00 · local time',firstFinalist:'FIRST FINALIST',waitingOpponent:'Spain await the winner of England–Argentina',unknownFinalist:'Second finalist to come'},
+      es:{badge:'FINAL · MUNDIAL 2026',open:'Entrar en la Final',countdown:'Comienza en',journey:'Los últimos 6 partidos en este Mundial',waiting:'La final espera a sus dos equipos',waitingDetail:'Francia–España e Inglaterra–Argentina aún deben decidir los dos finalistas.',back:'Volver al inicio',live:'EN DIRECTO',champion:'CAMPEÓN DEL MUNDO',scheduled:'Dom. 19 de julio · 21:00 · hora local',firstFinalist:'PRIMERA FINALISTA',waitingOpponent:'España espera al ganador de Inglaterra–Argentina',unknownFinalist:'Segundo finalista por decidir'},
+      pt:{badge:'FINAL · COPA DO MUNDO 2026',open:'Entrar na Final',countdown:'Começa em',journey:'Os últimos 6 jogos neste Mundial',waiting:'A final espera pelas duas equipes',waitingDetail:'França–Espanha e Inglaterra–Argentina ainda vão definir os finalistas.',back:'Voltar ao início',live:'AO VIVO',champion:'CAMPEÃO DO MUNDO',scheduled:'Dom. 19 de julho · 21:00 · hora local',firstFinalist:'PRIMEIRA FINALISTA',waitingOpponent:'A Espanha espera o vencedor de Inglaterra–Argentina',unknownFinalist:'Segundo finalista por definir'},
+      ar:{badge:'نهائي كأس العالم 2026',open:'دخول صفحة النهائي',countdown:'انطلاق المباراة بعد',journey:'آخر 6 مباريات في هذا المونديال',waiting:'النهائي ينتظر طرفيه',waitingDetail:'مباراتا فرنسا–إسبانيا وإنجلترا–الأرجنتين ستحددان طرفي النهائي.',back:'العودة إلى الرئيسية',live:'مباشر',champion:'بطل العالم',scheduled:'الأحد 19 يوليو · 21:00 · بالتوقيت المحلي',firstFinalist:'أول المتأهلين للنهائي',waitingOpponent:'إسبانيا تنتظر الفائز من إنجلترا والأرجنتين',unknownFinalist:'الطرف الثاني لم يُحسم بعد'}
     };
     return all[lang] || all.fr;
   }
@@ -610,19 +595,21 @@ function newsHref(id){
   }
 
   function finalTeamsHtml(ctx, teams){
-    if(!ctx.known) return '';
+    if(!ctx.match || (!ctx.match.home && !ctx.match.away)) return '';
     const c = finalCopy(), home = ctx.match.home, away = ctx.match.away;
     const teamBlock = key => {
       const champion = ctx.state === 'final' && ctx.winner === key;
       return `<div class="qg-final-team${champion ? ' is-champion' : ''}"><span>${esc(teamFlag(key, teams))}</span><strong>${esc(teamName(key, teams))}</strong>${champion ? `<em class="qg-final-team-crown">🏆 ${esc(c.champion)}</em>` : ''}</div>`;
     };
-    return `<div class="qg-final-matchup">${teamBlock(home)}<div class="qg-final-vs">VS</div>${teamBlock(away)}</div>`;
+    const waitingBlock = () => `<div class="qg-final-team is-waiting"><span>✦</span><strong>${esc(c.unknownFinalist)}</strong></div>`;
+    return `<div class="qg-final-matchup">${home ? teamBlock(home) : waitingBlock()}<div class="qg-final-vs">VS</div>${away ? teamBlock(away) : waitingBlock()}</div>`;
   }
 
   function finalJourneyHtml(ctx, teams, teamResults, computed){
-    if(!ctx.known) return '';
+    const keys = ctx && ctx.match ? [ctx.match.home, ctx.match.away].filter(Boolean) : [];
+    if(!keys.length) return '';
     const c = finalCopy();
-    return `<div class="qg-final-journeys"><div class="qg-final-journey"><h3>${esc(teamFlag(ctx.match.home, teams) + ' ' + teamName(ctx.match.home, teams))}</h3><p>${esc(c.journey)}</p>${journeyRowsHtml(ctx.match.home, teamResults, computed, teams, 6)}</div><div class="qg-final-journey"><h3>${esc(teamFlag(ctx.match.away, teams) + ' ' + teamName(ctx.match.away, teams))}</h3><p>${esc(c.journey)}</p>${journeyRowsHtml(ctx.match.away, teamResults, computed, teams, 6)}</div></div>`;
+    return `<div class="qg-final-journeys${keys.length === 1 ? ' is-single' : ''}">${keys.map(key => `<div class="qg-final-journey"><h3>${esc(teamFlag(key, teams) + ' ' + teamName(key, teams))}</h3><p>${esc(c.journey)}</p>${journeyRowsHtml(key, teamResults, computed, teams, 6)}</div>`).join('')}</div>`;
   }
 
   function localizedHomeHref(){
@@ -642,8 +629,10 @@ function newsHref(id){
 
   function finaleHomeCardHtml(teams, computed, teamResults, live){
     const ctx = finalContext(teams, computed, live), c = finalCopy();
-    if(!ctx.known) return '';
-    return `<a class="qg-final-hero" href="${esc(localizedFinalHref())}" aria-label="${esc(c.open)}"><div class="qg-final-shine"></div><div class="qg-final-badge">${esc(c.badge)}</div>${finalTeamsHtml(ctx, teams)}${finalCountdownHtml(ctx, teams)}<div class="qg-final-date">${esc(c.scheduled)}</div>${finalJourneyHtml(ctx, teams, teamResults, computed)}<span class="qg-final-open">${esc(c.open)} →</span></a>`;
+    if(!ctx.match || (!ctx.match.home && !ctx.match.away)) return '';
+    const first = ctx.participants && ctx.participants[0];
+    const pending = ctx.partial && first ? `<div class="qg-final-pending"><span>${esc(c.firstFinalist)}</span><strong>${esc(teamFlag(first, teams) + ' ' + teamName(first, teams))}</strong><p>${esc(c.waitingOpponent)}</p></div>` : '';
+    return `<a class="qg-final-hero${ctx.partial ? ' is-partial' : ''}" href="${esc(localizedFinalHref())}" aria-label="${esc(c.open)}"><div class="qg-final-shine"></div><div class="qg-final-badge">${esc(c.badge)}</div>${pending}${finalTeamsHtml(ctx, teams)}${finalCountdownHtml(ctx, teams)}<div class="qg-final-date">${esc(c.scheduled)}</div>${finalJourneyHtml(ctx, teams, teamResults, computed)}<span class="qg-final-open">${esc(c.open)} →</span></a>`;
   }
 
   function startFinalCountdown(root){
@@ -670,7 +659,7 @@ function newsHref(id){
     if(!selector) return;
     const ctx = finalContext(teams, computed, live), c = finalCopy();
     const homeHref = localizedHomeHref();
-    selector.innerHTML = `<div class="qg-entry-bg"></div><div class="qg-entry-wrap qg-final-page"><div class="qg-entry-top"><a class="qg-entry-brand" href="${esc(homeHref)}"><img src="assets/lion-mascotte.png" alt="Mondial Pulse"><span>Mondial Pulse 2026 · V${esc(VERSION)}</span></a><a class="qg-entry-pill" href="${esc(homeHref)}">${esc(c.back)}</a></div>${ctx.known ? `<section class="qg-final-stage"><div class="qg-final-badge">${esc(c.badge)}</div>${finalTeamsHtml(ctx, teams)}${finalCountdownHtml(ctx, teams)}<div class="qg-final-date">${esc(c.scheduled)}</div>${finalJourneyHtml(ctx, teams, teamResults, computed)}</section>` : `<section class="qg-final-stage qg-final-waiting"><div class="qg-final-badge">${esc(c.badge)}</div><h1>${esc(c.waiting)}</h1><p>${esc(c.waitingDetail)}</p></section>`}<div class="qg-entry-actions"><a class="qg-entry-action" href="${esc(homeHref)}">${esc(c.back)}</a></div></div>`;
+    selector.innerHTML = `<div class="qg-entry-bg"></div><div class="qg-entry-wrap qg-final-page"><div class="qg-entry-top"><a class="qg-entry-brand" href="${esc(homeHref)}"><img src="assets/lion-mascotte.png" alt="Mondial Pulse"><span>Mondial Pulse 2026 · V${esc(VERSION)}</span></a><a class="qg-entry-pill" href="${esc(homeHref)}">${esc(c.back)}</a></div>${(ctx.known || ctx.partial) ? `<section class="qg-final-stage${ctx.partial ? ' is-partial' : ''}"><div class="qg-final-badge">${esc(c.badge)}</div>${ctx.partial && ctx.participants[0] ? `<div class="qg-final-pending"><span>${esc(c.firstFinalist)}</span><strong>${esc(teamFlag(ctx.participants[0], teams) + ' ' + teamName(ctx.participants[0], teams))}</strong><p>${esc(c.waitingOpponent)}</p></div>` : ''}${finalTeamsHtml(ctx, teams)}${finalCountdownHtml(ctx, teams)}<div class="qg-final-date">${esc(c.scheduled)}</div>${finalJourneyHtml(ctx, teams, teamResults, computed)}</section>` : `<section class="qg-final-stage qg-final-waiting"><div class="qg-final-badge">${esc(c.badge)}</div><h1>${esc(c.waiting)}</h1><p>${esc(c.waitingDetail)}</p></section>`}<div class="qg-entry-actions"><a class="qg-entry-action" href="${esc(homeHref)}">${esc(c.back)}</a></div></div>`;
     startFinalCountdown(selector);
   }
 
@@ -791,8 +780,7 @@ function newsHref(id){
         ${finaleHomeCardHtml(teams, computed, teamResults, live)}
         <div class="qg-selector-group"><h2 class="qg-selector-title">${esc(c.qf)}</h2><div class="qg-team-grid">${groups.qf.map(s=>card(s,'qf')).join('')}</div></div>
         ${groups.live.length ? `<div class="qg-selector-group"><h2 class="qg-selector-title">${esc(c.live)}</h2><div class="qg-team-grid">${groups.live.map(s=>card(s,'live')).join('')}</div></div>` : ''}
-        <div class="qg-selector-group"><h2 class="qg-selector-title">${esc(c.out)}</h2><div class="qg-team-grid">${groups.out.map(s=>card(s,'out')).join('')}</div></div>
-        ${sportsMangaraTeaserHtml()}
+        ${groups.out.length ? `<details class="qg-farewell-archive"><summary><span class="qg-farewell-copy"><span class="qg-farewell-kicker">Mémoire du Mondial</span><strong>${esc(c.out)}</strong><small>${groups.out.length} équipes · revoir leurs parcours</small></span><span class="qg-farewell-flags">${groups.out.slice(0,8).map(s=>`<i>${esc(s.flag || teamFlag(s.key, teams))}</i>`).join('')}</span><span class="qg-farewell-arrow">⌄</span></summary><div class="qg-farewell-body"><div class="qg-team-grid">${groups.out.map(s=>card(s,'out')).join('')}</div></div></details>` : ''}
         ${worldNewsTeaserHtml(worldNews)}
         <div class="qg-entry-actions"><a class="qg-entry-action" href="?mode=global&v=${VERSION_TOKEN}">${esc(c.global)}</a></div>
       </div>`;
@@ -1023,7 +1011,7 @@ async function run(){
 
   window.QG_AUTO_TEAM_STATE_ENGINE = {run, buildState, scheduleRun};
 
-  // V14.1.2 — rebrancher la home sur le vrai flux live.
+  // V15.0.0 — rebrancher la home sur le vrai flux live.
   // `qualifgainde:scoresUpdated` est émis tôt par applyScoresData ; on relance donc plusieurs fois
   // pour passer APRÈS l'écriture de KNOCKOUT_LIVE_RESULTS et la propagation du bracket.
   window.addEventListener('qualifgainde:scoresUpdated', function(){

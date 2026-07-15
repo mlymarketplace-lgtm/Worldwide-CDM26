@@ -1,12 +1,12 @@
-# QualifGaïndé / Mondial Pulse — V14.1.2
+# QualifGaïndé / Mondial Pulse — V15.0.0
 
 Dépôt propre de production comprenant :
 
 - la home QualifGaïndé ;
 - les pages équipes et les Brèves du Mondial ;
-- Sports Mangara sous `/mangara/` ;
+- Sports Mangara retiré de la home publique et conservé dans un atelier privé non indexé ;
 - les assets locaux, JSON et fonctions Netlify ;
-- les deux PWA avec des scopes distincts.
+- la PWA publique et l’atelier Sports Mangara avec des scopes distincts.
 
 ## Déploiement Netlify
 
@@ -18,6 +18,6 @@ Dépôt propre de production comprenant :
 ## URLs de contrôle
 
 - `/`
-- `/?v=1412`
-- `/mangara/?v=1412`
+- `/?v=1500`
+- `/mangara-studio-7f3k9q/?access=mangara-v15-kft-7q2p&v=1500`
 - `/.netlify/functions/scores`

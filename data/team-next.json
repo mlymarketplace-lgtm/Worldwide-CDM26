@@ -14,18 +14,16 @@
     "quarterfinalLine": "Quart de finale · France–Maroc"
   },
   "france": {
-    "status": "qualified",
-    "round": "QF",
-    "nextMatchId": "qf-97",
-    "nextOpponent": "morocco",
-    "selectorLine": "Qualifiée en quart · prochain défi : Maroc",
-    "statusLabel": "Qualifiée en quart de finale · prochain défi : Maroc",
-    "roundLabel": "quart de finale",
-    "qualifiedRound": "QF",
-    "stageGroup": "qualified_qf",
-    "heroSubtitle": "La France a survécu au piège paraguayen et retrouve le Maroc pour un quart de finale chargé d’histoire.",
-    "matchdayHero": false,
-    "quarterfinalLine": "Quart de finale · France–Maroc"
+    "status": "eliminated",
+    "round": "SF",
+    "currentRound": "SF",
+    "stageGroup": "eliminated",
+    "nextMatchId": null,
+    "nextOpponent": null,
+    "selectorLine": "Éliminée en demi-finale · les Bleus quittent le Mondial",
+    "statusLabel": "Éliminée en demi-finale · France 0–2 Espagne",
+    "roundLabel": "demi-finale",
+    "heroSubtitle": "La France quitte le Mondial en demi-finale, dominée 2–0 par l’Espagne."
   },
   "brazil": {
     "status": "eliminated",
@@ -40,17 +38,16 @@
   },
   "spain": {
     "status": "qualified",
-    "round": "QF",
-    "currentRound": "QF",
-    "qualifiedRound": "QF",
+    "round": "FINAL",
+    "currentRound": "FINAL",
+    "qualifiedRound": "FINAL",
     "stageGroup": "qualified_qf",
-    "nextMatchId": "qf-98",
-    "nextOpponent": "winner_usa_belgium",
-    "selectorLine": "Qualifiée en quart · attend États-Unis ou Belgique",
-    "statusLabel": "Qualifiée en quart de finale · attend le vainqueur États-Unis–Belgique",
-    "roundLabel": "quart de finale",
-    "quarterfinalLine": "Quart de finale · Espagne–Vainqueur États-Unis–Belgique",
-    "heroSubtitle": "L’Espagne a battu le Portugal 1–0 et file en quart. Elle attend désormais le vainqueur de États-Unis–Belgique."
+    "nextMatchId": "final-104",
+    "nextOpponent": "winner_england_argentina",
+    "selectorLine": "Première finaliste · attend Angleterre ou Argentine",
+    "statusLabel": "Finaliste · attend le vainqueur Angleterre–Argentine",
+    "roundLabel": "finale",
+    "heroSubtitle": "L’Espagne a dominé la France 2–0 et attend désormais son adversaire en finale."
   },
   "egypt": {
     "status": "eliminated",

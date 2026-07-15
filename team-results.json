@@ -140,6 +140,16 @@
       "note": "Mbappé débloque, Dembélé scelle",
       "note_en": "Mbappé opens the scoring, Dembélé seals it",
       "result": "V"
+    },
+    {
+      "matchId": "N101",
+      "label": "France 0–2 Espagne",
+      "label_en": "France 0–2 Spain",
+      "label_es": "Francia 0–2 España",
+      "note": "Fin de parcours en demi-finale",
+      "note_en": "The road ends in the semi-final",
+      "note_es": "Fin del camino en semifinales",
+      "result": "D"
     }
   ],
   "ivory_coast": [
@@ -272,6 +282,16 @@
       "note": "Yamal homme du match, place en demi-finale",
       "note_en": "Yamal stars as Spain reach the semi-final",
       "note_es": "Yamal brilla y España alcanza la semifinal",
+      "result": "V"
+    },
+    {
+      "matchId": "N101",
+      "label": "France 0–2 Espagne",
+      "label_en": "France 0–2 Spain",
+      "label_es": "Francia 0–2 España",
+      "note": "Masterclass espagnole, qualification pour la finale",
+      "note_en": "A Spanish masterclass sends La Roja to the final",
+      "note_es": "Una masterclass española lleva a La Roja a la final",
       "result": "V"
     }
   ],
