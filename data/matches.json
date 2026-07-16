@@ -542,10 +542,16 @@
     "homeDisplay": "Angleterre",
     "awayLabel": "Argentine",
     "awayDisplay": "Argentine",
-    "note": "Une demi-finale de mémoire, de revanche et de destin.",
+    "note": "L’Argentine bat l’Angleterre 2–1 et rejoint l’Espagne en finale.",
     "label_en": "England–Argentina",
     "label_es": "Inglaterra–Argentina",
-    "label_ar": "إنجلترا–الأرجنتين"
+    "label_ar": "إنجلترا–الأرجنتين",
+    "status": "final",
+    "homeScore": 1,
+    "awayScore": 2,
+    "score": "1–2",
+    "winner": "argentina",
+    "winnerSide": 1
   },
   "third-103": {
     "home": "loser_n101",
@@ -559,18 +565,19 @@
     "dynamic": true
   },
   "final-104": {
-    "home": "winner_n101",
-    "away": "winner_n102",
-    "label": "Finale",
+    "home": "spain",
+    "away": "argentina",
+    "label": "Espagne–Argentine",
     "round": "FINAL",
     "dateParis": "2026-07-19T21:00:00+02:00",
     "dateUTC": "2026-07-19T19:00:00Z",
     "stadium": "New York · MetLife Stadium",
     "channel_fr": "beIN Sports 1",
-    "dynamic": true,
-    "homeLabel": "Vainqueur demi-finale 1",
-    "homeDisplay": "Vainqueur demi-finale 1",
-    "awayLabel": "Vainqueur demi-finale 2",
-    "awayDisplay": "Vainqueur demi-finale 2"
+    "dynamic": false,
+    "homeLabel": "Espagne",
+    "homeDisplay": "Espagne",
+    "awayLabel": "Argentine",
+    "awayDisplay": "Argentine",
+    "note": "Une légende face à un monde nouveau : Messi contre Lamine Yamal."
   }
 }

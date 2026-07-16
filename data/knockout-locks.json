@@ -736,5 +736,19 @@
       "locked": true,
       "round": "sf"
     }
+  },
+  "eng-arg": {
+    "koId": "N102",
+    "h": "ENG",
+    "a": "ARG",
+    "home": 1,
+    "away": 2,
+    "status": "final",
+    "apiStatus": "FT",
+    "apiStatusLong": "Match Finished",
+    "winner": "away",
+    "winnerSide": 1,
+    "locked": true,
+    "round": "sf"
   }
 }

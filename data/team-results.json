@@ -426,6 +426,16 @@
       "note": "Quart maîtrisé dans la douleur",
       "note_en": "England edge a difficult quarter-final",
       "result": "V"
+    },
+    {
+      "matchId": "N102",
+      "label": "Angleterre 1–2 Argentine",
+      "label_en": "England 1–2 Argentina",
+      "label_es": "Inglaterra 1–2 Argentina",
+      "note": "Fin de parcours en demi-finale",
+      "note_en": "The road ends in the semi-final",
+      "note_es": "Fin del camino en semifinales",
+      "result": "D"
     }
   ],
   "argentina": [
@@ -487,6 +497,16 @@
       "note": "L’Albiceleste file en demi-finale",
       "note_en": "The Albiceleste reach the semi-final",
       "note_es": "La Albiceleste alcanza la semifinal",
+      "result": "V"
+    },
+    {
+      "matchId": "N102",
+      "label": "Angleterre 1–2 Argentine",
+      "label_en": "England 1–2 Argentina",
+      "label_es": "Inglaterra 1–2 Argentina",
+      "note": "L’Albiceleste rejoint l’Espagne en finale",
+      "note_en": "The Albiceleste reach the World Cup final",
+      "note_es": "La Albiceleste alcanza la final",
       "result": "V"
     }
   ],

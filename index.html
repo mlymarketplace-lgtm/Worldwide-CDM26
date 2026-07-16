@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mondial Pulse 2026 · V15.0.0 Finale & Brèves</title>
+<title>Mondial Pulse 2026 · V15.1.0 Finale & Brèves</title>
 <meta name="application-name" content="Suivez la CDM 2026">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -21,11 +21,11 @@
 // BUILD_VERSION — version stable de build, à bumper à chaque déploiement.
 // Remplace les cache-busters dynamiques (Date.now()) sur les ressources stables
 // afin que le navigateur puisse effectivement les mettre en cache entre deux visites.
-const BUILD_VERSION = '15.0.0';
+const BUILD_VERSION = '15.1.0';
 window.BUILD_VERSION = BUILD_VERSION;
-window.BUILD_VERSION_TOKEN = '1500';
+window.BUILD_VERSION_TOKEN = '1510';
 (function(){
-  // V15.0.0 — compatibilité des anciens liens directs.
+  // V15.1.0 — compatibilité des anciens liens directs.
   // Les anciennes URLs partagées du type /bresil, /brésil, /algerie,
   // /team/brazil, /teams/morocco, etc. sont normalisées vers la route stable
   // /?team=<slug>. On conserve les liens existants au lieu de provoquer une 404.
@@ -36,7 +36,7 @@ window.BUILD_VERSION_TOKEN = '1500';
     if(!rawPath || rawPath === 'index.html') return;
     if(rawPath.toLowerCase() === 'news' || rawPath.toLowerCase() === 'breves' || rawPath.toLowerCase() === 'brèves'){
       params.set('mode','news');
-      if(!params.has('v')) params.set('v', window.BUILD_VERSION_TOKEN || '1500');
+      if(!params.has('v')) params.set('v', window.BUILD_VERSION_TOKEN || '1510');
       window.location.replace(window.location.origin + '/' + '?' + params.toString());
       return;
     }
@@ -71,7 +71,7 @@ window.BUILD_VERSION_TOKEN = '1500';
     if(!team && parts.length >= 2 && /^(team|teams|equipe|equipes|pays)$/i.test(parts[parts.length-2])) team = aliases[slug];
     if(team){
       params.set('team', team);
-      if(!params.has('v')) params.set('v', window.BUILD_VERSION_TOKEN || '1500');
+      if(!params.has('v')) params.set('v', window.BUILD_VERSION_TOKEN || '1510');
       window.location.replace(window.location.origin + '/' + '?' + params.toString());
     }
   }catch(e){}
@@ -85,7 +85,7 @@ window.BUILD_VERSION_TOKEN = '1500';
   if(selectorActive) document.documentElement.classList.add('qg-selector-active');
   if(v10Active) {
     document.documentElement.classList.add('v10-booting');
-    // V15.0.0 safety: ne jamais laisser l'écran noir si le script V10 externe tarde/échoue.
+    // V15.1.0 safety: ne jamais laisser l'écran noir si le script V10 externe tarde/échoue.
     // Exception volontaire : sur la page d'entrée, on garde le boot mode pour masquer la home legacy.
     setTimeout(function(){ if(!window.QUALIFGAINDE_SELECTOR_ACTIVE) document.documentElement.classList.remove('v10-booting'); }, 1800);
   }
@@ -189,7 +189,7 @@ html.v10-booting #v10-team-selector, html.v10-booting .v10-selector{visibility:v
 
 
 
-/* V15.0.0 — page d'entrée restaurée : “Je suis supporter de…” */
+/* V15.1.0 — page d'entrée restaurée : “Je suis supporter de…” */
 html.qg-selector-active body{background:#050505;min-height:100vh;overflow:auto;}
 html.qg-selector-active body > :not(#v10-team-selector):not(script):not(style){display:none !important;}
 #v10-team-selector{display:none;visibility:hidden;}
@@ -368,7 +368,7 @@ header{display:flex;align-items:center;justify-content:space-between;padding:12p
 .match{background:var(--g2);border-radius:9px;padding:10px 12px;border-left:3px solid #333;
   display:grid;grid-template-columns:46px 1fr auto;gap:8px;align-items:start;transition:background .2s;}
 .match:hover{background:var(--g3);}
-.match.sen{border-left-color:var(--or);background:linear-gradient(90deg,#1a150018,var(--g2) 40%);}
+.match.sen{border-left-color:var(--or);background:linear-gradient(90deg,#1a151018,var(--g2) 40%);}
 .match.bon{border-left-color:var(--vert);}
 .match.neu{border-left-color:#444;}
 .mst{font-size:.82rem;line-height:1;padding-top:2px;}
@@ -403,7 +403,7 @@ header{display:flex;align-items:center;justify-content:space-between;padding:12p
 .r32-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:10px 0 18px;}
 .r32-card{background:var(--g2);border:1px solid #fff08;border-radius:9px;overflow:hidden;transition:border-color .2s,transform .2s;min-height:108px;}
 .r32-card:hover{border-color:#fff2;transform:translateY(-1px);}
-.r32-card.senegal-slot{border-color:var(--or);box-shadow:0 0 0 1px #FDEF4222;background:linear-gradient(135deg,#1a1500,var(--g2) 60%);}
+.r32-card.senegal-slot{border-color:var(--or);box-shadow:0 0 0 1px #FDEF4222;background:linear-gradient(135deg,#1a1510,var(--g2) 60%);}
 .r32-head{padding:6px 9px;font-family:Oswald,sans-serif;font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;display:flex;align-items:center;justify-content:space-between;background:#0d0d0d;border-bottom:1px solid #fff08;color:#8ab4ff;}
 .r32-date{font-size:.55rem;color:var(--mu);font-family:'Inter',sans-serif;letter-spacing:0;text-transform:none;}
 .r32-teams{padding:7px 9px;display:flex;flex-direction:column;gap:5px;}
@@ -441,7 +441,7 @@ header{display:flex;align-items:center;justify-content:space-between;padding:12p
 .r16-help{font-size:.68rem;color:var(--mu);line-height:1.55;margin:-4px 0 10px;}
 .r16-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:10px 0 18px;}
 .r16-card{background:#141414;border:1px solid #ffffff12;border-radius:10px;overflow:hidden;min-height:104px;display:flex;flex-direction:column;}
-.r16-card.senegal-path{border-color:var(--or);background:linear-gradient(135deg,#1a1500,#141414 68%);box-shadow:0 0 0 1px #FDEF4222;}
+.r16-card.senegal-path{border-color:var(--or);background:linear-gradient(135deg,#1a1510,#141414 68%);box-shadow:0 0 0 1px #FDEF4222;}
 .r16-head{padding:7px 9px;background:#0d0d0d;border-bottom:1px solid #ffffff10;display:flex;justify-content:space-between;gap:8px;font-family:Oswald,sans-serif;color:#8ab4ff;font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;}
 .r16-date{font-family:'Inter',sans-serif;color:var(--mu);letter-spacing:0;text-transform:none;font-size:.55rem;}
 .r16-team{padding:8px 10px;border-bottom:1px solid #ffffff08;font-size:.78rem;font-weight:700;min-height:34px;display:flex;align-items:center;justify-content:space-between;gap:8px;}
@@ -1324,10 +1324,10 @@ header{display:flex;align-items:center;justify-content:space-between;padding:12p
 <meta name="apple-mobile-web-app-title" content="Suivez la CDM 2026">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <link rel="apple-touch-icon" href="/assets/icons/icon-192.png">
-<link rel="stylesheet" href="src/v10/v10-team-app.css?v=15.0.0">
+<link rel="stylesheet" href="src/v10/v10-team-app.css?v=15.1.0">
 
 <script>
-// V15.0.0 — purge légère des anciens caches PWA pour sortir des builds bloquants.
+// V15.1.0 — purge légère des anciens caches PWA pour sortir des builds bloquants.
 (function(){
   window.addEventListener('load', function(){
     try {
@@ -1340,7 +1340,7 @@ header{display:flex;align-items:center;justify-content:space-between;padding:12p
 </script>
 
 <style id="qg-v1315-teamfix-style">
-/* V15.0.0 — adaptateur autonome multi-équipe, sans dépendance src/v10 JS */
+/* V15.1.0 — adaptateur autonome multi-équipe, sans dépendance src/v10 JS */
 #probable-opponent .opp-label{white-space:nowrap;}
 #probable-opponent .opp-main{line-height:1.05;}
 #probable-opponent .opp-sub{white-space:normal;}
@@ -1357,7 +1357,7 @@ header{display:flex;align-items:center;justify-content:space-between;padding:12p
 
 
 <style id="qg-v1315-structural-css">
-/* V15.0.0 — home plus lisible et cartes pays structurées */
+/* V15.1.0 — home plus lisible et cartes pays structurées */
 .qg-team-card{flex-direction:column;justify-content:center;text-align:center;align-items:center;gap:10px;padding:18px 14px;min-height:132px;}
 .qg-team-copy{width:100%;display:block;}
 .qg-team-name{display:block;text-align:center;white-space:normal;overflow:visible;text-overflow:clip;font-size:1.28rem;}
@@ -1373,7 +1373,7 @@ body[data-qg-eliminated="true"] #countdown-card{display:none!important;}
 body[data-qg-eliminated="true"] .qg-countdown-title{display:none!important;}
 @media(max-width:720px){.qg-team-grid{grid-template-columns:1fr!important}.qg-team-card{min-height:116px}.qg-team-name{font-size:1.22rem}.qg-team-line{max-width:28ch}}
 
-/* Legacy RTL Arabic support — retained in V15.0.0 */
+/* Legacy RTL Arabic support — retained in V15.1.0 */
 html[dir="rtl"] body{direction:rtl;text-align:right;}
 html[dir="rtl"] .hflag,html[dir="rtl"] .hright,html[dir="rtl"] .qg-team-card,html[dir="rtl"] .opponent-card{direction:rtl;}
 html[dir="rtl"] .mscore,html[dir="rtl"] .tl-score,html[dir="rtl"] .r32-inline-score,html[dir="rtl"] .ko-inline-score,html[dir="rtl"] .ko-inline-input{direction:ltr;unicode-bidi:embed;}
@@ -1385,7 +1385,7 @@ html[dir="rtl"] .opp-sub,html[dir="rtl"] .opp-main{text-align:right;}
 
 
 <style id="qg-v1315-home-clean-css">
-/* V15.0.0 — homepage: suppression définitive du label "Pays". */
+/* V15.1.0 — homepage: suppression définitive du label "Pays". */
 .qg-team-name::before{content:none!important;display:none!important;}
 </style>
 
@@ -1450,6 +1450,17 @@ html[dir="rtl"] .world-news-open{align-self:flex-end;}
 </style>
 
 
+
+<style id="qg-v1510-final-premium-css">
+.qg-final-hero.is-complete,.qg-final-stage.is-complete{background:radial-gradient(circle at 50% -20%,#f7d7743d,transparent 38%),linear-gradient(145deg,#130d02,#07101e 52%,#07192b);border-color:#e8c75b88;box-shadow:0 34px 110px #000c,0 0 55px #e8c75b1c,inset 0 0 0 1px #fff2b51f}
+.qg-final-poster{display:block;width:100%;max-width:1080px;aspect-ratio:16/9;object-fit:cover;margin:18px auto 24px;border-radius:24px;border:1px solid #f5d66f55;box-shadow:0 24px 70px #000b}
+.qg-final-editorial{max-width:940px;margin:20px auto;text-align:center}.qg-final-duel{color:#f5d66f;font-size:.72rem;font-weight:950;letter-spacing:.18em;text-transform:uppercase}.qg-final-editorial h2{font-family:Oswald,Inter,sans-serif;font-size:clamp(2rem,5.6vw,4.7rem);line-height:.98;text-transform:uppercase;margin:10px 0 14px}.qg-final-lead{max-width:850px;margin:0 auto;color:#e7eaf0;font-size:clamp(.95rem,2vw,1.16rem);line-height:1.65}.qg-final-signature{max-width:760px;margin:18px auto 0;color:#f5d66f;font-family:Georgia,serif;font-style:italic;line-height:1.6}
+.qg-final-team{position:relative;display:block;overflow:hidden;min-height:330px;padding:0 12px 20px;border-radius:24px;background:#05080dbd;border:1px solid #ffffff18;color:#fff;text-decoration:none;transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease}.qg-final-team:hover{transform:translateY(-5px);border-color:#f5d66f88;box-shadow:0 22px 55px #0009}.qg-final-player{display:block!important;height:220px;margin:0 -12px 12px;overflow:hidden;background:#111;font-size:0!important}.qg-final-player img{width:100%;height:100%;object-fit:cover;object-position:center 20%;display:block}.qg-final-team-flag{font-size:2rem!important;line-height:1!important}.qg-final-team strong{font-size:clamp(1.35rem,3.2vw,2.35rem)!important}.qg-final-team small{display:block;margin-top:6px;color:#f5d66f;font-size:.72rem;font-weight:900;letter-spacing:.04em}.qg-final-team-link{display:inline-block;margin-top:12px;color:#d7dde8;font-size:.65rem;text-transform:uppercase;letter-spacing:.1em}.qg-final-team:hover .qg-final-team-link{color:#f5d66f}
+.qg-final-facts{max-width:960px;margin:22px auto 8px}.qg-final-facts-title{text-align:center;color:#f5d66f;font-size:.72rem;font-weight:950;letter-spacing:.18em;text-transform:uppercase}.qg-final-facts-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:12px}.qg-final-facts-grid>div{display:flex;gap:8px;align-items:flex-start;padding:13px;border-radius:15px;background:#0505058c;border:1px solid #ffffff12}.qg-final-facts-grid span{color:#f5d66f}.qg-final-facts-grid p{margin:0;color:#dbe2ec;font-size:.72rem;line-height:1.45}
+.qg-final-story{max-width:830px;margin:35px auto 5px;text-align:left;padding:28px;border-radius:24px;background:#0505058a;border:1px solid #ffffff12}.qg-final-story p{margin:0 0 1.15em;color:#e5e7eb;font-size:1rem;line-height:1.78}.qg-final-story p:nth-child(1),.qg-final-story p:nth-child(3){color:#f5d66f;font-family:Georgia,serif;font-size:1.15rem;font-style:italic}
+@media(max-width:760px){.qg-final-poster{border-radius:16px}.qg-final-matchup{align-items:stretch}.qg-final-team{min-height:250px;padding:0 8px 15px}.qg-final-player{height:150px;margin:0 -8px 10px}.qg-final-team small{font-size:.58rem}.qg-final-team-link{font-size:.55rem}.qg-final-facts-grid{grid-template-columns:1fr 1fr}.qg-final-editorial h2{font-size:2rem}.qg-final-story{padding:19px 15px}.qg-final-story p{font-size:.94rem}}
+</style>
+
 </head>
 <body>
 <div id="yt-player" style="position:fixed;top:-9999px;left:-9999px;width:1px;height:1px;"></div>
@@ -1460,7 +1471,7 @@ html[dir="rtl"] .world-news-open{align-self:flex-end;}
     <div class="qg-entry-top">
       <div class="qg-entry-brand">
         <img src="assets/lion-mascotte.png" alt="Mondial Pulse">
-        <div>Mondial Pulse 2026 · V15.0.0</div>
+        <div>Mondial Pulse 2026 · V15.1.0</div>
       </div>
       <div class="qg-entry-pill">Phase finale · choisis ton équipe et suis son chemin jusqu’à la finale</div>
     </div>
@@ -1472,32 +1483,26 @@ html[dir="rtl"] .world-news-open{align-self:flex-end;}
     </div>
 
 
-    <a class="qg-final-hero is-partial" href="?mode=final&amp;v=1500" aria-label="Entrer dans la Finale">
+
+    <section class="qg-final-hero is-complete">
       <div class="qg-final-shine"></div>
       <div class="qg-final-badge">FINALE · COUPE DU MONDE 2026</div>
-      <div class="qg-final-pending"><span>PREMIÈRE FINALISTE</span><strong>🇪🇸 Espagne</strong><p>L’Espagne attend le vainqueur d’Angleterre–Argentine</p></div>
-      <div class="qg-final-matchup"><div class="qg-final-team"><span>🇪🇸</span><strong>Espagne</strong></div><div class="qg-final-vs">VS</div><div class="qg-final-team is-waiting"><span>✦</span><strong>Deuxième finaliste à venir</strong></div></div>
+      <img class="qg-final-poster" src="assets/news/finale-espagne-argentine-messi-yamal.jpg" alt="Espagne–Argentine · Messi face à Lamine Yamal">
+      <div class="qg-final-editorial"><div class="qg-final-duel">Messi × Lamine Yamal</div><h2>Espagne–Argentine : la finale entre une légende et un monde nouveau</h2><p class="qg-final-lead">Trois étoiles contre une. L’Argentine retrouve une troisième finale mondiale consécutive, tandis que l’Espagne avance avec 13 buts marqués et un seul encaissé.</p></div>
+      <div class="qg-final-matchup"><a class="qg-final-team" href="?team=spain&amp;lang=es&amp;v=1510"><span class="qg-final-player"><img src="assets/final/lamine-yamal-final.jpg" alt="Lamine Yamal"></span><span class="qg-final-team-flag">🇪🇸</span><strong>Espagne</strong><small>1 étoile · 13 buts · 1 encaissé</small><b class="qg-final-team-link">Voir l’équipe →</b></a><div class="qg-final-vs">VS</div><a class="qg-final-team" href="?team=argentina&amp;lang=es&amp;v=1510"><span class="qg-final-player"><img src="assets/final/lionel-messi-final.jpg" alt="Lionel Messi"></span><span class="qg-final-team-flag">🇦🇷</span><strong>Argentine</strong><small>3 étoiles · 19 buts · 3e finale consécutive</small><b class="qg-final-team-link">Voir l’équipe →</b></a></div>
       <div class="qg-final-countdown" data-final-countdown><div class="qg-final-countdown-label">Coup d’envoi dans</div><div class="qg-final-boxes"><span><b data-final-days>00</b><small>J</small></span><span><b data-final-hours>00</b><small>H</small></span><span><b data-final-minutes>00</b><small>MIN</small></span><span><b data-final-seconds>00</b><small>SEC</small></span></div></div>
       <div class="qg-final-date">Dim. 19 juillet · 21h00 · heure locale</div>
-      <span class="qg-final-open">Entrer dans la Finale →</span>
-    </a>
+      <a class="qg-final-open" href="?mode=final&amp;v=1510">Entrer dans la Finale →</a>
+    </section>
 
-    <div class="qg-selector-group">
-      <h2 class="qg-selector-title">Finaliste et demi-finalistes</h2>
-      <div class="qg-team-grid">
-        <a class="qg-team-card qf" href="?team=spain&amp;lang=es&amp;v=1500"><span class="qg-team-flag">🇪🇸</span><span class="qg-team-copy"><span class="qg-team-name">Espagne</span><span class="qg-team-line">Première finaliste · attend Angleterre ou Argentine</span></span></a>
-        <a class="qg-team-card qf" href="?team=england&lang=en&v=1500"><span class="qg-team-flag">🏴󠁧󠁢󠁥󠁮󠁧󠁿</span><span class="qg-team-copy"><span class="qg-team-name">England</span><span class="qg-team-line">Qualified for the semi-final · next: Argentina</span></span></a>
-        <a class="qg-team-card qf" href="?team=argentina&lang=es&v=1500"><span class="qg-team-flag">🇦🇷</span><span class="qg-team-copy"><span class="qg-team-name">Argentine</span><span class="qg-team-line">Qualifiée en demi-finale · attend l’Angleterre</span></span></a>
-      </div>
-    </div>
 
     <details class="qg-farewell-archive">
-      <summary><span class="qg-farewell-copy"><span class="qg-farewell-kicker">Mémoire du Mondial</span><strong>Les équipes qui nous ont fait vibrer</strong><small>12 équipes · revoir leurs parcours</small></span><span class="qg-farewell-flags"><i>🇫🇷</i><i>🇲🇦</i><i>🇳🇴</i><i>🇨🇭</i><i>🇧🇪</i><i>🇧🇷</i><i>🇸🇳</i><i>🇩🇿</i></span><span class="qg-farewell-arrow">⌄</span></summary>
-      <div class="qg-farewell-body"><div class="qg-team-grid"><a class="qg-team-card out" href="?team=france&amp;v=1500"><span class="qg-team-flag">🇫🇷</span><span class="qg-team-copy"><span class="qg-team-name">France</span><span class="qg-team-line">Éliminée en demi-finale · Espagne 2–0 France</span></span></a><a class="qg-team-card out" href="?team=norway&v=1500"><span class="qg-team-flag">🇳🇴</span><span class="qg-team-copy"><span class="qg-team-name">Norvège</span><span class="qg-team-line">Éliminée en quart · Haaland aura marqué ce Mondial</span></span></a><a class="qg-team-card out" href="?team=switzerland&v=1500"><span class="qg-team-flag">🇨🇭</span><span class="qg-team-copy"><span class="qg-team-name">Suisse</span><span class="qg-team-line">Éliminée en quart · une Nati courageuse jusqu’au bout</span></span></a><a class="qg-team-card out" href="?team=belgium&v=1500"><span class="qg-team-flag">🇧🇪</span><span class="qg-team-copy"><span class="qg-team-name">Belgique</span><span class="qg-team-line">Éliminée en quart · sortie honorable des Diables Rouges</span></span></a><a class="qg-team-card out" href="?team=brazil&v=1500"><span class="qg-team-flag">🇧🇷</span><span class="qg-team-copy"><span class="qg-team-name">Brésil</span><span class="qg-team-line">Éliminé en huitième · Neymar a marqué pour son dernier Mondial</span></span></a><a class="qg-team-card out" href="?team=morocco&v=1500"><span class="qg-team-flag">🇲🇦</span><span class="qg-team-copy"><span class="qg-team-name">Maroc</span><span class="qg-team-line">Éliminé en quart · l’Afrique fière des Lions de l’Atlas</span></span></a><a class="qg-team-card out" href="?team=senegal&v=1500"><span class="qg-team-flag">🇸🇳</span><span class="qg-team-copy"><span class="qg-team-name">Sénégal</span><span class="qg-team-line">Éliminé en 16e · respect aux Lions</span></span></a><a class="qg-team-card out" href="?team=algeria&v=1500"><span class="qg-team-flag">🇩🇿</span><span class="qg-team-copy"><span class="qg-team-name">Algérie</span><span class="qg-team-line">Éliminée · respect aux Fennecs</span></span></a><a class="qg-team-card out" href="?team=ivory_coast&v=1500"><span class="qg-team-flag">🇨🇮</span><span class="qg-team-copy"><span class="qg-team-name">Côte d’Ivoire</span><span class="qg-team-line">Éliminée · respect aux Éléphants</span></span></a><a class="qg-team-card out" href="?team=dr_congo&v=1500"><span class="qg-team-flag">🇨🇩</span><span class="qg-team-copy"><span class="qg-team-name">RD Congo</span><span class="qg-team-line">Éliminée · respect aux Léopards</span></span></a><a class="qg-team-card out" href="?team=cape_verde&v=1500"><span class="qg-team-flag">🇨🇻</span><span class="qg-team-copy"><span class="qg-team-name">Cap-Vert</span><span class="qg-team-line">Sortie héroïque face à l’Argentine</span></span></a><a class="qg-team-card out" href="?team=ghana&v=1500"><span class="qg-team-flag">🇬🇭</span><span class="qg-team-copy"><span class="qg-team-name">Ghana</span><span class="qg-team-line">Éliminé · respect aux Black Stars</span></span></a></div></div>
+      <summary><span class="qg-farewell-copy"><span class="qg-farewell-kicker">Mémoire du Mondial</span><strong>Les équipes qui nous ont fait vibrer</strong><small>13 équipes · revoir leurs parcours</small></span><span class="qg-farewell-flags"><i>🇫🇷</i><i>🇲🇦</i><i>🇳🇴</i><i>🇨🇭</i><i>🇧🇪</i><i>🇧🇷</i><i>🇸🇳</i><i>🇩🇿</i></span><span class="qg-farewell-arrow">⌄</span></summary>
+      <div class="qg-farewell-body"><div class="qg-team-grid"><a class="qg-team-card out" href="?team=england&amp;lang=en&amp;v=1510"><span class="qg-team-flag">🏴󠁧󠁢󠁥󠁮󠁧󠁿</span><span class="qg-team-copy"><span class="qg-team-name">England</span><span class="qg-team-line">Eliminated in the semi-final · Argentina 2–1 England</span></span></a><a class="qg-team-card out" href="?team=france&amp;v=1510"><span class="qg-team-flag">🇫🇷</span><span class="qg-team-copy"><span class="qg-team-name">France</span><span class="qg-team-line">Éliminée en demi-finale · Espagne 2–0 France</span></span></a><a class="qg-team-card out" href="?team=norway&v=1510"><span class="qg-team-flag">🇳🇴</span><span class="qg-team-copy"><span class="qg-team-name">Norvège</span><span class="qg-team-line">Éliminée en quart · Haaland aura marqué ce Mondial</span></span></a><a class="qg-team-card out" href="?team=switzerland&v=1510"><span class="qg-team-flag">🇨🇭</span><span class="qg-team-copy"><span class="qg-team-name">Suisse</span><span class="qg-team-line">Éliminée en quart · une Nati courageuse jusqu’au bout</span></span></a><a class="qg-team-card out" href="?team=belgium&v=1510"><span class="qg-team-flag">🇧🇪</span><span class="qg-team-copy"><span class="qg-team-name">Belgique</span><span class="qg-team-line">Éliminée en quart · sortie honorable des Diables Rouges</span></span></a><a class="qg-team-card out" href="?team=brazil&v=1510"><span class="qg-team-flag">🇧🇷</span><span class="qg-team-copy"><span class="qg-team-name">Brésil</span><span class="qg-team-line">Éliminé en huitième · Neymar a marqué pour son dernier Mondial</span></span></a><a class="qg-team-card out" href="?team=morocco&v=1510"><span class="qg-team-flag">🇲🇦</span><span class="qg-team-copy"><span class="qg-team-name">Maroc</span><span class="qg-team-line">Éliminé en quart · l’Afrique fière des Lions de l’Atlas</span></span></a><a class="qg-team-card out" href="?team=senegal&v=1510"><span class="qg-team-flag">🇸🇳</span><span class="qg-team-copy"><span class="qg-team-name">Sénégal</span><span class="qg-team-line">Éliminé en 16e · respect aux Lions</span></span></a><a class="qg-team-card out" href="?team=algeria&v=1510"><span class="qg-team-flag">🇩🇿</span><span class="qg-team-copy"><span class="qg-team-name">Algérie</span><span class="qg-team-line">Éliminée · respect aux Fennecs</span></span></a><a class="qg-team-card out" href="?team=ivory_coast&v=1510"><span class="qg-team-flag">🇨🇮</span><span class="qg-team-copy"><span class="qg-team-name">Côte d’Ivoire</span><span class="qg-team-line">Éliminée · respect aux Éléphants</span></span></a><a class="qg-team-card out" href="?team=dr_congo&v=1510"><span class="qg-team-flag">🇨🇩</span><span class="qg-team-copy"><span class="qg-team-name">RD Congo</span><span class="qg-team-line">Éliminée · respect aux Léopards</span></span></a><a class="qg-team-card out" href="?team=cape_verde&v=1510"><span class="qg-team-flag">🇨🇻</span><span class="qg-team-copy"><span class="qg-team-name">Cap-Vert</span><span class="qg-team-line">Sortie héroïque face à l’Argentine</span></span></a><a class="qg-team-card out" href="?team=ghana&v=1510"><span class="qg-team-flag">🇬🇭</span><span class="qg-team-copy"><span class="qg-team-name">Ghana</span><span class="qg-team-line">Éliminé · respect aux Black Stars</span></span></a></div></div>
     </details>
 
     <div class="qg-entry-actions">
-      <a class="qg-entry-action" href="?mode=global&v=1500">Voir la page globale</a>
+      <a class="qg-entry-action" href="?mode=global&v=1510">Voir la page globale</a>
     </div>
   </div>
 </section>
@@ -1739,7 +1744,7 @@ html[dir="rtl"] .world-news-open{align-self:flex-end;}
 </section>
 
 <!-- ═══ TABLEAU 3E PLACES MASQUÉ — phase à élimination directe active ═══ -->
-<!-- Section retirée de l’affichage en V15.0.0 : le tableau des meilleurs troisièmes n’est plus utile en phase finale. -->
+<!-- Section retirée de l’affichage en V15.1.0 : le tableau des meilleurs troisièmes n’est plus utile en phase finale. -->
 
 <!-- Simulateur retiré de l’interface : moteurs conservés dans le code. -->
 
@@ -2517,7 +2522,7 @@ function getOpponentForSenegalRank(snRank) {
 }
 
 function updateProbableOpponent(snRank) {
-  // V15.0.0 — ne jamais retomber sur l'ancien moteur Sénégal/R32
+  // V15.1.0 — ne jamais retomber sur l'ancien moteur Sénégal/R32
   // quand une page équipe est ouverte. On affiche l'affiche réelle du prochain match.
   const qgTeamParamForNext = (new URLSearchParams(location.search).get('team') || 'senegal').toLowerCase();
   const NEXT_MATCH_BY_TEAM = {
@@ -2882,7 +2887,7 @@ const KO_ROUNDS = [
   ]}
 ];
 
-// V15.0.0 — source unique : l'état R32 est dérivé de STATIC_R32_LOCKS.
+// V15.1.0 — source unique : l'état R32 est dérivé de STATIC_R32_LOCKS.
 // On évite de maintenir les mêmes scores à trois endroits.
 function deriveR32InitialState(locks){
   const scores = {}, picks = {}, locked = {};
@@ -4972,10 +4977,10 @@ setTimeout(()=>{
 
 </script>
 
-<!-- V15.0.0: scripts V10 externes désactivés pour éviter les retours de cache qui écrasent le rendu officiel. -->
+<!-- V15.1.0: scripts V10 externes désactivés pour éviter les retours de cache qui écrasent le rendu officiel. -->
 
 <script>
-// V15.0.0 — FINALISATION STABLE — source unique de vérité.
+// V15.1.0 — FINALISATION STABLE — source unique de vérité.
 // R32_LOCKS_BOOT supprimé : les 16es viennent uniquement de STATIC_R32_LOCKS.
 // Les re-renders en cascade sont supprimés : un seul filet de sécurité à 300 ms après load.
 (function(){
@@ -4988,7 +4993,8 @@ setTimeout(()=>{
       N92: { koId:'N92', h:'MEX', a:'ENG', home:2, away:3, status:'final', apiStatus:'FT', apiStatusLong:'Match Finished', winner:'away', winnerSide:1, locked:true, round:'r16' }
     },
     sf: {
-      N101: { koId:'N101', h:'FRA', a:'ESP', home:0, away:2, status:'final', apiStatus:'FT', apiStatusLong:'Match Finished', winner:'away', winnerSide:1, locked:true, round:'sf' }
+      N101: { koId:'N101', h:'FRA', a:'ESP', home:0, away:2, status:'final', apiStatus:'FT', apiStatusLong:'Match Finished', winner:'away', winnerSide:1, locked:true, round:'sf' },
+      N102: { koId:'N102', h:'ENG', a:'ARG', home:1, away:2, status:'final', apiStatus:'FT', apiStatusLong:'Match Finished', winner:'away', winnerSide:1, locked:true, round:'sf' }
     },
     qf: {
       N97: { koId:'N97', h:'FRA', a:'MAR', home:2, away:0, status:'final', apiStatus:'FT', apiStatusLong:'Match Finished', winner:'home', winnerSide:0, locked:true, round:'qf' },
@@ -5029,13 +5035,14 @@ setTimeout(()=>{
           KNOCKOUT_LIVE_RESULTS['qf-97'] = { koId:'N97', h:'FRA', a:'MAR', hg:2, ag:0, home:2, away:0, status:'final', apiStatus:'FT', apiStatusLong:'Match Finished', winner:'home', winnerSide:0, locked:true, round:'qf', staticLock:true };
           KNOCKOUT_LIVE_RESULTS['qf-98'] = { koId:'N98', h:'ESP', a:'BEL', hg:2, ag:1, home:2, away:1, status:'final', apiStatus:'FT', apiStatusLong:'Match Finished', winner:'home', winnerSide:0, locked:true, round:'qf', staticLock:true };
           KNOCKOUT_LIVE_RESULTS['sf-101'] = { koId:'N101', h:'FRA', a:'ESP', hg:0, ag:2, home:0, away:2, status:'final', apiStatus:'FT', apiStatusLong:'Match Finished', winner:'away', winnerSide:1, winnerTeam:'spain', locked:true, round:'sf', staticLock:true };
+          KNOCKOUT_LIVE_RESULTS['sf-102'] = { koId:'N102', h:'ENG', a:'ARG', hg:1, ag:2, home:1, away:2, status:'final', apiStatus:'FT', apiStatusLong:'Match Finished', winner:'away', winnerSide:1, winnerTeam:'argentina', locked:true, round:'sf', staticLock:true };
         }
       } catch(_) {}
       if (typeof applyKOLocks === 'function') applyKOLocks(KO_LOCKS_BOOT);
       if (typeof renderRound32Grid === 'function') renderRound32Grid();
       if (typeof renderKnockoutTree === 'function') renderKnockoutTree();
       if (typeof buildTicker === 'function') buildTicker();
-    } catch(e) { console.warn('[QG V15.0.0] official score finalizer skipped', e); }
+    } catch(e) { console.warn('[QG V15.1.0] official score finalizer skipped', e); }
   }
   function normalizeNextMatchCard(){
     const card = document.getElementById('probable-opponent');
@@ -5046,11 +5053,12 @@ setTimeout(()=>{
     const map = {
       france:{main:'🇫🇷 France', sub:'Éliminée en demi-finale · Espagne 2–0 France', key:'france-farewell'},
       morocco:{main:'🇲🇦 Maroc', sub:'Éliminé en quart · l’Afrique fière des Lions de l’Atlas', key:'morocco-farewell'},
-      spain:{main:(document.documentElement.lang==='es'?'🇪🇸 España–Finalista por decidir':'🇪🇸 Espagne–Finaliste à déterminer'), sub:(document.documentElement.lang==='es'?'Dom. 19 de julio · 21h00 · hora local':'Dim. 19 juillet · 21h00 · heure locale'), key:'spain-final'},
+      spain:{main:(document.documentElement.lang==='es'?'🇪🇸 España–Argentina 🇦🇷':'🇪🇸 Espagne–Argentine 🇦🇷'), sub:(document.documentElement.lang==='es'?'Dom. 19 de julio · 21h00 · hora local':'Dim. 19 juillet · 21h00 · heure locale'), key:'spain-argentina-final'},
+      argentina:{main:'🇪🇸 Espagne–Argentine 🇦🇷', sub:'Dim. 19 juillet · 21h00 · heure locale', key:'spain-argentina-final'},
       egypt:{main:'🇦🇷 Argentine–Égypte 🇪🇬', sub:'Mar. 7 juillet · 18h00 · heure locale', key:'argentina-egypt'},
       belgium:{main:'🇧🇪 Belgique', sub:'Éliminée en quart · Espagne 2–1 Belgique', key:'belgium-farewell'},
       norway:{main:'🇳🇴 Norvège–Angleterre 🏴󠁧󠁢󠁥󠁮󠁧󠁿', sub:'Dim. 12 juillet · Miami · heure locale', key:'norway-england'},
-      england:{main:'🇳🇴 Norvège–Angleterre 🏴󠁧󠁢󠁥󠁮󠁧󠁿', sub:'Dim. 12 juillet · Miami · heure locale', key:'norway-england'}
+      england:{main:'🏴 England 1–2 Argentina 🇦🇷', sub:'End of the road · World Cup semi-final', key:'england-farewell'}
     };
     const next = map[team];
     if (!next) return;
@@ -5089,7 +5097,7 @@ setTimeout(()=>{
 
 
 <script id="qg-v1315-stable-team-adapter">
-// V15.0.0 — adaptateur stable multi-équipe.
+// V15.1.0 — adaptateur stable multi-équipe.
 // Objectif : conserver les pages équipe construites (France, Maroc, Sénégal, Belgique,
 // Brésil, Espagne, Égypte, Algérie, etc.) sans dépendre d'un script externe V10.
 (function(){
@@ -5114,7 +5122,7 @@ setTimeout(()=>{
   };
   const TEAM_KEY = TEAM_ALIASES[PARAM] || PARAM || 'senegal';
   const TEAM_DEFAULT_LANG = { spain: 'es' };
-  // V15.0.0 — règle produit : la carte Espagne de la home ouvre directement la page Espagne en espagnol.
+  // V15.1.0 — règle produit : la carte Espagne de la home ouvre directement la page Espagne en espagnol.
   // Si l'URL est déjà explicite (?lang=fr/en/pt/ar), on respecte le choix de l'utilisateur.
   if (HAS_TEAM && TEAM_DEFAULT_LANG[TEAM_KEY] && !SEARCH_PARAMS.has('lang')) {
     try {
@@ -5138,7 +5146,7 @@ setTimeout(()=>{
     brazil:{teamName:'Brésil',flag:'🇧🇷',supporterName:'Seleção',status:'eliminated',tournamentStatus:'eliminated',statusLabel:'Éliminé en huitième de finale · Norvège 2–1 Brésil',tagline:'O país do futebol',heroImg:'assets/teams/brazil/player.webp',bannerImg:'assets/teams/brazil/banner.webp',exitScoreLine:'🇳🇴 Norvège 2–1 Brésil 🇧🇷'},
     norway:{teamName:'Norvège',flag:'🇳🇴',supporterName:'Lions norvégiens',status:'qualified',tournamentStatus:'qualified',statusLabel:'Qualifiée en quart de finale · prochain défi : Angleterre',tagline:'La puissance froide de Haaland',heroPlayer:'Erling Haaland',heroImg:'assets/teams/norway/player.webp',bannerImg:'assets/teams/norway/banner.webp',nextMatchId:'qf-99'},
     england:{teamName:'Angleterre',flag:'🏴',supporterName:'Three Lions',status:'qualified',tournamentStatus:'qualified',statusLabel:'Qualifiée en quart de finale · prochain défi : Norvège',tagline:'Les Three Lions avancent',heroPlayer:'Jude Bellingham',heroImg:'assets/teams/england/player.webp',bannerImg:'assets/teams/england/banner.webp',nextMatchId:'qf-99'},
-    spain:{teamName:'Espagne',flag:'🇪🇸',supporterName:'La Roja',status:'qualified',tournamentStatus:'qualified',statusLabel:'Finaliste · attend Angleterre ou Argentine',selectorLine:'Première finaliste · attend Angleterre ou Argentine',tagline:'La Roja, première finaliste',heroSubtitle:'L’Espagne a dominé la France 2–0 et attend désormais son adversaire en finale.',heroPlayer:'Lamine Yamal',heroImg:'assets/teams/spain/player.webp',bannerImg:'assets/teams/spain/banner.webp',nextMatchId:'final-104',nextOpponent:'winner_england_argentina',currentRound:'FINAL',round:'FINAL',qualifiedRound:'FINAL',stageGroup:'qualified_qf'},
+    spain:{teamName:'Espagne',flag:'🇪🇸',supporterName:'La Roja',status:'qualified',tournamentStatus:'qualified',statusLabel:'Finale de la Coupe du monde 2026',selectorLine:'Finale · Espagne–Argentine',tagline:'La Roja vise sa deuxième étoile',heroSubtitle:'L’Espagne affronte l’Argentine dans une finale entre une légende et un monde nouveau.',heroPlayer:'Lamine Yamal',heroImg:'assets/final/lamine-yamal-final.jpg',bannerImg:'assets/teams/spain/banner.webp',nextMatchId:'final-104',nextOpponent:'argentina',currentRound:'FINAL',round:'FINAL',qualifiedRound:'FINAL',stageGroup:'qualified_qf'},
     egypt:{teamName:'Égypte',flag:'🇪🇬',supporterName:'Pharaons',statusLabel:'Qualifiée en huitième de finale',tagline:'Les Pharaons',heroImg:'assets/teams/egypt/player.webp',bannerImg:'assets/teams/egypt/banner.webp',nextMatchId:'argcpv-egypt'},
     algeria:{teamName:'Algérie',flag:'🇩🇿',supporterName:'Fennecs',statusLabel:'Éliminée en seizième de finale',tagline:'La fierté des Fennecs',heroImg:'assets/teams/algeria/player.webp',bannerImg:'assets/teams/algeria/banner.webp'},
     ivory_coast:{teamName:'Côte d’Ivoire',flag:'🇨🇮',supporterName:'Éléphants',statusLabel:'Éliminée en seizième de finale',tagline:'Respect aux Éléphants',heroImg:'assets/teams/ivory_coast/player.webp',bannerImg:'assets/teams/ivory_coast/banner.webp'},
@@ -5274,7 +5282,7 @@ setTimeout(()=>{
   function ui(){ return UI_LABELS[activeLang()] || UI_LABELS.fr; }
   function syncLangButtons(){ const lang=activeLang(); document.documentElement.lang=lang; document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr'; document.body.classList.toggle('qg-rtl', lang === 'ar'); document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.toggle('active', btn.dataset.langBtn === lang)); }
 
-  function safeFetchJSON(url){ return fetch(url + (url.includes('?') ? '&' : '?') + 'v=' + encodeURIComponent(window.BUILD_VERSION || '15.0.0'), {cache:'no-store'}).then(r => r.ok ? r.json() : null).catch(() => null); }
+  function safeFetchJSON(url){ return fetch(url + (url.includes('?') ? '&' : '?') + 'v=' + encodeURIComponent(window.BUILD_VERSION || '15.1.0'), {cache:'no-store'}).then(r => r.ok ? r.json() : null).catch(() => null); }
   function resultClass(r){ return r === 'V' || r === 'W' ? 'win' : (r === 'D' || r === 'L' ? 'loss' : 'neu'); }
   function journeyLimitFor(key){
     try{
@@ -5512,7 +5520,7 @@ setTimeout(()=>{
       if(typeof applyR32Locks === 'function' && typeof STATIC_R32_LOCKS !== 'undefined') applyR32Locks(STATIC_R32_LOCKS, 'v12-0-15-team-pages');
       if(typeof renderRound32Grid === 'function') renderRound32Grid();
       if(typeof renderKnockoutTree === 'function') renderKnockoutTree();
-    }catch(e){ console.warn('[QG V15.0.0] score patch skipped', e); }
+    }catch(e){ console.warn('[QG V15.1.0] score patch skipped', e); }
   }
 
   async function loadData(){
@@ -5536,7 +5544,7 @@ setTimeout(()=>{
     const mergedPreviews = Object.assign({}, FALLBACK_PREVIEWS, mergeRecords(previews || {}, langPreviews || {}));
     const mergedFarewells = Object.assign({}, FALLBACK_FAREWELLS, mergeRecords(farewells || {}, langFarewells || {}));
 
-    // V15.0.0 — correctif forcé France/Espagne/Belgique.
+    // V15.1.0 — correctif forcé France/Espagne/Belgique.
     // Les fichiers /data/* existants sur Netlify peuvent encore porter l'ancien état
     // France–Maroc ou Espagne–Belgique. On force donc ici l'état éditorial demandé.
     const forcedNext = Object.assign({}, next || {});
@@ -5569,7 +5577,7 @@ setTimeout(()=>{
       'El punto más alto fue 2010, en Sudáfrica. España perdió su primer partido, pero apretó el juego, avanzó, asfixió y ganó. El gol de Iniesta ante los Países Bajos quedó como una imagen eterna: la Roja no solo ganó una Copa del Mundo, impuso una época.',
       'Desde entonces, España ha cambiado. El tiki-taka puro dejó paso a una versión más vertical, más joven, más atrevida, pero siempre obsesionada con el control. La pelota sigue siendo su idioma; la presión, su escudo; la paciencia, su veneno.',
       'En 2026, esta España vuelve a oler a gran equipo. Ha ganado con oficio, ha sufrido cuando tocaba sufrir y ya está en la final después de dominar a Francia 2–0. Lamine Yamal simboliza ese nuevo descaro: talento joven, mirada fría y la sensación de que algo puede explotar en cualquier momento.',
-      'Contra Francia, la Roja tomó el balón, el ritmo y el destino. Ahora espera a Inglaterra o Argentina para disputar la final y tenter de convertir su dominio en una segunda estrella mundial.'
+      'Contra Francia, la Roja tomó el balón, el ritmo y el destino. Ahora se enfrenta a Argentina en una final entre una leyenda y un mundo nuevo, con la segunda estrella mundial en juego.'
     ], timeline:['2008 · Campeona de Europa, nace una era de dominio.','2010 · Campeona del mundo en Sudáfrica, gol eterno de Iniesta.','2012 · Nueva Euro, la posesión se convierte en poder.','2026 · Yamal brilla, Francia cae 2–0 y España alcanza la final.']};
     const moroccoFarewell = {title:'Merci les Lions de l’Atlas', body:[
       'L’Afrique peut être fière du Maroc. Dernière équipe du continent encore en course, les Lions de l’Atlas quittent le Mondial avec dignité, courage et personnalité.',
@@ -5598,25 +5606,36 @@ setTimeout(()=>{
       forcedResults.france = (results && results.france) || FALLBACK_RESULTS.france;
     }
     if(TEAM_KEY === 'spain'){
-      forcedNext.spain = Object.assign({}, forcedNext.spain || {}, {status:'qualified',tournamentStatus:'qualified',nextMatchId:'final-104',nextOpponent:'winner_england_argentina',currentRound:'FINAL',round:'FINAL',qualifiedRound:'FINAL',stageGroup:'qualified_qf'});
-      forcedMatches['final-104'] = {id:'N104',round:'FINAL',dateParis:'2026-07-19T21:00:00+02:00',stadium:'New York · MetLife Stadium',home:'spain',away:null,label:(lang==='es'?'🇪🇸 España–Finalista por decidir':'🇪🇸 Espagne–Finaliste à déterminer'),note:(lang==='es'?'España espera al ganador de Inglaterra–Argentina.':'L’Espagne attend le vainqueur d’Angleterre–Argentine.')};
+      forcedNext.spain = Object.assign({}, forcedNext.spain || {}, {status:'qualified',tournamentStatus:'qualified',nextMatchId:'final-104',nextOpponent:'argentina',currentRound:'FINAL',round:'FINAL',qualifiedRound:'FINAL',stageGroup:'qualified_qf'});
+      forcedMatches['final-104'] = {id:'N104',round:'FINAL',dateParis:'2026-07-19T21:00:00+02:00',stadium:'New York · MetLife Stadium',home:'spain',away:'argentina',label:(lang==='es'?'🇪🇸 España–Argentina 🇦🇷':'🇪🇸 Espagne–Argentine 🇦🇷'),note:(lang==='es'?'Una leyenda frente a un mundo nuevo.':'Une légende face à un monde nouveau.')};
       mergedTeams.spain = Object.assign({}, mergedTeams.spain || {}, FALLBACK_TEAMS.spain, {
-        status:'qualified', tournamentStatus:'qualified', nextMatchId:'final-104', nextOpponent:'winner_england_argentina', currentRound:'FINAL', round:'FINAL', qualifiedRound:'FINAL', stageGroup:'qualified_qf',
-        statusLabel:(lang==='es' ? 'Finalista · espera a Inglaterra o Argentina' : 'Finaliste · attend Angleterre ou Argentine'),
-        selectorLine:(lang==='es' ? 'Primera finalista · espera a Inglaterra o Argentina' : 'Première finaliste · attend Angleterre ou Argentine'),
-        tagline:(lang==='es' ? 'La Roja, primera finalista' : 'La Roja, première finaliste'),
-        heroPlayer:'Lamine Yamal',
-        heroSubtitle:(lang==='es' ? 'España dominó a Francia 2–0 y espera ahora a su rival en la final.' : 'L’Espagne a dominé la France 2–0 et attend désormais son adversaire en finale.')
+        status:'qualified', tournamentStatus:'qualified', nextMatchId:'final-104', nextOpponent:'argentina', currentRound:'FINAL', round:'FINAL', qualifiedRound:'FINAL', stageGroup:'qualified_qf',
+        statusLabel:(lang==='es' ? 'Final del Mundial 2026' : 'Finale de la Coupe du monde 2026'),
+        selectorLine:(lang==='es' ? 'Final · España–Argentina' : 'Finale · Espagne–Argentine'),
+        tagline:(lang==='es' ? 'La Roja busca su segunda estrella' : 'La Roja vise sa deuxième étoile'),
+        heroPlayer:'Lamine Yamal', heroImg:'assets/final/lamine-yamal-final.jpg',
+        heroSubtitle:(lang==='es' ? 'España se enfrenta a Argentina en una final entre herencia y futuro.' : 'L’Espagne affronte l’Argentine dans une finale entre héritage et futur.')
       });
       forcedResults.spain = (results && results.spain) || FALLBACK_RESULTS.spain;
     }
+    if(TEAM_KEY === 'argentina'){
+      forcedNext.argentina = Object.assign({}, forcedNext.argentina || {}, {status:'qualified',tournamentStatus:'qualified',nextMatchId:'final-104',nextOpponent:'spain',currentRound:'FINAL',round:'FINAL',qualifiedRound:'FINAL',stageGroup:'qualified_qf'});
+      forcedMatches['final-104'] = {id:'N104',round:'FINAL',dateParis:'2026-07-19T21:00:00+02:00',stadium:'New York · MetLife Stadium',home:'spain',away:'argentina',label:'🇪🇸 España–Argentina 🇦🇷',note:'Una leyenda frente a un mundo nuevo.'};
+      mergedTeams.argentina = Object.assign({}, mergedTeams.argentina || {}, {teamName:'Argentina',flag:'🇦🇷',supporterName:'Albiceleste'}, {
+        status:'qualified', tournamentStatus:'qualified', nextMatchId:'final-104', nextOpponent:'spain', currentRound:'FINAL', round:'FINAL', qualifiedRound:'FINAL', stageGroup:'qualified_qf',
+        statusLabel:'Final del Mundial 2026', selectorLine:'Final · España–Argentina', tagline:'Messi y la Albiceleste por la cuarta estrella',
+        heroPlayer:'Lionel Messi', heroImg:'assets/final/lionel-messi-final.jpg', playerImg:'assets/final/lionel-messi-final.jpg',
+        heroSubtitle:'Argentina venció 2–1 a Inglaterra y se enfrenta a España en la final.'
+      });
+      forcedResults.argentina = (results && results.argentina) || [];
+    }
     if(TEAM_KEY === 'england'){
-      forcedNext.england = Object.assign({}, forcedNext.england || {}, {status:'qualified',tournamentStatus:'qualified',nextMatchId:'sf-102',nextOpponent:'argentina',currentRound:'SF',round:'SF',qualifiedRound:'SF',stageGroup:'qualified_qf'});
-      forcedMatches['sf-102'] = {id:'N102',round:'SF',dateParis:'2026-07-15T21:00:00+02:00',stadium:lang==='en'?'To be confirmed':'À confirmer',home:'england',away:'argentina',label:lang==='en'?'🏴 England–Argentina 🇦🇷':'🏴 Angleterre–Argentine 🇦🇷',note:lang==='en'?'A World Cup semi-final shaped by history, rivalry and destiny.':'Une demi-finale de mémoire, de revanche et de destin.'};
-      mergedTeams.england = Object.assign({}, mergedTeams.england || {}, FALLBACK_TEAMS.england, lang==='en' ? {
-        teamName:'England',supporterName:'Three Lions',status:'qualified',tournamentStatus:'qualified',nextMatchId:'sf-102',nextOpponent:'argentina',currentRound:'SF',round:'SF',qualifiedRound:'SF',stageGroup:'qualified_qf',
-        statusLabel:'Qualified for the semi-final · next: Argentina',selectorLine:'Semi-finalist · next: Argentina',tagline:'The Three Lions keep marching',heroSubtitle:'England face Argentina in a semi-final shaped by history, rivalry and destiny.'
-      } : {status:'qualified',tournamentStatus:'qualified',nextMatchId:'sf-102',nextOpponent:'argentina',currentRound:'SF',round:'SF',qualifiedRound:'SF',stageGroup:'qualified_qf',statusLabel:'Qualifiée en demi-finale · prochain défi : Argentine',selectorLine:'Qualifiée en demi-finale · prochain défi : Argentine'});
+      forcedNext.england = Object.assign({}, forcedNext.england || {}, {status:'eliminated',tournamentStatus:'eliminated',nextMatchId:null,nextOpponent:null,currentRound:'SF',round:'SF',stageGroup:'eliminated'});
+      forcedMatches['sf-102'] = {id:'N102',round:'SF',home:'england',away:'argentina',homeScore:1,awayScore:2,status:'final',winner:'argentina',label:'🏴 England 1–2 Argentina 🇦🇷',note:'The Three Lions leave the World Cup in the semi-final.'};
+      mergedTeams.england = Object.assign({}, mergedTeams.england || {}, FALLBACK_TEAMS.england, {
+        teamName:'England',supporterName:'Three Lions',status:'eliminated',tournamentStatus:'eliminated',nextMatchId:null,nextOpponent:null,currentRound:'SF',round:'SF',stageGroup:'eliminated',
+        statusLabel:'Eliminated in the semi-final · Argentina 2–1 England',selectorLine:'Eliminated in the semi-final · a proud run ends',tagline:'The Three Lions leave with pride',heroSubtitle:'England’s World Cup journey ends after a 2–1 semi-final defeat to Argentina.'
+      });
       forcedResults.england = (results && results.england) || FALLBACK_RESULTS.england;
     }
     if(TEAM_KEY === 'belgium'){
@@ -5687,22 +5706,22 @@ setTimeout(()=>{
 
 
 
-<script id="qg-v1500-i18n-selector">
-// V15.0.0 — translation of the entry page according to ?lang, manual choice or device language.
+<script id="qg-v1510-i18n-selector">
+// V15.1.0 — translation of the entry page according to ?lang, manual choice or device language.
 (function(){
   const COPY = {
-    fr:{brand:'Mondial Pulse 2026 · V15.0.0', pill:'Phase finale · choisis ton équipe et suis son chemin jusqu’à la finale', kicker:'Bienvenue dans l’app mondiale', title:'Je suis supporter <span>de...</span>', lead:'Retrouve la fiche de ton équipe, ses résultats, son prochain adversaire, le tableau simulable et le parcours complet vers la finale.', qf:'Finaliste et demi-finalistes', live:'Encore en course', out:'Les équipes qui nous ont fait vibrer', global:'Voir la page globale', quick:'Accès rapide France'},
-    en:{brand:'Mondial Pulse 2026 · V15.0.0', pill:'Knockout stage · choose your team and follow its road to the final', kicker:'Welcome to the worldwide app', title:'I support <span>...</span>', lead:'Open your team page, results, next opponent, interactive bracket and full road to the final.', qf:'Finalist and semi-finalists', live:'Still alive', out:'Teams that made us dream', global:'Open global page', quick:'Quick access France'},
-    pt:{brand:'Mondial Pulse 2026 · V15.0.0', pill:'Mata-mata · escolha sua equipe e acompanhe o caminho até à final', kicker:'Bem-vindo ao app mundial', title:'Eu sou torcedor <span>de...</span>', lead:'Veja a página da sua equipe, resultados, próximo adversário, chave simulável e caminho completo até à final.', qf:'Finalista e semifinalistas', live:'Ainda em prova', out:'As equipes que nos fizeram vibrar', global:'Ver página global', quick:'Acesso rápido França'},
-    es:{brand:'Mondial Pulse 2026 · V15.0.0', pill:'Fase final · elige tu equipo y sigue su camino hasta la final', kicker:'Bienvenido a la app mundial', title:'Soy hincha <span>de...</span>', lead:'Consulta la ficha de tu equipo, sus resultados, próximo rival, cuadro simulable y camino completo hasta la final.', qf:'Finalista y semifinalistas', live:'Siguen en carrera', out:'Los equipos que nos hicieron vibrar', global:'Ver página global', quick:'Acceso rápido Francia'},
-    ar:{brand:'Mondial Pulse 2026 · V15.0.0', pill:'الأدوار الإقصائية · اختر فريقك وتابع طريقه إلى النهائي', kicker:'مرحباً بك في التطبيق العالمي', title:'أنا أشجع <span>...</span>', lead:'تابع صفحة فريقك، نتائجه، خصمه القادم، الجدول التفاعلي والطريق الكامل إلى النهائي.', qf:'المتأهل للنهائي ونصف النهائي', live:'ما زالوا في المنافسة', out:'المنتخبات التي منحتنا الإثارة', global:'الصفحة العامة', quick:'فرنسا–المغرب'}
+    fr:{brand:'Mondial Pulse 2026 · V15.1.0', pill:'Phase finale · choisis ton équipe et suis son chemin jusqu’à la finale', kicker:'Bienvenue dans l’app mondiale', title:'Je suis supporter <span>de...</span>', lead:'Retrouve la fiche de ton équipe, ses résultats, son prochain adversaire, le tableau simulable et le parcours complet vers la finale.', qf:'La Finale', live:'Encore en course', out:'Les équipes qui nous ont fait vibrer', global:'Voir la page globale', quick:'Accès rapide France'},
+    en:{brand:'Mondial Pulse 2026 · V15.1.0', pill:'Knockout stage · choose your team and follow its road to the final', kicker:'Welcome to the worldwide app', title:'I support <span>...</span>', lead:'Open your team page, results, next opponent, interactive bracket and full road to the final.', qf:'The Final', live:'Still alive', out:'Teams that made us dream', global:'Open global page', quick:'Quick access France'},
+    pt:{brand:'Mondial Pulse 2026 · V15.1.0', pill:'Mata-mata · escolha sua equipe e acompanhe o caminho até à final', kicker:'Bem-vindo ao app mundial', title:'Eu sou torcedor <span>de...</span>', lead:'Veja a página da sua equipe, resultados, próximo adversário, chave simulável e caminho completo até à final.', qf:'A Final', live:'Ainda em prova', out:'As equipes que nos fizeram vibrar', global:'Ver página global', quick:'Acesso rápido França'},
+    es:{brand:'Mondial Pulse 2026 · V15.1.0', pill:'Fase final · elige tu equipo y sigue su camino hasta la final', kicker:'Bienvenido a la app mundial', title:'Soy hincha <span>de...</span>', lead:'Consulta la ficha de tu equipo, sus resultados, próximo rival, cuadro simulable y camino completo hasta la final.', qf:'La Final', live:'Siguen en carrera', out:'Los equipos que nos hicieron vibrar', global:'Ver página global', quick:'Acceso rápido Francia'},
+    ar:{brand:'Mondial Pulse 2026 · V15.1.0', pill:'الأدوار الإقصائية · اختر فريقك وتابع طريقه إلى النهائي', kicker:'مرحباً بك في التطبيق العالمي', title:'أنا أشجع <span>...</span>', lead:'تابع صفحة فريقك، نتائجه، خصمه القادم، الجدول التفاعلي والطريق الكامل إلى النهائي.', qf:'المتأهل للنهائي ونصف النهائي', live:'ما زالوا في المنافسة', out:'المنتخبات التي منحتنا الإثارة', global:'الصفحة العامة', quick:'فرنسا–المغرب'}
   };
   const TEAM_LINES = {
-    fr:{morocco:'Éliminé en quart · l’Afrique fière des Lions de l’Atlas',france:'Éliminée en demi-finale · Espagne 2–0 France',norway:'Qualifiée en quart · prochain défi : Angleterre',england:'Qualifiée en demi-finale · prochain défi : Argentine',spain:'Première finaliste · attend Angleterre ou Argentine',egypt:'Éliminée · respect aux Pharaons',belgium:'Éliminée en quart · sortie honorable des Diables Rouges',brazil:'Éliminé en huitième · Neymar a marqué pour son dernier Mondial',senegal:'Éliminé en 16e · respect aux Lions',algeria:'Éliminée · respect aux Fennecs'},
-    en:{morocco:'Eliminated in the quarter-finals · Africa is proud',france:'Eliminated in the semi-final · Spain 2–0 France',norway:'Quarter-finalist · next: England',england:'Semi-finalist · next: Argentina',spain:'First finalist · waiting for England or Argentina',egypt:'Eliminated · respect to the Pharaohs',belgium:'Eliminated in the quarter-finals · honourable exit',brazil:'Eliminated in the Round of 16 · Neymar scored in his last World Cup',senegal:'Eliminated in the Round of 32 · respect to the Lions',algeria:'Eliminated · respect to the Fennecs'},
-    pt:{morocco:'Eliminado nas quartas · África orgulhosa',france:'Eliminada na semifinal · Espanha 2–0 França',norway:'Quartas · próximo desafio: Inglaterra',england:'Semifinalista · próximo desafio: Argentina',spain:'Primeira finalista · espera Inglaterra ou Argentina',egypt:'Eliminado · respeito aos Faraós',belgium:'Eliminada nas quartas · saída honrosa',brazil:'Eliminado nos oitavos · Neymar marcou em sua última Copa',senegal:'Eliminado nos 16 avos · respeito aos Leões',algeria:'Eliminada · respeito aos Fennecs'},
-    es:{morocco:'Eliminado en cuartos · África está orgullosa',france:'Eliminada en semifinales · España 2–0 Francia',norway:'Cuartos · próximo reto: Inglaterra',england:'Semifinalista · próximo reto: Argentina',spain:'Primera finalista · espera a Inglaterra o Argentina',egypt:'Eliminado · respeto a los Faraones',belgium:'Eliminada en cuartos · salida honorable',brazil:'Eliminado en octavos · Neymar marcó en su último Mundial',senegal:'Eliminado en dieciseisavos · respeto a los Leones',algeria:'Eliminada · respeto a los Fennecs'},
-    ar:{morocco:'خرج من ربع النهائي · أفريقيا فخورة بأسود الأطلس',france:'خرجت من نصف النهائي · إسبانيا 2–0 فرنسا',norway:'ربع النهائي · التحدي القادم: إنجلترا',england:'ربع النهائي · التحدي القادم: النرويج',spain:'أول المتأهلين للنهائي · تنتظر إنجلترا أو الأرجنتين',egypt:'خرجت · احتراماً للفراعنة',belgium:'خرجت من ربع النهائي · وداع مشرّف',brazil:'خرج في ثمن النهائي · نيمار سجّل في كأسه الأخيرة',senegal:'خرج من دور الـ32 · احترام للأسود',algeria:'خرجت · احتراماً لمحاربي الصحراء'}
+    fr:{morocco:'Éliminé en quart · l’Afrique fière des Lions de l’Atlas',france:'Éliminée en demi-finale · Espagne 2–0 France',norway:'Qualifiée en quart · prochain défi : Angleterre',england:'Eliminated in the semi-final · Argentina 2–1 England',spain:'Finale · Espagne–Argentine',argentina:'Finale · Espagne–Argentine',egypt:'Éliminée · respect aux Pharaons',belgium:'Éliminée en quart · sortie honorable des Diables Rouges',brazil:'Éliminé en huitième · Neymar a marqué pour son dernier Mondial',senegal:'Éliminé en 16e · respect aux Lions',algeria:'Éliminée · respect aux Fennecs'},
+    en:{morocco:'Eliminated in the quarter-finals · Africa is proud',france:'Eliminated in the semi-final · Spain 2–0 France',norway:'Quarter-finalist · next: England',england:'Eliminated in the semi-final · Argentina 2–1 England',spain:'Final · Spain–Argentina',argentina:'Final · Spain–Argentina',egypt:'Eliminated · respect to the Pharaohs',belgium:'Eliminated in the quarter-finals · honourable exit',brazil:'Eliminated in the Round of 16 · Neymar scored in his last World Cup',senegal:'Eliminated in the Round of 32 · respect to the Lions',algeria:'Eliminated · respect to the Fennecs'},
+    pt:{morocco:'Eliminado nas quartas · África orgulhosa',france:'Eliminada na semifinal · Espanha 2–0 França',norway:'Quartas · próximo desafio: Inglaterra',england:'Eliminada na semifinal · Argentina 2–1 Inglaterra',spain:'Final · Espanha–Argentina',argentina:'Final · Espanha–Argentina',egypt:'Eliminado · respeito aos Faraós',belgium:'Eliminada nas quartas · saída honrosa',brazil:'Eliminado nos oitavos · Neymar marcou em sua última Copa',senegal:'Eliminado nos 16 avos · respeito aos Leões',algeria:'Eliminada · respeito aos Fennecs'},
+    es:{morocco:'Eliminado en cuartos · África está orgullosa',france:'Eliminada en semifinales · España 2–0 Francia',norway:'Cuartos · próximo reto: Inglaterra',england:'Eliminada en semifinales · Argentina 2–1 Inglaterra',spain:'Final · España–Argentina',argentina:'Final · España–Argentina',egypt:'Eliminado · respeto a los Faraones',belgium:'Eliminada en cuartos · salida honorable',brazil:'Eliminado en octavos · Neymar marcó en su último Mundial',senegal:'Eliminado en dieciseisavos · respeto a los Leones',algeria:'Eliminada · respeto a los Fennecs'},
+    ar:{morocco:'خرج من ربع النهائي · أفريقيا فخورة بأسود الأطلس',france:'خرجت من نصف النهائي · إسبانيا 2–0 فرنسا',norway:'ربع النهائي · التحدي القادم: إنجلترا',england:'خرجت من نصف النهائي · الأرجنتين 2–1 إنجلترا',spain:'النهائي · إسبانيا–الأرجنتين',argentina:'النهائي · إسبانيا–الأرجنتين',egypt:'خرجت · احتراماً للفراعنة',belgium:'خرجت من ربع النهائي · وداع مشرّف',brazil:'خرج في ثمن النهائي · نيمار سجّل في كأسه الأخيرة',senegal:'خرج من دور الـ32 · احترام للأسود',algeria:'خرجت · احتراماً لمحاربي الصحراء'}
   };
   function lang(){ try{ return (typeof normalizeQGLang==='function') ? normalizeQGLang(requestedLangFromUrl() || currentLang || localStorage.getItem('siteLang') || navigator.language || 'fr') : 'fr'; }catch(e){return 'fr';} }
   function apply(){
@@ -5719,8 +5738,8 @@ setTimeout(()=>{
       const u = new URL(a.href, location.origin);
       const key = u.searchParams.get('team');
       const line=a.querySelector('.qg-team-line');
-      if(key==='spain'){ u.searchParams.set('lang','es'); u.searchParams.set('v', window.BUILD_VERSION_TOKEN || '1500'); a.href='?' + u.searchParams.toString(); }
-      else { u.searchParams.set('v', window.BUILD_VERSION_TOKEN || '1500'); a.href='?' + u.searchParams.toString(); }
+      if(key==='spain'){ u.searchParams.set('lang','es'); u.searchParams.set('v', window.BUILD_VERSION_TOKEN || '1510'); a.href='?' + u.searchParams.toString(); }
+      else { u.searchParams.set('v', window.BUILD_VERSION_TOKEN || '1510'); a.href='?' + u.searchParams.toString(); }
       if(line && lines[key]) line.textContent=lines[key];
     });
     const actions=document.querySelectorAll('.qg-entry-action'); if(actions[0]) actions[0].textContent=c.global; if(actions[1]) actions[1].textContent=c.quick;
@@ -5758,7 +5777,7 @@ if ('serviceWorker' in navigator) {
   document.addEventListener('click', function(e){ const a=e.target.closest && e.target.closest('a.qg-team-card'); if(a) qgTrack('team_card_click',{href:a.getAttribute('href')}); const b=e.target.closest && e.target.closest('.lang-btn'); if(b) qgTrack('lang_click',{lang:b.dataset.langBtn}); }, true);
 })();
 </script>
-<script src="assets/js/computed-team-state.js?v=15.0.0"></script>
+<script src="assets/js/computed-team-state.js?v=15.1.0"></script>
 
 <script id="qg-v1315-final-override">
 (function(){
@@ -5789,7 +5808,7 @@ if ('serviceWorker' in navigator) {
         const line=a.querySelector('.qg-team-line');
         const u = new URL(a.href, location.origin);
         if(key==='spain'){ u.searchParams.set('lang','es'); }
-        u.searchParams.set('v', window.BUILD_VERSION_TOKEN || '1500');
+        u.searchParams.set('v', window.BUILD_VERSION_TOKEN || '1510');
         a.href = '?' + u.searchParams.toString();
         /* France et Espagne sont pilotées par computed-team-state.js en V15. */
 
@@ -5854,7 +5873,7 @@ if ('serviceWorker' in navigator) {
       'El punto más alto fue 2010, en Sudáfrica. España perdió su primer partido, pero apretó el juego, avanzó, asfixió y ganó. El gol de Iniesta ante los Países Bajos quedó como una imagen eterna: la Roja no solo ganó una Copa del Mundo, impuso una época.',
       'Desde entonces, España ha cambiado. El tiki-taka puro dejó paso a una versión más vertical, más joven, más atrevida, pero siempre obsesionada con el control. La pelota sigue siendo su idioma; la presión, su escudo; la paciencia, su veneno.',
       'En 2026, esta España vuelve a oler a gran equipo. Ha ganado con oficio, ha sufrido cuando tocaba sufrir y ya está en la final después de dominar a Francia 2–0. Lamine Yamal simboliza ese nuevo descaro: talento joven, mirada fría y la sensación de que algo puede explotar en cualquier momento.',
-      'Contra Francia, la Roja tomó el balón, el ritmo y el destino. Ahora espera a Inglaterra o Argentina para disputar la final y tenter de convertir su dominio en una segunda estrella mundial.'
+      'Contra Francia, la Roja tomó el balón, el ritmo y el destino. Ahora se enfrenta a Argentina en una final entre una leyenda y un mundo nuevo, con la segunda estrella mundial en juego.'
     ],
     timeline:['2008 · Campeona de Europa, nace una era de dominio.','2010 · Campeona del mundo en Sudáfrica, gol eterno de Iniesta.','2012 · Nueva Euro, la posesión se convierte en poder.','2026 · Yamal brilla, Francia cae 2–0 y España alcanza la final.']
   };
@@ -5865,9 +5884,9 @@ if ('serviceWorker' in navigator) {
     if(lang() !== 'es') return;
     document.title='Mondial Pulse 2026 · España';
     const ht=document.querySelector('.htitle'); if(ht) ht.innerHTML='<span>España</span> — CM 2026';
-    const sk=document.querySelector('.site-kicker'); if(sk) sk.textContent='Primera finalista · espera a Inglaterra o Argentina';
+    const sk=document.querySelector('.site-kicker'); if(sk) sk.textContent='FINAL · ESPAÑA–ARGENTINA';
     const hero=document.querySelector('#hero-title'); if(hero) hero.textContent='🇪🇸 España en la Copa Mundial 2026';
-    const heroSub=document.querySelector('#hero-subtitle'); if(heroSub) heroSub.textContent='España ya está en la final tras dominar a Francia 2–0. La Roja espera ahora a Inglaterra o Argentina.';
+    const heroSub=document.querySelector('#hero-subtitle'); if(heroSub) heroSub.textContent='España se enfrenta a Argentina en una final entre una leyenda y un mundo nuevo.';
     const section=document.querySelector('#histoire-gaindes');
     if(section){
       const sec=section.querySelector('.sec'); if(sec) sec.innerHTML='<img class="section-mascot" src="assets/lion-mascotte.png" alt="Mascotte">' + esc(story.title);
@@ -5876,7 +5895,7 @@ if ('serviceWorker' in navigator) {
       const body=section.querySelector('.story-body');
       if(body){ body.innerHTML=story.paragraphs.map(function(t){return '<p>'+esc(t)+'</p>';}).join('') + '<div class="story-timeline">' + story.timeline.map(function(t){ const parts=String(t).split('·'); return '<div class="story-tile"><b>'+esc(parts.shift().trim())+'</b>'+esc(parts.join('·').trim())+'</div>';}).join('') + '</div>'; }
     }
-    document.querySelectorAll('a.qg-team-card').forEach(function(a){ try{ const u=new URL(a.href, location.origin); if(u.searchParams.get('team')==='spain'){ u.searchParams.set('lang','es'); u.searchParams.set('v', window.BUILD_VERSION_TOKEN || '1500'); a.href='?'+u.searchParams.toString(); } }catch(e){} });
+    document.querySelectorAll('a.qg-team-card').forEach(function(a){ try{ const u=new URL(a.href, location.origin); if(u.searchParams.get('team')==='spain'){ u.searchParams.set('lang','es'); u.searchParams.set('v', window.BUILD_VERSION_TOKEN || '1510'); a.href='?'+u.searchParams.toString(); } }catch(e){} });
   }
   if(document.readyState==='loading') document.addEventListener('DOMContentLoaded', apply, {once:true}); else apply();
   window.addEventListener('load', function(){ setTimeout(apply,400); setTimeout(apply,1400); setTimeout(apply,2600); }, {once:true});
@@ -5887,7 +5906,7 @@ if ('serviceWorker' in navigator) {
 
 <script id="qg-v1400-home-fr-cleanup">
 (function(){
-  const VERSION = window.BUILD_VERSION_TOKEN || '1500';
+  const VERSION = window.BUILD_VERSION_TOKEN || '1510';
   const IS_HOME = (function(){ try{ const p=new URLSearchParams(location.search); return !p.has('team') && p.get('mode') !== 'global' && p.get('mode') !== 'news'; }catch(e){ return false; } })();
   const HAS_EXPLICIT_LANG = (function(){ try{ return new URLSearchParams(location.search).has('lang'); }catch(e){ return false; } })();
   if(IS_HOME && !HAS_EXPLICIT_LANG){
@@ -5942,16 +5961,22 @@ if ('serviceWorker' in navigator) {
       'Au revoir la Suisse. Une sortie digne, une aventure solide, et une Nati qui peut rentrer la tête haute.'
     ]}
   };
+  FAREWELLS.england={title:'🏴 England — the road ends one match from the final', sub:'Eliminated in the semi-final · Argentina 2–1 England', paragraphs:[
+    'England leave the World Cup with disappointment, but also with pride.',
+    'The Three Lions reached the final four through intensity, discipline and a generation capable of competing with the very best. Argentina won the semi-final 2–1, ending the dream one match short of the final.',
+    'Bellingham, Kane and their teammates did not reach the last night, but this run confirmed that England remain a major force on the world stage.',
+    'The result is cruel. The journey still matters.'
+  ]};
   function cleanHome(){
     if(!document.documentElement.classList.contains('qg-selector-active')) return;
     if(!HAS_EXPLICIT_LANG){ document.documentElement.lang='fr'; document.documentElement.dir='ltr'; }
-    const brand=document.querySelector('.qg-entry-brand div, .qg-entry-brand span'); if(brand) brand.textContent='Mondial Pulse 2026 · V'+(window.BUILD_VERSION || '15.0.0');
+    const brand=document.querySelector('.qg-entry-brand div, .qg-entry-brand span'); if(brand) brand.textContent='Mondial Pulse 2026 · V'+(window.BUILD_VERSION || '15.1.0');
     set('.qg-entry-pill','Phase finale · choisis ton équipe et suis son chemin jusqu’à la finale');
     set('.qg-entry-kicker','Bienvenue dans l’app mondiale');
     html('.qg-entry-hero h1','Je suis supporter <span>de...</span>');
     set('.qg-entry-hero p','Choisis ton équipe, suis ses résultats, son prochain adversaire, le tableau final et sa route jusqu’à la finale.');
     document.querySelectorAll('.qg-selector-title').forEach(function(t){
-      if(/Qualified|quarter|Semi-final|Demi|quart|Finaliste/i.test(t.textContent||'')) t.textContent='Finaliste et demi-finalistes';
+      if(/Qualified|quarter|Semi-final|Demi|quart|Finaliste|Final/i.test(t.textContent||'')) t.textContent='La Finale';
       if(/Still alive|Encore en course|Quarts à suivre/i.test(t.textContent||'')){ const group=t.closest('.qg-selector-group'); if(group && !group.querySelector('.qg-team-card')) group.style.display='none'; else t.textContent='Encore en course'; }
       if(/Eliminated|Éliminés|vibrer/i.test(t.textContent||'')) t.textContent='Les équipes qui nous ont fait vibrer';
     });
@@ -5965,9 +5990,9 @@ if ('serviceWorker' in navigator) {
         a.href='?'+u.searchParams.toString();
         const line=a.querySelector('.qg-team-line');
         if(k==='france'){a.className='qg-team-card out'; if(line) line.textContent='Éliminée en demi-finale · Espagne 2–0 France';}
-        if(k==='spain'){a.className='qg-team-card qf'; if(line) line.textContent='Première finaliste · attend l’Angleterre ou l’Argentine';}
-        if(k==='england'){a.className='qg-team-card qf'; if(line) line.textContent='Qualifiée en demi-finale · attend l’Argentine';}
-        if(k==='argentina'){a.className='qg-team-card qf'; if(line) line.textContent='Qualifiée en demi-finale · attend l’Angleterre';}
+        if(k==='spain'){a.className='qg-team-card qf'; if(line) line.textContent='Finale · Espagne–Argentine';}
+        if(k==='england'){a.className='qg-team-card out'; if(line) line.textContent='Eliminated in the semi-final · Argentina 2–1 England';}
+        if(k==='argentina'){a.className='qg-team-card qf'; if(line) line.textContent='Finale · Espagne–Argentine';}
         if(k==='norway'){a.className='qg-team-card out'; if(line) line.textContent='Éliminée en quart · Haaland aura marqué ce Mondial';}
         if(k==='switzerland'){a.className='qg-team-card out'; if(line) line.textContent='Éliminée en quart · une Nati courageuse jusqu’au bout';}
       }catch(e){}
@@ -5986,14 +6011,21 @@ if ('serviceWorker' in navigator) {
   }
   function setNextCardForSemi(){
     const t=team();
-    if(t!=='england' && t!=='argentina') return;
-    const isEnglish=t==='england' && ((params().get('lang')||'').toLowerCase()==='en' || document.documentElement.lang==='en');
-    set('.site-kicker', isEnglish?'Qualified for the semi-final · next: Argentina':(t==='england'?'Qualifiée en demi-finale · attend l’Argentine':'Qualifiée en demi-finale · attend l’Angleterre'));
-    set('#hero-subtitle', isEnglish?'England face Argentina in a semi-final shaped by history, rivalry and destiny.':(t==='england'?'L’Angleterre retrouve l’Argentine dans une demi-finale chargée de mémoire, de revanche et de destin.':'Messi avance vers une possible deuxième finale mondiale consécutive, face à l’Angleterre.'));
-    const label=document.querySelector('#probable-opponent .opp-label'); if(label){ const img=label.querySelector('img') ? label.querySelector('img').outerHTML : ''; label.innerHTML=img+(isEnglish?'Next match':'Prochain match'); }
-    set('#opp-main-name',isEnglish?'🏴 England–Argentina 🇦🇷':'🏴 Angleterre–Argentine 🇦🇷');
-    set('#opp-main-sub',isEnglish?'Wed 15 July · 21:00 · local time':'Mer. 15 juillet · 21:00 · heure locale');
-    const card=document.getElementById('probable-opponent'); if(card) card.title=(isEnglish?'Next match: England–Argentina · Wed 15 July · 21:00':'Prochain match : Angleterre–Argentine · Mer. 15 juillet · 21:00');
+    if(t==='spain' || t==='argentina'){
+      const isES=(params().get('lang')||document.documentElement.lang||'').toLowerCase()==='es';
+      set('.site-kicker', isES?'FINAL · ESPAÑA–ARGENTINA':'FINALE · ESPAGNE–ARGENTINE');
+      set('#hero-subtitle', t==='spain' ? (isES?'España se enfrenta a Argentina en una final entre una leyenda y un mundo nuevo.':'L’Espagne affronte l’Argentine dans une finale entre une légende et un monde nouveau.') : (isES?'Messi y Argentina se enfrentan a España por la cuarta estrella.':'Messi et l’Argentine retrouvent l’Espagne pour une finale historique.'));
+      const label=document.querySelector('#probable-opponent .opp-label'); if(label){ const img=label.querySelector('img') ? label.querySelector('img').outerHTML : ''; label.innerHTML=img+(isES?'La Gran Final':'La Grande Finale'); }
+      set('#opp-main-name',isES?'🇪🇸 España–Argentina 🇦🇷':'🇪🇸 Espagne–Argentine 🇦🇷');
+      set('#opp-main-sub',isES?'Dom. 19 de julio · 21:00 · hora local':'Dim. 19 juillet · 21h00 · heure locale');
+      const card=document.getElementById('probable-opponent'); if(card) card.title=(isES?'Final: España–Argentina':'Finale : Espagne–Argentine');
+      return;
+    }
+    if(t==='england'){
+      set('.site-kicker','Eliminated in the semi-final · Argentina 2–1 England');
+      set('#hero-subtitle','England’s World Cup journey ends one match short of the final.');
+      const countdown=document.getElementById('countdown-card'); if(countdown) countdown.style.display='none';
+    }
   }
   function applyStory(){
     const t=team();
@@ -6038,7 +6070,7 @@ if ('serviceWorker' in navigator) {
 
 
 
-<style id="qg-v1500-final-experience-css">
+<style id="qg-v1510-final-experience-css">
 .qg-final-hero,.qg-final-stage{position:relative;display:block;overflow:hidden;margin:4px 0 30px;padding:28px;border-radius:30px;border:1px solid #fdef4270;background:radial-gradient(circle at 50% -20%,#fdef4240,transparent 38%),radial-gradient(circle at 8% 30%,#00853f45,transparent 38%),radial-gradient(circle at 92% 34%,#e31b2338,transparent 35%),linear-gradient(145deg,#130e03,#06130d 48%,#130608);box-shadow:0 28px 90px #000a,inset 0 0 0 1px #ffffff0b;color:#fff;text-decoration:none}
 .qg-final-shine{position:absolute;inset:-35% -15% auto;height:220px;background:linear-gradient(100deg,transparent,#ffffff18,transparent);transform:rotate(-7deg);pointer-events:none}
 .qg-final-badge{text-align:center;color:#fdef42;font-size:.73rem;font-weight:950;letter-spacing:.2em;text-transform:uppercase}
@@ -6055,7 +6087,7 @@ if ('serviceWorker' in navigator) {
 </style>
 
 
-<style id="qg-v1500-home-evolution-css">
+<style id="qg-v1510-home-evolution-css">
 .qg-final-hero.is-partial,.qg-final-stage.is-partial{border-color:#f5d66f;background:radial-gradient(circle at 50% -10%,#ffe89a55,transparent 38%),radial-gradient(circle at 8% 32%,#aa151b55,transparent 36%),linear-gradient(145deg,#241804,#100b02 52%,#2d0909);box-shadow:0 30px 100px #000c,0 0 50px #d6aa2f24,inset 0 0 0 1px #fff2b51f}
 .qg-final-pending{text-align:center;margin:18px auto 4px;max-width:760px}.qg-final-pending span{display:block;color:#f9d86b;font-size:.68rem;font-weight:950;letter-spacing:.22em;text-transform:uppercase}.qg-final-pending strong{display:block;margin-top:7px;font-family:Oswald,Inter,sans-serif;font-size:clamp(2.1rem,7vw,5.2rem);line-height:.95;text-transform:uppercase;color:#fff7ce;text-shadow:0 8px 30px #000}.qg-final-pending p{margin:10px 0 0;color:#eadba5;font-weight:800}
 .qg-final-team.is-waiting{opacity:.86;padding:18px 10px;border-radius:22px;border:1px dashed #f5d66f66;background:#fff8d908}.qg-final-team.is-waiting span{color:#f5d66f}.qg-final-team.is-waiting strong{font-size:clamp(1rem,3vw,1.8rem);color:#d8cfae}.qg-final-journeys.is-single{grid-template-columns:minmax(0,760px);justify-content:center}

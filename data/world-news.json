@@ -1,8 +1,94 @@
 [
   {
+    "id": "spain-argentina-final-legacy-future",
+    "type": "final",
+    "priority": 1,
+    "image": "assets/news/finale-espagne-argentine-messi-yamal.jpg",
+    "langs": {
+      "fr": {
+        "tag": "La Grande Finale",
+        "title": "Espagne–Argentine : la finale entre une légende et un monde nouveau",
+        "body": "Trois étoiles contre une. Messi face à Lamine Yamal. L’Argentine revient une troisième fois consécutive en finale, tandis qu’une Espagne presque imprenable avance vers le trône avec 13 buts marqués et un seul encaissé.",
+        "article": [
+          "Trois étoiles contre une. Messi face à Lamine Yamal. L’Argentine revient une troisième fois consécutive en finale, tandis qu’une Espagne presque imprenable avance vers le trône avec 13 buts marqués et un seul encaissé. Dimanche, le football pourrait assister à bien plus qu’un sacre : un passage de témoin.",
+          "Il y aura, d’un côté, le poids de l’éternité.",
+          "L’Argentine de Lionel Messi, ses trois étoiles, sa ferveur et cette capacité unique à transformer les grands matchs en morceaux de mythologie. Une équipe qui connaît le chemin des finales, qui sait souffrir sans rompre et qui revient une nouvelle fois au dernier rendez-vous, comme si son histoire refusait de quitter la lumière.",
+          "Et puis, en face, il y aura l’avenir.",
+          "Une Espagne jeune, souveraine, précise comme une horloge et pourtant capable de fulgurances. Une équipe qui a traversé la compétition avec 13 buts inscrits pour un seul encaissé, mêlant maîtrise technique, discipline tactique et insouciance. La Roja ne demande plus la permission d’entrer dans la cour des grands : elle avance déjà comme si le trône lui appartenait.",
+          "Au cœur de cette finale, deux visages résument deux générations.",
+          "Lionel Messi, dernier gardien d’une époque qu’il a façonnée à son image. Lamine Yamal, prodige d’un football nouveau, libre, rapide et sans complexe.",
+          "Ce match ne dira pas seulement qui sera champion du monde. Il dira peut-être où se situe désormais le centre de gravité du football. Messi peut encore ajouter une page immense à une légende qui semblait déjà complète. Mais si Yamal survole cette finale, s’il ose, crée et décide au moment où la planète entière le regarde, il pourrait devenir bien davantage qu’un jeune champion : le symbole des prochaines années du football mondial.",
+          "L’Argentine viendra avec sa mémoire. L’Espagne avec sa promesse. L’une défendra un héritage. L’autre tentera de prendre possession du futur.",
+          "Espagne–Argentine ne sera pas seulement une finale. Ce sera la rencontre entre ce que le football a produit de plus grand et ce qu’il s’apprête peut-être à célébrer demain.",
+          "Le déroulé du match nous dira s’il s’agit encore du règne de Messi. Ou de la première nuit du monde de Lamine Yamal."
+        ]
+      },
+      "en": {
+        "tag": "The Final",
+        "title": "Spain–Argentina: a legend meets a new world",
+        "body": "Three stars against one. Messi faces Lamine Yamal in a final between heritage and the future."
+      },
+      "es": {
+        "tag": "La Gran Final",
+        "title": "España–Argentina: una leyenda frente a un mundo nuevo",
+        "body": "Tres estrellas contra una. Messi frente a Lamine Yamal en una final entre la herencia y el futuro."
+      },
+      "pt": {
+        "tag": "A Grande Final",
+        "title": "Espanha–Argentina: uma lenda diante de um mundo novo",
+        "body": "Três estrelas contra uma. Messi enfrenta Lamine Yamal numa final entre herança e futuro."
+      },
+      "ar": {
+        "tag": "النهائي الكبير",
+        "title": "إسبانيا والأرجنتين: أسطورة في مواجهة عالم جديد",
+        "body": "ثلاث نجوم أمام نجمة واحدة، وميسي في مواجهة لامين يامال في نهائي بين الإرث والمستقبل."
+      }
+    }
+  },
+  {
+    "id": "argentina-beats-england-final",
+    "type": "result",
+    "priority": 2,
+    "image": "assets/news/argentine-angleterre-revanche-1986.png",
+    "langs": {
+      "fr": {
+        "tag": "Résultat · Demi-finale",
+        "title": "L’Argentine bat l’Angleterre 2–1 et rejoint l’Espagne en finale",
+        "body": "L’Albiceleste a gagné le combat des nerfs et de l’histoire. Messi disputera une nouvelle finale mondiale, face à l’Espagne de Lamine Yamal.",
+        "article": [
+          "Argentine 2–1 Angleterre — L’Albiceleste a remporté une demi-finale chargée de mémoire, de tension et de symboles pour rejoindre l’Espagne au dernier rendez-vous du Mondial.",
+          "L’Angleterre a résisté avec l’intensité et la discipline qui l’avaient portée jusque-là. Mais l’Argentine a su imposer cette maturité particulière des équipes qui connaissent les grands rendez-vous : ne pas paniquer, accepter les temps faibles et frapper lorsque le match offre son ouverture.",
+          "Quarante ans après le duel mythique de 1986, cette nouvelle confrontation n’a pas reproduit la légende de Maradona. Elle a écrit sa propre histoire : celle d’une Albiceleste qui refuse de quitter le sommet et d’un Lionel Messi encore capable de conduire tout un pays vers la lumière.",
+          "Pour l’Angleterre, la défaite est cruelle. Les Three Lions quittent la compétition aux portes de la finale, après un parcours solide et une génération qui a confirmé qu’elle pouvait regarder les meilleures nations du monde dans les yeux.",
+          "Pour l’Argentine, l’horizon est immense : une troisième finale mondiale consécutive et, désormais, une affiche somptueuse contre l’Espagne. Messi face à Lamine Yamal. Trois étoiles face à une. L’héritage face au futur."
+        ]
+      },
+      "en": {
+        "tag": "Result · Semi-final",
+        "title": "Argentina beat England 2–1 to reach the final",
+        "body": "The Albiceleste win a tense semi-final and set up a World Cup final against Spain."
+      },
+      "es": {
+        "tag": "Resultado · Semifinal",
+        "title": "Argentina vence 2–1 a Inglaterra y alcanza la final",
+        "body": "La Albiceleste gana una semifinal intensa y se cita con España."
+      },
+      "pt": {
+        "tag": "Resultado · Semifinal",
+        "title": "Argentina vence a Inglaterra por 2–1 e chega à final",
+        "body": "A Albiceleste supera uma semifinal tensa e vai enfrentar a Espanha."
+      },
+      "ar": {
+        "tag": "النتيجة · نصف النهائي",
+        "title": "الأرجنتين تهزم إنجلترا 2–1 وتبلغ النهائي",
+        "body": "الأرجنتين تفوز بمباراة متوترة وتضرب موعداً مع إسبانيا في النهائي."
+      }
+    }
+  },
+  {
     "id": "spain-masterclass-france",
     "type": "analysis",
-    "priority": 1,
+    "priority": 3,
     "image": "assets/news/espagne-masterclass-france-0-2.png",
     "langs": {
       "fr": {
@@ -19,32 +105,6 @@
           "Après le match, Didier Deschamps a interrogé publiquement le niveau de l’arbitre. Mais il a également reconnu que son équipe avait été moins dangereuse, techniquement inférieure et que l’Espagne avait « montré quelque chose de plus ». À nos yeux, le procès fait à l’arbitrage est donc mal placé : le penalty a influencé le scénario, certes, mais il n’a ni empêché la France de construire ni obligé les Bleus à rester aussi longtemps sans tir cadré. Le meilleur a gagné, et assez nettement.",
           "Luis de la Fuente a résumé cette performance avec des mots simples : « Ils rendent facile ce qui est difficile. » Le sélectionneur espagnol estime que son groupe a retrouvé l’esprit de l’équipe championne du monde en 2010 : de l’humilité, une ambition partagée et aucun ego placé au-dessus du collectif.",
           "Cette Espagne ne se contente plus de garder le ballon. Elle sait quand accélérer, quand souffrir et, surtout, comment tuer un match. La Roja disputera donc la finale. Et après une telle démonstration, elle ne s’y présentera pas seulement comme finaliste : elle y arrivera comme l’équipe à battre."
-        ]
-      }
-    }
-  },
-  {
-    "id": "argentina-england-1986",
-    "type": "story",
-    "priority": 2,
-    "image": "assets/news/argentine-angleterre-revanche-1986.png",
-    "langs": {
-      "fr": {
-        "tag": "Avant-match · Histoire",
-        "title": "Argentine–Angleterre : la main de Dieu, le poids de l’Histoire et le dernier défi de Messi",
-        "body": "Ce n’est jamais un simple match lorsque l’Argentine affronte l’Angleterre. À Atlanta, deux nations séparées par l’histoire, les blessures et les légendes se retrouvent pour une place en finale contre l’Espagne.",
-        "article": [
-          "Ce n’est jamais un simple match lorsque l’Argentine affronte l’Angleterre. Ce mercredi, à Atlanta, deux nations séparées par l’histoire, les blessures et les légendes se retrouvent pour une place en finale contre l’Espagne.",
-          "Il existe des matchs dont l’importance dépasse le tableau d’affichage. Argentine–Angleterre appartient à cette catégorie rare. À chaque retrouvaille, les mêmes images ressurgissent : les tensions de 1966, la guerre des Malouines en 1982, la main de Diego Maradona en 1986, l’expulsion de David Beckham en 1998, puis sa revanche sur penalty en 2002.",
-          "Mais au centre de cette histoire se trouve toujours le même homme : Diego Armando Maradona.",
-          "Le 22 juin 1986, quatre ans après la guerre des Malouines, l’Argentine et l’Angleterre se retrouvent en quart de finale au stade Azteca. À la 51e minute, Maradona devance Peter Shilton en s’aidant de la main. Après la rencontre, il prononce la phrase qui entrera dans la légende : le but avait été marqué « un peu avec la tête de Maradona et un peu avec la main de Dieu ».",
-          "Quatre minutes plus tard, le génie efface la controverse par l’un des gestes les plus purs jamais vus sur un terrain. Parti de sa propre moitié de terrain, Maradona traverse la défense anglaise, élimine plusieurs adversaires, contourne Shilton et marque. Cette chevauchée sera plus tard élue But du siècle de la Coupe du monde par la FIFA. En quelques minutes, Maradona avait montré ses deux visages : le filou et l’artiste, la transgression et le génie absolu.",
-          "Depuis, chaque Argentine–Angleterre semble rejouer une partie de cette histoire. En 1998, l’Albiceleste élimine les Anglais aux tirs au but après une rencontre électrique. En 2002, David Beckham transforme le penalty de la revanche et contribue à l’élimination prématurée de l’Argentine. Ces confrontations sont rares, mais presque aucune n’est ordinaire.",
-          "Quarante ans après Mexico, Lionel Messi se retrouve face à la même question que celle qui accompagnait Maradona : peut-il prendre une demi-finale mondiale, la placer sous son autorité et écrire un chapitre que l’on racontera encore dans plusieurs décennies ?",
-          "Messi n’a pas besoin d’imiter Maradona. Son football est différent, son époque aussi. Mais le symbole est immense. L’Argentine, championne du monde en titre, poursuit le rêve d’un deuxième sacre consécutif. En face, l’Angleterre de Harry Kane et Jude Bellingham possède la puissance, la jeunesse et la discipline nécessaires pour atteindre sa première finale mondiale depuis son titre de 1966.",
-          "L’Albiceleste s’est qualifiée en battant la Suisse 3–1 ; l’Angleterre a écarté la Norvège 2–1. Les deux sélectionneurs ont tenté de refroidir l’atmosphère. Lionel Scaloni assure qu’il ne s’agit que d’un match de football. Thomas Tuchel sait pourtant que l’Argentine sera nourrie par l’histoire, l’émotion et l’idée d’offrir une nouvelle couronne à Messi. Derrière les discours d’apaisement, personne n’ignore le poids de cette affiche.",
-          "Le football ne réparera pas les blessures de l’histoire et n’effacera pas les mémoires opposées autour des Malouines. Mais pendant quatre-vingt-dix minutes — peut-être davantage — il peut offrir aux deux nations un langage commun : celui de la passion, du respect de l’adversaire et du fair-play.",
-          "En 1986, Maradona avait transformé un quart de finale en mythologie. En 2026, Messi entre à son tour dans l’arène. Saura-t-il écrire face à l’Angleterre l’une des dernières grandes pages de sa légende ?"
         ]
       }
     }
@@ -138,6 +198,32 @@
         "tag": "تحليل",
         "title": "ربع نهائي بثلاث قارات كروية",
         "body": "اكتمل مشهد ربع النهائي، وبقيت ثلاث اتحادات قارية فقط. تمثل المغرب القارة الإفريقية وحدها، بينما تهيمن أوروبا بفرنسا وإسبانيا وبلجيكا والنرويج وإنجلترا وسويسرا. أما أمريكا الجنوبية فتدخل بالأرجنتين بعد عودتها المثيرة أمام مصر."
+      }
+    }
+  },
+  {
+    "id": "argentina-england-1986",
+    "type": "story",
+    "priority": 5,
+    "image": "assets/news/argentine-angleterre-revanche-1986.png",
+    "langs": {
+      "fr": {
+        "tag": "Avant-match · Histoire",
+        "title": "Argentine–Angleterre : la main de Dieu, le poids de l’Histoire et le dernier défi de Messi",
+        "body": "Ce n’est jamais un simple match lorsque l’Argentine affronte l’Angleterre. À Atlanta, deux nations séparées par l’histoire, les blessures et les légendes se retrouvent pour une place en finale contre l’Espagne.",
+        "article": [
+          "Ce n’est jamais un simple match lorsque l’Argentine affronte l’Angleterre. Ce mercredi, à Atlanta, deux nations séparées par l’histoire, les blessures et les légendes se retrouvent pour une place en finale contre l’Espagne.",
+          "Il existe des matchs dont l’importance dépasse le tableau d’affichage. Argentine–Angleterre appartient à cette catégorie rare. À chaque retrouvaille, les mêmes images ressurgissent : les tensions de 1966, la guerre des Malouines en 1982, la main de Diego Maradona en 1986, l’expulsion de David Beckham en 1998, puis sa revanche sur penalty en 2002.",
+          "Mais au centre de cette histoire se trouve toujours le même homme : Diego Armando Maradona.",
+          "Le 22 juin 1986, quatre ans après la guerre des Malouines, l’Argentine et l’Angleterre se retrouvent en quart de finale au stade Azteca. À la 51e minute, Maradona devance Peter Shilton en s’aidant de la main. Après la rencontre, il prononce la phrase qui entrera dans la légende : le but avait été marqué « un peu avec la tête de Maradona et un peu avec la main de Dieu ».",
+          "Quatre minutes plus tard, le génie efface la controverse par l’un des gestes les plus purs jamais vus sur un terrain. Parti de sa propre moitié de terrain, Maradona traverse la défense anglaise, élimine plusieurs adversaires, contourne Shilton et marque. Cette chevauchée sera plus tard élue But du siècle de la Coupe du monde par la FIFA. En quelques minutes, Maradona avait montré ses deux visages : le filou et l’artiste, la transgression et le génie absolu.",
+          "Depuis, chaque Argentine–Angleterre semble rejouer une partie de cette histoire. En 1998, l’Albiceleste élimine les Anglais aux tirs au but après une rencontre électrique. En 2002, David Beckham transforme le penalty de la revanche et contribue à l’élimination prématurée de l’Argentine. Ces confrontations sont rares, mais presque aucune n’est ordinaire.",
+          "Quarante ans après Mexico, Lionel Messi se retrouve face à la même question que celle qui accompagnait Maradona : peut-il prendre une demi-finale mondiale, la placer sous son autorité et écrire un chapitre que l’on racontera encore dans plusieurs décennies ?",
+          "Messi n’a pas besoin d’imiter Maradona. Son football est différent, son époque aussi. Mais le symbole est immense. L’Argentine, championne du monde en titre, poursuit le rêve d’un deuxième sacre consécutif. En face, l’Angleterre de Harry Kane et Jude Bellingham possède la puissance, la jeunesse et la discipline nécessaires pour atteindre sa première finale mondiale depuis son titre de 1966.",
+          "L’Albiceleste s’est qualifiée en battant la Suisse 3–1 ; l’Angleterre a écarté la Norvège 2–1. Les deux sélectionneurs ont tenté de refroidir l’atmosphère. Lionel Scaloni assure qu’il ne s’agit que d’un match de football. Thomas Tuchel sait pourtant que l’Argentine sera nourrie par l’histoire, l’émotion et l’idée d’offrir une nouvelle couronne à Messi. Derrière les discours d’apaisement, personne n’ignore le poids de cette affiche.",
+          "Le football ne réparera pas les blessures de l’histoire et n’effacera pas les mémoires opposées autour des Malouines. Mais pendant quatre-vingt-dix minutes — peut-être davantage — il peut offrir aux deux nations un langage commun : celui de la passion, du respect de l’adversaire et du fair-play.",
+          "En 1986, Maradona avait transformé un quart de finale en mythologie. En 2026, Messi entre à son tour dans l’arène. Saura-t-il écrire face à l’Angleterre l’une des dernières grandes pages de sa légende ?"
+        ]
       }
     }
   },

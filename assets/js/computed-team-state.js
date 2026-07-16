@@ -2,8 +2,8 @@
 (function(){
   'use strict';
 
-  const VERSION = (window.BUILD_VERSION || '15.0.0');
-  const VERSION_TOKEN = (window.BUILD_VERSION_TOKEN || String(VERSION).replace(/\D/g,'') || '1500');
+  const VERSION = (window.BUILD_VERSION || '15.1.0');
+  const VERSION_TOKEN = (window.BUILD_VERSION_TOKEN || String(VERSION).replace(/\D/g,'') || '1510');
   const SEMIFINALISTS = new Set(['france','spain','england','argentina']);
   const FEATURED_ORDER = [
     'morocco','france','spain','belgium','norway','england','argentina','switzerland',
@@ -26,7 +26,7 @@
     netherlands:{teamName:'Pays-Bas',flag:'🇳🇱'}, sweden:{teamName:'Suède',flag:'🇸🇪'}, mexico:{teamName:'Mexique',flag:'🇲🇽'},
     ecuador:{teamName:'Équateur',flag:'🇪🇨'}, united_states:{teamName:'États-Unis',flag:'🇺🇸'}, bosnia:{teamName:'Bosnie-Herzégovine',flag:'🇧🇦'},
     austria:{teamName:'Autriche',flag:'🇦🇹'}, portugal:{teamName:'Portugal',flag:'🇵🇹'}, croatia:{teamName:'Croatie',flag:'🇭🇷'},
-    switzerland:{teamName:'Suisse',flag:'🇨🇭',supporterName:'Nati',heroImg:'assets/opponents/switzerland/player.webp',playerImg:'assets/opponents/switzerland/player.webp',heroPlayer:'Granit Xhaka'}, australia:{teamName:'Australie',flag:'🇦🇺'}, argentina:{teamName:'Argentine',flag:'🇦🇷',supporterName:'Albiceleste',heroImg:'assets/opponents/argentina/player.webp',playerImg:'assets/opponents/argentina/player.webp',heroPlayer:'Lionel Messi'},
+    switzerland:{teamName:'Suisse',flag:'🇨🇭',supporterName:'Nati',heroImg:'assets/opponents/switzerland/player.webp',playerImg:'assets/opponents/switzerland/player.webp',heroPlayer:'Granit Xhaka'}, australia:{teamName:'Australie',flag:'🇦🇺'}, argentina:{teamName:'Argentine',flag:'🇦🇷',supporterName:'Albiceleste',heroImg:'assets/final/lionel-messi-final.jpg',playerImg:'assets/final/lionel-messi-final.jpg',heroPlayer:'Lionel Messi'},
     colombia:{teamName:'Colombie',flag:'🇨🇴'}, morocco:{teamName:'Maroc',flag:'🇲🇦'}, france:{teamName:'France',flag:'🇫🇷'},
     spain:{teamName:'Espagne',flag:'🇪🇸'}, norway:{teamName:'Norvège',flag:'🇳🇴'}, england:{teamName:'Angleterre',flag:'🏴󠁧󠁢󠁥󠁮󠁧󠁿',supporterName:'Three Lions',heroImg:'assets/teams/england/player.webp'},
     belgium:{teamName:'Belgique',flag:'🇧🇪'}, egypt:{teamName:'Égypte',flag:'🇪🇬'}, brazil:{teamName:'Brésil',flag:'🇧🇷'},
@@ -41,7 +41,7 @@
     N97:'qf-97', N98:'qf-98', N99:'qf-99', N100:'qf-100', N101:'sf-101', N102:'sf-102', N103:'third-103', N104:'final-104'
   };
 
-  // V15.0.0 — aliases de clés live/API vers l'identifiant KO canonique.
+  // V15.1.0 — aliases de clés live/API vers l'identifiant KO canonique.
   // Objectif : la home doit réagir même si la simulation reçoit `por-esp`, `por-spain`,
   // `usa-bel`, `bel-usa`, `usa-belgium`, etc.
   const KO_ID_BY_KEY = Object.assign(
@@ -52,7 +52,8 @@
       'usa-bel':'N94', 'bel-usa':'N94', 'usa-belgium':'N94', 'belgium-usa':'N94', 'united-states-belgium':'N94', 'us-belgium':'N94',
       'arg-egy':'N95', 'argentina-egypt':'N95', 'arg-egypt':'N95',
       'sui-col':'N96', 'switzerland-colombia':'N96',
-      'qf98':'N98', 'qf-98':'N98', 'qf99':'N99', 'qf-99':'N99', 'nor-eng':'N99', 'norway-england':'N99', 'qf100':'N100', 'qf-100':'N100', 'arg-sui':'N100', 'argentina-switzerland':'N100'
+      'qf98':'N98', 'qf-98':'N98', 'qf99':'N99', 'qf-99':'N99', 'nor-eng':'N99', 'norway-england':'N99', 'qf100':'N100', 'qf-100':'N100', 'arg-sui':'N100', 'argentina-switzerland':'N100',
+      'eng-arg':'N102', 'england-argentina':'N102', 'argentina-england':'N102', 'sf102':'N102', 'sf-102':'N102'
     }
   );
 
@@ -99,10 +100,10 @@
   const ORDER = ['N73','N74','N75','N76','N77','N78','N79','N80','N81','N82','N83','N84','N85','N86','N87','N88','N89','N90','N91','N92','N93','N94','N95','N96','N97','N98','N99','N100','N101','N102','N103','N104'];
 
   const UI = {
-    fr:{qf:'Finaliste et demi-finalistes', live:'Encore en course', out:'Les équipes qui nous ont fait vibrer', global:'Voir la page globale', quick:'', qualified:'Qualifiée', qualifiedM:'Qualifié', eliminated:'Éliminée', eliminatedM:'Éliminé', inRound:'en', next:'prochain défi', wait:'attend', vs:'ou', champion:'Champion simulé', nextMatch:'Prochain match', end:'Fin de parcours', last:'Derniers résultats', nextMatchConfirmed:'Prochain match confirmé', newsTitle:'Les Brèves du Mondial', newsLead:'Analyse, histoires fortes et signaux faibles de la phase finale.', homePill:'Phase finale · choisis ton équipe et suis son chemin jusqu’à la finale', homeKicker:'Bienvenue dans l’app mondiale', homeTitle:'Je suis supporter <span>de...</span>', homeLead:'Choisis ton équipe, suis ses résultats, son prochain adversaire, le tableau final et sa route jusqu’à la finale.', readAllNews:'Lire toutes les brèves'},
-    en:{qf:'Finalist and semi-finalists', live:'Still alive', out:'Teams that made us dream', global:'Open global page', quick:'', qualified:'Qualified', qualifiedM:'Qualified', eliminated:'Eliminated', eliminatedM:'Eliminated', inRound:'for', next:'next challenge', wait:'waiting for', vs:'or', champion:'Champion', nextMatch:'Next match', end:'End of the road', last:'Last results', nextMatchConfirmed:'Next match confirmed', newsTitle:'Les Brèves du Mondial', newsLead:'Récits, analyses et tournants de la phase finale.', homePill:'Knockout stage · choose your team and follow its road to the final', homeKicker:'Welcome to the worldwide app', homeTitle:'I support <span>...</span>', homeLead:'Open your team page, results, next opponent, interactive bracket and full road to the final.', readAllNews:'Lire toutes les brèves'},
-    pt:{qf:'Finalista e semifinalistas', live:'Ainda em prova', out:'As equipes que nos fizeram vibrar', global:'Ver página global', quick:'Acesso rápido França–Marrocos', qualified:'Qualificada', qualifiedM:'Qualificado', eliminated:'Eliminada', eliminatedM:'Eliminado', inRound:'nos', next:'próximo desafio', wait:'aguarda', vs:'ou', champion:'Campeão', nextMatch:'Próximo jogo', end:'Fim do percurso', last:'Últimos resultados', nextMatchConfirmed:'Próximo jogo confirmado', newsTitle:'Notas do Mundial', newsLead:'Análises, histórias fortes e momentos-chave da fase final.', homePill:'Mata-mata · estado das equipes calculado automaticamente', homeKicker:'Bem-vindo ao app mundial', homeTitle:'Eu torço <span>por...</span>', homeLead:'Veja a página da sua equipe, resultados, próximo adversário, chave interativa e caminho até à final.', readAllNews:'Ler todas as notas'},
-    es:{qf:'Finalista y semifinalistas', live:'Siguen en carrera', out:'Los equipos que nos hicieron vibrar', global:'Ver página global', quick:'Acceso rápido Francia–Marruecos', qualified:'Clasificada', qualifiedM:'Clasificado', eliminated:'Eliminada', eliminatedM:'Eliminado', inRound:'en', next:'próximo reto', wait:'espera a', vs:'o', champion:'Campeón', nextMatch:'Próximo partido', end:'Fin del recorrido', last:'Últimos resultados', nextMatchConfirmed:'Próximo partido confirmado', newsTitle:'Breves del Mundial', newsLead:'Historias, análisis y puntos de inflexión de la fase final.', homePill:'Eliminatorias · estado calculado automáticamente', homeKicker:'Bienvenido a la app mundial', homeTitle:'Soy hincha <span>de...</span>', homeLead:'Consulta la página de tu equipo, resultados, próximo rival, cuadro interactivo y camino a la final.', readAllNews:'Leer todas las breves'},
+    fr:{qf:'La Finale', live:'Encore en course', out:'Les équipes qui nous ont fait vibrer', global:'Voir la page globale', quick:'', qualified:'Qualifiée', qualifiedM:'Qualifié', eliminated:'Éliminée', eliminatedM:'Éliminé', inRound:'en', next:'prochain défi', wait:'attend', vs:'ou', champion:'Champion simulé', nextMatch:'Prochain match', end:'Fin de parcours', last:'Derniers résultats', nextMatchConfirmed:'Prochain match confirmé', newsTitle:'Les Brèves du Mondial', newsLead:'Analyse, histoires fortes et signaux faibles de la phase finale.', homePill:'Phase finale · choisis ton équipe et suis son chemin jusqu’à la finale', homeKicker:'Bienvenue dans l’app mondiale', homeTitle:'Je suis supporter <span>de...</span>', homeLead:'Choisis ton équipe, suis ses résultats, son prochain adversaire, le tableau final et sa route jusqu’à la finale.', readAllNews:'Lire toutes les brèves'},
+    en:{qf:'The Final', live:'Still alive', out:'Teams that made us dream', global:'Open global page', quick:'', qualified:'Qualified', qualifiedM:'Qualified', eliminated:'Eliminated', eliminatedM:'Eliminated', inRound:'for', next:'next challenge', wait:'waiting for', vs:'or', champion:'Champion', nextMatch:'Next match', end:'End of the road', last:'Last results', nextMatchConfirmed:'Next match confirmed', newsTitle:'Les Brèves du Mondial', newsLead:'Récits, analyses et tournants de la phase finale.', homePill:'Knockout stage · choose your team and follow its road to the final', homeKicker:'Welcome to the worldwide app', homeTitle:'I support <span>...</span>', homeLead:'Open your team page, results, next opponent, interactive bracket and full road to the final.', readAllNews:'Lire toutes les brèves'},
+    pt:{qf:'A Final', live:'Ainda em prova', out:'As equipes que nos fizeram vibrar', global:'Ver página global', quick:'Acesso rápido França–Marrocos', qualified:'Qualificada', qualifiedM:'Qualificado', eliminated:'Eliminada', eliminatedM:'Eliminado', inRound:'nos', next:'próximo desafio', wait:'aguarda', vs:'ou', champion:'Campeão', nextMatch:'Próximo jogo', end:'Fim do percurso', last:'Últimos resultados', nextMatchConfirmed:'Próximo jogo confirmado', newsTitle:'Notas do Mundial', newsLead:'Análises, histórias fortes e momentos-chave da fase final.', homePill:'Mata-mata · estado das equipes calculado automaticamente', homeKicker:'Bem-vindo ao app mundial', homeTitle:'Eu torço <span>por...</span>', homeLead:'Veja a página da sua equipe, resultados, próximo adversário, chave interativa e caminho até à final.', readAllNews:'Ler todas as notas'},
+    es:{qf:'La Final', live:'Siguen en carrera', out:'Los equipos que nos hicieron vibrar', global:'Ver página global', quick:'Acceso rápido Francia–Marruecos', qualified:'Clasificada', qualifiedM:'Clasificado', eliminated:'Eliminada', eliminatedM:'Eliminado', inRound:'en', next:'próximo reto', wait:'espera a', vs:'o', champion:'Campeón', nextMatch:'Próximo partido', end:'Fin del recorrido', last:'Últimos resultados', nextMatchConfirmed:'Próximo partido confirmado', newsTitle:'Breves del Mundial', newsLead:'Historias, análisis y puntos de inflexión de la fase final.', homePill:'Eliminatorias · estado calculado automáticamente', homeKicker:'Bienvenido a la app mundial', homeTitle:'Soy hincha <span>de...</span>', homeLead:'Consulta la página de tu equipo, resultados, próximo rival, cuadro interactivo y camino a la final.', readAllNews:'Leer todas las breves'},
     ar:{qf:'المتأهل للنهائي ونصف النهائي', live:'ما زالوا في المنافسة', out:'المنتخبات التي منحتنا الإثارة', global:'عرض الصفحة العامة', quick:'دخول سريع فرنسا–المغرب', qualified:'تأهلت', qualifiedM:'تأهل', eliminated:'أُقصيت', eliminatedM:'أُقصي', inRound:'إلى', next:'التحدي القادم', wait:'ينتظر', vs:'أو', champion:'البطل', nextMatch:'المباراة القادمة', end:'نهاية المشوار', last:'آخر النتائج', nextMatchConfirmed:'تم تأكيد المباراة القادمة', newsTitle:'موجز أخبار المونديال', newsLead:'تحليلات وقصص ولحظات حاسمة من الأدوار الإقصائية.', homePill:'الأدوار الإقصائية · حالة المنتخبات تُحسب تلقائياً', homeKicker:'مرحباً بك في التطبيق العالمي', homeTitle:'أنا أشجع <span>...</span>', homeLead:'تابع صفحة منتخبك ونتائجه وخصمه القادم والطريق الكامل نحو النهائي.', readAllNews:'قراءة كل الأخبار'}
   };
 
@@ -258,7 +259,7 @@
 
     Object.entries((live && live.matches) || {}).forEach(([key, v]) => addEntry(key, v, 'live-json'));
 
-    // V15.0.0 — état réel du moteur KO en mémoire. C'est ce que la simulation utilise.
+    // V15.1.0 — état réel du moteur KO en mémoire. C'est ce que la simulation utilise.
     // La home doit lire cette source prioritaire pour ne plus attendre un nouveau déploiement.
     try {
       if (typeof KNOCKOUT_LIVE_RESULTS !== 'undefined' && KNOCKOUT_LIVE_RESULTS) {
@@ -594,15 +595,71 @@ function newsHref(id){
     return `<div class="qg-final-countdown" data-final-countdown><div class="qg-final-countdown-label">${esc(c.countdown)}</div><div class="qg-final-boxes"><span><b data-final-days>00</b><small>J</small></span><span><b data-final-hours>00</b><small>H</small></span><span><b data-final-minutes>00</b><small>MIN</small></span><span><b data-final-seconds>00</b><small>SEC</small></span></div></div>`;
   }
 
+  function localizedTeamHref(key){
+    const p = new URLSearchParams(), lang = activeLang();
+    p.set('team', key);
+    if(key === 'spain' || key === 'argentina') p.set('lang','es');
+    else if(key === 'england') p.set('lang','en');
+    else if(lang !== 'fr') p.set('lang',lang);
+    p.set('v', VERSION_TOKEN);
+    return '?' + p.toString();
+  }
+
+  function finalPortrait(key){
+    if(key === 'spain') return 'assets/final/lamine-yamal-final.jpg';
+    if(key === 'argentina') return 'assets/final/lionel-messi-final.jpg';
+    return teamImage(key, {});
+  }
+
+  function finalEditorialCopy(){
+    const lang = activeLang();
+    const all = {
+      fr:{
+        title:'Espagne–Argentine : la finale entre une légende et un monde nouveau',
+        lead:'Trois étoiles contre une. Messi face à Lamine Yamal. L’Argentine retrouve une troisième finale mondiale consécutive, tandis qu’une Espagne presque imprenable avance vers le trône avec 13 buts marqués et un seul encaissé.',
+        signature:'L’Argentine viendra avec sa mémoire. L’Espagne avec sa promesse. L’une défendra un héritage. L’autre tentera de prendre possession du futur.',
+        spain:'1 étoile · 13 buts · 1 encaissé', argentina:'3 étoiles · 19 buts · 3e finale consécutive',
+        duel:'Messi × Lamine Yamal', why:'Pourquoi cette finale est historique',
+        facts:['Messi peut encore agrandir une légende déjà complète.','Lamine Yamal peut devenir le symbole des prochaines années du football mondial.','L’Espagne n’a encaissé qu’un but dans toute la compétition.','L’Argentine a inscrit 19 buts et dispute une troisième finale mondiale consécutive.'],
+        paragraphs:[
+          'Il y aura, d’un côté, le poids de l’éternité.',
+          'L’Argentine de Lionel Messi, ses trois étoiles, sa ferveur et cette capacité unique à transformer les grands matchs en morceaux de mythologie. Une équipe qui connaît le chemin des finales, qui sait souffrir sans rompre et qui revient une nouvelle fois au dernier rendez-vous, comme si son histoire refusait de quitter la lumière.',
+          'Et puis, en face, il y aura l’avenir.',
+          'Une Espagne jeune, souveraine, précise comme une horloge et pourtant capable de fulgurances. Une équipe qui a traversé la compétition avec 13 buts inscrits pour un seul encaissé, mêlant maîtrise technique, discipline tactique et insouciance. La Roja ne demande plus la permission d’entrer dans la cour des grands : elle avance déjà comme si le trône lui appartenait.',
+          'Au cœur de cette finale, deux visages résument deux générations. Lionel Messi, dernier gardien d’une époque qu’il a façonnée à son image. Lamine Yamal, prodige d’un football nouveau, libre, rapide et sans complexe.',
+          'Ce match ne dira pas seulement qui sera champion du monde. Il dira peut-être où se situe désormais le centre de gravité du football. Messi peut encore ajouter une page immense à une légende qui semblait déjà complète. Mais si Yamal survole cette finale, s’il ose, crée et décide au moment où la planète entière le regarde, il pourrait devenir bien davantage qu’un jeune champion : le symbole des prochaines années du football mondial.',
+          'Espagne–Argentine ne sera pas seulement une finale. Ce sera la rencontre entre ce que le football a produit de plus grand et ce qu’il s’apprête peut-être à célébrer demain.',
+          'Le déroulé du match nous dira s’il s’agit encore du règne de Messi. Ou de la première nuit du monde de Lamine Yamal.'
+        ]
+      },
+      en:{title:'Spain–Argentina: a legend meets a new world',lead:'Three stars against one. Messi faces Lamine Yamal in a final between heritage and the future.',signature:'Argentina bring their memory. Spain bring their promise.',spain:'1 star · 13 goals · 1 conceded',argentina:'3 stars · 19 goals · third consecutive final',duel:'Messi × Lamine Yamal',why:'Why this final is historic',facts:['Messi can add another page to his legend.','Yamal can become the face of football’s next era.','Spain have conceded only once.','Argentina have scored 19 goals and reach a third consecutive final.'],paragraphs:[]},
+      es:{title:'España–Argentina: una leyenda frente a un mundo nuevo',lead:'Tres estrellas contra una. Messi frente a Lamine Yamal en una final entre la herencia y el futuro.',signature:'Argentina llega con su memoria. España con su promesa.',spain:'1 estrella · 13 goles · 1 encajado',argentina:'3 estrellas · 19 goles · tercera final consecutiva',duel:'Messi × Lamine Yamal',why:'Por qué esta final es histórica',facts:['Messi puede ampliar una leyenda ya completa.','Yamal puede convertirse en el símbolo de la próxima era.','España solo ha encajado un gol.','Argentina ha marcado 19 goles y disputa su tercera final consecutiva.'],paragraphs:[]},
+      pt:{title:'Espanha–Argentina: uma lenda diante de um mundo novo',lead:'Três estrelas contra uma. Messi enfrenta Lamine Yamal numa final entre herança e futuro.',signature:'A Argentina chega com a memória. A Espanha com a promessa.',spain:'1 estrela · 13 gols · 1 sofrido',argentina:'3 estrelas · 19 gols · terceira final consecutiva',duel:'Messi × Lamine Yamal',why:'Por que esta final é histórica',facts:['Messi pode ampliar uma lenda já completa.','Yamal pode simbolizar a próxima era.','A Espanha sofreu apenas um gol.','A Argentina marcou 19 gols e disputa a terceira final seguida.'],paragraphs:[]},
+      ar:{title:'إسبانيا والأرجنتين: أسطورة في مواجهة عالم جديد',lead:'ثلاث نجوم أمام نجمة واحدة، وميسي في مواجهة لامين يامال.',signature:'الأرجنتين تحمل الذاكرة، وإسبانيا تحمل الوعد.',spain:'نجمة · 13 هدفاً · هدف واحد مستقبَل',argentina:'3 نجوم · 19 هدفاً · النهائي الثالث توالياً',duel:'ميسي × لامين يامال',why:'لماذا هذا النهائي تاريخي',facts:['ميسي يستطيع إضافة فصل جديد إلى أسطورته.','يامال قد يصبح رمز الجيل القادم.','إسبانيا استقبلت هدفاً واحداً فقط.','الأرجنتين سجلت 19 هدفاً وتبلغ النهائي الثالث توالياً.'],paragraphs:[]}
+    };
+    return all[lang] || all.fr;
+  }
+
   function finalTeamsHtml(ctx, teams){
     if(!ctx.match || (!ctx.match.home && !ctx.match.away)) return '';
-    const c = finalCopy(), home = ctx.match.home, away = ctx.match.away;
+    const c = finalCopy(), e = finalEditorialCopy(), home = ctx.match.home, away = ctx.match.away;
     const teamBlock = key => {
       const champion = ctx.state === 'final' && ctx.winner === key;
-      return `<div class="qg-final-team${champion ? ' is-champion' : ''}"><span>${esc(teamFlag(key, teams))}</span><strong>${esc(teamName(key, teams))}</strong>${champion ? `<em class="qg-final-team-crown">🏆 ${esc(c.champion)}</em>` : ''}</div>`;
+      const stat = key === 'spain' ? e.spain : key === 'argentina' ? e.argentina : '';
+      return `<a class="qg-final-team${champion ? ' is-champion' : ''}" href="${esc(localizedTeamHref(key))}" aria-label="${esc(teamName(key, teams))}"><span class="qg-final-player"><img src="${esc(finalPortrait(key))}" alt="${esc(teamName(key, teams))}" loading="lazy" decoding="async"></span><span class="qg-final-team-flag">${esc(teamFlag(key, teams))}</span><strong>${esc(teamName(key, teams))}</strong>${stat ? `<small>${esc(stat)}</small>` : ''}${champion ? `<em class="qg-final-team-crown">🏆 ${esc(c.champion)}</em>` : ''}<b class="qg-final-team-link">Voir l’équipe →</b></a>`;
     };
     const waitingBlock = () => `<div class="qg-final-team is-waiting"><span>✦</span><strong>${esc(c.unknownFinalist)}</strong></div>`;
     return `<div class="qg-final-matchup">${home ? teamBlock(home) : waitingBlock()}<div class="qg-final-vs">VS</div>${away ? teamBlock(away) : waitingBlock()}</div>`;
+  }
+
+  function finalFactsHtml(){
+    const e = finalEditorialCopy();
+    return `<section class="qg-final-facts"><div class="qg-final-facts-title">${esc(e.why)}</div><div class="qg-final-facts-grid">${(e.facts || []).map(x=>`<div><span>✦</span><p>${esc(x)}</p></div>`).join('')}</div></section>`;
+  }
+
+  function finalEditorialHtml(full){
+    const e = finalEditorialCopy();
+    return `<div class="qg-final-editorial"><div class="qg-final-duel">${esc(e.duel)}</div><h2>${esc(e.title)}</h2><p class="qg-final-lead">${esc(e.lead)}</p><p class="qg-final-signature">${esc(e.signature)}</p>${full && e.paragraphs && e.paragraphs.length ? `<div class="qg-final-story">${e.paragraphs.map(p=>`<p>${esc(p)}</p>`).join('')}</div>` : ''}</div>`;
   }
 
   function finalJourneyHtml(ctx, teams, teamResults, computed){
@@ -632,7 +689,7 @@ function newsHref(id){
     if(!ctx.match || (!ctx.match.home && !ctx.match.away)) return '';
     const first = ctx.participants && ctx.participants[0];
     const pending = ctx.partial && first ? `<div class="qg-final-pending"><span>${esc(c.firstFinalist)}</span><strong>${esc(teamFlag(first, teams) + ' ' + teamName(first, teams))}</strong><p>${esc(c.waitingOpponent)}</p></div>` : '';
-    return `<a class="qg-final-hero${ctx.partial ? ' is-partial' : ''}" href="${esc(localizedFinalHref())}" aria-label="${esc(c.open)}"><div class="qg-final-shine"></div><div class="qg-final-badge">${esc(c.badge)}</div>${pending}${finalTeamsHtml(ctx, teams)}${finalCountdownHtml(ctx, teams)}<div class="qg-final-date">${esc(c.scheduled)}</div>${finalJourneyHtml(ctx, teams, teamResults, computed)}<span class="qg-final-open">${esc(c.open)} →</span></a>`;
+    return `<section class="qg-final-hero${ctx.partial ? ' is-partial' : ' is-complete'}"><div class="qg-final-shine"></div><div class="qg-final-badge">${esc(c.badge)}</div>${ctx.known ? `<img class="qg-final-poster" src="assets/news/finale-espagne-argentine-messi-yamal.jpg" alt="Espagne–Argentine · Messi face à Lamine Yamal" loading="eager" decoding="async">` : ''}${pending}${ctx.known ? finalEditorialHtml(false) : ''}${finalTeamsHtml(ctx, teams)}${finalCountdownHtml(ctx, teams)}<div class="qg-final-date">${esc(c.scheduled)}</div>${ctx.known ? finalFactsHtml() : finalJourneyHtml(ctx, teams, teamResults, computed)}<a class="qg-final-open" href="${esc(localizedFinalHref())}">${esc(c.open)} →</a></section>`;
   }
 
   function startFinalCountdown(root){
@@ -659,7 +716,7 @@ function newsHref(id){
     if(!selector) return;
     const ctx = finalContext(teams, computed, live), c = finalCopy();
     const homeHref = localizedHomeHref();
-    selector.innerHTML = `<div class="qg-entry-bg"></div><div class="qg-entry-wrap qg-final-page"><div class="qg-entry-top"><a class="qg-entry-brand" href="${esc(homeHref)}"><img src="assets/lion-mascotte.png" alt="Mondial Pulse"><span>Mondial Pulse 2026 · V${esc(VERSION)}</span></a><a class="qg-entry-pill" href="${esc(homeHref)}">${esc(c.back)}</a></div>${(ctx.known || ctx.partial) ? `<section class="qg-final-stage${ctx.partial ? ' is-partial' : ''}"><div class="qg-final-badge">${esc(c.badge)}</div>${ctx.partial && ctx.participants[0] ? `<div class="qg-final-pending"><span>${esc(c.firstFinalist)}</span><strong>${esc(teamFlag(ctx.participants[0], teams) + ' ' + teamName(ctx.participants[0], teams))}</strong><p>${esc(c.waitingOpponent)}</p></div>` : ''}${finalTeamsHtml(ctx, teams)}${finalCountdownHtml(ctx, teams)}<div class="qg-final-date">${esc(c.scheduled)}</div>${finalJourneyHtml(ctx, teams, teamResults, computed)}</section>` : `<section class="qg-final-stage qg-final-waiting"><div class="qg-final-badge">${esc(c.badge)}</div><h1>${esc(c.waiting)}</h1><p>${esc(c.waitingDetail)}</p></section>`}<div class="qg-entry-actions"><a class="qg-entry-action" href="${esc(homeHref)}">${esc(c.back)}</a></div></div>`;
+    selector.innerHTML = `<div class="qg-entry-bg"></div><div class="qg-entry-wrap qg-final-page"><div class="qg-entry-top"><a class="qg-entry-brand" href="${esc(homeHref)}"><img src="assets/lion-mascotte.png" alt="Mondial Pulse"><span>Mondial Pulse 2026 · V${esc(VERSION)}</span></a><a class="qg-entry-pill" href="${esc(homeHref)}">${esc(c.back)}</a></div>${(ctx.known || ctx.partial) ? `<section class="qg-final-stage${ctx.partial ? ' is-partial' : ' is-complete'}"><div class="qg-final-badge">${esc(c.badge)}</div>${ctx.known ? `<img class="qg-final-poster" src="assets/news/finale-espagne-argentine-messi-yamal.jpg" alt="Espagne–Argentine · Messi face à Lamine Yamal">` : ''}${ctx.partial && ctx.participants[0] ? `<div class="qg-final-pending"><span>${esc(c.firstFinalist)}</span><strong>${esc(teamFlag(ctx.participants[0], teams) + ' ' + teamName(ctx.participants[0], teams))}</strong><p>${esc(c.waitingOpponent)}</p></div>` : ''}${ctx.known ? finalEditorialHtml(false) : ''}${finalTeamsHtml(ctx, teams)}${finalCountdownHtml(ctx, teams)}<div class="qg-final-date">${esc(c.scheduled)}</div>${ctx.known ? finalFactsHtml() : ''}${finalJourneyHtml(ctx, teams, teamResults, computed)}${ctx.known ? finalEditorialHtml(true) : ''}</section>` : `<section class="qg-final-stage qg-final-waiting"><div class="qg-final-badge">${esc(c.badge)}</div><h1>${esc(c.waiting)}</h1><p>${esc(c.waitingDetail)}</p></section>`}<div class="qg-entry-actions"><a class="qg-entry-action" href="${esc(homeHref)}">${esc(c.back)}</a></div></div>`;
     startFinalCountdown(selector);
   }
 
@@ -734,6 +791,7 @@ function newsHref(id){
   function renderHome(selector, teams, computed, worldNews, teamResults, live){
     if(!selector) return;
     const lang = activeLang(), c = copy();
+    const homeFinalCtx = finalContext(teams, computed, live);
     const groups = {qf:[], live:[], out:[]};
     FEATURED_ORDER.forEach(key => {
       const s = computed.state[key];
@@ -778,7 +836,7 @@ function newsHref(id){
           <p>${esc(c.homeLead)}</p>
         </div>
         ${finaleHomeCardHtml(teams, computed, teamResults, live)}
-        <div class="qg-selector-group"><h2 class="qg-selector-title">${esc(c.qf)}</h2><div class="qg-team-grid">${groups.qf.map(s=>card(s,'qf')).join('')}</div></div>
+        ${!homeFinalCtx.known && groups.qf.length ? `<div class="qg-selector-group"><h2 class="qg-selector-title">${esc(c.qf)}</h2><div class="qg-team-grid">${groups.qf.map(s=>card(s,'qf')).join('')}</div></div>` : ''}
         ${groups.live.length ? `<div class="qg-selector-group"><h2 class="qg-selector-title">${esc(c.live)}</h2><div class="qg-team-grid">${groups.live.map(s=>card(s,'live')).join('')}</div></div>` : ''}
         ${groups.out.length ? `<details class="qg-farewell-archive"><summary><span class="qg-farewell-copy"><span class="qg-farewell-kicker">Mémoire du Mondial</span><strong>${esc(c.out)}</strong><small>${groups.out.length} équipes · revoir leurs parcours</small></span><span class="qg-farewell-flags">${groups.out.slice(0,8).map(s=>`<i>${esc(s.flag || teamFlag(s.key, teams))}</i>`).join('')}</span><span class="qg-farewell-arrow">⌄</span></summary><div class="qg-farewell-body"><div class="qg-team-grid">${groups.out.map(s=>card(s,'out')).join('')}</div></div></details>` : ''}
         ${worldNewsTeaserHtml(worldNews)}
@@ -940,6 +998,43 @@ function isoForMatch(id){
     const c = copy();
     const title = document.querySelector('.htitle');
     if(title) title.innerHTML = `<span>${esc(s.teamName || teamName(activeTeam, teams))}</span> — CM 2026`;
+    const finalMatch = computed && computed.resolved && computed.resolved.N104;
+    const isFinalist = finalMatch && (activeTeam === finalMatch.home || activeTeam === finalMatch.away);
+    if(isFinalist){
+      const lang = activeLang();
+      const finalTitle = lang === 'es' ? 'FINAL · ESPAÑA–ARGENTINA' : lang === 'en' ? 'FINAL · SPAIN–ARGENTINA' : 'FINALE · ESPAGNE–ARGENTINE';
+      const finalSubtitle = activeTeam === 'spain'
+        ? (lang === 'es' ? 'España se enfrenta a Argentina en una final entre una leyenda y un mundo nuevo.' : 'L’Espagne affronte l’Argentine dans une finale entre une légende et un monde nouveau.')
+        : (lang === 'es' ? 'Messi y Argentina se enfrentan a España por una cuarta estrella.' : 'Messi et l’Argentine retrouvent l’Espagne pour une finale historique.');
+      const kicker = document.querySelector('.site-kicker'); if(kicker) kicker.textContent = finalTitle;
+      const heroSub = document.getElementById('hero-subtitle'); if(heroSub) heroSub.textContent = finalSubtitle;
+      const card = document.getElementById('probable-opponent');
+      if(card){
+        const label = card.querySelector('.opp-label');
+        const main = document.getElementById('opp-main-name');
+        const sub = document.getElementById('opp-main-sub');
+        if(label) label.innerHTML = (label.querySelector('img') ? label.querySelector('img').outerHTML : '') + (lang === 'es' ? 'La Gran Final' : 'La Grande Finale');
+        if(main) main.textContent = lang === 'es' ? '🇪🇸 España–Argentina 🇦🇷' : '🇪🇸 Espagne–Argentine 🇦🇷';
+        if(sub) sub.textContent = lang === 'es' ? 'Dom. 19 de julio · 21:00 · hora local' : 'Dim. 19 juillet · 21h00 · heure locale';
+        document.body.removeAttribute('data-qg-eliminated');
+        patchCountdownPanel(activeTeam, teams, computed, teamResults || {});
+      }
+      return;
+    }
+    if(activeTeam === 'england' && s.status === 'eliminated'){
+      const kicker = document.querySelector('.site-kicker'); if(kicker) kicker.textContent = 'ELIMINATED IN THE SEMI-FINAL · ARGENTINA 2–1 ENGLAND';
+      const heroSub = document.getElementById('hero-subtitle'); if(heroSub) heroSub.textContent = 'England’s World Cup journey ends one match short of the final.';
+      const card = document.getElementById('probable-opponent');
+      if(card){
+        const label = card.querySelector('.opp-label'); const main = document.getElementById('opp-main-name'); const sub = document.getElementById('opp-main-sub');
+        if(label) label.innerHTML = (label.querySelector('img') ? label.querySelector('img').outerHTML : '') + 'End of the road';
+        if(main) main.textContent = '🏴 England';
+        if(sub) sub.textContent = 'Eliminated in the semi-final · Argentina 2–1 England';
+        document.body.setAttribute('data-qg-eliminated','true');
+        const cd = document.getElementById('countdown-card'); if(cd) cd.style.display = 'none';
+      }
+      return;
+    }
     const kicker = document.querySelector('.site-kicker');
     if(kicker) kicker.textContent = s.statusLabel || '';
     const heroSub = document.getElementById('hero-subtitle');
@@ -1011,7 +1106,7 @@ async function run(){
 
   window.QG_AUTO_TEAM_STATE_ENGINE = {run, buildState, scheduleRun};
 
-  // V15.0.0 — rebrancher la home sur le vrai flux live.
+  // V15.1.0 — rebrancher la home sur le vrai flux live.
   // `qualifgainde:scoresUpdated` est émis tôt par applyScoresData ; on relance donc plusieurs fois
   // pour passer APRÈS l'écriture de KNOCKOUT_LIVE_RESULTS et la propagation du bracket.
   window.addEventListener('qualifgainde:scoresUpdated', function(){

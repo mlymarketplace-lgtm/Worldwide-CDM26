@@ -435,12 +435,17 @@
       "round": "qf"
     },
     "sf-102": {
-      "home": null,
-      "away": null,
-      "status": "scheduled",
       "koId": "N102",
       "h": "ENG",
       "a": "ARG",
+      "home": 1,
+      "away": 2,
+      "status": "final",
+      "apiStatus": "FT",
+      "apiStatusLong": "Match Finished",
+      "winner": "away",
+      "winnerSide": 1,
+      "locked": true,
       "round": "sf"
     },
     "eng-arg": {
@@ -468,5 +473,5 @@
       "round": "sf"
     }
   },
-  "_note": "V15.0.0 — Espagne première finaliste, Brèves enrichies et Sports Mangara retiré de la home publique."
+  "_note": "V15.1.0 — Finale Espagne–Argentine verrouillée, mode Finale premium actif."
 }
