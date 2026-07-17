@@ -1,0 +1,228 @@
+{
+  "meta": {
+    "updatedAt": "2026-07-09",
+    "note": "Calendrier et résultats structurés pour le prototype Sports Mangara."
+  },
+  "team": {
+    "name": "Sénégal",
+    "nickname": "Lions de la Teranga",
+    "flag": "🇸🇳",
+    "confederation": "CAF",
+    "fifaRank": "18e",
+    "fifaPoints": "1653.43",
+    "bestRankRecent": "12e · janvier 2026",
+    "cafRank": "Top Afrique · à confirmer",
+    "nextMatch": "Prochaine fenêtre internationale à renseigner",
+    "form": "V · V · N · D · D",
+    "headline": "Le cœur de l’app : sélection, coach, calendrier, classement et mémoire des grandes affiches."
+  },
+  "coach": {
+    "name": "Pape Bouna Thiaw",
+    "role": "Sélectionneur national",
+    "photo": "assets/people/pape-thiaw.png",
+    "birth": "5 février 1981 · Dakar",
+    "formerRole": "Ancien attaquant international sénégalais",
+    "appointed": "13 décembre 2024",
+    "philosophy": "Pressing, transitions rapides, 4-3-3 / 4-2-3-1, verticalité maîtrisée.",
+    "achievements": [
+      "Vainqueur du CHAN avec le Sénégal A’",
+      "Meilleur coach du tournoi CHAN",
+      "Ancien membre du staff d’Aliou Cissé",
+      "Ancien joueur de la génération 2002"
+    ],
+    "record": {
+      "matches": "à valider",
+      "wins": "à valider",
+      "draws": "à valider",
+      "losses": "à valider",
+      "trophies": "CHAN"
+    },
+    "timeline": [
+      {
+        "date": "2002",
+        "title": "Génération mondiale",
+        "text": "Présent dans le groupe sénégalais qui marque l’histoire au Mondial 2002."
+      },
+      {
+        "date": "2023",
+        "title": "CHAN remporté",
+        "text": "Titre continental avec l’équipe A’, victoire contre l’Algérie aux tirs au but."
+      },
+      {
+        "date": "2024",
+        "title": "Sélectionneur",
+        "text": "Nommé à la tête des Lions de la Teranga."
+      },
+      {
+        "date": "2026",
+        "title": "Coupe du monde",
+        "text": "Cycle à analyser avec résultats, choix tactiques et gestion du groupe."
+      }
+    ]
+  },
+  "worldCup2026": [
+    {
+      "competition": "Coupe du monde 2026 · Groupe I",
+      "date": "16/06/26",
+      "home": "France",
+      "away": "Sénégal",
+      "score": "3-1",
+      "status": "Terminé",
+      "senegal": "D"
+    },
+    {
+      "competition": "Coupe du monde 2026 · Groupe I",
+      "date": "23/06/26",
+      "home": "Norvège",
+      "away": "Sénégal",
+      "score": "3-2",
+      "status": "Terminé",
+      "senegal": "D"
+    },
+    {
+      "competition": "Coupe du monde 2026 · Groupe I",
+      "date": "26/06/26",
+      "home": "Sénégal",
+      "away": "Iraq",
+      "score": "5-0",
+      "status": "Terminé",
+      "senegal": "V"
+    },
+    {
+      "competition": "Coupe du monde 2026 · 16e de finale",
+      "date": "01/07/26",
+      "home": "Belgique",
+      "away": "Sénégal",
+      "score": "3-2",
+      "status": "AP",
+      "senegal": "D"
+    }
+  ],
+  "fixtures": [
+    {
+      "competition": "CAN · Phase de groupes · J1",
+      "date": "23/12/25",
+      "home": "Sénégal",
+      "away": "Botswana",
+      "score": "3-0",
+      "status": "Terminé",
+      "senegal": "V"
+    },
+    {
+      "competition": "CAN · Phase de groupes · J2",
+      "date": "27/12/25",
+      "home": "Sénégal",
+      "away": "RD Congo",
+      "score": "1-1",
+      "status": "Terminé",
+      "senegal": "N"
+    },
+    {
+      "competition": "CAN · Phase de groupes · J3",
+      "date": "30/12/25",
+      "home": "Bénin",
+      "away": "Sénégal",
+      "score": "0-3",
+      "status": "Terminé",
+      "senegal": "V"
+    },
+    {
+      "competition": "CAN · 8e de finale",
+      "date": "03/01/26",
+      "home": "Sénégal",
+      "away": "Soudan",
+      "score": "3-1",
+      "status": "Terminé",
+      "senegal": "V"
+    },
+    {
+      "competition": "CAN · Quart de finale",
+      "date": "09/01/26",
+      "home": "Mali",
+      "away": "Sénégal",
+      "score": "0-1",
+      "status": "Terminé",
+      "senegal": "V"
+    },
+    {
+      "competition": "CAN · Demi-finale",
+      "date": "14/01/26",
+      "home": "Sénégal",
+      "away": "Égypte",
+      "score": "1-0",
+      "status": "Terminé",
+      "senegal": "V"
+    },
+    {
+      "competition": "CAN · Finale",
+      "date": "18/01/26",
+      "home": "Sénégal",
+      "away": "Maroc",
+      "score": "0-3",
+      "status": "AP",
+      "senegal": "D"
+    },
+    {
+      "competition": "Match amical",
+      "date": "28/03/26",
+      "home": "Sénégal",
+      "away": "Pérou",
+      "score": "2-0",
+      "status": "Terminé",
+      "senegal": "V"
+    },
+    {
+      "competition": "Match amical",
+      "date": "31/03/26",
+      "home": "Sénégal",
+      "away": "Gambie",
+      "score": "3-1",
+      "status": "Terminé",
+      "senegal": "V"
+    },
+    {
+      "competition": "Match amical",
+      "date": "31/05/26",
+      "home": "États-Unis",
+      "away": "Sénégal",
+      "score": "3-2",
+      "status": "Terminé",
+      "senegal": "D"
+    },
+    {
+      "competition": "Match amical",
+      "date": "10/06/26",
+      "home": "Sénégal",
+      "away": "Arabie saoudite",
+      "score": "0-0",
+      "status": "Terminé",
+      "senegal": "N"
+    }
+  ],
+  "groupI": [
+    {
+      "rank": 1,
+      "team": "France",
+      "pts": 9,
+      "gd": 5
+    },
+    {
+      "rank": 2,
+      "team": "Norvège",
+      "pts": 6,
+      "gd": 2
+    },
+    {
+      "rank": 3,
+      "team": "Sénégal",
+      "pts": 3,
+      "gd": 3
+    },
+    {
+      "rank": 4,
+      "team": "Iraq",
+      "pts": 0,
+      "gd": -10
+    }
+  ]
+}

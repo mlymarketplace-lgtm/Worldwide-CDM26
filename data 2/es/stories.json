@@ -1,0 +1,47 @@
+{
+  "egypt": {
+    "title": "Adiós Egipto, con respeto y arrepentimiento",
+    "subtitle": "Los Faraones se van tras rozar la hazaña ante los campeones del mundo.",
+    "paragraphs": [
+      "Egipto deja el Mundial con el corazón pesado, pero la cabeza alta. Ganaba 2–0 a Argentina y estuvo muy cerca de una sorpresa histórica.",
+      "El final dejará dolor. En trece minutos, Argentina dio vuelta un partido que Egipto había preparado casi a la perfección.",
+      "Si este fue el último gran escenario mundialista de Mohamed Salah, se marcha como una leyenda: líder, símbolo y esperanza de todo un país."
+    ],
+    "timeline": [
+      "Egipto 3–1 Nueva Zelanda",
+      "Australia 1–1 Egipto · pen. 2–4",
+      "Argentina 3–2 Egipto",
+      "Fin de un sueño, respeto a los Faraones"
+    ]
+  },
+  "argentina": {
+    "title": "Argentina remonta a Egipto y alcanza los cuartos",
+    "subtitle": "Messi falla, crea, marca y se niega a salir de escena.",
+    "paragraphs": [
+      "Los campeones del mundo temblaron y luego golpearon como los grandes. Abajo 0–2 ante un Egipto disciplinado, Argentina ganó 3–2 en un final espectacular.",
+      "Romero reabrió el partido tras un centro de Messi, y Messi igualó con un remate potente después de haber fallado un penal. En el descuento, Enzo Fernández completó la remontada.",
+      "Argentina sobrevive, Messi llega a ocho goles y Suiza espera en cuartos."
+    ],
+    "timeline": [
+      "Argentina 3–2 Cabo Verde",
+      "Argentina 3–2 Egipto",
+      "Messi llega a 8 goles",
+      "Cuartos · Argentina–Suiza"
+    ]
+  },
+  "switzerland": {
+    "title": "Suiza, la fuerza de la calma",
+    "subtitle": "La Nati avanza en silencio, pero con una frialdad que incomoda a los favoritos.",
+    "paragraphs": [
+      "Suiza sigue avanzando a su manera: calma, orden y dificultad para ser superada. Clasificada por penales, enfrentará a Argentina.",
+      "No siempre deslumbra, pero sabe mantenerse viva, cerrar espacios y esperar su momento.",
+      "Contra Argentina no será favorita, pero tiene el perfil perfecto para hacer incómodo un cuarto de final."
+    ],
+    "timeline": [
+      "Suiza 2–0 Catar",
+      "Bosnia 1–1 Suiza",
+      "Suiza pasa por penales 4–3",
+      "Cuartos · Argentina–Suiza"
+    ]
+  }
+}

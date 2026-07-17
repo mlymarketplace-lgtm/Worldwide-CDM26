@@ -1,0 +1,150 @@
+{
+  "morocco": {
+    "teamName": "المغرب",
+    "statusLabel": "تأهل إلى ربع النهائي · التحدي القادم: فرنسا",
+    "selectorLine": "ربع النهائي · التحدي القادم: فرنسا",
+    "tagline": "أسود الأطلس وطموح قاري",
+    "heroSubtitle": "تأهل أسود الأطلس إلى ربع النهائي بعد الفوز على كندا 3–0. الخطوة القادمة: مواجهة كبيرة أمام فرنسا.",
+    "supporterName": "أسود الأطلس",
+    "roundLabel": "ربع النهائي"
+  },
+  "france": {
+    "teamName": "فرنسا",
+    "statusLabel": "خرجت من نصف النهائي · إسبانيا 2–0 فرنسا",
+    "selectorLine": "خرجت من نصف النهائي · إسبانيا 2–0 فرنسا",
+    "tagline": "الديوك مرشحون للقب",
+    "heroSubtitle": "تغادر فرنسا كأس العالم بعد الخسارة 2–0 أمام إسبانيا.",
+    "supporterName": "الديوك",
+    "roundLabel": "ربع النهائي"
+  },
+  "brazil": {
+    "teamName": "البرازيل",
+    "statusLabel": "خرجت من ثمن النهائي · النرويج 2–1 البرازيل",
+    "selectorLine": "خرجت · نيمار سجّل في كأسه الأخيرة",
+    "tagline": "بلد كرة القدم",
+    "heroSubtitle": "سجّل نيمار للمرة الأخيرة، لكن السيليساو غادر المسرح.",
+    "supporterName": "السيليساو",
+    "roundLabel": "ثمن النهائي"
+  },
+  "norway": {
+    "teamName": "النرويج",
+    "statusLabel": "تأهلت إلى ربع النهائي · التحدي القادم: إنجلترا",
+    "selectorLine": "تأهلت إلى ربع النهائي · التحدي القادم: إنجلترا",
+    "tagline": "قوة هالاند الباردة",
+    "supporterName": "أسود النرويج",
+    "roundLabel": "ربع النهائي"
+  },
+  "spain": {
+    "teamName": "إسبانيا",
+    "statusLabel": "نهائي كأس العالم 2026",
+    "selectorLine": "النهائي · إسبانيا–الأرجنتين",
+    "tagline": "إسبانيا تبحث عن النجمة الثانية",
+    "supporterName": "لا روخا",
+    "heroSubtitle": "إسبانيا تواجه الأرجنتين في نهائي بين الأسطورة والعالم الجديد.",
+    "nextMatchId": "N104",
+    "status": "qualified",
+    "tournamentStatus": "qualified",
+    "currentRound": "F",
+    "qualifiedRound": "F",
+    "stageGroup": "qualified_qf",
+    "nextOpponent": "argentina",
+    "heroPlayer": "لامين يامال",
+    "heroImg": "assets/final/lamine-yamal-final.jpg"
+  },
+  "egypt": {
+    "teamName": "مصر",
+    "statusLabel": "أُقصيت في ثمن النهائي · الأرجنتين 3–2 مصر",
+    "selectorLine": "أُقصيت في ثمن النهائي · حسرة كبيرة",
+    "tagline": "الفراعنة وحلم صلاح",
+    "heroSubtitle": "الفراعنة يدخلون ثمن النهائي بين التاريخ والطموح، ومعهم حلم محمد صلاح في ليلة كبيرة.",
+    "supporterName": "الفراعنة",
+    "flag": "🇪🇬"
+  },
+  "belgium": {
+    "teamName": "بلجيكا",
+    "statusLabel": "تأهلت إلى ثمن النهائي · الولايات المتحدة قادمة",
+    "selectorLine": "تأهلت · الولايات المتحدة قادمة",
+    "tagline": "الشياطين الحمر",
+    "supporterName": "الشياطين الحمر"
+  },
+  "senegal": {
+    "teamName": "السنغال",
+    "statusLabel": "خرجت من دور الـ32",
+    "selectorLine": "خرجت · احتراماً للأسود",
+    "tagline": "قصة الأسود",
+    "supporterName": "الأسود"
+  },
+  "algeria": {
+    "teamName": "الجزائر",
+    "statusLabel": "خرجت من دور الـ32",
+    "selectorLine": "خرجت · احتراماً لمحاربي الصحراء",
+    "tagline": "فخر محاربي الصحراء",
+    "supporterName": "محاربو الصحراء"
+  },
+  "ghana": {
+    "teamName": "غانا",
+    "statusLabel": "خرجت · احتراماً للنجوم السوداء",
+    "selectorLine": "خرجت · احتراماً للنجوم السوداء",
+    "supporterName": "النجوم السوداء"
+  },
+  "cape_verde": {
+    "teamName": "الرأس الأخضر",
+    "statusLabel": "خرجت بشرف",
+    "selectorLine": "خروج بطولي",
+    "supporterName": "القروش الزرقاء"
+  },
+  "ivory_coast": {
+    "teamName": "كوت ديفوار",
+    "statusLabel": "خرجت · احتراماً للأفيال",
+    "selectorLine": "خرجت · احتراماً للأفيال",
+    "supporterName": "الأفيال"
+  },
+  "dr_congo": {
+    "teamName": "الكونغو الديمقراطية",
+    "statusLabel": "خرجت · احتراماً للفهود",
+    "selectorLine": "خرجت · احتراماً للفهود",
+    "supporterName": "الفهود"
+  },
+  "england": {
+    "teamName": "إنجلترا",
+    "selectorLine": "خرجت من نصف النهائي · نهاية مشوار مشرف",
+    "statusLabel": "خرجت من نصف النهائي · الأرجنتين 2–1 إنجلترا",
+    "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+    "tagline": "إنجلترا تغادر بفخر",
+    "heroSubtitle": "ينتهي مشوار إنجلترا على بعد مباراة واحدة من النهائي.",
+    "nextMatchId": null,
+    "nextOpponent": null,
+    "status": "eliminated",
+    "tournamentStatus": "eliminated",
+    "currentRound": "SF",
+    "qualifiedRound": "SF",
+    "stageGroup": "eliminated"
+  },
+  "argentina": {
+    "teamName": "الأرجنتين",
+    "flag": "🇦🇷",
+    "supporterName": "ألبيسيليستي",
+    "heroPlayer": "ليونيل ميسي",
+    "tagline": "ميسي والأرجنتين من أجل النجمة الرابعة",
+    "statusLabel": "نهائي كأس العالم 2026",
+    "selectorLine": "النهائي · إسبانيا–الأرجنتين",
+    "heroSubtitle": "فازت الأرجنتين على إنجلترا 2–1 وتواجه إسبانيا في النهائي.",
+    "nextMatchId": "N104",
+    "nextOpponent": "spain",
+    "status": "qualified",
+    "tournamentStatus": "qualified",
+    "currentRound": "F",
+    "qualifiedRound": "F",
+    "stageGroup": "qualified_qf",
+    "heroImg": "assets/final/lionel-messi-final.jpg",
+    "playerImg": "assets/final/lionel-messi-final.jpg"
+  },
+  "switzerland": {
+    "teamName": "سويسرا",
+    "flag": "🇨🇭",
+    "supporterName": "ناتي",
+    "statusLabel": "تأهلت إلى ربع النهائي · التحدي القادم: الأرجنتين",
+    "selectorLine": "تأهلت إلى ربع النهائي · الأرجنتين قادمة",
+    "heroSubtitle": "حافظت سويسرا على هدوئها في ركلات الترجيح وستواجه الأرجنتين."
+  }
+}

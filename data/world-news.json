@@ -1,5 +1,105 @@
 [
   {
+    "id": "france-england-bronze",
+    "priority": 2,
+    "type": "preview",
+    "category": "world",
+    "image": "assets/news/france-angleterre-petite-finale.jpg",
+    "langs": {
+      "fr": {
+        "tag": "Petite finale · 3e place",
+        "title": "France–Angleterre : le Channel n’a jamais séparé autant de stars",
+        "body": "Harry Kane et Jude Bellingham contre Kylian Mbappé et Ousmane Dembélé, Ballon d’Or 2025. La petite finale ressemble davantage à un sommet européen qu’à un match de consolation. Entre la France et l’Angleterre, même le bronze aura un goût de suprématie.",
+        "article": [
+          "Harry Kane et Jude Bellingham contre Kylian Mbappé et Ousmane Dembélé, Ballon d’Or 2025. La petite finale ressemble davantage à un sommet européen qu’à un match de consolation. Entre la France et l’Angleterre, même le bronze aura un goût de suprématie.",
+          "On pouvait difficilement imaginer affiche plus piquante pour refermer les parcours de deux nations qui rêvaient du titre. La France et l’Angleterre se retrouvent à Miami pour la troisième place, quelques jours seulement après avoir vu l’Espagne et l’Argentine briser leurs rêves de finale. Didier Deschamps disputera à cette occasion son dernier match à la tête des Bleus, tandis que les Anglais tenteront de relever la tête après avoir mené avant de céder 2–1 face à l’Argentine.",
+          "Mais France–Angleterre n’est jamais un simple match. C’est une proximité géographique devenue rivalité sportive, un bras de mer qui sépare deux pays persuadés d’avoir inventé une certaine idée du football. Les deux sélections se sont déjà affrontées à 32 reprises : l’Angleterre conserve l’avantage historique avec 17 victoires, contre 10 pour la France et cinq matchs nuls.",
+          "En Coupe du monde, l’histoire a longtemps souri aux Three Lions. L’Angleterre avait battu la France en 1966, année de son unique titre mondial, puis encore en 1982. Les Bleus ont renversé la tendance en quart de finale du Mondial 2022, avec une victoire 2–1 restée célèbre pour le second penalty manqué par Harry Kane.",
+          "Quatre ans plus tard, Kane retrouve la France avec Jude Bellingham à ses côtés. En face, il y aura Mbappé, mais aussi Ousmane Dembélé, officiellement sacré Ballon d’Or 2025. Ce duel oppose certaines des figures les plus puissantes du football mondial, mais également deux modèles. L’Angleterre revendique la Premier League, son argent, son intensité et sa capacité à attirer les meilleurs joueurs de la planète. La France lui répond par son vivier, sa formation et le récent règne européen du Paris Saint-Germain.",
+          "Car malgré la puissance économique et sportive du championnat anglais, c’est bien le PSG qui a conquis la Ligue des champions 2025. Le club parisien avait dominé l’Inter Milan 5–0 en finale pour décrocher la première C1 de son histoire, avec Dembélé comme l’un des visages de cette campagne. L’Europe des clubs avait alors parlé français.",
+          "Cette petite finale porte donc une grande question : qui peut encore revendiquer la suprématie entre les deux nations les plus riches en talents du continent ? Pour les Bleus, gagner serait offrir une dernière sortie digne à Didier Deschamps et rappeler que l’échec contre l’Espagne n’efface pas tout un tournoi. Pour l’Angleterre, ce serait enfin battre la France dans un grand match récent et transformer une nouvelle désillusion en médaille.",
+          "Le trophée ne sera pas au bout. Mais entre ces deux pays, il n’existe jamais vraiment de petit enjeu. France–Angleterre : même pour le bronze, le Channel sera en feu."
+        ]
+      }
+    }
+  },
+  {
+    "id": "messi-world-cup-records",
+    "priority": 3,
+    "type": "records",
+    "category": "world",
+    "image": "assets/news/messi-records-mondial.png",
+    "langs": {
+      "fr": {
+        "tag": "Records · Coupe du monde",
+        "title": "Messi pulvérise le Mondial : 21 buts, 12 passes et une collection de records",
+        "body": "Lionel Messi ne dispute plus seulement une Coupe du monde : il en réécrit les archives.",
+        "article": [
+          "Lionel Messi ne dispute plus seulement une Coupe du monde. Il en réécrit les archives.",
+          "À 39 ans, le capitaine argentin est devenu le meilleur buteur de l’histoire de la compétition avec 21 réalisations. Après ses deux passes décisives lors de la victoire 2–1 contre l’Angleterre, il possède également le record mondial des passes décisives, avec 12 offrandes. Deux statistiques qui résument à elles seules l’étendue de son influence : Messi peut décider un match en marquant, mais aussi en créant pour les autres.",
+          "Face aux Anglais, il n’a pas trouvé le chemin des filets. Il a pourtant façonné la qualification argentine : une passe pour l’égalisation d’Enzo Fernández, puis un centre pour la tête victorieuse de Lautaro Martínez dans le temps additionnel. Une nouvelle preuve que son génie ne se mesure pas uniquement au nombre de buts.",
+          "Le décompte publié à la veille de la finale le crédite également de 17 distinctions de joueur du match en Coupe du monde, un autre record absolu. Ce chiffre inclut ses récompenses accumulées lors de ses précédentes participations et celles obtenues pendant cette édition 2026.",
+          "Dimanche, Messi aura encore une finale à jouer face à l’Espagne de Lamine Yamal. Peut-être la dernière rencontre internationale de son immense carrière. Il pourrait y améliorer ses chiffres, conquérir une quatrième étoile pour l’Argentine et repousser une nouvelle fois les limites de ce que l’on croyait possible.",
+          "Les records tombent les uns après les autres. Messi, lui, reste debout."
+        ]
+      }
+    }
+  },
+  {
+    "id": "ibrahima-mbaye-europe",
+    "priority": 1,
+    "type": "mercato",
+    "category": "gaindes",
+    "image": "assets/news/ibrahima-mbaye-europe.png",
+    "langs": {
+      "fr": {
+        "tag": "Mercato · Lions",
+        "title": "Ibrahima Mbaye attire les grands d’Europe",
+        "body": "À 18 ans, le jeune ailier sénégalais du PSG est suivi par plusieurs poids lourds européens.",
+        "article": [
+          "À 18 ans, Ibrahima Mbaye suscite déjà l’intérêt de Manchester City, Tottenham et Dortmund. Le jeune ailier sénégalais du PSG chercherait surtout un projet capable de lui offrir davantage de temps de jeu.",
+          "Paris ne serait pas totalement fermé à un départ, mais le dossier s’annonce coûteux. Entre prestige et progression, Mbaye devra surtout choisir le club qui lui donnera une vraie place."
+        ]
+      }
+    }
+  },
+  {
+    "id": "galatasaray-assane-diao",
+    "priority": 2,
+    "type": "mercato",
+    "category": "gaindes",
+    "image": "assets/news/galatasaray-assane-diao.png",
+    "langs": {
+      "fr": {
+        "tag": "Mercato · Lions",
+        "title": "Galatasaray avance sur Assane Diao",
+        "body": "Le club turc travaille sur un prêt avec option d’achat pour l’international sénégalais.",
+        "article": [
+          "Galatasaray négocierait avec Como pour obtenir Assane Diao sous la forme d’un prêt avec option d’achat. Le club turc souhaite renforcer son attaque sans financer immédiatement un transfert définitif.",
+          "Auteur de débuts remarqués en Serie A avant d’être freiné par les blessures, l’international sénégalais pourrait trouver à Istanbul un environnement intense pour relancer sa dynamique."
+        ]
+      }
+    }
+  },
+  {
+    "id": "yoro-mangara-fsf",
+    "priority": 3,
+    "type": "debate",
+    "category": "gaindes",
+    "image": "assets/news/yoro-mangara-fsf.png",
+    "langs": {
+      "fr": {
+        "tag": "Gouvernance · Football sénégalais",
+        "title": "Yoro Mangara réclame la dissolution de la FSF",
+        "body": "Le chroniqueur sportif appelle à une refonte complète de la gouvernance fédérale.",
+        "article": [
+          "Invité de Radio Foot Internationale, Yoro Mangara a violemment critiqué la gouvernance actuelle du football sénégalais. Il estime que la Fédération a perdu le sérieux installé sous Augustin Senghor et accuse ses dirigeants de ternir l’image du pays.",
+          "Le chroniqueur appelle le président Bassirou Diomaye Faye à retirer l’agrément de la FSF, dissoudre l’instance et organiser de nouvelles élections. Une sortie radicale qui relance le débat sur la direction et la crédibilité du football sénégalais."
+        ]
+      }
+    }
+  },
+  {
     "id": "spain-argentina-final-legacy-future",
     "type": "final",
     "priority": 1,
@@ -43,7 +143,8 @@
         "title": "إسبانيا والأرجنتين: أسطورة في مواجهة عالم جديد",
         "body": "ثلاث نجوم أمام نجمة واحدة، وميسي في مواجهة لامين يامال في نهائي بين الإرث والمستقبل."
       }
-    }
+    },
+    "category": "world"
   },
   {
     "id": "argentina-beats-england-final",
@@ -83,7 +184,8 @@
         "title": "الأرجنتين تهزم إنجلترا 2–1 وتبلغ النهائي",
         "body": "الأرجنتين تفوز بمباراة متوترة وتضرب موعداً مع إسبانيا في النهائي."
       }
-    }
+    },
+    "category": "world"
   },
   {
     "id": "spain-masterclass-france",
@@ -107,7 +209,8 @@
           "Cette Espagne ne se contente plus de garder le ballon. Elle sait quand accélérer, quand souffrir et, surtout, comment tuer un match. La Roja disputera donc la finale. Et après une telle démonstration, elle ne s’y présentera pas seulement comme finaliste : elle y arrivera comme l’équipe à battre."
         ]
       }
-    }
+    },
+    "category": "world"
   },
   {
     "id": "football-logic",
@@ -166,7 +269,8 @@
           "تظل الإنجازات المفاجئة ممكنة، لكن هرمية الكرة العالمية تستعيد مكانها غالباً في النهاية."
         ]
       }
-    }
+    },
+    "category": "world"
   },
   {
     "id": "quarter-three-confederations",
@@ -199,7 +303,8 @@
         "title": "ربع نهائي بثلاث قارات كروية",
         "body": "اكتمل مشهد ربع النهائي، وبقيت ثلاث اتحادات قارية فقط. تمثل المغرب القارة الإفريقية وحدها، بينما تهيمن أوروبا بفرنسا وإسبانيا وبلجيكا والنرويج وإنجلترا وسويسرا. أما أمريكا الجنوبية فتدخل بالأرجنتين بعد عودتها المثيرة أمام مصر."
       }
-    }
+    },
+    "category": "world"
   },
   {
     "id": "argentina-england-1986",
@@ -225,7 +330,8 @@
           "En 1986, Maradona avait transformé un quart de finale en mythologie. En 2026, Messi entre à son tour dans l’arène. Saura-t-il écrire face à l’Angleterre l’une des dernières grandes pages de sa légende ?"
         ]
       }
-    }
+    },
+    "category": "world"
   },
   {
     "id": "scandinavian-quake",
@@ -258,7 +364,8 @@
         "title": "زلزال إسكندنافي",
         "body": "حققت النرويج بقيادة هالاند أكبر مفاجآت البطولة بإقصاء البرازيل 2-1. ثنائية متأخرة وصمود بطولي وربع نهائي تاريخي أمام إنجلترا."
       }
-    }
+    },
+    "category": "world"
   },
   {
     "id": "africa-money-time",
@@ -291,7 +398,8 @@
         "title": "لعنة الربع ساعة الأخير",
         "body": "تقدمت مصر 2-0 قبل أن تسقط أمام الأرجنتين. وسبق أن دفع السنغال وكوت ديفوار ثمن الدقائق الأخيرة. اللياقة، دكة البدلاء والتحكم العاطفي أصبحت ملفات واضحة للكرة الإفريقية. المغرب هو الناجي الوحيد."
       }
-    }
+    },
+    "category": "world"
   },
   {
     "id": "amarilla-affair",
@@ -324,7 +432,8 @@
         "title": "قضية أماريا",
         "body": "ألقت تصريحات السيناتورة الباراغوايانية سيليست أماريا العنصرية ضد كيليان مبابي بظلالها على ما بعد مباراة فرنسا وباراغواي. رد قائد فرنسا بحزم وكرامة مؤكداً أن الكراهية لا مكان لها في كرة القدم."
       }
-    }
+    },
+    "category": "world"
   },
   {
     "id": "messi-eight",
@@ -357,7 +466,8 @@
         "title": "ميسي… دائماً ميسي",
         "body": "ركلة جزاء ضائعة، تمريرة حاسمة، هدف تعادل وتأهل صعب: ليونيل ميسي يرفض مغادرة المسرح. بثمانية أهداف في هذا المونديال، تواصل رقصته الأخيرة تحدي الزمن."
       }
-    }
+    },
+    "category": "world"
   },
   {
     "id": "iran-respect",
@@ -390,7 +500,8 @@
         "title": "إيران… مقاومة بكرامة",
         "body": "تغادر إيران البطولة بصورة فريق منظم وشجاع يصعب التعامل معه. لم تستمتع أي منتخبات تقريباً بمواجهة هذا التكتل الصلب والمنضبط."
       }
-    }
+    },
+    "category": "world"
   },
   {
     "id": "olise-fluidity",
@@ -423,7 +534,8 @@
         "title": "أوليس… من يمنح فرنسا السلاسة",
         "body": "مايكل أوليس ليس دائماً الاسم الأعلى صوتاً، لكنه يمنح فرنسا نفساً في اللعب. بين الخطوط وفي المساحات الضيقة، أصبح لاعب توازن ثميناً."
       }
-    }
+    },
+    "category": "world"
   },
   {
     "id": "cape-verde-pride",
@@ -456,7 +568,8 @@
         "title": "الرأس الأخضر… الصغير الذي فرض الاحترام",
         "body": "يغادر منتخب الرأس الأخضر البطولة لكنه لا يغادر الذاكرة. تنظيم وتضامن وشجاعة: لقد أثبتت القروش الزرقاء أنها تستحق هذا المسرح."
       }
-    }
+    },
+    "category": "world"
   },
   {
     "id": "swiss-calm",
@@ -489,6 +602,7 @@
         "title": "سويسرا… قوة الهدوء",
         "body": "تتقدم سويسرا بهدوء ومن دون ضجيج، ببرودة تنافسية لافتة. بعد التأهل بركلات الترجيح، تواجه الأرجنتين في صدام بين العبقرية والتنظيم."
       }
-    }
+    },
+    "category": "world"
   }
 ]

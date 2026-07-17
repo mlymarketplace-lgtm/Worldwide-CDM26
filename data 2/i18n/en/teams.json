@@ -1,0 +1,33 @@
+{
+  "ghana": {
+    "teamName": "Ghana",
+    "tagline": "Black Stars, World Cup memory and ambition",
+    "statusLabel": "Black Stars · World Cup experience and Colombian challenge",
+    "supporterName": "Black Stars",
+    "selectorLine": "Black Stars · Colombia challenge",
+    "heroTitle": "🇬🇭 Ghana at the 2026 World Cup",
+    "heroSubtitle": "World Cup memory, respect and African ambition",
+    "heroPlayer": "Mohammed Kudus"
+  },
+  "spain": {
+    "teamName": "Spain",
+    "tagline": "La Roja, the empire of control",
+    "statusLabel": "Qualified for the Round of 16 · Spain 3–0 Austria",
+    "supporterName": "La Roja",
+    "selectorLine": "Qualified · Portugal next",
+    "heroTitle": "🇪🇸 Spain at the 2026 World Cup",
+    "heroSubtitle": "La Roja controlled Austria: the journey continues.",
+    "heroPlayer": "Rodri"
+  },
+  "portugal_croatia": {
+    "teamName": "Portugal or Croatia",
+    "supporterName": "Winner of Portugal–Croatia",
+    "tagline": "Opponent to be confirmed"
+  },
+  "algeria": {
+    "teamName": "Algeria",
+    "tagline": "The pride of the Fennecs",
+    "statusLabel": "Eliminated in the Round of 32",
+    "selectorLine": "Eliminated · respect to the Fennecs"
+  }
+}

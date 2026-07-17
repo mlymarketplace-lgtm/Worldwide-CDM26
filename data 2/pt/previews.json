@@ -1,0 +1,103 @@
+{
+  "bra-jpn": {
+    "homeTeam": "brazil",
+    "awayTeam": "japan",
+    "matchId": "bra-jpn",
+    "title": "Brasil–Japão: o aluno desafia o mestre",
+    "angle": "O Japão já não é apenas uma equipe simpática. É uma armadilha nobre.",
+    "body": [
+      "Brasil–Japão é um jogo de filiação futebolística. O Japão aprendeu muito com o Brasil: técnicos, ideias de jogo, imaginação e amor pela bola. Mas o aluno cresceu.",
+      "O Japão já não é uma seleção que descobre o alto nível. É uma nação estruturada, disciplinada e capaz de derrubar grandes equipes. Na Copa do Mundo, o precedente é claro: em 2006, o Brasil venceu o Japão por 4–1. Mas 2026 não é 2006.",
+      "Para o Brasil, é uma armadilha nobre: respeitar o adversário sem esquecer sua identidade. Para o Japão, é a chance sonhada de desafiar seu antigo mestre no maior palco do futebol."
+    ]
+  },
+  "bra-nor": {
+    "homeTeam": "brazil",
+    "awayTeam": "norway",
+    "matchId": "bra-nor",
+    "title": "Brasil–Noruega: samba contra tempestade fria",
+    "angle": "O Brasil gosta de ter a bola. A Noruega só precisa de uma abertura — e de um monstro na área.",
+    "body": [
+      "Brasil–Noruega é um contraste puro de Copa do Mundo. De um lado, a Seleção, as cores, a técnica e essa obrigação quase cultural de transformar futebol em espetáculo. Do outro, uma Noruega mais direta, mais vertical, capaz de transformar uma transição em golpe pesado.",
+      "Haaland acabou de marcar de novo. O recado é simples: se o Brasil deixar uma fresta, por menor que seja, a Noruega pode arrombá-la. Para a defesa brasileira, não será apenas um jogo de concentração; será um teste de frieza, força e brutalidade controlada.",
+      "O Brasil continua favorito pela história, pelo talento e pelo peso simbólico da camisa. Mas a Noruega acaba de eliminar a Costa do Marfim e não tem motivo nenhum para baixar os olhos. É o tipo de jogo em que o grande favorito precisa provar que também sabe sofrer."
+    ]
+  },
+  "arg-cpv": {
+    "homeTeam": "argentina",
+    "awayTeam": "cape_verde",
+    "matchId": "arg-cpv",
+    "title": "Argentina–Cabo Verde: o sonho azul diante do monumento Messi",
+    "angle": "Para Cabo Verde, é uma primeira histórica. Para a Argentina, é o tipo de jogo em que um campeão mundial não pode tremer.",
+    "body": [
+      "Argentina–Cabo Verde é um contraste absoluto. De um lado, a campeã mundial, Messi e uma seleção habituada ao peso do destino. Do outro, Cabo Verde, primeira participação, primeiro jogo a eliminar e primeiro grande vertigem mundial.",
+      "Os Tubarões Azuis chegam sem arrogância de favorito, mas com a energia de quem sabe que cada minuto pode virar história.",
+      "A Argentina é favorita, claro. Mas Cabo Verde já conquistou uma coisa: o direito de sonhar no maior palco do futebol."
+    ]
+  },
+  "col-gha": {
+    "homeTeam": "colombia",
+    "awayTeam": "ghana",
+    "matchId": "col-gha",
+    "title": "Colômbia–Ghana: as Black Stars caem com honra",
+    "angle": "A Colômbia avança, o Ghana sai, mas as Black Stars preservam respeito.",
+    "body": [
+      "Colômbia–Ghana terminou 1–0. Os Cafeteros seguem para os oitavos de final.",
+      "Para o Ghana, a eliminação dói, mas não apaga a memória das Black Stars nem o respeito que essa camisa construiu nas Copas do Mundo.",
+      "As Black Stars deixam o torneio de cabeça erguida. A história continua."
+    ]
+  },
+  "porcro-spain": {
+    "homeTeam": "portugal",
+    "awayTeam": "spain",
+    "matchId": "por-spain",
+    "title": "Portugal–Espanha: dérbi ibérico com história acesa",
+    "angle": "Vizinhos, gigantes e futuros coorganizadores do Mundial 2030 com Marrocos: este oitavo tem cheiro de dérbi verdadeiro.",
+    "body": [
+      "Portugal–Espanha nunca é um jogo neutro. É fronteira, memória e rivalidade entre vizinhos que se conhecem demasiado bem.",
+      "Portugal chega depois do 2–1 contra a Croácia. Cristiano Ronaldo continua a ser o símbolo que transforma cada noite portuguesa num acontecimento.",
+      "A Espanha controlou a Áustria por 3–0. A Roja quer a bola, o ritmo e os nervos. Mas contra Portugal, o controlo nunca chega sozinho.",
+      "O histórico acrescenta pimenta: a 11v11 lista 41 encontros, com 18 vitórias espanholas, 16 empates e 7 vitórias portuguesas.",
+      "E 2030 está no fundo da imagem: Espanha, Portugal e Marrocos vão organizar juntos o próximo Mundial. Antes de partilhar o palco, os vizinhos lutam para continuar neste."
+    ]
+  },
+  "por-spain": {
+    "homeTeam": "portugal",
+    "awayTeam": "spain",
+    "matchId": "por-spain",
+    "title": "Portugal–Espanha: dérbi ibérico com história acesa",
+    "angle": "Vizinhos, gigantes e futuros coorganizadores do Mundial 2030 com Marrocos: este oitavo tem cheiro de dérbi verdadeiro.",
+    "body": [
+      "Portugal–Espanha nunca é um jogo neutro. É fronteira, memória e rivalidade entre vizinhos que se conhecem demasiado bem.",
+      "Portugal chega depois do 2–1 contra a Croácia. Cristiano Ronaldo continua a ser o símbolo que transforma cada noite portuguesa num acontecimento.",
+      "A Espanha controlou a Áustria por 3–0. A Roja quer a bola, o ritmo e os nervos. Mas contra Portugal, o controlo nunca chega sozinho.",
+      "O histórico acrescenta pimenta: a 11v11 lista 41 encontros, com 18 vitórias espanholas, 16 empates e 7 vitórias portuguesas.",
+      "E 2030 está no fundo da imagem: Espanha, Portugal e Marrocos vão organizar juntos o próximo Mundial. Antes de partilhar o palco, os vizinhos lutam para continuar neste."
+    ]
+  },
+  "argcpv-egypt": {
+    "homeTeam": "argentina_cape_verde",
+    "awayTeam": "egypt",
+    "matchId": "argcpv-egypt",
+    "title": "Argentina ou Cabo Verde–Egito: os Faraós esperam o destino",
+    "angle": "O Egito sobreviveu ao choque físico contra a Austrália e avançou nos pênaltis. Agora espera Argentina–Cabo Verde já com vaga nos oitavos.",
+    "body": [
+      "Há classificações que se ganham com bola. Outras, com sangue-frio. Contra a Austrália, o Egito resistiu e decidiu nos pênaltis.",
+      "Os Faraós seguem com experiência de torneio: sobreviver, manter a cabeça fria e aproveitar o momento.",
+      "Se vier a Argentina, será Messi e os campeões do mundo. Se vier Cabo Verde, será um duelo africano inesperado e histórico.",
+      "O recado do Egito é claro: os Faraós continuam vivos."
+    ]
+  },
+  "qf-100": {
+    "homeTeam": "argentina",
+    "awayTeam": "switzerland",
+    "matchId": "qf-100",
+    "title": "Argentina–Suíça: Messi contra o muro suíço",
+    "angle": "Um quarto entre a última dança de Messi e a disciplina fria da Suíça.",
+    "body": [
+      "A Argentina traz gênio, emoção e memória de grandes noites. A Suíça traz estrutura, paciência e capacidade de sobreviver em jogos fechados.",
+      "A virada contra o Egito mostrou força mental, mas também fragilidade defensiva nas transições. A Suíça tentará transformar o jogo num duelo tático.",
+      "Um detalhe pode decidir: bola parada, toque de Messi ou lucidez suíça nos minutos finais."
+    ]
+  }
+}

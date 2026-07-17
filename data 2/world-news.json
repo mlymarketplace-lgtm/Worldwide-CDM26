@@ -1,0 +1,494 @@
+[
+  {
+    "id": "spain-argentina-final-legacy-future",
+    "type": "final",
+    "priority": 1,
+    "image": "assets/news/finale-espagne-argentine-messi-yamal.jpg",
+    "langs": {
+      "fr": {
+        "tag": "La Grande Finale",
+        "title": "Espagne–Argentine : la finale entre une légende et un monde nouveau",
+        "body": "Trois étoiles contre une. Messi face à Lamine Yamal. L’Argentine revient une troisième fois consécutive en finale, tandis qu’une Espagne presque imprenable avance vers le trône avec 13 buts marqués et un seul encaissé.",
+        "article": [
+          "Trois étoiles contre une. Messi face à Lamine Yamal. L’Argentine revient une troisième fois consécutive en finale, tandis qu’une Espagne presque imprenable avance vers le trône avec 13 buts marqués et un seul encaissé. Dimanche, le football pourrait assister à bien plus qu’un sacre : un passage de témoin.",
+          "Il y aura, d’un côté, le poids de l’éternité.",
+          "L’Argentine de Lionel Messi, ses trois étoiles, sa ferveur et cette capacité unique à transformer les grands matchs en morceaux de mythologie. Une équipe qui connaît le chemin des finales, qui sait souffrir sans rompre et qui revient une nouvelle fois au dernier rendez-vous, comme si son histoire refusait de quitter la lumière.",
+          "Et puis, en face, il y aura l’avenir.",
+          "Une Espagne jeune, souveraine, précise comme une horloge et pourtant capable de fulgurances. Une équipe qui a traversé la compétition avec 13 buts inscrits pour un seul encaissé, mêlant maîtrise technique, discipline tactique et insouciance. La Roja ne demande plus la permission d’entrer dans la cour des grands : elle avance déjà comme si le trône lui appartenait.",
+          "Au cœur de cette finale, deux visages résument deux générations.",
+          "Lionel Messi, dernier gardien d’une époque qu’il a façonnée à son image. Lamine Yamal, prodige d’un football nouveau, libre, rapide et sans complexe.",
+          "Ce match ne dira pas seulement qui sera champion du monde. Il dira peut-être où se situe désormais le centre de gravité du football. Messi peut encore ajouter une page immense à une légende qui semblait déjà complète. Mais si Yamal survole cette finale, s’il ose, crée et décide au moment où la planète entière le regarde, il pourrait devenir bien davantage qu’un jeune champion : le symbole des prochaines années du football mondial.",
+          "L’Argentine viendra avec sa mémoire. L’Espagne avec sa promesse. L’une défendra un héritage. L’autre tentera de prendre possession du futur.",
+          "Espagne–Argentine ne sera pas seulement une finale. Ce sera la rencontre entre ce que le football a produit de plus grand et ce qu’il s’apprête peut-être à célébrer demain.",
+          "Le déroulé du match nous dira s’il s’agit encore du règne de Messi. Ou de la première nuit du monde de Lamine Yamal."
+        ]
+      },
+      "en": {
+        "tag": "The Final",
+        "title": "Spain–Argentina: a legend meets a new world",
+        "body": "Three stars against one. Messi faces Lamine Yamal in a final between heritage and the future."
+      },
+      "es": {
+        "tag": "La Gran Final",
+        "title": "España–Argentina: una leyenda frente a un mundo nuevo",
+        "body": "Tres estrellas contra una. Messi frente a Lamine Yamal en una final entre la herencia y el futuro."
+      },
+      "pt": {
+        "tag": "A Grande Final",
+        "title": "Espanha–Argentina: uma lenda diante de um mundo novo",
+        "body": "Três estrelas contra uma. Messi enfrenta Lamine Yamal numa final entre herança e futuro."
+      },
+      "ar": {
+        "tag": "النهائي الكبير",
+        "title": "إسبانيا والأرجنتين: أسطورة في مواجهة عالم جديد",
+        "body": "ثلاث نجوم أمام نجمة واحدة، وميسي في مواجهة لامين يامال في نهائي بين الإرث والمستقبل."
+      }
+    }
+  },
+  {
+    "id": "argentina-beats-england-final",
+    "type": "result",
+    "priority": 2,
+    "image": "assets/news/argentine-angleterre-revanche-1986.png",
+    "langs": {
+      "fr": {
+        "tag": "Résultat · Demi-finale",
+        "title": "L’Argentine bat l’Angleterre 2–1 et rejoint l’Espagne en finale",
+        "body": "L’Albiceleste a gagné le combat des nerfs et de l’histoire. Messi disputera une nouvelle finale mondiale, face à l’Espagne de Lamine Yamal.",
+        "article": [
+          "Argentine 2–1 Angleterre — L’Albiceleste a remporté une demi-finale chargée de mémoire, de tension et de symboles pour rejoindre l’Espagne au dernier rendez-vous du Mondial.",
+          "L’Angleterre a résisté avec l’intensité et la discipline qui l’avaient portée jusque-là. Mais l’Argentine a su imposer cette maturité particulière des équipes qui connaissent les grands rendez-vous : ne pas paniquer, accepter les temps faibles et frapper lorsque le match offre son ouverture.",
+          "Quarante ans après le duel mythique de 1986, cette nouvelle confrontation n’a pas reproduit la légende de Maradona. Elle a écrit sa propre histoire : celle d’une Albiceleste qui refuse de quitter le sommet et d’un Lionel Messi encore capable de conduire tout un pays vers la lumière.",
+          "Pour l’Angleterre, la défaite est cruelle. Les Three Lions quittent la compétition aux portes de la finale, après un parcours solide et une génération qui a confirmé qu’elle pouvait regarder les meilleures nations du monde dans les yeux.",
+          "Pour l’Argentine, l’horizon est immense : une troisième finale mondiale consécutive et, désormais, une affiche somptueuse contre l’Espagne. Messi face à Lamine Yamal. Trois étoiles face à une. L’héritage face au futur."
+        ]
+      },
+      "en": {
+        "tag": "Result · Semi-final",
+        "title": "Argentina beat England 2–1 to reach the final",
+        "body": "The Albiceleste win a tense semi-final and set up a World Cup final against Spain."
+      },
+      "es": {
+        "tag": "Resultado · Semifinal",
+        "title": "Argentina vence 2–1 a Inglaterra y alcanza la final",
+        "body": "La Albiceleste gana una semifinal intensa y se cita con España."
+      },
+      "pt": {
+        "tag": "Resultado · Semifinal",
+        "title": "Argentina vence a Inglaterra por 2–1 e chega à final",
+        "body": "A Albiceleste supera uma semifinal tensa e vai enfrentar a Espanha."
+      },
+      "ar": {
+        "tag": "النتيجة · نصف النهائي",
+        "title": "الأرجنتين تهزم إنجلترا 2–1 وتبلغ النهائي",
+        "body": "الأرجنتين تفوز بمباراة متوترة وتضرب موعداً مع إسبانيا في النهائي."
+      }
+    }
+  },
+  {
+    "id": "spain-masterclass-france",
+    "type": "analysis",
+    "priority": 3,
+    "image": "assets/news/espagne-masterclass-france-0-2.png",
+    "langs": {
+      "fr": {
+        "tag": "Demi-finale · Analyse",
+        "title": "L’Espagne sort une masterclass et éteint les Bleus",
+        "body": "Espagne 2–0 France — La Roja s’offre une finale mondiale après une démonstration de maîtrise technique, tactique et collective. La France, sans fraîcheur ni inspiration, n’a jamais véritablement trouvé la clé.",
+        "article": [
+          "Espagne 2–0 France — La Roja s’offre une finale mondiale après une démonstration de maîtrise technique, tactique et collective. La France, sans fraîcheur ni inspiration, n’a jamais véritablement trouvé la clé.",
+          "Ce ne fut pas une demi-finale à suspense. Ce fut une leçon. Une masterclass espagnole, un match d’anthologie non par son scénario, mais par la façon presque clinique dont la Roja a confisqué à la France ses certitudes, son rythme et jusqu’à son imagination.",
+          "Dès les premières minutes, l’Espagne a imposé son football : une circulation rapide, des déplacements constants, une maîtrise du ballon sans précipitation et un pressing parfaitement coordonné à sa perte. Là où les Espagnols semblaient toujours savoir où se trouvait l’espace suivant, les Français ont couru après le ballon et, trop souvent, après leurs propres intentions.",
+          "La récompense est arrivée à la 22e minute. Trouvé dans la surface après un centre de Marc Cucurella, Lamine Yamal a provoqué l’intervention de Lucas Digne et obtenu un penalty transformé par Mikel Oyarzabal. La décision arbitrale pourra toujours être débattue, mais elle ne saurait résumer une rencontre dominée par l’Espagne.",
+          "À l’heure de jeu, Pedro Porro a conclu un superbe mouvement collectif pour porter le score à 2–0 et mettre définitivement les Bleus à distance. La France, qui avait inscrit 16 buts avant cette demi-finale, a dû attendre après la 80e minute pour cadrer sa première frappe.",
+          "Les hommes de Didier Deschamps ont semblé émoussés. Moins précis dans les transmissions, rarement capables de casser les lignes et privés de continuité entre leur milieu et leurs attaquants, ils ont donné l’image d’une équipe sans fraîcheur et sans véritable plan de secours. La sortie sur blessure de William Saliba a aggravé les difficultés, mais elle n’explique pas la pauvreté offensive d’un collectif pourtant riche en talents.",
+          "Après le match, Didier Deschamps a interrogé publiquement le niveau de l’arbitre. Mais il a également reconnu que son équipe avait été moins dangereuse, techniquement inférieure et que l’Espagne avait « montré quelque chose de plus ». À nos yeux, le procès fait à l’arbitrage est donc mal placé : le penalty a influencé le scénario, certes, mais il n’a ni empêché la France de construire ni obligé les Bleus à rester aussi longtemps sans tir cadré. Le meilleur a gagné, et assez nettement.",
+          "Luis de la Fuente a résumé cette performance avec des mots simples : « Ils rendent facile ce qui est difficile. » Le sélectionneur espagnol estime que son groupe a retrouvé l’esprit de l’équipe championne du monde en 2010 : de l’humilité, une ambition partagée et aucun ego placé au-dessus du collectif.",
+          "Cette Espagne ne se contente plus de garder le ballon. Elle sait quand accélérer, quand souffrir et, surtout, comment tuer un match. La Roja disputera donc la finale. Et après une telle démonstration, elle ne s’y présentera pas seulement comme finaliste : elle y arrivera comme l’équipe à battre."
+        ]
+      }
+    }
+  },
+  {
+    "id": "football-logic",
+    "type": "analysis",
+    "priority": 3,
+    "image": "assets/news/football-logique.png",
+    "langs": {
+      "fr": {
+        "tag": "Analyse",
+        "title": "Le football finit souvent par respecter une certaine logique",
+        "body": "Les surprises font le charme d’une Coupe du monde. Mais lorsque la compétition approche de son dénouement, une réalité finit souvent par s’imposer : le football récompense généralement les nations qui dominent durablement le football mondial.",
+        "article": [
+          "Les surprises font le charme d’une Coupe du monde. Mais lorsque la compétition approche de son dénouement, une réalité finit souvent par s’imposer : le football récompense généralement les nations qui dominent durablement le football mondial.",
+          "Le dernier carré de ce Mondial en est une parfaite illustration.",
+          "L’Argentine, championne du monde en titre, confirme qu’elle reste une référence absolue. Portée par un Lionel Messi toujours décisif, l’Albiceleste prouve qu’un champion du monde ne conserve pas son statut par hasard.",
+          "La France, finaliste de la dernière Coupe du monde, poursuit une incroyable régularité au plus haut niveau. Les Bleus enchaînent les grandes compétitions avec une remarquable constance, tandis que le football français s’appuie également sur un Paris Saint-Germain, récent vainqueur de la Ligue des champions, la compétition de clubs la plus relevée de la planète.",
+          "L’Angleterre s’appuie, elle, sur ce que beaucoup considèrent comme le meilleur championnat du monde. La Premier League concentre chaque saison les joueurs les plus talentueux, les effectifs les plus profonds et une intensité que peu de compétitions peuvent égaler. Cette exigence quotidienne forge naturellement des internationaux capables de répondre présents dans les grands rendez-vous.",
+          "Enfin, l’Espagne continue de démontrer que la qualité de sa formation et de ses clubs reste exceptionnelle. La Liga demeure l’un des championnats les plus prestigieux au monde grâce à des géants comme le Real Madrid et le FC Barcelone, rejoints ces dernières années par un Atlético de Madrid toujours compétitif. Depuis plus d’une décennie, ces trois clubs sont des habitués des phases finales de la Ligue des champions et alimentent régulièrement la sélection espagnole en joueurs rompus aux matchs à très haute pression.",
+          "Bien sûr, le football gardera toujours sa part d’imprévu. Mais voir l’Argentine, la France, l’Angleterre et l’Espagne se retrouver dans le dernier carré n’a finalement rien d’un hasard. Ces quatre nations représentent aujourd’hui les championnats, les clubs, les centres de formation et les générations de joueurs qui dominent le football mondial depuis de nombreuses années.",
+          "En Coupe du monde, les exploits existent. Mais au bout du compte, la hiérarchie du football mondial finit souvent par reprendre ses droits."
+        ]
+      },
+      "en": {
+        "tag": "Analysis",
+        "title": "Football often ends up following a certain logic",
+        "body": "World Cups love surprises, but the final stages often reward the nations that dominate the game over time.",
+        "article": [
+          "World Cups thrive on surprises, but the final stages often reward the nations that dominate football over time. Argentina, France, England and Spain embody the strongest recent national teams, clubs and leagues.",
+          "Upsets exist, but at the highest level the global hierarchy often reasserts itself."
+        ]
+      },
+      "es": {
+        "tag": "Análisis",
+        "title": "El fútbol suele terminar respetando cierta lógica",
+        "body": "Las sorpresas alimentan el Mundial, pero al final suelen imponerse las naciones que dominan el fútbol de forma duradera.",
+        "article": [
+          "Las sorpresas hacen grande un Mundial, pero cuando llega el desenlace suelen imponerse las selecciones que dominan el fútbol durante años. Argentina, Francia, Inglaterra y España representan esa continuidad.",
+          "Las hazañas existen, pero la jerarquía mundial suele recuperar sus derechos."
+        ]
+      },
+      "pt": {
+        "tag": "Análise",
+        "title": "O futebol acaba por respeitar uma certa lógica",
+        "body": "As surpresas encantam, mas a reta final costuma premiar as nações que dominam o futebol de forma duradoura.",
+        "article": [
+          "As surpresas fazem parte do Mundial, mas a fase decisiva costuma premiar as seleções que dominam o futebol ao longo do tempo.",
+          "No fim, a hierarquia mundial frequentemente volta a impor-se."
+        ]
+      },
+      "ar": {
+        "tag": "تحليل",
+        "title": "كرة القدم غالباً ما تحترم منطقها في النهاية",
+        "body": "المفاجآت تصنع جمال كأس العالم، لكن الأدوار الأخيرة تكافئ غالباً المنتخبات التي تهيمن على اللعبة باستمرار.",
+        "article": [
+          "تصنع المفاجآت سحر كأس العالم، لكن عندما تقترب البطولة من نهايتها غالباً ما تتفوق المنتخبات التي تهيمن على كرة القدم على المدى الطويل.",
+          "تظل الإنجازات المفاجئة ممكنة، لكن هرمية الكرة العالمية تستعيد مكانها غالباً في النهاية."
+        ]
+      }
+    }
+  },
+  {
+    "id": "quarter-three-confederations",
+    "type": "analysis",
+    "priority": 4,
+    "image": "assets/news/bilan-quarts-finale.webp",
+    "langs": {
+      "fr": {
+        "tag": "Analyse",
+        "title": "Bilan des quarts de finale : un monde en trois blocs",
+        "body": "Le tableau des quarts a dessiné une carte très nette : l’UEFA a dominé la phase finale, la CONMEBOL a survécu grâce à l’Argentine, et le Maroc a longtemps porté seul le drapeau africain. Une photographie du tournoi en trois blocs, avant le dernier carré."
+      },
+      "en": {
+        "tag": "Analysis",
+        "title": "A quarter-final lineup across three confederations",
+        "body": "The quarter-final picture is now complete: only three confederations remain. CAF has one survivor, Morocco. UEFA dominates with France, Spain, Belgium, Norway, England and Switzerland. CONMEBOL relies on Argentina after their dramatic comeback against Egypt. AFC, CONCACAF and OFC are out before the quarter-finals."
+      },
+      "es": {
+        "tag": "Análisis",
+        "title": "Unos cuartos con tres confederaciones",
+        "body": "El cuadro de cuartos ya está completo: solo tres confederaciones siguen representadas. La CAF conserva a Marruecos. La UEFA domina con Francia, España, Bélgica, Noruega, Inglaterra y Suiza. La CONMEBOL cuenta con Argentina tras su remontada ante Egipto. AFC, CONCACAF y OFC quedaron fuera."
+      },
+      "pt": {
+        "tag": "Análise",
+        "title": "Quartos com três confederações",
+        "body": "O quadro dos quartos está completo: apenas três confederações continuam representadas. A CAF mantém Marrocos. A UEFA domina com França, Espanha, Bélgica, Noruega, Inglaterra e Suíça. A CONMEBOL conta com a Argentina depois da virada contra o Egito. AFC, CONCACAF e OFC ficaram pelo caminho."
+      },
+      "ar": {
+        "tag": "تحليل",
+        "title": "ربع نهائي بثلاث قارات كروية",
+        "body": "اكتمل مشهد ربع النهائي، وبقيت ثلاث اتحادات قارية فقط. تمثل المغرب القارة الإفريقية وحدها، بينما تهيمن أوروبا بفرنسا وإسبانيا وبلجيكا والنرويج وإنجلترا وسويسرا. أما أمريكا الجنوبية فتدخل بالأرجنتين بعد عودتها المثيرة أمام مصر."
+      }
+    }
+  },
+  {
+    "id": "argentina-england-1986",
+    "type": "story",
+    "priority": 5,
+    "image": "assets/news/argentine-angleterre-revanche-1986.png",
+    "langs": {
+      "fr": {
+        "tag": "Avant-match · Histoire",
+        "title": "Argentine–Angleterre : la main de Dieu, le poids de l’Histoire et le dernier défi de Messi",
+        "body": "Ce n’est jamais un simple match lorsque l’Argentine affronte l’Angleterre. À Atlanta, deux nations séparées par l’histoire, les blessures et les légendes se retrouvent pour une place en finale contre l’Espagne.",
+        "article": [
+          "Ce n’est jamais un simple match lorsque l’Argentine affronte l’Angleterre. Ce mercredi, à Atlanta, deux nations séparées par l’histoire, les blessures et les légendes se retrouvent pour une place en finale contre l’Espagne.",
+          "Il existe des matchs dont l’importance dépasse le tableau d’affichage. Argentine–Angleterre appartient à cette catégorie rare. À chaque retrouvaille, les mêmes images ressurgissent : les tensions de 1966, la guerre des Malouines en 1982, la main de Diego Maradona en 1986, l’expulsion de David Beckham en 1998, puis sa revanche sur penalty en 2002.",
+          "Mais au centre de cette histoire se trouve toujours le même homme : Diego Armando Maradona.",
+          "Le 22 juin 1986, quatre ans après la guerre des Malouines, l’Argentine et l’Angleterre se retrouvent en quart de finale au stade Azteca. À la 51e minute, Maradona devance Peter Shilton en s’aidant de la main. Après la rencontre, il prononce la phrase qui entrera dans la légende : le but avait été marqué « un peu avec la tête de Maradona et un peu avec la main de Dieu ».",
+          "Quatre minutes plus tard, le génie efface la controverse par l’un des gestes les plus purs jamais vus sur un terrain. Parti de sa propre moitié de terrain, Maradona traverse la défense anglaise, élimine plusieurs adversaires, contourne Shilton et marque. Cette chevauchée sera plus tard élue But du siècle de la Coupe du monde par la FIFA. En quelques minutes, Maradona avait montré ses deux visages : le filou et l’artiste, la transgression et le génie absolu.",
+          "Depuis, chaque Argentine–Angleterre semble rejouer une partie de cette histoire. En 1998, l’Albiceleste élimine les Anglais aux tirs au but après une rencontre électrique. En 2002, David Beckham transforme le penalty de la revanche et contribue à l’élimination prématurée de l’Argentine. Ces confrontations sont rares, mais presque aucune n’est ordinaire.",
+          "Quarante ans après Mexico, Lionel Messi se retrouve face à la même question que celle qui accompagnait Maradona : peut-il prendre une demi-finale mondiale, la placer sous son autorité et écrire un chapitre que l’on racontera encore dans plusieurs décennies ?",
+          "Messi n’a pas besoin d’imiter Maradona. Son football est différent, son époque aussi. Mais le symbole est immense. L’Argentine, championne du monde en titre, poursuit le rêve d’un deuxième sacre consécutif. En face, l’Angleterre de Harry Kane et Jude Bellingham possède la puissance, la jeunesse et la discipline nécessaires pour atteindre sa première finale mondiale depuis son titre de 1966.",
+          "L’Albiceleste s’est qualifiée en battant la Suisse 3–1 ; l’Angleterre a écarté la Norvège 2–1. Les deux sélectionneurs ont tenté de refroidir l’atmosphère. Lionel Scaloni assure qu’il ne s’agit que d’un match de football. Thomas Tuchel sait pourtant que l’Argentine sera nourrie par l’histoire, l’émotion et l’idée d’offrir une nouvelle couronne à Messi. Derrière les discours d’apaisement, personne n’ignore le poids de cette affiche.",
+          "Le football ne réparera pas les blessures de l’histoire et n’effacera pas les mémoires opposées autour des Malouines. Mais pendant quatre-vingt-dix minutes — peut-être davantage — il peut offrir aux deux nations un langage commun : celui de la passion, du respect de l’adversaire et du fair-play.",
+          "En 1986, Maradona avait transformé un quart de finale en mythologie. En 2026, Messi entre à son tour dans l’arène. Saura-t-il écrire face à l’Angleterre l’une des dernières grandes pages de sa légende ?"
+        ]
+      }
+    }
+  },
+  {
+    "id": "scandinavian-quake",
+    "type": "brief",
+    "priority": 5,
+    "image": "assets/news/exploit-historique-norvege.webp",
+    "langs": {
+      "fr": {
+        "tag": "Brève",
+        "title": "Séisme scandinave : l’exploit historique de la Norvège",
+        "body": "La Norvège d’Erling Haaland a signé la plus grande sensation du tournoi en éliminant le Brésil 2-1. Un doublé tardif, une résistance héroïque, et un quart historique face à l’Angleterre."
+      },
+      "en": {
+        "tag": "Brief",
+        "title": "Scandinavian shockwave",
+        "body": "Erling Haaland’s Norway produced the tournament’s biggest upset by knocking out Brazil 2–1. A late double, heroic resistance and a historic quarter-final against England."
+      },
+      "es": {
+        "tag": "Breve",
+        "title": "Terremoto escandinavo",
+        "body": "La Noruega de Haaland firmó la gran sorpresa del torneo al eliminar a Brasil 2-1. Doblete tardío, resistencia heroica y cuartos históricos ante Inglaterra."
+      },
+      "pt": {
+        "tag": "Nota",
+        "title": "Abalo escandinavo",
+        "body": "A Noruega de Haaland conseguiu a maior surpresa do torneio ao eliminar o Brasil por 2–1. Doblete tardio, resistência heroica e quartos históricos contra a Inglaterra."
+      },
+      "ar": {
+        "tag": "خبر",
+        "title": "زلزال إسكندنافي",
+        "body": "حققت النرويج بقيادة هالاند أكبر مفاجآت البطولة بإقصاء البرازيل 2-1. ثنائية متأخرة وصمود بطولي وربع نهائي تاريخي أمام إنجلترا."
+      }
+    }
+  },
+  {
+    "id": "africa-money-time",
+    "type": "brief",
+    "priority": 6,
+    "image": "assets/news/dernier-quart-heure-africain.webp",
+    "langs": {
+      "fr": {
+        "tag": "Tendance",
+        "title": "La malédiction du dernier quart d’heure africain",
+        "body": "L’Égypte menait 2-0 avant de sombrer face à l’Argentine. Sénégal et Côte d’Ivoire avaient déjà craqué dans le money-time. Fraîcheur, banc, gestion émotionnelle : les chantiers africains sont identifiés. Le Maroc reste le seul rescapé."
+      },
+      "en": {
+        "tag": "Trend",
+        "title": "The final-quarter curse",
+        "body": "Egypt led 2–0 before collapsing against Argentina. Senegal and Ivory Coast had already suffered late blows. Fitness, bench depth and emotional control remain key African challenges. Morocco stands alone."
+      },
+      "es": {
+        "tag": "Tendencia",
+        "title": "La maldición del último cuarto de hora",
+        "body": "Egipto ganaba 2-0 antes de caer ante Argentina. Senegal y Costa de Marfil también sufrieron en el tramo final. Físico, banquillo y gestión emocional: los retos africanos están claros. Marruecos resiste."
+      },
+      "pt": {
+        "tag": "Tendência",
+        "title": "A maldição do último quarto de hora",
+        "body": "O Egito vencia por 2–0 antes de cair contra a Argentina. Senegal e Costa do Marfim também sofreram no fim. Físico, banco e gestão emocional seguem como desafios. Marrocos resiste."
+      },
+      "ar": {
+        "tag": "اتجاه",
+        "title": "لعنة الربع ساعة الأخير",
+        "body": "تقدمت مصر 2-0 قبل أن تسقط أمام الأرجنتين. وسبق أن دفع السنغال وكوت ديفوار ثمن الدقائق الأخيرة. اللياقة، دكة البدلاء والتحكم العاطفي أصبحت ملفات واضحة للكرة الإفريقية. المغرب هو الناجي الوحيد."
+      }
+    }
+  },
+  {
+    "id": "amarilla-affair",
+    "type": "brief",
+    "priority": 7,
+    "image": "assets/news/affaire-amarilla-2026.webp",
+    "langs": {
+      "fr": {
+        "tag": "Société",
+        "title": "L’affaire Amarilla",
+        "body": "Les propos racistes de la sénatrice paraguayenne Celeste Amarilla contre Kylian Mbappé ont terni l’après France–Paraguay. La réponse du capitaine français, ferme et digne, a rappelé que la haine ne devait jamais trouver refuge dans le football."
+      },
+      "en": {
+        "tag": "Society",
+        "title": "The Amarilla affair",
+        "body": "Racist remarks by Paraguayan senator Celeste Amarilla toward Kylian Mbappé overshadowed the aftermath of France–Paraguay. The French captain answered firmly and with dignity: hate has no place in football."
+      },
+      "es": {
+        "tag": "Sociedad",
+        "title": "El caso Amarilla",
+        "body": "Los comentarios racistas de la senadora paraguaya Celeste Amarilla contra Kylian Mbappé ensombrecieron el pospartido. El capitán francés respondió con firmeza y dignidad: el odio no tiene lugar en el fútbol."
+      },
+      "pt": {
+        "tag": "Sociedade",
+        "title": "O caso Amarilla",
+        "body": "As declarações racistas da senadora paraguaia Celeste Amarilla contra Kylian Mbappé mancharam o pós-jogo. O capitão francês respondeu com firmeza e dignidade: o ódio não cabe no futebol."
+      },
+      "ar": {
+        "tag": "قضية",
+        "title": "قضية أماريا",
+        "body": "ألقت تصريحات السيناتورة الباراغوايانية سيليست أماريا العنصرية ضد كيليان مبابي بظلالها على ما بعد مباراة فرنسا وباراغواي. رد قائد فرنسا بحزم وكرامة مؤكداً أن الكراهية لا مكان لها في كرة القدم."
+      }
+    }
+  },
+  {
+    "id": "messi-eight",
+    "type": "brief",
+    "priority": 8,
+    "image": "assets/news/messi-encore-toujours.png",
+    "langs": {
+      "fr": {
+        "tag": "Star",
+        "title": "Messi, encore et toujours",
+        "body": "Penalty manqué, passe décisive, but égalisateur puis qualification arrachée : Lionel Messi refuse de quitter la scène. Avec huit buts dans ce Mondial, sa dernière danse continue de défier le temps."
+      },
+      "en": {
+        "tag": "Star",
+        "title": "Messi, again and again",
+        "body": "A missed penalty, an assist, an equaliser and survival: Lionel Messi refuses to leave the stage. With eight goals in this World Cup, his last dance keeps defying time."
+      },
+      "es": {
+        "tag": "Estrella",
+        "title": "Messi, una y otra vez",
+        "body": "Penal fallado, asistencia, gol del empate y clasificación: Lionel Messi se niega a salir de escena. Con ocho goles en este Mundial, su última danza sigue desafiando al tiempo."
+      },
+      "pt": {
+        "tag": "Estrela",
+        "title": "Messi, sempre Messi",
+        "body": "Pênalti perdido, assistência, gol de empate e classificação: Lionel Messi recusa deixar o palco. Com oito gols neste Mundial, sua última dança desafia o tempo."
+      },
+      "ar": {
+        "tag": "نجم",
+        "title": "ميسي… دائماً ميسي",
+        "body": "ركلة جزاء ضائعة، تمريرة حاسمة، هدف تعادل وتأهل صعب: ليونيل ميسي يرفض مغادرة المسرح. بثمانية أهداف في هذا المونديال، تواصل رقصته الأخيرة تحدي الزمن."
+      }
+    }
+  },
+  {
+    "id": "iran-respect",
+    "type": "brief",
+    "priority": 9,
+    "image": "assets/news/iran-resistance-digne.png",
+    "langs": {
+      "fr": {
+        "tag": "Respect",
+        "title": "Iran, la résistance digne",
+        "body": "L’Iran quitte le tournoi avec l’image d’un bloc compact, courageux et difficile à manœuvrer. Peu d’équipes ont aimé affronter cette formation disciplinée, symbole d’un collectif qui sait souffrir."
+      },
+      "en": {
+        "tag": "Respect",
+        "title": "Iran, dignified resistance",
+        "body": "Iran leave with the image of a compact, brave and difficult side. Few teams enjoyed facing such a disciplined block, a symbol of collective resilience."
+      },
+      "es": {
+        "tag": "Respeto",
+        "title": "Irán, resistencia digna",
+        "body": "Irán se marcha con la imagen de un bloque compacto, valiente y difícil. Pocos disfrutaron enfrentando a un equipo tan disciplinado y resistente."
+      },
+      "pt": {
+        "tag": "Respeito",
+        "title": "Irã, resistência digna",
+        "body": "O Irã sai com a imagem de um bloco compacto, corajoso e difícil. Poucas equipes gostaram de enfrentar uma seleção tão disciplinada."
+      },
+      "ar": {
+        "tag": "احترام",
+        "title": "إيران… مقاومة بكرامة",
+        "body": "تغادر إيران البطولة بصورة فريق منظم وشجاع يصعب التعامل معه. لم تستمتع أي منتخبات تقريباً بمواجهة هذا التكتل الصلب والمنضبط."
+      }
+    }
+  },
+  {
+    "id": "olise-fluidity",
+    "type": "brief",
+    "priority": 10,
+    "image": "assets/news/olise-fluidifie-bleus.png",
+    "langs": {
+      "fr": {
+        "tag": "Bleus",
+        "title": "Olise, celui qui fluidifie les Bleus",
+        "body": "Michael Olise n’est pas toujours le plus bruyant, mais il donne de l’air au jeu français. Entre les lignes, dans les petits espaces et sur les dernières passes, il devient un facteur d’équilibre précieux."
+      },
+      "en": {
+        "tag": "France",
+        "title": "Olise, France’s fluid connector",
+        "body": "Michael Olise is not always the loudest name, but he gives France breathing room. Between the lines and in tight spaces, he is becoming a precious balance player."
+      },
+      "es": {
+        "tag": "Francia",
+        "title": "Olise, el que da fluidez a Francia",
+        "body": "Michael Olise no siempre es el más llamativo, pero oxigena el juego francés. Entre líneas y en espacios reducidos, aporta un equilibrio decisivo."
+      },
+      "pt": {
+        "tag": "França",
+        "title": "Olise, o homem da fluidez",
+        "body": "Michael Olise nem sempre é o mais falado, mas dá ar ao jogo francês. Entre linhas e nos espaços curtos, tornou-se peça de equilíbrio."
+      },
+      "ar": {
+        "tag": "فرنسا",
+        "title": "أوليس… من يمنح فرنسا السلاسة",
+        "body": "مايكل أوليس ليس دائماً الاسم الأعلى صوتاً، لكنه يمنح فرنسا نفساً في اللعب. بين الخطوط وفي المساحات الضيقة، أصبح لاعب توازن ثميناً."
+      }
+    }
+  },
+  {
+    "id": "cape-verde-pride",
+    "type": "brief",
+    "priority": 11,
+    "image": "assets/news/cap-vert-respect.png",
+    "langs": {
+      "fr": {
+        "tag": "Fierté",
+        "title": "Cap-Vert, le petit qui a forcé le respect",
+        "body": "Le Cap-Vert quitte la compétition, mais pas les mémoires. Organisation, solidarité, courage : les Requins bleus ont prouvé que leur présence n’était pas anecdotique."
+      },
+      "en": {
+        "tag": "Pride",
+        "title": "Cape Verde, the small side that earned respect",
+        "body": "Cape Verde leave the tournament, but not the memories. Organisation, solidarity and courage: the Blue Sharks proved they belonged on this stage."
+      },
+      "es": {
+        "tag": "Orgullo",
+        "title": "Cabo Verde, el pequeño que ganó respeto",
+        "body": "Cabo Verde se marcha, pero deja huella. Organización, solidaridad y valentía: los Tiburones Azules demostraron que merecían este escenario."
+      },
+      "pt": {
+        "tag": "Orgulho",
+        "title": "Cabo Verde, o pequeno que ganhou respeito",
+        "body": "Cabo Verde sai da competição, mas não da memória. Organização, solidariedade e coragem: os Tubarões Azuis provaram que pertencem a este palco."
+      },
+      "ar": {
+        "tag": "فخر",
+        "title": "الرأس الأخضر… الصغير الذي فرض الاحترام",
+        "body": "يغادر منتخب الرأس الأخضر البطولة لكنه لا يغادر الذاكرة. تنظيم وتضامن وشجاعة: لقد أثبتت القروش الزرقاء أنها تستحق هذا المسرح."
+      }
+    }
+  },
+  {
+    "id": "swiss-calm",
+    "type": "brief",
+    "priority": 12,
+    "image": "assets/news/suisse-force-calme.png",
+    "langs": {
+      "fr": {
+        "tag": "Quart",
+        "title": "Suisse, la force du calme",
+        "body": "La Suisse avance sans bruit, sans panique, avec une froideur compétitive impressionnante. Qualifiée aux tirs au but, elle retrouve l’Argentine dans un duel entre le génie et la structure."
+      },
+      "en": {
+        "tag": "Quarter-final",
+        "title": "Switzerland, the power of calm",
+        "body": "Switzerland move forward quietly, without panic, with impressive competitive coolness. Through on penalties, they now face Argentina: genius against structure."
+      },
+      "es": {
+        "tag": "Cuartos",
+        "title": "Suiza, la fuerza de la calma",
+        "body": "Suiza avanza sin ruido y sin pánico, con una frialdad competitiva notable. Clasificada por penales, enfrentará a Argentina: genio contra estructura."
+      },
+      "pt": {
+        "tag": "Quartos",
+        "title": "Suíça, a força da calma",
+        "body": "A Suíça avança sem ruído e sem pânico, com frieza competitiva. Classificada nos pênaltis, enfrenta a Argentina: gênio contra estrutura."
+      },
+      "ar": {
+        "tag": "ربع النهائي",
+        "title": "سويسرا… قوة الهدوء",
+        "body": "تتقدم سويسرا بهدوء ومن دون ضجيج، ببرودة تنافسية لافتة. بعد التأهل بركلات الترجيح، تواجه الأرجنتين في صدام بين العبقرية والتنظيم."
+      }
+    }
+  }
+]

@@ -1,0 +1,34 @@
+{
+  "meta": {
+    "version": "V15.1.0",
+    "updatedAt": "2026-07-09",
+    "note": "Structure reproductible pour les journalistes Sports Mangara."
+  },
+  "journalists": [
+    {
+      "id": "yoro-mangara",
+      "name": "Yoro Mangara",
+      "role": "Journaliste sportif",
+      "photo": "assets/people/yoro-mangara.png",
+      "birthDate": "à renseigner",
+      "birthPlace": "à renseigner",
+      "education": "Diplômé du CESTI",
+      "media": [
+        "RFI",
+        "BBC",
+        "RFM",
+        "GFM",
+        "France 24"
+      ],
+      "specialties": [
+        "Football sénégalais",
+        "Lions de la Teranga",
+        "Compétitions africaines",
+        "Europe des Lions"
+      ],
+      "appRole": "Editorialisation, suivi des Lions, validation média et ton Sports Mangara.",
+      "bio": "La fiche journaliste permet de donner un visage au média, puis de reproduire le modèle si Sports Mangara intègre demain d’autres journalistes ou chroniqueurs.",
+      "quote": "Une app pensée comme un média de suivi : simple en surface, profonde dans les fiches."
+    }
+  ]
+}

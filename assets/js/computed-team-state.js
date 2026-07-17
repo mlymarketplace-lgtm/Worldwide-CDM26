@@ -2,8 +2,8 @@
 (function(){
   'use strict';
 
-  const VERSION = (window.BUILD_VERSION || '15.1.0');
-  const VERSION_TOKEN = (window.BUILD_VERSION_TOKEN || String(VERSION).replace(/\D/g,'') || '1510');
+  const VERSION = (window.BUILD_VERSION || '15.2.0');
+  const VERSION_TOKEN = (window.BUILD_VERSION_TOKEN || String(VERSION).replace(/\D/g,'') || '1520');
   const SEMIFINALISTS = new Set(['france','spain','england','argentina']);
   const FEATURED_ORDER = [
     'morocco','france','spain','belgium','norway','england','argentina','switzerland',
@@ -41,7 +41,7 @@
     N97:'qf-97', N98:'qf-98', N99:'qf-99', N100:'qf-100', N101:'sf-101', N102:'sf-102', N103:'third-103', N104:'final-104'
   };
 
-  // V15.1.0 — aliases de clés live/API vers l'identifiant KO canonique.
+  // V15.2.0 — aliases de clés live/API vers l'identifiant KO canonique.
   // Objectif : la home doit réagir même si la simulation reçoit `por-esp`, `por-spain`,
   // `usa-bel`, `bel-usa`, `usa-belgium`, etc.
   const KO_ID_BY_KEY = Object.assign(
@@ -53,7 +53,8 @@
       'arg-egy':'N95', 'argentina-egypt':'N95', 'arg-egypt':'N95',
       'sui-col':'N96', 'switzerland-colombia':'N96',
       'qf98':'N98', 'qf-98':'N98', 'qf99':'N99', 'qf-99':'N99', 'nor-eng':'N99', 'norway-england':'N99', 'qf100':'N100', 'qf-100':'N100', 'arg-sui':'N100', 'argentina-switzerland':'N100',
-      'eng-arg':'N102', 'england-argentina':'N102', 'argentina-england':'N102', 'sf102':'N102', 'sf-102':'N102'
+      'eng-arg':'N102', 'england-argentina':'N102', 'argentina-england':'N102', 'sf102':'N102', 'sf-102':'N102',
+      'third-103':'N103', 'fra-eng':'N103', 'france-england':'N103', 'france-angleterre':'N103', 'england-france':'N103'
     }
   );
 
@@ -259,7 +260,7 @@
 
     Object.entries((live && live.matches) || {}).forEach(([key, v]) => addEntry(key, v, 'live-json'));
 
-    // V15.1.0 — état réel du moteur KO en mémoire. C'est ce que la simulation utilise.
+    // V15.2.0 — état réel du moteur KO en mémoire. C'est ce que la simulation utilise.
     // La home doit lire cette source prioritaire pour ne plus attendre un nouveau déploiement.
     try {
       if (typeof KNOCKOUT_LIVE_RESULTS !== 'undefined' && KNOCKOUT_LIVE_RESULTS) {
@@ -443,21 +444,22 @@
   }
   function dateForMatch(id){
     const dates = {
-      fr:{N94:'Mar. 7 juillet · 02h00 · heure locale',N95:'Mar. 7 juillet · 18h00 · heure locale',N96:'Mar. 7 juillet · 22h00 · heure locale',N97:'Jeu. 9 juillet · 22h00 · heure locale',N98:'Ven. 10 juillet · 21h00 · heure locale',N99:'Sam. 11 juillet · 23h00 · heure locale',N100:'Dim. 12 juillet · 03h00 · heure locale',N101:'Mar. 14 juillet · 21h00 · heure locale',N102:'Mer. 15 juillet · 21h00 · heure locale',N104:'Dim. 19 juillet · 21h00 · heure locale'},
-      en:{N94:'Tue 7 July · 02:00 · local time',N95:'Tue 7 July · 18:00 · local time',N96:'Tue 7 July · 22:00 · local time',N97:'Thu 9 July · 22:00 · local time',N98:'Fri 10 July · 21:00 · local time',N99:'Sat 11 July · 23:00 · local time',N100:'Sun 12 July · 03:00 · local time',N101:'Tue 14 July · 21:00 · local time',N102:'Wed 15 July · 21:00 · local time',N104:'Sun 19 July · 21:00 · local time'},
-      es:{N101:'Mar. 14 de julio · 21:00 · hora local',N102:'Mié. 15 de julio · 21:00 · hora local',N104:'Dom. 19 de julio · 21:00 · hora local'},
-      pt:{N101:'Ter. 14 de julho · 21:00 · hora local',N102:'Qua. 15 de julho · 21:00 · hora local',N104:'Dom. 19 de julho · 21:00 · hora local'},
-      ar:{N101:'الثلاثاء 14 يوليو · 21:00 · بالتوقيت المحلي',N102:'الأربعاء 15 يوليو · 21:00 · بالتوقيت المحلي',N104:'الأحد 19 يوليو · 21:00 · بالتوقيت المحلي'}
+      fr:{N94:'Mar. 7 juillet · 02h00 · heure locale',N95:'Mar. 7 juillet · 18h00 · heure locale',N96:'Mar. 7 juillet · 22h00 · heure locale',N97:'Jeu. 9 juillet · 22h00 · heure locale',N98:'Ven. 10 juillet · 21h00 · heure locale',N99:'Sam. 11 juillet · 23h00 · heure locale',N100:'Dim. 12 juillet · 03h00 · heure locale',N101:'Mar. 14 juillet · 21h00 · heure locale',N102:'Mer. 15 juillet · 21h00 · heure locale',N103:'Sam. 18 juillet · 23h00 · heure locale',N104:'Dim. 19 juillet · 21h00 · heure locale'},
+      en:{N94:'Tue 7 July · 02:00 · local time',N95:'Tue 7 July · 18:00 · local time',N96:'Tue 7 July · 22:00 · local time',N97:'Thu 9 July · 22:00 · local time',N98:'Fri 10 July · 21:00 · local time',N99:'Sat 11 July · 23:00 · local time',N100:'Sun 12 July · 03:00 · local time',N101:'Tue 14 July · 21:00 · local time',N102:'Wed 15 July · 21:00 · local time',N103:'Sat 18 July · 23:00 · local time',N104:'Sun 19 July · 21:00 · local time'},
+      es:{N101:'Mar. 14 de julio · 21:00 · hora local',N102:'Mié. 15 de julio · 21:00 · hora local',N103:'Sáb. 18 de julio · 23:00 · hora local',N104:'Dom. 19 de julio · 21:00 · hora local'},
+      pt:{N101:'Ter. 14 de julho · 21:00 · hora local',N102:'Qua. 15 de julho · 21:00 · hora local',N103:'Sáb. 18 de julho · 23:00 · hora local',N104:'Dom. 19 de julho · 21:00 · hora local'},
+      ar:{N101:'الثلاثاء 14 يوليو · 21:00 · بالتوقيت المحلي',N102:'الأربعاء 15 يوليو · 21:00 · بالتوقيت المحلي',N103:'السبت 18 يوليو · 23:00 · بالتوقيت المحلي',N104:'الأحد 19 يوليو · 21:00 · بالتوقيت المحلي'}
     };
     const lang = activeLang();
     return (dates[lang] && dates[lang][id]) || dates.fr[id] || '';
   }
 
   
-function newsHref(id){
+function newsHref(id, section){
     const p = new URLSearchParams();
     p.set('mode','news');
     if(id) p.set('article', id);
+    if(section) p.set('section', section);
     p.set('v', VERSION_TOKEN);
     return '?' + p.toString();
   }
@@ -466,14 +468,35 @@ function newsHref(id){
     return (item && item.langs && (item.langs[lang] || item.langs.fr)) || {};
   }
 
-  function worldNewsHtml(worldNews){
-    const lang = activeLang(), c = copy();
-    const items = Array.isArray(worldNews) ? worldNews.slice().sort((a,b)=>(a.priority||99)-(b.priority||99)) : [];
+  function newsCategory(item){
+    return item && item.category === 'gaindes' ? 'gaindes' : 'world';
+  }
+
+  function newsSectionCopy(section){
+    if(section === 'gaindes') return {
+      title:'Les Brèves des Gaindés',
+      lead:'Mercato, parcours et débats autour des Lions du Sénégal.',
+      image:'assets/news/les-breves-des-gaindes.png',
+      kicker:'Les Gaïndés dans le monde'
+    };
+    return {
+      title:'Les Brèves du Mondial',
+      lead:'Les grandes affiches, les records et les histoires de la Coupe du monde.',
+      image:'assets/news/les-breves-du-mondial.png',
+      kicker:'Mondial Pulse Editorial'
+    };
+  }
+
+  function worldNewsHtml(worldNews, sectionFilter){
+    const lang = activeLang();
+    const section = sectionFilter === 'gaindes' ? 'gaindes' : 'world';
+    const sectionCopy = newsSectionCopy(section);
+    const items = Array.isArray(worldNews) ? worldNews.filter(item => newsCategory(item) === section).slice().sort((a,b)=>(a.priority||99)-(b.priority||99)) : [];
     if(!items.length) return '';
     function entry(item){
       const L = newsLang(item, lang);
-      const featured = item.type === 'analysis' || item.priority === 1;
-      return `<a class="world-news-card ${featured ? 'featured' : ''}" data-news-id="${esc(item.id)}" href="${esc(newsHref(item.id))}" aria-label="${esc(L.title || '')}">
+      const featured = item.type === 'analysis' || item.type === 'final' || item.priority === 1;
+      return `<a class="world-news-card ${featured ? 'featured' : ''}" data-news-id="${esc(item.id)}" href="${esc(newsHref(item.id, section))}" aria-label="${esc(L.title || '')}">
         <div class="world-news-media">${item.image ? `<img src="${esc(item.image)}" loading="lazy" decoding="async" alt="${esc(L.title || '')}">` : ''}</div>
         <div class="world-news-content">
           <div class="world-news-tag">${esc(L.tag || '')}</div>
@@ -486,9 +509,9 @@ function newsHref(id){
     return `<section class="world-news-section" dir="${lang === 'ar' ? 'rtl' : 'ltr'}">
       <div class="world-news-head">
         <a class="news-home-link" href="?v=${VERSION_TOKEN}" aria-label="Retour à la page d’accueil">
-          <div class="world-news-kicker">Mondial Pulse Editorial</div>
-          <h2>${esc(c.newsTitle)}</h2>
-          <p>${esc(c.newsLead)}</p>
+          <div class="world-news-kicker">${esc(sectionCopy.kicker)}</div>
+          <h2>${esc(sectionCopy.title)}</h2>
+          <p>${esc(sectionCopy.lead)}</p>
         </a>
       </div>
       <div class="world-news-grid">${items.map(entry).join('')}</div>
@@ -540,7 +563,7 @@ function newsHref(id){
     return rows.map(row => `<div class="qg-journey-row ${resultClassFor(row.rawResult)}"><span>${esc(row.label || '')}</span><strong>${esc(row.displayResult || '')}</strong></div>`).join('');
   }
 
-  function finalLiveSnapshot(live){
+  function knockoutLiveSnapshot(matchId, live){
     const stores = [];
     if(live && live.matches) stores.push(live.matches);
     try { if(window.QUALIFGAINDE_LAST_SCORES && window.QUALIFGAINDE_LAST_SCORES.matches) stores.push(window.QUALIFGAINDE_LAST_SCORES.matches); } catch(e) {}
@@ -549,10 +572,14 @@ function newsHref(id){
       for(const [key, value] of Object.entries(store || {})){
         const id = String((value && (value.koId || value.id || value.matchId)) || '').toUpperCase();
         const normalized = String(key || '').toLowerCase().replace(/_/g,'-');
-        if(id === 'N104' || KO_ID_BY_KEY[normalized] === 'N104') return value || null;
+        if(id === matchId || KO_ID_BY_KEY[normalized] === matchId) return value || null;
       }
     }
     return null;
+  }
+
+  function finalLiveSnapshot(live){
+    return knockoutLiveSnapshot('N104', live);
   }
 
   function finalContext(teams, computed, live){
@@ -571,6 +598,61 @@ function newsHref(id){
     }
     if(match && match.final) score = match.score || score;
     return {match, known, partial, participants, snapshot, state: match && match.final ? 'final' : isLive ? 'live' : 'upcoming', score, winner:match && match.final ? match.winner : null};
+  }
+
+  function thirdPlaceContext(teams, computed, live){
+    const match = computed && computed.resolved && computed.resolved.N103;
+    const participants = match ? [match.home, match.away].filter(Boolean) : [];
+    const known = participants.length === 2;
+    const snapshot = knockoutLiveSnapshot('N103', live);
+    const status = String((snapshot && (snapshot.status || snapshot.apiStatus)) || '').toLowerCase();
+    const finalStatuses = ['final','ft','aet','pen','match finished'];
+    const isLive = known && !(match && match.final) && !!snapshot && !['scheduled','not started','ns','tbd',''].includes(status) && !finalStatuses.includes(status);
+    let score = '';
+    if(snapshot){
+      const h = snapshot.home ?? snapshot.hg ?? snapshot.homeScore;
+      const a = snapshot.away ?? snapshot.ag ?? snapshot.awayScore;
+      if(h != null && a != null) score = `${h}–${a}`;
+    }
+    if(match && match.final) score = match.score || score;
+    return {match, known, snapshot, state:match && match.final ? 'final' : isLive ? 'live' : 'upcoming', score, winner:match && match.final ? match.winner : null};
+  }
+
+  function thirdPlaceCountdownHtml(ctx){
+    if(ctx.state === 'live') return `<div class="qg-third-live"><span>EN DIRECT</span><strong>${esc(ctx.score || '0–0')}</strong></div>`;
+    if(ctx.state === 'final') return '';
+    return `<div class="qg-third-countdown" data-third-countdown><span><b data-third-days>00</b><small>J</small></span><span><b data-third-hours>00</b><small>H</small></span><span><b data-third-minutes>00</b><small>MIN</small></span></div>`;
+  }
+
+  function thirdPlaceHomeCardHtml(teams, computed, live){
+    const ctx = thirdPlaceContext(teams, computed, live);
+    if(!ctx.known || !ctx.match) return '';
+    const home = ctx.match.home, away = ctx.match.away;
+    if(ctx.state === 'final' && ctx.winner){
+      const loser = ctx.winner === home ? away : home;
+      return `<section class="qg-bronze-podium"><div class="qg-bronze-glow"></div><div class="qg-bronze-visual"><div class="qg-third-badge">PODIUM · MÉDAILLE DE BRONZE</div><div class="qg-bronze-medal">③</div><img src="${esc(teamImage(ctx.winner, teams))}" alt="${esc(teamName(ctx.winner, teams))}" loading="eager" decoding="async"></div><div class="qg-bronze-copy"><span>3E PLACE · COUPE DU MONDE 2026</span><h2>${esc(teamFlag(ctx.winner, teams) + ' ' + teamName(ctx.winner, teams))}</h2><p>${esc(teamName(home, teams) + ' ' + (ctx.score || '') + ' ' + teamName(away, teams))}</p><div class="qg-bronze-links"><a href="${esc(localizedTeamHref(ctx.winner))}">Voir l’équipe médaillée →</a><a href="${esc(localizedTeamHref(loser))}">Revoir l’autre parcours</a></div></div></section>`;
+    }
+    const teamLink = key => `<a href="${esc(localizedTeamHref(key))}"><span>${esc(teamFlag(key, teams))}</span><strong>${esc(teamName(key, teams))}</strong></a>`;
+    return `<section class="qg-third-place-card ${ctx.state === 'live' ? 'is-live' : ''}"><div class="qg-third-badge">PETITE FINALE · 3E PLACE</div><div class="qg-third-main"><div><div class="qg-third-kicker">Même le bronze aura un goût de suprématie</div><h2>France–Angleterre : le Channel en feu</h2><p>Harry Kane et Jude Bellingham face à Kylian Mbappé et Ousmane Dembélé. Une petite finale aux allures de sommet européen.</p></div><div class="qg-third-matchup">${teamLink(home)}<span>VS</span>${teamLink(away)}</div></div>${thirdPlaceCountdownHtml(ctx)}<div class="qg-third-actions"><span>Sam. 18 juillet · 23h00 · heure locale</span><a href="${esc(newsHref('france-england-bronze','world'))}">Lire l’avant-match →</a></div></section>`;
+  }
+
+  function startThirdCountdown(root){
+    if(window.__QG_THIRD_COUNTDOWN_TIMER__){ clearInterval(window.__QG_THIRD_COUNTDOWN_TIMER__); window.__QG_THIRD_COUNTDOWN_TIMER__ = null; }
+    const blocks = Array.from((root || document).querySelectorAll('[data-third-countdown]'));
+    if(!blocks.length) return;
+    const target = new Date(isoForMatch('N103')).getTime();
+    if(!Number.isFinite(target)) return;
+    const pad = n => String(Math.max(0, Math.floor(n))).padStart(2,'0');
+    function tick(){
+      const diff = Math.max(0, target - Date.now());
+      const values = {days:Math.floor(diff/86400000),hours:Math.floor((diff%86400000)/3600000),minutes:Math.floor((diff%3600000)/60000)};
+      blocks.forEach(block => {
+        const d=block.querySelector('[data-third-days]'), h=block.querySelector('[data-third-hours]'), m=block.querySelector('[data-third-minutes]');
+        if(d) d.textContent=String(values.days); if(h) h.textContent=pad(values.hours); if(m) m.textContent=pad(values.minutes);
+      });
+      if(diff <= 0 && window.__QG_THIRD_COUNTDOWN_TIMER__){ clearInterval(window.__QG_THIRD_COUNTDOWN_TIMER__); window.__QG_THIRD_COUNTDOWN_TIMER__=null; }
+    }
+    tick(); window.__QG_THIRD_COUNTDOWN_TIMER__=setInterval(tick,30000);
   }
 
   function finalCopy(){
@@ -721,24 +803,14 @@ function newsHref(id){
   }
 
   function worldNewsTeaserHtml(worldNews){
-    const lang = activeLang(), c = copy();
-    const items = Array.isArray(worldNews) ? worldNews.slice().sort((a,b)=>(a.priority||99)-(b.priority||99)) : [];
-    if(!items.length) return '';
-    const preview = items.slice(0,3).map(item => {
-      const L = newsLang(item, lang);
-      return `<span>${esc(L.title || '')}</span>`;
+    const lang = activeLang();
+    const doors = ['world','gaindes'].map(section => {
+      const sectionCopy = newsSectionCopy(section);
+      const items = (Array.isArray(worldNews) ? worldNews : []).filter(item => newsCategory(item) === section).sort((a,b)=>(a.priority||99)-(b.priority||99));
+      const preview = items.slice(0,2).map(item => `<span>${esc((newsLang(item, lang).title || ''))}</span>`).join('');
+      return `<a class="qg-news-door is-${section}" href="${esc(newsHref(null,section))}" aria-label="Ouvrir ${esc(sectionCopy.title)}"><img src="${esc(sectionCopy.image)}" loading="lazy" decoding="async" alt="${esc(sectionCopy.title)}"><div class="qg-news-door-overlay"><div><small>${esc(sectionCopy.kicker)}</small><span class="qg-news-door-name">${esc(sectionCopy.title)}</span><div class="qg-news-door-preview">${preview}</div></div><b>Ouvrir →</b></div></a>`;
     }).join('');
-    const teaserImage = 'assets/news/breves-du-mondial.webp';
-    return `<a class="world-news-teaser" href="${esc(newsHref())}" dir="${lang === 'ar' ? 'rtl' : 'ltr'}" aria-label="Ouvrir Les Brèves du Mondial">
-      <div class="world-news-teaser-media"><img src="${esc(teaserImage)}" loading="lazy" decoding="async" alt="Les Brèves du Mondial"></div>
-      <div class="world-news-teaser-content">
-        <div class="world-news-kicker">Mondial Pulse Editorial</div>
-        <h2>${esc(c.newsTitle)}</h2>
-        <p>${esc(c.newsLead)}</p>
-        <div class="world-news-teaser-preview">${preview}</div>
-        <span class="world-news-open">${esc(c.readAllNews || c.newsTitle)}</span>
-      </div>
-    </a>`;
+    return `<section class="qg-news-doors">${doors}</section>`;
   }
 
   function articleParagraphs(L){
@@ -754,7 +826,7 @@ function newsHref(id){
       <div class="qg-entry-wrap news-hub-wrap news-article-wrap">
         <div class="qg-entry-top">
           <a class="qg-entry-brand news-brand-home" href="?v=${VERSION_TOKEN}" aria-label="Retour à la page d’accueil"><img src="assets/lion-mascotte.png" alt="Mondial Pulse"><span>Mondial Pulse 2026 · V${esc(VERSION)}</span></a>
-          <a class="qg-entry-pill news-pill-home" href="?mode=news&v=${VERSION_TOKEN}">${esc(c.newsTitle)}</a>
+          <a class="qg-entry-pill news-pill-home" href="${esc(newsHref(null,newsCategory(item)))}">${esc(newsSectionCopy(newsCategory(item)).title)}</a>
         </div>
         <article class="news-article" dir="${lang === 'ar' ? 'rtl' : 'ltr'}">
           <a class="news-article-header" href="?v=${VERSION_TOKEN}" aria-label="Retour à la home">
@@ -763,14 +835,15 @@ function newsHref(id){
           </a>
           ${item.image ? `<img class="news-article-image" src="${esc(item.image)}" alt="${esc(L.title || '')}">` : ''}
           <div class="news-article-body">${articleParagraphs(L)}</div>
-          <div class="qg-entry-actions"><a class="qg-entry-action" href="?mode=news&v=${VERSION_TOKEN}">← Toutes les brèves</a><a class="qg-entry-action" href="?v=${VERSION_TOKEN}">Accueil</a></div>
+          <div class="qg-entry-actions"><a class="qg-entry-action" href="${esc(newsHref(null,newsCategory(item)))}">← Toutes les brèves</a><a class="qg-entry-action" href="?v=${VERSION_TOKEN}">Accueil</a></div>
         </article>
       </div>`;
   }
 
-  function renderNewsHub(selector, worldNews){
+  function renderNewsHub(selector, worldNews, requestedSection){
     if(!selector) return;
-    const c = copy();
+    const section = requestedSection === 'gaindes' ? 'gaindes' : 'world';
+    const sc = newsSectionCopy(section);
     selector.innerHTML = `
       <div class="qg-entry-bg"></div>
       <div class="qg-entry-wrap news-hub-wrap">
@@ -778,12 +851,13 @@ function newsHref(id){
           <a class="qg-entry-brand news-brand-home" href="?v=${VERSION_TOKEN}" aria-label="Retour à la page d’accueil"><img src="assets/lion-mascotte.png" alt="Mondial Pulse"><span>Mondial Pulse 2026 · V${esc(VERSION)}</span></a>
           <a class="qg-entry-pill news-pill-home" href="?v=${VERSION_TOKEN}">Accueil</a>
         </div>
+        <div class="qg-news-hub-switcher"><a class="${section === 'world' ? 'active' : ''}" href="${esc(newsHref(null,'world'))}"><img src="assets/news/les-breves-du-mondial.png" alt="Les Brèves du Mondial"><span>Les Brèves du Mondial</span></a><a class="${section === 'gaindes' ? 'active' : ''}" href="${esc(newsHref(null,'gaindes'))}"><img src="assets/news/les-breves-des-gaindes.png" alt="Les Brèves des Gaindés"><span>Les Brèves des Gaindés</span></a></div>
         <a class="qg-entry-hero news-hub-hero news-home-link" href="?v=${VERSION_TOKEN}" aria-label="Retour à la page d’accueil">
-          <div class="qg-entry-kicker">Mondial Pulse Editorial</div>
-          <h1>${esc(c.newsTitle)}</h1>
-          <p>${esc(c.newsLead)}</p>
+          <div class="qg-entry-kicker">${esc(sc.kicker)}</div>
+          <h1>${esc(sc.title)}</h1>
+          <p>${esc(sc.lead)}</p>
         </a>
-        ${worldNewsHtml(worldNews)}
+        ${worldNewsHtml(worldNews, section)}
         <div class="qg-entry-actions"><a class="qg-entry-action" href="?v=${VERSION_TOKEN}">Retour à l’accueil</a></div>
       </div>`;
   }
@@ -836,6 +910,7 @@ function newsHref(id){
           <p>${esc(c.homeLead)}</p>
         </div>
         ${finaleHomeCardHtml(teams, computed, teamResults, live)}
+        ${thirdPlaceHomeCardHtml(teams, computed, live)}
         ${!homeFinalCtx.known && groups.qf.length ? `<div class="qg-selector-group"><h2 class="qg-selector-title">${esc(c.qf)}</h2><div class="qg-team-grid">${groups.qf.map(s=>card(s,'qf')).join('')}</div></div>` : ''}
         ${groups.live.length ? `<div class="qg-selector-group"><h2 class="qg-selector-title">${esc(c.live)}</h2><div class="qg-team-grid">${groups.live.map(s=>card(s,'live')).join('')}</div></div>` : ''}
         ${groups.out.length ? `<details class="qg-farewell-archive"><summary><span class="qg-farewell-copy"><span class="qg-farewell-kicker">Mémoire du Mondial</span><strong>${esc(c.out)}</strong><small>${groups.out.length} équipes · revoir leurs parcours</small></span><span class="qg-farewell-flags">${groups.out.slice(0,8).map(s=>`<i>${esc(s.flag || teamFlag(s.key, teams))}</i>`).join('')}</span><span class="qg-farewell-arrow">⌄</span></summary><div class="qg-farewell-body"><div class="qg-team-grid">${groups.out.map(s=>card(s,'out')).join('')}</div></div></details>` : ''}
@@ -843,6 +918,7 @@ function newsHref(id){
         <div class="qg-entry-actions"><a class="qg-entry-action" href="?mode=global&v=${VERSION_TOKEN}">${esc(c.global)}</a></div>
       </div>`;
     startFinalCountdown(selector);
+    startThirdCountdown(selector);
   }
 
 
@@ -1091,7 +1167,7 @@ async function run(){
       const articleId = params.get('article');
       const article = articleId && Array.isArray(worldNews) ? worldNews.find(x => x.id === articleId) : null;
       if(article) renderNewsArticle(selector, article);
-      else renderNewsHub(selector, worldNews || []);
+      else renderNewsHub(selector, worldNews || [], params.get('section'));
     } else if(selector && !activeTeam && mode !== 'global') renderHome(selector, teams, computed, worldNews || [], teamResults || {}, live || {});
     if(activeTeam) updateTeamPage(activeTeam.toLowerCase(), teams, computed, teamResults || {});
   }
@@ -1106,7 +1182,7 @@ async function run(){
 
   window.QG_AUTO_TEAM_STATE_ENGINE = {run, buildState, scheduleRun};
 
-  // V15.1.0 — rebrancher la home sur le vrai flux live.
+  // V15.2.0 — rebrancher la home sur le vrai flux live.
   // `qualifgainde:scoresUpdated` est émis tôt par applyScoresData ; on relance donc plusieurs fois
   // pour passer APRÈS l'écriture de KNOCKOUT_LIVE_RESULTS et la propagation du bracket.
   window.addEventListener('qualifgainde:scoresUpdated', function(){

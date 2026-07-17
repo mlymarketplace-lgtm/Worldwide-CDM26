@@ -1,0 +1,77 @@
+{
+  "norway": {
+    "title": "Norway, the cold wave keeps rolling",
+    "subtitle": "Haaland, discipline and ruthless transitions.",
+    "paragraphs": [
+      "Norway is no longer just the team of one giant striker. It has become a football idea: direct, cold, brave and able to punish the smallest mistake.",
+      "Against Brazil, Erling Haaland struck twice and turned a prestigious night into a Norwegian statement.",
+      "England now awaits: power, rhythm, duels and a football culture both nations understand very well."
+    ],
+    "timeline": [
+      "Group stage · character",
+      "Round of 32 · Ivory Coast 1–2 Norway",
+      "Round of 16 · Norway 2–1 Brazil",
+      "Quarter-final · Norway–England"
+    ]
+  },
+  "england": {
+    "title": "England, the endless meeting with itself",
+    "subtitle": "Talent, pressure and an old dream to turn into a trophy.",
+    "paragraphs": [
+      "England always plays two opponents: the team in front, and the weight of its own story.",
+      "The 3–2 win over Mexico showed both the fragility and strength of the Three Lions.",
+      "Against Norway, Bellingham and Kane meet Haaland in a quarter-final built for intensity and nerve."
+    ],
+    "timeline": [
+      "Group stage · authority",
+      "Round of 32 · England 2–1 DR Congo",
+      "Round of 16 · Mexico 2–3 England",
+      "Quarter-final · Norway–England"
+    ]
+  },
+  "egypt": {
+    "title": "Goodbye Egypt, with respect and regrets",
+    "subtitle": "The Pharaohs leave after nearly stunning the world champions.",
+    "paragraphs": [
+      "Egypt leave the World Cup with a heavy heart but their heads held high. They led Argentina 2–0 and came close to a historic upset.",
+      "The final minutes will hurt. In thirteen minutes, Argentina turned a match Egypt had prepared almost perfectly. Fatigue, pressure and late-game management proved decisive.",
+      "If this was Mohamed Salah’s last major World Cup stage, he leaves as a legend: a leader, a symbol and a player who still carried a nation’s hope."
+    ],
+    "timeline": [
+      "Egypt 3–1 New Zealand",
+      "Australia 1–1 Egypt · pens 2–4",
+      "Argentina 3–2 Egypt",
+      "End of a dream, respect to the Pharaohs"
+    ]
+  },
+  "argentina": {
+    "title": "Argentina turn Egypt around and reach the quarter-finals",
+    "subtitle": "Messi misses, creates, scores — and refuses to leave the stage.",
+    "paragraphs": [
+      "The world champions trembled, then struck like great teams do. Trailing 0–2 against a disciplined Egypt, Argentina came back to win 3–2 in a stunning finish.",
+      "Romero revived the match from a Messi cross, then Messi equalised with a powerful strike after missing a penalty earlier. In stoppage time, Enzo Fernández completed the comeback.",
+      "Argentina survive, Messi reaches eight goals, and Switzerland now await in the quarter-finals."
+    ],
+    "timeline": [
+      "Argentina 3–2 Cape Verde",
+      "Argentina 3–2 Egypt",
+      "Messi reaches 8 goals",
+      "Quarter-final · Argentina–Switzerland"
+    ]
+  },
+  "switzerland": {
+    "title": "Switzerland, the power of calm",
+    "subtitle": "The Nati advance quietly, but with the competitive coldness that troubles favourites.",
+    "paragraphs": [
+      "Switzerland keep moving in their own way: calm, organised and hard to break down. Through on penalties, they now face Argentina.",
+      "They may not always dazzle, but they know how to stay alive in matches, close space and wait for pressure to shift.",
+      "Against Argentina they will not be favourites, but they have exactly the profile to make a quarter-final uncomfortable."
+    ],
+    "timeline": [
+      "Switzerland 2–0 Qatar",
+      "Bosnia 1–1 Switzerland",
+      "Switzerland through on pens 4–3",
+      "Quarter-final · Argentina–Switzerland"
+    ]
+  }
+}

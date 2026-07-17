@@ -1,0 +1,56 @@
+{
+  "col-gha": {
+    "homeTeam": "colombia",
+    "awayTeam": "ghana",
+    "matchId": "col-gha",
+    "title": "Colombia–Ghana: the Black Stars want to reignite the memory",
+    "angle": "Colombia brings pace and sharp attacking talent. Ghana brings a World Cup memory too heavy to be treated as a simple outsider story.",
+    "body": [
+      "Colombia–Ghana is a match of rhythm, talent and memory. Colombia arrive with Luis Díaz, intensity, acceleration and the ability to turn one action into a storm.",
+      "But Ghana are not just another World Cup opponent. The Black Stars carry 2006, 2010, 2014, Abedi Pelé’s legacy and Asamoah Gyan’s generation — a history that still weighs heavily in knockout nights.",
+      "Today, Mohammed Kudus embodies a new kind of energy: modern, explosive, capable of breaking lines and giving Ghana the unpredictability that can terrify a favourite.",
+      "Colombia will have their weapons. Ghana will have their memory. And sometimes, in a World Cup, memory weighs as much as a game plan."
+    ]
+  },
+  "porcro-spain": {
+    "homeTeam": "portugal",
+    "awayTeam": "spain",
+    "matchId": "por-spain",
+    "title": "Portugal–Spain: an Iberian derby with history on the line",
+    "angle": "Neighbours, giants and future 2030 World Cup co-hosts with Morocco: this Round of 16 has the scent of a true derby.",
+    "body": [
+      "Portugal–Spain is never neutral. It is a border, a memory, a rivalry between neighbours who know each other too well to be naive.",
+      "Portugal arrive after beating Croatia 2–1. Cristiano Ronaldo remains the symbol, the face that turns every Portuguese night into an event.",
+      "Spain have just controlled Austria 3–0. La Roja want the ball, the rhythm and the nerves. But against Portugal, control is never enough for long.",
+      "The history adds spice: 11v11 lists 41 meetings, with Spain on 18 wins, 16 draws and Portugal on 7 wins.",
+      "And 2030 sits in the background: Spain, Portugal and Morocco will host the next World Cup together. Before sharing the world stage, these neighbours fight to stay alive in this one."
+    ]
+  },
+  "por-spain": {
+    "homeTeam": "portugal",
+    "awayTeam": "spain",
+    "matchId": "por-spain",
+    "title": "Portugal–Spain: an Iberian derby with history on the line",
+    "angle": "Neighbours, giants and future 2030 World Cup co-hosts with Morocco: this Round of 16 has the scent of a true derby.",
+    "body": [
+      "Portugal–Spain is never neutral. It is a border, a memory, a rivalry between neighbours who know each other too well to be naive.",
+      "Portugal arrive after beating Croatia 2–1. Cristiano Ronaldo remains the symbol, the face that turns every Portuguese night into an event.",
+      "Spain have just controlled Austria 3–0. La Roja want the ball, the rhythm and the nerves. But against Portugal, control is never enough for long.",
+      "The history adds spice: 11v11 lists 41 meetings, with Spain on 18 wins, 16 draws and Portugal on 7 wins.",
+      "And 2030 sits in the background: Spain, Portugal and Morocco will host the next World Cup together. Before sharing the world stage, these neighbours fight to stay alive in this one."
+    ]
+  },
+  "argcpv-egypt": {
+    "homeTeam": "argentina_cape_verde",
+    "awayTeam": "egypt",
+    "matchId": "argcpv-egypt",
+    "title": "Argentina or Cape Verde–Egypt: the Pharaohs wait for their fate",
+    "angle": "Egypt survived Australia’s physical test and moved on through penalties. Now the Pharaohs wait for Argentina–Cape Verde with a round-of-16 place secured.",
+    "body": [
+      "Some qualifications are won with the ball. Others are won with nerve. Against Australia, Egypt held on, suffered, and struck in the most brutal moment: the penalty shootout.",
+      "The Pharaohs move forward with that old tournament knowledge: stay alive, stay cold, and take your chance when the noise is at its loudest.",
+      "The next scene depends on Argentina–Cape Verde. Argentina would mean Messi and the world champions. Cape Verde would mean an unexpected, historic African clash.",
+      "Egypt’s message is simple: the Pharaohs are still here."
+    ]
+  }
+}

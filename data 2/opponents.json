@@ -1,0 +1,302 @@
+{
+  "switzerland": {
+    "teamName": "Suisse",
+    "flag": "🇨🇭",
+    "nickname": "La Nati",
+    "supporterName": "La Nati",
+    "heroPlayer": "Granit Xhaka",
+    "playerImg": "assets/opponents/switzerland/player.webp"
+  },
+  "norway": {
+    "teamName": "Norvège",
+    "flag": "🇳🇴",
+    "nickname": "Lions norvégiens",
+    "supporterName": "Lions norvégiens",
+    "heroPlayer": "Erling Haaland",
+    "playerImg": "assets/teams/norway/player.webp",
+    "heroImg": "assets/teams/norway/player.webp",
+    "bannerImg": "assets/teams/norway/banner.webp"
+  },
+  "japan": {
+    "teamName": "Japon",
+    "flag": "🇯🇵",
+    "nickname": "Samouraïs Bleus",
+    "supporterName": "Samouraïs Bleus",
+    "heroPlayer": "Takefusa Kubo",
+    "playerImg": "assets/opponents/japan/player.webp"
+  },
+  "england": {
+    "teamName": "Angleterre",
+    "flag": "🏴",
+    "nickname": "Three Lions",
+    "supporterName": "Three Lions",
+    "heroPlayer": "Jude Bellingham",
+    "playerImg": "assets/teams/england/player.webp",
+    "heroImg": "assets/teams/england/player.webp",
+    "bannerImg": "assets/teams/england/banner.webp"
+  },
+  "netherlands": {
+    "teamName": "Pays-Bas",
+    "flag": "🇳🇱",
+    "nickname": "Oranje",
+    "supporterName": "Oranje",
+    "heroPlayer": "Cody Gakpo",
+    "playerImg": "assets/opponents/netherlands/player.webp"
+  },
+  "sweden": {
+    "teamName": "Suède",
+    "flag": "🇸🇪",
+    "nickname": "Blågult",
+    "supporterName": "Blågult",
+    "heroPlayer": "Viktor Gyökeres",
+    "playerImg": "assets/opponents/sweden/player.webp"
+  },
+  "austria": {
+    "teamName": "Autriche",
+    "flag": "🇦🇹",
+    "nickname": "Das Team",
+    "supporterName": "Das Team",
+    "heroPlayer": "Marko Arnautović",
+    "playerImg": "assets/opponents/austria/player.webp"
+  },
+  "australia": {
+    "teamName": "Australie",
+    "flag": "🇦🇺",
+    "nickname": "Socceroos",
+    "supporterName": "Socceroos",
+    "heroPlayer": "Nestory Irankunda",
+    "playerImg": "assets/opponents/australia/player.webp"
+  },
+  "canada": {
+    "teamName": "Canada",
+    "flag": "🇨🇦",
+    "nickname": "Les Rouges",
+    "supporterName": "Les Rouges",
+    "heroPlayer": "Alphonso Davies",
+    "playerImg": "assets/opponents/canada/player.webp"
+  },
+  "paraguay": {
+    "teamName": "Paraguay",
+    "flag": "🇵🇾",
+    "nickname": "Albirroja",
+    "supporterName": "Albirroja",
+    "heroPlayer": "Julio Enciso",
+    "playerImg": "assets/opponents/paraguay/player.webp"
+  },
+  "united_states": {
+    "teamName": "États-Unis",
+    "flag": "🇺🇸",
+    "nickname": "Team USA",
+    "supporterName": "Team USA",
+    "heroPlayer": "Christian Pulisic",
+    "playerImg": "assets/opponents/united_states/player.webp"
+  },
+  "ghana": {
+    "teamName": "Ghana",
+    "flag": "🇬🇭",
+    "nickname": "Black Stars",
+    "supporterName": "Black Stars",
+    "heroPlayer": "Mohammed Kudus",
+    "playerImg": "assets/teams/ghana/player.webp"
+  },
+  "colombia": {
+    "teamName": "Colombie",
+    "flag": "🇨🇴",
+    "nickname": "Los Cafeteros",
+    "supporterName": "Cafeteros",
+    "heroPlayer": "Luis Díaz",
+    "playerImg": "assets/opponents/colombia/player.webp"
+  },
+  "bosnia_herzegovina": {
+    "teamName": "Bosnie-Herzégovine",
+    "flag": "🇧🇦",
+    "nickname": "Zmajevi",
+    "supporterName": "Zmajevi",
+    "heroPlayer": "Edin Džeko",
+    "playerImg": "assets/opponents/bosnia_herzegovina/player.webp"
+  },
+  "mexico": {
+    "teamName": "Mexique",
+    "flag": "🇲🇽",
+    "nickname": "El Tri",
+    "supporterName": "El Tri",
+    "heroPlayer": "Guillermo « Memo » Ochoa",
+    "playerImg": "assets/opponents/mexico/player.webp"
+  },
+  "usa_bosnia": {
+    "teamName": "États-Unis ou Bosnie-Herzégovine",
+    "flag": "🇺🇸/🇧🇦",
+    "nickname": "Adversaire à confirmer",
+    "supporterName": "USA ou Zmajevi",
+    "heroPlayer": "Christian Pulisic ou Edin Džeko",
+    "playerImg": null
+  },
+  "argentina": {
+    "teamName": "Argentine",
+    "flag": "🇦🇷",
+    "nickname": "Albiceleste",
+    "supporterName": "Albiceleste",
+    "heroPlayer": "Lionel Messi",
+    "playerImg": "assets/opponents/argentina/player.webp"
+  },
+  "cape_verde": {
+    "teamName": "Cap-Vert",
+    "flag": "🇨🇻",
+    "nickname": "Tubarões Azuis",
+    "supporterName": "Tubarões Azuis",
+    "heroPlayer": "Ryan Mendes",
+    "playerImg": "assets/teams/cape_verde/player.webp"
+  },
+  "portugal_croatia": {
+    "teamName": "Portugal ou Croatie",
+    "flag": "🇵🇹/🇭🇷",
+    "nickname": "Adversaire à confirmer",
+    "supporterName": "Vainqueur Portugal–Croatie",
+    "heroPlayer": "Vainqueur du match Portugal–Croatie",
+    "playerImg": "assets/world-cup-hero.webp"
+  },
+  "portugal": {
+    "teamName": "Portugal",
+    "flag": "🇵🇹",
+    "nickname": "Seleção das Quinas",
+    "supporterName": "Seleção",
+    "heroPlayer": "Cristiano Ronaldo",
+    "playerImg": "assets/opponents/portugal/player.webp"
+  },
+  "argentina_cape_verde": {
+    "teamName": "Argentine ou Cap-Vert",
+    "flag": "🇦🇷/🇨🇻",
+    "nickname": "Adversaire à confirmer",
+    "supporterName": "Vainqueur Argentine–Cap-Vert",
+    "heroPlayer": "Vainqueur du match Argentine–Cap-Vert",
+    "playerImg": "assets/opponents/argentina/player.webp"
+  },
+  "winner_par_fra": {
+    "teamName": "France",
+    "flag": "🇫🇷",
+    "nickname": "Les Bleus",
+    "supporterName": "Bleus",
+    "heroPlayer": "Kylian Mbappé",
+    "playerImg": "assets/teams/france/player.webp"
+  },
+  "winner_n89": {
+    "teamName": "France",
+    "flag": "🇫🇷",
+    "nickname": "Les Bleus",
+    "supporterName": "Bleus",
+    "heroPlayer": "Kylian Mbappé",
+    "playerImg": "assets/teams/france/player.webp"
+  },
+  "winner_n90": {
+    "teamName": "Maroc",
+    "flag": "🇲🇦",
+    "nickname": "Lions de l’Atlas",
+    "supporterName": "Maroc",
+    "heroPlayer": "À déterminer",
+    "playerImg": null
+  },
+  "winner_n91": {
+    "teamName": "Norvège",
+    "flag": "🇳🇴",
+    "nickname": "Lions norvégiens",
+    "supporterName": "Lions norvégiens",
+    "heroPlayer": "Erling Haaland",
+    "playerImg": "assets/opponents/norway/player.webp"
+  },
+  "winner_n92": {
+    "teamName": "Angleterre",
+    "flag": "🏴",
+    "nickname": "Three Lions",
+    "supporterName": "Three Lions",
+    "heroPlayer": "Jude Bellingham",
+    "playerImg": "assets/teams/england/player.webp"
+  },
+  "winner_n93": {
+    "teamName": "Vainqueur Portugal–Espagne",
+    "flag": "🏆",
+    "nickname": "Quart de finale",
+    "supporterName": "Vainqueur Portugal–Espagne",
+    "heroPlayer": "À déterminer",
+    "playerImg": null
+  },
+  "winner_n94": {
+    "teamName": "Vainqueur États-Unis–Belgique",
+    "flag": "🏆",
+    "nickname": "Quart de finale",
+    "supporterName": "Vainqueur États-Unis–Belgique",
+    "heroPlayer": "À déterminer",
+    "playerImg": null
+  },
+  "winner_n95": {
+    "teamName": "Vainqueur Argentine–Égypte",
+    "flag": "🏆",
+    "nickname": "Quart de finale",
+    "supporterName": "Vainqueur Argentine–Égypte",
+    "heroPlayer": "À déterminer",
+    "playerImg": null
+  },
+  "winner_n96": {
+    "teamName": "Vainqueur Suisse–Colombie",
+    "flag": "🏆",
+    "nickname": "Quart de finale",
+    "supporterName": "Vainqueur Suisse–Colombie",
+    "heroPlayer": "À déterminer",
+    "playerImg": null
+  },
+  "winner_n97": {
+    "teamName": "Vainqueur du quart Maroc",
+    "flag": "🏆",
+    "nickname": "Demi-finale",
+    "supporterName": "Vainqueur du quart Maroc",
+    "heroPlayer": "À déterminer",
+    "playerImg": null
+  },
+  "winner_n98": {
+    "teamName": "Vainqueur quart 2",
+    "flag": "🏆",
+    "nickname": "Demi-finale",
+    "supporterName": "Vainqueur quart 2",
+    "heroPlayer": "À déterminer",
+    "playerImg": null
+  },
+  "winner_n99": {
+    "teamName": "Vainqueur quart 3",
+    "flag": "🏆",
+    "nickname": "Demi-finale",
+    "supporterName": "Vainqueur quart 3",
+    "heroPlayer": "À déterminer",
+    "playerImg": null
+  },
+  "winner_n100": {
+    "teamName": "Vainqueur quart 4",
+    "flag": "🏆",
+    "nickname": "Demi-finale",
+    "supporterName": "Vainqueur quart 4",
+    "heroPlayer": "À déterminer",
+    "playerImg": null
+  },
+  "winner_n101": {
+    "teamName": "Vainqueur demi-finale 1",
+    "flag": "🏆",
+    "nickname": "Finale",
+    "supporterName": "Vainqueur demi-finale 1",
+    "heroPlayer": "À déterminer",
+    "playerImg": null
+  },
+  "winner_n102": {
+    "teamName": "Vainqueur demi-finale 2",
+    "flag": "🏆",
+    "nickname": "Finale",
+    "supporterName": "Vainqueur demi-finale 2",
+    "heroPlayer": "À déterminer",
+    "playerImg": null
+  },
+  "winner_mex_eng": {
+    "teamName": "Angleterre",
+    "flag": "🏴",
+    "nickname": "Three Lions",
+    "supporterName": "Three Lions",
+    "heroPlayer": "Jude Bellingham",
+    "playerImg": "assets/teams/england/player.webp"
+  }
+}
