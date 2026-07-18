@@ -1,6 +1,6 @@
-// Mondial Pulse 2026 — Service Worker V15.4.1 SAFE
-const CACHE_VERSION = 'qualifgainde-v15-4-1';
-const RUNTIME_CACHE = 'qg-v15-4-1-runtime';
+// Mondial Pulse 2026 — Service Worker V15.4.2 SAFE
+const CACHE_VERSION = 'qualifgainde-v15-4-2';
+const RUNTIME_CACHE = 'qg-v15-4-2-runtime';
 
 self.addEventListener('install', event => {
   self.skipWaiting();
@@ -30,16 +30,20 @@ async function networkFirst(request){
   const cache = await caches.open(RUNTIME_CACHE);
   try {
     const reqUrl = new URL(request.url);
-    const fresh = await fetch(request, { cache: reqUrl.pathname.startsWith('/.netlify/functions/') ? 'default' : 'no-store' });
+    const isLiveFunction = reqUrl.pathname.startsWith('/.netlify/functions/');
+    const fresh = await fetch(request, { cache: 'no-store' });
     if (fresh && fresh.ok && request.method === 'GET') {
-      // Ne jamais mettre en cache HTML/navigation : priorité à la version fraîche.
+      // V15.4.2 — ne jamais enregistrer une réponse live/API dans Cache Storage.
+      // Les autres ressources fraîches peuvent garder leur filet hors-ligne.
       const url = new URL(request.url);
-      if (url.pathname !== '/' && url.pathname !== '/index.html' && request.mode !== 'navigate') {
+      if (!isLiveFunction && url.pathname !== '/' && url.pathname !== '/index.html' && request.mode !== 'navigate') {
         cache.put(request, fresh.clone()).catch(() => null);
       }
     }
     return fresh;
   } catch (err) {
+    const reqUrl = new URL(request.url);
+    if (reqUrl.pathname.startsWith('/.netlify/functions/')) throw err;
     const cached = await cache.match(request);
     if (cached) return cached;
     throw err;

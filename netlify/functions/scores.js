@@ -14,9 +14,13 @@ const LEAGUE_ID = process.env.FOOTBALL_LEAGUE_ID || "1";
 const SEASON = process.env.FOOTBALL_SEASON || "2026";
 
 // Cache live mutualisé.
-// 30 s pendant les deux derniers matchs ; le front ne sollicite la fonction que dans les fenêtres live.
-// La valeur reste surchargeable dans Netlify avec FOOTBALL_CACHE_SECONDS.
-const CACHE_SECONDS = Math.max(15, Number(process.env.FOOTBALL_CACHE_SECONDS || 30));
+// V15.4.2 : plafond DUR à 25 s. Une ancienne variable Netlify réglée à 300 s
+// ne peut plus réintroduire le retard de cinq minutes observé pendant le live.
+const requestedCacheSeconds = Number(process.env.FOOTBALL_CACHE_SECONDS || 25);
+const CACHE_SECONDS = Math.min(
+  25,
+  Math.max(10, Number.isFinite(requestedCacheSeconds) ? requestedCacheSeconds : 25)
+);
 
 let memoryCache = {
   expiresAt: 0,
@@ -64,6 +68,10 @@ const TRACKED_MATCHES = {
   "usa-bel": { home: "USA", away: "BEL" },
   "arg-egy": { home: "ARG", away: "EGY" },
   "sui-col": { home: "SUI", away: "COL" },
+
+  // Deux derniers matchs : clés KO exactes, sans dépendre uniquement de l’horaire.
+  "third-103": { home: "FRA", away: "ENG" },
+  "final-104": { home: "ESP", away: "ARG" },
 };
 
 const TEAM_ALIASES = {
@@ -129,9 +137,11 @@ function json(statusCode, body, extraHeaders = {}) {
     headers: {
       "Content-Type": "application/json; charset=utf-8",
       "Access-Control-Allow-Origin": "*",
-      "Cache-Control": "public, max-age=0, must-revalidate",
-      "CDN-Cache-Control": `public, s-maxage=${CACHE_SECONDS}, stale-while-revalidate=5`,
-      "Netlify-CDN-Cache-Control": `public, s-maxage=${CACHE_SECONDS}, stale-while-revalidate=5`,
+      // Navigateur : jamais de score stocké. CDN : 25 s maximum, sans stale.
+      "Cache-Control": "no-store, max-age=0, must-revalidate",
+      "CDN-Cache-Control": `public, s-maxage=${CACHE_SECONDS}`,
+      "Netlify-CDN-Cache-Control": `public, s-maxage=${CACHE_SECONDS}`,
+      "X-QG-Live-Cache-Seconds": String(CACHE_SECONDS),
       ...extraHeaders,
     },
     body: JSON.stringify(body),
@@ -361,7 +371,7 @@ exports.handler = async function handler(event) {
       return json(200, {
         ...memoryCache.body,
         cache: "memory",
-      });
+      }, { "X-QG-Cache": "memory" });
     }
 
     const params = event?.queryStringParameters || {};
@@ -408,7 +418,7 @@ exports.handler = async function handler(event) {
       body,
     };
 
-    return json(200, body);
+    return json(200, body, { "X-QG-Cache": "fresh" });
   } catch (error) {
     return json(500, {
       updatedAt: new Date().toISOString(),

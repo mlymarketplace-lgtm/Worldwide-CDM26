@@ -1,0 +1,12 @@
+QUALIFGAÏNDÉ V15.4.2 — DÉPLOIEMENT COMPLET
+
+1. Décompresser le ZIP.
+2. Vérifier que index.html est directement visible à la racine.
+3. Copier tout le contenu à la racine du dépôt Worldwide-CDM26.
+4. Accepter les remplacements.
+5. Dans GitHub Desktop, vérifier que index.html est Modified et non Deleted.
+6. Commit : Release V15.4.2 – Hotfix scores live 30 secondes
+7. Push origin puis attendre le déploiement Netlify.
+8. Tester la fonction : /.netlify/functions/scores?liveBucket=TEST
+
+IMPORTANT : même si FOOTBALL_CACHE_SECONDS vaut encore 300 dans Netlify, V15.4.2 la plafonne à 25 secondes. Tu pourras ensuite la régler à 25 ou la supprimer pour cohérence.
