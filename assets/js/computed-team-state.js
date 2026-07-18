@@ -2,8 +2,8 @@
 (function(){
   'use strict';
 
-  const VERSION = (window.BUILD_VERSION || '15.4.0');
-  const VERSION_TOKEN = (window.BUILD_VERSION_TOKEN || String(VERSION).replace(/\D/g,'') || '1540');
+  const VERSION = (window.BUILD_VERSION || '15.4.1');
+  const VERSION_TOKEN = (window.BUILD_VERSION_TOKEN || String(VERSION).replace(/\D/g,'') || '1541');
   const SEMIFINALISTS = new Set(['france','spain','england','argentina']);
   const FEATURED_ORDER = [
     'morocco','france','spain','belgium','norway','england','argentina','switzerland',
@@ -41,7 +41,7 @@
     N97:'qf-97', N98:'qf-98', N99:'qf-99', N100:'qf-100', N101:'sf-101', N102:'sf-102', N103:'third-103', N104:'final-104'
   };
 
-  // V15.4.0 — aliases de clés live/API vers l'identifiant KO canonique.
+  // V15.4.1 — aliases de clés live/API vers l'identifiant KO canonique.
   // Objectif : la home doit réagir même si la simulation reçoit `por-esp`, `por-spain`,
   // `usa-bel`, `bel-usa`, `usa-belgium`, etc.
   const KO_ID_BY_KEY = Object.assign(
@@ -259,7 +259,7 @@
 
     Object.entries((live && live.matches) || {}).forEach(([key, v]) => addEntry(key, v, 'live-json'));
 
-    // V15.4.0 — état réel du moteur KO en mémoire. C'est ce que la simulation utilise.
+    // V15.4.1 — état réel du moteur KO en mémoire. C'est ce que la simulation utilise.
     // La home doit lire cette source prioritaire pour ne plus attendre un nouveau déploiement.
     try {
       if (typeof KNOCKOUT_LIVE_RESULTS !== 'undefined' && KNOCKOUT_LIVE_RESULTS) {
@@ -1167,7 +1167,7 @@ async function run(){
 
   window.QG_AUTO_TEAM_STATE_ENGINE = {run, buildState, scheduleRun};
 
-  // V15.4.0 — rebrancher la home sur le vrai flux live.
+  // V15.4.1 — rebrancher la home sur le vrai flux live.
   // `qualifgainde:scoresUpdated` est émis tôt par applyScoresData ; on relance donc plusieurs fois
   // pour passer APRÈS l'écriture de KNOCKOUT_LIVE_RESULTS et la propagation du bracket.
   window.addEventListener('qualifgainde:scoresUpdated', function(){

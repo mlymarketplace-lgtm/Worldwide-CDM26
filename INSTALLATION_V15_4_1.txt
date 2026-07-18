@@ -1,0 +1,15 @@
+QUALIFGAINDE V15.4.1 — DÉPLOIEMENT COMPLET
+
+1. Décompresser le ZIP.
+2. Ouvrir le dossier extrait : index.html doit être visible immédiatement à la racine.
+3. Copier TOUT le contenu dans la racine du dépôt GitHub Desktop Worldwide-CDM26.
+4. Accepter les remplacements.
+5. Dans GitHub Desktop, vérifier que index.html est MODIFIED et jamais DELETED.
+6. Commit conseillé :
+   Release V15.4.1 – Polissage visuel de la home
+7. Push origin.
+8. Vérifier le déploiement Netlify puis tester :
+   https://qualifgainde.netlify.app/?v=1541
+
+Cette archive est un BUILD COMPLET, pas un patch.
+Les scores, données et fonctions live sont conservés depuis la V15.4.0.

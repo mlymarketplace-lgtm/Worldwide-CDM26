@@ -1,8 +1,8 @@
 {
-  "name": "Suivi des Gaïndés · V15.4.0",
+  "name": "Suivi des Gaïndés · V15.4.1",
   "short_name": "Gaïndés",
   "description": "Suivi des Gaïndés à l’international : sélection, clubs, Europe, joueurs et brèves.",
-  "start_url": "/?mode=gaindes&v=1540",
+  "start_url": "/?mode=gaindes&v=1541",
   "scope": "/mangara-studio-7f3k9q/",
   "display": "standalone",
   "background_color": "#06101d",
@@ -20,5 +20,5 @@
       "type": "image/png"
     }
   ],
-  "id": "/?mode=gaindes&v=1540"
+  "id": "/?mode=gaindes&v=1541"
 }
