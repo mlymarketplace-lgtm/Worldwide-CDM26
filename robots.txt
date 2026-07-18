@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-Disallow: /mangara-studio-7f3k9q/
-Sitemap: https://qualifgainde.netlify.app/sitemap.xml

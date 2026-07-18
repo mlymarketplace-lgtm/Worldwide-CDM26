@@ -1,7 +1,0 @@
-1. Ouvrir GitHub Desktop sur Worldwide-CDM26 / main.
-2. Show in Finder.
-3. Copier le contenu de ce ZIP dans le dépôt et remplacer les fichiers.
-4. Summary : V14.0.2 - Native Sports Mangara card
-5. Commit to main.
-6. Push origin.
-7. Tester /?v=1402 et /mangara/?v=1402.

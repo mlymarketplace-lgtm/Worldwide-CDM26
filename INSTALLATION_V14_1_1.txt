@@ -1,6 +1,0 @@
-1. GitHub Desktop : Worldwide-CDM26 / main.
-2. Show in Finder.
-3. Copier le contenu de ce ZIP dans le dépôt et remplacer.
-4. Commit : V14.1.1 - Runtime Sports Mangara card fix
-5. Push origin.
-6. Tester https://qualifgainde.netlify.app/?v=1411

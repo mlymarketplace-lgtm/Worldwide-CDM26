@@ -1,6 +1,0 @@
-1. GitHub Desktop : Worldwide-CDM26 / main.
-2. Show in Finder.
-3. Copier le contenu de ce ZIP et remplacer.
-4. Commit : V14.1.0 - Sports Mangara stabilisation
-5. Push origin.
-6. Tester /?v=1410 et /mangara/?v=1410.

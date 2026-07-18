@@ -1,7 +1,7 @@
 {
-  "name": "Sports Mangara · Tanière des Lions",
-  "short_name": "Mangara",
-  "description": "Tanière mobile des Lions du Sénégal, avec clubs, logos et fiches journalistes.",
+  "name": "Suivi des Gaïndés",
+  "short_name": "Gaïndés",
+  "description": "Hub privé de suivi des Lions : sélection, clubs, Europe, joueurs et brèves.",
   "start_url": "/mangara-studio-7f3k9q/?access=mangara-v15-kft-7q2p&v=1510",
   "scope": "/mangara-studio-7f3k9q/",
   "display": "standalone",

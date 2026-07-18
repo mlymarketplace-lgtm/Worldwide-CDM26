@@ -2,7 +2,7 @@
   "meta": {
     "version": "V15.1.0",
     "updatedAt": "2026-07-09",
-    "note": "Structure reproductible pour les journalistes Sports Mangara."
+    "note": "Structure reproductible pour les journalistes Suivi des Gaïndés."
   },
   "journalists": [
     {
@@ -26,8 +26,8 @@
         "Compétitions africaines",
         "Europe des Lions"
       ],
-      "appRole": "Editorialisation, suivi des Lions, validation média et ton Sports Mangara.",
-      "bio": "La fiche journaliste permet de donner un visage au média, puis de reproduire le modèle si Sports Mangara intègre demain d’autres journalistes ou chroniqueurs.",
+      "appRole": "Editorialisation, suivi des Lions, validation média et ton Suivi des Gaïndés.",
+      "bio": "La fiche journaliste permet de donner un visage au média, puis de reproduire le modèle si Suivi des Gaïndés intègre demain d’autres journalistes ou chroniqueurs.",
       "quote": "Une app pensée comme un média de suivi : simple en surface, profonde dans les fiches."
     }
   ]

@@ -1,0 +1,9 @@
+QUALIFGAÏNDÉ V15.3.0 — PATCH SUIVI DES GAÏNDÉS
+
+1. Décompresser le ZIP.
+2. Copier le dossier mangara-studio-7f3k9q à la racine du dépôt Worldwide-CDM26.
+3. Accepter le remplacement des fichiers de ce dossier uniquement.
+4. Copier, si souhaité, les trois documents V15.3.0 à la racine.
+5. Commit conseillé : Release V15.3.0 – Refonte UX Suivi des Gaïndés
+6. Push origin, puis attendre Netlify.
+7. Tester l’URL privée existante ; le paramètre access reste inchangé.
