@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-15T03:15:00+02:00",
+  "updatedAt": "2026-07-19T01:08:00+02:00",
   "matches": {
     "uru-esp": {
       "home": 0,
@@ -471,7 +471,39 @@
       "winnerTeam": "spain",
       "locked": true,
       "round": "sf"
+    },
+    "third-103": {
+      "koId": "N103",
+      "h": "FRA",
+      "a": "ENG",
+      "home": 4,
+      "away": 6,
+      "status": "final",
+      "apiStatus": "FT",
+      "apiStatusLong": "Match Finished",
+      "winner": "away",
+      "winnerSide": 1,
+      "winnerTeam": "england",
+      "locked": true,
+      "round": "third",
+      "scoreLine": "France 4–6 Angleterre"
+    },
+    "fra-eng": {
+      "koId": "N103",
+      "h": "FRA",
+      "a": "ENG",
+      "home": 4,
+      "away": 6,
+      "status": "final",
+      "apiStatus": "FT",
+      "apiStatusLong": "Match Finished",
+      "winner": "away",
+      "winnerSide": 1,
+      "winnerTeam": "england",
+      "locked": true,
+      "round": "third",
+      "scoreLine": "France 4–6 Angleterre"
     }
   },
-  "_note": "V15.1.0 — Finale Espagne–Argentine verrouillée, mode Finale premium actif."
+  "_note": "V15.4.3 — Angleterre médaillée de bronze après France 4–6 Angleterre. Finale Espagne–Argentine à venir."
 }

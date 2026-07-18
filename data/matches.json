@@ -554,15 +554,20 @@
     "winnerSide": 1
   },
   "third-103": {
-    "home": "loser_n101",
-    "away": "loser_n102",
-    "label": "Match pour la 3e place",
+    "home": "france",
+    "away": "england",
+    "label": "France–Angleterre",
     "round": "THIRD",
     "dateParis": "2026-07-18T23:00:00+02:00",
     "dateUTC": "2026-07-18T21:00:00Z",
-    "stadium": "À confirmer",
+    "stadium": "Miami · Hard Rock Stadium",
     "channel_fr": "beIN Sports 1",
-    "dynamic": true
+    "dynamic": false,
+    "homeLabel": "France",
+    "homeDisplay": "France",
+    "awayLabel": "Angleterre",
+    "awayDisplay": "Angleterre",
+    "note": "Match terminé : l’Angleterre décroche la médaille de bronze après un incroyable succès 6–4."
   },
   "final-104": {
     "home": "spain",

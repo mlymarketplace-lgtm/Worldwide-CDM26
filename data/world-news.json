@@ -2,30 +2,26 @@
   {
     "id": "france-england-bronze",
     "section": "world",
-    "type": "preview",
-    "priority": 2,
+    "type": "result",
+    "priority": 1,
     "image": "assets/news/france-angleterre-petite-finale.jpg",
     "langs": {
       "fr": {
-        "tag": "Petite finale · 3e place",
-        "title": "France–Angleterre : le Channel n’a jamais séparé autant de stars",
-        "body": "Harry Kane et Jude Bellingham face à Kylian Mbappé et Ousmane Dembélé. Même le bronze aura un goût de suprématie.",
+        "tag": "Résultat · Médaille de bronze",
+        "title": "L’Angleterre décroche le bronze au terme d’un match complètement fou",
+        "body": "France 4–6 Angleterre — Menés par une première période parfaite, les Three Lions ont résisté à une remontée spectaculaire des Bleus.",
         "article": [
-          "Harry Kane et Jude Bellingham contre Kylian Mbappé et Ousmane Dembélé, Ballon d’Or 2025. La petite finale ressemble davantage à un sommet européen qu’à un match de consolation. Entre la France et l’Angleterre, même le bronze aura un goût de suprématie.",
-          "On pouvait difficilement imaginer affiche plus piquante pour refermer les parcours de deux nations qui rêvaient du titre. La France et l’Angleterre se retrouvent à Miami pour la troisième place, quelques jours seulement après avoir vu l’Espagne et l’Argentine briser leurs rêves de finale. Didier Deschamps disputera à cette occasion son dernier match à la tête des Bleus, tandis que les Anglais tenteront de relever la tête après avoir mené avant de céder 2–1 face à l’Argentine.",
-          "Mais France–Angleterre n’est jamais un simple match. C’est une proximité géographique devenue rivalité sportive, un bras de mer qui sépare deux pays persuadés d’avoir inventé une certaine idée du football. Les deux sélections se sont déjà affrontées à 32 reprises : l’Angleterre conserve l’avantage historique avec 17 victoires, contre 10 pour la France et cinq matchs nuls.",
-          "En Coupe du monde, l’histoire a longtemps souri aux Three Lions. L’Angleterre avait battu la France en 1966, année de son unique titre mondial, puis encore en 1982. Les Bleus ont renversé la tendance en quart de finale du Mondial 2022, avec une victoire 2–1 restée célèbre pour le second penalty manqué par Harry Kane.",
-          "Quatre ans plus tard, Kane retrouve la France avec Jude Bellingham à ses côtés. En face, il y aura Mbappé, mais aussi Ousmane Dembélé, officiellement sacré Ballon d’Or 2025. Ce duel oppose certaines des figures les plus puissantes du football mondial, mais également deux modèles. L’Angleterre revendique la Premier League, son argent, son intensité et sa capacité à attirer les meilleurs joueurs de la planète. La France lui répond par son vivier, sa formation et le récent règne européen du Paris Saint-Germain.",
-          "Car malgré la puissance économique et sportive du championnat anglais, c’est bien le PSG qui a conquis la Ligue des champions 2025. Le club parisien avait dominé l’Inter Milan 5–0 en finale pour décrocher la première C1 de son histoire, avec Dembélé comme l’un des visages de cette campagne. L’Europe des clubs avait alors parlé français.",
-          "Cette petite finale porte donc une grande question : qui peut encore revendiquer la suprématie entre les deux nations les plus riches en talents du continent ?",
-          "Pour les Bleus, gagner serait offrir une dernière sortie digne à Didier Deschamps et rappeler que l’échec contre l’Espagne n’efface pas tout un tournoi. Pour l’Angleterre, ce serait enfin battre la France dans un grand match récent et transformer une nouvelle désillusion en médaille.",
-          "Le trophée ne sera pas au bout. Mais entre ces deux pays, il n’existe jamais vraiment de petit enjeu. France–Angleterre : même pour le bronze, le Channel sera en feu."
+          "France 4–6 Angleterre — La petite finale a offert dix buts, une première période à sens unique, une remontée française renversante et un dernier mot signé Jude Bellingham.",
+          "L’Angleterre a frappé très fort avant la pause. Rice, Konsa et un doublé de Saka ont placé les Three Lions à 4–0, transformant la première période française en naufrage.",
+          "Les entrées d’Upamecano, Rabiot, Dembélé et Barcola ont métamorphosé les Bleus. Mbappé a marqué deux fois, Barcola a réduit l’écart et la France est revenue à 4–3.",
+          "Saka a complété son triplé sur penalty. Dembélé a encore relancé le suspense, avant que Bellingham ne scelle le 6–4 à la 98e minute.",
+          "L’Angleterre termine troisième du monde. La France finit quatrième, mais Mbappé prend provisoirement la tête du classement des buteurs avec 10 réalisations."
         ]
       },
       "en": {
-        "tag": "Third-place match",
-        "title": "France–England: the Channel has never separated so many stars",
-        "body": "Kane and Bellingham face Mbappé and Dembélé in a bronze-medal clash with the feel of a European summit."
+        "tag": "Result · Bronze medal",
+        "title": "England win bronze after a ten-goal World Cup classic",
+        "body": "France 4–6 England — The Three Lions survive an extraordinary comeback and finish third in the world."
       }
     }
   },

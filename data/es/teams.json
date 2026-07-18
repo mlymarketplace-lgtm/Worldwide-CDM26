@@ -10,12 +10,19 @@
   },
   "france": {
     "teamName": "Francia",
-    "statusLabel": "Eliminada en semifinales · España 2–0 Francia",
-    "selectorLine": "Eliminada en semifinales · España 2–0 Francia",
+    "statusLabel": "Cuarta del Mundial · Francia 4–6 Inglaterra",
+    "selectorLine": "Cuarta del Mundial · una despedida inolvidable",
     "tagline": "Les Bleus, candidatos al título",
-    "heroSubtitle": "Francia abandona el Mundial tras caer 2–0 ante España.",
+    "heroSubtitle": "Francia remontó tras ir 4–0 abajo al descanso, pero cayó 6–4.",
     "supporterName": "Les Bleus",
-    "roundLabel": "semifinales"
+    "roundLabel": "partido por el tercer puesto",
+    "status": "eliminated",
+    "tournamentStatus": "eliminated",
+    "currentRound": "THIRD",
+    "round": "THIRD",
+    "stageGroup": "eliminated",
+    "nextMatchId": null,
+    "nextOpponent": null
   },
   "brazil": {
     "teamName": "Brasil",
@@ -80,18 +87,20 @@
   },
   "england": {
     "teamName": "Inglaterra",
-    "selectorLine": "Eliminada en semifinales · termina un gran recorrido",
-    "statusLabel": "Eliminada en semifinales · Argentina 2–1 Inglaterra",
+    "selectorLine": "Tercera del mundo · bronce tras un partido histórico",
+    "statusLabel": "Medalla de bronce · Francia 4–6 Inglaterra",
     "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
     "tagline": "Los Three Lions se despiden con orgullo",
-    "heroSubtitle": "El camino de Inglaterra termina a un partido de la final.",
+    "heroSubtitle": "Inglaterra venció 6–4 a Francia y termina tercera del Mundial.",
     "nextMatchId": null,
     "nextOpponent": null,
-    "status": "eliminated",
-    "tournamentStatus": "eliminated",
-    "currentRound": "SF",
+    "status": "bronze",
+    "tournamentStatus": "bronze",
+    "currentRound": "THIRD",
     "qualifiedRound": "SF",
-    "stageGroup": "eliminated"
+    "stageGroup": "eliminated",
+    "round": "THIRD",
+    "roundLabel": "partido por el tercer puesto"
   },
   "argentina": {
     "teamName": "Argentina",

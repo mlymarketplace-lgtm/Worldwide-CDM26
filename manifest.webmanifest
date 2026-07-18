@@ -1,8 +1,8 @@
 {
-  "name": "Mondial Pulse 2026 · V15.4.2",
+  "name": "Mondial Pulse 2026 · V15.4.3",
   "short_name": "Mondial Pulse",
   "description": "Scores, tableaux et récits supporters de la Coupe du monde 2026.",
-  "start_url": "/?v=1542",
+  "start_url": "/?v=1543",
   "scope": "/",
   "display": "standalone",
   "orientation": "portrait",
@@ -33,7 +33,7 @@
     {
       "name": "France",
       "short_name": "France",
-      "url": "/?team=france&v=1542",
+      "url": "/?team=france&v=1543",
       "icons": [
         {
           "src": "/assets/icons/icon-192.png",
@@ -44,7 +44,7 @@
     {
       "name": "Maroc",
       "short_name": "Maroc",
-      "url": "/?team=morocco&v=1542",
+      "url": "/?team=morocco&v=1543",
       "icons": [
         {
           "src": "/assets/icons/icon-192.png",
@@ -55,7 +55,7 @@
     {
       "name": "🏴󠁧󠁢󠁥󠁮󠁧󠁿 Angleterre",
       "short_name": "Angleterre",
-      "url": "/?team=england&v=1542",
+      "url": "/?team=england&v=1543",
       "icons": [
         {
           "src": "/assets/icons/icon-192.png",
@@ -66,7 +66,7 @@
     {
       "name": "Norvège",
       "short_name": "Norvège",
-      "url": "/?team=norway&v=1542",
+      "url": "/?team=norway&v=1543",
       "icons": [
         {
           "src": "/assets/icons/icon-192.png",
@@ -77,7 +77,7 @@
     {
       "name": "Espagne",
       "short_name": "Espagne",
-      "url": "/?team=spain&v=1542",
+      "url": "/?team=spain&v=1543",
       "icons": [
         {
           "src": "/assets/icons/icon-192.png",
@@ -88,7 +88,7 @@
     {
       "name": "Les Brèves du Mondial",
       "short_name": "Brèves",
-      "url": "/?mode=news&v=1542",
+      "url": "/?mode=news&v=1543",
       "icons": [
         {
           "src": "/assets/icons/icon-192.png",
@@ -99,7 +99,7 @@
     {
       "name": "Suivi des Gaïndés",
       "short_name": "Gaïndés",
-      "url": "/?mode=gaindes&v=1542",
+      "url": "/?mode=gaindes&v=1543",
       "icons": [
         {
           "src": "/assets/icons/icon-192.png",
@@ -108,5 +108,5 @@
       ]
     }
   ],
-  "id": "/?v=1542"
+  "id": "/?v=1543"
 }

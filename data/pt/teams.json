@@ -75,9 +75,17 @@
   },
   "france": {
     "teamName": "França",
-    "statusLabel": "Eliminada na semifinal · Espanha 2–0 França",
-    "selectorLine": "Eliminada na semifinal · Espanha 2–0 França",
-    "heroSubtitle": "A França deixa o Mundial após perder por 2–0 para a Espanha."
+    "statusLabel": "Quarta do mundo · França 4–6 Inglaterra",
+    "selectorLine": "Quarta do mundo · despedida épica",
+    "heroSubtitle": "A França reagiu após estar perdendo por 4–0, mas caiu por 6–4.",
+    "status": "eliminated",
+    "tournamentStatus": "eliminated",
+    "currentRound": "THIRD",
+    "round": "THIRD",
+    "stageGroup": "eliminated",
+    "nextMatchId": null,
+    "nextOpponent": null,
+    "roundLabel": "disputa do terceiro lugar"
   },
   "norway": {
     "teamName": "Noruega",
@@ -86,18 +94,20 @@
   },
   "england": {
     "teamName": "Inglaterra",
-    "selectorLine": "Eliminada na semifinal · fim de uma grande campanha",
-    "statusLabel": "Eliminada na semifinal · Argentina 2–1 Inglaterra",
+    "selectorLine": "Terceira do mundo · bronze em jogo histórico",
+    "statusLabel": "Medalha de bronze · França 4–6 Inglaterra",
     "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
     "tagline": "Os Three Lions saem de cabeça erguida",
-    "heroSubtitle": "A caminhada da Inglaterra termina a um jogo da final.",
+    "heroSubtitle": "A Inglaterra venceu a França por 6–4 e terminou em terceiro lugar.",
     "nextMatchId": null,
     "nextOpponent": null,
-    "status": "eliminated",
-    "tournamentStatus": "eliminated",
-    "currentRound": "SF",
+    "status": "bronze",
+    "tournamentStatus": "bronze",
+    "currentRound": "THIRD",
     "qualifiedRound": "SF",
-    "stageGroup": "eliminated"
+    "stageGroup": "eliminated",
+    "round": "THIRD",
+    "roundLabel": "disputa do terceiro lugar"
   },
   "argentina": {
     "teamName": "Argentina",

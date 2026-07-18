@@ -15,15 +15,19 @@
   },
   "france": {
     "status": "eliminated",
-    "round": "SF",
-    "currentRound": "SF",
+    "round": "THIRD",
+    "currentRound": "THIRD",
     "stageGroup": "eliminated",
     "nextMatchId": null,
     "nextOpponent": null,
-    "selectorLine": "Éliminée en demi-finale · les Bleus quittent le Mondial",
-    "statusLabel": "Éliminée en demi-finale · France 0–2 Espagne",
-    "roundLabel": "demi-finale",
-    "heroSubtitle": "La France quitte le Mondial en demi-finale, dominée 2–0 par l’Espagne."
+    "selectorLine": "Quatrième du Mondial · une sortie folle face à l’Angleterre",
+    "statusLabel": "Quatrième du Mondial · France 4–6 Angleterre",
+    "roundLabel": "match pour la troisième place",
+    "heroSubtitle": "Menée 4–0 à la pause, la France a signé une remontée spectaculaire avant de s’incliner 6–4 face à l’Angleterre.",
+    "tagline": "Les Bleus quittent le Mondial au terme d’un match d’anthologie",
+    "tournamentStatus": "eliminated",
+    "qualifiedRound": "SF",
+    "quarterfinalLine": "Petite finale · France 4–6 Angleterre"
   },
   "brazil": {
     "status": "eliminated",
@@ -160,19 +164,20 @@
     "exitScoreLine": "🏴 Angleterre 2–1 Norvège 🇳🇴"
   },
   "england": {
-    "status": "eliminated",
-    "round": "SF",
-    "currentRound": "SF",
+    "status": "bronze",
+    "round": "THIRD",
+    "currentRound": "THIRD",
     "qualifiedRound": "SF",
     "stageGroup": "eliminated",
     "nextMatchId": null,
     "nextOpponent": null,
-    "selectorLine": "Eliminated in the semi-final · Argentina 2–1 England",
-    "statusLabel": "Eliminated in the semi-final · Argentina 2–1 England",
-    "roundLabel": "semi-final",
-    "quarterfinalLine": "Quart de finale · Norvège–Angleterre",
-    "heroSubtitle": "England’s World Cup journey ends after a 2–1 semi-final defeat to Argentina.",
-    "tournamentStatus": "eliminated"
+    "selectorLine": "Third in the world · bronze after a ten-goal classic",
+    "statusLabel": "World Cup bronze medallists · France 4–6 England",
+    "roundLabel": "third-place play-off",
+    "quarterfinalLine": "Bronze final · France 4–6 England",
+    "heroSubtitle": "England beat France 6–4 in a remarkable bronze final and leave the World Cup with a medal.",
+    "tournamentStatus": "bronze",
+    "tagline": "The Three Lions finish third in the world"
   },
   "argentina": {
     "status": "qualified",

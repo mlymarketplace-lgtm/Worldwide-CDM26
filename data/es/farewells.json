@@ -8,12 +8,19 @@
     ]
   },
   "england": {
-    "title": "Adiós Inglaterra — a un paso de otra final",
-    "kicker": "Eliminada en semifinales · Argentina 2–1 Inglaterra",
+    "title": "Inglaterra conquista el bronce tras un partido inolvidable",
+    "kicker": "Tercera del mundo · Francia 4–6 Inglaterra",
     "body": [
-      "Inglaterra se despide del Mundial a una victoria de la final, derrotada 2–1 por Argentina.",
-      "Los Three Lions firmaron un torneo sólido, pero Argentina fue más precisa en los momentos decisivos.",
-      "Bellingham, Kane y esta generación se marchan con dolor, pero confirmados entre los grandes aspirantes del fútbol mundial."
+      "Inglaterra supera a Francia 6–4 y termina tercera del Mundial después de una final de bronce espectacular.",
+      "Los Three Lions llegaron al descanso 4–0 arriba, resistieron la gran reacción francesa y sentenciaron con Bellingham en el minuto 98."
+    ]
+  },
+  "france": {
+    "title": "Adiós Francia — una remontada inmensa que no alcanzó",
+    "kicker": "Cuarta del Mundial · Francia 4–6 Inglaterra",
+    "body": [
+      "Francia reaccionó después de ir perdiendo 4–0 al descanso, pero cayó 6–4 en un partido inolvidable.",
+      "Mbappé marcó dos goles y termina provisionalmente como máximo goleador con 10 tantos."
     ]
   }
 }

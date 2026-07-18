@@ -1,14 +1,14 @@
 {
-  "updatedAt": "2026-07-12T15:16:00+02:00",
+  "updatedAt": "2026-07-19T01:08:00+02:00",
   "topScorers": [
     {
       "rank": 1,
       "name": "Kylian Mbappé",
       "team": "🇫🇷 France",
-      "goals": 8
+      "goals": 10
     },
     {
-      "rank": 1,
+      "rank": 2,
       "name": "Lionel Messi",
       "team": "🇦🇷 Argentine",
       "goals": 8
@@ -20,26 +20,32 @@
       "goals": 7
     },
     {
-      "rank": 4,
-      "name": "Ousmane Dembélé",
-      "team": "🇫🇷 France",
-      "goals": 5
+      "name": "Jude Bellingham",
+      "team": "🏴 Angleterre",
+      "goals": 7,
+      "rank": 3
     },
     {
       "rank": 5,
+      "name": "Ousmane Dembélé",
+      "team": "🇫🇷 France",
+      "goals": 6
+    },
+    {
+      "rank": 6,
       "name": "Harry Kane",
       "team": "🏴 Angleterre",
       "goals": 4
     },
     {
-      "rank": 5,
+      "rank": 6,
       "name": "Vinícius Júnior",
       "team": "🇧🇷 Brésil",
       "goals": 4
     }
   ],
   "bestAttack": {
-    "goals": 16,
+    "goals": 20,
     "teams": [
       "🇫🇷 France"
     ]
@@ -58,6 +64,10 @@
     "spain": {
       "goalsAgainst": 1,
       "label": "Meilleure défense"
+    },
+    "france": {
+      "goalsFor": 20,
+      "label": "Meilleure attaque"
     }
   }
 }

@@ -750,5 +750,39 @@
     "winnerSide": 1,
     "locked": true,
     "round": "sf"
+  },
+  "third-103": {
+    "koId": "N103",
+    "h": "FRA",
+    "a": "ENG",
+    "home": 4,
+    "away": 6,
+    "status": "final",
+    "apiStatus": "FT",
+    "apiStatusLong": "Match Finished",
+    "winner": "away",
+    "winnerSide": 1,
+    "winnerTeam": "england",
+    "locked": true,
+    "round": "third",
+    "scoreLine": "France 4–6 Angleterre"
+  },
+  "final": {
+    "N103": {
+      "koId": "N103",
+      "h": "FRA",
+      "a": "ENG",
+      "home": 4,
+      "away": 6,
+      "status": "final",
+      "apiStatus": "FT",
+      "apiStatusLong": "Match Finished",
+      "winner": "away",
+      "winnerSide": 1,
+      "winnerTeam": "england",
+      "locked": true,
+      "round": "third",
+      "scoreLine": "France 4–6 Angleterre"
+    }
   }
 }

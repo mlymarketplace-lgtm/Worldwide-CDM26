@@ -8,12 +8,17 @@
     ]
   },
   "england": {
-    "title": "Adeus Inglaterra — a um passo de outra final",
-    "kicker": "Eliminada na semifinal · Argentina 2–1 Inglaterra",
+    "title": "Inglaterra conquista o bronze após um jogo inesquecível",
+    "kicker": "Terceira do mundo · França 4–6 Inglaterra",
     "body": [
-      "A Inglaterra deixa a Copa do Mundo a uma vitória da final, derrotada por 2–1 pela Argentina.",
-      "Os Three Lions fizeram um torneio sólido, mas a Argentina foi mais eficiente nos momentos decisivos.",
-      "Bellingham, Kane e esta geração saem frustrados, mas confirmados entre os grandes candidatos do futebol mundial."
+      "A Inglaterra venceu a França por 6–4 e terminou em terceiro lugar depois de uma final de bronze espetacular."
+    ]
+  },
+  "france": {
+    "title": "Adeus França — uma reação enorme que não foi suficiente",
+    "kicker": "Quarta do mundo · França 4–6 Inglaterra",
+    "body": [
+      "A França reagiu depois de estar perdendo por 4–0 no intervalo, mas caiu por 6–4."
     ]
   }
 }

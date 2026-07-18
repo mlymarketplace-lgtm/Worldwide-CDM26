@@ -10,12 +10,19 @@
   },
   "france": {
     "teamName": "فرنسا",
-    "statusLabel": "خرجت من نصف النهائي · إسبانيا 2–0 فرنسا",
-    "selectorLine": "خرجت من نصف النهائي · إسبانيا 2–0 فرنسا",
+    "statusLabel": "المركز الرابع · فرنسا 4–6 إنجلترا",
+    "selectorLine": "المركز الرابع · وداع مثير",
     "tagline": "الديوك مرشحون للقب",
-    "heroSubtitle": "تغادر فرنسا كأس العالم بعد الخسارة 2–0 أمام إسبانيا.",
+    "heroSubtitle": "عادت فرنسا بعد التأخر 4–0 لكنها خسرت 6–4.",
     "supporterName": "الديوك",
-    "roundLabel": "ربع النهائي"
+    "roundLabel": "مباراة المركز الثالث",
+    "status": "eliminated",
+    "tournamentStatus": "eliminated",
+    "currentRound": "THIRD",
+    "round": "THIRD",
+    "stageGroup": "eliminated",
+    "nextMatchId": null,
+    "nextOpponent": null
   },
   "brazil": {
     "teamName": "البرازيل",
@@ -107,18 +114,20 @@
   },
   "england": {
     "teamName": "إنجلترا",
-    "selectorLine": "خرجت من نصف النهائي · نهاية مشوار مشرف",
-    "statusLabel": "خرجت من نصف النهائي · الأرجنتين 2–1 إنجلترا",
+    "selectorLine": "الثالثة عالمياً · برونزية بعد مباراة تاريخية",
+    "statusLabel": "الميدالية البرونزية · فرنسا 4–6 إنجلترا",
     "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
     "tagline": "إنجلترا تغادر بفخر",
-    "heroSubtitle": "ينتهي مشوار إنجلترا على بعد مباراة واحدة من النهائي.",
+    "heroSubtitle": "فازت إنجلترا 6–4 على فرنسا وأنهت البطولة في المركز الثالث.",
     "nextMatchId": null,
     "nextOpponent": null,
-    "status": "eliminated",
-    "tournamentStatus": "eliminated",
-    "currentRound": "SF",
+    "status": "bronze",
+    "tournamentStatus": "bronze",
+    "currentRound": "THIRD",
     "qualifiedRound": "SF",
-    "stageGroup": "eliminated"
+    "stageGroup": "eliminated",
+    "round": "THIRD",
+    "roundLabel": "مباراة المركز الثالث"
   },
   "argentina": {
     "teamName": "الأرجنتين",

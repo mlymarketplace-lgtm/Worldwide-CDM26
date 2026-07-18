@@ -76,16 +76,23 @@
     "heroImg": "assets/teams/france/player.png",
     "bannerImg": "assets/teams/france/banner.png",
     "heroPlayer": "Kylian Mbappé",
-    "nextMatchId": "fra-swe",
+    "nextMatchId": null,
     "defaultLang": "fr",
-    "tagline": "Les Bleus, candidats au titre",
-    "statusLabel": "Favori mondial · Statut à assumer",
+    "tagline": "Les Bleus quittent le Mondial au terme d’un match d’anthologie",
+    "statusLabel": "Quatrième du Mondial · France 4–6 Angleterre",
     "supporterName": "Bleus",
-    "selectorLine": "Favori mondial, vitesse et rang",
+    "selectorLine": "Quatrième du Mondial · une sortie folle face à l’Angleterre",
     "mascotImg": null,
-    "roundLabel": "demi-finale",
+    "roundLabel": "match pour la troisième place",
     "qualifiedRound": "SF",
-    "quarterfinalLine": "Demi-finale · France 0–2 Espagne"
+    "quarterfinalLine": "Petite finale · France 4–6 Angleterre",
+    "heroSubtitle": "Menée 4–0 à la pause, la France a signé une remontée spectaculaire avant de s’incliner 6–4 face à l’Angleterre.",
+    "tournamentStatus": "eliminated",
+    "status": "eliminated",
+    "currentRound": "THIRD",
+    "round": "THIRD",
+    "stageGroup": "eliminated",
+    "nextOpponent": null
   },
   "ivory_coast": {
     "teamName": "Côte d’Ivoire",
@@ -137,5 +144,21 @@
     "supporterName": "Lions de l’Atlas",
     "selectorLine": "Du miracle au rang mondial",
     "mascotImg": null
+  },
+  "england": {
+    "statusLabel": "World Cup bronze medallists · France 4–6 England",
+    "selectorLine": "Third in the world · bronze after a ten-goal classic",
+    "tagline": "The Three Lions finish third in the world",
+    "heroSubtitle": "England beat France 6–4 in a remarkable bronze final and leave the World Cup with a medal.",
+    "tournamentStatus": "bronze",
+    "status": "bronze",
+    "currentRound": "THIRD",
+    "round": "THIRD",
+    "qualifiedRound": "SF",
+    "stageGroup": "eliminated",
+    "nextMatchId": null,
+    "nextOpponent": null,
+    "roundLabel": "third-place play-off",
+    "quarterfinalLine": "Bronze final · France 4–6 England"
   }
 }

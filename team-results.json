@@ -150,6 +150,14 @@
       "note_en": "The road ends in the semi-final",
       "note_es": "Fin del camino en semifinales",
       "result": "D"
+    },
+    {
+      "matchId": "N103",
+      "label": "France 4–6 Angleterre",
+      "label_en": "France 4–6 England",
+      "note": "Une remontée folle, mais le bronze échappe aux Bleus",
+      "note_en": "A remarkable comeback falls just short",
+      "result": "D"
     }
   ],
   "ivory_coast": [
@@ -436,6 +444,14 @@
       "note_en": "The road ends in the semi-final",
       "note_es": "Fin del camino en semifinales",
       "result": "D"
+    },
+    {
+      "matchId": "N103",
+      "label": "France 4–6 Angleterre",
+      "label_en": "France 4–6 England",
+      "note": "Médaille de bronze après un match d’anthologie",
+      "note_en": "Bronze after a ten-goal World Cup classic",
+      "result": "V"
     }
   ],
   "argentina": [
