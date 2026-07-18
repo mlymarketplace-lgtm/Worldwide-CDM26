@@ -1,0 +1,477 @@
+{
+  "updatedAt": "2026-07-15T03:15:00+02:00",
+  "matches": {
+    "uru-esp": {
+      "home": 0,
+      "away": 1,
+      "status": "final"
+    },
+    "cpv-ksa": {
+      "home": 0,
+      "away": 0,
+      "status": "final"
+    },
+    "egy-irn": {
+      "home": 1,
+      "away": 1,
+      "status": "final"
+    },
+    "nzl-bel": {
+      "home": 1,
+      "away": 5,
+      "status": "final"
+    },
+    "cro-gha": {
+      "home": 2,
+      "away": 1,
+      "status": "final"
+    },
+    "pan-eng": {
+      "home": 0,
+      "away": 2,
+      "status": "final"
+    },
+    "col-por": {
+      "home": 0,
+      "away": 0,
+      "status": "final"
+    },
+    "cod-uzb": {
+      "home": 3,
+      "away": 1,
+      "status": "final"
+    },
+    "jor-arg": {
+      "home": 1,
+      "away": 3,
+      "status": "final"
+    },
+    "alg-aut": {
+      "home": 2,
+      "away": 2,
+      "status": "final"
+    },
+    "eng-cod": {
+      "home": 2,
+      "away": 1,
+      "status": "final",
+      "apiStatus": "FT",
+      "apiStatusLong": "Match Finished",
+      "winner": "home",
+      "winnerSide": 0,
+      "locked": true,
+      "koId": "N80"
+    },
+    "mex-ecu": {
+      "home": 2,
+      "away": 0,
+      "status": "final",
+      "apiStatus": "FT",
+      "apiStatusLong": "Match Finished",
+      "winner": "home",
+      "winnerSide": 0,
+      "locked": true,
+      "koId": "N79"
+    },
+    "bel-sen": {
+      "home": 3,
+      "away": 2,
+      "status": "final",
+      "apiStatus": "AET",
+      "apiStatusLong": "Match Finished After Extra Time",
+      "winner": "home",
+      "winnerSide": 0,
+      "locked": true,
+      "koId": "N82"
+    },
+    "usa-bih": {
+      "home": 2,
+      "away": 0,
+      "status": "final",
+      "apiStatus": "FT",
+      "apiStatusLong": "Match Finished",
+      "winner": "home",
+      "winnerSide": 0,
+      "locked": true,
+      "koId": "N81"
+    },
+    "esp-aut": {
+      "home": 3,
+      "away": 0,
+      "status": "final",
+      "apiStatus": "FT",
+      "apiStatusLong": "Match Finished",
+      "winner": "home",
+      "winnerSide": 0,
+      "locked": true,
+      "koId": "N84"
+    },
+    "por-cro": {
+      "home": 2,
+      "away": 1,
+      "status": "final",
+      "apiStatus": "FT",
+      "apiStatusLong": "Match Finished",
+      "winner": "home",
+      "winnerSide": 0,
+      "locked": true,
+      "koId": "N83"
+    },
+    "sui-alg": {
+      "home": 2,
+      "away": 0,
+      "status": "final",
+      "apiStatus": "FT",
+      "apiStatusLong": "Match Finished",
+      "winner": "home",
+      "winnerSide": 0,
+      "locked": true,
+      "koId": "N85"
+    },
+    "aus-egy": {
+      "home": 1,
+      "away": 1,
+      "status": "final",
+      "apiStatus": "PEN",
+      "apiStatusLong": "Match Finished Penalties",
+      "penalty": {
+        "home": 2,
+        "away": 4
+      },
+      "penaltyHome": 2,
+      "penaltyAway": 4,
+      "winner": "away",
+      "winnerSide": 1,
+      "locked": true,
+      "koId": "N86"
+    },
+    "rsa-can": {
+      "home": 0,
+      "away": 1,
+      "status": "final",
+      "apiStatus": "FT",
+      "apiStatusLong": "Match Finished",
+      "winner": "away",
+      "winnerSide": 1,
+      "locked": true,
+      "koId": "N73"
+    },
+    "bra-jpn": {
+      "home": 2,
+      "away": 1,
+      "status": "final",
+      "apiStatus": "FT",
+      "apiStatusLong": "Match Finished",
+      "winner": "home",
+      "winnerSide": 0,
+      "locked": true,
+      "koId": "N78"
+    },
+    "ger-par": {
+      "home": 1,
+      "away": 1,
+      "status": "final",
+      "apiStatus": "PEN",
+      "apiStatusLong": "Match Finished Penalties",
+      "penalty": {
+        "home": 3,
+        "away": 4
+      },
+      "penaltyHome": 3,
+      "penaltyAway": 4,
+      "winner": "away",
+      "winnerSide": 1,
+      "locked": true,
+      "koId": "N74"
+    },
+    "ned-mar": {
+      "home": 1,
+      "away": 1,
+      "status": "final",
+      "apiStatus": "PEN",
+      "apiStatusLong": "Match Finished Penalties",
+      "penalty": {
+        "home": 2,
+        "away": 3
+      },
+      "penaltyHome": 2,
+      "penaltyAway": 3,
+      "winner": "away",
+      "winnerSide": 1,
+      "locked": true,
+      "koId": "N75"
+    },
+    "civ-nor": {
+      "home": 1,
+      "away": 2,
+      "status": "final",
+      "apiStatus": "FT",
+      "apiStatusLong": "Match Finished",
+      "winner": "away",
+      "winnerSide": 1,
+      "locked": true,
+      "koId": "N76"
+    },
+    "fra-swe": {
+      "home": 3,
+      "away": 0,
+      "status": "final",
+      "apiStatus": "FT",
+      "apiStatusLong": "Match Finished",
+      "winner": "home",
+      "winnerSide": 0,
+      "locked": true,
+      "koId": "N77"
+    },
+    "arg-cpv": {
+      "home": 3,
+      "away": 2,
+      "status": "final",
+      "minute": 120,
+      "apiStatus": "AET",
+      "apiStatusLong": "Match Finished After Extra Time",
+      "winner": "home",
+      "winnerSide": 0,
+      "locked": true,
+      "koId": "N87"
+    },
+    "col-gha": {
+      "home": 1,
+      "away": 0,
+      "status": "final",
+      "apiStatus": "FT",
+      "apiStatusLong": "Match Finished",
+      "winner": "home",
+      "winnerSide": 0,
+      "locked": true,
+      "koId": "N88"
+    },
+    "can-mar": {
+      "home": 0,
+      "away": 3,
+      "status": "final",
+      "apiStatus": "FT",
+      "apiStatusLong": "Match Finished",
+      "winner": "away",
+      "winnerSide": 1,
+      "locked": true,
+      "koId": "N90",
+      "round": "r16",
+      "h": "CAN",
+      "a": "MAR"
+    },
+    "par-fra": {
+      "home": 0,
+      "away": 1,
+      "status": "final",
+      "apiStatus": "FT",
+      "apiStatusLong": "Match Finished",
+      "winner": "away",
+      "winnerSide": 1,
+      "locked": true,
+      "koId": "N89",
+      "round": "r16",
+      "h": "PAR",
+      "a": "FRA"
+    },
+    "bra-nor": {
+      "home": 2,
+      "away": 1,
+      "status": "final",
+      "apiStatus": "FT",
+      "apiStatusLong": "Match Finished",
+      "winner": "home",
+      "winnerSide": 0,
+      "locked": true,
+      "koId": "N91",
+      "h": "NOR",
+      "a": "BRA",
+      "round": "r16"
+    },
+    "mex-eng": {
+      "home": 2,
+      "away": 3,
+      "status": "final",
+      "apiStatus": "FT",
+      "apiStatusLong": "Match Finished",
+      "winner": "away",
+      "winnerSide": 1,
+      "locked": true,
+      "koId": "N92",
+      "h": "MEX",
+      "a": "ENG",
+      "round": "r16"
+    },
+    "por-spain": {
+      "home": 0,
+      "away": 1,
+      "status": "final",
+      "winner": "away"
+    },
+    "arg-egy": {
+      "home": 3,
+      "away": 2,
+      "status": "final",
+      "winner": "home",
+      "winnerTeam": "argentina"
+    },
+    "sui-col": {
+      "home": null,
+      "away": null,
+      "status": "final",
+      "winner": "home",
+      "winnerTeam": "switzerland",
+      "displayScore": "TAB 4–3",
+      "penaltyHome": 4,
+      "penaltyAway": 3
+    },
+    "usa-bel": {
+      "home": null,
+      "away": null,
+      "status": "final",
+      "winner": "away",
+      "winnerTeam": "belgium",
+      "displayScore": "Belgique qualifiée"
+    },
+    "qf-97": {
+      "home": 2,
+      "away": 0,
+      "status": "final",
+      "apiStatus": "FT",
+      "apiStatusLong": "Match Finished",
+      "winner": "home",
+      "winnerSide": 0,
+      "winnerTeam": "france",
+      "locked": true,
+      "koId": "N97",
+      "round": "qf",
+      "h": "FRA",
+      "a": "MAR"
+    },
+    "qf-98": {
+      "home": 2,
+      "away": 1,
+      "status": "final",
+      "apiStatus": "FT",
+      "apiStatusLong": "Match Finished",
+      "winner": "home",
+      "winnerSide": 0,
+      "winnerTeam": "spain",
+      "locked": true,
+      "koId": "N98",
+      "round": "qf",
+      "h": "ESP",
+      "a": "BEL"
+    },
+    "sf-101": {
+      "koId": "N101",
+      "h": "FRA",
+      "a": "ESP",
+      "home": 0,
+      "away": 2,
+      "status": "final",
+      "apiStatus": "FT",
+      "apiStatusLong": "Match Finished",
+      "winner": "away",
+      "winnerSide": 1,
+      "winnerTeam": "spain",
+      "locked": true,
+      "round": "sf"
+    },
+    "qf-99": {
+      "home": 1,
+      "away": 2,
+      "status": "final",
+      "apiStatus": "FT",
+      "apiStatusLong": "Match Finished",
+      "winner": "away",
+      "winnerSide": 1,
+      "locked": true,
+      "koId": "N99",
+      "h": "NOR",
+      "a": "ENG",
+      "round": "qf"
+    },
+    "nor-eng": {
+      "home": 1,
+      "away": 2,
+      "status": "final",
+      "apiStatus": "FT",
+      "apiStatusLong": "Match Finished",
+      "winner": "away",
+      "winnerSide": 1,
+      "locked": true,
+      "koId": "N99",
+      "h": "NOR",
+      "a": "ENG",
+      "round": "qf"
+    },
+    "qf-100": {
+      "home": 3,
+      "away": 1,
+      "status": "final",
+      "apiStatus": "FT",
+      "apiStatusLong": "Match Finished",
+      "winner": "home",
+      "winnerSide": 0,
+      "locked": true,
+      "koId": "N100",
+      "h": "ARG",
+      "a": "SUI",
+      "round": "qf"
+    },
+    "arg-sui": {
+      "home": 3,
+      "away": 1,
+      "status": "final",
+      "apiStatus": "FT",
+      "apiStatusLong": "Match Finished",
+      "winner": "home",
+      "winnerSide": 0,
+      "locked": true,
+      "koId": "N100",
+      "h": "ARG",
+      "a": "SUI",
+      "round": "qf"
+    },
+    "sf-102": {
+      "koId": "N102",
+      "h": "ENG",
+      "a": "ARG",
+      "home": 1,
+      "away": 2,
+      "status": "final",
+      "apiStatus": "FT",
+      "apiStatusLong": "Match Finished",
+      "winner": "away",
+      "winnerSide": 1,
+      "locked": true,
+      "round": "sf"
+    },
+    "eng-arg": {
+      "home": null,
+      "away": null,
+      "status": "scheduled",
+      "koId": "N102",
+      "h": "ENG",
+      "a": "ARG",
+      "round": "sf"
+    },
+    "fra-esp": {
+      "koId": "N101",
+      "h": "FRA",
+      "a": "ESP",
+      "home": 0,
+      "away": 2,
+      "status": "final",
+      "apiStatus": "FT",
+      "apiStatusLong": "Match Finished",
+      "winner": "away",
+      "winnerSide": 1,
+      "winnerTeam": "spain",
+      "locked": true,
+      "round": "sf"
+    }
+  },
+  "_note": "V15.1.0 — Finale Espagne–Argentine verrouillée, mode Finale premium actif."
+}

@@ -1,0 +1,119 @@
+{
+  "senegal": {
+    "player": "assets/teams/senegal/player.webp",
+    "banner": "assets/teams/senegal/banner.webp",
+    "mascot": "assets/teams/senegal/mascot.png",
+    "status": "complete"
+  },
+  "algeria": {
+    "player": "assets/teams/algeria/player.webp",
+    "banner": "assets/teams/algeria/banner.webp",
+    "mascot": null,
+    "status": "complete"
+  },
+  "belgium": {
+    "player": "assets/teams/belgium/player.webp",
+    "banner": "assets/teams/belgium/banner.webp",
+    "mascot": null,
+    "status": "complete"
+  },
+  "brazil": {
+    "player": "assets/teams/brazil/player.webp",
+    "banner": "assets/teams/brazil/banner.webp",
+    "mascot": null,
+    "status": "complete"
+  },
+  "france": {
+    "player": "assets/teams/france/player.webp",
+    "banner": "assets/teams/france/banner.webp",
+    "mascot": null,
+    "status": "complete"
+  },
+  "ivory_coast": {
+    "player": "assets/teams/ivory_coast/player.webp",
+    "banner": "assets/teams/ivory_coast/banner.webp",
+    "mascot": null,
+    "status": "complete"
+  },
+  "dr_congo": {
+    "player": "assets/teams/dr_congo/player.webp",
+    "banner": "assets/teams/dr_congo/banner.webp",
+    "mascot": null,
+    "status": "complete"
+  },
+  "morocco": {
+    "player": "assets/teams/morocco/player.webp",
+    "banner": "assets/teams/morocco/banner.webp",
+    "mascot": null,
+    "status": "complete"
+  },
+  "spain": {
+    "player": "assets/teams/spain/player.webp",
+    "banner": "assets/teams/spain/banner.webp",
+    "mascot": null,
+    "status": "complete"
+  },
+  "egypt": {
+    "player": "assets/teams/egypt/player.webp",
+    "banner": "assets/teams/egypt/banner.webp",
+    "mascot": null,
+    "status": "complete"
+  },
+  "opponents": {
+    "austria": {
+      "player": "assets/opponents/austria/player.webp",
+      "status": "complete"
+    },
+    "australia": {
+      "player": "assets/opponents/australia/player.webp",
+      "status": "complete"
+    },
+    "paraguay": {
+      "player": "assets/opponents/paraguay/player.webp"
+    },
+    "canada": {
+      "player": "assets/opponents/canada/player.webp"
+    },
+    "united_states": {
+      "player": "assets/opponents/united_states/player.webp"
+    },
+    "ghana": {
+      "player": "assets/teams/ghana/player.webp"
+    },
+    "colombia": {
+      "player": "assets/opponents/colombia/player.webp"
+    },
+    "bosnia_herzegovina": {
+      "player": "assets/opponents/bosnia_herzegovina/player.webp"
+    },
+    "argentina": {
+      "player": null,
+      "status": "no-image"
+    },
+    "cape_verde": {
+      "player": "assets/teams/cape_verde/player.webp"
+    },
+    "portugal": {
+      "player": "assets/opponents/portugal/player.webp",
+      "status": "complete"
+    }
+  },
+  "cape_verde": {
+    "player": "assets/teams/cape_verde/player.webp",
+    "banner": "assets/teams/cape_verde/banner.webp",
+    "mascot": null,
+    "status": "complete"
+  },
+  "ghana": {
+    "player": "assets/teams/ghana/player.webp",
+    "banner": "assets/teams/ghana/banner.webp",
+    "mascot": null,
+    "status": "complete"
+  },
+  "argentina": {
+    "player": "assets/opponents/argentina/player.webp",
+    "banner": null,
+    "mascot": null,
+    "status": "opponent-player"
+  }
+}

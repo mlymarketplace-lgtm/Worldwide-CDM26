@@ -1,9 +1,24 @@
-QUALIFGAÏNDÉ V15.3.0 — PATCH SUIVI DES GAÏNDÉS
+QUALIFGAÏNDÉ — INSTALLATION V15.3.0 COMPLÈTE
 
-1. Décompresser le ZIP.
-2. Copier le dossier mangara-studio-7f3k9q à la racine du dépôt Worldwide-CDM26.
-3. Accepter le remplacement des fichiers de ce dossier uniquement.
-4. Copier, si souhaité, les trois documents V15.3.0 à la racine.
-5. Commit conseillé : Release V15.3.0 – Refonte UX Suivi des Gaïndés
-6. Push origin, puis attendre Netlify.
-7. Tester l’URL privée existante ; le paramètre access reste inchangé.
+1. Conserver temporairement la V15.2 restaurée et verrouillée sur Netlify.
+2. Décompresser le ZIP V15.3.0 complet.
+3. Ouvrir le dossier décompressé : `index.html` doit être visible immédiatement à sa racine.
+4. Copier TOUT le contenu dans la racine du dépôt local `Worldwide-CDM26`.
+5. Accepter les remplacements.
+6. Dans GitHub Desktop, vérifier avant le commit :
+   - `index.html` est présent et modifié, jamais supprimé ;
+   - `assets/js/computed-team-state.js` est présent ;
+   - `netlify/functions/scores.js` est présent ;
+   - `mangara-studio-7f3k9q/index.html` est présent ;
+   - aucun grand ensemble de fichiers racine n’apparaît comme supprimé.
+7. Commit conseillé :
+   Release V15.3.0 complète – QualifGaïndé + Suivi des Gaïndés
+8. Push origin.
+9. Contrôler le nouveau déploiement Netlify avant de déverrouiller l’auto-publication.
+
+URLS DE TEST
+Home : https://qualifgainde.netlify.app/?v=1530
+Finale : https://qualifgainde.netlify.app/?mode=final&v=1530
+Brèves Mondial : https://qualifgainde.netlify.app/?mode=news&section=world&v=1530
+Brèves Gaïndés : https://qualifgainde.netlify.app/?mode=news&section=gaindes&v=1530
+Suivi des Gaïndés : https://qualifgainde.netlify.app/mangara-studio-7f3k9q/?access=mangara-v15-kft-7q2p&v=1530

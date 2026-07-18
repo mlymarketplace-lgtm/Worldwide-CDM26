@@ -1,0 +1,53 @@
+{
+  "spain": {
+    "teamName": "Espagne",
+    "tagline": "La Roja, l’empire du contrôle",
+    "statusLabel": "Qualifiée en huitième · Espagne 3–0 Autriche",
+    "supporterName": "La Roja",
+    "selectorLine": "Qualifiée · Portugal en huitième",
+    "heroTitle": "🇪🇸 Espagne à la Coupe du monde 2026",
+    "heroSubtitle": "La Roja a maîtrisé l’Autriche : le tournoi continue.",
+    "heroPlayer": "Rodri"
+  },
+  "morocco": {
+    "teamName": "Maroc",
+    "tagline": "Les Lions de l’Atlas, une ambition continentale",
+    "statusLabel": "Qualifié en huitième de finale · Prochain défi : Canada",
+    "supporterName": "Lions de l’Atlas",
+    "selectorLine": "Qualifié en 8e · prochain défi : Canada",
+    "heroTitle": "🇲🇦 Maroc à la Coupe du monde 2026",
+    "heroSubtitle": "Les Lions de l’Atlas veulent confirmer leur rang",
+    "heroPlayer": "Achraf Hakimi"
+  },
+  "ghana": {
+    "teamName": "Ghana",
+    "tagline": "Les Black Stars, mémoire mondiale et ambition africaine",
+    "statusLabel": "Black Stars · Défi Colombie en 16e",
+    "supporterName": "Black Stars",
+    "selectorLine": "16e à jouer · défi Colombie",
+    "heroTitle": "🇬🇭 Ghana à la Coupe du monde 2026",
+    "heroSubtitle": "Mémoire, talent et ambition africaine autour de Kudus",
+    "heroPlayer": "Mohammed Kudus"
+  },
+  "cape_verde": {
+    "teamName": "Cap-Vert",
+    "tagline": "Une première historique au Mondial",
+    "statusLabel": "Éliminé en 16e · Sortie héroïque face à l’Argentine",
+    "supporterName": "Tubarões Azuis",
+    "selectorLine": "Éliminé · immense respect aux Tubarões Azuis",
+    "heroTitle": "🇨🇻 Cap-Vert à la Coupe du monde 2026",
+    "heroSubtitle": "Braves jusqu’au bout, les Tubarões Azuis ont fait trembler les champions du monde.",
+    "heroPlayer": "Ryan Mendes"
+  },
+  "portugal_croatia": {
+    "teamName": "Portugal ou Croatie",
+    "supporterName": "Vainqueur Portugal–Croatie",
+    "tagline": "Adversaire à confirmer"
+  },
+  "algeria": {
+    "teamName": "Algérie",
+    "tagline": "La fierté des Fennecs",
+    "statusLabel": "Éliminée en seizième de finale",
+    "selectorLine": "Éliminée · respect aux Fennecs"
+  }
+}

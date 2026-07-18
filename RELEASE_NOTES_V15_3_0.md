@@ -1,14 +1,23 @@
-# QualifGaïndé — V15.3.0 · Refonte légère UX Mangara
+# QualifGaïndé / Mondial Pulse — V15.3.0 complète
 
-## Périmètre
-- Rebranding visible de l’atelier privé en **Suivi des Gaïndés**.
-- Nouveau badge premium avec lion réaliste et accents Sénégal.
-- Landing simplifiée : introduction + sept entrées rapides uniquement.
-- Ajout de l’entrée **Brèves des Gaïndés** avec visuel harmonisé.
-- Navigation par vues dédiées via les routes `#national`, `#weekend`, `#competitions`, `#europe`, `#clubs`, `#players` et `#breves`.
-- Les contenus détaillés ne surchargent plus la première page.
-- Harmonisation mobile, barre de retour et navigation basse active.
-- Service worker Mangara renommé et versionné V15.3.0.
+Cette archive est un **build complet**, et non un patch. Elle conserve l’ensemble du moteur public et ajoute la refonte privée « Suivi des Gaïndés ».
 
-## Déploiement
-Ce paquet est un patch sûr à copier à la racine du dépôt V15.2.0 actuel. Il ne remplace pas le moteur principal QualifGaïndé.
+## QualifGaïndé public
+- finale Espagne–Argentine et page Finale premium ;
+- petite finale France–Angleterre sur la home ;
+- passage automatique au podium bronze dès le résultat définitif ;
+- deux univers éditoriaux : Brèves du Mondial et Brèves des Gaïndés ;
+- articles France–Angleterre, Messi et actualités des Lions ;
+- version, liens, manifest et caches alignés sur V15.3.0 / `1530`.
+
+## Suivi des Gaïndés
+- nouveau nom et nouveau header ;
+- emblème lion premium ;
+- landing allégée avec sept entrées rapides ;
+- entrée Brèves des Gaïndés ;
+- contenus détaillés déplacés dans des vues dédiées ;
+- navigation mobile et retour vers le hub ;
+- trois brèves initiales : Ibrahima Mbaye, Assane Diao et Yoro Mangara.
+
+## Sécurité de déploiement
+`index.html`, `assets/`, `data/`, `netlify/`, les fonctions, la PWA publique et le dossier privé Mangara sont tous inclus. L’archive peut remplacer le contenu du dépôt sans supprimer le moteur principal.

@@ -3,7 +3,7 @@
     "updatedAt": "2026-07-09",
     "note": "Clubs enrichis avec logos, pays, drapeaux, championnats et coachs à valider avant passage en production dynamique.",
     "schemaVersion": "1.5",
-    "version": "V15.1.0"
+    "version": "V15.3.0"
   },
   "clubs": [
     {

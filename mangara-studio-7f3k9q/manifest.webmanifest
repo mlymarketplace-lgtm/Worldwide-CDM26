@@ -1,8 +1,8 @@
 {
-  "name": "Suivi des Gaïndés",
+  "name": "Suivi des Gaïndés · V15.3.0",
   "short_name": "Gaïndés",
   "description": "Hub privé de suivi des Lions : sélection, clubs, Europe, joueurs et brèves.",
-  "start_url": "/mangara-studio-7f3k9q/?access=mangara-v15-kft-7q2p&v=1510",
+  "start_url": "/mangara-studio-7f3k9q/?access=mangara-v15-kft-7q2p&v=1530",
   "scope": "/mangara-studio-7f3k9q/",
   "display": "standalone",
   "background_color": "#06101d",
@@ -19,5 +19,6 @@
       "sizes": "512x512",
       "type": "image/png"
     }
-  ]
+  ],
+  "id": "/mangara-studio-7f3k9q/?v=1530"
 }

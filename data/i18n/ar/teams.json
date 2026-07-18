@@ -1,0 +1,76 @@
+{
+  "egypt": {
+    "teamName": "مصر",
+    "tagline": "الفراعنة وحلم صلاح",
+    "statusLabel": "ثانية المجموعة G · 4 نقاط · خبرة إفريقية",
+    "supporterName": "الفراعنة",
+    "selectorLine": "صلاح، ذاكرة إفريقيا وحلم عالمي",
+    "heroTitle": "🇪🇬 مصر في كأس العالم 2026",
+    "heroSubtitle": "تاريخ الفراعنة، خبرة إفريقيا، وحلم محمد صلاح",
+    "heroPlayer": "محمد صلاح"
+  },
+  "australia": {
+    "teamName": "أستراليا",
+    "nickname": "السوكروز",
+    "supporterName": "السوكروز",
+    "heroPlayer": "نيستوري إيرانكوندا"
+  },
+  "belgium": {
+    "teamName": "بلجيكا",
+    "supporterName": "الشياطين الحمر"
+  },
+  "iran": {
+    "teamName": "إيران"
+  },
+  "new_zealand": {
+    "teamName": "نيوزيلندا"
+  },
+  "spain": {
+    "teamName": "إسبانيا",
+    "tagline": "لا روخا وإمبراطورية السيطرة",
+    "statusLabel": "تأهلت إلى ثمن النهائي · إسبانيا 3–0 النمسا",
+    "supporterName": "لا روخا",
+    "selectorLine": "تأهلت · البرتغال في ثمن النهائي",
+    "heroTitle": "🇪🇸 إسبانيا في كأس العالم 2026",
+    "heroSubtitle": "إسبانيا سيطرت على النمسا وتواصل المشوار.",
+    "heroPlayer": "رودري"
+  },
+  "austria": {
+    "teamName": "النمسا",
+    "supporterName": "داس تيم"
+  },
+  "senegal": {
+    "teamName": "السنغال",
+    "supporterName": "الأسود"
+  },
+  "brazil": {
+    "teamName": "البرازيل"
+  },
+  "japan": {
+    "teamName": "اليابان"
+  },
+  "france": {
+    "teamName": "فرنسا"
+  },
+  "morocco": {
+    "teamName": "المغرب",
+    "tagline": "أسود الأطلس وطموح قاري",
+    "statusLabel": "تأهل إلى دور الـ16 · التحدي القادم: كندا",
+    "supporterName": "أسود الأطلس",
+    "selectorLine": "تأهل إلى دور الـ16 · التحدي القادم: كندا",
+    "heroTitle": "🇲🇦 المغرب في كأس العالم 2026",
+    "heroSubtitle": "أسود الأطلس بين ذاكرة 2022 وطموح تأكيد المكانة",
+    "heroPlayer": "أشرف حكيمي"
+  },
+  "algeria": {
+    "teamName": "الجزائر",
+    "tagline": "فخر محاربي الصحراء",
+    "statusLabel": "أُقصيت من دور الـ32",
+    "selectorLine": "أُقصيت · كل الاحترام للجزائر"
+  },
+  "portugal_croatia": {
+    "teamName": "البرتغال أو كرواتيا",
+    "supporterName": "الفائز من البرتغال–كرواتيا",
+    "tagline": "الخصم لم يُحسم بعد"
+  }
+}
