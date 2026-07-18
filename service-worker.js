@@ -1,6 +1,6 @@
-// Mondial Pulse 2026 — Service Worker V15.3.0 SAFE
-const CACHE_VERSION = 'qualifgainde-v15-3-0-v1530';
-const RUNTIME_CACHE = 'qg-v15-3-0-runtime';
+// Mondial Pulse 2026 — Service Worker V15.4.0 SAFE
+const CACHE_VERSION = 'qualifgainde-v15-4-0-v1530';
+const RUNTIME_CACHE = 'qg-v15-4-0-runtime';
 
 self.addEventListener('install', event => {
   self.skipWaiting();
@@ -29,7 +29,8 @@ function isFreshRoute(url){
 async function networkFirst(request){
   const cache = await caches.open(RUNTIME_CACHE);
   try {
-    const fresh = await fetch(request, { cache: 'no-store' });
+    const reqUrl = new URL(request.url);
+    const fresh = await fetch(request, { cache: reqUrl.pathname.startsWith('/.netlify/functions/') ? 'default' : 'no-store' });
     if (fresh && fresh.ok && request.method === 'GET') {
       // Ne jamais mettre en cache HTML/navigation : priorité à la version fraîche.
       const url = new URL(request.url);

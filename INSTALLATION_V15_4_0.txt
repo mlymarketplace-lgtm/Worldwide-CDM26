@@ -1,0 +1,14 @@
+QUALIFGAINDE V15.4.0 — DÉPLOIEMENT COMPLET
+
+1. Décompresser le ZIP.
+2. Vérifier que index.html est visible immédiatement à la racine du dossier décompressé.
+3. Copier TOUT le contenu à la racine du dépôt Worldwide-CDM26.
+4. Accepter les remplacements, sans supprimer les fichiers hors du paquet.
+5. Dans GitHub Desktop, vérifier que index.html est MODIFIÉ et non supprimé.
+6. Commit conseillé : Release V15.4.0 – Suivi des Gaïndés public et live 30 secondes
+7. Push origin puis attendre le déploiement Netlify.
+8. Tester :
+   - https://qualifgainde.netlify.app/?v=1540
+   - https://qualifgainde.netlify.app/?mode=gaindes&v=1540
+
+IMPORTANT : ce ZIP est un build COMPLET, pas un patch.

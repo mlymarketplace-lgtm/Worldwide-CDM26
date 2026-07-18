@@ -2,8 +2,8 @@
 (function(){
   'use strict';
 
-  const VERSION = (window.BUILD_VERSION || '15.3.0');
-  const VERSION_TOKEN = (window.BUILD_VERSION_TOKEN || String(VERSION).replace(/\D/g,'') || '1530');
+  const VERSION = (window.BUILD_VERSION || '15.4.0');
+  const VERSION_TOKEN = (window.BUILD_VERSION_TOKEN || String(VERSION).replace(/\D/g,'') || '1540');
   const SEMIFINALISTS = new Set(['france','spain','england','argentina']);
   const FEATURED_ORDER = [
     'morocco','france','spain','belgium','norway','england','argentina','switzerland',
@@ -41,7 +41,7 @@
     N97:'qf-97', N98:'qf-98', N99:'qf-99', N100:'qf-100', N101:'sf-101', N102:'sf-102', N103:'third-103', N104:'final-104'
   };
 
-  // V15.3.0 — aliases de clés live/API vers l'identifiant KO canonique.
+  // V15.4.0 — aliases de clés live/API vers l'identifiant KO canonique.
   // Objectif : la home doit réagir même si la simulation reçoit `por-esp`, `por-spain`,
   // `usa-bel`, `bel-usa`, `usa-belgium`, etc.
   const KO_ID_BY_KEY = Object.assign(
@@ -259,7 +259,7 @@
 
     Object.entries((live && live.matches) || {}).forEach(([key, v]) => addEntry(key, v, 'live-json'));
 
-    // V15.3.0 — état réel du moteur KO en mémoire. C'est ce que la simulation utilise.
+    // V15.4.0 — état réel du moteur KO en mémoire. C'est ce que la simulation utilise.
     // La home doit lire cette source prioritaire pour ne plus attendre un nouveau déploiement.
     try {
       if (typeof KNOCKOUT_LIVE_RESULTS !== 'undefined' && KNOCKOUT_LIVE_RESULTS) {
@@ -830,6 +830,21 @@ function newsHref(id, section){
     const tick=()=>{const diff=Math.max(0,target-Date.now()),d=Math.floor(diff/86400000),h=Math.floor(diff/3600000)%24,m=Math.floor(diff/60000)%60;const set=(q,v)=>{const e=node.querySelector(q);if(e)e.textContent=String(v).padStart(2,'0')};set('[data-third-days]',d);set('[data-third-hours]',h);set('[data-third-minutes]',m)};tick();setInterval(tick,30000);
   }
 
+  function gaindesInternationalCardHtml(){
+    return `<a class="qg-gaindes-entry-card" href="?mode=gaindes&v=${VERSION_TOKEN}" aria-label="Ouvrir Suivi des Gaïndés à l’international">
+      <img src="/mangara-studio-7f3k9q/assets/brand/suivi-gaindes-lion.jpg" alt="Lion · Suivi des Gaïndés">
+      <span class="qg-gaindes-entry-copy"><small>LES LIONS DANS LE MONDE</small><strong>Suivi des Gaïndés</strong><em>À l’international</em><p>Sélection, clubs, Europe, joueurs et Brèves des Gaïndés dans un même univers.</p><b>Entrer dans le suivi →</b></span>
+    </a>`;
+  }
+  function farewellArchiveHtml(items, card, teams, c){
+    return `<details class="qg-farewell-archive qg-farewell-card-modal"><summary><span class="qg-farewell-copy"><span class="qg-farewell-kicker">Mémoire du Mondial</span><strong>${esc(c.out)}</strong><small>${items.length} équipes · revoir leurs parcours</small></span><span class="qg-farewell-flags">${items.slice(0,8).map(s=>`<i>${esc(s.flag || teamFlag(s.key, teams))}</i>`).join('')}</span><span class="qg-farewell-open-label">Ouvrir →</span></summary><div class="qg-farewell-overlay"><div class="qg-farewell-dialog" role="dialog" aria-modal="true" aria-label="${esc(c.out)}"><button class="qg-farewell-close" type="button" aria-label="Fermer" onclick="this.closest('details').removeAttribute('open')">×</button><div class="qg-farewell-dialog-head"><span class="qg-farewell-kicker">Mémoire du Mondial</span><h2>${esc(c.out)}</h2><p>Choisis un drapeau pour revoir la page et le parcours de l’équipe.</p></div><div class="qg-team-grid qg-farewell-team-grid">${items.map(s=>card(s,'out')).join('')}</div></div></div></details>`;
+  }
+  function renderGaindesHub(selector){
+    if(!selector) return;
+    document.documentElement.classList.add('qg-gaindes-route');
+    selector.innerHTML = `<div class="qg-gaindes-route-shell"><iframe class="qg-gaindes-route-frame" src="/mangara-studio-7f3k9q/?embedded=1&v=${VERSION_TOKEN}#home" title="Suivi des Gaïndés à l’international" loading="eager" allow="fullscreen"></iframe></div>`;
+  }
+
   function renderHome(selector, teams, computed, worldNews, teamResults, live){
     if(!selector) return;
     const lang = activeLang(), c = copy();
@@ -881,7 +896,8 @@ function newsHref(id, section){
         ${thirdPlaceCardHtml(teams, computed, live)}
         ${!homeFinalCtx.known && groups.qf.length ? `<div class="qg-selector-group"><h2 class="qg-selector-title">${esc(c.qf)}</h2><div class="qg-team-grid">${groups.qf.map(s=>card(s,'qf')).join('')}</div></div>` : ''}
         ${groups.live.length ? `<div class="qg-selector-group"><h2 class="qg-selector-title">${esc(c.live)}</h2><div class="qg-team-grid">${groups.live.map(s=>card(s,'live')).join('')}</div></div>` : ''}
-        ${groups.out.length ? `<details class="qg-farewell-archive"><summary><span class="qg-farewell-copy"><span class="qg-farewell-kicker">Mémoire du Mondial</span><strong>${esc(c.out)}</strong><small>${groups.out.length} équipes · revoir leurs parcours</small></span><span class="qg-farewell-flags">${groups.out.slice(0,8).map(s=>`<i>${esc(s.flag || teamFlag(s.key, teams))}</i>`).join('')}</span><span class="qg-farewell-arrow">⌄</span></summary><div class="qg-farewell-body"><div class="qg-team-grid">${groups.out.map(s=>card(s,'out')).join('')}</div></div></details>` : ''}
+        ${gaindesInternationalCardHtml()}
+        ${groups.out.length ? farewellArchiveHtml(groups.out, card, teams, c) : ''}
         ${editorialTeasersHtml(worldNews)}
         <div class="qg-entry-actions"><a class="qg-entry-action" href="?mode=global&v=${VERSION_TOKEN}">${esc(c.global)}</a></div>
       </div>`;
@@ -1130,6 +1146,8 @@ async function run(){
     const mode = (params.get('mode') || '').toLowerCase();
     if(selector && !activeTeam && mode === 'final') {
       renderFinal(selector, teams, computed, teamResults || {}, live || {});
+    } else if(selector && !activeTeam && mode === 'gaindes') {
+      renderGaindesHub(selector);
     } else if(selector && !activeTeam && mode === 'news') {
       const articleId = params.get('article');
       const article = articleId && Array.isArray(worldNews) ? worldNews.find(x => x.id === articleId) : null;
@@ -1149,7 +1167,7 @@ async function run(){
 
   window.QG_AUTO_TEAM_STATE_ENGINE = {run, buildState, scheduleRun};
 
-  // V15.3.0 — rebrancher la home sur le vrai flux live.
+  // V15.4.0 — rebrancher la home sur le vrai flux live.
   // `qualifgainde:scoresUpdated` est émis tôt par applyScoresData ; on relance donc plusieurs fois
   // pour passer APRÈS l'écriture de KNOCKOUT_LIVE_RESULTS et la propagation du bracket.
   window.addEventListener('qualifgainde:scoresUpdated', function(){

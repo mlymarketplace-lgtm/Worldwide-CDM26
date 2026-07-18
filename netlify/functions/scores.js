@@ -13,9 +13,10 @@ const API_BASE = "https://v3.football.api-sports.io";
 const LEAGUE_ID = process.env.FOOTBALL_LEAGUE_ID || "1";
 const SEASON = process.env.FOOTBALL_SEASON || "2026";
 
-// Cache anti-explosion du quota gratuit.
-// 300s = 5 minutes. Si tu veux économiser davantage le quota, mets 600 ou 900 via Netlify FOOTBALL_CACHE_SECONDS.
-const CACHE_SECONDS = Number(process.env.FOOTBALL_CACHE_SECONDS || 300);
+// Cache live mutualisé.
+// 30 s pendant les deux derniers matchs ; le front ne sollicite la fonction que dans les fenêtres live.
+// La valeur reste surchargeable dans Netlify avec FOOTBALL_CACHE_SECONDS.
+const CACHE_SECONDS = Math.max(15, Number(process.env.FOOTBALL_CACHE_SECONDS || 30));
 
 let memoryCache = {
   expiresAt: 0,
@@ -128,7 +129,9 @@ function json(statusCode, body, extraHeaders = {}) {
     headers: {
       "Content-Type": "application/json; charset=utf-8",
       "Access-Control-Allow-Origin": "*",
-      "Cache-Control": `public, max-age=30, s-maxage=${CACHE_SECONDS}`,
+      "Cache-Control": "public, max-age=0, must-revalidate",
+      "CDN-Cache-Control": `public, s-maxage=${CACHE_SECONDS}, stale-while-revalidate=5`,
+      "Netlify-CDN-Cache-Control": `public, s-maxage=${CACHE_SECONDS}, stale-while-revalidate=5`,
       ...extraHeaders,
     },
     body: JSON.stringify(body),
