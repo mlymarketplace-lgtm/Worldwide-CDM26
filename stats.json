@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-19T01:08:00+02:00",
+  "updatedAt": "2026-07-19T03:00:00+02:00",
   "topScorers": [
     {
       "rank": 1,
@@ -58,7 +58,9 @@
   },
   "bestAssist": {
     "name": "Michael Olise",
-    "team": "🇫🇷 France"
+    "team": "🇫🇷 France",
+    "assists": 7,
+    "label": "Record sur une édition"
   },
   "teamStats": {
     "spain": {
@@ -69,5 +71,37 @@
       "goalsFor": 20,
       "label": "Meilleure attaque"
     }
+  },
+  "topAssists": [
+    {
+      "rank": 1,
+      "name": "Michael Olise",
+      "team": "🇫🇷 France",
+      "assists": 7
+    }
+  ],
+  "bestPassing": {
+    "title": "Passes par match",
+    "leader": "🇦🇷 Argentine",
+    "average": 664.1,
+    "ranking": [
+      {
+        "team": "🇦🇷 Argentine",
+        "average": 664.1
+      },
+      {
+        "team": "🇩🇪 Allemagne",
+        "average": 663
+      },
+      {
+        "team": "🇩🇿 Algérie",
+        "average": 641.3
+      },
+      {
+        "team": "🇪🇸 Espagne",
+        "average": 639.1
+      }
+    ],
+    "note": "Statistiques avant la finale"
   }
 }

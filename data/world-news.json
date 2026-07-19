@@ -1,9 +1,69 @@
 [
   {
+    "id": "olise-record-pele-2026",
+    "section": "world",
+    "type": "record",
+    "priority": 1,
+    "image": "assets/news/olise-record-pele-2026.png",
+    "langs": {
+      "fr": {
+        "tag": "Record · Passes décisives",
+        "title": "Olise entre dans l’histoire : le record de Pelé est tombé",
+        "body": "Avec sept passes décisives pour sa première Coupe du monde, Michael Olise signe un record historique sur une seule édition.",
+        "article": [
+          "Pour sa première participation à une Coupe du monde, Michael Olise a déjà inscrit son nom dans la légende. Avant la petite finale, le maître à jouer des Bleus comptait cinq passes décisives. Malgré la défaite spectaculaire de la France face à l’Angleterre (6–4), il a encore délivré deux offrandes à Kylian Mbappé, portant son total définitif à sept passes décisives sur l’ensemble du tournoi.",
+          "À 24 ans, le joueur du Bayern Munich efface ainsi un record vieux de 56 ans. Pelé détenait jusqu’ici la meilleure performance sur une seule édition, avec six passes décisives lors du sacre du Brésil en 1970. Olise devient donc le premier joueur à atteindre sept passes décisives au cours d’un même Mondial, même s’il a bénéficié de deux rencontres supplémentaires avec le nouveau format.",
+          "Son parcours retrace à lui seul l’épopée offensive des Bleus : une passe pour Mbappé contre le Sénégal, deux contre l’Irak pour Mbappé et Dembélé, deux autres en seizièmes de finale face à la Suède pour Barcola et Mbappé, puis deux nouvelles offrandes pour le capitaine français contre l’Angleterre.",
+          "Au total, cinq de ses sept passes décisives ont été converties par Mbappé, les deux autres par Dembélé et Barcola. Olise termine ainsi le parcours français en tête du classement des passeurs de cette Coupe du monde 2026."
+        ]
+      }
+    }
+  },
+  {
+    "id": "mbappe-double-record-2026",
+    "section": "world",
+    "type": "record",
+    "priority": 2,
+    "image": "assets/news/mbappe-double-record-2026.png",
+    "langs": {
+      "fr": {
+        "tag": "Records · Équipe de France",
+        "title": "Mbappé s’offre un double record",
+        "body": "Avec dix buts dans ce Mondial et 22 en Coupe du monde, Kylian Mbappé franchit deux caps historiques.",
+        "article": [
+          "Kylian Mbappé a profité de la petite finale contre l’Angleterre pour frapper deux fois de plus et s’installer seul en tête du classement des buteurs de ce Mondial 2026. Avec dix buts au compteur, le capitaine français possède deux longueurs d’avance sur Lionel Messi, qui dispose encore de la finale contre l’Espagne pour réduire l’écart.",
+          "Au-delà du Soulier d’or, le joueur du Real Madrid franchit un cap historique : à 27 ans, il porte son total à 22 buts en Coupe du monde, inscrits en seulement trois éditions.",
+          "Le Bondynois trône également au sommet du classement des buteurs de l’équipe de France. Après avoir dépassé Olivier Giroud plus tôt dans le tournoi, il compte désormais 66 réalisations sous le maillot bleu.",
+          "La France quitte le tournoi sans médaille, mais son capitaine en ressort avec des chiffres qui donnent le vertige et une empreinte encore plus profonde dans l’histoire du Mondial."
+        ]
+      }
+    }
+  },
+  {
+    "id": "messi-renverser-mbappe-soulier-or",
+    "section": "world",
+    "type": "analysis",
+    "priority": 3,
+    "image": "assets/news/messi-renverser-mbappe-soulier-or.png",
+    "langs": {
+      "fr": {
+        "tag": "Soulier d’or · Finale",
+        "title": "Messi peut-il encore renverser Mbappé ?",
+        "body": "Mbappé mène 10–8 avant la finale. Le suspense est mince, mais Messi possède encore une dernière nuit pour tout bouleverser.",
+        "article": [
+          "Le Soulier d’or n’est pas encore mathématiquement acquis à Kylian Mbappé. Avec dix buts, le capitaine français possède deux longueurs d’avance sur Lionel Messi avant la finale Espagne–Argentine.",
+          "Pour revenir à hauteur du Français, Messi doit inscrire au moins un doublé. En cas d’égalité au nombre de buts, le règlement départage les joueurs selon les passes décisives, puis selon le temps de jeu.",
+          "L’hypothèse reste improbable face à une Espagne qui n’a encaissé qu’un seul but dans toute la compétition. Mais avec Messi, les scénarios impossibles ont souvent une manière particulière de rester vivants jusqu’au dernier instant.",
+          "Mbappé regarde désormais la finale depuis la première place. Messi, lui, dispose encore de quatre-vingt-dix minutes — peut-être davantage — pour renverser le classement et offrir une dernière secousse à l’histoire."
+        ]
+      }
+    }
+  },
+  {
     "id": "france-england-bronze",
     "section": "world",
     "type": "result",
-    "priority": 1,
+    "priority": 4,
     "image": "assets/news/france-angleterre-petite-finale.jpg",
     "langs": {
       "fr": {
@@ -28,7 +88,7 @@
   {
     "id": "spain-argentina-final-legacy-future",
     "type": "final",
-    "priority": 1,
+    "priority": 4,
     "image": "assets/news/finale-espagne-argentine-messi-yamal.jpg",
     "langs": {
       "fr": {
@@ -76,7 +136,7 @@
     "id": "messi-world-records",
     "section": "world",
     "type": "records",
-    "priority": 3,
+    "priority": 6,
     "image": "assets/news/messi-records-mondial.png",
     "langs": {
       "fr": {
@@ -101,7 +161,7 @@
   {
     "id": "argentina-beats-england-final",
     "type": "result",
-    "priority": 2,
+    "priority": 5,
     "image": "assets/news/argentine-angleterre-revanche-1986.png",
     "langs": {
       "fr": {
@@ -142,7 +202,7 @@
   {
     "id": "spain-masterclass-france",
     "type": "analysis",
-    "priority": 3,
+    "priority": 6,
     "image": "assets/news/espagne-masterclass-france-0-2.png",
     "langs": {
       "fr": {
@@ -167,7 +227,7 @@
   {
     "id": "football-logic",
     "type": "analysis",
-    "priority": 3,
+    "priority": 6,
     "image": "assets/news/football-logique.png",
     "langs": {
       "fr": {
@@ -227,7 +287,7 @@
   {
     "id": "quarter-three-confederations",
     "type": "analysis",
-    "priority": 4,
+    "priority": 7,
     "image": "assets/news/bilan-quarts-finale.webp",
     "langs": {
       "fr": {
@@ -261,7 +321,7 @@
   {
     "id": "argentina-england-1986",
     "type": "story",
-    "priority": 5,
+    "priority": 8,
     "image": "assets/news/argentine-angleterre-revanche-1986.png",
     "langs": {
       "fr": {
@@ -288,7 +348,7 @@
   {
     "id": "scandinavian-quake",
     "type": "brief",
-    "priority": 5,
+    "priority": 8,
     "image": "assets/news/exploit-historique-norvege.webp",
     "langs": {
       "fr": {
@@ -322,7 +382,7 @@
   {
     "id": "africa-money-time",
     "type": "brief",
-    "priority": 6,
+    "priority": 9,
     "image": "assets/news/dernier-quart-heure-africain.webp",
     "langs": {
       "fr": {
@@ -356,7 +416,7 @@
   {
     "id": "amarilla-affair",
     "type": "brief",
-    "priority": 7,
+    "priority": 10,
     "image": "assets/news/affaire-amarilla-2026.webp",
     "langs": {
       "fr": {
@@ -390,7 +450,7 @@
   {
     "id": "messi-eight",
     "type": "brief",
-    "priority": 8,
+    "priority": 11,
     "image": "assets/news/messi-encore-toujours.png",
     "langs": {
       "fr": {
@@ -424,7 +484,7 @@
   {
     "id": "iran-respect",
     "type": "brief",
-    "priority": 9,
+    "priority": 12,
     "image": "assets/news/iran-resistance-digne.png",
     "langs": {
       "fr": {
@@ -458,7 +518,7 @@
   {
     "id": "olise-fluidity",
     "type": "brief",
-    "priority": 10,
+    "priority": 13,
     "image": "assets/news/olise-fluidifie-bleus.png",
     "langs": {
       "fr": {
@@ -492,7 +552,7 @@
   {
     "id": "cape-verde-pride",
     "type": "brief",
-    "priority": 11,
+    "priority": 14,
     "image": "assets/news/cap-vert-respect.png",
     "langs": {
       "fr": {
@@ -526,7 +586,7 @@
   {
     "id": "swiss-calm",
     "type": "brief",
-    "priority": 12,
+    "priority": 15,
     "image": "assets/news/suisse-force-calme.png",
     "langs": {
       "fr": {

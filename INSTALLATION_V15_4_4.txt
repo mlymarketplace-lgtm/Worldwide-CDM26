@@ -1,0 +1,9 @@
+QUALIFGAÏNDÉ V15.4.4 — DÉPLOIEMENT COMPLET
+
+1. Décompresser le ZIP.
+2. Vérifier que index.html est directement visible à la racine.
+3. Copier tout le contenu dans le dépôt Worldwide-CDM26.
+4. Accepter les remplacements.
+5. Vérifier dans GitHub Desktop que index.html est Modified et non Deleted.
+6. Commit conseillé : Release V15.4.4 – Records, Soulier d’or et célébration champion
+7. Push origin puis contrôler le déploiement Netlify.

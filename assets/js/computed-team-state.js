@@ -2,8 +2,8 @@
 (function(){
   'use strict';
 
-  const VERSION = (window.BUILD_VERSION || '15.4.3');
-  const VERSION_TOKEN = (window.BUILD_VERSION_TOKEN || String(VERSION).replace(/\D/g,'') || '1543');
+  const VERSION = (window.BUILD_VERSION || '15.4.4');
+  const VERSION_TOKEN = (window.BUILD_VERSION_TOKEN || String(VERSION).replace(/\D/g,'') || '1544');
   const SEMIFINALISTS = new Set(['france','spain','england','argentina']);
   const FEATURED_ORDER = [
     'morocco','france','spain','belgium','norway','england','argentina','switzerland',
@@ -728,6 +728,7 @@ function newsHref(id, section){
     selector.innerHTML = `<div class="qg-entry-bg"></div><div class="qg-entry-wrap qg-final-page"><div class="qg-entry-top"><a class="qg-entry-brand" href="${esc(homeHref)}"><img src="assets/lion-mascotte.png" alt="Mondial Pulse"><span>Mondial Pulse 2026 · V${esc(VERSION)}</span></a><a class="qg-entry-pill" href="${esc(homeHref)}">${esc(c.back)}</a></div>${(ctx.known || ctx.partial) ? `<section class="qg-final-stage${ctx.partial ? ' is-partial' : ' is-complete'}"><div class="qg-final-badge">${esc(c.badge)}</div>${ctx.known ? `<img class="qg-final-poster" src="assets/news/finale-espagne-argentine-messi-yamal.jpg" alt="Espagne–Argentine · Messi face à Lamine Yamal">` : ''}${ctx.partial && ctx.participants[0] ? `<div class="qg-final-pending"><span>${esc(c.firstFinalist)}</span><strong>${esc(teamFlag(ctx.participants[0], teams) + ' ' + teamName(ctx.participants[0], teams))}</strong><p>${esc(c.waitingOpponent)}</p></div>` : ''}${ctx.known ? finalEditorialHtml(false) : ''}${finalTeamsHtml(ctx, teams)}${finalCountdownHtml(ctx, teams)}<div class="qg-final-date">${esc(c.scheduled)}</div>${ctx.known ? finalFactsHtml() : ''}${finalJourneyHtml(ctx, teams, teamResults, computed)}${ctx.known ? finalEditorialHtml(true) : ''}</section>` : `<section class="qg-final-stage qg-final-waiting"><div class="qg-final-badge">${esc(c.badge)}</div><h1>${esc(c.waiting)}</h1><p>${esc(c.waitingDetail)}</p></section>`}<div class="qg-entry-actions"><a class="qg-entry-action" href="${esc(homeHref)}">${esc(c.back)}</a></div></div>`;
     startFinalCountdown(selector);
     startThirdCountdown(selector);
+    setTimeout(()=>triggerChampionCelebration(ctx, teams),180);
   }
 
   function editorialTeasersHtml(worldNews){
@@ -824,7 +825,7 @@ function newsHref(id, section){
     const m=ctx.match, home=m.home, away=m.away;
     if(ctx.state==='final'){
       const winner=ctx.winner, loser=winner===home?away:home;
-      return `<section class="qg-bronze-podium"><div class="qg-bronze-kicker">PODIUM · COUPE DU MONDE 2026</div><div class="qg-bronze-medal">🥉</div><small>MÉDAILLE DE BRONZE</small><h2>${esc(teamFlag(winner,teams)+' '+teamName(winner,teams))}</h2><strong>${esc(ctx.score||'')}</strong><p>Troisième de la Coupe du monde 2026</p><div class="qg-bronze-links"><a href="${esc(localizedTeamHref(winner))}">Voir le parcours du troisième →</a><a href="${esc(localizedTeamHref(loser))}">Voir l’autre parcours →</a></div></section>`;
+      return `<a class="qg-bronze-podium qg-bronze-clickable" href="${esc(localizedTeamHref(winner))}" aria-label="Voir le parcours de ${esc(teamName(winner,teams))}"><div class="qg-bronze-kicker">PODIUM · COUPE DU MONDE 2026</div><div class="qg-bronze-medal">🥉</div><small>MÉDAILLE DE BRONZE</small><h2>${esc(teamFlag(winner,teams)+' '+teamName(winner,teams))}</h2><strong>${esc(ctx.score||'')}</strong><p>Troisième de la Coupe du monde 2026</p><span class="qg-bronze-main-link">Voir le parcours de l’Angleterre →</span></a>`;
     }
     const state=ctx.state;
     return `<section class="qg-third-card ${state}"><div class="qg-third-kicker">PETITE FINALE · 3E PLACE</div><small>Même le bronze aura un goût de suprématie</small><h2>France–Angleterre : le Channel en feu</h2><p>Harry Kane et Jude Bellingham face à Kylian Mbappé et Ousmane Dembélé. Une petite finale aux allures de sommet européen.</p><div class="qg-third-teams"><a href="${esc(localizedTeamHref(home))}"><span>${esc(teamFlag(home,teams))}</span><b>${esc(teamName(home,teams))}</b></a><i>VS</i><a href="${esc(localizedTeamHref(away))}"><span>${esc(teamFlag(away,teams))}</span><b>${esc(teamName(away,teams))}</b></a></div>${state==='live'?`<div class="qg-third-live"><em>EN DIRECT</em><strong>${esc(ctx.score||'0–0')}</strong></div>`:`<div class="qg-third-countdown" data-third-countdown><b data-third-days>00</b><span>J</span><b data-third-hours>00</b><span>H</span><b data-third-minutes>00</b><span>MIN</span></div>`}<div class="qg-third-date">Sam. 18 juillet · 23h00 · heure locale</div><a class="qg-third-read" href="${esc(newsHref('france-england-bronze','world'))}">Lire l’avant-match →</a></section>`;
@@ -833,6 +834,27 @@ function newsHref(id, section){
     const node=root&&root.querySelector('[data-third-countdown]'); if(!node) return;
     const target=new Date('2026-07-18T23:00:00+02:00').getTime();
     const tick=()=>{const diff=Math.max(0,target-Date.now()),d=Math.floor(diff/86400000),h=Math.floor(diff/3600000)%24,m=Math.floor(diff/60000)%60;const set=(q,v)=>{const e=node.querySelector(q);if(e)e.textContent=String(v).padStart(2,'0')};set('[data-third-days]',d);set('[data-third-hours]',h);set('[data-third-minutes]',m)};tick();setInterval(tick,30000);
+  }
+
+  function passingLeadersCardHtml(){
+    return `<section class="qg-passing-card" aria-label="Passes par match"><div><small>MAÎTRISE COLLECTIVE · AVANT LA FINALE</small><h2>L’Argentine, reine de la circulation</h2><p>Meilleur total du tournoi avec <strong>664,1 passes par match</strong>.</p></div><div class="qg-passing-ranking"><span><b>1</b>🇦🇷 Argentine <em>664,1</em></span><span><b>2</b>🇩🇪 Allemagne <em>663</em></span><span><b>3</b>🇩🇿 Algérie <em>641,3</em></span><span><b>4</b>🇪🇸 Espagne <em>639,1</em></span></div></section>`;
+  }
+
+  function triggerChampionCelebration(ctx, teams){
+    if(!ctx || ctx.state !== 'final' || !ctx.winner) return;
+    if(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const key = 'qg-champion-celebrated-2026-' + ctx.winner;
+    try { if(sessionStorage.getItem(key)) return; sessionStorage.setItem(key, '1'); } catch(e) {}
+    const winnerName = teamName(ctx.winner, teams), winnerFlag = teamFlag(ctx.winner, teams);
+    const overlay = document.createElement('div');
+    overlay.className = 'qg-champion-celebration';
+    overlay.innerHTML = `<div class="qg-champion-fireworks">${Array.from({length:14},(_,i)=>`<i style="--i:${i}"></i>`).join('')}</div><div class="qg-champion-burst"></div><div class="qg-champion-panel"><button type="button" aria-label="Fermer">×</button><div class="qg-champion-trophy">🏆</div><small>COUPE DU MONDE 2026</small><h1>${esc(winnerFlag + ' ' + winnerName)}</h1><h2>CHAMPION DU MONDE</h2><strong>${esc(ctx.score || '')}</strong><a href="${esc(localizedTeamHref(ctx.winner))}">Entrer dans la légende →</a></div>`;
+    document.body.appendChild(overlay);
+    const close = () => { overlay.classList.add('is-leaving'); setTimeout(()=>overlay.remove(),600); };
+    overlay.querySelector('button').addEventListener('click', close);
+    setTimeout(()=>overlay.classList.add('is-visible'),40);
+    setTimeout(close,11000);
+    try { if(typeof window.launchConfetti === 'function') { window.launchConfetti(); setTimeout(()=>window.launchConfetti(),1200); } } catch(e) {}
   }
 
   function gaindesInternationalCardHtml(){
@@ -900,6 +922,7 @@ function newsHref(id, section){
         </div>
         ${finaleHomeCardHtml(teams, computed, teamResults, live)}
         ${thirdPlaceCardHtml(teams, computed, live)}
+        ${passingLeadersCardHtml()}
         ${!homeFinalCtx.known && groups.qf.length ? `<div class="qg-selector-group"><h2 class="qg-selector-title">${esc(c.qf)}</h2><div class="qg-team-grid">${groups.qf.map(s=>card(s,'qf')).join('')}</div></div>` : ''}
         ${groups.live.length ? `<div class="qg-selector-group"><h2 class="qg-selector-title">${esc(c.live)}</h2><div class="qg-team-grid">${groups.live.map(s=>card(s,'live')).join('')}</div></div>` : ''}
         ${gaindesInternationalCardHtml()}
@@ -908,6 +931,7 @@ function newsHref(id, section){
         <div class="qg-entry-actions"><a class="qg-entry-action" href="?mode=global&v=${VERSION_TOKEN}">${esc(c.global)}</a></div>
       </div>`;
     startFinalCountdown(selector);
+    setTimeout(()=>triggerChampionCelebration(homeFinalCtx, teams),180);
   }
 
 
@@ -1058,6 +1082,7 @@ function isoForMatch(id){
 
   function updateTeamPage(activeTeam, teams, computed, teamResults){
     if(!activeTeam) return;
+    const lang = activeLang();
     const s = computed.state[activeTeam];
     if(!s) return;
     const c = copy();
