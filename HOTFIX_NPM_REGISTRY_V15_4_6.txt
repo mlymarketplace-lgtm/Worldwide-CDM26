@@ -1,0 +1,7 @@
+QUALIFGAÏNDÉ V15.4.6 — CORRECTIF REGISTRE NPM
+
+Le package-lock.json a été régénéré/corrigé pour utiliser exclusivement :
+https://registry.npmjs.org/
+
+Aucune référence au registre interne OpenAI ne subsiste.
+Validation locale : npm ci réussi.
