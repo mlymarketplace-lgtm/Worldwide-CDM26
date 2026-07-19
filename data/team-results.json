@@ -301,6 +301,16 @@
       "note_en": "A Spanish masterclass sends La Roja to the final",
       "note_es": "Una masterclass española lleva a La Roja a la final",
       "result": "V"
+    },
+    {
+      "matchId": "N104",
+      "label": "Espagne 1–0 Argentine",
+      "label_en": "Spain 1–0 Argentina",
+      "label_es": "España 1–0 Argentina",
+      "note": "Championne du monde 2026",
+      "note_en": "World champions 2026",
+      "note_es": "Campeona del mundo 2026",
+      "result": "V"
     }
   ],
   "egypt": [
@@ -524,6 +534,16 @@
       "note_en": "The Albiceleste reach the World Cup final",
       "note_es": "La Albiceleste alcanza la final",
       "result": "V"
+    },
+    {
+      "matchId": "N104",
+      "label": "Espagne 1–0 Argentine",
+      "label_en": "Spain 1–0 Argentina",
+      "label_es": "España 1–0 Argentina",
+      "note": "Vice-championne du monde 2026",
+      "note_en": "World Cup runners-up 2026",
+      "note_es": "Subcampeona del mundo 2026",
+      "result": "D"
     }
   ],
   "switzerland": [

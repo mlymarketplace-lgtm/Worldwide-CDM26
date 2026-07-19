@@ -3,7 +3,7 @@
     "id": "olise-record-pele-2026",
     "section": "world",
     "type": "record",
-    "priority": 1,
+    "priority": 2,
     "image": "assets/news/olise-record-pele-2026.png",
     "langs": {
       "fr": {
@@ -23,18 +23,18 @@
     "id": "mbappe-double-record-2026",
     "section": "world",
     "type": "record",
-    "priority": 2,
+    "priority": 1,
     "image": "assets/news/mbappe-double-record-2026.png",
     "langs": {
       "fr": {
-        "tag": "Records · Équipe de France",
-        "title": "Mbappé s’offre un double record",
-        "body": "Avec dix buts dans ce Mondial et 22 en Coupe du monde, Kylian Mbappé franchit deux caps historiques.",
+        "tag": "Soulier d’or · Records historiques",
+        "title": "Mbappé, Soulier d’or et nouveau roi des buteurs du Mondial",
+        "body": "Dix buts en 2026, 22 en Coupe du monde et 66 avec les Bleus : Kylian Mbappé repart avec le Soulier d’or et trois records vertigineux.",
         "article": [
-          "Kylian Mbappé a profité de la petite finale contre l’Angleterre pour frapper deux fois de plus et s’installer seul en tête du classement des buteurs de ce Mondial 2026. Avec dix buts au compteur, le capitaine français possède deux longueurs d’avance sur Lionel Messi, qui dispose encore de la finale contre l’Espagne pour réduire l’écart.",
-          "Au-delà du Soulier d’or, le joueur du Real Madrid franchit un cap historique : à 27 ans, il porte son total à 22 buts en Coupe du monde, inscrits en seulement trois éditions.",
-          "Le Bondynois trône également au sommet du classement des buteurs de l’équipe de France. Après avoir dépassé Olivier Giroud plus tôt dans le tournoi, il compte désormais 66 réalisations sous le maillot bleu.",
-          "La France quitte le tournoi sans médaille, mais son capitaine en ressort avec des chiffres qui donnent le vertige et une empreinte encore plus profonde dans l’histoire du Mondial."
+          "Kylian Mbappé termine la Coupe du monde 2026 avec le Soulier d’or. Ses deux buts contre l’Angleterre ont porté son total à dix réalisations, deux de plus que Lionel Messi, resté muet lors de la finale remportée par l’Espagne.",
+          "À 27 ans, le capitaine français devient aussi le meilleur buteur de l’histoire de la Coupe du monde avec 22 buts en seulement trois éditions. Un rythme inédit, construit entre 2018, 2022 et 2026.",
+          "Son tournoi a également confirmé son statut de meilleur buteur de l’équipe de France. Avec 66 réalisations sous le maillot bleu, Mbappé a dépassé Olivier Giroud et installé un nouveau sommet national.",
+          "La France quitte le Mondial sans médaille, mais son capitaine repart avec l’or individuel. Dix buts sur cette édition, 22 dans l’histoire du tournoi et 66 avec les Bleus : trois chiffres pour mesurer une trajectoire déjà hors norme."
         ]
       }
     }
@@ -43,7 +43,7 @@
     "id": "messi-renverser-mbappe-soulier-or",
     "section": "world",
     "type": "analysis",
-    "priority": 3,
+    "priority": 20,
     "image": "assets/news/messi-renverser-mbappe-soulier-or.png",
     "langs": {
       "fr": {

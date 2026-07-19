@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-19T01:08:00+02:00",
+  "updatedAt": "2026-07-19T23:15:00+02:00",
   "matches": {
     "uru-esp": {
       "home": 0,
@@ -503,7 +503,21 @@
       "locked": true,
       "round": "third",
       "scoreLine": "France 4–6 Angleterre"
+    },
+    "esp-arg": {
+      "koId": "N104",
+      "h": "ESP",
+      "a": "ARG",
+      "home": 1,
+      "away": 0,
+      "status": "final",
+      "apiStatus": "FT",
+      "apiStatusLong": "Match Finished",
+      "winner": "home",
+      "winnerSide": 0,
+      "locked": true,
+      "round": "final"
     }
   },
-  "_note": "V15.4.4 — Angleterre médaillée de bronze après France 4–6 Angleterre. Finale Espagne–Argentine à venir."
+  "_note": "V15.4.6 — Espagne championne du monde après sa victoire 1–0 contre l’Argentine. Podium final et Soulier d’or Mbappé."
 }

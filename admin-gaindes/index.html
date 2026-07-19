@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<title>Administration · Suivi des Gaïndés</title>
+<style>
+:root{color-scheme:dark;--bg:#06101d;--panel:#0c1c31;--gold:#f5c842;--green:#19a85b;--red:#dc3d4a;--muted:#aab8cb}*{box-sizing:border-box}body{margin:0;min-height:100vh;display:grid;place-items:center;background:radial-gradient(circle at 20% 0,#08754255,transparent 28%),radial-gradient(circle at 100% 90%,#8b172b55,transparent 35%),var(--bg);font-family:Inter,Arial,sans-serif;color:#fff;padding:24px}.panel{width:min(720px,100%);background:#091728ee;border:1px solid #ffffff18;border-radius:28px;padding:clamp(22px,5vw,42px);box-shadow:0 28px 90px #000a}.kicker{color:var(--gold);letter-spacing:.18em;font-size:.72rem;font-weight:950}.head{display:flex;gap:15px;align-items:center}.logo{width:68px;height:68px;border-radius:50%;display:grid;place-items:center;background:#06101d;border:2px solid var(--gold);font-size:36px}h1{font:900 clamp(2rem,7vw,4.2rem)/.92 Impact,Oswald,sans-serif;text-transform:uppercase;margin:9px 0}.lead{color:var(--muted);line-height:1.55}.status{margin:24px 0 18px;border-radius:18px;padding:18px;background:#ffffff08;border:1px solid #ffffff12;display:flex;justify-content:space-between;gap:18px;align-items:center}.status b{font-size:1.15rem}.mode{padding:8px 13px;border-radius:999px;font-size:.75rem;font-weight:950;text-transform:uppercase}.mode.public{background:#146c3c}.mode.private{background:#765d15}.mode.closed{background:#7b202b}.password{display:grid;gap:7px;color:#dce5f2;font-weight:850;font-size:.8rem;text-transform:uppercase;letter-spacing:.07em}.password input{padding:14px 15px;border-radius:14px;border:1px solid #ffffff24;background:#050d18;color:#fff;font-size:1rem}.actions{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:16px}.actions button{padding:14px 12px;border:0;border-radius:14px;color:#fff;font-weight:950;cursor:pointer}.actions [data-mode=public]{background:#168b4c}.actions [data-mode=private]{background:#94751c}.actions [data-mode=closed]{background:#a72c3a}.links{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}.links a,.links button{border:1px solid #f5c84255;background:#f5c8420c;color:var(--gold);padding:10px 14px;border-radius:999px;text-decoration:none;font-weight:850;cursor:pointer}.message{min-height:22px;margin-top:14px;color:#ffabb2}.message.ok{color:#70e6a6}@media(max-width:620px){.actions{grid-template-columns:1fr}.status{align-items:flex-start;flex-direction:column}}
+</style>
+</head>
+<body>
+<main class="panel">
+  <div class="head"><div class="logo">🦁</div><div><div class="kicker">CONSOLE PROPRIÉTAIRE</div><h1>Suivi des Gaïndés</h1></div></div>
+  <p class="lead">Ouvre, masque ou ferme l’espace sans modifier GitHub ni relancer un déploiement.</p>
+  <div class="status"><span><small>ÉTAT ACTUEL</small><br><b id="status-text">Chargement…</b></span><span id="status-pill" class="mode">—</span></div>
+  <label class="password">Mot de passe propriétaire<input id="password" type="password" autocomplete="current-password"></label>
+  <div class="actions">
+    <button type="button" data-mode="public">🟢 Rendre public</button>
+    <button type="button" data-mode="private">🔒 Passer en privé</button>
+    <button type="button" data-mode="closed">⛔ Fermer</button>
+  </div>
+  <p id="message" class="message" role="alert"></p>
+  <div class="links">
+    <a href="/?mode=gaindes&v=1546">Ouvrir le Suivi</a>
+    <a href="/?v=1546">Voir la home</a>
+    <button id="logout" type="button">Fermer ma session</button>
+  </div>
+</main>
+<script>
+const endpoint='/.netlify/functions/gaindes-control';
+const text={public:'Public · visible sur la home',private:'Privé · invisible, mot de passe requis',closed:'Fermé · accès propriétaire uniquement'};
+async function status(){const r=await fetch(endpoint+'?t='+Date.now(),{cache:'no-store',credentials:'same-origin'});const d=await r.json();paint(d);return d}
+function paint(d){const mode=d.mode||'closed';document.getElementById('status-text').textContent=text[mode]||mode;const pill=document.getElementById('status-pill');pill.textContent=mode;pill.className='mode '+mode;if(!d.configured){show('Ajoute QG_GAINDES_ADMIN_PASSWORD dans Netlify avant d’utiliser les boutons.',false)}}
+function show(msg,ok){const el=document.getElementById('message');el.textContent=msg;el.className='message'+(ok?' ok':'')}
+async function setMode(mode){show('Mise à jour…',true);const password=document.getElementById('password').value;const r=await fetch(endpoint,{method:'POST',credentials:'same-origin',cache:'no-store',headers:{'Content-Type':'application/json'},body:JSON.stringify({action:'set-mode',mode,password})});const d=await r.json().catch(()=>({}));if(!r.ok||!d.ok){show(d.message||'La mise à jour a échoué.',false);return}paint(d);show('État enregistré immédiatement.',true)}
+document.querySelectorAll('[data-mode]').forEach(b=>b.addEventListener('click',()=>setMode(b.dataset.mode)));
+document.getElementById('logout').addEventListener('click',async()=>{await fetch(endpoint,{method:'POST',credentials:'same-origin',headers:{'Content-Type':'application/json'},body:JSON.stringify({action:'logout'})});show('Session propriétaire fermée.',true)});
+status().catch(()=>show('Impossible de joindre la fonction de contrôle.',false));
+</script>
+</body>
+</html>

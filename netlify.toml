@@ -215,12 +215,12 @@
 
 [[redirects]]
   from = "/angleterre"
-  to = "/?team=england&lang=en&v=1544"
+  to = "/?team=england&lang=en&v=1546"
   status = 302
   force = true
 [[redirects]]
   from = "/england"
-  to = "/?team=england&lang=en&v=1544"
+  to = "/?team=england&lang=en&v=1546"
   status = 302
   force = true
 
@@ -251,3 +251,15 @@
   [headers.values]
     X-Robots-Tag = "noindex, nofollow, noarchive"
     Cache-Control = "no-store, no-cache, must-revalidate"
+
+
+[[headers]]
+  for = "/admin-gaindes/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow, noarchive"
+    Cache-Control = "no-store, no-cache, must-revalidate"
+
+[[headers]]
+  for = "/.netlify/functions/gaindes-control"
+  [headers.values]
+    Cache-Control = "no-store, no-cache, must-revalidate, proxy-revalidate"

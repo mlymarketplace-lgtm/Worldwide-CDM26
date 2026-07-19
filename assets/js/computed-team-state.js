@@ -2,8 +2,8 @@
 (function(){
   'use strict';
 
-  const VERSION = (window.BUILD_VERSION || '15.4.4');
-  const VERSION_TOKEN = (window.BUILD_VERSION_TOKEN || String(VERSION).replace(/\D/g,'') || '1544');
+  const VERSION = (window.BUILD_VERSION || '15.4.6');
+  const VERSION_TOKEN = (window.BUILD_VERSION_TOKEN || String(VERSION).replace(/\D/g,'') || '1546');
   const SEMIFINALISTS = new Set(['france','spain','england','argentina']);
   const FEATURED_ORDER = [
     'morocco','france','spain','belgium','norway','england','argentina','switzerland',
@@ -728,7 +728,7 @@ function newsHref(id, section){
     selector.innerHTML = `<div class="qg-entry-bg"></div><div class="qg-entry-wrap qg-final-page"><div class="qg-entry-top"><a class="qg-entry-brand" href="${esc(homeHref)}"><img src="assets/lion-mascotte.png" alt="Mondial Pulse"><span>Mondial Pulse 2026 · V${esc(VERSION)}</span></a><a class="qg-entry-pill" href="${esc(homeHref)}">${esc(c.back)}</a></div>${(ctx.known || ctx.partial) ? `<section class="qg-final-stage${ctx.partial ? ' is-partial' : ' is-complete'}"><div class="qg-final-badge">${esc(c.badge)}</div>${ctx.known ? `<img class="qg-final-poster" src="assets/news/finale-espagne-argentine-messi-yamal.jpg" alt="Espagne–Argentine · Messi face à Lamine Yamal">` : ''}${ctx.partial && ctx.participants[0] ? `<div class="qg-final-pending"><span>${esc(c.firstFinalist)}</span><strong>${esc(teamFlag(ctx.participants[0], teams) + ' ' + teamName(ctx.participants[0], teams))}</strong><p>${esc(c.waitingOpponent)}</p></div>` : ''}${ctx.known ? finalEditorialHtml(false) : ''}${finalTeamsHtml(ctx, teams)}${finalCountdownHtml(ctx, teams)}<div class="qg-final-date">${esc(c.scheduled)}</div>${ctx.known ? finalFactsHtml() : ''}${finalJourneyHtml(ctx, teams, teamResults, computed)}${ctx.known ? finalEditorialHtml(true) : ''}</section>` : `<section class="qg-final-stage qg-final-waiting"><div class="qg-final-badge">${esc(c.badge)}</div><h1>${esc(c.waiting)}</h1><p>${esc(c.waitingDetail)}</p></section>`}<div class="qg-entry-actions"><a class="qg-entry-action" href="${esc(homeHref)}">${esc(c.back)}</a></div></div>`;
     startFinalCountdown(selector);
     startThirdCountdown(selector);
-    setTimeout(()=>triggerChampionCelebration(ctx, teams),180);
+    setTimeout(()=>triggerChampionCelebration(ctx, teams),1200);
   }
 
   function editorialTeasersHtml(worldNews){
@@ -836,29 +836,48 @@ function newsHref(id, section){
     const tick=()=>{const diff=Math.max(0,target-Date.now()),d=Math.floor(diff/86400000),h=Math.floor(diff/3600000)%24,m=Math.floor(diff/60000)%60;const set=(q,v)=>{const e=node.querySelector(q);if(e)e.textContent=String(v).padStart(2,'0')};set('[data-third-days]',d);set('[data-third-hours]',h);set('[data-third-minutes]',m)};tick();setInterval(tick,30000);
   }
 
+  function finalPodiumHtml(teams, computed, live){
+    const finalCtx=finalContext(teams,computed,live), bronzeCtx=thirdPlaceContext(computed,live);
+    if(finalCtx.state!=='final' || !finalCtx.winner || bronzeCtx.state!=='final' || !bronzeCtx.winner) return thirdPlaceCardHtml(teams,computed,live);
+    const gold=finalCtx.winner;
+    const silver=finalCtx.participants.find(k=>k!==gold);
+    const bronze=bronzeCtx.winner;
+    const card=(key,kind,medal,label,score,copy)=>`<a class="qg-podium-card ${kind}" href="${esc(localizedTeamHref(key))}" aria-label="Voir la page de ${esc(teamName(key,teams))}"><span class="qg-podium-medal">${medal}</span><img src="${esc(kind==='gold'||kind==='silver'?finalPortrait(key):teamImage(key,teams))}" alt="${esc(teamName(key,teams))}" loading="lazy" decoding="async"><small>${esc(label)}</small><h2>${esc(teamFlag(key,teams)+' '+teamName(key,teams))}</h2><strong>${esc(score)}</strong><p>${esc(copy)}</p><b>Voir l’équipe →</b></a>`;
+    return `<section class="qg-world-podium" aria-label="Podium final Coupe du monde 2026"><div class="qg-world-podium-head"><small>PODIUM · COUPE DU MONDE 2026</small><h2>Les trois nations sur le toit du monde</h2><button type="button" class="qg-replay-celebration" onclick="window.QGReplayChampionCelebration&&window.QGReplayChampionCelebration()">✨ Rejouer la célébration</button></div><div class="qg-world-podium-grid">${card(silver,'silver','🥈','VICE-CHAMPIONNE DU MONDE',finalCtx.score,'Une campagne immense, conclue par une médaille d’argent.')}${card(gold,'gold','🥇','CHAMPIONNE DU MONDE',finalCtx.score,'La Roja décroche sa deuxième étoile et entre dans l’éternité.')}${card(bronze,'bronze','🥉','MÉDAILLE DE BRONZE',bronzeCtx.score,'Les Three Lions terminent troisièmes après un match d’anthologie.')}</div></section>`;
+  }
+
+  function goldenBootCardHtml(){
+    return `<a class="qg-golden-boot-card" href="${esc(newsHref('mbappe-double-record-2026','world'))}" aria-label="Lire l’article sur le Soulier d’or de Kylian Mbappé"><img src="assets/news/mbappe-double-record-2026.png" alt="Kylian Mbappé · Soulier d’or 2026" loading="lazy" decoding="async"><span class="qg-golden-boot-copy"><small>SOULIER D’OR · COUPE DU MONDE 2026</small><h2>Kylian Mbappé, l’or au pied et l’histoire dans les chiffres</h2><p>Meilleur buteur du tournoi avec <strong>10 buts</strong>, nouveau recordman de l’histoire du Mondial avec <strong>22 réalisations</strong> et patron des Bleus avec <strong>66 buts</strong>.</p><span class="qg-golden-stats"><b>10<em>buts en 2026</em></b><b>22<em>buts en Coupe du monde</em></b><b>66<em>buts avec la France</em></b></span><i>Lire son histoire →</i></span></a>`;
+  }
+
   function passingLeadersCardHtml(){
     return `<section class="qg-passing-card" aria-label="Passes par match"><div><small>MAÎTRISE COLLECTIVE · AVANT LA FINALE</small><h2>L’Argentine, reine de la circulation</h2><p>Meilleur total du tournoi avec <strong>664,1 passes par match</strong>.</p></div><div class="qg-passing-ranking"><span><b>1</b>🇦🇷 Argentine <em>664,1</em></span><span><b>2</b>🇩🇪 Allemagne <em>663</em></span><span><b>3</b>🇩🇿 Algérie <em>641,3</em></span><span><b>4</b>🇪🇸 Espagne <em>639,1</em></span></div></section>`;
   }
 
-  function triggerChampionCelebration(ctx, teams){
+  function triggerChampionCelebration(ctx, teams, force){
     if(!ctx || ctx.state !== 'final' || !ctx.winner) return;
-    if(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    const key = 'qg-champion-celebrated-2026-' + ctx.winner;
-    try { if(sessionStorage.getItem(key)) return; sessionStorage.setItem(key, '1'); } catch(e) {}
+    const key = 'qg-champion-celebrated-1546-' + ctx.winner;
+    if(!force){ try { if(sessionStorage.getItem(key)) return; } catch(e) {} }
+    const old=document.querySelector('.qg-champion-celebration'); if(old) old.remove();
     const winnerName = teamName(ctx.winner, teams), winnerFlag = teamFlag(ctx.winner, teams);
+    const reduced=!!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
     const overlay = document.createElement('div');
-    overlay.className = 'qg-champion-celebration';
-    overlay.innerHTML = `<div class="qg-champion-fireworks">${Array.from({length:14},(_,i)=>`<i style="--i:${i}"></i>`).join('')}</div><div class="qg-champion-burst"></div><div class="qg-champion-panel"><button type="button" aria-label="Fermer">×</button><div class="qg-champion-trophy">🏆</div><small>COUPE DU MONDE 2026</small><h1>${esc(winnerFlag + ' ' + winnerName)}</h1><h2>CHAMPION DU MONDE</h2><strong>${esc(ctx.score || '')}</strong><a href="${esc(localizedTeamHref(ctx.winner))}">Entrer dans la légende →</a></div>`;
+    overlay.className = 'qg-champion-celebration' + (reduced?' is-reduced':'');
+    overlay.innerHTML = `<div class="qg-champion-fireworks">${Array.from({length:18},(_,i)=>`<i style="--i:${i}"></i>`).join('')}</div><div class="qg-champion-burst"></div><div class="qg-champion-panel"><button type="button" aria-label="Fermer">×</button><div class="qg-champion-trophy">🏆</div><small>COUPE DU MONDE 2026</small><h1>${esc(winnerFlag + ' ' + winnerName)}</h1><h2>CHAMPIONNE DU MONDE</h2><strong>${esc(ctx.score || '')}</strong><p>La Roja décroche sa deuxième étoile.</p><a href="${esc(localizedTeamHref(ctx.winner))}">Entrer dans la légende →</a></div>`;
     document.body.appendChild(overlay);
-    const close = () => { overlay.classList.add('is-leaving'); setTimeout(()=>overlay.remove(),600); };
+    const close = () => { overlay.classList.add('is-leaving'); setTimeout(()=>overlay.remove(),650); };
     overlay.querySelector('button').addEventListener('click', close);
-    setTimeout(()=>overlay.classList.add('is-visible'),40);
-    setTimeout(close,11000);
-    try { if(typeof window.launchConfetti === 'function') { window.launchConfetti(); setTimeout(()=>window.launchConfetti(),1200); } } catch(e) {}
+    requestAnimationFrame(()=>requestAnimationFrame(()=>{
+      overlay.classList.add('is-visible');
+      try { sessionStorage.setItem(key,'1'); } catch(e) {}
+    }));
+    window.QGReplayChampionCelebration=()=>triggerChampionCelebration(ctx,teams,true);
+    setTimeout(close,13000);
+    if(!reduced){ try { if(typeof window.launchConfetti === 'function') { window.launchConfetti(); setTimeout(()=>window.launchConfetti(),900); setTimeout(()=>window.launchConfetti(),1900); } } catch(e) {} }
   }
 
   function gaindesInternationalCardHtml(){
-    return `<a class="qg-gaindes-entry-card" href="?mode=gaindes&v=${VERSION_TOKEN}" aria-label="Ouvrir Suivi des Gaïndés à l’international">
+    return `<a class="qg-gaindes-entry-card" data-gaindes-gated hidden href="?mode=gaindes&v=${VERSION_TOKEN}" aria-label="Ouvrir Suivi des Gaïndés à l’international">
       <img src="/mangara-studio-7f3k9q/assets/brand/suivi-gaindes-lion.jpg" alt="Lion · Suivi des Gaïndés">
       <span class="qg-gaindes-entry-copy"><small>LES LIONS DANS LE MONDE</small><strong>Suivi des Gaïndés</strong><em>À l’international</em><p>Sélection, clubs, Europe, joueurs et Brèves des Gaïndés dans un même univers.</p><b>Entrer dans le suivi →</b></span>
     </a>`;
@@ -869,7 +888,14 @@ function newsHref(id, section){
   function renderGaindesHub(selector){
     if(!selector) return;
     document.documentElement.classList.add('qg-gaindes-route');
-    selector.innerHTML = `<div class="qg-gaindes-route-shell"><iframe class="qg-gaindes-route-frame" src="/mangara-studio-7f3k9q/?embedded=1&v=${VERSION_TOKEN}#home" title="Suivi des Gaïndés à l’international" loading="eager" allow="fullscreen"></iframe></div>`;
+    const renderAllowed = () => {
+      selector.innerHTML = `<div class="qg-gaindes-route-shell"><iframe class="qg-gaindes-route-frame" src="/mangara-studio-7f3k9q/?embedded=1&v=${VERSION_TOKEN}#home" title="Suivi des Gaïndés à l’international" loading="eager" allow="fullscreen"></iframe></div>`;
+    };
+    if(window.QGGaindesGate && typeof window.QGGaindesGate.protectRoute === 'function') {
+      window.QGGaindesGate.protectRoute(selector, renderAllowed);
+    } else {
+      selector.innerHTML = `<div class="qg-gaindes-route-shell"><main class="qg-access-gate"><div class="qg-access-emblem">🦁</div><small>ESPACE PROTÉGÉ</small><h1>Suivi des Gaïndés</h1><p>Le contrôle d’accès est temporairement indisponible.</p><a class="qg-access-back" href="/?v=${VERSION_TOKEN}">← Retour à QualifGaïndé</a></main></div>`;
+    }
   }
 
   function renderHome(selector, teams, computed, worldNews, teamResults, live){
@@ -921,7 +947,8 @@ function newsHref(id, section){
           <p>${esc(c.homeLead)}</p>
         </div>
         ${finaleHomeCardHtml(teams, computed, teamResults, live)}
-        ${thirdPlaceCardHtml(teams, computed, live)}
+        ${finalPodiumHtml(teams, computed, live)}
+        ${goldenBootCardHtml()}
         ${passingLeadersCardHtml()}
         ${!homeFinalCtx.known && groups.qf.length ? `<div class="qg-selector-group"><h2 class="qg-selector-title">${esc(c.qf)}</h2><div class="qg-team-grid">${groups.qf.map(s=>card(s,'qf')).join('')}</div></div>` : ''}
         ${groups.live.length ? `<div class="qg-selector-group"><h2 class="qg-selector-title">${esc(c.live)}</h2><div class="qg-team-grid">${groups.live.map(s=>card(s,'live')).join('')}</div></div>` : ''}
@@ -931,7 +958,7 @@ function newsHref(id, section){
         <div class="qg-entry-actions"><a class="qg-entry-action" href="?mode=global&v=${VERSION_TOKEN}">${esc(c.global)}</a></div>
       </div>`;
     startFinalCountdown(selector);
-    setTimeout(()=>triggerChampionCelebration(homeFinalCtx, teams),180);
+    setTimeout(()=>triggerChampionCelebration(homeFinalCtx, teams),1200);
   }
 
 

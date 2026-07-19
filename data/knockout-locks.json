@@ -783,6 +783,34 @@
       "locked": true,
       "round": "third",
       "scoreLine": "France 4–6 Angleterre"
+    },
+    "N104": {
+      "koId": "N104",
+      "h": "ESP",
+      "a": "ARG",
+      "home": 1,
+      "away": 0,
+      "status": "final",
+      "apiStatus": "FT",
+      "apiStatusLong": "Match Finished",
+      "winner": "home",
+      "winnerSide": 0,
+      "locked": true,
+      "round": "final"
     }
+  },
+  "esp-arg": {
+    "koId": "N104",
+    "h": "ESP",
+    "a": "ARG",
+    "home": 1,
+    "away": 0,
+    "status": "final",
+    "apiStatus": "FT",
+    "apiStatusLong": "Match Finished",
+    "winner": "home",
+    "winnerSide": 0,
+    "locked": true,
+    "round": "final"
   }
 }

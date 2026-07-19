@@ -3,25 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Suivi des Gaïndés · V15.4.4</title>
+<title>Suivi des Gaïndés · V15.4.6</title>
 <meta name="robots" content="noindex,nofollow,noarchive"><meta name="googlebot" content="noindex,nofollow,noarchive">
-<script id="mangara-private-gate">(function(){
-  const ACCESS_KEY='mangara-v15-kft-7q2p';
-  let authorized=false;
-  try{
-    const params=new URLSearchParams(location.search);
-    authorized=params.get('access')===ACCESS_KEY || sessionStorage.getItem('mangara-private-access')===ACCESS_KEY;
-    if(params.get('access')===ACCESS_KEY) sessionStorage.setItem('mangara-private-access',ACCESS_KEY);
-  }catch(e){}
-  if(!authorized){
-    document.open();
-    document.write('<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow,noarchive"><title>Accès privé</title><script>try{if(new URLSearchParams(location.search).get('embedded')==='1')document.documentElement.classList.add('qg-embedded');}catch(e){}</script>
-</head><body style="margin:0;min-height:100vh;display:grid;place-items:center;background:#06101d;color:#fff;font-family:Arial"><main style="max-width:520px;padding:28px;text-align:center"><h1>Accès privé</h1><p style="color:#a9b7ce">Cet atelier Suivi des Gaïndés n’est pas ouvert au public.</p><a href="/?v=1544" style="color:#fdef42">Retour à QualifGaïndé</a></main></body></html>');
-    document.close();
-    throw new Error('private-access');
-  }
-})();</script>
-<meta name="description" content="Suivi des Gaïndés : le hub privé des Lions, des clubs, de l’Europe et des brèves.">
+<script src="/assets/js/gaindes-gate.js?v=1546"></script>
+<meta name="description" content="Suivi des Gaïndés : le hub des Lions, des clubs, de l’Europe et des brèves.">
 <meta name="theme-color" content="#00853F">
 <link rel="manifest" href="/mangara-studio-7f3k9q/manifest.webmanifest">
 <link rel="apple-touch-icon" href="/mangara-studio-7f3k9q/assets/icons/icon-192.png">
@@ -102,7 +87,7 @@ body[data-view="home"] #source-note{display:none}body[data-view]:not([data-view=
 </style>
 </head>
 <body>
-<header class="topbar"><div class="topbar-inner"><a class="brand" href="#home" aria-label="Accueil Suivi des Gaïndés"><span class="brand-logo"><img src="/mangara-studio-7f3k9q/assets/brand/suivi-gaindes-lion.jpg" alt="Lion"></span><span class="brand-copy"><strong>Suivi des Gaïndés</strong><small>V15.4.4 · International</small></span></a><div class="langbar" aria-label="Langues"><button class="active" data-lang="fr">FR</button><button data-lang="en">EN</button><button data-lang="ar">AR</button></div><a class="pwa-badge" href="/?v=1544" aria-label="Retour à QualifGaïndé" target="_top">← QualifGaïndé</a></div></header>
+<header class="topbar"><div class="topbar-inner"><a class="brand" href="#home" aria-label="Accueil Suivi des Gaïndés"><span class="brand-logo"><img src="/mangara-studio-7f3k9q/assets/brand/suivi-gaindes-lion.jpg" alt="Lion"></span><span class="brand-copy"><strong>Suivi des Gaïndés</strong><small>V15.4.6 · International</small></span></a><div class="langbar" aria-label="Langues"><button class="active" data-lang="fr">FR</button><button data-lang="en">EN</button><button data-lang="ar">AR</button></div><a class="pwa-badge" href="/?v=1546" aria-label="Retour à QualifGaïndé" target="_top">← QualifGaïndé</a></div></header>
 <main class="wrap" id="home">
 <section class="hero" id="landing-hero"><div class="hero-emblem"><img src="/mangara-studio-7f3k9q/assets/brand/suivi-gaindes-lion.jpg" alt="Lion des Gaïndés"></div><div class="hero-copy"><div class="kicker">Sélection · Clubs · Europe · Brèves</div><h1>Suivi des Gaïndés</h1><p class="tagline">Un hub clair pour entrer rapidement dans l’univers des Lions : équipe nationale, performances du week-end, compétitions, clubs, joueurs et actualité éditoriale.</p></div></section>
 <div class="view-toolbar" id="view-toolbar" hidden><button type="button" onclick="go('home')">← Toutes les entrées</button><span id="view-label">Univers</span></div>
@@ -113,7 +98,7 @@ body[data-view="home"] #source-note{display:none}body[data-view]:not([data-view=
 <section class="section view-panel" id="europe" hidden><div class="section-head"><div class="section-title"><h2>Les Lions Champions & Europa League</h2><p class="hint">Carrés Europe : phase de ligue, barrages, matchs couperets, minutes et notes.</p></div><span class="source-badge simulated">Données simulées</span></div><div class="europe-grid" id="europe-grid"></div></section>
 <section class="section view-panel" id="clubs" hidden><div class="section-head"><div class="section-title"><h2>Clubs suivis</h2><p class="hint">Pays, drapeau, championnat, entraîneur et rôle du club dans le suivi des Gaïndés.</p></div><span class="source-badge local">Données locales</span><span class="source-badge local" id="club-count">19 clubs</span></div><div class="clubs-grid" id="club-grid"></div></section>
 <section class="section view-panel" id="players" hidden><div class="section-head"><div class="section-title"><h2>Suivi des Lions</h2><p class="hint">Chaque card ouvre une fiche adaptée au poste : gardien, défenseur, milieu ou attaquant.</p></div><span class="source-badge local">Données locales</span><span class="source-badge local" id="count">21 Lions</span></div><div class="filters"><input id="search" placeholder="Rechercher un joueur, club, championnat…" oninput="renderPlayers()"><select id="league" onchange="renderPlayers()"><option value="">Tous les championnats</option></select><select id="club" onchange="renderPlayers()"><option value="">Tous les clubs</option></select><select id="role" onchange="renderPlayers()"><option value="">Tous les postes</option><option value="gardien">Gardiens</option><option value="defenseur">Défenseurs</option><option value="milieu">Milieux</option><option value="attaquant">Attaquants</option></select></div><div class="players" id="players-list"></div></section>
-<section class="section view-panel" id="breves" hidden><div class="section-head"><div class="section-title"><h2>Brèves des Gaïndés</h2><p class="hint">Mercato, performances, débats et signaux faibles autour des Lions.</p></div><span class="source-badge local">Éditorial</span></div><article class="briefs-hero"><img src="/mangara-studio-7f3k9q/assets/brand/breves-gaindes.png" alt="Les Brèves des Gaïndés"><div><span class="pill">Nouvelle entrée</span><strong>L’actualité des Lions, en un regard</strong><p>Une rubrique plus directe, pensée pour raconter les mouvements, les performances et les débats qui font vivre le football sénégalais.</p></div></article><div class="briefs-grid" id="briefs-grid"></div></section><div class="source-note" id="source-note" hidden>Sources locales et simulées · validation humaine avant publication.</div><footer>SUIVI DES GAÏNDÉS · V15.4.4 · Données locales et simulées · validation humaine avant production.</footer>
+<section class="section view-panel" id="breves" hidden><div class="section-head"><div class="section-title"><h2>Brèves des Gaïndés</h2><p class="hint">Mercato, performances, débats et signaux faibles autour des Lions.</p></div><span class="source-badge local">Éditorial</span></div><article class="briefs-hero"><img src="/mangara-studio-7f3k9q/assets/brand/breves-gaindes.png" alt="Les Brèves des Gaïndés"><div><span class="pill">Nouvelle entrée</span><strong>L’actualité des Lions, en un regard</strong><p>Une rubrique plus directe, pensée pour raconter les mouvements, les performances et les débats qui font vivre le football sénégalais.</p></div></article><div class="briefs-grid" id="briefs-grid"></div></section><div class="source-note" id="source-note" hidden>Sources locales et simulées · validation humaine avant publication.</div><footer>SUIVI DES GAÏNDÉS · V15.4.6 · Données locales et simulées · validation humaine avant production.</footer>
 </main>
 <nav class="bottom-nav"><a href="#home" data-route="home">Accueil</a><a href="#national" data-route="national">Équipe</a><a href="#breves" data-route="breves">Brèves</a><a href="#clubs" data-route="clubs">Clubs</a><a href="#players" data-route="players">Joueurs</a></nav>
 <div class="overlay" id="overlay" onclick="if(event.target===this)closeSheet()"><div class="sheet" id="sheet"></div></div>
@@ -148,7 +133,7 @@ async function boot(){
 function showDataError(){
  let p=document.getElementById('data-error-panel');
  if(!p){p=document.createElement('section');p.id='data-error-panel';p.className='data-error-panel';const main=document.querySelector('main.wrap');const hero=main&&main.querySelector('.hero');if(main)main.insertBefore(p,hero?hero.nextSibling:main.firstChild)}
- p.innerHTML='<h2>Les données n’ont pas pu être chargées</h2><p>La navigation reste disponible. Vérifie ta connexion puis réessaie.</p><div class="data-error-actions"><button type="button" onclick="boot()">Réessayer</button><a href="/?v=1544">Retour à QualifGaïndé</a></div>';p.hidden=false
+ p.innerHTML='<h2>Les données n’ont pas pu être chargées</h2><p>La navigation reste disponible. Vérifie ta connexion puis réessaie.</p><div class="data-error-actions"><button type="button" onclick="boot()">Réessayer</button><a href="/?v=1546">Retour à QualifGaïndé</a></div>';p.hidden=false
 }
 function hideDataError(){const p=document.getElementById('data-error-panel');if(p)p.hidden=true}
 function updateSourceNote(){const e=document.getElementById('source-note');if(!e)return;const d=SOURCE_NOTE.updatedAt?' · mise à jour '+SOURCE_NOTE.updatedAt:'';e.textContent=(SOURCE_NOTE.note||'Sources locales et simulées · validation humaine avant publication.')+d}

@@ -1,0 +1,17 @@
+QUALIFGAINDE V15.4.6 — INSTALLATION
+
+1. Décompresser le ZIP complet.
+2. Copier tout son contenu à la racine du dépôt Worldwide-CDM26.
+3. Vérifier que index.html est modifié et non supprimé.
+4. Commit puis Push origin.
+5. Dans Netlify : Project configuration > Environment variables.
+6. Ajouter QG_GAINDES_ADMIN_PASSWORD avec un mot de passe fort (scope Functions ou tous scopes).
+7. Redéployer une fois après l’ajout de la variable.
+8. Console propriétaire : https://qualifgainde.netlify.app/admin-gaindes/
+
+État initial : Privé (la carte est masquée tant que tu ne choisis pas Public).
+
+États :
+- Public : carte visible et accès libre.
+- Privé : carte masquée, accès par mot de passe.
+- Fermé : carte masquée, accès propriétaire uniquement.

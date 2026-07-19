@@ -583,6 +583,15 @@
     "homeDisplay": "Espagne",
     "awayLabel": "Argentine",
     "awayDisplay": "Argentine",
-    "note": "Une légende face à un monde nouveau : Messi contre Lamine Yamal."
+    "note": "Une légende face à un monde nouveau : Messi contre Lamine Yamal.",
+    "homeScore": 1,
+    "awayScore": 0,
+    "score": "1–0",
+    "status": "final",
+    "apiStatus": "FT",
+    "winner": "spain",
+    "winnerSide": 0,
+    "locked": true,
+    "final": true
   }
 }
