@@ -1,0 +1,27 @@
+SUIVI DES LIONS — INSTALLATION V16.1.1
+
+1. Décompresser le ZIP complet.
+2. Vérifier que index.html se trouve directement à la racine du dossier extrait.
+3. Copier tout le contenu extrait dans le dossier local du dépôt Worldwide-CDM26 en remplaçant les fichiers existants.
+4. Ne pas supprimer les autres fichiers du dépôt avant la copie.
+5. Ouvrir GitHub Desktop.
+6. Vérifier que les changements concernent notamment :
+   - index.html
+   - assets/js/computed-team-state.js
+   - assets/js/team-page-v1611.js
+   - assets/css/app-v1611.css
+   - assets/css/team-page-v1611.css
+   - service-worker.js
+   - manifest.webmanifest
+7. Commit conseillé :
+   V16.1.1 fix route mémoire et identité Suivi des Lions
+8. Push origin.
+9. Attendre la fin du déploiement Netlify.
+10. Ouvrir :
+    https://qualifgainde.netlify.app/?v=1611
+11. Faire Cmd + Shift + R sur Mac, ou Ctrl + Shift + R sur Windows.
+12. Tester directement :
+    https://qualifgainde.netlify.app/?mode=worldcup&v=1611
+
+Aucune variable Netlify supplémentaire n’est requise.
+Les brèves existantes restent dans Netlify Blobs et ne sont pas écrasées par le build.

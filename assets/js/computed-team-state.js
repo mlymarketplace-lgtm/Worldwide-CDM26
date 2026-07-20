@@ -2,8 +2,8 @@
 (function(){
   'use strict';
 
-  const VERSION = (window.BUILD_VERSION || '16.1.0');
-  const VERSION_TOKEN = (window.BUILD_VERSION_TOKEN || String(VERSION).replace(/\D/g,'') || '1610');
+  const VERSION = (window.BUILD_VERSION || '16.1.1');
+  const VERSION_TOKEN = (window.BUILD_VERSION_TOKEN || String(VERSION).replace(/\D/g,'') || '1611');
   const SEMIFINALISTS = new Set(['france','spain','england','argentina']);
   const FEATURED_ORDER = [
     'morocco','france','spain','belgium','norway','england','argentina','switzerland',
@@ -930,7 +930,7 @@ function newsHref(id, section){
   function renderGaindesHub(selector){
     if(!selector) return;
     document.documentElement.classList.add('qg-gaindes-route');
-    document.documentElement.classList.remove('qg-v1610-home','qg-v1610-worldcup');
+    document.documentElement.classList.remove('qg-v1611-home','qg-v1611-worldcup');
     selector.innerHTML = `<div class="qg16-app-shell qg16-gaindes-shell">
       ${qg16Header('', '', 'Suivi des Gaïndés')}
       <main class="qg16-gaindes-main" data-gaindes-route-host aria-live="polite"></main>
@@ -943,7 +943,7 @@ function newsHref(id, section){
     if(window.QGGaindesGate && typeof window.QGGaindesGate.protectRoute === 'function') {
       window.QGGaindesGate.protectRoute(host, renderAllowed);
     } else {
-      host.innerHTML = `<div class="qg-gaindes-route-shell"><main class="qg-access-gate"><div class="qg-access-emblem">🦁</div><small>ESPACE PROTÉGÉ</small><h1>Suivi des Gaïndés</h1><p>Le contrôle d’accès est temporairement indisponible.</p><a class="qg-access-back" href="/?v=${VERSION_TOKEN}">← Retour à QualifGaïndé</a></main></div>`;
+      host.innerHTML = `<div class="qg-gaindes-route-shell"><main class="qg-access-gate"><div class="qg-access-emblem">🦁</div><small>ESPACE PROTÉGÉ</small><h1>Suivi des Gaïndés</h1><p>Le contrôle d’accès est temporairement indisponible.</p><a class="qg-access-back" href="/?v=${VERSION_TOKEN}">← Retour à Suivi des Lions</a></main></div>`;
     }
   }
 
@@ -966,7 +966,7 @@ function newsHref(id, section){
     return '?' + p.toString();
   }
   function qg16Header(parentLabel, parentHref, currentLabel){
-    return `<header class="qg16-shell-header"><a class="qg16-shell-brand" href="/?v=${VERSION_TOKEN}"><img src="assets/lion-mascotte.png" alt="QualifGaïndé"><span><small>QUALIFGAÏNDÉ · V16.1.0</small><strong>Accueil</strong></span></a><nav aria-label="Fil d’Ariane"><a href="/?v=${VERSION_TOKEN}">Accueil</a>${parentLabel ? `<span>›</span><a href="${esc(parentHref || '/?v='+VERSION_TOKEN)}">${esc(parentLabel)}</a>` : ''}${currentLabel ? `<span>›</span><b>${esc(currentLabel)}</b>` : ''}</nav></header>`;
+    return `<header class="qg16-shell-header"><a class="qg16-shell-brand" href="/?v=${VERSION_TOKEN}"><img src="assets/lion-mascotte.png" alt="Suivi des Lions"><span><small>SUIVI DES LIONS · V${VERSION}</small><strong>Accueil</strong></span></a><nav aria-label="Fil d’Ariane"><a href="/?v=${VERSION_TOKEN}">Accueil</a>${parentLabel ? `<span>›</span><a href="${esc(parentHref || '/?v='+VERSION_TOKEN)}">${esc(parentLabel)}</a>` : ''}${currentLabel ? `<span>›</span><b>${esc(currentLabel)}</b>` : ''}</nav></header>`;
   }
   function qg16PodiumHtml(teams){
     const podium = [
@@ -985,13 +985,13 @@ function newsHref(id, section){
 
   function renderHome(selector, teams, computed, worldNews, teamResults, live){
     if(!selector) return;
-    document.documentElement.classList.add('qg-v1610-home');
-    document.documentElement.classList.remove('qg-v1610-worldcup');
+    document.documentElement.classList.add('qg-v1611-home');
+    document.documentElement.classList.remove('qg-v1611-worldcup');
     const latest = qg16LatestGaindes(worldNews);
     selector.innerHTML = `<div class="qg16-app-shell">
       ${qg16Header('', '', '')}
       <main class="qg16-home-main">
-        <section class="qg16-home-intro"><small>QUALIFGAÏNDÉ · APRÈS-MONDIAL</small><h1>Le Mondial est terminé,<br><span>l’histoire continue</span></h1><p>Revivez les moments forts de la Coupe du monde 2026 et restez au plus près des Lions du Sénégal : leurs clubs, leur mercato, leurs buts, leur forme et leurs prochaines aventures.</p></section>
+        <section class="qg16-home-intro"><small>VOTRE APP’ · SUIVI DES LIONS</small><h1>Votre App’ <span>« Suivi des Lions »</span><br>reste au cœur du jeu</h1><p>Revivez la Coupe du monde 2026, retrouvez les Brèves du Mondial et suivez toute l’actualité des Lions du Sénégal : mercato, buts, forme, blessures et performances en club.</p></section>
         <section class="qg16-home-portals" aria-label="Entrées principales">
           <a class="qg16-home-card qg16-worldcup-card" href="?mode=worldcup&v=${VERSION_TOKEN}"><div><small>MÉMOIRE DU MONDIAL</small><h2>Revivez la Coupe du monde 2026</h2><p>Le sacre de l’Espagne, les grands matchs, les résultats et les parcours de toutes les équipes suivies.</p><b>Entrer dans la mémoire →</b></div><figure><img src="assets/final/lamine-yamal-final.jpg" alt="Lamine Yamal, champion du monde avec l’Espagne"><figcaption>🇪🇸 Espagne · 2 étoiles ⭐⭐</figcaption></figure></a>
           ${qg16PodiumHtml(teams)}
@@ -1005,12 +1005,12 @@ function newsHref(id, section){
 
   function renderWorldCupMemory(selector, teams, computed, worldNews, teamResults, live){
     if(!selector) return;
-    document.documentElement.classList.add('qg-v1610-worldcup');
-    document.documentElement.classList.remove('qg-v1610-home');
+    document.documentElement.classList.add('qg-v1611-worldcup');
+    document.documentElement.classList.remove('qg-v1611-home');
     const order = ['spain','argentina','england','france','morocco','norway','switzerland','belgium','brazil','senegal','algeria','egypt','ivory_coast','dr_congo','cape_verde','ghana'];
     const cards = order.filter(key => teams[key]).map(key => {
       const meta=teamMeta(key,teams), rows=(teamResults && teamResults[key]) || [], last=rows[rows.length-1];
-      return `<a class="qg16-memory-team" data-team="${esc(key)}" href="${esc(qg16TeamHref(key,teams))}"><span class="qg16-memory-flag">${esc(meta.flag || teamFlag(key,teams))}</span><span><strong>${esc(meta.teamName || teamName(key,teams))}</strong><small>${esc(meta.selectorLine || meta.statusLabel || (last && (last.note || last.label)) || 'Revoir le parcours')}</small></span><b>${rows.length} matchs →</b></a>`;
+      return `<a class="qg16-memory-team" data-team="${esc(key)}" href="${esc(qg16TeamHref(key,teams))}"><span class="qg16-memory-flag">${esc(meta.flag || teamFlag(key,teams))}</span><span><strong>${esc(meta.teamName || teamName(key,teams))}</strong><small>${esc((last && (last.note || last.label)) || meta.selectorLine || meta.statusLabel || 'Revoir le parcours')}</small></span><b>${rows.length} matchs →</b></a>`;
     }).join('');
     selector.innerHTML = `<div class="qg16-app-shell">
       ${qg16Header('Mémoire du Mondial','?mode=worldcup&v='+VERSION_TOKEN,'Coupe du monde 2026')}
@@ -1438,8 +1438,13 @@ async function run(){
     window.QG_COMPUTED_TEAM_STATE = computed;
     const params = new URLSearchParams(location.search);
     const activeTeam = params.get('team');
-    const selector = document.getElementById('v10-team-selector');
     const mode = (params.get('mode') || '').toLowerCase();
+    const selector = activeTeam ? null : (document.getElementById('qg-app-root') || document.getElementById('v10-team-selector'));
+    if(selector){
+      selector.hidden = false;
+      selector.setAttribute && selector.setAttribute('data-qg-route-owner','computed-team-state');
+      document.documentElement.classList.remove('v10-booting','qg-selector-active');
+    }
     if(selector && !activeTeam && mode === 'final') {
       renderFinal(selector, teams, computed, teamResults || {}, live || {});
     } else if(selector && !activeTeam && mode === 'gaindes') {
@@ -1454,15 +1459,34 @@ async function run(){
     } else if(selector && !activeTeam) {
       renderHome(selector, teams, computed, worldNews || [], teamResults || {}, live || {});
     }
-    // V16.1.0 : les routes équipe appartiennent exclusivement à team-page-v1610.js.
+    if(selector && !activeTeam){
+      const expected = (mode === 'worldcup' || mode === 'global') ? 'qg16-worldcup-main' : mode === 'news' ? 'news-hub-wrap' : mode === 'gaindes' ? 'qg16-gaindes-shell' : mode === 'final' ? 'qg16-final-shell' : 'qg16-home-main';
+      if(!String(selector.innerHTML || '').includes(expected)){
+        throw new Error('route-integrity:' + (mode || 'home') + ':' + expected);
+      }
+      selector.setAttribute && selector.setAttribute('data-qg-render-complete', mode || 'home');
+      window.QG_LAST_RENDER = {route: mode || 'home', version: VERSION, at: new Date().toISOString()};
+    }
+    // V16.1.1 : les routes équipe appartiennent exclusivement à team-page-v1611.js.
     // Aucun ancien updateTeamPage ne doit réécrire le DOM après le renderer neutre.
   }
+
+  function renderRouteFailure(error){
+    const params = new URLSearchParams(location.search);
+    if(params.has('team')) return;
+    const root = document.getElementById('qg-app-root') || document.getElementById('v10-team-selector');
+    if(!root) return;
+    document.documentElement.classList.remove('v10-booting','qg-selector-active');
+    root.hidden = false;
+    root.innerHTML = `<main class="qg16-route-failure"><div><span>⚠️</span><small>SUIVI DES LIONS · V${esc(VERSION)}</small><h1>Cette page n’a pas pu être affichée.</h1><p>Le contenu historique reste conservé. Rechargez la page ou revenez à l’accueil.</p><nav><a href="/?v=${VERSION_TOKEN}">Retour à l’accueil</a><button type="button" onclick="location.reload()">Recharger</button></nav><code>${esc(error && error.message || 'render-error')}</code></div></main>`;
+  }
+  function safeRun(){ return run().catch(function(error){ console.error('[QG V' + VERSION + '] route render failed', error); renderRouteFailure(error); }); }
 
   let __qgAutoStateTimer = null;
   function scheduleRun(reason, delay){
     clearTimeout(__qgAutoStateTimer);
     __qgAutoStateTimer = setTimeout(function(){
-      run().catch(function(e){ console.warn('[QG V' + VERSION + '] computedTeamState refresh skipped', reason, e); });
+      safeRun().catch(function(e){ console.warn('[QG V' + VERSION + '] computedTeamState refresh skipped', reason, e); });
     }, delay == null ? 160 : delay);
   }
 
@@ -1495,8 +1519,8 @@ async function run(){
     }
   } catch(e) {}
 
-  if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', run, {once:true});
-  else run();
-  window.addEventListener('load', () => setTimeout(run, 650), {once:true});
-  setTimeout(run, 2400);
+  if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', safeRun, {once:true});
+  else safeRun();
+  window.addEventListener('load', () => setTimeout(safeRun, 650), {once:true});
+  setTimeout(safeRun, 2400);
 })();

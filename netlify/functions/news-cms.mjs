@@ -62,7 +62,7 @@ function publicArticle(article) {
     section: article.section,
     reliability: article.reliability,
     sources: article.sources || '',
-    author: article.author || 'QualifGaïndé',
+    author: article.author || 'Rédaction Suivi des Lions',
     image: article.imageId ? `/.netlify/functions/news-cms?action=image&id=${encodeURIComponent(article.imageId)}` : '',
     imageAlt: article.imageAlt || article.title,
     publishedAt: article.publishedAt,
@@ -204,7 +204,7 @@ export default async (req) => {
         reliability,
         sources: clean(body.sources),
         tag: clean(body.tag || 'Mercato'),
-        author: clean(body.author || 'QualifGaïndé'),
+        author: clean(body.author || 'Rédaction Suivi des Lions'),
         imageId: old?.imageId || null,
         imageAlt: clean(body.imageAlt || title),
         fingerprint,
@@ -247,7 +247,7 @@ export default async (req) => {
     }
 
     if (body.action === 'export') {
-      return json({ ok: true, version: '16.1.0', exportedAt: new Date().toISOString(), articles: await listAll(store) });
+      return json({ ok: true, version: '16.1.1', exportedAt: new Date().toISOString(), articles: await listAll(store) });
     }
 
     return json({ ok: false, error: 'unknown_action', message: 'Action inconnue.' }, 400);

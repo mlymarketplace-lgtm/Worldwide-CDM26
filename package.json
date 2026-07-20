@@ -1,12 +1,12 @@
 {
   "name": "mondial-pulse-2026",
-  "version": "16.1.0",
+  "version": "16.1.1",
   "private": true,
-  "description": "QualifGaïndé V16.1.0 — home post-Mondial, mémoire neutre, CMS éditorial et pages équipe structurées.",
+  "description": "Suivi des Lions V16.1.1 — home post-Mondial, mémoire neutre, CMS éditorial et pages équipe structurées.",
   "scripts": {
     "build": "echo \"No build required — static Netlify deployment\"",
     "start": "python3 -m http.server 8888",
-    "test": "node tests/run-v1610-tests.mjs"
+    "test": "node tests/run-v1611-tests.mjs"
   },
   "engines": {
     "node": ">=18"

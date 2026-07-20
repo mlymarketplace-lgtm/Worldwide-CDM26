@@ -1,4 +1,4 @@
-# QualifGaïndé V16.1.0
+# Suivi des Lions V16.1.1
 
 Build complet pour GitHub Desktop et Netlify.
 
@@ -8,7 +8,7 @@ Build complet pour GitHub Desktop et Netlify.
 - vraie route neutre `?mode=worldcup` ;
 - CMS éditorial avec « L’analyse de la rédaction » et brèves les plus récentes en premier ;
 - headers visibles avec retours parent et accueil ;
-- renderer équipe V16.1.0 exclusif, sans fallback Sénégal ;
+- renderer équipe V16.1.1 exclusif, sans fallback Sénégal ;
 - trois tableaux de mémoire sur les pages des seize équipes ;
 - tests automatisés Lot A et Lot B.
 

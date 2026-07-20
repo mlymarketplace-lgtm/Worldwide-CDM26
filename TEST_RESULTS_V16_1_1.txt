@@ -1,0 +1,15 @@
+Suivi des Lions V16.1.1 — Résultats de tests
+Date : 20 juillet 2026
+
+PASS npm ci --ignore-scripts
+PASS npm test
+PASS Lot A — routeur, home, CMS, navigation et mémoire du Mondial
+PASS Lot B — 80 combinaisons équipe/langue, trois tableaux neutres
+PASS Browser DOM — home réelle, wording et proportions Brèves
+PASS Browser DOM — route worldcup réelle, 16 équipes, legacy masqué
+PASS Browser DOM — Espagne, trois tableaux, aucun fallback Sénégal
+PASS Syntaxe JavaScript externe
+PASS Syntaxe des 12 scripts inline de index.html
+PASS JSON applicatifs
+PASS Registre npm public
+PASS Service Worker cache V16.1.1

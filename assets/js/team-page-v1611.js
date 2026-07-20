@@ -5,8 +5,8 @@
   const teamId = String(params.get('team') || '').toLowerCase();
   if (!teamId) return;
 
-  const VERSION = '16.1.0';
-  const TOKEN = '1610';
+  const VERSION = '16.1.1';
+  const TOKEN = '1611';
   const allowedLangs = ['fr','en','es','pt','ar'];
   const defaultByTeam = {england:'en',spain:'es',argentina:'es',brazil:'pt'};
   let lang = String(params.get('lang') || '').toLowerCase();
@@ -122,8 +122,8 @@
   async function renderTeamPage(){
     document.documentElement.lang = lang;
     document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
-    document.documentElement.classList.add('qg-v1610-team-route','qg-v1610-team-owned');
-    document.body.innerHTML = '<main id="qg-v1610-team-root"><div class="qg16-loading">Chargement de la mémoire du parcours…</div></main>';
+    document.documentElement.classList.add('qg-v1611-team-route','qg-v1611-team-owned');
+    document.body.innerHTML = '<main id="qg-v1611-team-root"><div class="qg16-loading">Chargement de la mémoire du parcours…</div></main>';
     try {
       const [baseTeams, localizedTeams, resultsData, baseStories, localizedStories] = await Promise.all([
         fetchJson('data/teams.json'),
@@ -143,9 +143,9 @@
       const portrait = meta.heroImg || meta.playerImg || '';
       const last = rows.at(-1);
       document.title = `${meta.teamName} · Mémoire du Mondial 2026 · V${VERSION}`;
-      document.body.innerHTML = `<main id="qg-v1610-team-root" style="--qg16-primary:${esc(palette.primary)};--qg16-secondary:${esc(palette.secondary)};--qg16-accent:${esc(palette.accent)}">
+      document.body.innerHTML = `<main id="qg-v1611-team-root" style="--qg16-primary:${esc(palette.primary)};--qg16-secondary:${esc(palette.secondary)};--qg16-accent:${esc(palette.accent)}">
         <header class="qg16-page-header">
-          <a class="qg16-brand" href="/?v=${TOKEN}"><img src="assets/lion-mascotte.png" alt="QualifGaïndé"><span><small>QUALIFGAÏNDÉ · V${VERSION}</small><strong>${esc(copy.home)}</strong></span></a>
+          <a class="qg16-brand" href="/?v=${TOKEN}"><img src="assets/lion-mascotte.png" alt="Suivi des Lions"><span><small>SUIVI DES LIONS · V${VERSION}</small><strong>${esc(copy.home)}</strong></span></a>
           <nav class="qg16-breadcrumb" aria-label="Fil d’Ariane"><a href="/?v=${TOKEN}">${esc(copy.home)}</a><span>›</span><a href="?mode=worldcup&v=${TOKEN}">${esc(copy.parent)}</a><span>›</span><b>${esc(meta.teamName)}</b></nav>
           <div class="qg16-language-nav">${languageLinks()}</div>
         </header>
@@ -165,14 +165,14 @@
         </section>
       </main>`;
       document.documentElement.classList.add('qg-team-rendered');
-      window.dispatchEvent(new CustomEvent('qg:v1610TeamRendered',{detail:{teamId,lang}}));
+      window.dispatchEvent(new CustomEvent('qg:v1611TeamRendered',{detail:{teamId,lang}}));
     } catch (error) {
-      console.error('[QG V16.1.0 team renderer]', error);
-      document.body.innerHTML = `<main id="qg-v1610-team-root"><header class="qg16-page-header"><a class="qg16-brand" href="/?v=${TOKEN}">← ${esc(copy.home)}</a><nav class="qg16-breadcrumb"><a href="?mode=worldcup&v=${TOKEN}">${esc(copy.parent)}</a></nav></header><section class="qg16-fatal"><h1>${esc(copy.unavailable)}</h1><p>${esc(teamId)}</p></section></main>`;
+      console.error('[Suivi des Lions V16.1.1 team renderer]', error);
+      document.body.innerHTML = `<main id="qg-v1611-team-root"><header class="qg16-page-header"><a class="qg16-brand" href="/?v=${TOKEN}">← ${esc(copy.home)}</a><nav class="qg16-breadcrumb"><a href="?mode=worldcup&v=${TOKEN}">${esc(copy.parent)}</a></nav></header><section class="qg16-fatal"><h1>${esc(copy.unavailable)}</h1><p>${esc(teamId)}</p></section></main>`;
     }
   }
 
-  window.renderTeamPageV1610 = renderTeamPage;
+  window.renderTeamPageV1611 = renderTeamPage;
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', renderTeamPage, {once:true});
   else renderTeamPage();
 })();

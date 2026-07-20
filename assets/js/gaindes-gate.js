@@ -20,7 +20,7 @@
         if (!response.ok) throw new Error(`status-${response.status}`);
         return response.json();
       }).catch((error) => {
-        console.error('[QG Gaindes Gate]', error);
+        console.error('[Suivi des Lions · accès Gaïndés]', error);
         return { ok: false, mode: 'closed', allowed: false, owner: false, configured: false, unavailable: true };
       });
     }
@@ -73,7 +73,7 @@
       <h1>${esc(c.title)}</h1>
       <p>${esc(c.body)}</p>
       ${form}
-      <a class="qg-access-back" href="/?v=1610">← Retour à QualifGaïndé</a>
+      <a class="qg-access-back" href="/?v=1611">← Retour à Suivi des Lions</a>
     </main>`;
   }
 

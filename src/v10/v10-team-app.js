@@ -489,7 +489,7 @@
     overlay.id = 'v10-team-selector';
     overlay.innerHTML = `<div class="v10-selector-inner">
       <div class="v10-selector-top"><div>
-        <div class="v10-world-badge">🏆 QualifGaïndé Worldwide</div>
+        <div class="v10-world-badge">🏆 Suivi des Lions</div>
         <h1>Entre dans <span>le Mondial</span></h1>
         <p class="v10-selector-lead">${uiText('lead')}</p>
       </div></div>
@@ -516,13 +516,13 @@
 
   function renderHeader(team){
     const lang = state.activeLang || team.defaultLang || 'fr';
-    document.title = `${team.teamName} · QualifGaïndé Worldwide`;
+    document.title = `${team.teamName} · Suivi des Lions`;
     applyLangShell(lang);
     const htitle = $('.htitle');
     if(htitle){
       htitle.innerHTML = `<span>${safeHtml(team.teamName)}</span> — ${headerSuffix(lang)}<span class="v10-active-team-pill">${team.flag} ${safeHtml(team.supporterName || '')}</span>`;
     }
-    const kicker = $('.site-kicker'); if(kicker) kicker.textContent = statusDisplayFor(team) || team.tagline || 'QualifGaïndé Worldwide';
+    const kicker = $('.site-kicker'); if(kicker) kicker.textContent = statusDisplayFor(team) || team.tagline || 'Suivi des Lions';
     const logo = $('.mascot-logo');
     if(logo){ logo.src = team.mascotImg || team.heroImg || logo.src; logo.alt = team.heroPlayer || team.teamName; }
     const sup = $('.sup-lbl'); if(sup) sup.textContent = labelFor('supporters', lang);
@@ -558,7 +558,7 @@
 
   function renderHero(team){
     const img = $('#hero-banner img');
-    if(img){ img.src = team.bannerImg || img.src; img.alt = `${team.teamName} · QualifGaïndé Worldwide`; img.loading='eager'; img.decoding='async'; img.fetchPriority='high'; }
+    if(img){ img.src = team.bannerImg || img.src; img.alt = `${team.teamName} · Suivi des Lions`; img.loading='eager'; img.decoding='async'; img.fetchPriority='high'; }
     const title = $('#hero-title');
     if(title){
       if(team.tournamentStatus === 'eliminated'){
