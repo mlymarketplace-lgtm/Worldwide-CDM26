@@ -125,7 +125,7 @@ export default async (req) => {
     if (req.method === 'GET' && action === 'admin-list') {
       return json({
         ok: true,
-        articles: (await listAll(store)).sort((a, b) => new Date(b.updatedAt) - new Date(a.updatedAt)),
+        articles: (await listAll(store)).sort((a, b) => new Date(b.publishedAt || b.updatedAt || 0) - new Date(a.publishedAt || a.updatedAt || 0)),
       });
     }
 
@@ -247,7 +247,7 @@ export default async (req) => {
     }
 
     if (body.action === 'export') {
-      return json({ ok: true, version: '16.0.1', exportedAt: new Date().toISOString(), articles: await listAll(store) });
+      return json({ ok: true, version: '16.1.0', exportedAt: new Date().toISOString(), articles: await listAll(store) });
     }
 
     return json({ ok: false, error: 'unknown_action', message: 'Action inconnue.' }, 400);

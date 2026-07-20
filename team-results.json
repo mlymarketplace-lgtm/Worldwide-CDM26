@@ -18,7 +18,8 @@
     {
       "label": "Belgique 3–2 Sénégal",
       "note": "Les Lions mènent 2–0, puis tombent après une remontée spectaculaire",
-      "result": "D"
+      "result": "D",
+      "matchId": "N82"
     }
   ],
   "belgium": [
@@ -40,7 +41,26 @@
     {
       "label": "Belgique 3–2 Sénégal",
       "note": "Menée 0–2, la Belgique renverse tout et file en huitième",
+      "result": "V",
+      "matchId": "N82"
+    },
+    {
+      "matchId": "N94",
+      "label": "États-Unis – Belgique · Belgique qualifiée",
+      "label_en": "United States – Belgium · Belgium qualified",
+      "note": "Les Diables rejoignent les quarts de finale",
+      "note_en": "The Red Devils reach the quarter-finals",
       "result": "V"
+    },
+    {
+      "matchId": "N98",
+      "label": "Espagne 2–1 Belgique",
+      "label_en": "Spain 2–1 Belgium",
+      "label_es": "España 2–1 Bélgica",
+      "note": "Fin de parcours en quart de finale",
+      "note_en": "The journey ends in the quarter-finals",
+      "note_es": "Fin del camino en cuartos de final",
+      "result": "D"
     }
   ],
   "algeria": [
@@ -223,12 +243,22 @@
     {
       "label": "Pays-Bas 1–1 Maroc · TAB 2–3",
       "note": "Les Lions de l’Atlas passent au mental",
-      "result": "V"
+      "result": "V",
+      "matchId": "N75"
     },
     {
       "label": "Canada 0–3 Maroc",
       "note": "Les Lions de l’Atlas maîtrisent leur huitième et filent en quart",
-      "result": "V"
+      "result": "V",
+      "matchId": "N90"
+    },
+    {
+      "matchId": "N97",
+      "label": "France 2–0 Maroc",
+      "label_en": "France 2–0 Morocco",
+      "note": "Fin d’un beau parcours en quart de finale",
+      "note_en": "A fine journey ends in the quarter-finals",
+      "result": "D"
     }
   ],
   "spain": [
@@ -301,6 +331,16 @@
       "note_en": "A Spanish masterclass sends La Roja to the final",
       "note_es": "Una masterclass española lleva a La Roja a la final",
       "result": "V"
+    },
+    {
+      "matchId": "N104",
+      "label": "Espagne 1–0 Argentine",
+      "label_en": "Spain 1–0 Argentina",
+      "label_es": "España 1–0 Argentina",
+      "note": "Championne du monde 2026",
+      "note_en": "World champions 2026",
+      "note_es": "Campeona del mundo 2026",
+      "result": "V"
     }
   ],
   "egypt": [
@@ -371,19 +411,46 @@
   ],
   "norway": [
     {
+      "matchId": "G-I-1",
+      "label": "Iraq 1–4 Norvège",
+      "label_en": "Iraq 1–4 Norway",
+      "note": "Puissance offensive dès l’entrée",
+      "note_en": "A powerful opening display",
+      "result": "V"
+    },
+    {
+      "matchId": "G-I-2",
+      "label": "Norvège 3–2 Sénégal",
+      "label_en": "Norway 3–2 Senegal",
+      "note": "Match renversant",
+      "note_en": "A dramatic victory",
+      "result": "V"
+    },
+    {
+      "matchId": "G-I-3",
+      "label": "Norvège 1–4 France",
+      "label_en": "Norway 1–4 France",
+      "note": "Défaite lourde face aux Bleus",
+      "note_en": "A heavy loss against France",
+      "result": "D"
+    },
+    {
       "label": "Côte d’Ivoire 1–2 Norvège",
       "note": "Haaland lance le parcours à élimination directe",
-      "result": "V"
+      "result": "V",
+      "matchId": "N76"
     },
     {
       "label": "Norvège 2–1 Brésil",
       "note": "Haaland double, Nyland héroïque, quart historique",
-      "result": "V"
+      "result": "V",
+      "matchId": "N91"
     },
     {
       "label": "Norvège 1–2 Angleterre",
       "note": "Fin de parcours en quart, sortie digne",
-      "result": "D"
+      "result": "D",
+      "matchId": "N99"
     }
   ],
   "england": [
@@ -524,23 +591,60 @@
       "note_en": "The Albiceleste reach the World Cup final",
       "note_es": "La Albiceleste alcanza la final",
       "result": "V"
+    },
+    {
+      "matchId": "N104",
+      "label": "Espagne 1–0 Argentine",
+      "label_en": "Spain 1–0 Argentina",
+      "label_es": "España 1–0 Argentina",
+      "note": "Vice-championne du monde 2026",
+      "note_en": "World Cup runners-up 2026",
+      "note_es": "Subcampeona del mundo 2026",
+      "result": "D"
     }
   ],
   "switzerland": [
     {
+      "matchId": "G-F-1",
+      "label": "Qatar 1–1 Suisse",
+      "label_en": "Qatar 1–1 Switzerland",
+      "note": "Entrée maîtrisée",
+      "note_en": "A controlled opening draw",
+      "result": "N"
+    },
+    {
+      "matchId": "G-F-2",
+      "label": "Suisse 4–1 Bosnie-Herzégovine",
+      "label_en": "Switzerland 4–1 Bosnia and Herzegovina",
+      "note": "La Nati accélère",
+      "note_en": "The Nati move through the gears",
+      "result": "V"
+    },
+    {
+      "matchId": "G-F-3",
+      "label": "Suisse 2–1 Canada",
+      "label_en": "Switzerland 2–1 Canada",
+      "note": "Première place assurée",
+      "note_en": "First place secured",
+      "result": "V"
+    },
+    {
       "label": "Suisse 2–0 Algérie",
       "note": "La Nati passe en 16e",
-      "result": "V"
+      "result": "V",
+      "matchId": "N85"
     },
     {
       "label": "Suisse 0–0 Colombie · TAB 4–3",
       "note": "Sang-froid helvétique aux tirs au but",
-      "result": "V"
+      "result": "V",
+      "matchId": "N96"
     },
     {
       "label": "Argentine 3–1 Suisse",
       "note": "Fin de parcours face à Messi et l’Albiceleste",
-      "result": "D"
+      "result": "D",
+      "matchId": "N100"
     }
   ]
 }

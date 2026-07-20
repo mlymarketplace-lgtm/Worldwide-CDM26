@@ -2,8 +2,8 @@
 (function(){
   'use strict';
 
-  const VERSION = (window.BUILD_VERSION || '16.0.0');
-  const VERSION_TOKEN = (window.BUILD_VERSION_TOKEN || String(VERSION).replace(/\D/g,'') || '1550');
+  const VERSION = (window.BUILD_VERSION || '16.1.0');
+  const VERSION_TOKEN = (window.BUILD_VERSION_TOKEN || String(VERSION).replace(/\D/g,'') || '1610');
   const SEMIFINALISTS = new Set(['france','spain','england','argentina']);
   const FEATURED_ORDER = [
     'morocco','france','spain','belgium','norway','england','argentina','switzerland',
@@ -100,11 +100,11 @@
   const ORDER = ['N73','N74','N75','N76','N77','N78','N79','N80','N81','N82','N83','N84','N85','N86','N87','N88','N89','N90','N91','N92','N93','N94','N95','N96','N97','N98','N99','N100','N101','N102','N103','N104'];
 
   const UI = {
-    fr:{qf:'La Finale', live:'Encore en course', out:'Les équipes qui nous ont fait vibrer', global:'Mémoire du Mondial', quick:'', qualified:'Qualifiée', qualifiedM:'Qualifié', eliminated:'Éliminée', eliminatedM:'Éliminé', inRound:'en', next:'prochain défi', wait:'attend', vs:'ou', champion:'Champion simulé', nextMatch:'Prochain match', end:'Fin de parcours', last:'Derniers résultats', nextMatchConfirmed:'Prochain match confirmé', newsTitle:'Les Brèves du Mondial', newsLead:'Les histoires, analyses et grands moments de la Coupe du monde 2026.', homePill:'Mondial 2026 · mémoire du tournoi et actualité des Lions', homeKicker:'Le Mondial est terminé, l’histoire continue', homeTitle:'QualifGaïndé <span>reste au cœur du jeu</span>', homeLead:'Revivez la Coupe du monde 2026 et suivez toute l’actualité des Lions du Sénégal : mercato, buts, forme et performances en club.', readAllNews:'Lire toutes les brèves'},
-    en:{qf:'The Final', live:'Still alive', out:'Teams that made us dream', global:'Open global page', quick:'', qualified:'Qualified', qualifiedM:'Qualified', eliminated:'Eliminated', eliminatedM:'Eliminated', inRound:'for', next:'next challenge', wait:'waiting for', vs:'or', champion:'Champion', nextMatch:'Next match', end:'End of the road', last:'Last results', nextMatchConfirmed:'Next match confirmed', newsTitle:'Les Brèves du Mondial', newsLead:'Récits, analyses et tournants de la phase finale.', homePill:'Knockout stage · choose your team and follow its road to the final', homeKicker:'Welcome to the worldwide app', homeTitle:'I support <span>...</span>', homeLead:'Open your team page, results, next opponent, interactive bracket and full road to the final.', readAllNews:'Lire toutes les brèves'},
-    pt:{qf:'A Final', live:'Ainda em prova', out:'As equipes que nos fizeram vibrar', global:'Ver página global', quick:'Acesso rápido França–Marrocos', qualified:'Qualificada', qualifiedM:'Qualificado', eliminated:'Eliminada', eliminatedM:'Eliminado', inRound:'nos', next:'próximo desafio', wait:'aguarda', vs:'ou', champion:'Campeão', nextMatch:'Próximo jogo', end:'Fim do percurso', last:'Últimos resultados', nextMatchConfirmed:'Próximo jogo confirmado', newsTitle:'Notas do Mundial', newsLead:'Análises, histórias fortes e momentos-chave da fase final.', homePill:'Mata-mata · estado das equipes calculado automaticamente', homeKicker:'Bem-vindo ao app mundial', homeTitle:'Eu torço <span>por...</span>', homeLead:'Veja a página da sua equipe, resultados, próximo adversário, chave interativa e caminho até à final.', readAllNews:'Ler todas as notas'},
-    es:{qf:'La Final', live:'Siguen en carrera', out:'Los equipos que nos hicieron vibrar', global:'Ver página global', quick:'Acceso rápido Francia–Marruecos', qualified:'Clasificada', qualifiedM:'Clasificado', eliminated:'Eliminada', eliminatedM:'Eliminado', inRound:'en', next:'próximo reto', wait:'espera a', vs:'o', champion:'Campeón', nextMatch:'Próximo partido', end:'Fin del recorrido', last:'Últimos resultados', nextMatchConfirmed:'Próximo partido confirmado', newsTitle:'Breves del Mundial', newsLead:'Historias, análisis y puntos de inflexión de la fase final.', homePill:'Eliminatorias · estado calculado automáticamente', homeKicker:'Bienvenido a la app mundial', homeTitle:'Soy hincha <span>de...</span>', homeLead:'Consulta la página de tu equipo, resultados, próximo rival, cuadro interactivo y camino a la final.', readAllNews:'Leer todas las breves'},
-    ar:{qf:'المتأهل للنهائي ونصف النهائي', live:'ما زالوا في المنافسة', out:'المنتخبات التي منحتنا الإثارة', global:'عرض الصفحة العامة', quick:'دخول سريع فرنسا–المغرب', qualified:'تأهلت', qualifiedM:'تأهل', eliminated:'أُقصيت', eliminatedM:'أُقصي', inRound:'إلى', next:'التحدي القادم', wait:'ينتظر', vs:'أو', champion:'البطل', nextMatch:'المباراة القادمة', end:'نهاية المشوار', last:'آخر النتائج', nextMatchConfirmed:'تم تأكيد المباراة القادمة', newsTitle:'موجز أخبار المونديال', newsLead:'تحليلات وقصص ولحظات حاسمة من الأدوار الإقصائية.', homePill:'الأدوار الإقصائية · حالة المنتخبات تُحسب تلقائياً', homeKicker:'مرحباً بك في التطبيق العالمي', homeTitle:'أنا أشجع <span>...</span>', homeLead:'تابع صفحة منتخبك ونتائجه وخصمه القادم والطريق الكامل نحو النهائي.', readAllNews:'قراءة كل الأخبار'}
+    fr:{qf:'La Finale', live:'Encore en course', out:'Les équipes qui nous ont fait vibrer', global:'Mémoire du Mondial', quick:'', qualified:'Qualifiée', qualifiedM:'Qualifié', eliminated:'Éliminée', eliminatedM:'Éliminé', inRound:'en', next:'prochain défi', wait:'attend', vs:'ou', champion:'Champion simulé', nextMatch:'Prochain match', end:'Fin de parcours', last:'Derniers résultats', nextMatchConfirmed:'Prochain match confirmé', newsTitle:'Les Brèves du Mondial', newsLead:'Analyse, histoires fortes et signaux faibles de la phase finale.', homePill:'Phase finale · choisis ton équipe et suis son chemin jusqu’à la finale', homeKicker:'Bienvenue dans l’app mondiale', homeTitle:'Je suis supporter <span>de...</span>', homeLead:'Choisis ton équipe, suis ses résultats, son prochain adversaire, le tableau final et sa route jusqu’à la finale.', readAllNews:'Lire toutes les brèves'},
+    en:{qf:'The Final', live:'Still alive', out:'Teams that made us dream', global:'World Cup memory', quick:'', qualified:'Qualified', qualifiedM:'Qualified', eliminated:'Eliminated', eliminatedM:'Eliminated', inRound:'for', next:'next challenge', wait:'waiting for', vs:'or', champion:'Champion', nextMatch:'Next match', end:'End of the road', last:'Last results', nextMatchConfirmed:'Next match confirmed', newsTitle:'Les Brèves du Mondial', newsLead:'Récits, analyses et tournants de la phase finale.', homePill:'Knockout stage · choose your team and follow its road to the final', homeKicker:'Welcome to the worldwide app', homeTitle:'I support <span>...</span>', homeLead:'Open your team page, results, next opponent, interactive bracket and full road to the final.', readAllNews:'Lire toutes les brèves'},
+    pt:{qf:'A Final', live:'Ainda em prova', out:'As equipes que nos fizeram vibrar', global:'Memória da Copa', quick:'Acesso rápido França–Marrocos', qualified:'Qualificada', qualifiedM:'Qualificado', eliminated:'Eliminada', eliminatedM:'Eliminado', inRound:'nos', next:'próximo desafio', wait:'aguarda', vs:'ou', champion:'Campeão', nextMatch:'Próximo jogo', end:'Fim do percurso', last:'Últimos resultados', nextMatchConfirmed:'Próximo jogo confirmado', newsTitle:'Notas do Mundial', newsLead:'Análises, histórias fortes e momentos-chave da fase final.', homePill:'Mata-mata · estado das equipes calculado automaticamente', homeKicker:'Bem-vindo ao app mundial', homeTitle:'Eu torço <span>por...</span>', homeLead:'Veja a página da sua equipe, resultados, próximo adversário, chave interativa e caminho até à final.', readAllNews:'Ler todas as notas'},
+    es:{qf:'La Final', live:'Siguen en carrera', out:'Los equipos que nos hicieron vibrar', global:'Memória da Copa', quick:'Acceso rápido Francia–Marruecos', qualified:'Clasificada', qualifiedM:'Clasificado', eliminated:'Eliminada', eliminatedM:'Eliminado', inRound:'en', next:'próximo reto', wait:'espera a', vs:'o', champion:'Campeón', nextMatch:'Próximo partido', end:'Fin del recorrido', last:'Últimos resultados', nextMatchConfirmed:'Próximo partido confirmado', newsTitle:'Breves del Mundial', newsLead:'Historias, análisis y puntos de inflexión de la fase final.', homePill:'Eliminatorias · estado calculado automáticamente', homeKicker:'Bienvenido a la app mundial', homeTitle:'Soy hincha <span>de...</span>', homeLead:'Consulta la página de tu equipo, resultados, próximo rival, cuadro interactivo y camino a la final.', readAllNews:'Leer todas las breves'},
+    ar:{qf:'المتأهل للنهائي ونصف النهائي', live:'ما زالوا في المنافسة', out:'المنتخبات التي منحتنا الإثارة', global:'ذاكرة كأس العالم', quick:'دخول سريع فرنسا–المغرب', qualified:'تأهلت', qualifiedM:'تأهل', eliminated:'أُقصيت', eliminatedM:'أُقصي', inRound:'إلى', next:'التحدي القادم', wait:'ينتظر', vs:'أو', champion:'البطل', nextMatch:'المباراة القادمة', end:'نهاية المشوار', last:'آخر النتائج', nextMatchConfirmed:'تم تأكيد المباراة القادمة', newsTitle:'موجز أخبار المونديال', newsLead:'تحليلات وقصص ولحظات حاسمة من الأدوار الإقصائية.', homePill:'الأدوار الإقصائية · حالة المنتخبات تُحسب تلقائياً', homeKicker:'مرحباً بك في التطبيق العالمي', homeTitle:'أنا أشجع <span>...</span>', homeLead:'تابع صفحة منتخبك ونتائجه وخصمه القادم والطريق الكامل نحو النهائي.', readAllNews:'قراءة كل الأخبار'}
   };
 
   function t(key, vars){
@@ -508,7 +508,7 @@ function newsHref(id, section){
   function worldNewsHtml(worldNews, section){
     const lang = activeLang(), c = copy();
     const activeSection = section || 'world';
-    const items = Array.isArray(worldNews) ? worldNews.filter(item => (item.section || 'world') === activeSection).slice().sort((a,b)=>{const ad=Date.parse(a.publishedAt||a.updatedAt||'')||0,bd=Date.parse(b.publishedAt||b.updatedAt||'')||0;if(ad||bd)return bd-ad;return (a.priority||99)-(b.priority||99)}) : [];
+    const items = Array.isArray(worldNews) ? sortNewsNewestFirst(worldNews.filter(item => (item.section || 'world') === activeSection)) : [];
     if(!items.length) return '';
     function entry(item){
       const L = newsLang(item, lang);
@@ -756,7 +756,15 @@ function newsHref(id, section){
     if(!selector) return;
     const ctx = finalContext(teams, computed, live), c = finalCopy();
     const homeHref = localizedHomeHref();
-    selector.innerHTML = `<div class="qg-entry-bg"></div><div class="qg-entry-wrap qg-final-page"><div class="qg-entry-top"><a class="qg-entry-brand" href="${esc(homeHref)}"><img src="assets/lion-mascotte.png" alt="Mondial Pulse"><span>Mondial Pulse 2026 · V${esc(VERSION)}</span></a><a class="qg-entry-pill" href="${esc(homeHref)}">${esc(c.back)}</a></div>${(ctx.known || ctx.partial) ? `<section class="qg-final-stage${ctx.partial ? ' is-partial' : ' is-complete'}"><div class="qg-final-badge">${esc(c.badge)}</div>${ctx.known ? `<img class="qg-final-poster" src="assets/news/finale-espagne-argentine-messi-yamal.jpg" alt="Espagne–Argentine · Messi face à Lamine Yamal">` : ''}${ctx.partial && ctx.participants[0] ? `<div class="qg-final-pending"><span>${esc(c.firstFinalist)}</span><strong>${esc(teamFlag(ctx.participants[0], teams) + ' ' + teamName(ctx.participants[0], teams))}</strong><p>${esc(c.waitingOpponent)}</p></div>` : ''}${ctx.known ? finalEditorialHtml(false) : ''}${finalTeamsHtml(ctx, teams)}${finalCountdownHtml(ctx, teams)}<div class="qg-final-date">${esc(c.scheduled)}</div>${ctx.known ? finalFactsHtml() : ''}${finalJourneyHtml(ctx, teams, teamResults, computed)}${ctx.known ? finalEditorialHtml(true) : ''}</section>` : `<section class="qg-final-stage qg-final-waiting"><div class="qg-final-badge">${esc(c.badge)}</div><h1>${esc(c.waiting)}</h1><p>${esc(c.waitingDetail)}</p></section>`}<div class="qg-entry-actions"><a class="qg-entry-action" href="${esc(homeHref)}">${esc(c.back)}</a></div></div>`;
+    const memoryHref = `?mode=worldcup&v=${VERSION_TOKEN}`;
+    selector.innerHTML = `<div class="qg16-app-shell qg16-final-shell">
+      ${qg16Header('Mémoire du Mondial', memoryHref, 'Finale 2026')}
+      <div class="qg-entry-bg"></div>
+      <main class="qg-entry-wrap qg-final-page">
+        ${(ctx.known || ctx.partial) ? `<section class="qg-final-stage${ctx.partial ? ' is-partial' : ' is-complete'}"><div class="qg-final-badge">${esc(c.badge)}</div>${ctx.known ? `<img class="qg-final-poster" src="assets/news/finale-espagne-argentine-messi-yamal.jpg" alt="Espagne–Argentine · Messi face à Lamine Yamal">` : ''}${ctx.partial && ctx.participants[0] ? `<div class="qg-final-pending"><span>${esc(c.firstFinalist)}</span><strong>${esc(teamFlag(ctx.participants[0], teams) + ' ' + teamName(ctx.participants[0], teams))}</strong><p>${esc(c.waitingOpponent)}</p></div>` : ''}${ctx.known ? finalEditorialHtml(false) : ''}${finalTeamsHtml(ctx, teams)}${finalCountdownHtml(ctx, teams)}<div class="qg-final-date">${esc(c.scheduled)}</div>${ctx.known ? finalFactsHtml() : ''}${finalJourneyHtml(ctx, teams, teamResults, computed)}${ctx.known ? finalEditorialHtml(true) : ''}</section>` : `<section class="qg-final-stage qg-final-waiting"><div class="qg-final-badge">${esc(c.badge)}</div><h1>${esc(c.waiting)}</h1><p>${esc(c.waitingDetail)}</p></section>`}
+        <nav class="qg16-shell-bottom"><a href="${esc(memoryHref)}">← Mémoire du Mondial</a><a href="${esc(homeHref)}">${esc(c.back)}</a></nav>
+      </main>
+    </div>`;
     startFinalCountdown(selector);
     startThirdCountdown(selector);
     setTimeout(()=>triggerChampionCelebration(ctx, teams),1200);
@@ -769,7 +777,7 @@ function newsHref(id, section){
       {section:'gaindes', image:'assets/news/les-breves-des-gaindes.png', kicker:'Les Gaïndés dans le monde', title:'Les Brèves des Gaïndés'}
     ];
     return `<div class="qg-editorial-portals">${configs.map(cfg => {
-      const items=(worldNews||[]).filter(x=>(x.section||'world')===cfg.section).sort((a,b)=>{const ad=Date.parse(a.publishedAt||a.updatedAt||'')||0,bd=Date.parse(b.publishedAt||b.updatedAt||'')||0;if(ad||bd)return bd-ad;return (a.priority||99)-(b.priority||99)}).slice(0,2);
+      const items=sortNewsNewestFirst((worldNews||[]).filter(x=>(x.section||'world')===cfg.section)).slice(0,2);
       const preview=items.map(item=>{const L=newsLang(item,lang);return `<span>${esc(L.title||'')}</span>`}).join('');
       const p=new URLSearchParams({mode:'news',section:cfg.section,v:VERSION_TOKEN});
       return `<a class="qg-editorial-portal ${cfg.section}" href="?${p.toString()}"><img src="${esc(cfg.image)}" loading="lazy" decoding="async" alt="${esc(cfg.title)}"><div><small>${esc(cfg.kicker)}</small><h2>${esc(cfg.title)}</h2><p>${preview}</p><strong>Ouvrir →</strong></div></a>`;
@@ -813,7 +821,7 @@ function newsHref(id, section){
     const activeSection = section === 'gaindes' ? 'gaindes' : 'world';
     const isGaindes = activeSection === 'gaindes';
     const title = isGaindes ? 'Les Brèves des Gaïndés' : c.newsTitle;
-    const lead = isGaindes ? 'Toute l’actualité des joueurs de l’équipe nationale : mercato, buts, forme, blessures et performances en club.' : c.newsLead;
+    const lead = isGaindes ? 'Mercato, buts, forme, blessures et performances : toute l’actualité des joueurs de l’équipe nationale en club.' : 'Revivez les grands récits, analyses et tournants de la Coupe du monde 2026.';
     const image = isGaindes ? 'assets/news/les-breves-des-gaindes.png' : 'assets/news/les-breves-du-mondial.png';
     const other = isGaindes ? 'world' : 'gaindes';
     selector.innerHTML = `
@@ -922,71 +930,98 @@ function newsHref(id, section){
   function renderGaindesHub(selector){
     if(!selector) return;
     document.documentElement.classList.add('qg-gaindes-route');
+    document.documentElement.classList.remove('qg-v1610-home','qg-v1610-worldcup');
+    selector.innerHTML = `<div class="qg16-app-shell qg16-gaindes-shell">
+      ${qg16Header('', '', 'Suivi des Gaïndés')}
+      <main class="qg16-gaindes-main" data-gaindes-route-host aria-live="polite"></main>
+    </div>`;
+    const host = selector.querySelector('[data-gaindes-route-host]');
+    if(!host) return;
     const renderAllowed = () => {
-      selector.innerHTML = `<div class="qg-gaindes-route-shell"><iframe class="qg-gaindes-route-frame" src="/mangara-studio-7f3k9q/?embedded=1&v=${VERSION_TOKEN}#home" title="Suivi des Gaïndés à l’international" loading="eager" allow="fullscreen"></iframe></div>`;
+      host.innerHTML = `<div class="qg-gaindes-route-shell"><iframe class="qg-gaindes-route-frame" src="/mangara-studio-7f3k9q/?embedded=1&v=${VERSION_TOKEN}#home" title="Suivi des Gaïndés à l’international" loading="eager" allow="fullscreen"></iframe></div>`;
     };
     if(window.QGGaindesGate && typeof window.QGGaindesGate.protectRoute === 'function') {
-      window.QGGaindesGate.protectRoute(selector, renderAllowed);
+      window.QGGaindesGate.protectRoute(host, renderAllowed);
     } else {
-      selector.innerHTML = `<div class="qg-gaindes-route-shell"><main class="qg-access-gate"><div class="qg-access-emblem">🦁</div><small>ESPACE PROTÉGÉ</small><h1>Suivi des Gaïndés</h1><p>Le contrôle d’accès est temporairement indisponible.</p><a class="qg-access-back" href="/?v=${VERSION_TOKEN}">← Retour à QualifGaïndé</a></main></div>`;
+      host.innerHTML = `<div class="qg-gaindes-route-shell"><main class="qg-access-gate"><div class="qg-access-emblem">🦁</div><small>ESPACE PROTÉGÉ</small><h1>Suivi des Gaïndés</h1><p>Le contrôle d’accès est temporairement indisponible.</p><a class="qg-access-back" href="/?v=${VERSION_TOKEN}">← Retour à QualifGaïndé</a></main></div>`;
     }
+  }
+
+  function newsPublishedTime(item){
+    const value = Date.parse((item && (item.publishedAt || item.updatedAt)) || '');
+    return Number.isFinite(value) ? value : 0;
+  }
+  function sortNewsNewestFirst(items){
+    return (items || []).slice().sort((a,b) => {
+      const aTime = newsPublishedTime(a), bTime = newsPublishedTime(b);
+      if(aTime || bTime) return bTime - aTime || (a.priority || 99) - (b.priority || 99);
+      return (a.priority || 99) - (b.priority || 99);
+    });
+  }
+  function qg16TeamHref(key, teams){
+    const meta = teamMeta(key, teams), p = new URLSearchParams();
+    p.set('team', key);
+    if(meta.defaultLang) p.set('lang', meta.defaultLang);
+    p.set('v', VERSION_TOKEN);
+    return '?' + p.toString();
+  }
+  function qg16Header(parentLabel, parentHref, currentLabel){
+    return `<header class="qg16-shell-header"><a class="qg16-shell-brand" href="/?v=${VERSION_TOKEN}"><img src="assets/lion-mascotte.png" alt="QualifGaïndé"><span><small>QUALIFGAÏNDÉ · V16.1.0</small><strong>Accueil</strong></span></a><nav aria-label="Fil d’Ariane"><a href="/?v=${VERSION_TOKEN}">Accueil</a>${parentLabel ? `<span>›</span><a href="${esc(parentHref || '/?v='+VERSION_TOKEN)}">${esc(parentLabel)}</a>` : ''}${currentLabel ? `<span>›</span><b>${esc(currentLabel)}</b>` : ''}</nav></header>`;
+  }
+  function qg16PodiumHtml(teams){
+    const podium = [
+      {key:'spain',medal:'🥇',label:'CHAMPIONNE DU MONDE',copy:'La Roja décroche sa deuxième étoile.',cls:'gold'},
+      {key:'argentina',medal:'🥈',label:'VICE-CHAMPIONNE DU MONDE',copy:'Une campagne immense conclue par l’argent.',cls:'silver'},
+      {key:'england',medal:'🥉',label:'MÉDAILLE DE BRONZE',copy:'Les Three Lions terminent sur le podium.',cls:'bronze'}
+    ];
+    return `<section class="qg16-podium"><div class="qg16-section-heading"><small>PODIUM · COUPE DU MONDE 2026</small><h2>Les trois nations sur le toit du monde</h2></div><div class="qg16-podium-grid">${podium.map(item=>{const meta=teamMeta(item.key,teams);return `<a class="qg16-podium-card ${item.cls}" href="${esc(qg16TeamHref(item.key,teams))}"><span>${item.medal}</span><img src="${esc(item.key==='spain'?'assets/final/lamine-yamal-final.jpg':item.key==='argentina'?'assets/final/lionel-messi-final.jpg':teamImage(item.key,teams))}" alt="${esc(teamName(item.key,teams))}" loading="lazy"><small>${item.label}</small><h3>${esc(teamFlag(item.key,teams)+' '+teamName(item.key,teams))}</h3><p>${esc(item.copy)}</p><b>Revoir le parcours →</b></a>`}).join('')}</div></section>`;
+  }
+  function qg16LatestGaindes(worldNews){
+    return sortNewsNewestFirst((worldNews || []).filter(item => (item.section || 'world') === 'gaindes')).slice(0,3);
+  }
+  function qg16LatestTitles(items){
+    return items.map(item => {const L=newsLang(item,'fr'); return `<li>${esc(L.title || item.title || '')}</li>`}).join('');
   }
 
   function renderHome(selector, teams, computed, worldNews, teamResults, live){
     if(!selector) return;
-    const lang = activeLang(), c = copy();
-    const homeFinalCtx = finalContext(teams, computed, live);
-    const groups = {qf:[], live:[], out:[]};
-    FEATURED_ORDER.forEach(key => {
-      const s = computed.state[key];
-      if(!s) return;
-      if(s.stageGroup === 'eliminated') groups.out.push(s);
-      else if(s.stageGroup === 'qualified_qf') groups.qf.push(s);
-      else groups.live.push(s);
-    });
-    function href(s){
-      const meta = teamMeta(s.key, teams);
-      const p = new URLSearchParams();
-      p.set('team', s.key);
-      if(meta.defaultLang && ['england','norway','argentina','egypt'].includes(s.key)) p.set('lang', meta.defaultLang);
-      p.set('v', VERSION_TOKEN);
-      return '?' + p.toString();
-    }
-    function cardCopy(s){
-      if(s.key !== 'england') return {name:s.teamName || teamName(s.key, teams), line:s.selectorLine || s.statusLabel || ''};
-      const enNames = {england:'England',argentina:'Argentina',france:'France',spain:'Spain',norway:'Norway',mexico:'Mexico',dr_congo:'DR Congo'};
-      if(s.status === 'champion') return {name:'England',line:'World champions'};
-      if(s.bronze || s.status === 'bronze') return {name:'England',line:'Third in the world · bronze medallists'};
-      if(s.status === 'eliminated') return {name:'England',line:`Eliminated in the ${roundLabel(s.eliminatedRound || s.currentRound, 'en')}`};
-      const match = s.nextMatchId && computed.resolved ? computed.resolved[s.nextMatchId] : null;
-      const opponentKey = match ? (match.home === 'england' ? match.away : (match.away === 'england' ? match.home : null)) : null;
-      const opponent = opponentKey ? (enNames[opponentKey] || teamName(opponentKey, teams)) : '';
-      const line = `Qualified for the ${roundLabel(s.currentRound, 'en')}` + (opponent ? ` · next: ${opponent}` : '');
-      return {name:'England',line};
-    }
-    function card(s, cls){
-      const native = cardCopy(s);
-      return `<a class="qg-team-card ${cls}" href="${esc(href(s))}" data-team="${esc(s.key)}"><span class="qg-team-flag">${esc(s.flag || teamFlag(s.key, teams))}</span><span class="qg-team-copy"><span class="qg-team-name">${esc(native.name)}</span><span class="qg-team-line">${esc(native.line)}</span></span></a>`;
-    }
-    selector.innerHTML = `
-      <div class="qg-entry-bg"></div>
-      <div class="qg-entry-wrap">
-        <div class="qg-entry-top">
-          <div class="qg-entry-brand"><img src="assets/lion-mascotte.png" alt="Mondial Pulse"><span>Mondial Pulse 2026 · V${esc(VERSION)}</span></div>
-          <div class="qg-entry-pill">${esc(c.homePill)}</div>
-        </div>
-        <div class="qg-entry-hero">
-          <div class="qg-entry-kicker">${esc(c.homeKicker)}</div>
-          <h1>${c.homeTitle}</h1>
-          <p>${esc(c.homeLead)}</p>
-        </div>
-        <a class="qg-world-memory-card" href="?mode=global&v=${VERSION_TOKEN}"><img src="assets/final/lamine-yamal-final.jpg" alt="Lamine Yamal, champion du monde avec l’Espagne"><span><small>ESPAGNE · DEUX ÉTOILES</small><h2>Revivez la Coupe du monde 2026</h2><p>Le sacre de l’Espagne, les grands matchs, les parcours des nations et tous les résultats du tournoi.</p><b>Entrer dans la mémoire du Mondial →</b></span></a>
-        ${finalPodiumHtml(teams, computed, live)}
-        ${gaindesInternationalCardHtml()}
-        <a class="qg-gaindes-news-home" href="?mode=news&section=gaindes&v=${VERSION_TOKEN}"><img src="assets/news/les-breves-des-gaindes.png" alt="Les Brèves des Gaïndés"><span><small>LES LIONS AU QUOTIDIEN</small><h2>Brèves des Gaïndés</h2><p>Toute l’actualité des joueurs de l’équipe nationale : mercato, buts, forme, blessures et performances en club.</p><b>Lire les dernières actualités →</b></span></a>
-      </div>`;
-    startFinalCountdown(selector);
-    setTimeout(()=>triggerChampionCelebration(homeFinalCtx, teams),1200);
+    document.documentElement.classList.add('qg-v1610-home');
+    document.documentElement.classList.remove('qg-v1610-worldcup');
+    const latest = qg16LatestGaindes(worldNews);
+    selector.innerHTML = `<div class="qg16-app-shell">
+      ${qg16Header('', '', '')}
+      <main class="qg16-home-main">
+        <section class="qg16-home-intro"><small>QUALIFGAÏNDÉ · APRÈS-MONDIAL</small><h1>Le Mondial est terminé,<br><span>l’histoire continue</span></h1><p>Revivez les moments forts de la Coupe du monde 2026 et restez au plus près des Lions du Sénégal : leurs clubs, leur mercato, leurs buts, leur forme et leurs prochaines aventures.</p></section>
+        <section class="qg16-home-portals" aria-label="Entrées principales">
+          <a class="qg16-home-card qg16-worldcup-card" href="?mode=worldcup&v=${VERSION_TOKEN}"><div><small>MÉMOIRE DU MONDIAL</small><h2>Revivez la Coupe du monde 2026</h2><p>Le sacre de l’Espagne, les grands matchs, les résultats et les parcours de toutes les équipes suivies.</p><b>Entrer dans la mémoire →</b></div><figure><img src="assets/final/lamine-yamal-final.jpg" alt="Lamine Yamal, champion du monde avec l’Espagne"><figcaption>🇪🇸 Espagne · 2 étoiles ⭐⭐</figcaption></figure></a>
+          ${qg16PodiumHtml(teams)}
+          <a class="qg16-home-card qg16-gaindes-card" data-gaindes-gated hidden href="?mode=gaindes&v=${VERSION_TOKEN}"><img src="/mangara-studio-7f3k9q/assets/brand/suivi-gaindes-lion.jpg" alt="Suivi des Gaïndés"><div><small>LES LIONS DANS LE MONDE</small><h2>Suivi des Gaïndés</h2><p>Suivez les performances des internationaux sénégalais dans leurs clubs : matchs, buts, passes décisives et temps forts.</p><b>Ouvrir le suivi →</b></div></a>
+          <a class="qg16-home-card qg16-news-card" href="?mode=news&section=gaindes&v=${VERSION_TOKEN}"><img src="assets/news/les-breves-des-gaindes.png" alt="Les Brèves des Gaïndés"><div><small>ACTUALITÉ DES INTERNATIONAUX</small><h2>Brèves des Gaïndés</h2><p>Mercato, buts, forme, blessures, performances et évolutions en club : toute l’actualité des joueurs de l’équipe nationale.</p>${latest.length ? `<ul>${qg16LatestTitles(latest)}</ul>` : ''}<b>Lire les dernières brèves →</b></div></a>
+        </section>
+      </main>
+    </div>`;
+    if(window.QGGaindesGate && typeof window.QGGaindesGate.refreshCards === 'function') window.QGGaindesGate.refreshCards();
+  }
+
+  function renderWorldCupMemory(selector, teams, computed, worldNews, teamResults, live){
+    if(!selector) return;
+    document.documentElement.classList.add('qg-v1610-worldcup');
+    document.documentElement.classList.remove('qg-v1610-home');
+    const order = ['spain','argentina','england','france','morocco','norway','switzerland','belgium','brazil','senegal','algeria','egypt','ivory_coast','dr_congo','cape_verde','ghana'];
+    const cards = order.filter(key => teams[key]).map(key => {
+      const meta=teamMeta(key,teams), rows=(teamResults && teamResults[key]) || [], last=rows[rows.length-1];
+      return `<a class="qg16-memory-team" data-team="${esc(key)}" href="${esc(qg16TeamHref(key,teams))}"><span class="qg16-memory-flag">${esc(meta.flag || teamFlag(key,teams))}</span><span><strong>${esc(meta.teamName || teamName(key,teams))}</strong><small>${esc(meta.selectorLine || meta.statusLabel || (last && (last.note || last.label)) || 'Revoir le parcours')}</small></span><b>${rows.length} matchs →</b></a>`;
+    }).join('');
+    selector.innerHTML = `<div class="qg16-app-shell">
+      ${qg16Header('Mémoire du Mondial','?mode=worldcup&v='+VERSION_TOKEN,'Coupe du monde 2026')}
+      <main class="qg16-worldcup-main">
+        <section class="qg16-worldcup-hero"><div><small>ARCHIVES · COUPE DU MONDE 2026</small><h1>L’Espagne au sommet,<br><span>la mémoire du tournoi</span></h1><p>La Roja décroche sa deuxième étoile. Retrouvez le podium, les nations qui ont marqué le tournoi et le détail des parcours et des scores.</p><a href="${esc(qg16TeamHref('spain',teams))}">🇪🇸 Revoir le parcours de l’Espagne →</a></div><img src="assets/final/lamine-yamal-final.jpg" alt="Lamine Yamal et l’Espagne championne du monde"></section>
+        ${qg16PodiumHtml(teams)}
+        <section class="qg16-memory-list"><div class="qg16-section-heading"><small>LES ÉQUIPES QUE NOUS AVONS SUIVIES</small><h2>Choisissez une nation</h2><p>Chaque page conserve la phase de groupes, la phase à élimination directe et tous les scores du parcours.</p></div><div class="qg16-memory-grid">${cards}</div></section>
+        <nav class="qg16-shell-bottom"><a href="/?v=${VERSION_TOKEN}">← Retour à l’accueil</a><a href="?mode=news&section=world&v=${VERSION_TOKEN}">Brèves du Mondial</a></nav>
+      </main>
+    </div>`;
+    try { if(new URLSearchParams(location.search).get('mode') === 'global') history.replaceState(null,'',`?mode=worldcup&v=${VERSION_TOKEN}`); } catch(e) {}
   }
 
 
@@ -1414,8 +1449,13 @@ async function run(){
       const article = articleId && Array.isArray(worldNews) ? worldNews.find(x => x.id === articleId) : null;
       if(article) renderNewsArticle(selector, article);
       else renderNewsHub(selector, worldNews || [], params.get('section') || 'world');
-    } else if(selector && !activeTeam && mode !== 'global') renderHome(selector, teams, computed, worldNews || [], teamResults || {}, live || {});
-    if(activeTeam) updateTeamPage(activeTeam.toLowerCase(), teams, computed, teamResults || {});
+    } else if(selector && !activeTeam && (mode === 'worldcup' || mode === 'global')) {
+      renderWorldCupMemory(selector, teams, computed, worldNews || [], teamResults || {}, live || {});
+    } else if(selector && !activeTeam) {
+      renderHome(selector, teams, computed, worldNews || [], teamResults || {}, live || {});
+    }
+    // V16.1.0 : les routes équipe appartiennent exclusivement à team-page-v1610.js.
+    // Aucun ancien updateTeamPage ne doit réécrire le DOM après le renderer neutre.
   }
 
   let __qgAutoStateTimer = null;

@@ -73,7 +73,7 @@
       <h1>${esc(c.title)}</h1>
       <p>${esc(c.body)}</p>
       ${form}
-      <a class="qg-access-back" href="/?v=1550">← Retour à QualifGaïndé</a>
+      <a class="qg-access-back" href="/?v=1610">← Retour à QualifGaïndé</a>
     </main>`;
   }
 

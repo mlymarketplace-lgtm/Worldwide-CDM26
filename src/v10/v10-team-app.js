@@ -497,7 +497,7 @@
       <div class="v10-team-sections">${sections}</div>
       <div class="v10-selector-actions">
         ${savedTeam ? `<a class="v10-action" href="?team=${encodeURIComponent(saved)}">${uiText('resume')} ${savedTeam.flag} ${safeHtml(savedTeam.teamName)}</a>` : ''}
-        <a class="v10-action" href="?mode=global">${uiText('global')}</a>
+        <a class="v10-action" href="?mode=worldcup">${'Mémoire du Mondial'}</a>
       </div>
     </div>`;
     document.body.prepend(overlay);

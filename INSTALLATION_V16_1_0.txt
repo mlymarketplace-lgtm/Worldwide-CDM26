@@ -1,11 +1,20 @@
-QUALIFGAINDE V16.1.0 — BUILD COMPLET
+QUALIFGAINDE V16.1.0 — INSTALLATION
 
-1. Décompresser le ZIP.
-2. Copier tout son contenu à la racine du dépôt local en remplaçant les fichiers existants.
-3. Vérifier que index.html se trouve bien à la racine.
-4. Dans GitHub Desktop : vérifier les changements, Commit to main, puis Push origin.
-5. Attendre le déploiement Netlify.
-6. Recharger avec Cmd + Shift + R.
-7. Tester la home, une brève récente, puis les pages Espagne, Sénégal et France.
+1. Décompresser le ZIP complet.
+2. Vérifier que index.html se trouve directement à la racine du dossier.
+3. Remplacer le contenu local du dépôt Worldwide-CDM26 par le contenu complet du ZIP.
+4. Ouvrir GitHub Desktop.
+5. Vérifier les changements, puis Commit to main et Push origin.
+6. Attendre la fin du déploiement Netlify.
+7. Ouvrir : https://qualifgainde.netlify.app/?v=1610
+8. Faire un rechargement forcé : Cmd + Shift + R sur Mac.
+9. Tester : Accueil → Mémoire du Mondial → Espagne → retour parent → retour accueil.
+10. Tester la console : /admin-gaindes/
 
-Les brèves stockées dans Netlify Blobs ne sont pas supprimées par ce build.
+Variables Netlify :
+- conserver QG_GAINDES_ADMIN_PASSWORD ;
+- aucune nouvelle variable n’est nécessaire pour cette version.
+
+Important :
+- il s’agit d’un build complet, pas d’un patch ;
+- les brèves dynamiques stockées dans Netlify Blobs ne sont pas incluses dans le ZIP et ne sont pas écrasées par le déploiement.
