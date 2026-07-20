@@ -2,8 +2,8 @@
 (function(){
   'use strict';
 
-  const VERSION = (window.BUILD_VERSION || '15.4.6');
-  const VERSION_TOKEN = (window.BUILD_VERSION_TOKEN || String(VERSION).replace(/\D/g,'') || '1546');
+  const VERSION = (window.BUILD_VERSION || '15.4.7');
+  const VERSION_TOKEN = (window.BUILD_VERSION_TOKEN || String(VERSION).replace(/\D/g,'') || '1547');
   const SEMIFINALISTS = new Set(['france','spain','england','argentina']);
   const FEATURED_ORDER = [
     'morocco','france','spain','belgium','norway','england','argentina','switzerland',
@@ -377,7 +377,11 @@
         }
         if(r.loser){
           const ls = initTeam(r.loser);
-          Object.assign(ls, {status:'eliminated', stageGroup:'eliminated', eliminatedRound:d.round, currentRound:d.round, lastMatchId:id, lastMatchLabel:r.scoreLine, nextMatchId:null});
+          if(d.round === 'final'){
+            Object.assign(ls, {silver:true, status:'silver', stageGroup:'qualified_qf', currentRound:'final', eliminatedRound:'final', lastMatchId:id, lastMatchLabel:r.scoreLine, nextMatchId:null});
+          } else {
+            Object.assign(ls, {status:'eliminated', stageGroup:'eliminated', eliminatedRound:d.round, currentRound:d.round, lastMatchId:id, lastMatchLabel:r.scoreLine, nextMatchId:null});
+          }
         }
       } else {
         [r.home, r.away].forEach(t => {
@@ -412,6 +416,19 @@
     if(s.bronze || s.status === 'bronze'){
       s.statusLabel = lang === 'en' ? 'World Cup bronze medallists · ' + (s.bronzeScore || s.lastMatchLabel || '') : 'Médaille de bronze · ' + (s.bronzeScore || s.lastMatchLabel || '');
       s.selectorLine = lang === 'en' ? 'Third in the world · bronze medallists' : 'Troisième du monde · médaille de bronze';
+      return;
+    }
+    if(s.silver || s.status === 'silver'){
+      const labels = {
+        fr:['Médaille d’argent · vice-championne du monde','Vice-championne du monde · médaille d’argent'],
+        en:['World Cup silver medallists','World Cup runners-up · silver medallists'],
+        es:['Medalla de plata · subcampeona del mundo','Subcampeona del mundo · medalla de plata'],
+        pt:['Medalha de prata · vice-campeã do mundo','Vice-campeã do mundo · medalha de prata'],
+        ar:['الميدالية الفضية · وصيفة بطلة العالم','وصيفة بطلة العالم · الميدالية الفضية']
+      };
+      const pair = labels[lang] || labels.fr;
+      s.statusLabel = pair[0] + (s.lastMatchLabel ? ' · ' + s.lastMatchLabel : '');
+      s.selectorLine = pair[1];
       return;
     }
     if(s.status === 'eliminated'){
@@ -856,7 +873,7 @@ function newsHref(id, section){
 
   function triggerChampionCelebration(ctx, teams, force){
     if(!ctx || ctx.state !== 'final' || !ctx.winner) return;
-    const key = 'qg-champion-celebrated-1546-' + ctx.winner;
+    const key = 'qg-champion-celebrated-1547-' + ctx.winner;
     if(!force){ try { if(sessionStorage.getItem(key)) return; } catch(e) {} }
     const old=document.querySelector('.qg-champion-celebration'); if(old) old.remove();
     const winnerName = teamName(ctx.winner, teams), winnerFlag = teamFlag(ctx.winner, teams);
@@ -1061,11 +1078,150 @@ function isoForMatch(id){
     window.__QG_COUNTDOWN_TIMER__ = setInterval(tick, 1000);
   }
 
+  function completedFinalPageCopy(lang, isWinner){
+    const copyByLang = {
+      fr: isWinner ? {
+        kicker:'CHAMPIONNE DU MONDE · ESPAGNE 1–0 ARGENTINE',
+        subtitle:'L’Espagne décroche sa deuxième étoile et termine le Mondial au sommet.',
+        label:'Finale terminée', status:'Championne du monde',
+        meta:'Finale terminée · Espagne 1–0 Argentine',
+        end:'La Roja est championne du monde 2026.'
+      } : {
+        kicker:'MÉDAILLE D’ARGENT · ESPAGNE 1–0 ARGENTINE',
+        subtitle:'L’Argentine termine vice-championne du monde après un parcours immense.',
+        label:'Finale terminée', status:'Médaille d’argent',
+        meta:'Finale terminée · Espagne 1–0 Argentine',
+        end:'L’Albiceleste repart avec la médaille d’argent.'
+      },
+      en: isWinner ? {
+        kicker:'WORLD CHAMPIONS · SPAIN 1–0 ARGENTINA', subtitle:'Spain win their second star and finish the World Cup on top.',
+        label:'Final completed', status:'World champions', meta:'Final completed · Spain 1–0 Argentina', end:'La Roja are the 2026 world champions.'
+      } : {
+        kicker:'SILVER MEDALLISTS · SPAIN 1–0 ARGENTINA', subtitle:'Argentina finish as World Cup runners-up after an immense campaign.',
+        label:'Final completed', status:'Silver medallists', meta:'Final completed · Spain 1–0 Argentina', end:'La Albiceleste leave with the silver medal.'
+      },
+      es: isWinner ? {
+        kicker:'CAMPEONA DEL MUNDO · ESPAÑA 1–0 ARGENTINA', subtitle:'España conquista su segunda estrella y termina el Mundial en lo más alto.',
+        label:'Final terminada', status:'Campeona del mundo', meta:'Final terminada · España 1–0 Argentina', end:'La Roja es campeona del mundo 2026.'
+      } : {
+        kicker:'MEDALLA DE PLATA · ESPAÑA 1–0 ARGENTINA', subtitle:'Argentina termina subcampeona del mundo después de un recorrido inmenso.',
+        label:'Final terminada', status:'Medalla de plata', meta:'Final terminada · España 1–0 Argentina', end:'La Albiceleste se marcha con la medalla de plata.'
+      },
+      pt: isWinner ? {
+        kicker:'CAMPEÃ DO MUNDO · ESPANHA 1–0 ARGENTINA', subtitle:'A Espanha conquista sua segunda estrela e termina o Mundial no topo.',
+        label:'Final encerrada', status:'Campeã do mundo', meta:'Final encerrada · Espanha 1–0 Argentina', end:'A Roja é campeã do mundo de 2026.'
+      } : {
+        kicker:'MEDALHA DE PRATA · ESPANHA 1–0 ARGENTINA', subtitle:'A Argentina termina como vice-campeã do mundo após uma campanha enorme.',
+        label:'Final encerrada', status:'Medalha de prata', meta:'Final encerrada · Espanha 1–0 Argentina', end:'A Albiceleste fica com a medalha de prata.'
+      },
+      ar: isWinner ? {
+        kicker:'بطلة العالم · إسبانيا 1–0 الأرجنتين', subtitle:'إسبانيا تحصد نجمتها الثانية وتنهي المونديال في القمة.',
+        label:'انتهى النهائي', status:'بطلة العالم', meta:'انتهى النهائي · إسبانيا 1–0 الأرجنتين', end:'إسبانيا بطلة العالم 2026.'
+      } : {
+        kicker:'الميدالية الفضية · إسبانيا 1–0 الأرجنتين', subtitle:'الأرجنتين تنهي البطولة وصيفةً لبطل العالم بعد مشوار كبير.',
+        label:'انتهى النهائي', status:'الميدالية الفضية', meta:'انتهى النهائي · إسبانيا 1–0 الأرجنتين', end:'الأرجنتين تغادر بالميدالية الفضية.'
+      }
+    };
+    return copyByLang[lang] || copyByLang.fr;
+  }
+
+  function completedFinalMatchTitle(lang){
+    if(lang === 'es') return '🇪🇸 España 1–0 Argentina 🇦🇷';
+    if(lang === 'en') return '🇪🇸 Spain 1–0 Argentina 🇦🇷';
+    if(lang === 'pt') return '🇪🇸 Espanha 1–0 Argentina 🇦🇷';
+    if(lang === 'ar') return '🇪🇸 إسبانيا 1–0 الأرجنتين 🇦🇷';
+    return '🇪🇸 Espagne 1–0 Argentine 🇦🇷';
+  }
+
+  function patchCompletedFinalPanel(activeTeam, teams, computed, teamResults){
+    const match = computed && computed.resolved && computed.resolved.N104;
+    if(!match || !match.final || !match.home || !match.away || (activeTeam !== match.home && activeTeam !== match.away)) return false;
+    const card = document.getElementById('countdown-card');
+    const lang = activeLang();
+    const isWinner = match.winner === activeTeam;
+    const c = completedFinalPageCopy(lang, isWinner);
+    document.body.removeAttribute('data-qg-eliminated');
+    document.body.setAttribute('data-qg-final-medal', isWinner ? 'gold' : 'silver');
+    document.documentElement.classList.add('qg-team-rendered');
+    const kicker = document.querySelector('.site-kicker'); if(kicker) kicker.textContent = c.kicker;
+    const heroSub = document.getElementById('hero-subtitle'); if(heroSub) heroSub.textContent = c.subtitle;
+    const opponent = document.getElementById('probable-opponent');
+    if(opponent){
+      opponent.style.display = '';
+      opponent.title = c.meta;
+      opponent.setAttribute('data-qg-final-summary','N104');
+      const label = opponent.querySelector('.opp-label');
+      const main = document.getElementById('opp-main-name');
+      const sub = document.getElementById('opp-main-sub');
+      if(label) label.innerHTML = (label.querySelector('img') ? label.querySelector('img').outerHTML : '') + c.label;
+      if(main) main.textContent = completedFinalMatchTitle(lang);
+      if(sub) sub.textContent = c.status + ' · ' + (match.score || '1–0');
+    }
+    const heading = document.querySelector('.qg-countdown-title');
+    if(heading){
+      heading.style.display='';
+      const img = heading.querySelector('img');
+      heading.innerHTML = (img ? img.outerHTML : '') + c.label;
+    }
+    if(card){
+      card.style.display='';
+      card.classList.add('is-completed-final');
+      card.setAttribute('data-qg-computed-fixture','N104');
+      card.setAttribute('data-qg-final-summary', isWinner ? 'gold' : 'silver');
+      const centerKicker = card.querySelector('.countdown-kicker');
+      const matchEl = card.querySelector('.countdown-match');
+      const meta = card.querySelector('.countdown-meta');
+      const boxes = card.querySelector('.countdown-boxes');
+      const endMsg = document.getElementById('countdown-end-msg');
+      if(centerKicker) centerKicker.textContent = c.status;
+      if(matchEl) matchEl.textContent = completedFinalMatchTitle(lang);
+      if(meta) meta.textContent = c.meta;
+      if(boxes){ boxes.style.display='none'; boxes.setAttribute('aria-hidden','true'); boxes.innerHTML=''; }
+      if(endMsg) endMsg.textContent = c.end;
+      const sides = card.querySelectorAll('.player-side');
+      if(sides[0]) patchSideCard(sides[0], match.home, teams, teamResults || {}, computed);
+      if(sides[1]) patchSideCard(sides[1], match.away, teams, teamResults || {}, computed);
+    }
+    return true;
+  }
+
+  function scrubLegacySenegalFallback(activeTeam, teams, computed, teamResults){
+    if(!activeTeam || activeTeam === 'senegal') return;
+    const legacy = /Belg(?:ique|ium|ica|gië)[^\n]{0,40}S[ée]n[ée]gal|S[ée]n[ée]gal[^\n]{0,40}Belg(?:ique|ium|ica|gië)/i;
+    const s = computed && computed.state && computed.state[activeTeam];
+    const card = document.getElementById('countdown-card');
+    if(card && legacy.test(card.textContent || '')){
+      if(!patchCompletedFinalPanel(activeTeam, teams, computed, teamResults || {})){
+        if(s && s.nextMatchId){ patchCountdownPanel(activeTeam, teams, computed, teamResults || {}); }
+        else {
+          card.style.display='none';
+          const heading=document.querySelector('.qg-countdown-title'); if(heading) heading.style.display='none';
+        }
+      }
+    }
+    const opp = document.getElementById('probable-opponent');
+    if(opp && legacy.test(opp.textContent || '')){
+      if(!patchCompletedFinalPanel(activeTeam, teams, computed, teamResults || {})){
+        const main=document.getElementById('opp-main-name'), sub=document.getElementById('opp-main-sub');
+        if(main) main.textContent = `${teamFlag(activeTeam, teams)} ${teamName(activeTeam, teams)}`.trim();
+        if(sub) sub.textContent = (s && (s.statusLabel || s.lastMatchLabel)) || '';
+      }
+    }
+    document.querySelectorAll('.top-live-empty').forEach(el=>{
+      if(legacy.test(el.textContent || '')) el.textContent = activeLang()==='es' ? 'No hay partido en directo ahora.' : activeLang()==='en' ? 'No live match right now.' : 'Aucun match en direct pour le moment.';
+    });
+    const teaser=document.querySelector('.belgium-teaser');
+    if(teaser && activeTeam !== 'belgium' && legacy.test(teaser.textContent || '')) teaser.style.display='none';
+  }
+
   function patchCountdownPanel(activeTeam, teams, computed, teamResults){
     const s = computed && computed.state && computed.state[activeTeam];
-    if(!s || s.status === 'eliminated') return;
+    if(!s) return;
     const card = document.getElementById('countdown-card');
-    if(!card || !s.nextMatchId) return;
+    if(!card) return;
+    if(patchCompletedFinalPanel(activeTeam, teams, computed, teamResults || {})) return;
+    if(s.status === 'eliminated' || s.status === 'silver') return;
+    if(!s.nextMatchId) return;
     const match = computed.resolved && computed.resolved[s.nextMatchId];
     if(!match) return;
     const def = match.def || MATCH_DEFS[s.nextMatchId] || {};
@@ -1116,7 +1272,13 @@ function isoForMatch(id){
     const title = document.querySelector('.htitle');
     if(title) title.innerHTML = `<span>${esc(s.teamName || teamName(activeTeam, teams))}</span> — CM 2026`;
     const finalMatch = computed && computed.resolved && computed.resolved.N104;
-    const isFinalist = finalMatch && (activeTeam === finalMatch.home || activeTeam === finalMatch.away);
+    if(patchCompletedFinalPanel(activeTeam, teams, computed, teamResults || {})){
+      scrubLegacySenegalFallback(activeTeam, teams, computed, teamResults || {});
+      setTimeout(()=>{ patchCompletedFinalPanel(activeTeam, teams, computed, teamResults || {}); scrubLegacySenegalFallback(activeTeam, teams, computed, teamResults || {}); }, 800);
+      setTimeout(()=>{ patchCompletedFinalPanel(activeTeam, teams, computed, teamResults || {}); scrubLegacySenegalFallback(activeTeam, teams, computed, teamResults || {}); }, 2300);
+      return;
+    }
+    const isFinalist = finalMatch && !finalMatch.final && (activeTeam === finalMatch.home || activeTeam === finalMatch.away);
     if(isFinalist){
       const lang = activeLang();
       const finalTitle = lang === 'es' ? 'FINAL · ESPAÑA–ARGENTINA' : lang === 'en' ? 'FINAL · SPAIN–ARGENTINA' : 'FINALE · ESPAGNE–ARGENTINE';
@@ -1136,6 +1298,8 @@ function isoForMatch(id){
         document.body.removeAttribute('data-qg-eliminated');
         patchCountdownPanel(activeTeam, teams, computed, teamResults || {});
       }
+      scrubLegacySenegalFallback(activeTeam, teams, computed, teamResults || {});
+      document.documentElement.classList.add('qg-team-rendered');
       return;
     }
     if(activeTeam === 'england' && s.status === 'eliminated'){
@@ -1150,6 +1314,8 @@ function isoForMatch(id){
         document.body.setAttribute('data-qg-eliminated','true');
         const cd = document.getElementById('countdown-card'); if(cd) cd.style.display = 'none';
       }
+      scrubLegacySenegalFallback(activeTeam, teams, computed, teamResults || {});
+      document.documentElement.classList.add('qg-team-rendered');
       return;
     }
     const kicker = document.querySelector('.site-kicker');
@@ -1164,6 +1330,19 @@ function isoForMatch(id){
       if(s.bronze || s.status === 'bronze'){
       s.statusLabel = lang === 'en' ? 'World Cup bronze medallists · ' + (s.bronzeScore || s.lastMatchLabel || '') : 'Médaille de bronze · ' + (s.bronzeScore || s.lastMatchLabel || '');
       s.selectorLine = lang === 'en' ? 'Third in the world · bronze medallists' : 'Troisième du monde · médaille de bronze';
+      return;
+    }
+    if(s.silver || s.status === 'silver'){
+      const labels = {
+        fr:['Médaille d’argent · vice-championne du monde','Vice-championne du monde · médaille d’argent'],
+        en:['World Cup silver medallists','World Cup runners-up · silver medallists'],
+        es:['Medalla de plata · subcampeona del mundo','Subcampeona del mundo · medalla de plata'],
+        pt:['Medalha de prata · vice-campeã do mundo','Vice-campeã do mundo · medalha de prata'],
+        ar:['الميدالية الفضية · وصيفة بطلة العالم','وصيفة بطلة العالم · الميدالية الفضية']
+      };
+      const pair = labels[lang] || labels.fr;
+      s.statusLabel = pair[0] + (s.lastMatchLabel ? ' · ' + s.lastMatchLabel : '');
+      s.selectorLine = pair[1];
       return;
     }
     if(s.status === 'eliminated'){
@@ -1183,6 +1362,10 @@ function isoForMatch(id){
     } else {
       patchCountdownPanel(activeTeam, teams, computed, teamResults || {});
     }
+    scrubLegacySenegalFallback(activeTeam, teams, computed, teamResults || {});
+    document.documentElement.classList.add('qg-team-rendered');
+    setTimeout(()=>scrubLegacySenegalFallback(activeTeam, teams, computed, teamResults || {}), 850);
+    setTimeout(()=>scrubLegacySenegalFallback(activeTeam, teams, computed, teamResults || {}), 2400);
   }
 
 
