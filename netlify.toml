@@ -215,12 +215,12 @@
 
 [[redirects]]
   from = "/angleterre"
-  to = "/?team=england&lang=en&v=1548"
+  to = "/?team=england&lang=en&v=1550"
   status = 302
   force = true
 [[redirects]]
   from = "/england"
-  to = "/?team=england&lang=en&v=1548"
+  to = "/?team=england&lang=en&v=1550"
   status = 302
   force = true
 

@@ -1,3 +1,5 @@
+## V15.5.0 — Renderer équipe neutre et unifié
+
 # QualifGaïndé V15.3.0 complète
 
 Build complet prêt pour GitHub Desktop et Netlify.
@@ -10,5 +12,5 @@ Build complet prêt pour GitHub Desktop et Netlify.
 Lire `INSTALLATION_V15_3_0.txt` avant le déploiement.
 
 
-## V15.4.8
+## V15.5.0
 Correctif définitif des pages finalistes et neutralisation du fallback Belgique–Sénégal.

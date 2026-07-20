@@ -1,0 +1,17 @@
+QUALIFGAÏNDÉ V15.5.0 — BUILD COMPLET
+
+1. Décompresser le ZIP.
+2. Vérifier que index.html est visible directement à la racine du dossier.
+3. Copier tout le contenu à la racine du dépôt Worldwide-CDM26.
+4. Accepter les remplacements.
+5. Dans GitHub Desktop, vérifier que index.html est MODIFIED et jamais DELETED.
+6. Commit conseillé :
+   Release V15.5.0 – Refonte structurelle des pages équipe
+7. Push origin.
+8. Attendre le déploiement Netlify.
+9. Tester notamment :
+   /?team=spain&lang=es&v=1550
+   /?team=argentina&lang=es&v=1550
+   /?team=england&lang=en&v=1550
+   /?team=france&lang=fr&v=1550
+   /?team=senegal&lang=fr&v=1550

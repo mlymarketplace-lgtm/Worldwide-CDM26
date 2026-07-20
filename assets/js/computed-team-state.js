@@ -2,8 +2,8 @@
 (function(){
   'use strict';
 
-  const VERSION = (window.BUILD_VERSION || '15.4.8');
-  const VERSION_TOKEN = (window.BUILD_VERSION_TOKEN || String(VERSION).replace(/\D/g,'') || '1548');
+  const VERSION = (window.BUILD_VERSION || '15.5.0');
+  const VERSION_TOKEN = (window.BUILD_VERSION_TOKEN || String(VERSION).replace(/\D/g,'') || '1550');
   const SEMIFINALISTS = new Set(['france','spain','england','argentina']);
   const FEATURED_ORDER = [
     'morocco','france','spain','belgium','norway','england','argentina','switzerland',
@@ -253,7 +253,7 @@
       });
     }
 
-    // V15.4.8 — knockout-locks.json range les résultats officiels dans un objet
+    // V15.5.0 — knockout-locks.json range les résultats officiels dans un objet
     // `final`. L'ancien lecteur ne parcourait que le premier niveau : N104 n'était
     // donc jamais injecté dans computed.resolved et le gabarit Belgique–Sénégal
     // restait visible sur les pages Espagne/Argentine.
@@ -887,7 +887,7 @@ function newsHref(id, section){
 
   function triggerChampionCelebration(ctx, teams, force){
     if(!ctx || ctx.state !== 'final' || !ctx.winner) return;
-    const key = 'qg-champion-celebrated-1548-' + ctx.winner;
+    const key = 'qg-champion-celebrated-1550-' + ctx.winner;
     if(!force){ try { if(sessionStorage.getItem(key)) return; } catch(e) {} }
     const old=document.querySelector('.qg-champion-celebration'); if(old) old.remove();
     const winnerName = teamName(ctx.winner, teams), winnerFlag = teamFlag(ctx.winner, teams);
