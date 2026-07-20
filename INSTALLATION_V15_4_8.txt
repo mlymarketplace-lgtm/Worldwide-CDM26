@@ -1,0 +1,10 @@
+QUALIFGAINDÉ V15.4.8 — DÉPLOIEMENT COMPLET
+
+1. Décompresser le ZIP.
+2. Copier tout le contenu à la racine du dépôt Worldwide-CDM26.
+3. Accepter les remplacements.
+4. Vérifier que index.html est modifié, jamais supprimé.
+5. Commit puis Push origin.
+6. Tester :
+   - /?team=spain&lang=es&v=1548
+   - /?team=argentina&lang=es&v=1548

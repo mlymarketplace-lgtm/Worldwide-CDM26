@@ -8,3 +8,7 @@ Build complet prêt pour GitHub Desktop et Netlify.
 - aucune utilisation en mode patch : copier tout le contenu à la racine du dépôt.
 
 Lire `INSTALLATION_V15_3_0.txt` avant le déploiement.
+
+
+## V15.4.8
+Correctif définitif des pages finalistes et neutralisation du fallback Belgique–Sénégal.

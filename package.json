@@ -1,8 +1,8 @@
 {
   "name": "mondial-pulse-2026",
-  "version": "15.4.7",
+  "version": "15.4.8",
   "private": true,
-  "description": "QualifGaïndé / Mondial Pulse 2026 V15.4.7 — build complet avec contrôle propriétaire du Suivi des Gaïndés.",
+  "description": "QualifGaïndé / Mondial Pulse 2026 V15.4.8 — correctif définitif des pages finalistes.",
   "scripts": {
     "build": "echo \"No build required — static Netlify deployment\"",
     "start": "python3 -m http.server 8888"

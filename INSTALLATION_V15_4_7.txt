@@ -1,4 +1,4 @@
-QUALIFGAÏNDÉ V15.4.7 — DÉPLOIEMENT COMPLET
+QUALIFGAÏNDÉ V15.4.8 — DÉPLOIEMENT COMPLET
 
 1. Décompresser le ZIP.
 2. Vérifier que index.html est directement visible à la racine du dossier extrait.
@@ -6,8 +6,8 @@ QUALIFGAÏNDÉ V15.4.7 — DÉPLOIEMENT COMPLET
 4. Accepter les remplacements.
 5. Dans GitHub Desktop, vérifier que index.html est MODIFIED et non DELETED.
 6. Commit conseillé :
-   Release V15.4.7 – Correctif pages Espagne et Argentine
+   Release V15.4.8 – Correctif pages Espagne et Argentine
 7. Push origin puis attendre la publication Netlify.
 8. Tester :
-   https://qualifgainde.netlify.app/?team=spain&lang=es&v=1547
-   https://qualifgainde.netlify.app/?team=argentina&lang=es&v=1547
+   https://qualifgainde.netlify.app/?team=spain&lang=es&v=1548
+   https://qualifgainde.netlify.app/?team=argentina&lang=es&v=1548

@@ -1,4 +1,4 @@
-# QualifGaïndé V15.4.7 — Correctif pages finalistes
+# QualifGaïndé V15.4.8 — Correctif pages finalistes
 
 ## Correctifs
 
