@@ -1,8 +1,8 @@
 {
   "name": "mondial-pulse-2026",
-  "version": "16.0.1",
+  "version": "16.1.0",
   "private": true,
-  "description": "QualifGaïndé / Mondial Pulse 2026 V16.0.1 — mini-CMS éditorial QualifGaïndé.",
+  "description": "QualifGaïndé V16.1.0 — accueil post-Mondial, navigation et renderer équipe neutre avec tableaux.",
   "scripts": {
     "build": "echo \"No build required — static Netlify deployment\"",
     "start": "python3 -m http.server 8888"

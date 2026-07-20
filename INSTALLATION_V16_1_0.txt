@@ -1,0 +1,11 @@
+QUALIFGAINDE V16.1.0 — BUILD COMPLET
+
+1. Décompresser le ZIP.
+2. Copier tout son contenu à la racine du dépôt local en remplaçant les fichiers existants.
+3. Vérifier que index.html se trouve bien à la racine.
+4. Dans GitHub Desktop : vérifier les changements, Commit to main, puis Push origin.
+5. Attendre le déploiement Netlify.
+6. Recharger avec Cmd + Shift + R.
+7. Tester la home, une brève récente, puis les pages Espagne, Sénégal et France.
+
+Les brèves stockées dans Netlify Blobs ne sont pas supprimées par ce build.

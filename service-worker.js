@@ -1,6 +1,6 @@
 // Mondial Pulse 2026 — Service Worker V15.5.0 SAFE
-const CACHE_VERSION = 'qualifgainde-v15-5-0';
-const RUNTIME_CACHE = 'qg-v15-5-0-runtime';
+const CACHE_VERSION = 'qualifgainde-v16-1-0';
+const RUNTIME_CACHE = 'qg-v16-1-0-runtime';
 
 self.addEventListener('install', event => {
   self.skipWaiting();
