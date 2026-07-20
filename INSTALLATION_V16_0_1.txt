@@ -1,0 +1,12 @@
+QUALIFGAÏNDÉ V16.0.1 — BUILD COMPLET CORRECTIF CMS
+
+1. Décompresser le ZIP.
+2. Copier tout le contenu dans le dossier local du dépôt, en conservant index.html à la racine.
+3. Vérifier dans GitHub Desktop les fichiers modifiés.
+4. Commit conseillé : Release V16.0.1 – Publication CMS fiable et anti-doublons.
+5. Push origin.
+6. Attendre la fin du déploiement Netlify.
+7. Ouvrir /admin-gaindes/, se reconnecter puis tester un brouillon avant publication.
+8. Après publication, vérifier la confirmation verte, la présence dans “Brèves enregistrées” et l’article sur le site.
+
+Aucune nouvelle variable Netlify n’est requise : QG_GAINDES_ADMIN_PASSWORD reste utilisée.
