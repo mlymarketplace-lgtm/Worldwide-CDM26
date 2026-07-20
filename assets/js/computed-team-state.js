@@ -2,7 +2,7 @@
 (function(){
   'use strict';
 
-  const VERSION = (window.BUILD_VERSION || '15.5.0');
+  const VERSION = (window.BUILD_VERSION || '16.0.0');
   const VERSION_TOKEN = (window.BUILD_VERSION_TOKEN || String(VERSION).replace(/\D/g,'') || '1550');
   const SEMIFINALISTS = new Set(['france','spain','england','argentina']);
   const FEATURED_ORDER = [
@@ -253,7 +253,7 @@
       });
     }
 
-    // V15.5.0 — knockout-locks.json range les résultats officiels dans un objet
+    // V16.0.0 — knockout-locks.json range les résultats officiels dans un objet
     // `final`. L'ancien lecteur ne parcourait que le premier niveau : N104 n'était
     // donc jamais injecté dans computed.resolved et le gabarit Belgique–Sénégal
     // restait visible sur les pages Espagne/Argentine.
@@ -776,9 +776,12 @@ function newsHref(id, section){
     }).join('')}</div>`;
   }
 
-  function articleParagraphs(L){
+  function articleParagraphs(L,item){
     const raw = Array.isArray(L.article) ? L.article : [L.body || ''];
-    return raw.filter(Boolean).map(p => `<p>${esc(p)}</p>`).join('');
+    let html=raw.filter(Boolean).map(p => `<p>${esc(p)}</p>`).join('');
+    if(item && item.analysis) html += `<aside class="qg-editorial-analysis"><h3>Le regard de QualifGaïndé</h3><p>${esc(item.analysis)}</p></aside>`;
+    if(item && item.sources) html += `<p class="qg-news-sources"><strong>Sources :</strong> ${esc(item.sources)}</p>`;
+    return html;
   }
 
   function renderNewsArticle(selector, item){
@@ -794,11 +797,11 @@ function newsHref(id, section){
         </div>
         <article class="news-article" dir="${lang === 'ar' ? 'rtl' : 'ltr'}">
           <a class="news-article-header" href="?v=${VERSION_TOKEN}" aria-label="Retour à la home">
-            <div class="qg-entry-kicker">${esc(L.tag || 'Brève')}</div>
+            <div class="qg-entry-kicker">${esc(L.tag || 'Brève')} ${item.reliability ? ' · '+esc(({official:'🟢 Officiel',credible:'🟡 Crédible',rumor:'🟠 Rumeur',unlikely:'🔴 Peu probable'})[item.reliability]||'') : ''}</div>
             <h1>${esc(L.title || '')}</h1>
           </a>
           ${item.image ? `<img class="news-article-image" src="${esc(item.image)}" alt="${esc(L.title || '')}">` : ''}
-          <div class="news-article-body">${articleParagraphs(L)}</div>
+          <div class="news-article-body">${articleParagraphs(L,item)}</div>
           <div class="qg-entry-actions"><a class="qg-entry-action" href="?mode=news&section=${esc(section)}&v=${VERSION_TOKEN}">← Toutes les brèves</a><a class="qg-entry-action" href="?v=${VERSION_TOKEN}">Accueil</a></div>
         </article>
       </div>`;
@@ -1393,7 +1396,11 @@ async function run(){
       getJSON('/data/knockout-locks.json'),
       getJSON('/live.json'),
       getJSON('/data/team-results.json'),
-      getJSON('/data/world-news.json')
+      Promise.all([getJSON('/data/world-news.json'), getJSON('/.netlify/functions/news-cms?action=public')]).then(function(parts){
+        const statics = Array.isArray(parts[0]) ? parts[0] : [];
+        const dynamics = parts[1] && Array.isArray(parts[1].articles) ? parts[1].articles : [];
+        return statics.concat(dynamics);
+      })
     ]);
     const teams = mergeTeams(baseTeams || {}, localizedTeams || {});
     const locks = lockMap(rawLocks || {}, live || {});

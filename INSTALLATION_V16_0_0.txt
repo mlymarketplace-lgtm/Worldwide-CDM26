@@ -1,0 +1,14 @@
+QUALIFGAÏNDÉ V16.0.0 — BUILD COMPLET MINI-CMS
+
+1. Décompresser le ZIP.
+2. Vérifier que index.html est directement visible à la racine.
+3. Copier tout le contenu à la racine du dépôt Worldwide-CDM26.
+4. Accepter les remplacements.
+5. Dans GitHub Desktop, vérifier que index.html est MODIFIED et jamais DELETED.
+6. Commit conseillé : Release V16.0.0 – Console éditoriale et brèves dynamiques
+7. Push origin et attendre le déploiement Netlify.
+8. Conserver la variable QG_GAINDES_ADMIN_PASSWORD.
+9. Ouvrir : https://qualifgainde.netlify.app/admin-gaindes/
+10. Suivre la recette QA_V16_0_0.md.
+
+Les brèves publiées dans la console sont stockées dans Netlify Blobs et ne sont pas écrasées par les futurs builds.
