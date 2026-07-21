@@ -1,4 +1,4 @@
-// Mondial Pulse 2026 — Service Worker V16.1.1 SAFE
+// Mondial Pulse 2026 — Service Worker V16.1.2 SAFE
 const CACHE_VERSION = 'suivi-lions-v16-1-1';
 const RUNTIME_CACHE = 'suivi-lions-v16-1-1-runtime';
 

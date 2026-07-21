@@ -1,0 +1,31 @@
+SUIVI DES LIONS — INSTALLATION V16.1.2
+=====================================
+
+1. Décompresser l'archive complète.
+2. Vérifier que index.html est directement à la racine du dossier.
+3. Remplacer le contenu local du dépôt par le contenu complet de cette version.
+4. Ouvrir GitHub Desktop.
+5. Vérifier les fichiers modifiés et ajoutés.
+6. Utiliser par exemple le message de commit :
+   V16.1.2 archives mondiales figées sur les pages pays
+7. Commit to main, puis Push origin.
+8. Attendre la fin du déploiement Netlify.
+9. Ouvrir :
+   https://qualifgainde.netlify.app/?v=1612
+10. Effectuer un rechargement forcé : Cmd + Shift + R.
+
+RECETTE RAPIDE
+--------------
+
+- Ouvrir la Mémoire du Mondial.
+- Ouvrir Espagne, Sénégal et Maroc.
+- Vérifier l'ordre : récit, 12 groupes, meilleurs troisièmes, tableau final.
+- Vérifier que les trois archives sont identiques d'un pays à l'autre.
+- Vérifier la finale Espagne 1–0 Argentine.
+- Vérifier qu'aucun bouton, champ ou texte de simulation n'apparaît.
+- Tester le défilement horizontal du tableau final sur mobile.
+
+AUCUNE ACTION NETLIFY SUPPLÉMENTAIRE
+------------------------------------
+
+Aucune nouvelle variable d'environnement n'est nécessaire. Les articles CMS déjà stockés dans Netlify Blobs restent conservés.

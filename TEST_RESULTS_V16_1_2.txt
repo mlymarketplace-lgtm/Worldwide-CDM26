@@ -1,0 +1,20 @@
+SUIVI DES LIONS V16.1.2 — RÉSULTATS DE TESTS
+=============================================
+
+PASS npm ci --ignore-scripts
+PASS Lot A — routeur, home, CMS, navigation et Mémoire du Mondial
+PASS Lot B — 80 pages pays/langue
+PASS récit placé avant les trois archives mondiales
+PASS 12 groupes
+PASS 8 meilleurs troisièmes
+PASS 32 matchs du tableau final
+PASS finale Espagne 1–0 Argentine
+PASS archives identiques sur toutes les pages pays
+PASS aucun vocabulaire de simulation dans le renderer actif
+PASS navigateur — Mémoire du Mondial
+PASS navigateur mobile — page Espagne et archives
+PASS syntaxe JavaScript
+PASS validation JSON
+PASS registre npm public
+
+NOTE : npm audit remonte 6 avis modérés transitifs préexistants dans @netlify/blobs.

@@ -1,0 +1,1292 @@
+{
+  "version": "16.1.2",
+  "frozen": true,
+  "tournament": "FIFA World Cup 2026",
+  "teams": {
+    "MEX": {
+      "flag": "🇲🇽",
+      "fr": "Mexique",
+      "en": "Mexico",
+      "es": "México",
+      "pt": "México",
+      "ar": "المكسيك"
+    },
+    "RSA": {
+      "flag": "🇿🇦",
+      "fr": "Afrique du Sud",
+      "en": "South Africa",
+      "es": "Sudáfrica",
+      "pt": "África do Sul",
+      "ar": "جنوب أفريقيا"
+    },
+    "KOR": {
+      "flag": "🇰🇷",
+      "fr": "Corée du Sud",
+      "en": "South Korea",
+      "es": "Corea del Sur",
+      "pt": "Coreia do Sul",
+      "ar": "كوريا الجنوبية"
+    },
+    "CZE": {
+      "flag": "🇨🇿",
+      "fr": "Tchéquie",
+      "en": "Czechia",
+      "es": "Chequia",
+      "pt": "Tchéquia",
+      "ar": "التشيك"
+    },
+    "SUI": {
+      "flag": "🇨🇭",
+      "fr": "Suisse",
+      "en": "Switzerland",
+      "es": "Suiza",
+      "pt": "Suíça",
+      "ar": "سويسرا"
+    },
+    "CAN": {
+      "flag": "🇨🇦",
+      "fr": "Canada",
+      "en": "Canada",
+      "es": "Canadá",
+      "pt": "Canadá",
+      "ar": "كندا"
+    },
+    "BIH": {
+      "flag": "🇧🇦",
+      "fr": "Bosnie-Herzégovine",
+      "en": "Bosnia and Herzegovina",
+      "es": "Bosnia y Herzegovina",
+      "pt": "Bósnia e Herzegovina",
+      "ar": "البوسنة والهرسك"
+    },
+    "QAT": {
+      "flag": "🇶🇦",
+      "fr": "Qatar",
+      "en": "Qatar",
+      "es": "Catar",
+      "pt": "Catar",
+      "ar": "قطر"
+    },
+    "BRA": {
+      "flag": "🇧🇷",
+      "fr": "Brésil",
+      "en": "Brazil",
+      "es": "Brasil",
+      "pt": "Brasil",
+      "ar": "البرازيل"
+    },
+    "MAR": {
+      "flag": "🇲🇦",
+      "fr": "Maroc",
+      "en": "Morocco",
+      "es": "Marruecos",
+      "pt": "Marrocos",
+      "ar": "المغرب"
+    },
+    "SCO": {
+      "flag": "🏴󠁧󠁢󠁳󠁣󠁴󠁿",
+      "fr": "Écosse",
+      "en": "Scotland",
+      "es": "Escocia",
+      "pt": "Escócia",
+      "ar": "اسكتلندا"
+    },
+    "HTI": {
+      "flag": "🇭🇹",
+      "fr": "Haïti",
+      "en": "Haiti",
+      "es": "Haití",
+      "pt": "Haiti",
+      "ar": "هايتي"
+    },
+    "USA": {
+      "flag": "🇺🇸",
+      "fr": "États-Unis",
+      "en": "United States",
+      "es": "Estados Unidos",
+      "pt": "Estados Unidos",
+      "ar": "الولايات المتحدة"
+    },
+    "AUS": {
+      "flag": "🇦🇺",
+      "fr": "Australie",
+      "en": "Australia",
+      "es": "Australia",
+      "pt": "Austrália",
+      "ar": "أستراليا"
+    },
+    "PAR": {
+      "flag": "🇵🇾",
+      "fr": "Paraguay",
+      "en": "Paraguay",
+      "es": "Paraguay",
+      "pt": "Paraguai",
+      "ar": "باراغواي"
+    },
+    "TUR": {
+      "flag": "🇹🇷",
+      "fr": "Türkiye",
+      "en": "Türkiye",
+      "es": "Turquía",
+      "pt": "Turquia",
+      "ar": "تركيا"
+    },
+    "GER": {
+      "flag": "🇩🇪",
+      "fr": "Allemagne",
+      "en": "Germany",
+      "es": "Alemania",
+      "pt": "Alemanha",
+      "ar": "ألمانيا"
+    },
+    "CIV": {
+      "flag": "🇨🇮",
+      "fr": "Côte d’Ivoire",
+      "en": "Ivory Coast",
+      "es": "Costa de Marfil",
+      "pt": "Costa do Marfim",
+      "ar": "ساحل العاج"
+    },
+    "ECU": {
+      "flag": "🇪🇨",
+      "fr": "Équateur",
+      "en": "Ecuador",
+      "es": "Ecuador",
+      "pt": "Equador",
+      "ar": "الإكوادور"
+    },
+    "CUW": {
+      "flag": "🇨🇼",
+      "fr": "Curaçao",
+      "en": "Curaçao",
+      "es": "Curazao",
+      "pt": "Curaçao",
+      "ar": "كوراساو"
+    },
+    "NED": {
+      "flag": "🇳🇱",
+      "fr": "Pays-Bas",
+      "en": "Netherlands",
+      "es": "Países Bajos",
+      "pt": "Países Baixos",
+      "ar": "هولندا"
+    },
+    "JPN": {
+      "flag": "🇯🇵",
+      "fr": "Japon",
+      "en": "Japan",
+      "es": "Japón",
+      "pt": "Japão",
+      "ar": "اليابان"
+    },
+    "SWE": {
+      "flag": "🇸🇪",
+      "fr": "Suède",
+      "en": "Sweden",
+      "es": "Suecia",
+      "pt": "Suécia",
+      "ar": "السويد"
+    },
+    "TUN": {
+      "flag": "🇹🇳",
+      "fr": "Tunisie",
+      "en": "Tunisia",
+      "es": "Túnez",
+      "pt": "Tunísia",
+      "ar": "تونس"
+    },
+    "BEL": {
+      "flag": "🇧🇪",
+      "fr": "Belgique",
+      "en": "Belgium",
+      "es": "Bélgica",
+      "pt": "Bélgica",
+      "ar": "بلجيكا"
+    },
+    "EGY": {
+      "flag": "🇪🇬",
+      "fr": "Égypte",
+      "en": "Egypt",
+      "es": "Egipto",
+      "pt": "Egito",
+      "ar": "مصر"
+    },
+    "IRN": {
+      "flag": "🇮🇷",
+      "fr": "Iran",
+      "en": "Iran",
+      "es": "Irán",
+      "pt": "Irã",
+      "ar": "إيران"
+    },
+    "NZL": {
+      "flag": "🇳🇿",
+      "fr": "Nouvelle-Zélande",
+      "en": "New Zealand",
+      "es": "Nueva Zelanda",
+      "pt": "Nova Zelândia",
+      "ar": "نيوزيلندا"
+    },
+    "ESP": {
+      "flag": "🇪🇸",
+      "fr": "Espagne",
+      "en": "Spain",
+      "es": "España",
+      "pt": "Espanha",
+      "ar": "إسبانيا"
+    },
+    "CPV": {
+      "flag": "🇨🇻",
+      "fr": "Cap-Vert",
+      "en": "Cape Verde",
+      "es": "Cabo Verde",
+      "pt": "Cabo Verde",
+      "ar": "الرأس الأخضر"
+    },
+    "URU": {
+      "flag": "🇺🇾",
+      "fr": "Uruguay",
+      "en": "Uruguay",
+      "es": "Uruguay",
+      "pt": "Uruguai",
+      "ar": "الأوروغواي"
+    },
+    "KSA": {
+      "flag": "🇸🇦",
+      "fr": "Arabie saoudite",
+      "en": "Saudi Arabia",
+      "es": "Arabia Saudí",
+      "pt": "Arábia Saudita",
+      "ar": "السعودية"
+    },
+    "FRA": {
+      "flag": "🇫🇷",
+      "fr": "France",
+      "en": "France",
+      "es": "Francia",
+      "pt": "França",
+      "ar": "فرنسا"
+    },
+    "NOR": {
+      "flag": "🇳🇴",
+      "fr": "Norvège",
+      "en": "Norway",
+      "es": "Noruega",
+      "pt": "Noruega",
+      "ar": "النرويج"
+    },
+    "SEN": {
+      "flag": "🇸🇳",
+      "fr": "Sénégal",
+      "en": "Senegal",
+      "es": "Senegal",
+      "pt": "Senegal",
+      "ar": "السنغال"
+    },
+    "IRQ": {
+      "flag": "🇮🇶",
+      "fr": "Iraq",
+      "en": "Iraq",
+      "es": "Irak",
+      "pt": "Iraque",
+      "ar": "العراق"
+    },
+    "ARG": {
+      "flag": "🇦🇷",
+      "fr": "Argentine",
+      "en": "Argentina",
+      "es": "Argentina",
+      "pt": "Argentina",
+      "ar": "الأرجنتين"
+    },
+    "AUT": {
+      "flag": "🇦🇹",
+      "fr": "Autriche",
+      "en": "Austria",
+      "es": "Austria",
+      "pt": "Áustria",
+      "ar": "النمسا"
+    },
+    "ALG": {
+      "flag": "🇩🇿",
+      "fr": "Algérie",
+      "en": "Algeria",
+      "es": "Argelia",
+      "pt": "Argélia",
+      "ar": "الجزائر"
+    },
+    "JOR": {
+      "flag": "🇯🇴",
+      "fr": "Jordanie",
+      "en": "Jordan",
+      "es": "Jordania",
+      "pt": "Jordânia",
+      "ar": "الأردن"
+    },
+    "COL": {
+      "flag": "🇨🇴",
+      "fr": "Colombie",
+      "en": "Colombia",
+      "es": "Colombia",
+      "pt": "Colômbia",
+      "ar": "كولومبيا"
+    },
+    "POR": {
+      "flag": "🇵🇹",
+      "fr": "Portugal",
+      "en": "Portugal",
+      "es": "Portugal",
+      "pt": "Portugal",
+      "ar": "البرتغال"
+    },
+    "COD": {
+      "flag": "🇨🇩",
+      "fr": "RD Congo",
+      "en": "DR Congo",
+      "es": "RD Congo",
+      "pt": "RD Congo",
+      "ar": "الكونغو الديمقراطية"
+    },
+    "UZB": {
+      "flag": "🇺🇿",
+      "fr": "Ouzbékistan",
+      "en": "Uzbekistan",
+      "es": "Uzbekistán",
+      "pt": "Uzbequistão",
+      "ar": "أوزبكستان"
+    },
+    "ENG": {
+      "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+      "fr": "Angleterre",
+      "en": "England",
+      "es": "Inglaterra",
+      "pt": "Inglaterra",
+      "ar": "إنجلترا"
+    },
+    "CRO": {
+      "flag": "🇭🇷",
+      "fr": "Croatie",
+      "en": "Croatia",
+      "es": "Croacia",
+      "pt": "Croácia",
+      "ar": "كرواتيا"
+    },
+    "GHA": {
+      "flag": "🇬🇭",
+      "fr": "Ghana",
+      "en": "Ghana",
+      "es": "Ghana",
+      "pt": "Gana",
+      "ar": "غانا"
+    },
+    "PAN": {
+      "flag": "🇵🇦",
+      "fr": "Panama",
+      "en": "Panama",
+      "es": "Panamá",
+      "pt": "Panamá",
+      "ar": "بنما"
+    }
+  },
+  "groups": [
+    {
+      "group": "A",
+      "rows": [
+        {
+          "code": "MEX",
+          "played": 3,
+          "points": 9,
+          "gf": 6,
+          "ga": 0,
+          "gd": 6,
+          "position": 1
+        },
+        {
+          "code": "RSA",
+          "played": 3,
+          "points": 4,
+          "gf": 2,
+          "ga": 3,
+          "gd": -1,
+          "position": 2
+        },
+        {
+          "code": "KOR",
+          "played": 3,
+          "points": 3,
+          "gf": 2,
+          "ga": 3,
+          "gd": -1,
+          "position": 3
+        },
+        {
+          "code": "CZE",
+          "played": 3,
+          "points": 1,
+          "gf": 2,
+          "ga": 6,
+          "gd": -4,
+          "position": 4
+        }
+      ]
+    },
+    {
+      "group": "B",
+      "rows": [
+        {
+          "code": "SUI",
+          "played": 3,
+          "points": 7,
+          "gf": 8,
+          "ga": 3,
+          "gd": 5,
+          "position": 1
+        },
+        {
+          "code": "CAN",
+          "played": 3,
+          "points": 4,
+          "gf": 8,
+          "ga": 4,
+          "gd": 4,
+          "position": 2
+        },
+        {
+          "code": "BIH",
+          "played": 3,
+          "points": 4,
+          "gf": 5,
+          "ga": 6,
+          "gd": -1,
+          "position": 3
+        },
+        {
+          "code": "QAT",
+          "played": 3,
+          "points": 1,
+          "gf": 2,
+          "ga": 10,
+          "gd": -8,
+          "position": 4
+        }
+      ]
+    },
+    {
+      "group": "C",
+      "rows": [
+        {
+          "code": "BRA",
+          "played": 3,
+          "points": 7,
+          "gf": 7,
+          "ga": 1,
+          "gd": 6,
+          "position": 1
+        },
+        {
+          "code": "MAR",
+          "played": 3,
+          "points": 7,
+          "gf": 6,
+          "ga": 3,
+          "gd": 3,
+          "position": 2
+        },
+        {
+          "code": "SCO",
+          "played": 3,
+          "points": 3,
+          "gf": 1,
+          "ga": 4,
+          "gd": -3,
+          "position": 3
+        },
+        {
+          "code": "HTI",
+          "played": 3,
+          "points": 0,
+          "gf": 2,
+          "ga": 8,
+          "gd": -6,
+          "position": 4
+        }
+      ]
+    },
+    {
+      "group": "D",
+      "rows": [
+        {
+          "code": "USA",
+          "played": 3,
+          "points": 6,
+          "gf": 8,
+          "ga": 4,
+          "gd": 4,
+          "position": 1
+        },
+        {
+          "code": "AUS",
+          "played": 3,
+          "points": 4,
+          "gf": 2,
+          "ga": 2,
+          "gd": 0,
+          "position": 2
+        },
+        {
+          "code": "PAR",
+          "played": 3,
+          "points": 4,
+          "gf": 2,
+          "ga": 4,
+          "gd": -2,
+          "position": 3
+        },
+        {
+          "code": "TUR",
+          "played": 3,
+          "points": 3,
+          "gf": 3,
+          "ga": 5,
+          "gd": -2,
+          "position": 4
+        }
+      ]
+    },
+    {
+      "group": "E",
+      "rows": [
+        {
+          "code": "GER",
+          "played": 3,
+          "points": 6,
+          "gf": 10,
+          "ga": 4,
+          "gd": 6,
+          "position": 1
+        },
+        {
+          "code": "CIV",
+          "played": 3,
+          "points": 6,
+          "gf": 4,
+          "ga": 2,
+          "gd": 2,
+          "position": 2
+        },
+        {
+          "code": "ECU",
+          "played": 3,
+          "points": 4,
+          "gf": 2,
+          "ga": 2,
+          "gd": 0,
+          "position": 3
+        },
+        {
+          "code": "CUW",
+          "played": 3,
+          "points": 1,
+          "gf": 1,
+          "ga": 9,
+          "gd": -8,
+          "position": 4
+        }
+      ]
+    },
+    {
+      "group": "F",
+      "rows": [
+        {
+          "code": "NED",
+          "played": 3,
+          "points": 7,
+          "gf": 10,
+          "ga": 4,
+          "gd": 6,
+          "position": 1
+        },
+        {
+          "code": "JPN",
+          "played": 3,
+          "points": 5,
+          "gf": 7,
+          "ga": 3,
+          "gd": 4,
+          "position": 2
+        },
+        {
+          "code": "SWE",
+          "played": 3,
+          "points": 4,
+          "gf": 7,
+          "ga": 7,
+          "gd": 0,
+          "position": 3
+        },
+        {
+          "code": "TUN",
+          "played": 3,
+          "points": 0,
+          "gf": 2,
+          "ga": 12,
+          "gd": -10,
+          "position": 4
+        }
+      ]
+    },
+    {
+      "group": "G",
+      "rows": [
+        {
+          "code": "BEL",
+          "played": 3,
+          "points": 5,
+          "gf": 6,
+          "ga": 2,
+          "gd": 4,
+          "position": 1
+        },
+        {
+          "code": "EGY",
+          "played": 3,
+          "points": 5,
+          "gf": 5,
+          "ga": 3,
+          "gd": 2,
+          "position": 2
+        },
+        {
+          "code": "IRN",
+          "played": 3,
+          "points": 3,
+          "gf": 3,
+          "ga": 3,
+          "gd": 0,
+          "position": 3
+        },
+        {
+          "code": "NZL",
+          "played": 3,
+          "points": 1,
+          "gf": 4,
+          "ga": 10,
+          "gd": -6,
+          "position": 4
+        }
+      ]
+    },
+    {
+      "group": "H",
+      "rows": [
+        {
+          "code": "ESP",
+          "played": 3,
+          "points": 7,
+          "gf": 5,
+          "ga": 0,
+          "gd": 5,
+          "position": 1
+        },
+        {
+          "code": "CPV",
+          "played": 3,
+          "points": 3,
+          "gf": 2,
+          "ga": 2,
+          "gd": 0,
+          "position": 2
+        },
+        {
+          "code": "URU",
+          "played": 3,
+          "points": 2,
+          "gf": 3,
+          "ga": 4,
+          "gd": -1,
+          "position": 3
+        },
+        {
+          "code": "KSA",
+          "played": 3,
+          "points": 2,
+          "gf": 1,
+          "ga": 5,
+          "gd": -4,
+          "position": 4
+        }
+      ]
+    },
+    {
+      "group": "I",
+      "rows": [
+        {
+          "code": "FRA",
+          "played": 3,
+          "points": 9,
+          "gf": 10,
+          "ga": 2,
+          "gd": 8,
+          "position": 1
+        },
+        {
+          "code": "NOR",
+          "played": 3,
+          "points": 6,
+          "gf": 8,
+          "ga": 7,
+          "gd": 1,
+          "position": 2
+        },
+        {
+          "code": "SEN",
+          "played": 3,
+          "points": 3,
+          "gf": 8,
+          "ga": 6,
+          "gd": 2,
+          "position": 3
+        },
+        {
+          "code": "IRQ",
+          "played": 3,
+          "points": 0,
+          "gf": 1,
+          "ga": 12,
+          "gd": -11,
+          "position": 4
+        }
+      ]
+    },
+    {
+      "group": "J",
+      "rows": [
+        {
+          "code": "ARG",
+          "played": 3,
+          "points": 9,
+          "gf": 8,
+          "ga": 1,
+          "gd": 7,
+          "position": 1
+        },
+        {
+          "code": "AUT",
+          "played": 3,
+          "points": 4,
+          "gf": 5,
+          "ga": 5,
+          "gd": 0,
+          "position": 2
+        },
+        {
+          "code": "ALG",
+          "played": 3,
+          "points": 4,
+          "gf": 4,
+          "ga": 6,
+          "gd": -2,
+          "position": 3
+        },
+        {
+          "code": "JOR",
+          "played": 3,
+          "points": 0,
+          "gf": 3,
+          "ga": 8,
+          "gd": -5,
+          "position": 4
+        }
+      ]
+    },
+    {
+      "group": "K",
+      "rows": [
+        {
+          "code": "COL",
+          "played": 3,
+          "points": 7,
+          "gf": 4,
+          "ga": 1,
+          "gd": 3,
+          "position": 1
+        },
+        {
+          "code": "POR",
+          "played": 3,
+          "points": 5,
+          "gf": 6,
+          "ga": 1,
+          "gd": 5,
+          "position": 2
+        },
+        {
+          "code": "COD",
+          "played": 3,
+          "points": 4,
+          "gf": 4,
+          "ga": 3,
+          "gd": 1,
+          "position": 3
+        },
+        {
+          "code": "UZB",
+          "played": 3,
+          "points": 0,
+          "gf": 2,
+          "ga": 11,
+          "gd": -9,
+          "position": 4
+        }
+      ]
+    },
+    {
+      "group": "L",
+      "rows": [
+        {
+          "code": "ENG",
+          "played": 3,
+          "points": 7,
+          "gf": 6,
+          "ga": 2,
+          "gd": 4,
+          "position": 1
+        },
+        {
+          "code": "CRO",
+          "played": 3,
+          "points": 6,
+          "gf": 5,
+          "ga": 5,
+          "gd": 0,
+          "position": 2
+        },
+        {
+          "code": "GHA",
+          "played": 3,
+          "points": 4,
+          "gf": 2,
+          "ga": 2,
+          "gd": 0,
+          "position": 3
+        },
+        {
+          "code": "PAN",
+          "played": 3,
+          "points": 0,
+          "gf": 0,
+          "ga": 4,
+          "gd": -4,
+          "position": 4
+        }
+      ]
+    }
+  ],
+  "bestThird": [
+    {
+      "code": "COD",
+      "group": "K",
+      "played": 3,
+      "points": 4,
+      "gf": 4,
+      "ga": 3,
+      "gd": 1,
+      "position": 3,
+      "rank": 1,
+      "qualified": true
+    },
+    {
+      "code": "SWE",
+      "group": "F",
+      "played": 3,
+      "points": 4,
+      "gf": 7,
+      "ga": 7,
+      "gd": 0,
+      "position": 3,
+      "rank": 2,
+      "qualified": true
+    },
+    {
+      "code": "ECU",
+      "group": "E",
+      "played": 3,
+      "points": 4,
+      "gf": 2,
+      "ga": 2,
+      "gd": 0,
+      "position": 3,
+      "rank": 3,
+      "qualified": true
+    },
+    {
+      "code": "GHA",
+      "group": "L",
+      "played": 3,
+      "points": 4,
+      "gf": 2,
+      "ga": 2,
+      "gd": 0,
+      "position": 3,
+      "rank": 4,
+      "qualified": true
+    },
+    {
+      "code": "BIH",
+      "group": "B",
+      "played": 3,
+      "points": 4,
+      "gf": 5,
+      "ga": 6,
+      "gd": -1,
+      "position": 3,
+      "rank": 5,
+      "qualified": true
+    },
+    {
+      "code": "ALG",
+      "group": "J",
+      "played": 3,
+      "points": 4,
+      "gf": 4,
+      "ga": 6,
+      "gd": -2,
+      "position": 3,
+      "rank": 6,
+      "qualified": true
+    },
+    {
+      "code": "PAR",
+      "group": "D",
+      "played": 3,
+      "points": 4,
+      "gf": 2,
+      "ga": 4,
+      "gd": -2,
+      "position": 3,
+      "rank": 7,
+      "qualified": true
+    },
+    {
+      "code": "SEN",
+      "group": "I",
+      "played": 3,
+      "points": 3,
+      "gf": 8,
+      "ga": 6,
+      "gd": 2,
+      "position": 3,
+      "rank": 8,
+      "qualified": true
+    }
+  ],
+  "knockout": [
+    {
+      "id": "N73",
+      "round": "r32",
+      "home": "RSA",
+      "away": "CAN",
+      "homeScore": 0,
+      "awayScore": 1,
+      "winner": "CAN"
+    },
+    {
+      "id": "N74",
+      "round": "r32",
+      "home": "GER",
+      "away": "PAR",
+      "homeScore": 1,
+      "awayScore": 1,
+      "penalty": {
+        "home": 3,
+        "away": 4
+      },
+      "winner": "PAR"
+    },
+    {
+      "id": "N75",
+      "round": "r32",
+      "home": "NED",
+      "away": "MAR",
+      "homeScore": 1,
+      "awayScore": 1,
+      "penalty": {
+        "home": 2,
+        "away": 3
+      },
+      "winner": "MAR"
+    },
+    {
+      "id": "N76",
+      "round": "r32",
+      "home": "CIV",
+      "away": "NOR",
+      "homeScore": 1,
+      "awayScore": 2,
+      "winner": "NOR"
+    },
+    {
+      "id": "N77",
+      "round": "r32",
+      "home": "FRA",
+      "away": "SWE",
+      "homeScore": 3,
+      "awayScore": 0,
+      "winner": "FRA"
+    },
+    {
+      "id": "N78",
+      "round": "r32",
+      "home": "BRA",
+      "away": "JPN",
+      "homeScore": 2,
+      "awayScore": 1,
+      "winner": "BRA"
+    },
+    {
+      "id": "N79",
+      "round": "r32",
+      "home": "MEX",
+      "away": "ECU",
+      "homeScore": 2,
+      "awayScore": 0,
+      "winner": "MEX"
+    },
+    {
+      "id": "N80",
+      "round": "r32",
+      "home": "ENG",
+      "away": "COD",
+      "homeScore": 2,
+      "awayScore": 1,
+      "winner": "ENG"
+    },
+    {
+      "id": "N81",
+      "round": "r32",
+      "home": "USA",
+      "away": "BIH",
+      "homeScore": 2,
+      "awayScore": 0,
+      "winner": "USA"
+    },
+    {
+      "id": "N82",
+      "round": "r32",
+      "home": "BEL",
+      "away": "SEN",
+      "homeScore": 3,
+      "awayScore": 2,
+      "winner": "BEL"
+    },
+    {
+      "id": "N83",
+      "round": "r32",
+      "home": "POR",
+      "away": "CRO",
+      "homeScore": 2,
+      "awayScore": 1,
+      "winner": "POR"
+    },
+    {
+      "id": "N84",
+      "round": "r32",
+      "home": "ESP",
+      "away": "AUT",
+      "homeScore": 3,
+      "awayScore": 0,
+      "winner": "ESP"
+    },
+    {
+      "id": "N85",
+      "round": "r32",
+      "home": "SUI",
+      "away": "ALG",
+      "homeScore": 2,
+      "awayScore": 0,
+      "winner": "SUI"
+    },
+    {
+      "id": "N86",
+      "round": "r32",
+      "home": "AUS",
+      "away": "EGY",
+      "homeScore": 1,
+      "awayScore": 1,
+      "penalty": {
+        "home": 2,
+        "away": 4
+      },
+      "winner": "EGY"
+    },
+    {
+      "id": "N87",
+      "round": "r32",
+      "home": "ARG",
+      "away": "CPV",
+      "homeScore": 3,
+      "awayScore": 2,
+      "winner": "ARG"
+    },
+    {
+      "id": "N88",
+      "round": "r32",
+      "home": "COL",
+      "away": "GHA",
+      "homeScore": 1,
+      "awayScore": 0,
+      "winner": "COL"
+    },
+    {
+      "id": "N89",
+      "round": "r16",
+      "home": "PAR",
+      "away": "FRA",
+      "homeScore": 0,
+      "awayScore": 1,
+      "winner": "FRA"
+    },
+    {
+      "id": "N90",
+      "round": "r16",
+      "home": "CAN",
+      "away": "MAR",
+      "homeScore": 0,
+      "awayScore": 3,
+      "winner": "MAR"
+    },
+    {
+      "id": "N91",
+      "round": "r16",
+      "home": "NOR",
+      "away": "BRA",
+      "homeScore": 2,
+      "awayScore": 1,
+      "winner": "NOR"
+    },
+    {
+      "id": "N92",
+      "round": "r16",
+      "home": "MEX",
+      "away": "ENG",
+      "homeScore": 2,
+      "awayScore": 3,
+      "winner": "ENG"
+    },
+    {
+      "id": "N93",
+      "round": "r16",
+      "home": "POR",
+      "away": "ESP",
+      "homeScore": 0,
+      "awayScore": 1,
+      "winner": "ESP"
+    },
+    {
+      "id": "N94",
+      "round": "r16",
+      "home": "USA",
+      "away": "BEL",
+      "homeScore": 1,
+      "awayScore": 4,
+      "winner": "BEL"
+    },
+    {
+      "id": "N95",
+      "round": "r16",
+      "home": "ARG",
+      "away": "EGY",
+      "homeScore": 3,
+      "awayScore": 2,
+      "winner": "ARG"
+    },
+    {
+      "id": "N96",
+      "round": "r16",
+      "home": "SUI",
+      "away": "COL",
+      "homeScore": 0,
+      "awayScore": 0,
+      "penalty": {
+        "home": 4,
+        "away": 3
+      },
+      "winner": "SUI"
+    },
+    {
+      "id": "N97",
+      "round": "qf",
+      "home": "FRA",
+      "away": "MAR",
+      "homeScore": 2,
+      "awayScore": 0,
+      "winner": "FRA"
+    },
+    {
+      "id": "N98",
+      "round": "qf",
+      "home": "ESP",
+      "away": "BEL",
+      "homeScore": 2,
+      "awayScore": 1,
+      "winner": "ESP"
+    },
+    {
+      "id": "N99",
+      "round": "qf",
+      "home": "NOR",
+      "away": "ENG",
+      "homeScore": 1,
+      "awayScore": 2,
+      "winner": "ENG"
+    },
+    {
+      "id": "N100",
+      "round": "qf",
+      "home": "ARG",
+      "away": "SUI",
+      "homeScore": 3,
+      "awayScore": 1,
+      "winner": "ARG"
+    },
+    {
+      "id": "N101",
+      "round": "sf",
+      "home": "FRA",
+      "away": "ESP",
+      "homeScore": 0,
+      "awayScore": 2,
+      "winner": "ESP"
+    },
+    {
+      "id": "N102",
+      "round": "sf",
+      "home": "ENG",
+      "away": "ARG",
+      "homeScore": 1,
+      "awayScore": 2,
+      "winner": "ARG"
+    },
+    {
+      "id": "N103",
+      "round": "third",
+      "home": "FRA",
+      "away": "ENG",
+      "homeScore": 4,
+      "awayScore": 6,
+      "winner": "ENG"
+    },
+    {
+      "id": "N104",
+      "round": "final",
+      "home": "ESP",
+      "away": "ARG",
+      "homeScore": 1,
+      "awayScore": 0,
+      "winner": "ESP"
+    }
+  ],
+  "champion": "ESP",
+  "runnerUp": "ARG",
+  "thirdPlace": "ENG"
+}
