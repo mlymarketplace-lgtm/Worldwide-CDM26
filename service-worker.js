@@ -1,6 +1,6 @@
-// Mondial Pulse 2026 — Service Worker V16.1.2 SAFE
-const CACHE_VERSION = 'suivi-lions-v16-1-1';
-const RUNTIME_CACHE = 'suivi-lions-v16-1-1-runtime';
+// Passion Foot - Suivi des Lions — Service Worker V16.2.0 SAFE
+const CACHE_VERSION = 'suivi-lions-v16-2-0';
+const RUNTIME_CACHE = 'suivi-lions-v16-2-0-runtime';
 
 self.addEventListener('install', event => {
   self.skipWaiting();
@@ -10,7 +10,7 @@ self.addEventListener('activate', event => {
   event.waitUntil(
     caches.keys().then(keys => Promise.all(
       keys
-        .filter(k => (k.startsWith('qualifgainde-') || k.startsWith('qg-v')) && k !== CACHE_VERSION && k !== RUNTIME_CACHE)
+        .filter(k => (k.startsWith('qualifgainde-') || k.startsWith('qg-v') || k.startsWith('suivi-lions-')) && k !== CACHE_VERSION && k !== RUNTIME_CACHE)
         .map(k => caches.delete(k))
     )).then(() => self.clients.claim())
   );

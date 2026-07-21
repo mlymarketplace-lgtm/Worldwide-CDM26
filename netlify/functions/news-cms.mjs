@@ -247,7 +247,7 @@ export default async (req) => {
     }
 
     if (body.action === 'export') {
-      return json({ ok: true, version: '16.1.1', exportedAt: new Date().toISOString(), articles: await listAll(store) });
+      return json({ ok: true, version: '16.2.0', exportedAt: new Date().toISOString(), articles: await listAll(store) });
     }
 
     return json({ ok: false, error: 'unknown_action', message: 'Action inconnue.' }, 400);

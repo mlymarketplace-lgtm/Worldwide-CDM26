@@ -1,0 +1,16 @@
+PASSION FOOT - SUIVI DES LIONS V16.2.0 — RÉSULTATS DE TESTS
+===========================================================
+
+PASS Lot A — marque, Facebook, visuel, Brèves Gaïndés et console photo
+PASS Lot B — 80 pages pays/langue et archives figées
+PASS titre Facebook « Passion foot - suivi des gaïndés »
+PASS nom public « Passion Foot - Suivi des Lions »
+PASS nouveau visuel Espagne championne 2026
+PASS interface de recadrage 16:9, zoom et déplacement
+PASS syntaxe JavaScript et scripts inline
+PASS validation JSON
+PASS index.html à la racine
+
+NOTE : npm ci n'a pas pu être rejoué dans l'environnement de préparation à cause
+d'un cache npm système inaccessible. Les tests de cette version n'utilisent aucune
+dépendance externe et ont tous été exécutés directement avec Node.js avec succès.

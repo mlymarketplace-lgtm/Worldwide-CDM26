@@ -87,7 +87,7 @@ body[data-view="home"] #source-note{display:none}body[data-view]:not([data-view=
 </style>
 </head>
 <body>
-<header class="topbar"><div class="topbar-inner"><a class="brand" href="#home" aria-label="Accueil Suivi des Gaïndés"><span class="brand-logo"><img src="/mangara-studio-7f3k9q/assets/brand/suivi-gaindes-lion.jpg" alt="Lion"></span><span class="brand-copy"><strong>Suivi des Gaïndés</strong><small>V15.4.8 · International</small></span></a><div class="langbar" aria-label="Langues"><button class="active" data-lang="fr">FR</button><button data-lang="en">EN</button><button data-lang="ar">AR</button></div><a class="pwa-badge" href="/?v=1611" aria-label="Retour à Suivi des Lions" target="_top">← Suivi des Lions</a></div></header>
+<header class="topbar"><div class="topbar-inner"><a class="brand" href="#home" aria-label="Accueil Suivi des Gaïndés"><span class="brand-logo"><img src="/mangara-studio-7f3k9q/assets/brand/suivi-gaindes-lion.jpg" alt="Lion"></span><span class="brand-copy"><strong>Suivi des Gaïndés</strong><small>V15.4.8 · International</small></span></a><div class="langbar" aria-label="Langues"><button class="active" data-lang="fr">FR</button><button data-lang="en">EN</button><button data-lang="ar">AR</button></div><a class="pwa-badge" href="/?v=1620" aria-label="Retour à Suivi des Lions" target="_top">← Suivi des Lions</a></div></header>
 <main class="wrap" id="home">
 <section class="hero" id="landing-hero"><div class="hero-emblem"><img src="/mangara-studio-7f3k9q/assets/brand/suivi-gaindes-lion.jpg" alt="Lion des Gaïndés"></div><div class="hero-copy"><div class="kicker">Sélection · Clubs · Europe · Brèves</div><h1>Suivi des Gaïndés</h1><p class="tagline">Un hub clair pour entrer rapidement dans l’univers des Lions : équipe nationale, performances du week-end, compétitions, clubs, joueurs et actualité éditoriale.</p></div></section>
 <div class="view-toolbar" id="view-toolbar" hidden><button type="button" onclick="go('home')">← Toutes les entrées</button><span id="view-label">Univers</span></div>
@@ -133,7 +133,7 @@ async function boot(){
 function showDataError(){
  let p=document.getElementById('data-error-panel');
  if(!p){p=document.createElement('section');p.id='data-error-panel';p.className='data-error-panel';const main=document.querySelector('main.wrap');const hero=main&&main.querySelector('.hero');if(main)main.insertBefore(p,hero?hero.nextSibling:main.firstChild)}
- p.innerHTML='<h2>Les données n’ont pas pu être chargées</h2><p>La navigation reste disponible. Vérifie ta connexion puis réessaie.</p><div class="data-error-actions"><button type="button" onclick="boot()">Réessayer</button><a href="/?v=1611">Retour à Suivi des Lions</a></div>';p.hidden=false
+ p.innerHTML='<h2>Les données n’ont pas pu être chargées</h2><p>La navigation reste disponible. Vérifie ta connexion puis réessaie.</p><div class="data-error-actions"><button type="button" onclick="boot()">Réessayer</button><a href="/?v=1620">Retour à Suivi des Lions</a></div>';p.hidden=false
 }
 function hideDataError(){const p=document.getElementById('data-error-panel');if(p)p.hidden=true}
 function updateSourceNote(){const e=document.getElementById('source-note');if(!e)return;const d=SOURCE_NOTE.updatedAt?' · mise à jour '+SOURCE_NOTE.updatedAt:'';e.textContent=(SOURCE_NOTE.note||'Sources locales et simulées · validation humaine avant publication.')+d}

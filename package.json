@@ -1,12 +1,12 @@
 {
-  "name": "mondial-pulse-2026",
-  "version": "16.1.2",
+  "name": "passion-foot-suivi-des-lions",
+  "version": "16.2.0",
   "private": true,
-  "description": "Suivi des Lions V16.1.2 — archives mondiales figées sur toutes les pages pays, sans simulation.",
+  "description": "Passion Foot - Suivi des Lions V16.2.0 — identité publique, visuel Espagne, console photo avec recadrage et archives mondiales figées.",
   "scripts": {
     "build": "echo \"No build required — static Netlify deployment\"",
     "start": "python3 -m http.server 8888",
-    "test": "node tests/run-v1612-tests.mjs"
+    "test": "node tests/run-v1620-tests.mjs"
   },
   "engines": {
     "node": ">=18"

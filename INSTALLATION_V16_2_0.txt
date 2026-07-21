@@ -1,0 +1,35 @@
+PASSION FOOT - SUIVI DES LIONS — INSTALLATION V16.2.0
+=====================================================
+
+1. Décompresser l'archive complète.
+2. Vérifier que index.html est directement à la racine du dossier.
+3. Remplacer le contenu local du dépôt par le contenu complet de cette version.
+4. Ouvrir GitHub Desktop.
+5. Vérifier les fichiers modifiés et ajoutés.
+6. Utiliser par exemple le message de commit :
+   V16.2.0 identité Passion Foot et recadrage photo
+7. Commit to main, puis Push origin.
+8. Attendre la fin du déploiement Netlify.
+9. Ouvrir :
+   https://qualifgainde.netlify.app/?v=1620
+10. Effectuer un rechargement forcé : Cmd + Shift + R ou Ctrl + F5.
+
+RECETTE RAPIDE
+--------------
+
+- Vérifier le nom « Passion Foot - Suivi des Lions » sur l'application.
+- Ouvrir les Brèves des Gaïndés et vérifier l'absence de l'en-tête des Brèves du Mondial.
+- Vérifier le nouveau visuel de la carte « Revivez la Coupe du monde 2026 ».
+- Dans la console, sélectionner une photo, la déplacer, la zoomer et vérifier l'aperçu avant publication.
+- Vérifier les pages pays et la Mémoire du Mondial.
+
+PARTAGE FACEBOOK
+----------------
+
+Après le déploiement, Facebook peut conserver l'ancien titre en cache. Utiliser l'outil Facebook Sharing Debugger, saisir l'URL du site puis demander une nouvelle collecte avec « Scrape Again ».
+
+AUCUNE ACTION NETLIFY SUPPLÉMENTAIRE
+------------------------------------
+
+Aucune nouvelle variable d'environnement n'est nécessaire. Les articles CMS déjà stockés dans Netlify Blobs restent conservés.
+

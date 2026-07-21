@@ -2,8 +2,8 @@
 (function(){
   'use strict';
 
-  const VERSION = (window.BUILD_VERSION || '16.1.1');
-  const VERSION_TOKEN = (window.BUILD_VERSION_TOKEN || String(VERSION).replace(/\D/g,'') || '1611');
+  const VERSION = (window.BUILD_VERSION || '16.2.0');
+  const VERSION_TOKEN = (window.BUILD_VERSION_TOKEN || String(VERSION).replace(/\D/g,'') || '1620');
   const SEMIFINALISTS = new Set(['france','spain','england','argentina']);
   const FEATURED_ORDER = [
     'morocco','france','spain','belgium','norway','england','argentina','switzerland',
@@ -524,13 +524,13 @@ function newsHref(id, section){
       </a>`;
     }
     return `<section class="world-news-section" dir="${lang === 'ar' ? 'rtl' : 'ltr'}">
-      <div class="world-news-head">
+      ${activeSection === 'world' ? `<div class="world-news-head">
         <a class="news-home-link" href="?v=${VERSION_TOKEN}" aria-label="Retour à la page d’accueil">
-          <div class="world-news-kicker">Mondial Pulse Editorial</div>
+          <div class="world-news-kicker">Passion Foot Editorial</div>
           <h2>${esc(c.newsTitle)}</h2>
           <p>${esc(c.newsLead)}</p>
         </a>
-      </div>
+      </div>` : ''}
       <div class="world-news-grid">${items.map(entry).join('')}</div>
     </section>`;
   }
@@ -773,7 +773,7 @@ function newsHref(id, section){
   function editorialTeasersHtml(worldNews){
     const lang = activeLang();
     const configs = [
-      {section:'world', image:'assets/news/les-breves-du-mondial.png', kicker:'Mondial Pulse Editorial', title:'Les Brèves du Mondial'},
+      {section:'world', image:'assets/news/les-breves-du-mondial.png', kicker:'Passion Foot Editorial', title:'Les Brèves du Mondial'},
       {section:'gaindes', image:'assets/news/les-breves-des-gaindes.png', kicker:'Les Gaïndés dans le monde', title:'Les Brèves des Gaïndés'}
     ];
     return `<div class="qg-editorial-portals">${configs.map(cfg => {
@@ -800,7 +800,7 @@ function newsHref(id, section){
       <div class="qg-entry-bg"></div>
       <div class="qg-entry-wrap news-hub-wrap news-article-wrap">
         <div class="qg-entry-top">
-          <a class="qg-entry-brand news-brand-home" href="?v=${VERSION_TOKEN}" aria-label="Retour à la page d’accueil"><img src="assets/lion-mascotte.png" alt="Mondial Pulse"><span>Mondial Pulse 2026 · V${esc(VERSION)}</span></a>
+          <a class="qg-entry-brand news-brand-home" href="?v=${VERSION_TOKEN}" aria-label="Retour à la page d’accueil"><img src="assets/lion-mascotte.png" alt="Passion Foot - Suivi des Lions"><span>Passion Foot - Suivi des Lions</span></a>
           <a class="qg-entry-pill news-pill-home" href="?mode=news&section=${esc(section)}&v=${VERSION_TOKEN}">${esc(section === 'gaindes' ? 'Les Brèves des Gaïndés' : c.newsTitle)}</a>
         </div>
         <article class="news-article" dir="${lang === 'ar' ? 'rtl' : 'ltr'}">
@@ -828,10 +828,10 @@ function newsHref(id, section){
       <div class="qg-entry-bg"></div>
       <div class="qg-entry-wrap news-hub-wrap">
         <div class="qg-entry-top">
-          <a class="qg-entry-brand news-brand-home" href="?v=${VERSION_TOKEN}" aria-label="Retour à la page d’accueil"><img src="assets/lion-mascotte.png" alt="Mondial Pulse"><span>Mondial Pulse 2026 · V${esc(VERSION)}</span></a>
+          <a class="qg-entry-brand news-brand-home" href="?v=${VERSION_TOKEN}" aria-label="Retour à la page d’accueil"><img src="assets/lion-mascotte.png" alt="Passion Foot - Suivi des Lions"><span>Passion Foot - Suivi des Lions</span></a>
           <a class="qg-entry-pill news-pill-home" href="?mode=news&section=${other}&v=${VERSION_TOKEN}">${esc(isGaindes ? 'Brèves du Mondial' : 'Brèves des Gaïndés')}</a>
         </div>
-        <a class="qg-news-section-hero ${activeSection}" href="?v=${VERSION_TOKEN}"><img src="${image}" alt="${esc(title)}"><div><small>${esc(isGaindes ? 'Les Gaïndés dans le monde' : 'Mondial Pulse Editorial')}</small><h1>${esc(title)}</h1><p>${esc(lead)}</p></div></a>
+        <a class="qg-news-section-hero ${activeSection}" href="?v=${VERSION_TOKEN}"><img src="${image}" alt="${esc(title)}"><div><small>${esc(isGaindes ? 'Les Gaïndés dans le monde' : 'Passion Foot Editorial')}</small><h1>${esc(title)}</h1><p>${esc(lead)}</p></div></a>
         ${worldNewsHtml(worldNews, activeSection)}
         <div class="qg-entry-actions"><a class="qg-entry-action" href="?v=${VERSION_TOKEN}">Retour à l’accueil</a></div>
       </div>`;
@@ -966,7 +966,7 @@ function newsHref(id, section){
     return '?' + p.toString();
   }
   function qg16Header(parentLabel, parentHref, currentLabel){
-    return `<header class="qg16-shell-header"><a class="qg16-shell-brand" href="/?v=${VERSION_TOKEN}"><img src="assets/lion-mascotte.png" alt="Suivi des Lions"><span><small>SUIVI DES LIONS · V${VERSION}</small><strong>Accueil</strong></span></a><nav aria-label="Fil d’Ariane"><a href="/?v=${VERSION_TOKEN}">Accueil</a>${parentLabel ? `<span>›</span><a href="${esc(parentHref || '/?v='+VERSION_TOKEN)}">${esc(parentLabel)}</a>` : ''}${currentLabel ? `<span>›</span><b>${esc(currentLabel)}</b>` : ''}</nav></header>`;
+    return `<header class="qg16-shell-header"><a class="qg16-shell-brand" href="/?v=${VERSION_TOKEN}"><img src="assets/lion-mascotte.png" alt="Passion Foot - Suivi des Lions"><span><small>PASSION FOOT - SUIVI DES LIONS</small><strong>Accueil</strong></span></a><nav aria-label="Fil d’Ariane"><a href="/?v=${VERSION_TOKEN}">Accueil</a>${parentLabel ? `<span>›</span><a href="${esc(parentHref || '/?v='+VERSION_TOKEN)}">${esc(parentLabel)}</a>` : ''}${currentLabel ? `<span>›</span><b>${esc(currentLabel)}</b>` : ''}</nav></header>`;
   }
   function qg16PodiumHtml(teams){
     const podium = [
@@ -993,7 +993,7 @@ function newsHref(id, section){
       <main class="qg16-home-main">
         <section class="qg16-home-intro"><small>VOTRE APP’ · SUIVI DES LIONS</small><h1>Votre App’ <span>« Suivi des Lions »</span><br>reste au cœur du jeu</h1><p>Revivez la Coupe du monde 2026, retrouvez les Brèves du Mondial et suivez toute l’actualité des Lions du Sénégal : mercato, buts, forme, blessures et performances en club.</p></section>
         <section class="qg16-home-portals" aria-label="Entrées principales">
-          <a class="qg16-home-card qg16-worldcup-card" href="?mode=worldcup&v=${VERSION_TOKEN}"><div><small>MÉMOIRE DU MONDIAL</small><h2>Revivez la Coupe du monde 2026</h2><p>Le sacre de l’Espagne, les grands matchs, les résultats et les parcours de toutes les équipes suivies.</p><b>Entrer dans la mémoire →</b></div><figure><img src="assets/final/lamine-yamal-final.jpg" alt="Lamine Yamal, champion du monde avec l’Espagne"><figcaption>🇪🇸 Espagne · 2 étoiles ⭐⭐</figcaption></figure></a>
+          <a class="qg16-home-card qg16-worldcup-card" href="?mode=worldcup&v=${VERSION_TOKEN}"><div><small>MÉMOIRE DU MONDIAL</small><h2>Revivez la Coupe du monde 2026</h2><p>Le sacre de l’Espagne, les grands matchs, les résultats et les parcours de toutes les équipes suivies.</p><b>Entrer dans la mémoire →</b></div><figure><img class="qg16-worldcup-poster" src="assets/home/espagne-championne-2026.png" alt="Espagne championne du monde 2026"><figcaption>🇪🇸 Espagne · 2 étoiles ⭐⭐</figcaption></figure></a>
           ${qg16PodiumHtml(teams)}
           <a class="qg16-home-card qg16-gaindes-card" data-gaindes-gated hidden href="?mode=gaindes&v=${VERSION_TOKEN}"><img src="/mangara-studio-7f3k9q/assets/brand/suivi-gaindes-lion.jpg" alt="Suivi des Gaïndés"><div><small>LES LIONS DANS LE MONDE</small><h2>Suivi des Gaïndés</h2><p>Suivez les performances des internationaux sénégalais dans leurs clubs : matchs, buts, passes décisives et temps forts.</p><b>Ouvrir le suivi →</b></div></a>
           <a class="qg16-home-card qg16-news-card" href="?mode=news&section=gaindes&v=${VERSION_TOKEN}"><img src="assets/news/les-breves-des-gaindes.png" alt="Les Brèves des Gaïndés"><div><small>ACTUALITÉ DES INTERNATIONAUX</small><h2>Brèves des Gaïndés</h2><p>Mercato, buts, forme, blessures, performances et évolutions en club : toute l’actualité des joueurs de l’équipe nationale.</p>${latest.length ? `<ul>${qg16LatestTitles(latest)}</ul>` : ''}<b>Lire les dernières brèves →</b></div></a>
@@ -1467,7 +1467,7 @@ async function run(){
       selector.setAttribute && selector.setAttribute('data-qg-render-complete', mode || 'home');
       window.QG_LAST_RENDER = {route: mode || 'home', version: VERSION, at: new Date().toISOString()};
     }
-    // V16.1.1 : les routes équipe appartiennent exclusivement à team-page-v1611.js.
+    // V16.2.0 : les routes équipe appartiennent exclusivement à team-page-v1620.js.
     // Aucun ancien updateTeamPage ne doit réécrire le DOM après le renderer neutre.
   }
 
@@ -1478,7 +1478,7 @@ async function run(){
     if(!root) return;
     document.documentElement.classList.remove('v10-booting','qg-selector-active');
     root.hidden = false;
-    root.innerHTML = `<main class="qg16-route-failure"><div><span>⚠️</span><small>SUIVI DES LIONS · V${esc(VERSION)}</small><h1>Cette page n’a pas pu être affichée.</h1><p>Le contenu historique reste conservé. Rechargez la page ou revenez à l’accueil.</p><nav><a href="/?v=${VERSION_TOKEN}">Retour à l’accueil</a><button type="button" onclick="location.reload()">Recharger</button></nav><code>${esc(error && error.message || 'render-error')}</code></div></main>`;
+    root.innerHTML = `<main class="qg16-route-failure"><div><span>⚠️</span><small>PASSION FOOT - SUIVI DES LIONS</small><h1>Cette page n’a pas pu être affichée.</h1><p>Le contenu historique reste conservé. Rechargez la page ou revenez à l’accueil.</p><nav><a href="/?v=${VERSION_TOKEN}">Retour à l’accueil</a><button type="button" onclick="location.reload()">Recharger</button></nav><code>${esc(error && error.message || 'render-error')}</code></div></main>`;
   }
   function safeRun(){ return run().catch(function(error){ console.error('[QG V' + VERSION + '] route render failed', error); renderRouteFailure(error); }); }
 
