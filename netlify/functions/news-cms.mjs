@@ -6,6 +6,7 @@ const COOKIE = 'qg_gaindes_owner';
 const VALID_STATUS = new Set(['draft', 'published', 'unpublished', 'archived']);
 const VALID_SECTION = new Set(['world', 'gaindes']);
 const VALID_RELIABILITY = new Set(['official', 'credible', 'rumor', 'unlikely']);
+const VALID_CHANGE_TYPE = new Set(['new', 'evolution', 'completed']);
 const H = {
   'Content-Type': 'application/json; charset=utf-8',
   'Cache-Control': 'no-store',
@@ -61,10 +62,15 @@ function publicArticle(article) {
     analysis: article.analysis || '',
     section: article.section,
     reliability: article.reliability,
+    changeType: VALID_CHANGE_TYPE.has(article.changeType) ? article.changeType : 'new',
+    businessKey: article.businessKey || '',
+    player: article.player || '',
+    topic: article.topic || '',
     sources: article.sources || '',
     author: article.author || 'Rédaction Suivi des Lions',
     image: article.imageId ? `/.netlify/functions/news-cms?action=image&id=${encodeURIComponent(article.imageId)}` : '',
     imageAlt: article.imageAlt || article.title,
+    imageCredit: article.imageCredit || null,
     publishedAt: article.publishedAt,
     updatedAt: article.updatedAt,
     status: article.status,
@@ -158,9 +164,10 @@ export default async (req) => {
       const section = clean(body.section);
       const status = clean(body.status || 'draft');
       const reliability = clean(body.reliability || 'rumor');
+      const changeType = clean(body.changeType || old?.changeType || 'new');
 
-      if (!title || !VALID_SECTION.has(section) || !VALID_STATUS.has(status) || !VALID_RELIABILITY.has(reliability)) {
-        return json({ ok: false, error: 'validation', message: 'Titre, rubrique, statut ou fiabilité invalide.' }, 400);
+      if (!title || !VALID_SECTION.has(section) || !VALID_STATUS.has(status) || !VALID_RELIABILITY.has(reliability) || !VALID_CHANGE_TYPE.has(changeType)) {
+        return json({ ok: false, error: 'validation', message: 'Titre, rubrique, statut, fiabilité ou indicateur de nouveauté invalide.' }, 400);
       }
       if (status === 'published' && (!excerpt || !articleBody)) {
         return json({ ok: false, error: 'publication_incomplete', message: 'Le chapô et le corps de l’article sont obligatoires pour publier.' }, 400);
@@ -202,11 +209,18 @@ export default async (req) => {
         section,
         status,
         reliability,
+        changeType,
+        businessKey: old?.businessKey || '',
+        player: old?.player || '',
+        topic: old?.topic || '',
         sources: clean(body.sources),
         tag: clean(body.tag || 'Mercato'),
         author: clean(body.author || 'Rédaction Suivi des Lions'),
         imageId: old?.imageId || null,
         imageAlt: clean(body.imageAlt || title),
+        imageCredit: old?.imageCredit || null,
+        automationFingerprint: old?.automationFingerprint || null,
+        updateHistory: old?.updateHistory || [],
         fingerprint,
         createdAt: old?.createdAt || now,
         updatedAt: now,

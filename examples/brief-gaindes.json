@@ -1,0 +1,21 @@
+{
+  "items": [
+    {
+      "player": "nicolas-jackson",
+      "topic": "transfer",
+      "title": "Nicolas Jackson : une évolution réelle du dossier",
+      "excerpt": "Chapô factuel résumant uniquement l'information nouvelle.",
+      "body": "Article complet de trois à six paragraphes, rédigé à partir de sources vérifiées.",
+      "analysis": "Pourquoi cette évolution est importante pour le joueur et les Lions.",
+      "sources": "https://exemple-source-a-remplacer.invalid/article",
+      "reliability": "credible",
+      "changeType": "evolution",
+      "tag": "Mercato"
+    },
+    {
+      "player": "krepin-diatta",
+      "topic": "transfer",
+      "radar": true
+    }
+  ]
+}

@@ -796,6 +796,11 @@ function newsHref(id, section){
     if(!selector || !item) return;
     const lang = activeLang(), c = copy(), L = newsLang(item, lang);
     const section = item.section || 'world';
+    const credit = item.imageCredit || null;
+    const creditPage = credit && /^https:\/\//i.test(String(credit.pageUrl || '')) ? String(credit.pageUrl) : '';
+    const creditHtml = credit && credit.author && credit.license
+      ? `<figcaption class="news-image-credit">Photo : ${esc(credit.author)} · ${esc(credit.license)}${creditPage ? ` · <a href="${esc(creditPage)}" target="_blank" rel="noopener noreferrer">Source Wikimedia</a>` : ''}</figcaption>`
+      : '';
     selector.innerHTML = `
       <div class="qg-entry-bg"></div>
       <div class="qg-entry-wrap news-hub-wrap news-article-wrap">
@@ -805,10 +810,10 @@ function newsHref(id, section){
         </div>
         <article class="news-article" dir="${lang === 'ar' ? 'rtl' : 'ltr'}">
           <a class="news-article-header" href="?v=${VERSION_TOKEN}" aria-label="Retour à la home">
-            <div class="qg-entry-kicker">${esc(L.tag || 'Brève')} ${item.reliability ? ' · '+esc(({official:'🟢 Officiel',credible:'🟡 Crédible',rumor:'🟠 Rumeur',unlikely:'🔴 Peu probable'})[item.reliability]||'') : ''}</div>
+            <div class="qg-entry-kicker">${esc(({new:'🆕 Nouveau',evolution:'🔄 Évolution',completed:'✅ Abouti'})[item.changeType] || '🆕 Nouveau')} · ${esc(L.tag || 'Brève')} ${item.reliability ? ' · '+esc(({official:'🟢 Officiel',credible:'🟡 Crédible',rumor:'🟠 Rumeur',unlikely:'🔴 Peu probable'})[item.reliability]||'') : ''}</div>
             <h1>${esc(L.title || '')}</h1>
           </a>
-          ${item.image ? `<img class="news-article-image" src="${esc(item.image)}" alt="${esc(L.title || '')}">` : ''}
+          ${item.image ? `<figure class="news-article-figure"><img class="news-article-image" src="${esc(item.image)}" alt="${esc(item.imageAlt || L.title || '')}">${creditHtml}</figure>` : ''}
           <div class="news-article-body">${articleParagraphs(L,item)}</div>
           <div class="qg-entry-actions"><a class="qg-entry-action" href="?mode=news&section=${esc(section)}&v=${VERSION_TOKEN}">← Toutes les brèves</a><a class="qg-entry-action" href="?v=${VERSION_TOKEN}">Accueil</a></div>
         </article>
