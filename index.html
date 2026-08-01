@@ -1437,7 +1437,7 @@ html[dir="rtl"] .opp-sub,html[dir="rtl"] .opp-main{text-align:right;}
 .world-news-card{display:grid;grid-template-rows:145px 1fr;min-height:310px;border-radius:20px;overflow:hidden;background:linear-gradient(145deg,#111827,#050505);border:1px solid #ffffff16;box-shadow:0 18px 42px #0006;}
 .world-news-card.featured{grid-column:span 3;grid-template-columns:1.05fr 1.4fr;grid-template-rows:auto;min-height:290px;border-color:#fdef4260;background:linear-gradient(135deg,#092016,#100f08 58%,#220b0b);}
 .world-news-media{position:relative;background:#0b0b0b;min-height:135px;}
-.world-news-media img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(1.05) contrast(1.02);}
+.world-news-media img{width:100%;height:100%;object-fit:cover;object-position:50% 5%;display:block;filter:saturate(1.05) contrast(1.02);}
 .world-news-content{padding:16px 16px 18px;}
 .world-news-tag{display:inline-flex;align-items:center;gap:6px;font-size:.66rem;text-transform:uppercase;letter-spacing:.14em;font-weight:900;color:#fdef42;background:#fdef4212;border:1px solid #fdef4234;border-radius:999px;padding:5px 9px;margin-bottom:10px;}
 .world-news-card h3{font-family:Oswald,Inter,sans-serif;font-size:1.25rem;line-height:1.03;text-transform:uppercase;margin:0 0 9px;color:#fff;}
@@ -1481,7 +1481,7 @@ html[dir="rtl"] .world-news-open{align-self:flex-end;}
 .news-article{max-width:980px;margin:0 auto;padding:8px 0 38px;}
 .news-article-header{display:block;margin:18px 0 20px;}
 .news-article-header h1{font-family:Oswald,Inter,sans-serif;text-transform:uppercase;font-size:clamp(2rem,6vw,4.8rem);line-height:.98;margin:8px 0 0;transition:color .18s ease;}
-.news-article-image{display:block;width:100%;max-height:760px;object-fit:contain;background:#050505;border-radius:24px;border:1px solid #ffffff18;box-shadow:0 24px 70px #0009;}
+.news-article-image{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;object-position:50% 5%;background:#050505;border-radius:24px;border:1px solid #ffffff18;box-shadow:0 24px 70px #0009;}
 .news-article-figure{margin:0;}.news-image-credit{margin:10px 8px 0;color:#aab8cb;font-size:.78rem;line-height:1.5;text-align:right}.news-image-credit a{color:#f5c842;text-decoration:underline;text-underline-offset:3px}
 .news-article-body{max-width:820px;margin:28px auto 0;font-size:1.04rem;line-height:1.78;color:#e5e7eb;}
 .news-article-body p{margin:0 0 1.15em;}
@@ -6088,7 +6088,7 @@ if ('serviceWorker' in navigator) {
 })();
 </script>
 <script src="assets/js/gaindes-gate.js?v=16.2.0"></script>
-<script src="assets/js/computed-team-state.js?v=16.3.2"></script>
+<script src="assets/js/computed-team-state.js?v=16.3.5"></script>
 
 <script id="qg-v1315-final-override">
 (function(){
