@@ -27,6 +27,7 @@ expect(admin.includes("article.businessKey?'🤖 Codex"), 'Les articles Codex ne
 expect(admin.includes('L’analyse de la rédaction') && admin.includes("'analysis'"), 'L’analyse rédactionnelle n’est pas modifiable dans la console.');
 expect(admin.includes('Vos modifications corrigeront cet article sans créer de doublon.'), 'La modification manuelle des articles Codex n’est pas explicitée.');
 expect(cms.includes('imageCredit: article.imageCredit'), 'Les crédits Wikimedia ne sont pas exposés publiquement.');
+expect(cms.includes("split(/\\n\\s*\\n/)"), 'Le corps automatisé n’est pas découpé en paragraphes.');
 const renderer = fs.readFileSync(new URL('../assets/js/computed-team-state.js', import.meta.url), 'utf8');
 expect(renderer.includes('news-image-credit') && renderer.includes('Source Wikimedia'), 'Les crédits Wikimedia ne sont pas affichés sous la photo.');
 

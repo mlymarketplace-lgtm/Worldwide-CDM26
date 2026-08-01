@@ -53,6 +53,7 @@ async function listAll(store) {
   return values.filter(Boolean);
 }
 function publicArticle(article) {
+  const bodyParagraphs = String(article.body || '').split(/\n\s*\n/).map((paragraph) => paragraph.trim()).filter(Boolean);
   return {
     id: article.id,
     slug: article.slug,
@@ -79,7 +80,7 @@ function publicArticle(article) {
       fr: {
         title: article.title,
         body: article.excerpt,
-        article: [article.excerpt, article.body].filter(Boolean),
+        article: [article.excerpt, ...bodyParagraphs].filter(Boolean),
         tag: article.tag || 'Brève',
       },
     },
