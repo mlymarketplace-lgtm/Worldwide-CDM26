@@ -39,6 +39,8 @@
 
 Le client local `scripts/publish-brief.mjs` envoie le JSON à Netlify. Codex doit afficher le résultat par sujet : `created`, `updated`, `unchanged`, `skipped` ou `rejected`.
 
+La clé locale est lue dans `.env.local` sous la forme `QG_PUBLISH_API_KEY=...`. Ce fichier est exclu de Git et ne doit jamais être envoyé dans une conversation, un commit ou une archive.
+
 ## Flux retenu
 
 1. Mohamed transmet manuellement le brief ChatGPT dans la tâche Codex.

@@ -21,6 +21,7 @@ expect(api.includes('write_verification_failed'), 'La relecture après écriture
 expect(cms.includes('businessKey: article.businessKey'), 'La clé métier n’est pas exposée par le CMS.');
 expect(cms.includes('imageCredit: article.imageCredit'), 'Les crédits photo ne sont pas exposés.');
 expect(client.includes('Authorization: `Bearer ${apiKey}`'), 'Le client Codex n’envoie pas le secret.');
+expect(client.includes("readFile('.env.local'"), 'Le client Codex ne charge pas la clé locale.');
 expect(docs.includes('created') && docs.includes('updated') && docs.includes('unchanged'), 'Les résultats ne sont pas documentés.');
 expect(admin.includes("article.businessKey?'🤖 Codex"), 'Les articles Codex ne sont pas identifiés dans la console.');
 expect(admin.includes('L’analyse de la rédaction') && admin.includes("'analysis'"), 'L’analyse rédactionnelle n’est pas modifiable dans la console.');
