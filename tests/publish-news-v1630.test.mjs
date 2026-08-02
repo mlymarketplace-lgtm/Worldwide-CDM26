@@ -29,9 +29,12 @@ expect(admin.includes('Vos modifications corrigeront cet article sans créer de 
 expect(cms.includes('imageCredit: article.imageCredit'), 'Les crédits Wikimedia ne sont pas exposés publiquement.');
 expect(cms.includes("split(/\\n\\s*\\n/)"), 'Le corps automatisé n’est pas découpé en paragraphes.');
 const renderer = fs.readFileSync(new URL('../assets/js/computed-team-state.js', import.meta.url), 'utf8');
+const control = fs.readFileSync(new URL('../netlify/functions/gaindes-control.mjs', import.meta.url), 'utf8');
 expect(renderer.includes('news-image-credit') && renderer.includes('Source Wikimedia'), 'Les crédits Wikimedia ne sont pas affichés sous la photo.');
 expect(!renderer.includes('<strong>Sources :</strong>'), 'Les médias consultés ne doivent pas apparaître dans les articles publics.');
 expect(!cms.includes('sources: article.sources'), 'La provenance interne ne doit pas être exposée par l’API publique.');
 expect(!admin.includes('<label>Sources</label>') && !admin.includes("$('pvSources')"), 'La console ne doit plus afficher de champ Sources.');
+expect(control.includes('action === "unlock-public"') && control.includes('writeState("public")'), 'Codex ne peut pas ouvrir le suivi avec sa clé sécurisée.');
+expect(!control.includes('action === "set-mode" && automationAuthorized(req)'), 'La clé Codex ne doit jamais pouvoir fermer ou privatiser le suivi.');
 
 console.log('PASS Publication V16.3.0 — authentification, dédoublonnage, Radar et Wikimedia');

@@ -31,6 +31,12 @@ function secureEqual(a, b) {
   return crypto.timingSafeEqual(ah, bh);
 }
 
+function automationAuthorized(req) {
+  const expected = String(process.env.QG_PUBLISH_API_KEY || "");
+  const supplied = String(req.headers.get("authorization") || "").replace(/^Bearer\s+/i, "");
+  return Boolean(expected && supplied && secureEqual(supplied, expected));
+}
+
 function cookieValue(req, name) {
   const raw = req.headers.get("cookie") || "";
   const part = raw.split(/;\s*/).find((item) => item.startsWith(`${name}=`));
@@ -128,6 +134,18 @@ export default async (req) => {
 
   if (action === "logout") {
     return json({ ok: true }, 200, { "Set-Cookie": clearCookie() });
+  }
+
+  // La clé d'automatisation peut uniquement rendre le suivi public.
+  // Les modes restrictifs restent réservés au mot de passe propriétaire.
+  if (action === "unlock-public" && automationAuthorized(req)) {
+    try {
+      const saved = await writeState("public");
+      return json({ ok: true, ...saved, allowed: true, owner: false, automation: true });
+    } catch (error) {
+      console.error("[gaindes-control] automation write failed", error);
+      return json({ ok: false, error: "storage_error" }, 500);
+    }
   }
 
   if (!configured) {
