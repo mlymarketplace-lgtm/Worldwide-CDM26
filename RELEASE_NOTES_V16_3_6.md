@@ -16,4 +16,4 @@ Les références utilisées par l'automatisation peuvent être conservées comme
 
 La règle rédactionnelle complète est consignée dans `CHARTE_EDITORIALE_BREVES.md`.
 
-« L'analyse de la rédaction » adopte désormais une voix de plateau sportif et de supporter averti : subjective, positive, engagée et tournée vers l'intérêt des Lions, plutôt qu'une seconde analyse factuelle.
+« L'analyse de la rédaction » adopte désormais une voix de plateau sportif et de supporter averti : subjective, positive et engagée, plutôt qu'une seconde analyse factuelle. Son angle s'adapte au sujet et peut concerner les Lions, le joueur, son club, son avenir ou sa famille.

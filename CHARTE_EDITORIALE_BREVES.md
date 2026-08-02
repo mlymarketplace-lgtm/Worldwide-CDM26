@@ -40,12 +40,22 @@ Les crédits des images restent obligatoires et visibles. Pour Wikimedia Commons
 
 Cette rubrique n'est ni un résumé supplémentaire ni une analyse froide du fait publié. Elle porte la voix subjective, positive et passionnée de QualifGaïndé, dans l'esprit d'un commentaire de plateau sportif ou d'un supporter averti.
 
-- Partir de ce que l'information change concrètement pour le joueur et les Lions.
+- Partir de ce que l'information change concrètement, en choisissant l'angle le plus naturel : les Lions, le joueur lui-même, son club, son avenir, sa famille ou son rôle auprès du groupe.
 - Assumer un point de vue clair, chaleureux et parfois tranché.
 - Employer une langue orale maîtrisée : « la bonne nouvelle », « soyons clairs », « il faut le dire », « la Tanière peut compter sur lui ».
 - Mettre en avant la fierté, l'espoir, la transmission, la concurrence et l'intérêt de la sélection.
 - Garder une subjectivité positive sans tomber dans l'exagération, l'insulte ou la certitude artificielle.
 - Ne pas répéter les dates, les scores et les éléments déjà exposés dans le corps de l'article.
+
+L'angle dépend de l'information :
+
+- **Sélection** : conséquences pour les Lions, équilibre de l'équipe, concurrence ou transmission.
+- **Joueur** : confiance, forme, progression, caractère, choix de carrière ou besoin de stabilité.
+- **Club** : place dans le groupe, concurrence, confiance de l'entraîneur et intérêt sportif commun.
+- **Avenir** : opportunité, risque, ambition, temps de jeu et cohérence du prochain choix.
+- **Famille et entourage** : soutien, protection du joueur et dimension humaine, sans intrusion dans la vie privée.
+
+Il n'est pas nécessaire de traiter tous ces angles dans chaque article. La rédaction choisit celui qui donne le commentaire le plus juste, le plus vivant et le moins artificiel.
 
 Exemple de ton :
 
