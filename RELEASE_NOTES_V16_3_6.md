@@ -15,3 +15,5 @@ QualifGaïndé publie ses propres synthèses sur les informations sportives larg
 Les références utilisées par l'automatisation peuvent être conservées comme données internes de vérification. Elles ne sont plus renvoyées par l'API publique, affichées sur le site ou modifiables dans la console.
 
 La règle rédactionnelle complète est consignée dans `CHARTE_EDITORIALE_BREVES.md`.
+
+« L'analyse de la rédaction » adopte désormais une voix de plateau sportif et de supporter averti : subjective, positive, engagée et tournée vers l'intérêt des Lions, plutôt qu'une seconde analyse factuelle.

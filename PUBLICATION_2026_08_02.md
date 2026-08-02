@@ -16,6 +16,7 @@ Brief Lions reçu puis transformé et publié automatiquement par Codex sur Qual
 - Distinction entre intérêt, discussions préliminaires et accord effectif dans le dossier Iliman Ndiaye.
 - Photos des nouvelles fiches issues exclusivement de Wikimedia Commons, avec auteur, licence et lien vers la page source.
 - Mise à jour par clé métier `joueur:thème`, sans création de doublon pour Nicolas Jackson et Pape Matar Sarr.
+- Réécriture des quatre blocs « L'analyse de la rédaction » dans une voix de supporter averti : plus orale, positive, engagée et tournée vers l'intérêt de la Tanière.
 
 ## Identifiants de publication
 
