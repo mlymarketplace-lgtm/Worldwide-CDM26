@@ -1,0 +1,271 @@
+/*
+ * Suivi des Gaïndés V16.3.9 — déclinaison « Tanière chaude »
+ * Couche visuelle uniquement : navigation, données, filtres et scripts inchangés.
+ */
+:root {
+  --bg: #0e0a05;
+  --panel: #191209;
+  --panel2: #221809;
+  --card: #17110a;
+  --line: rgba(233, 184, 74, .18);
+  --txt: #fdf8ee;
+  --muted: #c8ba9f;
+  --gold: #eeca5c;
+  --yellow: #f6dd95;
+  --sg-gold: #eeca5c;
+  --sg-dark: #0e0a05;
+  --premium-line: rgba(233, 184, 74, .18);
+  --premium-line-soft: rgba(255, 240, 210, .09);
+  --premium-highlight: rgba(238, 202, 92, .28);
+}
+
+html,
+body {
+  background-color: var(--bg) !important;
+  color: var(--txt) !important;
+}
+
+body {
+  background-image:
+    radial-gradient(120% 62% at 84% -8%, rgba(208, 106, 36, .30), transparent 46%),
+    radial-gradient(90% 55% at 4% 3%, rgba(0, 133, 63, .20), transparent 43%),
+    radial-gradient(130% 85% at 50% 112%, rgba(124, 54, 17, .25), transparent 58%),
+    linear-gradient(180deg, #140d06, var(--bg) 42%) !important;
+  background-attachment: fixed;
+}
+
+.topbar {
+  background: rgba(20, 13, 6, .95) !important;
+  border-color: var(--line) !important;
+  box-shadow: 0 12px 38px rgba(0, 0, 0, .40);
+}
+
+.langbar button,
+.pwa-badge,
+.quickbar a,
+.view-toolbar,
+.view-toolbar button,
+.bottom-nav a {
+  background-color: rgba(255, 247, 226, .055) !important;
+  border-color: var(--line) !important;
+}
+
+.hero {
+  background:
+    radial-gradient(circle at 88% 0, rgba(208, 106, 36, .26), transparent 36%),
+    radial-gradient(circle at 5% 15%, rgba(238, 202, 92, .14), transparent 31%),
+    linear-gradient(145deg, #3d2712, #241609 55%, #120b05) !important;
+  border-color: var(--line) !important;
+  box-shadow: 0 24px 65px rgba(0, 0, 0, .46), inset 0 0 0 1px rgba(255, 248, 232, .025) !important;
+}
+
+.quickbar {
+  background: linear-gradient(180deg, rgba(14, 9, 4, .98), rgba(14, 9, 4, .88)) !important;
+}
+
+.view-toolbar {
+  background-color: rgba(25, 18, 9, .92) !important;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, .30);
+}
+
+.home-card,
+.national-card,
+.boxing-card,
+.club-card,
+.europe-card,
+.league,
+.player,
+.briefs-hero,
+.brief-card,
+.data-error-panel {
+  background-color: var(--card) !important;
+  background-image: linear-gradient(155deg, var(--panel2), var(--card)) !important;
+  border-color: var(--line) !important;
+  box-shadow: 0 16px 42px rgba(0, 0, 0, .38), inset 0 0 0 1px rgba(255, 248, 232, .018) !important;
+}
+
+.home-card::after {
+  background: radial-gradient(circle, rgba(208, 106, 36, .34), transparent 67%) !important;
+}
+
+.home-card.featured {
+  background-color: var(--card) !important;
+  border-color: rgba(238, 202, 92, .34) !important;
+}
+
+.national-card,
+.club-card,
+.player {
+  background-image: linear-gradient(150deg, rgba(0, 133, 63, .12), var(--panel2) 35%, var(--card)) !important;
+}
+
+.boxing-card,
+.europe-card,
+.league {
+  background-image: linear-gradient(150deg, rgba(208, 106, 36, .10), var(--panel2) 35%, var(--card)) !important;
+}
+
+.briefs-hero,
+.brief-card {
+  background-image: linear-gradient(145deg, #351d0c, var(--panel2) 54%, var(--card)) !important;
+}
+
+.metric,
+.stat,
+.week-panel,
+.club-card .coach,
+.source-note,
+.league-top,
+.league-focus,
+.lions-line,
+.timeline-row,
+.match-row,
+.edito,
+.source-badge,
+.chip,
+.filters input,
+.filters select {
+  background-color: rgba(255, 247, 226, .045) !important;
+  border-color: rgba(255, 240, 210, .09) !important;
+}
+
+.metric:hover,
+.home-card:hover,
+.player:hover,
+.club-card:hover,
+.national-card:hover,
+.mangara-card:hover {
+  border-color: rgba(238, 202, 92, .55) !important;
+  box-shadow: 0 20px 52px rgba(0, 0, 0, .46), 0 0 24px rgba(208, 106, 36, .08) !important;
+}
+
+.tagline,
+.hint,
+.home-card p,
+.boxing-card p,
+.club-card p,
+.europe-card p,
+.national-card p,
+.brief-card p,
+.briefs-hero p,
+.meta,
+.week-panel span,
+.count,
+.kv,
+.source-note,
+footer {
+  color: var(--muted) !important;
+}
+
+.kicker,
+.pill,
+.metric b,
+.stat b,
+.score,
+.countdown,
+.league-title,
+.sheet h3,
+.brand-copy small,
+.rank,
+.view-toolbar button {
+  color: var(--gold) !important;
+}
+
+.home-card strong,
+.boxing-card strong,
+.club-card strong,
+.europe-card strong,
+.national-card strong,
+.brief-card strong,
+.section-title h2,
+.name,
+.sheet h2,
+.profile-text,
+.week-panel b,
+.brand-copy strong {
+  color: var(--txt) !important;
+}
+
+.chip.league-chip {
+  background-color: rgba(238, 202, 92, .11) !important;
+  border-color: rgba(238, 202, 92, .22) !important;
+  color: var(--gold) !important;
+}
+
+.table-wrap,
+table,
+th,
+td,
+.league-top,
+.league-focus,
+.lions-line,
+.timeline-row,
+.match-row,
+.sheet-head,
+footer {
+  border-color: rgba(255, 240, 210, .09) !important;
+}
+
+th {
+  color: #a99b83 !important;
+  background-color: rgba(14, 9, 4, .56) !important;
+}
+
+td { color: #e7dcc8 !important; }
+tr.has-lion { background: linear-gradient(90deg, rgba(0, 133, 63, .19), rgba(238, 202, 92, .04), transparent) !important; }
+
+.overlay {
+  background: rgba(9, 6, 3, .90) !important;
+  backdrop-filter: blur(13px);
+}
+
+.sheet {
+  background:
+    radial-gradient(circle at 90% 0, rgba(208, 106, 36, .20), transparent 34%),
+    linear-gradient(150deg, var(--panel2), var(--panel)) !important;
+  border-color: var(--line) !important;
+  box-shadow: 0 30px 90px rgba(0, 0, 0, .66) !important;
+}
+
+.edito {
+  border-left-color: var(--gold) !important;
+  color: var(--txt) !important;
+  background: linear-gradient(135deg, rgba(208, 106, 36, .13), rgba(238, 202, 92, .06)) !important;
+}
+
+.bottom-nav {
+  background: rgba(14, 9, 4, .96) !important;
+  border-color: var(--line) !important;
+  box-shadow: 0 -12px 34px rgba(0, 0, 0, .38);
+}
+
+.bottom-nav a.active {
+  background: linear-gradient(180deg, rgba(238, 202, 92, .18), rgba(208, 106, 36, .10)) !important;
+  color: var(--gold) !important;
+}
+
+input:focus,
+select:focus,
+button:focus-visible,
+a:focus-visible {
+  outline-color: var(--gold) !important;
+  border-color: var(--gold) !important;
+}
+
+@media (max-width: 760px) {
+  body {
+    background-image:
+      radial-gradient(110% 45% at 82% 0, rgba(208, 106, 36, .23), transparent 50%),
+      radial-gradient(100% 48% at 5% 4%, rgba(0, 133, 63, .17), transparent 45%),
+      linear-gradient(180deg, #140d06, var(--bg) 38%) !important;
+  }
+  .home-card.featured {
+    background-image:
+      linear-gradient(0deg, rgba(14, 9, 4, .97), rgba(25, 16, 8, .68) 72%, rgba(25, 16, 8, .20)),
+      url('/mangara-studio-7f3k9q/assets/brand/breves-gaindes.png') !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body { background-attachment: scroll; }
+}

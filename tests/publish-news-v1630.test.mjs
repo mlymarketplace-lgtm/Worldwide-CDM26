@@ -32,6 +32,8 @@ expect(cms.includes("split(/\\n\\s*\\n/)"), 'Le corps automatisé n’est pas d�
 const renderer = fs.readFileSync(new URL('../assets/js/computed-team-state.js', import.meta.url), 'utf8');
 const control = fs.readFileSync(new URL('../netlify/functions/gaindes-control.mjs', import.meta.url), 'utf8');
 const warmTheme = fs.readFileSync(new URL('../assets/css/theme-taniere-chaude-v1638.css', import.meta.url), 'utf8');
+const gaindesTheme = fs.readFileSync(new URL('../mangara-studio-7f3k9q/theme-taniere-chaude-v1639.css', import.meta.url), 'utf8');
+const gaindesApp = fs.readFileSync(new URL('../mangara-studio-7f3k9q/index.html', import.meta.url), 'utf8');
 expect(renderer.includes('news-image-credit') && renderer.includes('Source Wikimedia'), 'Les crédits Wikimedia ne sont pas affichés sous la photo.');
 expect(!renderer.includes('<strong>Sources :</strong>'), 'Les médias consultés ne doivent pas apparaître dans les articles publics.');
 expect(!cms.includes('sources: article.sources'), 'La provenance interne ne doit pas être exposée par l’API publique.');
@@ -41,5 +43,8 @@ expect(!control.includes('action === "set-mode" && automationAuthorized(req)'), 
 expect(warmTheme.includes('--qg-warm-bg: #0e0a05') && warmTheme.includes('--qg-warm-ember: #d06a24'), 'La palette Tanière chaude est incomplète.');
 expect(index.includes('theme-taniere-chaude-v1638.css'), 'Le thème Tanière chaude n’est pas chargé par le site.');
 expect(!warmTheme.includes('display: none') && !warmTheme.includes('pointer-events: none'), 'Le thème visuel ne doit masquer ni désactiver aucun composant fonctionnel.');
+expect(gaindesApp.includes('theme-taniere-chaude-v1639.css'), 'Le thème chaud n’est pas chargé dans le module Suivi des Gaïndés.');
+expect(gaindesTheme.includes('--bg: #0e0a05') && gaindesTheme.includes('.bottom-nav') && gaindesTheme.includes('.sheet'), 'Le thème intégré ne couvre pas tous les univers du Suivi des Gaïndés.');
+expect(!gaindesTheme.includes('display: none') && !gaindesTheme.includes('pointer-events: none'), 'Le thème intégré ne doit masquer ni désactiver aucun composant.');
 
 console.log('PASS Publication V16.3.0 — authentification, dédoublonnage, Radar et Wikimedia');
