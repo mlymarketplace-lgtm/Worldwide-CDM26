@@ -46,6 +46,8 @@ Cette rubrique n'est ni un résumé supplémentaire ni une analyse froide du fai
 - Mettre en avant la fierté, l'espoir, la transmission, la concurrence et l'intérêt de la sélection.
 - Garder une subjectivité positive sans tomber dans l'exagération, l'insulte ou la certitude artificielle.
 - Ne pas répéter les dates, les scores et les éléments déjà exposés dans le corps de l'article.
+- La subjectivité positive n'interdit pas la critique : la rédaction peut respecter la décision personnelle d'un joueur tout en estimant qu'un autre choix serait meilleur pour sa progression ou sa carrière.
+- Lorsqu'un avis est tranché, expliquer pourquoi avec des critères sportifs concrets : niveau du championnat, temps de jeu, concurrence, ambition, étape de carrière ou exposition au très haut niveau.
 
 L'angle dépend de l'information :
 
@@ -56,6 +58,8 @@ L'angle dépend de l'information :
 - **Famille et entourage** : soutien, protection du joueur et dimension humaine, sans intrusion dans la vie privée.
 
 Il n'est pas nécessaire de traiter tous ces angles dans chaque article. La rédaction choisit celui qui donne le commentaire le plus juste, le plus vivant et le moins artificiel.
+
+Le ton recherché peut donc suivre cette construction : respecter le joueur, reconnaître les avantages de son choix, puis assumer clairement la préférence sportive de la rédaction.
 
 Exemple de ton :
 
