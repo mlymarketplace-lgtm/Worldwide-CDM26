@@ -1,0 +1,417 @@
+/*
+ * QualifGaïndé V16.3.8 — thème « Tanière chaude »
+ * Couche strictement visuelle : aucune structure, dimension fonctionnelle,
+ * donnée ou interaction n'est modifiée par cette feuille de styles.
+ */
+:root {
+  --qg-warm-bg: #0e0a05;
+  --qg-warm-panel: #191209;
+  --qg-warm-panel-2: #221809;
+  --qg-warm-card: #17110a;
+  --qg-warm-card-soft: #2a1c0d;
+  --qg-warm-gold: #eeca5c;
+  --qg-warm-gold-light: #f6dd95;
+  --qg-warm-ember: #d06a24;
+  --qg-warm-ember-deep: #7c3611;
+  --qg-warm-ink: #fdf8ee;
+  --qg-warm-muted: #c8ba9f;
+  --qg-warm-muted-2: #9c8f78;
+  --qg-warm-line: rgba(233, 184, 74, .18);
+  --qg-warm-line-soft: rgba(255, 240, 210, .09);
+  --or: var(--qg-warm-gold);
+  --noir: var(--qg-warm-bg);
+  --g2: var(--qg-warm-panel);
+  --g3: var(--qg-warm-panel-2);
+  --mu: var(--qg-warm-muted-2);
+}
+
+html,
+body {
+  background-color: var(--qg-warm-bg) !important;
+  color: var(--qg-warm-ink);
+}
+
+html.qg-v1611-home body,
+html.qg-v1611-worldcup body,
+.qg16-app-shell,
+.qg16-gaindes-shell,
+.qg16-gaindes-main {
+  background-color: var(--qg-warm-bg) !important;
+  background-image:
+    radial-gradient(120% 60% at 82% -6%, rgba(208, 106, 36, .28) 0, transparent 46%),
+    radial-gradient(90% 55% at 6% 4%, rgba(0, 133, 63, .18) 0, transparent 44%),
+    linear-gradient(160deg, #140d06, var(--qg-warm-bg) 54%, #170c06) !important;
+  color: var(--qg-warm-ink) !important;
+}
+
+.qg16-shell-header,
+.qg-entry-top {
+  background: rgba(20, 13, 6, .95) !important;
+  border-color: var(--qg-warm-line) !important;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, .45), inset 0 -1px 0 rgba(238, 202, 92, .30) !important;
+}
+
+.qg16-shell-brand img { background: var(--qg-warm-panel) !important; border-color: var(--qg-warm-line) !important; }
+.qg16-shell-brand small,
+.qg16-home-intro small,
+.qg16-worldcup-hero small,
+.qg16-section-heading small,
+.qg16-home-card small,
+.qg16-home-intro h1 span,
+.qg16-worldcup-hero h1 span,
+.qg16-home-card b,
+.qg16-podium-card small,
+.qg16-podium-card b,
+.qg16-memory-team b { color: var(--qg-warm-gold) !important; }
+
+.qg16-shell-header nav,
+.qg16-shell-bottom a {
+  background: rgba(255, 247, 226, .055) !important;
+  border-color: var(--qg-warm-line) !important;
+}
+
+.qg16-home-intro p,
+.qg16-home-card p,
+.qg16-section-heading p,
+.qg16-podium-card p,
+.qg16-memory-team small,
+.qg16-worldcup-hero p { color: var(--qg-warm-muted) !important; }
+
+.qg16-home-card,
+.qg16-podium,
+.qg16-memory-list,
+.qg16-worldcup-hero {
+  border-color: var(--qg-warm-line) !important;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, .48), inset 0 0 0 1px rgba(255, 248, 232, .02) !important;
+}
+
+.qg16-worldcup-card,
+.qg16-worldcup-hero {
+  background: radial-gradient(circle at 15% 0, rgba(238, 202, 92, .21), transparent 36%), linear-gradient(145deg, #4a210d, #21160a 58%, #121008) !important;
+}
+.qg16-worldcup-card figure,
+.qg16-worldcup-card img.qg16-worldcup-poster { background-color: #100906 !important; }
+.qg16-worldcup-card figcaption { background: rgba(20, 12, 5, .88) !important; border-color: var(--qg-warm-line) !important; color: var(--qg-warm-gold) !important; }
+.qg16-podium,
+.qg16-memory-list { background: radial-gradient(circle at 50% 0, rgba(238, 202, 92, .16), transparent 36%), linear-gradient(145deg, #21170b, #120d07) !important; }
+.qg16-podium-card,
+.qg16-memory-team { background: linear-gradient(155deg, var(--qg-warm-panel-2), var(--qg-warm-card)) !important; border-color: var(--qg-warm-line-soft) !important; }
+.qg16-gaindes-card { background: linear-gradient(145deg, #15341e, #211609 68%, #32130c) !important; }
+.qg16-news-card { background: linear-gradient(145deg, #4a210d, #211609 62%, #171007) !important; }
+.qg16-news-card p,
+.qg16-news-card li { color: var(--qg-warm-ink) !important; }
+
+body {
+  background-image:
+    radial-gradient(120% 60% at 82% -6%, rgba(208, 106, 36, .28) 0, transparent 46%),
+    radial-gradient(90% 55% at 6% 4%, rgba(0, 133, 63, .18) 0, transparent 44%),
+    radial-gradient(140% 90% at 50% 120%, rgba(124, 54, 17, .24) 0, transparent 60%),
+    linear-gradient(180deg, #140d06 0, var(--qg-warm-bg) 40%) !important;
+  background-attachment: fixed;
+}
+
+meta[name="theme-color"] { color: var(--qg-warm-bg); }
+
+/* En-tête, commandes et bandeau d'actualité */
+header {
+  background: linear-gradient(90deg, rgba(14, 9, 4, .96), rgba(61, 39, 18, .93) 50%, rgba(14, 9, 4, .96)) !important;
+  border-color: var(--qg-warm-line) !important;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, .34);
+}
+
+.htitle,
+.qg-entry-brand,
+.qg-entry-hero h1,
+.world-news-head h2,
+.news-hub-hero h1,
+.news-article-header h1 { color: var(--qg-warm-ink) !important; }
+
+.htitle span,
+.hclock,
+.ti-live,
+.qg-selector-title,
+.world-news-tag,
+.news-image-credit a { color: var(--qg-warm-gold) !important; }
+
+.supporters,
+.btn-music,
+.lang-btn,
+.qg-entry-pill {
+  background: rgba(255, 247, 226, .055) !important;
+  border-color: var(--qg-warm-line) !important;
+}
+
+.ticker-wrap {
+  background: rgba(25, 18, 9, .92) !important;
+  border-color: var(--qg-warm-line) !important;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .015);
+}
+
+.sec { color: var(--qg-warm-muted) !important; }
+.sec::after { background: linear-gradient(90deg, var(--qg-warm-line), transparent) !important; }
+
+/* Cartes et panneaux fonctionnels existants */
+.chance-card,
+.sim-card,
+.tp-wrap,
+.gc,
+.r32-card,
+.r16-card,
+.ko-card,
+.match,
+.leader-card,
+.player-side,
+.story-section,
+.belgium-teaser,
+.qg-team-card,
+.qg-farewell-archive,
+.qg-farewell-card-modal > summary,
+.qg-farewell-dialog,
+.qg-final-story,
+.qg-final-journey {
+  background-color: var(--qg-warm-card) !important;
+  border-color: var(--qg-warm-line-soft) !important;
+  box-shadow: 0 18px 48px rgba(0, 0, 0, .42), inset 0 0 0 1px rgba(255, 248, 232, .018) !important;
+}
+
+.chance-card,
+.countdown-card,
+.story-section {
+  background-image: linear-gradient(145deg, rgba(0, 133, 63, .16), rgba(34, 24, 9, .96) 54%, rgba(20, 12, 5, .98)) !important;
+  border-color: rgba(238, 202, 92, .30) !important;
+}
+
+.sim-card,
+.tp-wrap,
+.gc,
+.r32-card,
+.r16-card,
+.ko-card,
+.leader-card,
+.player-side {
+  background-image: linear-gradient(160deg, var(--qg-warm-panel-2), var(--qg-warm-card)) !important;
+}
+
+.match,
+.sim-result,
+.sim-other,
+.sc,
+.r32-team,
+.ko-team,
+.story-tile,
+.form-row {
+  background-color: rgba(255, 247, 226, .045) !important;
+  border-color: var(--qg-warm-line-soft) !important;
+}
+
+.match:hover,
+.sc:hover,
+.r32-card:hover,
+.qg-team-card:hover {
+  background-color: var(--qg-warm-panel-2) !important;
+  border-color: rgba(238, 202, 92, .42) !important;
+}
+
+.gh,
+.r32-head,
+.r16-head,
+.ko-head,
+.league-head,
+.gst {
+  background: rgba(14, 9, 4, .74) !important;
+  border-color: var(--qg-warm-line-soft) !important;
+  color: var(--qg-warm-gold-light) !important;
+}
+
+.tp-table td,
+.tp-table th,
+.gt td,
+.gt th,
+.row,
+.qg-journey-row { border-color: var(--qg-warm-line-soft) !important; }
+
+.cpct,
+.snum,
+.so-snum,
+.snum,
+.countdown-kicker,
+.leader-big,
+.scorer-goals,
+.qg-final-badge,
+.qg-final-open,
+.qg-farewell-kicker,
+.qg-farewell-arrow { color: var(--qg-warm-gold) !important; }
+
+.csub,
+.clabel,
+.sc-note,
+.sc-ex,
+.so-label,
+.countdown-meta,
+.site-kicker,
+.qg-team-meta,
+.qg-final-journey p,
+.qg-farewell-copy small,
+.world-news-card p,
+.news-article-body { color: var(--qg-warm-muted) !important; }
+
+/* Entrée et pages des équipes */
+.qg-team-entry {
+  background: var(--qg-warm-bg) !important;
+  color: var(--qg-warm-ink) !important;
+}
+
+.qg-entry-bg {
+  background:
+    radial-gradient(circle at 82% -4%, rgba(208, 106, 36, .34), transparent 42%),
+    radial-gradient(circle at 8% 5%, rgba(0, 133, 63, .23), transparent 38%),
+    radial-gradient(circle at 50% 105%, rgba(124, 54, 17, .30), transparent 46%),
+    linear-gradient(145deg, #130c05, #0e0a05 55%, #160b06) !important;
+}
+
+.qg-entry-kicker { color: var(--qg-warm-gold) !important; }
+.qg-selector-title::after { background: linear-gradient(90deg, var(--qg-warm-line), transparent) !important; }
+.qg-team-card {
+  background-image: linear-gradient(150deg, var(--qg-warm-panel-2), var(--qg-warm-card)) !important;
+  color: var(--qg-warm-ink) !important;
+}
+.qg-team-card::before { background: radial-gradient(circle at 88% 0, rgba(208, 106, 36, .18), transparent 38%) !important; }
+.qg-team-card.qf { background-image: linear-gradient(145deg, #28300f, #171209 58%, #241208) !important; }
+
+/* Pages individuelles des nations — même ambiance, structure inchangée */
+html.qg-v1611-team-route body,
+#qg-v1611-team-root {
+  background-color: var(--qg-warm-bg) !important;
+  background-image:
+    radial-gradient(circle at 82% 0, rgba(208, 106, 36, .24), transparent 34%),
+    radial-gradient(circle at 8% 0, rgba(0, 133, 63, .18), transparent 30%),
+    linear-gradient(180deg, #140d06, var(--qg-warm-bg) 42%, #160b06) !important;
+  color: var(--qg-warm-ink) !important;
+}
+.qg16-page-header {
+  background: rgba(20, 13, 6, .96) !important;
+  border-color: var(--qg-warm-line) !important;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, .48), inset 0 -1px 0 rgba(238, 202, 92, .28) !important;
+}
+.qg16-brand img,
+.qg16-breadcrumb,
+.qg16-lang,
+.qg16-bottom-nav a { background-color: rgba(255, 247, 226, .055) !important; border-color: var(--qg-warm-line) !important; }
+.qg16-last-match,
+.qg16-stats > div,
+.qg16-table-section,
+.qg16-story,
+.qg16-world-archive,
+.qg16-group-card,
+.qg16-ko-round,
+.qg16-ko-match {
+  background-color: var(--qg-warm-card) !important;
+  background-image: linear-gradient(155deg, var(--qg-warm-panel-2), var(--qg-warm-card)) !important;
+  border-color: var(--qg-warm-line-soft) !important;
+  box-shadow: 0 18px 48px rgba(0, 0, 0, .38), inset 0 0 0 1px rgba(255, 248, 232, .018) !important;
+}
+.qg16-last-match { border-color: rgba(238, 202, 92, .30) !important; }
+.qg16-table-section th,
+.qg16-group-card th,
+.qg16-third-table th,
+.qg16-ko-round > header,
+.qg16-group-card header { background-color: rgba(14, 9, 4, .72) !important; border-color: var(--qg-warm-line-soft) !important; }
+.qg16-table-section td,
+.qg16-group-card td,
+.qg16-third-table td,
+.qg16-story-copy p,
+.qg16-archive-heading p,
+.qg16-last-match small,
+.qg16-team-hero-copy > div,
+.qg16-stats span { color: var(--qg-warm-muted) !important; }
+.qg16-table-section td,
+.qg16-group-card td,
+.qg16-third-table td,
+.qg16-ko-match > div { border-color: var(--qg-warm-line-soft) !important; }
+.qg16-timeline span,
+.qg16-round,
+.qg16-result-code { background-color: rgba(255, 247, 226, .055) !important; }
+
+/* Portails et brèves */
+.world-news-section,
+.world-news-teaser {
+  background:
+    radial-gradient(circle at 88% 0, rgba(208, 106, 36, .26), transparent 35%),
+    radial-gradient(circle at 8% 0, rgba(0, 133, 63, .17), transparent 34%),
+    linear-gradient(145deg, #23170a, #130e08 62%, #251007) !important;
+  border-color: var(--qg-warm-line) !important;
+  box-shadow: 0 26px 72px rgba(0, 0, 0, .50), inset 0 0 0 1px rgba(255, 248, 232, .025) !important;
+}
+
+.world-news-card {
+  background: linear-gradient(155deg, var(--qg-warm-panel-2), #100c07) !important;
+  border-color: var(--qg-warm-line-soft) !important;
+  box-shadow: 0 18px 42px rgba(0, 0, 0, .42) !important;
+}
+
+.world-news-card.featured {
+  background: linear-gradient(135deg, #17301c, #211609 58%, #32120d) !important;
+  border-color: rgba(238, 202, 92, .42) !important;
+}
+
+.world-news-content { background: linear-gradient(180deg, rgba(25, 18, 9, .98), rgba(14, 10, 5, .99)); }
+.world-news-card h3 { color: var(--qg-warm-ink) !important; }
+.world-news-open,
+.qg-gaindes-entry-copy b,
+.qg-final-open {
+  background: linear-gradient(180deg, var(--qg-warm-gold-light), var(--qg-warm-gold)) !important;
+  color: #241403 !important;
+  box-shadow: 0 10px 26px rgba(233, 184, 74, .24) !important;
+}
+
+.qg-gaindes-entry-card {
+  background: linear-gradient(125deg, #1a1209, #253520 58%, #4a1d12) !important;
+  border-color: rgba(238, 202, 92, .40) !important;
+}
+.qg-gaindes-entry-card::before { background: linear-gradient(100deg, transparent 25%, rgba(24, 15, 8, .87) 52%, rgba(14, 10, 5, .98)) !important; }
+
+.qg-news-section-hero,
+.qg-editorial-portal { border-color: var(--qg-warm-line) !important; }
+.qg-editorial-portal > div,
+.qg-news-section-hero > div { background: linear-gradient(transparent, rgba(14, 9, 4, .96)) !important; }
+
+.news-article-image { background: var(--qg-warm-card) !important; border-color: var(--qg-warm-line) !important; }
+.news-image-credit { color: var(--qg-warm-muted-2) !important; }
+.qg-editorial-analysis {
+  background: linear-gradient(135deg, rgba(208, 106, 36, .13), rgba(238, 202, 92, .065)) !important;
+  border-left-color: var(--qg-warm-ember) !important;
+  box-shadow: inset 0 0 0 1px var(--qg-warm-line-soft);
+}
+.qg-editorial-analysis h3 { color: var(--qg-warm-gold) !important; }
+.qg-editorial-analysis p { color: var(--qg-warm-ink) !important; }
+
+/* Navigation mobile et accessibilité */
+.tabbar,
+.bottom-nav,
+nav[aria-label="Navigation"] {
+  background-color: rgba(14, 9, 4, .94) !important;
+  border-color: var(--qg-warm-line-soft) !important;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline-color: var(--qg-warm-gold) !important;
+}
+
+@media (max-width: 720px) {
+  body {
+    background-image:
+      radial-gradient(120% 45% at 80% 0, rgba(208, 106, 36, .23), transparent 50%),
+      radial-gradient(100% 48% at 5% 4%, rgba(0, 133, 63, .17), transparent 45%),
+      linear-gradient(180deg, #140d06, var(--qg-warm-bg) 35%) !important;
+  }
+  .qg-gaindes-entry-card::before {
+    background: linear-gradient(0deg, rgba(14, 9, 4, .99) 5%, rgba(25, 16, 8, .77) 58%, transparent 87%) !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body { background-attachment: scroll; }
+}
