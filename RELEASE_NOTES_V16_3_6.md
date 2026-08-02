@@ -8,8 +8,10 @@
 
 ## Principe éditorial
 
-QualifGaïndé publie ses propres synthèses sur les informations sportives largement diffusées et les signe comme une rédaction autonome. Une attribution dans le texte reste nécessaire lorsqu'il s'agit d'une citation exclusive, d'une enquête originale, d'un démenti confié à un média précis ou d'une information qui n'est pas encore publiquement corroborée.
+QualifGaïndé publie ses propres synthèses sur les informations sportives largement diffusées et les signe comme une rédaction autonome. Même lorsqu'une version provient initialement d'une citation exclusive, d'une enquête ou d'un démenti, la rédaction ne reprend ni le texte ni le nom du média concurrent. Elle restitue le sens avec une formulation prudente et autonome : « une version relayée indique que… », « selon les éléments disponibles… » ou « l'entourage du joueur dément… ».
 
 ## Traçabilité
 
 Les références utilisées par l'automatisation peuvent être conservées comme données internes de vérification. Elles ne sont plus renvoyées par l'API publique, affichées sur le site ou modifiables dans la console.
+
+La règle rédactionnelle complète est consignée dans `CHARTE_EDITORIALE_BREVES.md`.
