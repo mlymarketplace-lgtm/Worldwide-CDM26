@@ -788,7 +788,6 @@ function newsHref(id, section){
     const raw = Array.isArray(L.article) ? L.article : [L.body || ''];
     let html=raw.filter(Boolean).map(p => `<p>${esc(p)}</p>`).join('');
     if(item && item.analysis) html += `<aside class="qg-editorial-analysis"><h3>L’analyse de la rédaction</h3><p>${esc(item.analysis)}</p></aside>`;
-    if(item && item.sources) html += `<p class="qg-news-sources"><strong>Sources :</strong> ${esc(item.sources)}</p>`;
     return html;
   }
 

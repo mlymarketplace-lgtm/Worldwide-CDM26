@@ -67,7 +67,6 @@ function publicArticle(article) {
     businessKey: article.businessKey || '',
     player: article.player || '',
     topic: article.topic || '',
-    sources: article.sources || '',
     author: article.author || 'Rédaction Suivi des Lions',
     image: article.imageId ? `/.netlify/functions/news-cms?action=image&id=${encodeURIComponent(article.imageId)}` : '',
     imageAlt: article.imageAlt || article.title,
@@ -214,7 +213,9 @@ export default async (req) => {
         businessKey: old?.businessKey || '',
         player: old?.player || '',
         topic: old?.topic || '',
-        sources: clean(body.sources),
+        // La provenance reste une trace interne issue de l'automatisation.
+        // Elle n'est ni exposée publiquement ni éditée dans la console.
+        sources: old?.sources || '',
         tag: clean(body.tag || 'Mercato'),
         author: clean(body.author || 'Rédaction Suivi des Lions'),
         imageId: old?.imageId || null,

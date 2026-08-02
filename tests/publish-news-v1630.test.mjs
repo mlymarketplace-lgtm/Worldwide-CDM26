@@ -30,5 +30,8 @@ expect(cms.includes('imageCredit: article.imageCredit'), 'Les crédits Wikimedia
 expect(cms.includes("split(/\\n\\s*\\n/)"), 'Le corps automatisé n’est pas découpé en paragraphes.');
 const renderer = fs.readFileSync(new URL('../assets/js/computed-team-state.js', import.meta.url), 'utf8');
 expect(renderer.includes('news-image-credit') && renderer.includes('Source Wikimedia'), 'Les crédits Wikimedia ne sont pas affichés sous la photo.');
+expect(!renderer.includes('<strong>Sources :</strong>'), 'Les médias consultés ne doivent pas apparaître dans les articles publics.');
+expect(!cms.includes('sources: article.sources'), 'La provenance interne ne doit pas être exposée par l’API publique.');
+expect(!admin.includes('<label>Sources</label>') && !admin.includes("$('pvSources')"), 'La console ne doit plus afficher de champ Sources.');
 
 console.log('PASS Publication V16.3.0 — authentification, dédoublonnage, Radar et Wikimedia');
