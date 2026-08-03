@@ -48,8 +48,14 @@ async function storeWikimediaImage(store, image, oldImageId) {
   const author = clean(image.author);
   const license = clean(image.license);
   if (!author || !license) throw new Error('wikimedia_credit_required');
-  const response = await fetch(url, { signal: AbortSignal.timeout(12000) });
-  if (!response.ok) throw new Error('wikimedia_download_failed');
+  const response = await fetch(url, {
+    headers: {
+      'User-Agent': 'QualifGainde/16.3.10 (https://qualifgainde.netlify.app/; Wikimedia illustration import)',
+      Accept: 'image/jpeg,image/png,image/webp,image/*;q=0.8',
+    },
+    signal: AbortSignal.timeout(15000),
+  });
+  if (!response.ok) throw new Error(`wikimedia_download_failed_${response.status}`);
   const type = String(response.headers.get('content-type') || '').split(';')[0];
   if (!['image/jpeg', 'image/png', 'image/webp'].includes(type)) throw new Error('wikimedia_image_type');
   const bytes = await response.arrayBuffer();
