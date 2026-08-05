@@ -1,0 +1,66 @@
+{
+  "items": [
+    {
+      "player": "ibrahim-mbaye",
+      "topic": "mercato-liverpool",
+      "title": "Ibrahim Mbaye : Liverpool se positionne, aucun accord à ce stade",
+      "excerpt": "L’ailier sénégalais de 18 ans attire Liverpool et plusieurs grands clubs européens. Le PSG demanderait plus de 50 millions d’euros, mais aucune offre officielle ni aucun accord n’est confirmé.",
+      "body": "Ibrahim Mbaye commence à prendre une place importante dans les conversations du mercato européen. Plusieurs échos britanniques font état d’un intérêt sérieux de Liverpool pour l’ailier de 18 ans, également observé par d’autres grands clubs. Le joueur reste lié au Paris Saint-Germain jusqu’en 2028. Une valorisation supérieure à 50 millions d’euros est évoquée, sans confirmation officielle du PSG. À ce stade, il faut donc parler d’intérêt et de surveillance, pas d’offre formelle ni de transfert en voie de conclusion.",
+      "analysis": "Qu’un club comme Liverpool regarde Ibrahim est flatteur, mais il ne faut surtout pas transformer un jeune de 18 ans en feuilleton permanent. Son vrai défi, ce sont les minutes, la progression et la capacité à gagner une place au PSG ou dans un projet qui croit réellement en lui. Cinquante millions, c’est un chiffre qui fait du bruit ; le terrain dira sa vraie valeur. Pour les Lions, l’essentiel est de protéger un immense talent sans freiner son ambition.",
+      "sources": "Brief éditorial Lions transmis le 5 août 2026 ; échos britanniques dont TalkSport",
+      "reliability": "rumor",
+      "changeType": "new",
+      "tag": "Mercato · À confirmer",
+      "image": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/5/5b/PSG-Celtic_Glasgow_Parc_des_Princes_09.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:PSG-Celtic_Glasgow_Parc_des_Princes_09.jpg",
+        "author": "Zakarie Faibis",
+        "license": "CC BY-SA 4.0"
+      },
+      "imageAlt": "Le Parc des Princes lors d’un match du Paris Saint-Germain"
+    },
+    {
+      "player": "nicolas-jackson",
+      "topic": "mercato-tottenham",
+      "title": "Nicolas Jackson : Tottenham intéressé, mais aucune offre",
+      "excerpt": "Tottenham étudierait le profil de l’attaquant de Chelsea sans avoir formulé de proposition. Une valorisation de 76 millions d’euros circule, sans confirmation des Blues.",
+      "body": "Le nom de Nicolas Jackson apparaît désormais dans les réflexions de Tottenham. Une version relayée en Angleterre indique que les Spurs étudient son profil, mais qu’aucune offre n’a encore été formulée. Une valorisation de 76 millions d’euros attribuée à Chelsea circule également. Ce montant n’a pas été confirmé par le club londonien et doit rester traité comme une indication de mercato. Jackson poursuit donc sa préparation avec Chelsea pendant que son avenir alimente les discussions.",
+      "analysis": "Tottenham serait une piste très séduisante si Nicolas y trouve une vraie place, parce que son jeu de profondeur colle parfaitement au rythme de la Premier League. Mais à 76 millions, on entre déjà dans la guerre des chiffres et des effets d’annonce. Jackson n’a pas besoin d’un transfert pour faire parler : il a besoin de confiance, de continuité et de buts. Qu’il reste à Chelsea ou qu’il traverse Londres, le bon choix sera celui qui en fait un titulaire important.",
+      "sources": "Brief éditorial Lions transmis le 5 août 2026 ; The Guardian ; Le Soleil",
+      "reliability": "rumor",
+      "changeType": "new",
+      "tag": "Mercato · À confirmer",
+      "image": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/3/35/Nicolas_Jackson_France_v_Senegal_16_June_2026-369_%28cropped%29.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Nicolas_Jackson_France_v_Senegal_16_June_2026-369_(cropped).jpg",
+        "author": "Bryan Berlin / WikiPortraits",
+        "license": "CC BY-SA 4.0"
+      },
+      "imageAlt": "Nicolas Jackson avec l’équipe du Sénégal"
+    },
+    {
+      "player": "sadio-mane",
+      "topic": "preseason",
+      "title": "Sadio Mané retrouve du temps de jeu avec Al-Nassr",
+      "excerpt": "L’attaquant sénégalais est entré en cours de match lors de la défaite amicale 2-0 d’Al-Nassr contre Almería. Il n’a inscrit aucun but ni délivré de passe décisive.",
+      "body": "Sadio Mané a disputé ses premières minutes de la préparation avec Al-Nassr lors de l’amical face à Almería, mardi au Portugal. Entré en cours de rencontre, l’attaquant sénégalais n’a pas marqué et n’a pas délivré de passe décisive dans la défaite 2-0 de son équipe. Le résultat et les statistiques individuelles restent secondaires à ce stade. Cette apparition lui permet surtout de retrouver progressivement le rythme après la Coupe du monde.",
+      "analysis": "Pas de but, pas de passe et une défaite : sur le papier, rien de spectaculaire. Mais la vraie information, c’est que Sadio rejoue. À ce moment de la préparation, on regarde davantage ses jambes et ses sensations que sa ligne de statistiques. Il lui faudra du temps pour redevenir tranchant, mais chaque minute rapproche Al-Nassr d’un Mané plus affûté et rappelle que son expérience reste précieuse pour accompagner la relève sénégalaise.",
+      "sources": "Brief éditorial Lions transmis le 5 août 2026 ; compte rendu espagnol du match Almería–Al-Nassr",
+      "reliability": "official",
+      "changeType": "evolution",
+      "tag": "Préparation"
+    },
+    {
+      "player": "moussa-niakhate",
+      "topic": "reprise-suspension-europe",
+      "title": "Moussa Niakhaté attendu pour le retour européen de Lyon",
+      "excerpt": "Suspendu lors de la défaite 2-1 de Lyon à Prague, le défenseur sénégalais pourra postuler pour le match retour du 11 août.",
+      "body": "Moussa Niakhaté n’a pas participé au troisième tour préliminaire aller de la Ligue des champions disputé par Lyon sur le terrain du Sparta Prague. Le défenseur sénégalais était suspendu et son absence n’était pas liée à une blessure. L’OL s’est incliné 2-1 et devra renverser la situation au retour, le 11 août à Lyon. Niakhaté aura purgé sa suspension et pourra postuler pour ce rendez-vous décisif.",
+      "analysis": "Lyon a perdu, mais ce 2-1 laisse la qualification complètement ouverte. Le retour de Moussa peut changer beaucoup de choses : davantage d’impact, une vraie voix dans la ligne défensive et l’habitude des matchs où chaque duel compte. Il ne pourra pas tout réparer seul, bien sûr, mais ce genre de soirée est exactement fait pour les joueurs de caractère. À lui de revenir prêt et de rappeler pourquoi l’OL a besoin de son autorité.",
+      "sources": "Brief éditorial Lions transmis le 5 août 2026",
+      "reliability": "official",
+      "changeType": "evolution",
+      "tag": "Ligue des champions"
+    }
+  ]
+}
