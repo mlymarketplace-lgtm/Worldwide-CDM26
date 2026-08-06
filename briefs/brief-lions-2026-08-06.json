@@ -1,0 +1,56 @@
+{
+  "items": [
+    {
+      "player": "dion-lopy",
+      "topic": "transfert-al-ittihad",
+      "title": "Dion Lopy rejoint officiellement Al-Ittihad",
+      "excerpt": "Le milieu sénégalais quitte définitivement Almería après 105 matchs en trois saisons. Le transfert vers le club de Saudi Pro League est estimé à 13 millions d’euros fixes, hors bonus.",
+      "body": "C’est officiel depuis mardi : Dion Lopy est un joueur d’Al-Ittihad. Le club de Djeddah a annoncé la signature du milieu sénégalais de 24 ans, en provenance d’Almería, pour un montant estimé à 13 millions d’euros fixes, assorti de bonus potentiels. Lopy referme une parenthèse espagnole de trois saisons et 105 matchs, dont la majeure partie en deuxième division. En Saudi Pro League, il découvre un championnat plus exposé, où évoluent déjà plusieurs cadres de la Tanière : cette visibilité nouvelle peut peser dans la concurrence au milieu des Lions.",
+      "analysis": "Soyons honnêtes : on aurait rêvé de voir Lopy batailler en Liga plutôt qu’en D2 andalouse, et ce départ vers le Golfe fera grincer quelques dents. Mais un Lion titulaire, valorisé à 13 millions et visible chaque semaine, ça vaut mieux pour la Tanière qu’un talent enfermé en Segunda. À 24 ans, Djeddah peut être un tremplin ou un confort : à Lopy d’en faire une rampe de lancement vers le onze des Lions.",
+      "sources": "Brief éditorial Lions transmis le 6 août 2026 ; Wiwsport (officiel), Goal, Sofascore",
+      "reliability": "official",
+      "changeType": "new",
+      "tag": "Mercato · Officiel",
+      "imageAlt": "Dion Lopy sous ses nouvelles couleurs d’Al-Ittihad"
+    },
+    {
+      "player": "nicolas-jackson",
+      "topic": "preseason",
+      "title": "Nicolas Jackson a joué la finale de la tournée contre la Juventus",
+      "excerpt": "L’attaquant sénégalais a participé mercredi à l’amical perdu 1-0 par Chelsea face à la Juventus à Hong Kong, sans but ni passe décisive.",
+      "body": "Chelsea a conclu sa tournée asiatique par une courte défaite 1-0 contre la Juventus, mercredi à Hong Kong, sur un but d’Edon Zhegrova. Nicolas Jackson a été utilisé en pointe sans trouver le chemin des filets ni délivrer de passe décisive. Aucune alerte physique n’a été signalée : l’attaquant sénégalais reste pleinement intégré à la préparation des Blues à quelques jours du début de la saison de Premier League.",
+      "analysis": "Un 0-1 en amical ne mérite ni panique ni bulletin définitif. L’essentiel pour la Tanière : Jackson enchaîne les titularisations dans les matchs de gala. L’absence de but relancera forcément le bruit de fond du mercato, mais tant qu’il démarre face à des adversaires du calibre de la Juve, son statut n’est pas menacé.",
+      "sources": "Brief éditorial Lions transmis le 6 août 2026 ; Sky Sports, Juventus.com",
+      "reliability": "official",
+      "changeType": "evolution",
+      "tag": "Préparation",
+      "imageAlt": "Nicolas Jackson avec Chelsea"
+    },
+    {
+      "player": "mamadou-sarr",
+      "topic": "preseason",
+      "title": "Mamadou Sarr a obtenu du temps de jeu contre la Juventus",
+      "excerpt": "Le jeune défenseur sénégalais a disputé des minutes en défense centrale lors de l’amical perdu 1-0 par Chelsea face à la Juventus à Hong Kong.",
+      "body": "Lors de la défaite 1-0 de Chelsea face à la Juventus mercredi à Hong Kong, Mamadou Sarr a de nouveau obtenu du temps de jeu en défense centrale. Le jeune international sénégalais poursuit ainsi son intégration dans la rotation défensive des Blues, sans alerte physique signalée, à l’approche du coup d’envoi de la saison de Premier League.",
+      "analysis": "Le vrai motif d’enthousiasme de cette tournée, c’est lui. Chaque apparition de Mamadou Sarr en charnière face à des attaques de ce niveau est une brique de plus pour la future défense des Lions. Patience et confiance : le calendrier des minutes compte plus que le score d’un amical.",
+      "sources": "Brief éditorial Lions transmis le 6 août 2026 ; Sky Sports, Juventus.com",
+      "reliability": "official",
+      "changeType": "evolution",
+      "tag": "Préparation",
+      "imageAlt": "Mamadou Sarr avec Chelsea"
+    },
+    {
+      "player": "ismaila-sarr",
+      "topic": "mercato-fenerbahce",
+      "title": "Ismaïla Sarr : Crystal Palace veut le conserver",
+      "excerpt": "Courtisé par Fenerbahçe, l’ailier sénégalais est retenu par son club selon la presse anglaise. Aucun accord ni offre acceptée n’est confirmé à ce stade.",
+      "body": "L’avenir d’Ismaïla Sarr continue d’animer cette fin de mercato. Fenerbahçe a engagé des discussions pour attirer l’ailier de Crystal Palace, mais le club londonien n’entend pas faciliter son départ : la presse anglaise rapporte que Palace souhaite conserver un élément important de sa rotation offensive. À ce stade, aucun accord officiel entre les clubs ni offre acceptée n’est confirmé. Le dossier reste à surveiller dans les derniers jours du marché, sans départ imminent.",
+      "analysis": "Que Palace s’accroche à Izo est d’abord un compliment — on ne retient pas un joueur qui ne compte pas. Pour nous, le seul critère qui vaille est le temps de jeu : une saison pleine en Premier League vaut de l’or, un banc doré à Istanbul beaucoup moins. La sagesse serait de rester et de s’imposer ; le foot d’août est rarement sage. Tant qu’il n’y a ni offre acceptée ni accord, on respire.",
+      "sources": "Brief éditorial Lions transmis le 6 août 2026 ; Dailysports, GiveMeSport",
+      "reliability": "credible",
+      "changeType": "evolution",
+      "tag": "Mercato · À confirmer",
+      "imageAlt": "Ismaïla Sarr sous le maillot de Crystal Palace"
+    }
+  ]
+}
