@@ -1,0 +1,61 @@
+{
+  "items": [
+    {
+      "player": "idrissa-gueye",
+      "topic": "friuli-cup",
+      "title": "Idrissa Gueye décisif face au Barça, l'Udinese remporte son tournoi",
+      "excerpt": "Le jeune Sénégalais a offert à Vakoun Bayo le but du succès 1-0 contre le FC Barcelone. L'Udinese remporte la première Friuli Venezia Giulia Cup.",
+      "body": "Idrissa Gueye termine le tournoi de présaison de l'Udinese sur une action décisive. Dans les derniers instants du match de 45 minutes contre le FC Barcelone, l'attaquant sénégalais a servi Vakoun Bayo pour le seul but de la rencontre. Déjà victorieuse 1-0 face à Nottingham Forest, l'Udinese s'adjuge ainsi la première Friuli Venezia Giulia Cup. La passe décisive constitue un indicateur positif dans la préparation de Gueye, sans être comptabilisée comme une statistique de championnat.",
+      "analysis": "Face à un adversaire prestigieux, Idrissa Gueye a su faire la différence dans un temps de jeu très court. Pour les Lions, c'est un signal intéressant à suivre : la concurrence offensive se nourrit aussi de jeunes joueurs capables de peser dans les moments décisifs.",
+      "sources": "Wiwsport ; Cadena SER ; FC Barcelona (format officiel du tournoi)",
+      "reliability": "credible",
+      "changeType": "new",
+      "tag": "Préparation · Passeur décisif",
+      "imageAlt": "Tribunes du Stadio Friuli, enceinte de l'Udinese",
+      "image": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Stadio_Friuli_UDI-HEV.jpg/1280px-Stadio_Friuli_UDI-HEV.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Stadio_Friuli_UDI-HEV.jpg",
+        "author": "Fuarceudin1896",
+        "license": "CC0 1.0"
+      }
+    },
+    {
+      "player": "ibrahim-mbaye",
+      "topic": "preseason-manchester-united",
+      "title": "Ibrahim Mbaye buteur avec le PSG face à Manchester United",
+      "excerpt": "L'international sénégalais a ouvert le score à la 2e minute du match amical conclu sur un nul 1-1 entre le Paris Saint-Germain et Manchester United.",
+      "body": "Ibrahim Mbaye a conclu la préparation du Paris Saint-Germain par un but face à Manchester United. L'ailier sénégalais a ouvert le score dès la 2e minute, selon la feuille de match officielle du PSG. Bryan Mbeumo a égalisé à la 32e minute et la rencontre s'est achevée sur un score de 1-1. Après ses minutes contre Majorque, Mbaye confirme sa montée en rythme par une contribution directe, à quelques jours de la Supercoupe d'Europe du club parisien.",
+      "analysis": "Ce but précoce confirme qu'Ibrahim Mbaye peut être immédiatement décisif lorsqu'une opportunité lui est donnée. Pour la sélection, sa progression et son rythme en club restent les indicateurs essentiels; cette performance ne permet pas, à elle seule, de tirer une conclusion sur son avenir au PSG.",
+      "sources": "Paris Saint-Germain (feuille de match officielle) ; AllAfrica / Le Soleil",
+      "reliability": "official",
+      "changeType": "new",
+      "tag": "Préparation · Buteur",
+      "imageAlt": "Vue intérieure du Parc des Princes du Paris Saint-Germain",
+      "image": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Parc_des_Princes_103.jpg/1280px-Parc_des_Princes_103.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Parc_des_Princes_103.jpg",
+        "author": "Zakarie Faibis",
+        "license": "CC BY-SA 4.0"
+      }
+    },
+    {
+      "player": "pape-moussa-fall",
+      "topic": "ligue-2-guingamp",
+      "title": "Pape Moussa Fall buteur dès la reprise de la Ligue 2",
+      "excerpt": "L'attaquant sénégalais a marqué lors de la victoire 2-1 du FC Metz contre Guingamp pour la première journée de championnat.",
+      "body": "Pape Moussa Fall démarre la saison 2026-2027 par une contribution décisive. Le FC Metz s'est imposé 2-1 face à l'En Avant Guingamp, samedi 8 août, et l'attaquant sénégalais a inscrit l'un des deux buts messins. Cette réalisation lance positivement son championnat avec un club qui retrouve la Ligue 2 après sa relégation. Les minutes et les autres statistiques individuelles ne sont pas ajoutées en l'absence d'une feuille de match officielle détaillée parmi les sources consultées.",
+      "analysis": "Pour la profondeur offensive des Lions, voir Pape Moussa Fall marquer dès la première journée est un signal encourageant. L'enjeu sera désormais d'enchaîner les titularisations et les contributions dans un championnat exigeant.",
+      "sources": "Wiwsport",
+      "reliability": "credible",
+      "changeType": "new",
+      "tag": "Ligue 2 · Buteur",
+      "imageAlt": "Vue intérieure du stade Saint-Symphorien du FC Metz",
+      "image": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Stade_Saint_Symphorien_-_Longeville-l%C3%A8s-Metz_%28FR57%29_-_2022-02-27_-_3.jpg/1280px-Stade_Saint_Symphorien_-_Longeville-l%C3%A8s-Metz_%28FR57%29_-_2022-02-27_-_3.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Stade_Saint_Symphorien_-_Longeville-l%C3%A8s-Metz_(FR57)_-_2022-02-27_-_3.jpg",
+        "author": "Chabe01",
+        "license": "CC BY-SA 4.0"
+      }
+    }
+  ]
+}
