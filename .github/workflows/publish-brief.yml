@@ -1,0 +1,68 @@
+name: Publier les briefs Lions
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "briefs/*.json"
+  workflow_dispatch:
+    inputs:
+      brief:
+        description: "Chemin d'un brief précis à republier (ex. briefs/brief-lions-2026-08-09.json)"
+        required: false
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: publish-brief
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    name: Publication des briefs Lions
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - name: Publier les briefs modifiés
+        env:
+          QG_PUBLISH_API_KEY: ${{ secrets.QG_PUBLISH_API_KEY }}
+          BRIEF_INPUT: ${{ inputs.brief }}
+          EVENT_BEFORE: ${{ github.event.before }}
+          EVENT_SHA: ${{ github.sha }}
+        run: |
+          set -euo pipefail
+          if [ -n "${BRIEF_INPUT:-}" ]; then
+            files="$BRIEF_INPUT"
+          else
+            range="$EVENT_BEFORE..$EVENT_SHA"
+            if [ -z "${EVENT_BEFORE:-}" ] \
+              || [ "$EVENT_BEFORE" = "0000000000000000000000000000000000000000" ] \
+              || ! git rev-parse -q --verify "$EVENT_BEFORE" >/dev/null 2>&1; then
+              range="HEAD^..HEAD"
+            fi
+            files=$(git diff --name-only --diff-filter=AM "$range" -- 'briefs/*.json' || true)
+          fi
+          if [ -z "$files" ]; then
+            echo "Aucun brief modifié dans cette poussée : rien à publier."
+            exit 0
+          fi
+          status=0
+          for f in $files; do
+            if [ ! -f "$f" ]; then
+              echo "Fichier absent, ignoré : $f"
+              continue
+            fi
+            echo "→ Publication de $f"
+            if ! node scripts/publish-brief.mjs "$f"; then
+              echo "✗ Échec de publication : $f"
+              status=1
+            fi
+          done
+          exit $status
