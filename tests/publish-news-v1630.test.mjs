@@ -36,6 +36,8 @@ const gaindesTheme = fs.readFileSync(new URL('../mangara-studio-7f3k9q/theme-tan
 const gaindesApp = fs.readFileSync(new URL('../mangara-studio-7f3k9q/index.html', import.meta.url), 'utf8');
 expect(renderer.includes('news-image-credit') && renderer.includes('Source Wikimedia'), 'Les crédits Wikimedia ne sont pas affichés sous la photo.');
 expect(!renderer.includes('<strong>Sources :</strong>'), 'Les médias consultés ne doivent pas apparaître dans les articles publics.');
+expect(renderer.includes('newsPublishedLabel') && renderer.includes('class="world-news-date"'), 'La date et l’heure de publication ne sont pas affichées sur les brèves.');
+expect(renderer.includes('sortNewsNewestFirst'), 'Les brèves ne sont pas triées de la plus récente à la plus ancienne.');
 expect(!cms.includes('sources: article.sources'), 'La provenance interne ne doit pas être exposée par l’API publique.');
 expect(!admin.includes('<label>Sources</label>') && !admin.includes("$('pvSources')"), 'La console ne doit plus afficher de champ Sources.');
 expect(control.includes('action === "unlock-public"') && control.includes('writeState("public")'), 'Codex ne peut pas ouvrir le suivi avec sa clé sécurisée.');

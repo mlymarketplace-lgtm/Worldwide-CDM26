@@ -505,6 +505,14 @@ function newsHref(id, section){
     return (item && item.langs && (item.langs[lang] || item.langs.fr)) || {};
   }
 
+  function newsPublishedLabel(item, lang){
+    const iso = item && (item.publishedAt || item.updatedAt);
+    const date = new Date(iso || '');
+    if(!Number.isFinite(date.getTime())) return '';
+    const locale = ({fr:'fr-FR',en:'en-GB',es:'es-ES',pt:'pt-PT',ar:'ar-SA'})[lang] || 'fr-FR';
+    return new Intl.DateTimeFormat(locale, {dateStyle:'medium', timeStyle:'short'}).format(date);
+  }
+
   function worldNewsHtml(worldNews, section){
     const lang = activeLang(), c = copy();
     const activeSection = section || 'world';
@@ -513,10 +521,12 @@ function newsHref(id, section){
     function entry(item){
       const L = newsLang(item, lang);
       const featured = item.type === 'analysis' || item.priority === 1;
+      const published = newsPublishedLabel(item, lang);
       return `<a class="world-news-card ${featured ? 'featured' : ''}" data-news-id="${esc(item.id)}" href="${esc(newsHref(item.id, item.section || activeSection))}" aria-label="${esc(L.title || '')}">
         <div class="world-news-media">${item.image ? `<img src="${esc(item.image)}" loading="lazy" decoding="async" alt="${esc(L.title || '')}">` : ''}</div>
         <div class="world-news-content">
           <div class="world-news-tag">${esc(L.tag || '')}</div>
+          ${published ? `<time class="world-news-date" datetime="${esc(item.publishedAt || item.updatedAt || '')}">${esc(published)}</time>` : ''}
           <h3>${esc(L.title || '')}</h3>
           <p>${esc(L.body || '')}</p>
           <span class="world-news-read">Lire la brève →</span>
@@ -795,6 +805,7 @@ function newsHref(id, section){
     if(!selector || !item) return;
     const lang = activeLang(), c = copy(), L = newsLang(item, lang);
     const section = item.section || 'world';
+    const published = newsPublishedLabel(item, lang);
     const credit = item.imageCredit || null;
     const creditPage = credit && /^https:\/\//i.test(String(credit.pageUrl || '')) ? String(credit.pageUrl) : '';
     const creditHtml = credit && credit.author && credit.license
@@ -810,6 +821,7 @@ function newsHref(id, section){
         <article class="news-article" dir="${lang === 'ar' ? 'rtl' : 'ltr'}">
           <a class="news-article-header" href="?v=${VERSION_TOKEN}" aria-label="Retour à la home">
             <div class="qg-entry-kicker">${esc(({new:'🆕 Nouveau',evolution:'🔄 Évolution',completed:'✅ Abouti'})[item.changeType] || '🆕 Nouveau')} · ${esc(L.tag || 'Brève')} ${item.reliability ? ' · '+esc(({official:'🟢 Officiel',credible:'🟡 Crédible',rumor:'🟠 Rumeur',unlikely:'🔴 Peu probable'})[item.reliability]||'') : ''}</div>
+            ${published ? `<time class="world-news-date" datetime="${esc(item.publishedAt || item.updatedAt || '')}">${esc(published)}</time>` : ''}
             <h1>${esc(L.title || '')}</h1>
           </a>
           ${item.image ? `<figure class="news-article-figure"><img class="news-article-image" src="${esc(item.image)}" alt="${esc(item.imageAlt || L.title || '')}">${creditHtml}</figure>` : ''}

@@ -50,3 +50,10 @@ La clé locale est lue dans `.env.local` sous la forme `QG_PUBLISH_API_KEY=...`.
 5. Codex envoie le lot à l'API et restitue le résultat de publication.
 
 Les crédits Wikimedia sont stockés avec l'article et affichés sous la photo avec un lien vers la page source.
+
+## Ordre et datation des brèves
+
+- Les brèves sont affichées de la plus récente à la plus ancienne.
+- Chaque carte et chaque article affichent la date et l'heure de publication.
+- Une évolution met à jour le dossier existant sans modifier sa date de première publication.
+- La date d'évolution sert uniquement à l'ordre lorsque le contenu a réellement changé.
