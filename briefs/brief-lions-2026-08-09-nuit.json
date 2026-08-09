@@ -1,0 +1,61 @@
+{
+  "items": [
+    {
+      "player": "nicolas-jackson",
+      "topic": "preseason-ac-milan",
+      "title": "Nicolas Jackson touche le poteau contre l'AC Milan",
+      "excerpt": "Entré en seconde période lors de la victoire 3-0 de Chelsea, l'attaquant sénégalais s'est montré disponible et a trouvé le montant, sans but ni passe décisive.",
+      "body": "Nicolas Jackson a participé samedi 8 août au match de préparation remporté 3-0 par Chelsea face à l'AC Milan, à Jakarta. Entré en seconde période, l'attaquant sénégalais a multiplié les appels offensifs et touché le poteau. Il termine la rencontre sans but ni passe décisive confirmée. Aucun chiffre de minutes ni aucune autre statistique individuelle ne sont ajoutés sans feuille de match détaillée du club.",
+      "analysis": "Le poteau et l'activité offensive constituent un signal encourageant, sans transformer cette prestation de préparation en performance décisive. Le prochain indicateur utile sera son utilisation lors des derniers tests puis au début des rencontres officielles.",
+      "sources": "Fils de match Chelsea FC et AC Milan",
+      "reliability": "credible",
+      "changeType": "new",
+      "tag": "Préparation · Chelsea",
+      "imageAlt": "Tribune de Stamford Bridge, stade de Chelsea",
+      "image": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/5/54/Stamford_Bridge_%281%29.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Stamford_Bridge_(1).jpg",
+        "author": "Randy110912",
+        "license": "CC BY-SA 4.0"
+      }
+    },
+    {
+      "player": "krepin-diatta",
+      "topic": "free-agent-2026",
+      "title": "Krépin Diatta libre, une piste marseillaise rapportée",
+      "excerpt": "Sans club depuis la fin de son contrat à Monaco, l'international sénégalais est associé à l'OM. Aucun contact avancé ni aucune offre formelle ne sont confirmés.",
+      "body": "Krépin Diatta est libre depuis la fin de son contrat avec l'AS Monaco, officialisée le 30 juin après cinq saisons en Principauté. Une prise de renseignements de l'Olympique de Marseille est rapportée dans la presse sénégalaise. Aucun contact avancé, aucune offre formelle ni aucun accord ne sont confirmés à ce stade. D'autres clubs ont été cités, mais ils ne sont pas retenus ici faute de sources suffisamment solides et concordantes.",
+      "analysis": "La liberté contractuelle de Krépin Diatta peut attirer plusieurs marchés, mais une prise de renseignements ne constitue pas une négociation. Le dossier ne changera de niveau qu'avec une confirmation du joueur, de son entourage ou d'un club.",
+      "sources": "L'Équipe ; SeneNews",
+      "reliability": "credible",
+      "changeType": "new",
+      "tag": "Mercato · Joueur libre",
+      "imageAlt": "Krépin Diatta avec la sélection du Sénégal en juin 2026",
+      "image": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/8/8a/Krepin_Diatta_France_v_Senegal_16_June_2026-490_%28cropped%29.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Krepin_Diatta_France_v_Senegal_16_June_2026-490_(cropped).jpg",
+        "author": "Bryan Berlin / WikiPortraits",
+        "license": "CC BY-SA 4.0"
+      }
+    },
+    {
+      "player": "lamine-camara-sadibou-sane",
+      "topic": "as-monaco-england-camp-2026",
+      "title": "Lamine Camara et Sadibou Sané au cœur de la préparation monégasque",
+      "excerpt": "Les deux Sénégalais figurent dans l'effectif de Monaco, en stage à St. George's Park du 8 au 14 août avant les amicaux contre Liverpool et Coventry.",
+      "body": "Lamine Camara et Sadibou Sané figurent dans l'effectif 2026-2027 de l'AS Monaco. Le club effectue du 8 au 14 août un stage de préparation à St. George's Park, en Angleterre, avec un amical contre Liverpool dimanche 9 août puis un dernier test face à Coventry vendredi 14 août. Sadibou Sané, défenseur central sénégalais de 22 ans arrivé en juillet, est international U20. Une future convocation chez les Lions A relève à ce stade de la projection éditoriale, pas d'un fait acquis.",
+      "analysis": "La présence de Lamine Camara et de Sadibou Sané dans le même effectif offre un point de suivi intéressant pendant la préparation. Pour Sané, seules ses performances en club permettront d'étayer progressivement une éventuelle candidature à la sélection A.",
+      "sources": "AS Monaco",
+      "reliability": "official",
+      "changeType": "new",
+      "tag": "Préparation · AS Monaco",
+      "imageAlt": "Vue du stade Louis-II et de Monaco",
+      "image": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/a/a7/Stade_Louis_II_de_Monaco.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Stade_Louis_II_de_Monaco.jpg",
+        "author": "Arnaud 25",
+        "license": "Public domain"
+      }
+    }
+  ]
+}
