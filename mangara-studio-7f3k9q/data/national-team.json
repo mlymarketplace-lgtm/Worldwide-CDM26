@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-07-09",
+    "updatedAt": "2026-08-09",
     "note": "Calendrier et résultats structurés pour le prototype Suivi des Gaïndés."
   },
   "team": {
@@ -17,46 +17,43 @@
     "headline": "Le cœur de l’app : sélection, coach, calendrier, classement et mémoire des grandes affiches."
   },
   "coach": {
-    "name": "Pape Bouna Thiaw",
-    "role": "Sélectionneur national",
-    "photo": "assets/people/pape-thiaw.png",
-    "birth": "5 février 1981 · Dakar",
-    "formerRole": "Ancien attaquant international sénégalais",
-    "appointed": "13 décembre 2024",
-    "philosophy": "Pressing, transitions rapides, 4-3-3 / 4-2-3-1, verticalité maîtrisée.",
+    "name": "Souleymane Diallo",
+    "status": "Intérimaire",
+    "role": "Sélectionneur intérimaire",
+    "photo": "assets/icons/icon-192.png",
+    "photoAlt": "Visuel de remplacement — portrait publiable indisponible",
+    "birth": "Informations biographiques à confirmer",
+    "formerRole": "Directeur technique national · ancien sélectionneur de l’équipe nationale locale",
+    "appointed": "9 août 2026",
+    "philosophy": "Mission intérimaire : assurer la continuité sportive dans l’attente d’une décision à long terme.",
     "achievements": [
-      "Vainqueur du CHAN avec le Sénégal A’",
-      "Meilleur coach du tournoi CHAN",
-      "Ancien membre du staff d’Aliou Cissé",
-      "Ancien joueur de la génération 2002"
+      "Directeur technique national depuis mars 2026",
+      "Ancien sélectionneur de l’équipe nationale locale",
+      "Expérience avec les sélections de jeunes U17 et U20",
+      "Enseignant-chercheur à l’INSEPS"
     ],
     "record": {
       "matches": "à valider",
       "wins": "à valider",
       "draws": "à valider",
       "losses": "à valider",
-      "trophies": "CHAN"
+      "trophies": "à valider"
     },
     "timeline": [
       {
-        "date": "2002",
-        "title": "Génération mondiale",
-        "text": "Présent dans le groupe sénégalais qui marque l’histoire au Mondial 2002."
-      },
-      {
-        "date": "2023",
-        "title": "CHAN remporté",
-        "text": "Titre continental avec l’équipe A’, victoire contre l’Algérie aux tirs au but."
-      },
-      {
         "date": "2024",
-        "title": "Sélectionneur",
-        "text": "Nommé à la tête des Lions de la Teranga."
+        "title": "Sélection locale",
+        "text": "Prend en charge l’équipe nationale locale du Sénégal."
       },
       {
-        "date": "2026",
-        "title": "Coupe du monde",
-        "text": "Cycle à analyser avec résultats, choix tactiques et gestion du groupe."
+        "date": "mars 2026",
+        "title": "Direction technique nationale",
+        "text": "Devient directeur technique national de la Fédération sénégalaise de football."
+      },
+      {
+        "date": "août 2026",
+        "title": "Intérim des Lions",
+        "text": "Assure provisoirement la direction des Lions de la Teranga."
       }
     ]
   },
