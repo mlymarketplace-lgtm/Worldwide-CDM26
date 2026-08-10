@@ -1,0 +1,61 @@
+{
+  "items": [
+    {
+      "player": "bara-sapoko-ndiaye",
+      "topic": "contrat-bayern-2031",
+      "title": "Bara Sapoko Ndiaye lié au Bayern jusqu’en 2031",
+      "excerpt": "Goal rapporte que le milieu sénégalais de 18 ans a signé son premier contrat professionnel avec le Bayern Munich, jusqu’en 2031.",
+      "body": "Bara Sapoko Ndiaye franchit une nouvelle étape au Bayern Munich. Goal annonce ce lundi la signature de son premier contrat professionnel, qui le lierait au club bavarois jusqu’en 2031. Le joueur de 18 ans avait rejoint le Bayern en prêt en janvier 2026 depuis Gambinos Stars Africa, avant d’effectuer ses débuts en Bundesliga et d’intégrer régulièrement le groupe professionnel. En l’absence, lors de cette vérification, d’un communiqué du Bayern spécifiquement consacré au nouveau contrat, l’échéance 2031 reste clairement attribuée au média qui l’a rapportée.",
+      "analysis": "Un engagement de longue durée installerait Bara dans le projet bavarois. La prochaine mesure sera sportive : son statut dans la rotation et les minutes réellement obtenues.",
+      "sources": "Goal ; FC Bayern (parcours et statut antérieur du joueur)",
+      "reliability": "credible",
+      "changeType": "new",
+      "tag": "Contrat · Bayern Munich",
+      "imageAlt": "Vue extérieure de l’Allianz Arena à Munich",
+      "image": {
+        "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Allianz%20Arena%2C%20Munich.jpg?width=1280",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Allianz_Arena,_Munich.jpg",
+        "author": "Travelinho",
+        "license": "CC BY-SA 3.0"
+      }
+    },
+    {
+      "player": "moussa-niakhate",
+      "topic": "reprise-europe",
+      "title": "Fonseca insiste sur l’importance de Moussa Niakhaté avant le Sparta Prague",
+      "excerpt": "De retour dans le groupe lyonnais, le défenseur est présenté par Paulo Fonseca comme un cadre important par son leadership et son apport technique et tactique.",
+      "body": "Le retour de Moussa Niakhaté se précise avant la réception du Sparta Prague. À la veille du match retour européen, Paulo Fonseca a mis en avant le leadership du défenseur sénégalais ainsi que son importance technique et tactique. Cette prise de parole prolonge l’information déjà publiée sur son retour dans les options lyonnaises après son absence au match aller. Sa disponibilité annoncée ne vaut toutefois pas titularisation : sa présence dans le onze, ses minutes et ses statistiques resteront conditionnées à la feuille de match officielle.",
+      "analysis": "Le discours de Fonseca replace Niakhaté parmi les cadres de l’OL. Le rôle effectivement confié mardi donnera la vraie mesure de son retour.",
+      "sources": "Wiwsport ; L’Équipe",
+      "reliability": "credible",
+      "changeType": "update",
+      "tag": "Ligue des champions · Retour",
+      "imageAlt": "Vue intérieure du Groupama Stadium de Lyon",
+      "image": {
+        "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Groupama%20Stadium.jpg?width=1280",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Groupama_Stadium.jpg",
+        "author": "Randy110912",
+        "license": "CC BY-SA 4.0"
+      }
+    },
+    {
+      "player": "lamine-camara",
+      "topic": "avenir-monaco-2026",
+      "title": "Filipe Luís place Lamine Camara parmi les meilleurs milieux",
+      "excerpt": "L’entraîneur de Monaco encense le Sénégalais, un nouveau signal de confiance alors que son avenir reste commenté pendant le mercato.",
+      "body": "Filipe Luís affiche une confiance forte envers Lamine Camara. Selon les propos rapportés par Afrik-Foot, l’entraîneur de l’AS Monaco considère le Sénégalais comme l’un des meilleurs milieux au monde. Cette appréciation prolonge sa volonté déjà exprimée de conserver le joueur et confirme son importance sportive. Elle ne constitue toutefois ni une annonce contractuelle ni une garantie définitive de maintien. Aucun départ n’est officialisé : Lamine Camara demeure monégasque à ce stade.",
+      "analysis": "Cette déclaration renforce la valeur sportive de Lamine Camara et la position de Monaco, sans suffire à fermer un dossier qui dépendrait d’une offre et d’une décision du club.",
+      "sources": "Afrik-Foot ; AS Monaco",
+      "reliability": "credible",
+      "changeType": "update",
+      "tag": "Monaco · Confiance",
+      "imageAlt": "Vue du stade Louis-II de Monaco",
+      "image": {
+        "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Stade%20Louis%20II%20de%20Monaco.jpg?width=1280",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Stade_Louis_II_de_Monaco.jpg",
+        "author": "Arnaud 25",
+        "license": "Domaine public"
+      }
+    }
+  ]
+}
