@@ -1,0 +1,23 @@
+{
+  "items": [
+    {
+      "player": "nobel-mendy",
+      "topic": "transfert-hull-city",
+      "title": "Nobel Mendy se rapproche de Hull City",
+      "excerpt": "Un accord est annoncé entre le Rayo Vallecano et Hull City autour de 20 M€ plus 5 M€ de bonus. La visite médicale doit encore précéder l’officialisation.",
+      "body": "Nobel Mendy se rapproche de Hull City. Plusieurs informations concordantes annoncent un accord avec le Rayo Vallecano pour le transfert du défenseur sénégalais, avec une visite médicale programmée avant la finalisation du dossier. Le montant rapporté atteint 20 millions d’euros, auxquels pourraient s’ajouter 5 millions de bonus ; une clause de revente de 12,5 % est également évoquée. Ni Hull City ni le Rayo Vallecano n’ont encore officialisé le transfert. À 21 ans, Nobel Mendy compte déjà une première convocation avec le Sénégal. Son arrivée et son nouveau statut sportif ne seront enregistrés comme définitifs qu’après confirmation officielle.",
+      "analysis": "Le montant annoncé traduit un investissement important. Pour les Lions, l’intérêt dépendra désormais de la conclusion du transfert puis du temps de jeu réellement obtenu en Angleterre.",
+      "sources": "Foot Africa ; AS ; APS",
+      "reliability": "credible",
+      "changeType": "new",
+      "tag": "Mercato · Hull City",
+      "imageAlt": "Vue intérieure du stade de Vallecas, où évolue le Rayo Vallecano",
+      "image": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/f/f5/Estadio_de_vallecas.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Estadio_de_vallecas.jpg",
+        "author": "Rubén Sobrino",
+        "license": "CC BY-SA 4.0"
+      }
+    }
+  ]
+}
